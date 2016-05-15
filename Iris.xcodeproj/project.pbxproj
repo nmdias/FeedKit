@@ -17,6 +17,9 @@
 		A0EF4DC71CE86A0600C52142 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DC61CE86A0600C52142 /* ViewController.swift */; };
 		A0EF4DCA1CE86A0600C52142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DC81CE86A0600C52142 /* Main.storyboard */; };
 		A0EF4DCC1CE86A0600C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */; };
+		A0EF4DD81CE86A7700C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */; };
+		A0EF4DDA1CE86A7700C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DD91CE86A7700C52142 /* Assets.xcassets */; };
+		A0EF4DDD1CE86A7700C52142 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DDB1CE86A7700C52142 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,11 @@
 		A0EF4DC91CE86A0600C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DCD1CE86A0600C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0EF4DD51CE86A7700C52142 /* Iris Example macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Iris Example macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0EF4DD91CE86A7700C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0EF4DDC1CE86A7700C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A0EF4DDE1CE86A7700C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0EF4DD21CE86A7700C52142 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +84,7 @@
 				A0EF4DA11CE8689E00C52142 /* Iris */,
 				A0EF4DAD1CE869AD00C52142 /* Iris Example iOS */,
 				A0EF4DC31CE86A0600C52142 /* Iris Example tvOS */,
+				A0EF4DD61CE86A7700C52142 /* Iris Example macOS */,
 				A0EF4DA01CE8689E00C52142 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +95,7 @@
 				A0EF4D9F1CE8689E00C52142 /* Iris.framework */,
 				A0EF4DAC1CE869AD00C52142 /* Iris Example iOS.app */,
 				A0EF4DC21CE86A0600C52142 /* Iris Example tvOS.app */,
+				A0EF4DD51CE86A7700C52142 /* Iris Example macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +132,17 @@
 				A0EF4DCD1CE86A0600C52142 /* Info.plist */,
 			);
 			path = "Iris Example tvOS";
+			sourceTree = "<group>";
+		};
+		A0EF4DD61CE86A7700C52142 /* Iris Example macOS */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */,
+				A0EF4DD91CE86A7700C52142 /* Assets.xcassets */,
+				A0EF4DDB1CE86A7700C52142 /* MainMenu.xib */,
+				A0EF4DDE1CE86A7700C52142 /* Info.plist */,
+			);
+			path = "Iris Example macOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +211,23 @@
 			productReference = A0EF4DC21CE86A0600C52142 /* Iris Example tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A0EF4DD41CE86A7700C52142 /* Iris Example macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "Iris Example macOS" */;
+			buildPhases = (
+				A0EF4DD11CE86A7700C52142 /* Sources */,
+				A0EF4DD21CE86A7700C52142 /* Frameworks */,
+				A0EF4DD31CE86A7700C52142 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Iris Example macOS";
+			productName = "Iris Example macOS";
+			productReference = A0EF4DD51CE86A7700C52142 /* Iris Example macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -199,6 +244,9 @@
 						CreatedOnToolsVersion = 7.3.1;
 					};
 					A0EF4DC11CE86A0600C52142 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					A0EF4DD41CE86A7700C52142 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
@@ -219,6 +267,7 @@
 				A0EF4D9E1CE8689E00C52142 /* Iris */,
 				A0EF4DAB1CE869AD00C52142 /* Iris Example iOS */,
 				A0EF4DC11CE86A0600C52142 /* Iris Example tvOS */,
+				A0EF4DD41CE86A7700C52142 /* Iris Example macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -250,6 +299,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0EF4DD31CE86A7700C52142 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF4DDA1CE86A7700C52142 /* Assets.xcassets in Resources */,
+				A0EF4DDD1CE86A7700C52142 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -278,6 +336,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0EF4DD11CE86A7700C52142 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF4DD81CE86A7700C52142 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -303,6 +369,14 @@
 				A0EF4DC91CE86A0600C52142 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A0EF4DDB1CE86A7700C52142 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0EF4DDC1CE86A7700C52142 /* Base */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -619,6 +693,100 @@
 			};
 			name = Release;
 		};
+		A0EF4DE01CE86A7700C52142 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Iris Example macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0EF4DE11CE86A7700C52142 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Iris Example macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -653,6 +821,14 @@
 			buildConfigurations = (
 				A0EF4DCF1CE86A0600C52142 /* Debug */,
 				A0EF4DD01CE86A0600C52142 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "Iris Example macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EF4DE01CE86A7700C52142 /* Debug */,
+				A0EF4DE11CE86A7700C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
