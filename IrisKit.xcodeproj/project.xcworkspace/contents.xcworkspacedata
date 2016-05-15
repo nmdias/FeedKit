@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Iris.xcodeproj">
+      location = "self:/Volumes/Documents/Source Control/Iris/IrisKit.xcodeproj">
    </FileRef>
 </Workspace>

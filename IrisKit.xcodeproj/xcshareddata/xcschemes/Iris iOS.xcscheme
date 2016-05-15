@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0EF4DF91CE86CA200C52142"
+               BlueprintIdentifier = "A0EF4E0B1CE86D1E00C52142"
                BuildableName = "Iris.framework"
-               BlueprintName = "Iris macOS"
-               ReferencedContainer = "container:Iris.xcodeproj">
+               BlueprintName = "IrisKit iOS"
+               ReferencedContainer = "container:IrisKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DF91CE86CA200C52142"
+            BlueprintIdentifier = "A0EF4E0B1CE86D1E00C52142"
             BuildableName = "Iris.framework"
-            BlueprintName = "Iris macOS"
-            ReferencedContainer = "container:Iris.xcodeproj">
+            BlueprintName = "IrisKit iOS"
+            ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DF91CE86CA200C52142"
+            BlueprintIdentifier = "A0EF4E0B1CE86D1E00C52142"
             BuildableName = "Iris.framework"
-            BlueprintName = "Iris macOS"
-            ReferencedContainer = "container:Iris.xcodeproj">
+            BlueprintName = "IrisKit iOS"
+            ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

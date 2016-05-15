@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-               BuildableName = "Iris Example tvOS.app"
-               BlueprintName = "Iris Example tvOS"
-               ReferencedContainer = "container:Iris.xcodeproj">
+               BuildableName = "IrisKit.app"
+               BlueprintName = "IrisKit Example tvOS"
+               ReferencedContainer = "container:IrisKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-            BuildableName = "Iris Example tvOS.app"
-            BlueprintName = "Iris Example tvOS"
-            ReferencedContainer = "container:Iris.xcodeproj">
+            BuildableName = "IrisKit.app"
+            BlueprintName = "IrisKit Example tvOS"
+            ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-            BuildableName = "Iris Example tvOS.app"
-            BlueprintName = "Iris Example tvOS"
-            ReferencedContainer = "container:Iris.xcodeproj">
+            BuildableName = "IrisKit.app"
+            BlueprintName = "IrisKit Example tvOS"
+            ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-            BuildableName = "Iris Example tvOS.app"
-            BlueprintName = "Iris Example tvOS"
-            ReferencedContainer = "container:Iris.xcodeproj">
+            BuildableName = "IrisKit.app"
+            BlueprintName = "IrisKit Example tvOS"
+            ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0EF4DE71CE86C3800C52142"
-               BuildableName = "Iris.framework"
-               BlueprintName = "Iris tvOS"
-               ReferencedContainer = "container:Iris.xcodeproj">
+               BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
+               BuildableName = "IrisKit.app"
+               BlueprintName = "IrisKit Example iOS"
+               ReferencedContainer = "container:IrisKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
+            BuildableName = "IrisKit.app"
+            BlueprintName = "IrisKit Example iOS"
+            ReferencedContainer = "container:IrisKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DE71CE86C3800C52142"
-            BuildableName = "Iris.framework"
-            BlueprintName = "Iris tvOS"
-            ReferencedContainer = "container:Iris.xcodeproj">
+            BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
+            BuildableName = "IrisKit.app"
+            BlueprintName = "IrisKit Example iOS"
+            ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DE71CE86C3800C52142"
-            BuildableName = "Iris.framework"
-            BlueprintName = "Iris tvOS"
-            ReferencedContainer = "container:Iris.xcodeproj">
+            BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
+            BuildableName = "IrisKit.app"
+            BlueprintName = "IrisKit Example iOS"
+            ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
