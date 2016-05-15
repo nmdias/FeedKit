@@ -7,6 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0CA544F1CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
+		A0CA54501CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
+		A0CA54511CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
+		A0CA54521CE8A56700A951E3 /* AtomSyndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */; };
+		A0CA54531CE8A56700A951E3 /* AtomSyndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */; };
+		A0CA54541CE8A56700A951E3 /* AtomSyndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */; };
+		A0CA54551CE8A56700A951E3 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543E1CE8A56700A951E3 /* Content.swift */; };
+		A0CA54561CE8A56700A951E3 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543E1CE8A56700A951E3 /* Content.swift */; };
+		A0CA54571CE8A56700A951E3 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543E1CE8A56700A951E3 /* Content.swift */; };
+		A0CA54581CE8A56700A951E3 /* DublinCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543F1CE8A56700A951E3 /* DublinCore.swift */; };
+		A0CA54591CE8A56700A951E3 /* DublinCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543F1CE8A56700A951E3 /* DublinCore.swift */; };
+		A0CA545A1CE8A56700A951E3 /* DublinCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543F1CE8A56700A951E3 /* DublinCore.swift */; };
+		A0CA545B1CE8A56700A951E3 /* Syndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54401CE8A56700A951E3 /* Syndication.swift */; };
+		A0CA545C1CE8A56700A951E3 /* Syndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54401CE8A56700A951E3 /* Syndication.swift */; };
+		A0CA545D1CE8A56700A951E3 /* Syndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54401CE8A56700A951E3 /* Syndication.swift */; };
+		A0CA545E1CE8A56700A951E3 /* RSS2Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54411CE8A56700A951E3 /* RSS2Feed.swift */; };
+		A0CA545F1CE8A56700A951E3 /* RSS2Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54411CE8A56700A951E3 /* RSS2Feed.swift */; };
+		A0CA54601CE8A56700A951E3 /* RSS2Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54411CE8A56700A951E3 /* RSS2Feed.swift */; };
+		A0CA54611CE8A56700A951E3 /* RSS2FeedChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54421CE8A56700A951E3 /* RSS2FeedChannel.swift */; };
+		A0CA54621CE8A56700A951E3 /* RSS2FeedChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54421CE8A56700A951E3 /* RSS2FeedChannel.swift */; };
+		A0CA54631CE8A56700A951E3 /* RSS2FeedChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54421CE8A56700A951E3 /* RSS2FeedChannel.swift */; };
+		A0CA54641CE8A56700A951E3 /* RSS2FeedChannelCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54431CE8A56700A951E3 /* RSS2FeedChannelCategory.swift */; };
+		A0CA54651CE8A56700A951E3 /* RSS2FeedChannelCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54431CE8A56700A951E3 /* RSS2FeedChannelCategory.swift */; };
+		A0CA54661CE8A56700A951E3 /* RSS2FeedChannelCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54431CE8A56700A951E3 /* RSS2FeedChannelCategory.swift */; };
+		A0CA54671CE8A56700A951E3 /* RSS2FeedChannelCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54441CE8A56700A951E3 /* RSS2FeedChannelCloud.swift */; };
+		A0CA54681CE8A56700A951E3 /* RSS2FeedChannelCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54441CE8A56700A951E3 /* RSS2FeedChannelCloud.swift */; };
+		A0CA54691CE8A56700A951E3 /* RSS2FeedChannelCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54441CE8A56700A951E3 /* RSS2FeedChannelCloud.swift */; };
+		A0CA546A1CE8A56700A951E3 /* RSS2FeedChannelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54451CE8A56700A951E3 /* RSS2FeedChannelImage.swift */; };
+		A0CA546B1CE8A56700A951E3 /* RSS2FeedChannelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54451CE8A56700A951E3 /* RSS2FeedChannelImage.swift */; };
+		A0CA546C1CE8A56700A951E3 /* RSS2FeedChannelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54451CE8A56700A951E3 /* RSS2FeedChannelImage.swift */; };
+		A0CA546D1CE8A56700A951E3 /* RSS2FeedChannelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54461CE8A56700A951E3 /* RSS2FeedChannelItem.swift */; };
+		A0CA546E1CE8A56700A951E3 /* RSS2FeedChannelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54461CE8A56700A951E3 /* RSS2FeedChannelItem.swift */; };
+		A0CA546F1CE8A56700A951E3 /* RSS2FeedChannelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54461CE8A56700A951E3 /* RSS2FeedChannelItem.swift */; };
+		A0CA54701CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54471CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift */; };
+		A0CA54711CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54471CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift */; };
+		A0CA54721CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54471CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift */; };
+		A0CA54731CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54481CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift */; };
+		A0CA54741CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54481CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift */; };
+		A0CA54751CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54481CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift */; };
+		A0CA54761CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54491CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift */; };
+		A0CA54771CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54491CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift */; };
+		A0CA54781CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54491CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift */; };
+		A0CA54791CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544A1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift */; };
+		A0CA547A1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544A1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift */; };
+		A0CA547B1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544A1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift */; };
+		A0CA547C1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544B1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift */; };
+		A0CA547D1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544B1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift */; };
+		A0CA547E1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544B1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift */; };
+		A0CA547F1CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544C1CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift */; };
+		A0CA54801CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544C1CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift */; };
+		A0CA54811CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544C1CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift */; };
+		A0CA54821CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544D1CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift */; };
+		A0CA54831CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544D1CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift */; };
+		A0CA54841CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544D1CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift */; };
+		A0CA54851CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
+		A0CA54861CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
+		A0CA54871CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB11CE869AE00C52142 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DB01CE869AE00C52142 /* ViewController.swift */; };
 		A0EF4DB41CE869AE00C52142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB21CE869AE00C52142 /* Main.storyboard */; };
@@ -91,6 +148,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A0CA543B1CE8A56700A951E3 /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
+		A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomSyndication.swift; sourceTree = "<group>"; };
+		A0CA543E1CE8A56700A951E3 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		A0CA543F1CE8A56700A951E3 /* DublinCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCore.swift; sourceTree = "<group>"; };
+		A0CA54401CE8A56700A951E3 /* Syndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syndication.swift; sourceTree = "<group>"; };
+		A0CA54411CE8A56700A951E3 /* RSS2Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2Feed.swift; sourceTree = "<group>"; };
+		A0CA54421CE8A56700A951E3 /* RSS2FeedChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannel.swift; sourceTree = "<group>"; };
+		A0CA54431CE8A56700A951E3 /* RSS2FeedChannelCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelCategory.swift; sourceTree = "<group>"; };
+		A0CA54441CE8A56700A951E3 /* RSS2FeedChannelCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelCloud.swift; sourceTree = "<group>"; };
+		A0CA54451CE8A56700A951E3 /* RSS2FeedChannelImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelImage.swift; sourceTree = "<group>"; };
+		A0CA54461CE8A56700A951E3 /* RSS2FeedChannelItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelItem.swift; sourceTree = "<group>"; };
+		A0CA54471CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelItemCategory.swift; sourceTree = "<group>"; };
+		A0CA54481CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelItemEnclosure.swift; sourceTree = "<group>"; };
+		A0CA54491CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelItemGUID.swift; sourceTree = "<group>"; };
+		A0CA544A1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelItemSource.swift; sourceTree = "<group>"; };
+		A0CA544B1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelSkipDay.swift; sourceTree = "<group>"; };
+		A0CA544C1CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelSkipHour.swift; sourceTree = "<group>"; };
+		A0CA544D1CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelTextInput.swift; sourceTree = "<group>"; };
+		A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedElement.swift; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* Iris Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Iris Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB01CE869AE00C52142 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +243,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0CA543A1CE8A56700A951E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0CA543B1CE8A56700A951E3 /* FeedType.swift */,
+				A0CA543C1CE8A56700A951E3 /* Modules */,
+				A0CA54411CE8A56700A951E3 /* RSS2Feed.swift */,
+				A0CA54421CE8A56700A951E3 /* RSS2FeedChannel.swift */,
+				A0CA54431CE8A56700A951E3 /* RSS2FeedChannelCategory.swift */,
+				A0CA54441CE8A56700A951E3 /* RSS2FeedChannelCloud.swift */,
+				A0CA54451CE8A56700A951E3 /* RSS2FeedChannelImage.swift */,
+				A0CA54461CE8A56700A951E3 /* RSS2FeedChannelItem.swift */,
+				A0CA54471CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift */,
+				A0CA54481CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift */,
+				A0CA54491CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift */,
+				A0CA544A1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift */,
+				A0CA544B1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift */,
+				A0CA544C1CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift */,
+				A0CA544D1CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift */,
+				A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */,
+			);
+			name = Model;
+			path = Sources/Model;
+			sourceTree = "<group>";
+		};
+		A0CA543C1CE8A56700A951E3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */,
+				A0CA543E1CE8A56700A951E3 /* Content.swift */,
+				A0CA543F1CE8A56700A951E3 /* DublinCore.swift */,
+				A0CA54401CE8A56700A951E3 /* Syndication.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		A0EF4D931CE867DF00C52142 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +341,7 @@
 		A0EF4E1A1CE86F4800C52142 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A0CA543A1CE8A56700A951E3 /* Model */,
 				A0EF4E1B1CE86F6100C52142 /* Iris.h */,
 				A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */,
 				A0EF4E201CE86F6E00C52142 /* Info-macOS.plist */,
@@ -514,6 +626,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0CA545C1CE8A56700A951E3 /* Syndication.swift in Sources */,
+				A0CA546B1CE8A56700A951E3 /* RSS2FeedChannelImage.swift in Sources */,
+				A0CA54741CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
+				A0CA54831CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift in Sources */,
+				A0CA547D1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift in Sources */,
+				A0CA54801CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift in Sources */,
+				A0CA54771CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift in Sources */,
+				A0CA54861CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */,
+				A0CA546E1CE8A56700A951E3 /* RSS2FeedChannelItem.swift in Sources */,
+				A0CA547A1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift in Sources */,
+				A0CA545F1CE8A56700A951E3 /* RSS2Feed.swift in Sources */,
+				A0CA54531CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
+				A0CA54501CE8A56700A951E3 /* FeedType.swift in Sources */,
+				A0CA54591CE8A56700A951E3 /* DublinCore.swift in Sources */,
+				A0CA54651CE8A56700A951E3 /* RSS2FeedChannelCategory.swift in Sources */,
+				A0CA54711CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift in Sources */,
+				A0CA54561CE8A56700A951E3 /* Content.swift in Sources */,
+				A0CA54681CE8A56700A951E3 /* RSS2FeedChannelCloud.swift in Sources */,
+				A0CA54621CE8A56700A951E3 /* RSS2FeedChannel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +652,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0CA545D1CE8A56700A951E3 /* Syndication.swift in Sources */,
+				A0CA546C1CE8A56700A951E3 /* RSS2FeedChannelImage.swift in Sources */,
+				A0CA54751CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
+				A0CA54841CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift in Sources */,
+				A0CA547E1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift in Sources */,
+				A0CA54811CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift in Sources */,
+				A0CA54781CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift in Sources */,
+				A0CA54871CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */,
+				A0CA546F1CE8A56700A951E3 /* RSS2FeedChannelItem.swift in Sources */,
+				A0CA547B1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift in Sources */,
+				A0CA54601CE8A56700A951E3 /* RSS2Feed.swift in Sources */,
+				A0CA54541CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
+				A0CA54511CE8A56700A951E3 /* FeedType.swift in Sources */,
+				A0CA545A1CE8A56700A951E3 /* DublinCore.swift in Sources */,
+				A0CA54661CE8A56700A951E3 /* RSS2FeedChannelCategory.swift in Sources */,
+				A0CA54721CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift in Sources */,
+				A0CA54571CE8A56700A951E3 /* Content.swift in Sources */,
+				A0CA54691CE8A56700A951E3 /* RSS2FeedChannelCloud.swift in Sources */,
+				A0CA54631CE8A56700A951E3 /* RSS2FeedChannel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +678,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0CA545B1CE8A56700A951E3 /* Syndication.swift in Sources */,
+				A0CA546A1CE8A56700A951E3 /* RSS2FeedChannelImage.swift in Sources */,
+				A0CA54731CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
+				A0CA54821CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift in Sources */,
+				A0CA547C1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift in Sources */,
+				A0CA547F1CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift in Sources */,
+				A0CA54761CE8A56700A951E3 /* RSS2FeedChannelItemGUID.swift in Sources */,
+				A0CA54851CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */,
+				A0CA546D1CE8A56700A951E3 /* RSS2FeedChannelItem.swift in Sources */,
+				A0CA54791CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift in Sources */,
+				A0CA545E1CE8A56700A951E3 /* RSS2Feed.swift in Sources */,
+				A0CA54521CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
+				A0CA544F1CE8A56700A951E3 /* FeedType.swift in Sources */,
+				A0CA54581CE8A56700A951E3 /* DublinCore.swift in Sources */,
+				A0CA54641CE8A56700A951E3 /* RSS2FeedChannelCategory.swift in Sources */,
+				A0CA54701CE8A56700A951E3 /* RSS2FeedChannelItemCategory.swift in Sources */,
+				A0CA54551CE8A56700A951E3 /* Content.swift in Sources */,
+				A0CA54671CE8A56700A951E3 /* RSS2FeedChannelCloud.swift in Sources */,
+				A0CA54611CE8A56700A951E3 /* RSS2FeedChannel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +794,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -675,6 +845,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -718,6 +889,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -769,6 +941,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -814,6 +987,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -865,6 +1039,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1242,6 +1417,7 @@
 				A0EF4DBC1CE869AE00C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "Iris Example tvOS" */ = {
 			isa = XCConfigurationList;
@@ -1250,6 +1426,7 @@
 				A0EF4DD01CE86A0600C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "Iris Example macOS" */ = {
 			isa = XCConfigurationList;
@@ -1258,6 +1435,7 @@
 				A0EF4DE11CE86A7700C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0EF4DF11CE86C3800C52142 /* Build configuration list for PBXNativeTarget "Iris tvOS" */ = {
 			isa = XCConfigurationList;
@@ -1266,6 +1444,7 @@
 				A0EF4DF31CE86C3800C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0EF4E031CE86CA200C52142 /* Build configuration list for PBXNativeTarget "Iris macOS" */ = {
 			isa = XCConfigurationList;
@@ -1274,6 +1453,7 @@
 				A0EF4E051CE86CA200C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "Iris iOS" */ = {
 			isa = XCConfigurationList;
@@ -1282,6 +1462,7 @@
 				A0EF4E171CE86D1E00C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
