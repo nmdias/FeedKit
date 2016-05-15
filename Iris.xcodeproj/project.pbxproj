@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0EF4DA31CE8689E00C52142 /* Iris.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4DA21CE8689E00C52142 /* Iris.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB11CE869AE00C52142 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DB01CE869AE00C52142 /* ViewController.swift */; };
 		A0EF4DB41CE869AE00C52142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB21CE869AE00C52142 /* Main.storyboard */; };
@@ -26,6 +25,9 @@
 		A0EF4DFD1CE86CA200C52142 /* Iris macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4DFC1CE86CA200C52142 /* Iris macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4E011CE86CA200C52142 /* Iris macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */; };
 		A0EF4E021CE86CA200C52142 /* Iris macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0EF4E0F1CE86D1E00C52142 /* Iris iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E0E1CE86D1E00C52142 /* Iris iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EF4E131CE86D1E00C52142 /* Iris iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* Iris iOS.framework */; };
+		A0EF4E141CE86D1E00C52142 /* Iris iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* Iris iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A0EF4DF91CE86CA200C52142;
 			remoteInfo = "Iris macOS";
+		};
+		A0EF4E111CE86D1E00C52142 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0EF4D941CE867DF00C52142 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0EF4E0B1CE86D1E00C52142;
+			remoteInfo = "Iris iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -68,12 +77,20 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0EF4E181CE86D1E00C52142 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A0EF4E141CE86D1E00C52142 /* Iris iOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A0EF4D9F1CE8689E00C52142 /* Iris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Iris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0EF4DA21CE8689E00C52142 /* Iris.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Iris.h; sourceTree = "<group>"; };
-		A0EF4DA41CE8689E00C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* Iris Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Iris Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB01CE869AE00C52142 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,20 +115,17 @@
 		A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Iris macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DFC1CE86CA200C52142 /* Iris macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Iris macOS.h"; sourceTree = "<group>"; };
 		A0EF4DFE1CE86CA200C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0EF4E0C1CE86D1E00C52142 /* Iris iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Iris iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4E0E1CE86D1E00C52142 /* Iris iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Iris iOS.h"; sourceTree = "<group>"; };
+		A0EF4E101CE86D1E00C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A0EF4D9B1CE8689E00C52142 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A0EF4DA91CE869AD00C52142 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0EF4E131CE86D1E00C52142 /* Iris iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,18 +159,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0EF4E081CE86D1E00C52142 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A0EF4D931CE867DF00C52142 = {
 			isa = PBXGroup;
 			children = (
-				A0EF4DA11CE8689E00C52142 /* Iris */,
 				A0EF4DAD1CE869AD00C52142 /* Iris Example iOS */,
 				A0EF4DC31CE86A0600C52142 /* Iris Example tvOS */,
 				A0EF4DD61CE86A7700C52142 /* Iris Example macOS */,
 				A0EF4DE91CE86C3800C52142 /* Iris tvOS */,
 				A0EF4DFB1CE86CA200C52142 /* Iris macOS */,
+				A0EF4E0D1CE86D1E00C52142 /* Iris iOS */,
 				A0EF4DA01CE8689E00C52142 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -164,23 +185,14 @@
 		A0EF4DA01CE8689E00C52142 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0EF4D9F1CE8689E00C52142 /* Iris.framework */,
 				A0EF4DAC1CE869AD00C52142 /* Iris Example iOS.app */,
 				A0EF4DC21CE86A0600C52142 /* Iris Example tvOS.app */,
 				A0EF4DD51CE86A7700C52142 /* Iris Example macOS.app */,
 				A0EF4DE81CE86C3800C52142 /* Iris tvOS.framework */,
 				A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */,
+				A0EF4E0C1CE86D1E00C52142 /* Iris iOS.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A0EF4DA11CE8689E00C52142 /* Iris */ = {
-			isa = PBXGroup;
-			children = (
-				A0EF4DA21CE8689E00C52142 /* Iris.h */,
-				A0EF4DA41CE8689E00C52142 /* Info.plist */,
-			);
-			path = Iris;
 			sourceTree = "<group>";
 		};
 		A0EF4DAD1CE869AD00C52142 /* Iris Example iOS */ = {
@@ -237,17 +249,18 @@
 			path = "Iris macOS";
 			sourceTree = "<group>";
 		};
+		A0EF4E0D1CE86D1E00C52142 /* Iris iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF4E0E1CE86D1E00C52142 /* Iris iOS.h */,
+				A0EF4E101CE86D1E00C52142 /* Info.plist */,
+			);
+			path = "Iris iOS";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A0EF4D9C1CE8689E00C52142 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A0EF4DA31CE8689E00C52142 /* Iris.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A0EF4DE51CE86C3800C52142 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -264,27 +277,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0EF4E091CE86D1E00C52142 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF4E0F1CE86D1E00C52142 /* Iris iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A0EF4D9E1CE8689E00C52142 /* Iris */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4DA51CE8689E00C52142 /* Build configuration list for PBXNativeTarget "Iris" */;
-			buildPhases = (
-				A0EF4D9A1CE8689E00C52142 /* Sources */,
-				A0EF4D9B1CE8689E00C52142 /* Frameworks */,
-				A0EF4D9C1CE8689E00C52142 /* Headers */,
-				A0EF4D9D1CE8689E00C52142 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Iris;
-			productName = Iris;
-			productReference = A0EF4D9F1CE8689E00C52142 /* Iris.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		A0EF4DAB1CE869AD00C52142 /* Iris Example iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "Iris Example iOS" */;
@@ -292,10 +295,12 @@
 				A0EF4DA81CE869AD00C52142 /* Sources */,
 				A0EF4DA91CE869AD00C52142 /* Frameworks */,
 				A0EF4DAA1CE869AD00C52142 /* Resources */,
+				A0EF4E181CE86D1E00C52142 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A0EF4E121CE86D1E00C52142 /* PBXTargetDependency */,
 			);
 			name = "Iris Example iOS";
 			productName = "Iris Example iOS";
@@ -376,6 +381,24 @@
 			productReference = A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		A0EF4E0B1CE86D1E00C52142 /* Iris iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "Iris iOS" */;
+			buildPhases = (
+				A0EF4E071CE86D1E00C52142 /* Sources */,
+				A0EF4E081CE86D1E00C52142 /* Frameworks */,
+				A0EF4E091CE86D1E00C52142 /* Headers */,
+				A0EF4E0A1CE86D1E00C52142 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Iris iOS";
+			productName = "Iris iOS";
+			productReference = A0EF4E0C1CE86D1E00C52142 /* Iris iOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -385,9 +408,6 @@
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				TargetAttributes = {
-					A0EF4D9E1CE8689E00C52142 = {
-						CreatedOnToolsVersion = 7.3.1;
-					};
 					A0EF4DAB1CE869AD00C52142 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -401,6 +421,9 @@
 						CreatedOnToolsVersion = 7.3.1;
 					};
 					A0EF4DF91CE86CA200C52142 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					A0EF4E0B1CE86D1E00C52142 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
@@ -418,7 +441,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0EF4D9E1CE8689E00C52142 /* Iris */,
+				A0EF4E0B1CE86D1E00C52142 /* Iris iOS */,
 				A0EF4DE71CE86C3800C52142 /* Iris tvOS */,
 				A0EF4DF91CE86CA200C52142 /* Iris macOS */,
 				A0EF4DAB1CE869AD00C52142 /* Iris Example iOS */,
@@ -429,13 +452,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A0EF4D9D1CE8689E00C52142 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A0EF4DAA1CE869AD00C52142 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,16 +494,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		A0EF4D9A1CE8689E00C52142 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		A0EF4E0A1CE86D1E00C52142 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		A0EF4DA81CE869AD00C52142 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +544,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0EF4E071CE86D1E00C52142 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -540,6 +563,11 @@
 			isa = PBXTargetDependency;
 			target = A0EF4DF91CE86CA200C52142 /* Iris macOS */;
 			targetProxy = A0EF4DFF1CE86CA200C52142 /* PBXContainerItemProxy */;
+		};
+		A0EF4E121CE86D1E00C52142 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0EF4E0B1CE86D1E00C52142 /* Iris iOS */;
+			targetProxy = A0EF4E111CE86D1E00C52142 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -588,117 +616,6 @@
 		A0EF4D991CE867DF00C52142 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-			};
-			name = Release;
-		};
-		A0EF4DA61CE8689E00C52142 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Iris/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = nmdias.news.Iris;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A0EF4DA71CE8689E00C52142 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Iris/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = nmdias.news.Iris;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1205,6 +1122,117 @@
 			};
 			name = Release;
 		};
+		A0EF4E161CE86D1E00C52142 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Iris iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A0EF4E171CE86D1E00C52142 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Iris iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1213,15 +1241,6 @@
 			buildConfigurations = (
 				A0EF4D981CE867DF00C52142 /* Debug */,
 				A0EF4D991CE867DF00C52142 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A0EF4DA51CE8689E00C52142 /* Build configuration list for PBXNativeTarget "Iris" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A0EF4DA61CE8689E00C52142 /* Debug */,
-				A0EF4DA71CE8689E00C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1263,6 +1282,14 @@
 			buildConfigurations = (
 				A0EF4E041CE86CA200C52142 /* Debug */,
 				A0EF4E051CE86CA200C52142 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "Iris iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EF4E161CE86D1E00C52142 /* Debug */,
+				A0EF4E171CE86D1E00C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
