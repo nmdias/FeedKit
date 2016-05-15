@@ -326,9 +326,9 @@
 			isa = PBXGroup;
 			children = (
 				A0EF4E1A1CE86F4800C52142 /* Sources */,
-				A0EF4DAD1CE869AD00C52142 /* Iris Example iOS */,
-				A0EF4DC31CE86A0600C52142 /* Iris Example tvOS */,
-				A0EF4DD61CE86A7700C52142 /* Iris Example macOS */,
+				A0EF4DAD1CE869AD00C52142 /* IrisKit Example iOS */,
+				A0EF4DC31CE86A0600C52142 /* IrisKit Example tvOS */,
+				A0EF4DD61CE86A7700C52142 /* IrisKit Example macOS */,
 				A0EF4DA01CE8689E00C52142 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -346,7 +346,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A0EF4DAD1CE869AD00C52142 /* Iris Example iOS */ = {
+		A0EF4DAD1CE869AD00C52142 /* IrisKit Example iOS */ = {
 			isa = PBXGroup;
 			children = (
 				A03978071CE8AF7C0042A1C4 /* Extensions */,
@@ -356,10 +356,10 @@
 				A0EF4DB71CE869AE00C52142 /* LaunchScreen.storyboard */,
 				A0EF4DBA1CE869AE00C52142 /* Info.plist */,
 			);
-			path = "Iris Example iOS";
+			path = "IrisKit Example iOS";
 			sourceTree = "<group>";
 		};
-		A0EF4DC31CE86A0600C52142 /* Iris Example tvOS */ = {
+		A0EF4DC31CE86A0600C52142 /* IrisKit Example tvOS */ = {
 			isa = PBXGroup;
 			children = (
 				A0EF4DC41CE86A0600C52142 /* AppDelegate.swift */,
@@ -368,10 +368,10 @@
 				A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */,
 				A0EF4DCD1CE86A0600C52142 /* Info.plist */,
 			);
-			path = "Iris Example tvOS";
+			path = "IrisKit Example tvOS";
 			sourceTree = "<group>";
 		};
-		A0EF4DD61CE86A7700C52142 /* Iris Example macOS */ = {
+		A0EF4DD61CE86A7700C52142 /* IrisKit Example macOS */ = {
 			isa = PBXGroup;
 			children = (
 				A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */,
@@ -379,7 +379,7 @@
 				A0EF4DDB1CE86A7700C52142 /* MainMenu.xib */,
 				A0EF4DDE1CE86A7700C52142 /* Info.plist */,
 			);
-			path = "Iris Example macOS";
+			path = "IrisKit Example macOS";
 			sourceTree = "<group>";
 		};
 		A0EF4E1A1CE86F4800C52142 /* Sources */ = {
