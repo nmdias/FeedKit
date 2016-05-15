@@ -25,9 +25,9 @@
 		A0EF4E021CE86CA200C52142 /* Iris macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0EF4E131CE86D1E00C52142 /* Iris iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* Iris iOS.framework */; };
 		A0EF4E141CE86D1E00C52142 /* Iris iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* Iris iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0EF4E1C1CE86F6100C52142 /* Iris.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* Iris.h */; };
-		A0EF4E1D1CE86F6100C52142 /* Iris.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* Iris.h */; };
-		A0EF4E1E1CE86F6100C52142 /* Iris.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* Iris.h */; };
+		A0EF4E1C1CE86F6100C52142 /* Iris.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* Iris.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EF4E1D1CE86F6100C52142 /* Iris.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* Iris.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EF4E1E1CE86F6100C52142 /* Iris.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* Iris.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
