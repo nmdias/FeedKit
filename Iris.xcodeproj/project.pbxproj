@@ -19,8 +19,8 @@
 		A0EF4DD81CE86A7700C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */; };
 		A0EF4DDA1CE86A7700C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DD91CE86A7700C52142 /* Assets.xcassets */; };
 		A0EF4DDD1CE86A7700C52142 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DDB1CE86A7700C52142 /* MainMenu.xib */; };
-		A0EF4DEF1CE86C3800C52142 /* Iris tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* Iris tvOS.framework */; };
-		A0EF4DF01CE86C3800C52142 /* Iris tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* Iris tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0EF4DEF1CE86C3800C52142 /* Iris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* Iris.framework */; };
+		A0EF4DF01CE86C3800C52142 /* Iris.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* Iris.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0EF4E011CE86CA200C52142 /* Iris macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */; };
 		A0EF4E021CE86CA200C52142 /* Iris macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0EF4E131CE86D1E00C52142 /* Iris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* Iris.framework */; };
@@ -61,7 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A0EF4DF01CE86C3800C52142 /* Iris tvOS.framework in Embed Frameworks */,
+				A0EF4DF01CE86C3800C52142 /* Iris.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +109,7 @@
 		A0EF4DD91CE86A7700C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DDC1CE86A7700C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A0EF4DDE1CE86A7700C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EF4DE81CE86C3800C52142 /* Iris tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Iris tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DE81CE86C3800C52142 /* Iris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Iris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Iris macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4E0C1CE86D1E00C52142 /* Iris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Iris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4E1B1CE86F6100C52142 /* Iris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Iris.h; path = Sources/Iris.h; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4DEF1CE86C3800C52142 /* Iris tvOS.framework in Frameworks */,
+				A0EF4DEF1CE86C3800C52142 /* Iris.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +184,7 @@
 				A0EF4DAC1CE869AD00C52142 /* Iris Example iOS.app */,
 				A0EF4DC21CE86A0600C52142 /* Iris Example tvOS.app */,
 				A0EF4DD51CE86A7700C52142 /* Iris Example macOS.app */,
-				A0EF4DE81CE86C3800C52142 /* Iris tvOS.framework */,
+				A0EF4DE81CE86C3800C52142 /* Iris.framework */,
 				A0EF4DFA1CE86CA200C52142 /* Iris macOS.framework */,
 				A0EF4E0C1CE86D1E00C52142 /* Iris.framework */,
 			);
@@ -340,7 +340,7 @@
 			);
 			name = "Iris tvOS";
 			productName = "Iris tvOS";
-			productReference = A0EF4DE81CE86C3800C52142 /* Iris tvOS.framework */;
+			productReference = A0EF4DE81CE86C3800C52142 /* Iris.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A0EF4DF91CE86CA200C52142 /* Iris macOS */ = {
@@ -933,7 +933,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Iris;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -985,7 +985,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Iris;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
