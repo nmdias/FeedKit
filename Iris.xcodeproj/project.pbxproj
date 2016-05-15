@@ -13,6 +13,10 @@
 		A0EF4DB41CE869AE00C52142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB21CE869AE00C52142 /* Main.storyboard */; };
 		A0EF4DB61CE869AE00C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB51CE869AE00C52142 /* Assets.xcassets */; };
 		A0EF4DB91CE869AE00C52142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB71CE869AE00C52142 /* LaunchScreen.storyboard */; };
+		A0EF4DC51CE86A0600C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DC41CE86A0600C52142 /* AppDelegate.swift */; };
+		A0EF4DC71CE86A0600C52142 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DC61CE86A0600C52142 /* ViewController.swift */; };
+		A0EF4DCA1CE86A0600C52142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DC81CE86A0600C52142 /* Main.storyboard */; };
+		A0EF4DCC1CE86A0600C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,12 @@
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DB81CE869AE00C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0EF4DBA1CE869AE00C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0EF4DC21CE86A0600C52142 /* Iris Example tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Iris Example tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DC41CE86A0600C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0EF4DC61CE86A0600C52142 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A0EF4DC91CE86A0600C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0EF4DCD1CE86A0600C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0EF4DBF1CE86A0600C52142 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -51,6 +68,7 @@
 			children = (
 				A0EF4DA11CE8689E00C52142 /* Iris */,
 				A0EF4DAD1CE869AD00C52142 /* Iris Example iOS */,
+				A0EF4DC31CE86A0600C52142 /* Iris Example tvOS */,
 				A0EF4DA01CE8689E00C52142 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +78,7 @@
 			children = (
 				A0EF4D9F1CE8689E00C52142 /* Iris.framework */,
 				A0EF4DAC1CE869AD00C52142 /* Iris Example iOS.app */,
+				A0EF4DC21CE86A0600C52142 /* Iris Example tvOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +103,18 @@
 				A0EF4DBA1CE869AE00C52142 /* Info.plist */,
 			);
 			path = "Iris Example iOS";
+			sourceTree = "<group>";
+		};
+		A0EF4DC31CE86A0600C52142 /* Iris Example tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF4DC41CE86A0600C52142 /* AppDelegate.swift */,
+				A0EF4DC61CE86A0600C52142 /* ViewController.swift */,
+				A0EF4DC81CE86A0600C52142 /* Main.storyboard */,
+				A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */,
+				A0EF4DCD1CE86A0600C52142 /* Info.plist */,
+			);
+			path = "Iris Example tvOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +166,23 @@
 			productReference = A0EF4DAC1CE869AD00C52142 /* Iris Example iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A0EF4DC11CE86A0600C52142 /* Iris Example tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "Iris Example tvOS" */;
+			buildPhases = (
+				A0EF4DBE1CE86A0600C52142 /* Sources */,
+				A0EF4DBF1CE86A0600C52142 /* Frameworks */,
+				A0EF4DC01CE86A0600C52142 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Iris Example tvOS";
+			productName = "Iris Example tvOS";
+			productReference = A0EF4DC21CE86A0600C52142 /* Iris Example tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -148,6 +196,9 @@
 						CreatedOnToolsVersion = 7.3.1;
 					};
 					A0EF4DAB1CE869AD00C52142 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					A0EF4DC11CE86A0600C52142 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
@@ -167,6 +218,7 @@
 			targets = (
 				A0EF4D9E1CE8689E00C52142 /* Iris */,
 				A0EF4DAB1CE869AD00C52142 /* Iris Example iOS */,
+				A0EF4DC11CE86A0600C52142 /* Iris Example tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -189,6 +241,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0EF4DC01CE86A0600C52142 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF4DCC1CE86A0600C52142 /* Assets.xcassets in Resources */,
+				A0EF4DCA1CE86A0600C52142 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -205,6 +266,15 @@
 			files = (
 				A0EF4DB11CE869AE00C52142 /* ViewController.swift in Sources */,
 				A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EF4DBE1CE86A0600C52142 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF4DC71CE86A0600C52142 /* ViewController.swift in Sources */,
+				A0EF4DC51CE86A0600C52142 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +295,14 @@
 				A0EF4DB81CE869AE00C52142 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A0EF4DC81CE86A0600C52142 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0EF4DC91CE86A0600C52142 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -446,6 +524,101 @@
 			};
 			name = Release;
 		};
+		A0EF4DCF1CE86A0600C52142 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Iris Example tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		A0EF4DD01CE86A0600C52142 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Iris Example tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -472,6 +645,14 @@
 			buildConfigurations = (
 				A0EF4DBB1CE869AE00C52142 /* Debug */,
 				A0EF4DBC1CE869AE00C52142 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "Iris Example tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EF4DCF1CE86A0600C52142 /* Debug */,
+				A0EF4DD01CE86A0600C52142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
