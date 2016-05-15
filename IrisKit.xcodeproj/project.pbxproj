@@ -864,7 +864,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-iOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -908,7 +908,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-iOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -958,7 +958,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-tvOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1003,7 +1003,7 @@
 				INFOPLIST_FILE = "IrisKit Example tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-tvOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1057,7 +1057,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-macOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1102,7 +1102,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-Example-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-macOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = macosx;
 			};
@@ -1155,7 +1155,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-tvOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -1207,7 +1207,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-tvOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -1270,7 +1270,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-macOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1324,7 +1324,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-macOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1382,7 +1382,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-iOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1435,7 +1435,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.Iris-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-iOS";
 				PRODUCT_NAME = IrisKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
