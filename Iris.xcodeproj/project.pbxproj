@@ -64,6 +64,15 @@
 		A0CA54851CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
 		A0CA54861CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
 		A0CA54871CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
+		A0CA548A1CE8A89C00A951E3 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54891CE8A89C00A951E3 /* Parser.swift */; };
+		A0CA548B1CE8A89C00A951E3 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54891CE8A89C00A951E3 /* Parser.swift */; };
+		A0CA548C1CE8A89C00A951E3 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54891CE8A89C00A951E3 /* Parser.swift */; };
+		A0CA548F1CE8AA7900A951E3 /* Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA548E1CE8AA7900A951E3 /* Mappers.swift */; };
+		A0CA54901CE8AA7900A951E3 /* Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA548E1CE8AA7900A951E3 /* Mappers.swift */; };
+		A0CA54911CE8AA7900A951E3 /* Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA548E1CE8AA7900A951E3 /* Mappers.swift */; };
+		A0CA54931CE8AAB800A951E3 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54921CE8AAB800A951E3 /* Debug.swift */; };
+		A0CA54941CE8AAB800A951E3 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54921CE8AAB800A951E3 /* Debug.swift */; };
+		A0CA54951CE8AAB800A951E3 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54921CE8AAB800A951E3 /* Debug.swift */; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB11CE869AE00C52142 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DB01CE869AE00C52142 /* ViewController.swift */; };
 		A0EF4DB41CE869AE00C52142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB21CE869AE00C52142 /* Main.storyboard */; };
@@ -167,6 +176,9 @@
 		A0CA544C1CE8A56700A951E3 /* RSS2FeedChannelSkipHour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelSkipHour.swift; sourceTree = "<group>"; };
 		A0CA544D1CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedChannelTextInput.swift; sourceTree = "<group>"; };
 		A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedElement.swift; sourceTree = "<group>"; };
+		A0CA54891CE8A89C00A951E3 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Core/Parser.swift; sourceTree = "<group>"; };
+		A0CA548E1CE8AA7900A951E3 /* Mappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mappers.swift; path = Sources/Core/Mappers.swift; sourceTree = "<group>"; };
+		A0CA54921CE8AAB800A951E3 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Debug.swift; path = Sources/Core/Debug.swift; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* Iris Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Iris Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB01CE869AE00C52142 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -246,8 +258,8 @@
 		A0CA543A1CE8A56700A951E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A0CA543B1CE8A56700A951E3 /* FeedType.swift */,
 				A0CA543C1CE8A56700A951E3 /* Modules */,
+				A0CA543B1CE8A56700A951E3 /* FeedType.swift */,
 				A0CA54411CE8A56700A951E3 /* RSS2Feed.swift */,
 				A0CA54421CE8A56700A951E3 /* RSS2FeedChannel.swift */,
 				A0CA54431CE8A56700A951E3 /* RSS2FeedChannelCategory.swift */,
@@ -276,6 +288,16 @@
 				A0CA54401CE8A56700A951E3 /* Syndication.swift */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		A0CA54881CE8A87E00A951E3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A0CA54891CE8A89C00A951E3 /* Parser.swift */,
+				A0CA548E1CE8AA7900A951E3 /* Mappers.swift */,
+				A0CA54921CE8AAB800A951E3 /* Debug.swift */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		A0EF4D931CE867DF00C52142 = {
@@ -341,6 +363,7 @@
 		A0EF4E1A1CE86F4800C52142 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A0CA54881CE8A87E00A951E3 /* Core */,
 				A0CA543A1CE8A56700A951E3 /* Model */,
 				A0EF4E1B1CE86F6100C52142 /* Iris.h */,
 				A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */,
@@ -628,6 +651,7 @@
 			files = (
 				A0CA545C1CE8A56700A951E3 /* Syndication.swift in Sources */,
 				A0CA546B1CE8A56700A951E3 /* RSS2FeedChannelImage.swift in Sources */,
+				A0CA54901CE8AA7900A951E3 /* Mappers.swift in Sources */,
 				A0CA54741CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
 				A0CA54831CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift in Sources */,
 				A0CA547D1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift in Sources */,
@@ -638,6 +662,8 @@
 				A0CA547A1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift in Sources */,
 				A0CA545F1CE8A56700A951E3 /* RSS2Feed.swift in Sources */,
 				A0CA54531CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
+				A0CA54941CE8AAB800A951E3 /* Debug.swift in Sources */,
+				A0CA548B1CE8A89C00A951E3 /* Parser.swift in Sources */,
 				A0CA54501CE8A56700A951E3 /* FeedType.swift in Sources */,
 				A0CA54591CE8A56700A951E3 /* DublinCore.swift in Sources */,
 				A0CA54651CE8A56700A951E3 /* RSS2FeedChannelCategory.swift in Sources */,
@@ -654,6 +680,7 @@
 			files = (
 				A0CA545D1CE8A56700A951E3 /* Syndication.swift in Sources */,
 				A0CA546C1CE8A56700A951E3 /* RSS2FeedChannelImage.swift in Sources */,
+				A0CA54911CE8AA7900A951E3 /* Mappers.swift in Sources */,
 				A0CA54751CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
 				A0CA54841CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift in Sources */,
 				A0CA547E1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift in Sources */,
@@ -664,6 +691,8 @@
 				A0CA547B1CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift in Sources */,
 				A0CA54601CE8A56700A951E3 /* RSS2Feed.swift in Sources */,
 				A0CA54541CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
+				A0CA54951CE8AAB800A951E3 /* Debug.swift in Sources */,
+				A0CA548C1CE8A89C00A951E3 /* Parser.swift in Sources */,
 				A0CA54511CE8A56700A951E3 /* FeedType.swift in Sources */,
 				A0CA545A1CE8A56700A951E3 /* DublinCore.swift in Sources */,
 				A0CA54661CE8A56700A951E3 /* RSS2FeedChannelCategory.swift in Sources */,
@@ -680,6 +709,7 @@
 			files = (
 				A0CA545B1CE8A56700A951E3 /* Syndication.swift in Sources */,
 				A0CA546A1CE8A56700A951E3 /* RSS2FeedChannelImage.swift in Sources */,
+				A0CA548F1CE8AA7900A951E3 /* Mappers.swift in Sources */,
 				A0CA54731CE8A56700A951E3 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
 				A0CA54821CE8A56700A951E3 /* RSS2FeedChannelTextInput.swift in Sources */,
 				A0CA547C1CE8A56700A951E3 /* RSS2FeedChannelSkipDay.swift in Sources */,
@@ -690,6 +720,8 @@
 				A0CA54791CE8A56700A951E3 /* RSS2FeedChannelItemSource.swift in Sources */,
 				A0CA545E1CE8A56700A951E3 /* RSS2Feed.swift in Sources */,
 				A0CA54521CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
+				A0CA54931CE8AAB800A951E3 /* Debug.swift in Sources */,
+				A0CA548A1CE8A89C00A951E3 /* Parser.swift in Sources */,
 				A0CA544F1CE8A56700A951E3 /* FeedType.swift in Sources */,
 				A0CA54581CE8A56700A951E3 /* DublinCore.swift in Sources */,
 				A0CA54641CE8A56700A951E3 /* RSS2FeedChannelCategory.swift in Sources */,
