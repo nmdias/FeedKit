@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Iris'
-  s.version = '1.0.0'
+  s.version = '1.1.0'
   s.license = 'MIT'
   s.summary = 'An RSS/Atom feed parser'
   s.homepage = 'https://github.com/nmdias/Iris'
