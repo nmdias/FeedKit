@@ -52,5 +52,24 @@ class FeedTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard let layout = TableViewLayout(indexPath: indexPath) else { fatalError() }
+        switch layout {
+        case .Title:        self.showDetailViewControllerWithText(self.feed?.channel?.title ?? "[no title]")
+        case .Link:         self.showDetailViewControllerWithText(self.feed?.channel?.link ?? "[no link]")
+        case .Description:  self.showDetailViewControllerWithText(self.feed?.channel?.description ?? "[no link]")
+        case .Items:        self.showDetailViewControllerWithText(self.feed?.channel?.items?[indexPath.row].description ?? "[no description]")
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    func showDetailViewControllerWithText(text: String) {
+        let viewController = FeedDetailTableViewController(text: text)
+        self.showViewController(viewController, sender: self)
+    }
 
 }

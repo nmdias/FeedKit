@@ -10,6 +10,7 @@
 		A03978061CE8AF4C0042A1C4 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03978051CE8AF4C0042A1C4 /* FeedTableViewController.swift */; };
 		A039780A1CE8AF9A0042A1C4 /* FeedTableViewController + ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03978081CE8AF9A0042A1C4 /* FeedTableViewController + ReusableCell.swift */; };
 		A039780B1CE8AF9A0042A1C4 /* FeedTableViewController + TableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03978091CE8AF9A0042A1C4 /* FeedTableViewController + TableViewLayout.swift */; };
+		A039780D1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */; };
 		A0CA544F1CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0CA54501CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0CA54511CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
@@ -161,6 +162,7 @@
 		A03978051CE8AF4C0042A1C4 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTableViewController.swift; path = "View Controllers/FeedTableViewController.swift"; sourceTree = "<group>"; };
 		A03978081CE8AF9A0042A1C4 /* FeedTableViewController + ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedTableViewController + ReusableCell.swift"; sourceTree = "<group>"; };
 		A03978091CE8AF9A0042A1C4 /* FeedTableViewController + TableViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedTableViewController + TableViewLayout.swift"; sourceTree = "<group>"; };
+		A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedDetailTableViewController.swift; path = "View Controllers/FeedDetailTableViewController.swift"; sourceTree = "<group>"; };
 		A0CA543B1CE8A56700A951E3 /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomSyndication.swift; sourceTree = "<group>"; };
 		A0CA543E1CE8A56700A951E3 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				A03978051CE8AF4C0042A1C4 /* FeedTableViewController.swift */,
+				A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */,
 				A039780B1CE8AF9A0042A1C4 /* FeedTableViewController + TableViewLayout.swift in Sources */,
 				A03978061CE8AF4C0042A1C4 /* FeedTableViewController.swift in Sources */,
+				A039780D1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift in Sources */,
 				A039780A1CE8AF9A0042A1C4 /* FeedTableViewController + ReusableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
