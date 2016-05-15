@@ -185,18 +185,18 @@
 		A0CA54891CE8A89C00A951E3 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Core/Parser.swift; sourceTree = "<group>"; };
 		A0CA548E1CE8AA7900A951E3 /* Mappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mappers.swift; path = Sources/Core/Mappers.swift; sourceTree = "<group>"; };
 		A0CA54921CE8AAB800A951E3 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Debug.swift; path = Sources/Core/Debug.swift; sourceTree = "<group>"; };
-		A0EF4DAC1CE869AD00C52142 /* IrisKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrisKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DAC1CE869AD00C52142 /* IrisKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IrisKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DB81CE869AE00C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0EF4DBA1CE869AE00C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EF4DC21CE86A0600C52142 /* IrisKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrisKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DC21CE86A0600C52142 /* IrisKit Example tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IrisKit Example tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DC41CE86A0600C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DC61CE86A0600C52142 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0EF4DC91CE86A0600C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DCD1CE86A0600C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EF4DD51CE86A7700C52142 /* IrisKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrisKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DD51CE86A7700C52142 /* IrisKit Example macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IrisKit Example macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DD91CE86A7700C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DDC1CE86A7700C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -336,9 +336,9 @@
 		A0EF4DA01CE8689E00C52142 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0EF4DAC1CE869AD00C52142 /* IrisKit.app */,
-				A0EF4DC21CE86A0600C52142 /* IrisKit.app */,
-				A0EF4DD51CE86A7700C52142 /* IrisKit.app */,
+				A0EF4DAC1CE869AD00C52142 /* IrisKit Example iOS.app */,
+				A0EF4DC21CE86A0600C52142 /* IrisKit Example tvOS.app */,
+				A0EF4DD51CE86A7700C52142 /* IrisKit Example macOS.app */,
 				A0EF4DE81CE86C3800C52142 /* IrisKit.framework */,
 				A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */,
 				A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */,
@@ -441,7 +441,7 @@
 			);
 			name = "IrisKit Example iOS";
 			productName = "Iris Example iOS";
-			productReference = A0EF4DAC1CE869AD00C52142 /* IrisKit.app */;
+			productReference = A0EF4DAC1CE869AD00C52142 /* IrisKit Example iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A0EF4DC11CE86A0600C52142 /* IrisKit Example tvOS */ = {
@@ -460,7 +460,7 @@
 			);
 			name = "IrisKit Example tvOS";
 			productName = "Iris Example tvOS";
-			productReference = A0EF4DC21CE86A0600C52142 /* IrisKit.app */;
+			productReference = A0EF4DC21CE86A0600C52142 /* IrisKit Example tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A0EF4DD41CE86A7700C52142 /* IrisKit Example macOS */ = {
@@ -479,7 +479,7 @@
 			);
 			name = "IrisKit Example macOS";
 			productName = "Iris Example macOS";
-			productReference = A0EF4DD51CE86A7700C52142 /* IrisKit.app */;
+			productReference = A0EF4DD51CE86A7700C52142 /* IrisKit Example macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A0EF4DE71CE86C3800C52142 /* IrisKit tvOS */ = {
@@ -865,7 +865,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-iOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = "IrisKit Example iOS";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -909,7 +909,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-iOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = "IrisKit Example iOS";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -959,7 +959,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-tvOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = "IrisKit Example tvOS";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1004,7 +1004,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-tvOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = "IrisKit Example tvOS";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1058,7 +1058,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-macOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = "IrisKit Example macOS";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1103,7 +1103,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-macOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = "IrisKit Example macOS";
 				SDKROOT = macosx;
 			};
 			name = Release;
