@@ -33,6 +33,27 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a dependency manager that builds your dependencies and provides you with binary frameworks.
+
+To install Carthage with [Homebrew](http://brew.sh/) use the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+To integrate IrisKit into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "nmdias/IrisKit" ~> 1.1
+```
+Build the framework:
+
+```bash
+$ carthage update
+```
+Then, drag the built `IrisKit.framework` into your Xcode project.
 
 ## License
 
