@@ -11,6 +11,12 @@
 		A039780D1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */; };
 		A03978101CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780E1CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift */; };
 		A03978111CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780F1CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift */; };
+		A09C85011CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C85001CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift */; };
+		A09C85031CE9AE2300D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */; };
+		A09C85101CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C850F1CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift */; };
+		A09C85121CE9AE4F00D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* IrisKit.framework */; };
+		A09C851F1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C851E1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift */; };
+		A09C85211CE9AE6A00D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */; };
 		A0CA544F1CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0CA54501CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0CA54511CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
@@ -99,6 +105,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A09C85041CE9AE2300D20CAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0EF4D941CE867DF00C52142 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0EF4E0B1CE86D1E00C52142;
+			remoteInfo = "IrisKit iOS";
+		};
+		A09C85131CE9AE4F00D20CAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0EF4D941CE867DF00C52142 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0EF4DE71CE86C3800C52142;
+			remoteInfo = "IrisKit tvOS";
+		};
+		A09C85221CE9AE6A00D20CAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0EF4D941CE867DF00C52142 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0EF4DF91CE86CA200C52142;
+			remoteInfo = "IrisKit macOS";
+		};
 		A0EF4DED1CE86C3800C52142 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A0EF4D941CE867DF00C52142 /* Project object */;
@@ -163,6 +190,15 @@
 		A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedDetailTableViewController.swift; path = "View Controllers/FeedDetailTableViewController.swift"; sourceTree = "<group>"; };
 		A039780E1CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedTableViewController + ReusableCell.swift"; path = "Extensions/FeedTableViewController + ReusableCell.swift"; sourceTree = "<group>"; };
 		A039780F1CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedTableViewController + TableViewLayout.swift"; path = "Extensions/FeedTableViewController + TableViewLayout.swift"; sourceTree = "<group>"; };
+		A09C84FE1CE9AE2300D20CAB /* IrisKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C85001CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisKit_iOS_Tests.swift; sourceTree = "<group>"; };
+		A09C85021CE9AE2300D20CAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A09C850D1CE9AE4F00D20CAB /* IrisKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C850F1CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisKit_tvOS_Tests.swift; sourceTree = "<group>"; };
+		A09C85111CE9AE4F00D20CAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A09C851C1CE9AE6A00D20CAB /* IrisKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C851E1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisKit_macOS_Tests.swift; sourceTree = "<group>"; };
+		A09C85201CE9AE6A00D20CAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0CA543B1CE8A56700A951E3 /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomSyndication.swift; sourceTree = "<group>"; };
 		A0CA543E1CE8A56700A951E3 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
@@ -211,6 +247,30 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A09C84FB1CE9AE2300D20CAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09C85031CE9AE2300D20CAB /* IrisKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09C850A1CE9AE4F00D20CAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09C85121CE9AE4F00D20CAB /* IrisKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09C85191CE9AE6A00D20CAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09C85211CE9AE6A00D20CAB /* IrisKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A0EF4DA91CE869AD00C52142 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,6 +337,33 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		A09C84FF1CE9AE2300D20CAB /* IrisKit iOS Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A09C85001CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift */,
+				A09C85021CE9AE2300D20CAB /* Info.plist */,
+			);
+			path = "IrisKit iOS Tests";
+			sourceTree = "<group>";
+		};
+		A09C850E1CE9AE4F00D20CAB /* IrisKit tvOS Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A09C850F1CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift */,
+				A09C85111CE9AE4F00D20CAB /* Info.plist */,
+			);
+			path = "IrisKit tvOS Tests";
+			sourceTree = "<group>";
+		};
+		A09C851D1CE9AE6A00D20CAB /* IrisKit macOS Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A09C851E1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift */,
+				A09C85201CE9AE6A00D20CAB /* Info.plist */,
+			);
+			path = "IrisKit macOS Tests";
+			sourceTree = "<group>";
+		};
 		A0CA543A1CE8A56700A951E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +416,9 @@
 				A0EF4DAD1CE869AD00C52142 /* IrisKit Example iOS */,
 				A0EF4DC31CE86A0600C52142 /* IrisKit Example tvOS */,
 				A0EF4DD61CE86A7700C52142 /* IrisKit Example macOS */,
+				A09C84FF1CE9AE2300D20CAB /* IrisKit iOS Tests */,
+				A09C850E1CE9AE4F00D20CAB /* IrisKit tvOS Tests */,
+				A09C851D1CE9AE6A00D20CAB /* IrisKit macOS Tests */,
 				A0EF4DA01CE8689E00C52142 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -342,6 +432,9 @@
 				A0EF4DE81CE86C3800C52142 /* IrisKit.framework */,
 				A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */,
 				A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */,
+				A09C84FE1CE9AE2300D20CAB /* IrisKit iOS Tests.xctest */,
+				A09C850D1CE9AE4F00D20CAB /* IrisKit tvOS Tests.xctest */,
+				A09C851C1CE9AE6A00D20CAB /* IrisKit macOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -425,6 +518,60 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A09C84FD1CE9AE2300D20CAB /* IrisKit iOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "IrisKit iOS Tests" */;
+			buildPhases = (
+				A09C84FA1CE9AE2300D20CAB /* Sources */,
+				A09C84FB1CE9AE2300D20CAB /* Frameworks */,
+				A09C84FC1CE9AE2300D20CAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A09C85051CE9AE2300D20CAB /* PBXTargetDependency */,
+			);
+			name = "IrisKit iOS Tests";
+			productName = "IrisKit iOS Tests";
+			productReference = A09C84FE1CE9AE2300D20CAB /* IrisKit iOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A09C850C1CE9AE4F00D20CAB /* IrisKit tvOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit tvOS Tests" */;
+			buildPhases = (
+				A09C85091CE9AE4F00D20CAB /* Sources */,
+				A09C850A1CE9AE4F00D20CAB /* Frameworks */,
+				A09C850B1CE9AE4F00D20CAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A09C85141CE9AE4F00D20CAB /* PBXTargetDependency */,
+			);
+			name = "IrisKit tvOS Tests";
+			productName = "IrisKit tvOS Tests";
+			productReference = A09C850D1CE9AE4F00D20CAB /* IrisKit tvOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A09C851B1CE9AE6A00D20CAB /* IrisKit macOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit macOS Tests" */;
+			buildPhases = (
+				A09C85181CE9AE6A00D20CAB /* Sources */,
+				A09C85191CE9AE6A00D20CAB /* Frameworks */,
+				A09C851A1CE9AE6A00D20CAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A09C85231CE9AE6A00D20CAB /* PBXTargetDependency */,
+			);
+			name = "IrisKit macOS Tests";
+			productName = "IrisKit macOS Tests";
+			productReference = A09C851C1CE9AE6A00D20CAB /* IrisKit macOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A0EF4DAB1CE869AD00C52142 /* IrisKit Example iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "IrisKit Example iOS" */;
@@ -545,6 +692,15 @@
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				TargetAttributes = {
+					A09C84FD1CE9AE2300D20CAB = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					A09C850C1CE9AE4F00D20CAB = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					A09C851B1CE9AE6A00D20CAB = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					A0EF4DAB1CE869AD00C52142 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -584,11 +740,35 @@
 				A0EF4DAB1CE869AD00C52142 /* IrisKit Example iOS */,
 				A0EF4DC11CE86A0600C52142 /* IrisKit Example tvOS */,
 				A0EF4DD41CE86A7700C52142 /* IrisKit Example macOS */,
+				A09C84FD1CE9AE2300D20CAB /* IrisKit iOS Tests */,
+				A09C850C1CE9AE4F00D20CAB /* IrisKit tvOS Tests */,
+				A09C851B1CE9AE6A00D20CAB /* IrisKit macOS Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A09C84FC1CE9AE2300D20CAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09C850B1CE9AE4F00D20CAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09C851A1CE9AE6A00D20CAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A0EF4DAA1CE869AD00C52142 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -640,6 +820,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A09C84FA1CE9AE2300D20CAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09C85011CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09C85091CE9AE4F00D20CAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09C85101CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09C85181CE9AE6A00D20CAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09C851F1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A0EF4DA81CE869AD00C52142 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -759,6 +963,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A09C85051CE9AE2300D20CAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0EF4E0B1CE86D1E00C52142 /* IrisKit iOS */;
+			targetProxy = A09C85041CE9AE2300D20CAB /* PBXContainerItemProxy */;
+		};
+		A09C85141CE9AE4F00D20CAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0EF4DE71CE86C3800C52142 /* IrisKit tvOS */;
+			targetProxy = A09C85131CE9AE4F00D20CAB /* PBXContainerItemProxy */;
+		};
+		A09C85231CE9AE6A00D20CAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0EF4DF91CE86CA200C52142 /* IrisKit macOS */;
+			targetProxy = A09C85221CE9AE6A00D20CAB /* PBXContainerItemProxy */;
+		};
 		A0EF4DEE1CE86C3800C52142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A0EF4DE71CE86C3800C52142 /* IrisKit tvOS */;
@@ -804,6 +1023,278 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A09C85061CE9AE2300D20CAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "IrisKit iOS Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A09C85071CE9AE2300D20CAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "IrisKit iOS Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A09C85161CE9AE4F00D20CAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "IrisKit tvOS Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-tvOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		A09C85171CE9AE4F00D20CAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "IrisKit tvOS Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-tvOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A09C85251CE9AE6A00D20CAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "IrisKit macOS Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-macOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A09C85261CE9AE6A00D20CAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "IrisKit macOS Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-macOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		A0EF4D981CE867DF00C52142 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1449,6 +1940,30 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "IrisKit iOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A09C85061CE9AE2300D20CAB /* Debug */,
+				A09C85071CE9AE2300D20CAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit tvOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A09C85161CE9AE4F00D20CAB /* Debug */,
+				A09C85171CE9AE4F00D20CAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit macOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A09C85251CE9AE6A00D20CAB /* Debug */,
+				A09C85261CE9AE6A00D20CAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "IrisKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
