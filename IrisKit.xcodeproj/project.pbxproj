@@ -190,6 +190,9 @@
 		A09C84FE1CE9AE2300D20CAB /* IrisKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C850D1CE9AE4F00D20CAB /* IrisKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C851C1CE9AE6A00D20CAB /* IrisKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C85281CE9B0C300D20CAB /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		A09C85291CE9B0C300D20CAB /* Info-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
+		A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		A0CA543B1CE8A56700A951E3 /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomSyndication.swift; sourceTree = "<group>"; };
 		A0CA543E1CE8A56700A951E3 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
@@ -328,6 +331,16 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		A09C85271CE9B0C300D20CAB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A09C85281CE9B0C300D20CAB /* Info-iOS.plist */,
+				A09C85291CE9B0C300D20CAB /* Info-macOS.plist */,
+				A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		A0CA543A1CE8A56700A951E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				A0EF4E1A1CE86F4800C52142 /* Sources */,
+				A09C85271CE9B0C300D20CAB /* Tests */,
 				A0EF4DAD1CE869AD00C52142 /* IrisKit Example iOS */,
 				A0EF4DC31CE86A0600C52142 /* IrisKit Example tvOS */,
 				A0EF4DD61CE86A7700C52142 /* IrisKit Example macOS */,
