@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
-               BuildableName = "IrisKit.app"
+               BuildableName = "IrisKit Example iOS.app"
                BlueprintName = "IrisKit Example iOS"
                ReferencedContainer = "container:IrisKit.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
-            BuildableName = "IrisKit.app"
+            BuildableName = "IrisKit Example iOS.app"
             BlueprintName = "IrisKit Example iOS"
             ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
-            BuildableName = "IrisKit.app"
+            BuildableName = "IrisKit Example iOS.app"
             BlueprintName = "IrisKit Example iOS"
             ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
-            BuildableName = "IrisKit.app"
+            BuildableName = "IrisKit Example iOS.app"
             BlueprintName = "IrisKit Example iOS"
             ReferencedContainer = "container:IrisKit.xcodeproj">
          </BuildableReference>
