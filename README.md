@@ -6,6 +6,11 @@ An RSS/Atom feed parser
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/IrisKit.svg)](https://cocoapods.org/pods/IrisKit)
 [![Platform](https://img.shields.io/cocoapods/p/IrisKit.svg?style=flat)](http://cocoadocs.org/docsets/IrisKit)
 
+## Requirements
+
+- iOS 8.0+ / Mac OS X 10.9+ / tvOS 9.0+
+- Xcode 7.3+
+
 ## Installation
 
 ### CocoaPods
