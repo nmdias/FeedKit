@@ -11,11 +11,8 @@
 		A039780D1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */; };
 		A03978101CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780E1CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift */; };
 		A03978111CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780F1CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift */; };
-		A09C85011CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C85001CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift */; };
 		A09C85031CE9AE2300D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */; };
-		A09C85101CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C850F1CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift */; };
 		A09C85121CE9AE4F00D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* IrisKit.framework */; };
-		A09C851F1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C851E1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift */; };
 		A09C85211CE9AE6A00D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */; };
 		A0CA544F1CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0CA54501CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
@@ -191,14 +188,8 @@
 		A039780E1CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedTableViewController + ReusableCell.swift"; path = "Extensions/FeedTableViewController + ReusableCell.swift"; sourceTree = "<group>"; };
 		A039780F1CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedTableViewController + TableViewLayout.swift"; path = "Extensions/FeedTableViewController + TableViewLayout.swift"; sourceTree = "<group>"; };
 		A09C84FE1CE9AE2300D20CAB /* IrisKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A09C85001CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisKit_iOS_Tests.swift; sourceTree = "<group>"; };
-		A09C85021CE9AE2300D20CAB /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		A09C850D1CE9AE4F00D20CAB /* IrisKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A09C850F1CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisKit_tvOS_Tests.swift; sourceTree = "<group>"; };
-		A09C85111CE9AE4F00D20CAB /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		A09C851C1CE9AE6A00D20CAB /* IrisKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A09C851E1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisKit_macOS_Tests.swift; sourceTree = "<group>"; };
-		A09C85201CE9AE6A00D20CAB /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		A0CA543B1CE8A56700A951E3 /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomSyndication.swift; sourceTree = "<group>"; };
 		A0CA543E1CE8A56700A951E3 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
@@ -337,33 +328,6 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		A09C84FF1CE9AE2300D20CAB /* IrisKit iOS Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A09C85001CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift */,
-				A09C85021CE9AE2300D20CAB /* Info-iOS.plist */,
-			);
-			path = "IrisKit iOS Tests";
-			sourceTree = "<group>";
-		};
-		A09C850E1CE9AE4F00D20CAB /* IrisKit tvOS Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A09C850F1CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift */,
-				A09C85111CE9AE4F00D20CAB /* Info-tvOS.plist */,
-			);
-			path = "IrisKit tvOS Tests";
-			sourceTree = "<group>";
-		};
-		A09C851D1CE9AE6A00D20CAB /* IrisKit macOS Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A09C851E1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift */,
-				A09C85201CE9AE6A00D20CAB /* Info-macOS.plist */,
-			);
-			path = "IrisKit macOS Tests";
-			sourceTree = "<group>";
-		};
 		A0CA543A1CE8A56700A951E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,9 +380,6 @@
 				A0EF4DAD1CE869AD00C52142 /* IrisKit Example iOS */,
 				A0EF4DC31CE86A0600C52142 /* IrisKit Example tvOS */,
 				A0EF4DD61CE86A7700C52142 /* IrisKit Example macOS */,
-				A09C84FF1CE9AE2300D20CAB /* IrisKit iOS Tests */,
-				A09C850E1CE9AE4F00D20CAB /* IrisKit tvOS Tests */,
-				A09C851D1CE9AE6A00D20CAB /* IrisKit macOS Tests */,
 				A0EF4DA01CE8689E00C52142 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -824,7 +785,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C85011CE9AE2300D20CAB /* IrisKit_iOS_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,7 +792,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C85101CE9AE4F00D20CAB /* IrisKit_tvOS_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,7 +799,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C851F1CE9AE6A00D20CAB /* IrisKit_macOS_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
