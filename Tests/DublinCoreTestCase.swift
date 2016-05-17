@@ -11,7 +11,7 @@ import IrisKit
 
 class DublinCoreTestCase: BaseTestCase {
     
-    func testDublinCoreModel() {
+    func testDublinCore() {
         
         // Given
         let URL = fileURL("DC", type: "xml")
