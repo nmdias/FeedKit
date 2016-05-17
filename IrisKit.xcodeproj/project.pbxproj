@@ -215,6 +215,10 @@
 		A0CA54891CE8A89C00A951E3 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Core/Parser.swift; sourceTree = "<group>"; };
 		A0CA548E1CE8AA7900A951E3 /* Mappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mappers.swift; path = Sources/Core/Mappers.swift; sourceTree = "<group>"; };
 		A0CA54921CE8AAB800A951E3 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Debug.swift; path = Sources/Core/Debug.swift; sourceTree = "<group>"; };
+		A0D20C2D1CEAFB1200B4509D /* Content.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Content.xml; path = xml/Content.xml; sourceTree = "<group>"; };
+		A0D20C2E1CEAFB1200B4509D /* DC.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = DC.xml; path = xml/DC.xml; sourceTree = "<group>"; };
+		A0D20C2F1CEAFB1200B4509D /* RSS2.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = RSS2.xml; path = xml/RSS2.xml; sourceTree = "<group>"; };
+		A0D20C301CEAFB1200B4509D /* Syndication.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Syndication.xml; path = xml/Syndication.xml; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* IrisKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IrisKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -334,6 +338,7 @@
 		A09C85271CE9B0C300D20CAB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A0D20C2C1CEAFACB00B4509D /* xml */,
 				A09C85281CE9B0C300D20CAB /* Info-iOS.plist */,
 				A09C85291CE9B0C300D20CAB /* Info-macOS.plist */,
 				A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */,
@@ -384,6 +389,17 @@
 				A0CA54921CE8AAB800A951E3 /* Debug.swift */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		A0D20C2C1CEAFACB00B4509D /* xml */ = {
+			isa = PBXGroup;
+			children = (
+				A0D20C2D1CEAFB1200B4509D /* Content.xml */,
+				A0D20C2E1CEAFB1200B4509D /* DC.xml */,
+				A0D20C2F1CEAFB1200B4509D /* RSS2.xml */,
+				A0D20C301CEAFB1200B4509D /* Syndication.xml */,
+			);
+			name = xml;
 			sourceTree = "<group>";
 		};
 		A0EF4D931CE867DF00C52142 = {
@@ -1919,6 +1935,7 @@
 				A09C85071CE9AE2300D20CAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit tvOS Tests" */ = {
 			isa = XCConfigurationList;
@@ -1927,6 +1944,7 @@
 				A09C85171CE9AE4F00D20CAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit macOS Tests" */ = {
 			isa = XCConfigurationList;
@@ -1935,6 +1953,7 @@
 				A09C85261CE9AE6A00D20CAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "IrisKit" */ = {
 			isa = XCConfigurationList;
