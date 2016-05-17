@@ -14,6 +14,9 @@
 		A05C1F171CEBB47D0092D70E /* SyndicationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTestCase.swift */; };
 		A05C1F181CEBB47D0092D70E /* SyndicationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTestCase.swift */; };
 		A05C1F191CEBB47D0092D70E /* SyndicationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTestCase.swift */; };
+		A05C1F1B1CEBB58A0092D70E /* ContentTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F1A1CEBB58A0092D70E /* ContentTestCase.swift */; };
+		A05C1F1C1CEBB58A0092D70E /* ContentTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F1A1CEBB58A0092D70E /* ContentTestCase.swift */; };
+		A05C1F1D1CEBB58A0092D70E /* ContentTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F1A1CEBB58A0092D70E /* ContentTestCase.swift */; };
 		A09C85031CE9AE2300D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */; };
 		A09C85121CE9AE4F00D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* IrisKit.framework */; };
 		A09C85211CE9AE6A00D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */; };
@@ -209,6 +212,7 @@
 		A039780E1CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedTableViewController + ReusableCell.swift"; path = "Extensions/FeedTableViewController + ReusableCell.swift"; sourceTree = "<group>"; };
 		A039780F1CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedTableViewController + TableViewLayout.swift"; path = "Extensions/FeedTableViewController + TableViewLayout.swift"; sourceTree = "<group>"; };
 		A05C1F161CEBB47D0092D70E /* SyndicationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationTestCase.swift; sourceTree = "<group>"; };
+		A05C1F1A1CEBB58A0092D70E /* ContentTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTestCase.swift; sourceTree = "<group>"; };
 		A09C84FE1CE9AE2300D20CAB /* IrisKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C850D1CE9AE4F00D20CAB /* IrisKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C851C1CE9AE6A00D20CAB /* IrisKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +373,7 @@
 				A0D20C351CEB007100B4509D /* BaseTestCase.swift */,
 				A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */,
 				A05C1F161CEBB47D0092D70E /* SyndicationTestCase.swift */,
+				A05C1F1A1CEBB58A0092D70E /* ContentTestCase.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -857,6 +862,7 @@
 				A0D20C3A1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */,
 				A05C1F171CEBB47D0092D70E /* SyndicationTestCase.swift in Sources */,
 				A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */,
+				A05C1F1B1CEBB58A0092D70E /* ContentTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,6 +873,7 @@
 				A0D20C3B1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */,
 				A05C1F181CEBB47D0092D70E /* SyndicationTestCase.swift in Sources */,
 				A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */,
+				A05C1F1C1CEBB58A0092D70E /* ContentTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,6 +884,7 @@
 				A0D20C3C1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */,
 				A05C1F191CEBB47D0092D70E /* SyndicationTestCase.swift in Sources */,
 				A0D20C381CEB007100B4509D /* BaseTestCase.swift in Sources */,
+				A05C1F1D1CEBB58A0092D70E /* ContentTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
