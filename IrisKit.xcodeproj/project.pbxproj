@@ -83,6 +83,21 @@
 		A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C351CEB007100B4509D /* BaseTestCase.swift */; };
 		A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C351CEB007100B4509D /* BaseTestCase.swift */; };
 		A0D20C381CEB007100B4509D /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C351CEB007100B4509D /* BaseTestCase.swift */; };
+		A0D20C3A1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */; };
+		A0D20C3B1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */; };
+		A0D20C3C1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */; };
+		A0D20C3D1CEB032700B4509D /* Content.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2D1CEAFB1200B4509D /* Content.xml */; };
+		A0D20C3E1CEB032700B4509D /* DC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2E1CEAFB1200B4509D /* DC.xml */; };
+		A0D20C3F1CEB032700B4509D /* RSS2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2F1CEAFB1200B4509D /* RSS2.xml */; };
+		A0D20C401CEB032700B4509D /* Syndication.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C301CEAFB1200B4509D /* Syndication.xml */; };
+		A0D20C411CEB032800B4509D /* Content.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2D1CEAFB1200B4509D /* Content.xml */; };
+		A0D20C421CEB032800B4509D /* DC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2E1CEAFB1200B4509D /* DC.xml */; };
+		A0D20C431CEB032800B4509D /* RSS2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2F1CEAFB1200B4509D /* RSS2.xml */; };
+		A0D20C441CEB032800B4509D /* Syndication.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C301CEAFB1200B4509D /* Syndication.xml */; };
+		A0D20C451CEB032900B4509D /* Content.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2D1CEAFB1200B4509D /* Content.xml */; };
+		A0D20C461CEB032900B4509D /* DC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2E1CEAFB1200B4509D /* DC.xml */; };
+		A0D20C471CEB032900B4509D /* RSS2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2F1CEAFB1200B4509D /* RSS2.xml */; };
+		A0D20C481CEB032900B4509D /* Syndication.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C301CEAFB1200B4509D /* Syndication.xml */; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB61CE869AE00C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB51CE869AE00C52142 /* Assets.xcassets */; };
 		A0EF4DB91CE869AE00C52142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB71CE869AE00C52142 /* LaunchScreen.storyboard */; };
@@ -223,6 +238,7 @@
 		A0D20C2F1CEAFB1200B4509D /* RSS2.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = RSS2.xml; path = xml/RSS2.xml; sourceTree = "<group>"; };
 		A0D20C301CEAFB1200B4509D /* Syndication.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Syndication.xml; path = xml/Syndication.xml; sourceTree = "<group>"; };
 		A0D20C351CEB007100B4509D /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
+		A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCoreTestCase.swift; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* IrisKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IrisKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -347,6 +363,7 @@
 				A09C85291CE9B0C300D20CAB /* Info-macOS.plist */,
 				A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */,
 				A0D20C351CEB007100B4509D /* BaseTestCase.swift */,
+				A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -748,6 +765,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C3E1CEB032700B4509D /* DC.xml in Resources */,
+				A0D20C3F1CEB032700B4509D /* RSS2.xml in Resources */,
+				A0D20C3D1CEB032700B4509D /* Content.xml in Resources */,
+				A0D20C401CEB032700B4509D /* Syndication.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +776,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C421CEB032800B4509D /* DC.xml in Resources */,
+				A0D20C431CEB032800B4509D /* RSS2.xml in Resources */,
+				A0D20C411CEB032800B4509D /* Content.xml in Resources */,
+				A0D20C441CEB032800B4509D /* Syndication.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +787,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C461CEB032900B4509D /* DC.xml in Resources */,
+				A0D20C471CEB032900B4509D /* RSS2.xml in Resources */,
+				A0D20C451CEB032900B4509D /* Content.xml in Resources */,
+				A0D20C481CEB032900B4509D /* Syndication.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +849,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C3A1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */,
 				A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,6 +858,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C3B1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */,
 				A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -836,6 +867,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C3C1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */,
 				A0D20C381CEB007100B4509D /* BaseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
