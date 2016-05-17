@@ -1,5 +1,5 @@
 //
-//  DublinCoreTestCase.swift
+//  ContentTestCase.swift
 //  IrisKit
 //
 //  Created by Nuno Dias on 17/05/16.
@@ -9,18 +9,18 @@
 import XCTest
 import IrisKit
 
-class DublinCoreTestCase: BaseTestCase {
+class ContentTestCase: BaseTestCase {
     
-    func testDublinCore() {
+    func testContent() {
         
         // Given
-        let URL = fileURL("DC", type: "xml")
+        let URL = fileURL("Content", type: "xml")
         let parser = IrisFeedParser(URL: URL)
         
         // When
         parser.parse { (feed) in
             
-            //Then
+            // Then
             guard let channel = feed?.channel else {
                 assert(false)
             }
