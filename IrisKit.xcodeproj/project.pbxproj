@@ -80,6 +80,24 @@
 		A0CA54931CE8AAB800A951E3 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54921CE8AAB800A951E3 /* Debug.swift */; };
 		A0CA54941CE8AAB800A951E3 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54921CE8AAB800A951E3 /* Debug.swift */; };
 		A0CA54951CE8AAB800A951E3 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54921CE8AAB800A951E3 /* Debug.swift */; };
+		A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C351CEB007100B4509D /* BaseTestCase.swift */; };
+		A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C351CEB007100B4509D /* BaseTestCase.swift */; };
+		A0D20C381CEB007100B4509D /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C351CEB007100B4509D /* BaseTestCase.swift */; };
+		A0D20C3A1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */; };
+		A0D20C3B1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */; };
+		A0D20C3C1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */; };
+		A0D20C3D1CEB032700B4509D /* Content.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2D1CEAFB1200B4509D /* Content.xml */; };
+		A0D20C3E1CEB032700B4509D /* DC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2E1CEAFB1200B4509D /* DC.xml */; };
+		A0D20C3F1CEB032700B4509D /* RSS2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2F1CEAFB1200B4509D /* RSS2.xml */; };
+		A0D20C401CEB032700B4509D /* Syndication.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C301CEAFB1200B4509D /* Syndication.xml */; };
+		A0D20C411CEB032800B4509D /* Content.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2D1CEAFB1200B4509D /* Content.xml */; };
+		A0D20C421CEB032800B4509D /* DC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2E1CEAFB1200B4509D /* DC.xml */; };
+		A0D20C431CEB032800B4509D /* RSS2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2F1CEAFB1200B4509D /* RSS2.xml */; };
+		A0D20C441CEB032800B4509D /* Syndication.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C301CEAFB1200B4509D /* Syndication.xml */; };
+		A0D20C451CEB032900B4509D /* Content.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2D1CEAFB1200B4509D /* Content.xml */; };
+		A0D20C461CEB032900B4509D /* DC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2E1CEAFB1200B4509D /* DC.xml */; };
+		A0D20C471CEB032900B4509D /* RSS2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C2F1CEAFB1200B4509D /* RSS2.xml */; };
+		A0D20C481CEB032900B4509D /* Syndication.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0D20C301CEAFB1200B4509D /* Syndication.xml */; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB61CE869AE00C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB51CE869AE00C52142 /* Assets.xcassets */; };
 		A0EF4DB91CE869AE00C52142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB71CE869AE00C52142 /* LaunchScreen.storyboard */; };
@@ -215,6 +233,12 @@
 		A0CA54891CE8A89C00A951E3 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Core/Parser.swift; sourceTree = "<group>"; };
 		A0CA548E1CE8AA7900A951E3 /* Mappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mappers.swift; path = Sources/Core/Mappers.swift; sourceTree = "<group>"; };
 		A0CA54921CE8AAB800A951E3 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Debug.swift; path = Sources/Core/Debug.swift; sourceTree = "<group>"; };
+		A0D20C2D1CEAFB1200B4509D /* Content.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Content.xml; path = xml/Content.xml; sourceTree = "<group>"; };
+		A0D20C2E1CEAFB1200B4509D /* DC.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = DC.xml; path = xml/DC.xml; sourceTree = "<group>"; };
+		A0D20C2F1CEAFB1200B4509D /* RSS2.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = RSS2.xml; path = xml/RSS2.xml; sourceTree = "<group>"; };
+		A0D20C301CEAFB1200B4509D /* Syndication.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Syndication.xml; path = xml/Syndication.xml; sourceTree = "<group>"; };
+		A0D20C351CEB007100B4509D /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
+		A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCoreTestCase.swift; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* IrisKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IrisKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -334,9 +358,12 @@
 		A09C85271CE9B0C300D20CAB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A0D20C2C1CEAFACB00B4509D /* xml */,
 				A09C85281CE9B0C300D20CAB /* Info-iOS.plist */,
 				A09C85291CE9B0C300D20CAB /* Info-macOS.plist */,
 				A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */,
+				A0D20C351CEB007100B4509D /* BaseTestCase.swift */,
+				A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -384,6 +411,17 @@
 				A0CA54921CE8AAB800A951E3 /* Debug.swift */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		A0D20C2C1CEAFACB00B4509D /* xml */ = {
+			isa = PBXGroup;
+			children = (
+				A0D20C2D1CEAFB1200B4509D /* Content.xml */,
+				A0D20C2E1CEAFB1200B4509D /* DC.xml */,
+				A0D20C2F1CEAFB1200B4509D /* RSS2.xml */,
+				A0D20C301CEAFB1200B4509D /* Syndication.xml */,
+			);
+			name = xml;
 			sourceTree = "<group>";
 		};
 		A0EF4D931CE867DF00C52142 = {
@@ -727,6 +765,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C3E1CEB032700B4509D /* DC.xml in Resources */,
+				A0D20C3F1CEB032700B4509D /* RSS2.xml in Resources */,
+				A0D20C3D1CEB032700B4509D /* Content.xml in Resources */,
+				A0D20C401CEB032700B4509D /* Syndication.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,6 +776,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C421CEB032800B4509D /* DC.xml in Resources */,
+				A0D20C431CEB032800B4509D /* RSS2.xml in Resources */,
+				A0D20C411CEB032800B4509D /* Content.xml in Resources */,
+				A0D20C441CEB032800B4509D /* Syndication.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +787,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C461CEB032900B4509D /* DC.xml in Resources */,
+				A0D20C471CEB032900B4509D /* RSS2.xml in Resources */,
+				A0D20C451CEB032900B4509D /* Content.xml in Resources */,
+				A0D20C481CEB032900B4509D /* Syndication.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,6 +849,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C3A1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */,
+				A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +858,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C3B1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */,
+				A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +867,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D20C3C1CEB01E400B4509D /* DublinCoreTestCase.swift in Sources */,
+				A0D20C381CEB007100B4509D /* BaseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,7 +1088,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "IrisKit iOS Tests/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1075,7 +1131,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "IrisKit iOS Tests/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1122,7 +1178,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "IrisKit tvOS Tests/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1164,7 +1220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "IrisKit tvOS Tests/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-tvOS-Tests";
@@ -1213,7 +1269,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "IrisKit macOS Tests/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1257,7 +1313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "IrisKit macOS Tests/Info.plist";
+				INFOPLIST_FILE = "Tests/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1919,6 +1975,7 @@
 				A09C85071CE9AE2300D20CAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit tvOS Tests" */ = {
 			isa = XCConfigurationList;
@@ -1927,6 +1984,7 @@
 				A09C85171CE9AE4F00D20CAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit macOS Tests" */ = {
 			isa = XCConfigurationList;
@@ -1935,6 +1993,7 @@
 				A09C85261CE9AE6A00D20CAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "IrisKit" */ = {
 			isa = XCConfigurationList;
