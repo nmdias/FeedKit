@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import IrisKit
+import FeedParser
 
 class SyndicationTestCase: BaseTestCase {
     
