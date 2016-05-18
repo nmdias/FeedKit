@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
-               BuildableName = "FeedParser.app"
+               BuildableName = "FeedParser Example macOS.app"
                BlueprintName = "FeedParser Example macOS"
                ReferencedContainer = "container:FeedParser.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
-            BuildableName = "FeedParser.app"
+            BuildableName = "FeedParser Example macOS.app"
             BlueprintName = "FeedParser Example macOS"
             ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
-            BuildableName = "FeedParser.app"
+            BuildableName = "FeedParser Example macOS.app"
             BlueprintName = "FeedParser Example macOS"
             ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
-            BuildableName = "FeedParser.app"
+            BuildableName = "FeedParser Example macOS.app"
             BlueprintName = "FeedParser Example macOS"
             ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
