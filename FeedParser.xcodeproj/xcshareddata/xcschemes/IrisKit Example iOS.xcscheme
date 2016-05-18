@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
-               BuildableName = "IrisKit Example iOS.app"
-               BlueprintName = "IrisKit Example iOS"
-               ReferencedContainer = "container:IrisKit.xcodeproj">
+               BuildableName = "FeedParser.app"
+               BlueprintName = "FeedParser Example iOS"
+               ReferencedContainer = "container:FeedParser.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
-            BuildableName = "IrisKit Example iOS.app"
-            BlueprintName = "IrisKit Example iOS"
-            ReferencedContainer = "container:IrisKit.xcodeproj">
+            BuildableName = "FeedParser.app"
+            BlueprintName = "FeedParser Example iOS"
+            ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
-            BuildableName = "IrisKit Example iOS.app"
-            BlueprintName = "IrisKit Example iOS"
-            ReferencedContainer = "container:IrisKit.xcodeproj">
+            BuildableName = "FeedParser.app"
+            BlueprintName = "FeedParser Example iOS"
+            ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DAB1CE869AD00C52142"
-            BuildableName = "IrisKit Example iOS.app"
-            BlueprintName = "IrisKit Example iOS"
-            ReferencedContainer = "container:IrisKit.xcodeproj">
+            BuildableName = "FeedParser.app"
+            BlueprintName = "FeedParser Example iOS"
+            ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

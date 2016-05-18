@@ -20,9 +20,9 @@
 		A05C1F1F1CEBB6080092D70E /* FeedTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F1E1CEBB6080092D70E /* FeedTestCase.swift */; };
 		A05C1F201CEBB6080092D70E /* FeedTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F1E1CEBB6080092D70E /* FeedTestCase.swift */; };
 		A05C1F211CEBB6080092D70E /* FeedTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F1E1CEBB6080092D70E /* FeedTestCase.swift */; };
-		A09C85031CE9AE2300D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */; };
-		A09C85121CE9AE4F00D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* IrisKit.framework */; };
-		A09C85211CE9AE6A00D20CAB /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */; };
+		A09C85031CE9AE2300D20CAB /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */; };
+		A09C85121CE9AE4F00D20CAB /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedParser.framework */; };
+		A09C85211CE9AE6A00D20CAB /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */; };
 		A0CA544F1CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0CA54501CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0CA54511CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
@@ -117,12 +117,12 @@
 		A0EF4DD81CE86A7700C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */; };
 		A0EF4DDA1CE86A7700C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DD91CE86A7700C52142 /* Assets.xcassets */; };
 		A0EF4DDD1CE86A7700C52142 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DDB1CE86A7700C52142 /* MainMenu.xib */; };
-		A0EF4DEF1CE86C3800C52142 /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* IrisKit.framework */; };
-		A0EF4DF01CE86C3800C52142 /* IrisKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* IrisKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0EF4E011CE86CA200C52142 /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */; };
-		A0EF4E021CE86CA200C52142 /* IrisKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0EF4E131CE86D1E00C52142 /* IrisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */; };
-		A0EF4E141CE86D1E00C52142 /* IrisKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0EF4DEF1CE86C3800C52142 /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedParser.framework */; };
+		A0EF4DF01CE86C3800C52142 /* FeedParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0EF4E011CE86CA200C52142 /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */; };
+		A0EF4E021CE86CA200C52142 /* FeedParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0EF4E131CE86D1E00C52142 /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */; };
+		A0EF4E141CE86D1E00C52142 /* FeedParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0EF4E1C1CE86F6100C52142 /* IrisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* IrisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4E1D1CE86F6100C52142 /* IrisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* IrisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4E1E1CE86F6100C52142 /* IrisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* IrisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -180,7 +180,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A0EF4DF01CE86C3800C52142 /* IrisKit.framework in Embed Frameworks */,
+				A0EF4DF01CE86C3800C52142 /* FeedParser.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,7 +191,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A0EF4E021CE86CA200C52142 /* IrisKit.framework in Embed Frameworks */,
+				A0EF4E021CE86CA200C52142 /* FeedParser.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +202,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A0EF4E141CE86D1E00C52142 /* IrisKit.framework in Embed Frameworks */,
+				A0EF4E141CE86D1E00C52142 /* FeedParser.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,9 +217,9 @@
 		A05C1F161CEBB47D0092D70E /* SyndicationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationTestCase.swift; sourceTree = "<group>"; };
 		A05C1F1A1CEBB58A0092D70E /* ContentTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTestCase.swift; sourceTree = "<group>"; };
 		A05C1F1E1CEBB6080092D70E /* FeedTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTestCase.swift; sourceTree = "<group>"; };
-		A09C84FE1CE9AE2300D20CAB /* IrisKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A09C850D1CE9AE4F00D20CAB /* IrisKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A09C851C1CE9AE6A00D20CAB /* IrisKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IrisKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C84FE1CE9AE2300D20CAB /* FeedParser.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedParser.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C850D1CE9AE4F00D20CAB /* FeedParser.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedParser.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C851C1CE9AE6A00D20CAB /* FeedParser.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedParser.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C85281CE9B0C300D20CAB /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		A09C85291CE9B0C300D20CAB /* Info-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
@@ -251,25 +251,25 @@
 		A0D20C301CEAFB1200B4509D /* Syndication.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Syndication.xml; path = xml/Syndication.xml; sourceTree = "<group>"; };
 		A0D20C351CEB007100B4509D /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		A0D20C391CEB01E400B4509D /* DublinCoreTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCoreTestCase.swift; sourceTree = "<group>"; };
-		A0EF4DAC1CE869AD00C52142 /* IrisKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IrisKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DAC1CE869AD00C52142 /* FeedParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DB81CE869AE00C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0EF4DBA1CE869AE00C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EF4DC21CE86A0600C52142 /* IrisKit Example tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IrisKit Example tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DC21CE86A0600C52142 /* FeedParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DC41CE86A0600C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DC61CE86A0600C52142 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0EF4DC91CE86A0600C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DCD1CE86A0600C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EF4DD51CE86A7700C52142 /* IrisKit Example macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IrisKit Example macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DD51CE86A7700C52142 /* FeedParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DD91CE86A7700C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DDC1CE86A7700C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A0EF4DDE1CE86A7700C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EF4DE81CE86C3800C52142 /* IrisKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IrisKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IrisKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IrisKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DE81CE86C3800C52142 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4E1B1CE86F6100C52142 /* IrisKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IrisKit.h; path = Sources/IrisKit.h; sourceTree = "<group>"; };
 		A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = "<group>"; };
 		A0EF4E201CE86F6E00C52142 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-macOS.plist"; path = "Sources/Info-macOS.plist"; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C85031CE9AE2300D20CAB /* IrisKit.framework in Frameworks */,
+				A09C85031CE9AE2300D20CAB /* FeedParser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C85121CE9AE4F00D20CAB /* IrisKit.framework in Frameworks */,
+				A09C85121CE9AE4F00D20CAB /* FeedParser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +297,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C85211CE9AE6A00D20CAB /* IrisKit.framework in Frameworks */,
+				A09C85211CE9AE6A00D20CAB /* FeedParser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E131CE86D1E00C52142 /* IrisKit.framework in Frameworks */,
+				A0EF4E131CE86D1E00C52142 /* FeedParser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +313,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4DEF1CE86C3800C52142 /* IrisKit.framework in Frameworks */,
+				A0EF4DEF1CE86C3800C52142 /* FeedParser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +321,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E011CE86CA200C52142 /* IrisKit.framework in Frameworks */,
+				A0EF4E011CE86CA200C52142 /* FeedParser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,15 +454,15 @@
 		A0EF4DA01CE8689E00C52142 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0EF4DAC1CE869AD00C52142 /* IrisKit Example iOS.app */,
-				A0EF4DC21CE86A0600C52142 /* IrisKit Example tvOS.app */,
-				A0EF4DD51CE86A7700C52142 /* IrisKit Example macOS.app */,
-				A0EF4DE81CE86C3800C52142 /* IrisKit.framework */,
-				A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */,
-				A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */,
-				A09C84FE1CE9AE2300D20CAB /* IrisKit iOS Tests.xctest */,
-				A09C850D1CE9AE4F00D20CAB /* IrisKit tvOS Tests.xctest */,
-				A09C851C1CE9AE6A00D20CAB /* IrisKit macOS Tests.xctest */,
+				A0EF4DAC1CE869AD00C52142 /* FeedParser.app */,
+				A0EF4DC21CE86A0600C52142 /* FeedParser.app */,
+				A0EF4DD51CE86A7700C52142 /* FeedParser.app */,
+				A0EF4DE81CE86C3800C52142 /* FeedParser.framework */,
+				A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */,
+				A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */,
+				A09C84FE1CE9AE2300D20CAB /* FeedParser.xctest */,
+				A09C850D1CE9AE4F00D20CAB /* FeedParser.xctest */,
+				A09C851C1CE9AE6A00D20CAB /* FeedParser.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -546,9 +546,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A09C84FD1CE9AE2300D20CAB /* IrisKit iOS Tests */ = {
+		A09C84FD1CE9AE2300D20CAB /* FeedParser iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "IrisKit iOS Tests" */;
+			buildConfigurationList = A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "FeedParser iOS Tests" */;
 			buildPhases = (
 				A09C84FA1CE9AE2300D20CAB /* Sources */,
 				A09C84FB1CE9AE2300D20CAB /* Frameworks */,
@@ -559,14 +559,14 @@
 			dependencies = (
 				A09C85051CE9AE2300D20CAB /* PBXTargetDependency */,
 			);
-			name = "IrisKit iOS Tests";
+			name = "FeedParser iOS Tests";
 			productName = "IrisKit iOS Tests";
-			productReference = A09C84FE1CE9AE2300D20CAB /* IrisKit iOS Tests.xctest */;
+			productReference = A09C84FE1CE9AE2300D20CAB /* FeedParser.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A09C850C1CE9AE4F00D20CAB /* IrisKit tvOS Tests */ = {
+		A09C850C1CE9AE4F00D20CAB /* FeedParser tvOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit tvOS Tests" */;
+			buildConfigurationList = A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "FeedParser tvOS Tests" */;
 			buildPhases = (
 				A09C85091CE9AE4F00D20CAB /* Sources */,
 				A09C850A1CE9AE4F00D20CAB /* Frameworks */,
@@ -577,14 +577,14 @@
 			dependencies = (
 				A09C85141CE9AE4F00D20CAB /* PBXTargetDependency */,
 			);
-			name = "IrisKit tvOS Tests";
+			name = "FeedParser tvOS Tests";
 			productName = "IrisKit tvOS Tests";
-			productReference = A09C850D1CE9AE4F00D20CAB /* IrisKit tvOS Tests.xctest */;
+			productReference = A09C850D1CE9AE4F00D20CAB /* FeedParser.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A09C851B1CE9AE6A00D20CAB /* IrisKit macOS Tests */ = {
+		A09C851B1CE9AE6A00D20CAB /* FeedParser macOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit macOS Tests" */;
+			buildConfigurationList = A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "FeedParser macOS Tests" */;
 			buildPhases = (
 				A09C85181CE9AE6A00D20CAB /* Sources */,
 				A09C85191CE9AE6A00D20CAB /* Frameworks */,
@@ -595,14 +595,14 @@
 			dependencies = (
 				A09C85231CE9AE6A00D20CAB /* PBXTargetDependency */,
 			);
-			name = "IrisKit macOS Tests";
+			name = "FeedParser macOS Tests";
 			productName = "IrisKit macOS Tests";
-			productReference = A09C851C1CE9AE6A00D20CAB /* IrisKit macOS Tests.xctest */;
+			productReference = A09C851C1CE9AE6A00D20CAB /* FeedParser.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A0EF4DAB1CE869AD00C52142 /* IrisKit Example iOS */ = {
+		A0EF4DAB1CE869AD00C52142 /* FeedParser Example iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "IrisKit Example iOS" */;
+			buildConfigurationList = A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example iOS" */;
 			buildPhases = (
 				A0EF4DA81CE869AD00C52142 /* Sources */,
 				A0EF4DA91CE869AD00C52142 /* Frameworks */,
@@ -614,14 +614,14 @@
 			dependencies = (
 				A0EF4E121CE86D1E00C52142 /* PBXTargetDependency */,
 			);
-			name = "IrisKit Example iOS";
+			name = "FeedParser Example iOS";
 			productName = "Iris Example iOS";
-			productReference = A0EF4DAC1CE869AD00C52142 /* IrisKit Example iOS.app */;
+			productReference = A0EF4DAC1CE869AD00C52142 /* FeedParser.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A0EF4DC11CE86A0600C52142 /* IrisKit Example tvOS */ = {
+		A0EF4DC11CE86A0600C52142 /* FeedParser Example tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "IrisKit Example tvOS" */;
+			buildConfigurationList = A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example tvOS" */;
 			buildPhases = (
 				A0EF4DBE1CE86A0600C52142 /* Sources */,
 				A0EF4DBF1CE86A0600C52142 /* Frameworks */,
@@ -633,14 +633,14 @@
 			dependencies = (
 				A0EF4DEE1CE86C3800C52142 /* PBXTargetDependency */,
 			);
-			name = "IrisKit Example tvOS";
+			name = "FeedParser Example tvOS";
 			productName = "Iris Example tvOS";
-			productReference = A0EF4DC21CE86A0600C52142 /* IrisKit Example tvOS.app */;
+			productReference = A0EF4DC21CE86A0600C52142 /* FeedParser.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A0EF4DD41CE86A7700C52142 /* IrisKit Example macOS */ = {
+		A0EF4DD41CE86A7700C52142 /* FeedParser Example macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "IrisKit Example macOS" */;
+			buildConfigurationList = A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example macOS" */;
 			buildPhases = (
 				A0EF4DD11CE86A7700C52142 /* Sources */,
 				A0EF4DD21CE86A7700C52142 /* Frameworks */,
@@ -652,14 +652,14 @@
 			dependencies = (
 				A0EF4E001CE86CA200C52142 /* PBXTargetDependency */,
 			);
-			name = "IrisKit Example macOS";
+			name = "FeedParser Example macOS";
 			productName = "Iris Example macOS";
-			productReference = A0EF4DD51CE86A7700C52142 /* IrisKit Example macOS.app */;
+			productReference = A0EF4DD51CE86A7700C52142 /* FeedParser.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A0EF4DE71CE86C3800C52142 /* IrisKit tvOS */ = {
+		A0EF4DE71CE86C3800C52142 /* FeedParser tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4DF11CE86C3800C52142 /* Build configuration list for PBXNativeTarget "IrisKit tvOS" */;
+			buildConfigurationList = A0EF4DF11CE86C3800C52142 /* Build configuration list for PBXNativeTarget "FeedParser tvOS" */;
 			buildPhases = (
 				A0EF4DE31CE86C3800C52142 /* Sources */,
 				A0EF4DE41CE86C3800C52142 /* Frameworks */,
@@ -670,14 +670,14 @@
 			);
 			dependencies = (
 			);
-			name = "IrisKit tvOS";
+			name = "FeedParser tvOS";
 			productName = "Iris tvOS";
-			productReference = A0EF4DE81CE86C3800C52142 /* IrisKit.framework */;
+			productReference = A0EF4DE81CE86C3800C52142 /* FeedParser.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A0EF4DF91CE86CA200C52142 /* IrisKit macOS */ = {
+		A0EF4DF91CE86CA200C52142 /* FeedParser macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4E031CE86CA200C52142 /* Build configuration list for PBXNativeTarget "IrisKit macOS" */;
+			buildConfigurationList = A0EF4E031CE86CA200C52142 /* Build configuration list for PBXNativeTarget "FeedParser macOS" */;
 			buildPhases = (
 				A0EF4DF51CE86CA200C52142 /* Sources */,
 				A0EF4DF61CE86CA200C52142 /* Frameworks */,
@@ -688,14 +688,14 @@
 			);
 			dependencies = (
 			);
-			name = "IrisKit macOS";
+			name = "FeedParser macOS";
 			productName = "Iris macOS";
-			productReference = A0EF4DFA1CE86CA200C52142 /* IrisKit.framework */;
+			productReference = A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A0EF4E0B1CE86D1E00C52142 /* IrisKit iOS */ = {
+		A0EF4E0B1CE86D1E00C52142 /* FeedParser iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "IrisKit iOS" */;
+			buildConfigurationList = A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "FeedParser iOS" */;
 			buildPhases = (
 				A0EF4E071CE86D1E00C52142 /* Sources */,
 				A0EF4E081CE86D1E00C52142 /* Frameworks */,
@@ -706,9 +706,9 @@
 			);
 			dependencies = (
 			);
-			name = "IrisKit iOS";
+			name = "FeedParser iOS";
 			productName = "Iris iOS";
-			productReference = A0EF4E0C1CE86D1E00C52142 /* IrisKit.framework */;
+			productReference = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -749,7 +749,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "IrisKit" */;
+			buildConfigurationList = A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "FeedParser" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -762,15 +762,15 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0EF4E0B1CE86D1E00C52142 /* IrisKit iOS */,
-				A0EF4DE71CE86C3800C52142 /* IrisKit tvOS */,
-				A0EF4DF91CE86CA200C52142 /* IrisKit macOS */,
-				A0EF4DAB1CE869AD00C52142 /* IrisKit Example iOS */,
-				A0EF4DC11CE86A0600C52142 /* IrisKit Example tvOS */,
-				A0EF4DD41CE86A7700C52142 /* IrisKit Example macOS */,
-				A09C84FD1CE9AE2300D20CAB /* IrisKit iOS Tests */,
-				A09C850C1CE9AE4F00D20CAB /* IrisKit tvOS Tests */,
-				A09C851B1CE9AE6A00D20CAB /* IrisKit macOS Tests */,
+				A0EF4E0B1CE86D1E00C52142 /* FeedParser iOS */,
+				A0EF4DE71CE86C3800C52142 /* FeedParser tvOS */,
+				A0EF4DF91CE86CA200C52142 /* FeedParser macOS */,
+				A0EF4DAB1CE869AD00C52142 /* FeedParser Example iOS */,
+				A0EF4DC11CE86A0600C52142 /* FeedParser Example tvOS */,
+				A0EF4DD41CE86A7700C52142 /* FeedParser Example macOS */,
+				A09C84FD1CE9AE2300D20CAB /* FeedParser iOS Tests */,
+				A09C850C1CE9AE4F00D20CAB /* FeedParser tvOS Tests */,
+				A09C851B1CE9AE6A00D20CAB /* FeedParser macOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1017,32 +1017,32 @@
 /* Begin PBXTargetDependency section */
 		A09C85051CE9AE2300D20CAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4E0B1CE86D1E00C52142 /* IrisKit iOS */;
+			target = A0EF4E0B1CE86D1E00C52142 /* FeedParser iOS */;
 			targetProxy = A09C85041CE9AE2300D20CAB /* PBXContainerItemProxy */;
 		};
 		A09C85141CE9AE4F00D20CAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4DE71CE86C3800C52142 /* IrisKit tvOS */;
+			target = A0EF4DE71CE86C3800C52142 /* FeedParser tvOS */;
 			targetProxy = A09C85131CE9AE4F00D20CAB /* PBXContainerItemProxy */;
 		};
 		A09C85231CE9AE6A00D20CAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4DF91CE86CA200C52142 /* IrisKit macOS */;
+			target = A0EF4DF91CE86CA200C52142 /* FeedParser macOS */;
 			targetProxy = A09C85221CE9AE6A00D20CAB /* PBXContainerItemProxy */;
 		};
 		A0EF4DEE1CE86C3800C52142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4DE71CE86C3800C52142 /* IrisKit tvOS */;
+			target = A0EF4DE71CE86C3800C52142 /* FeedParser tvOS */;
 			targetProxy = A0EF4DED1CE86C3800C52142 /* PBXContainerItemProxy */;
 		};
 		A0EF4E001CE86CA200C52142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4DF91CE86CA200C52142 /* IrisKit macOS */;
+			target = A0EF4DF91CE86CA200C52142 /* FeedParser macOS */;
 			targetProxy = A0EF4DFF1CE86CA200C52142 /* PBXContainerItemProxy */;
 		};
 		A0EF4E121CE86D1E00C52142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4E0B1CE86D1E00C52142 /* IrisKit iOS */;
+			target = A0EF4E0B1CE86D1E00C52142 /* FeedParser iOS */;
 			targetProxy = A0EF4E111CE86D1E00C52142 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1118,7 +1118,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-iOS-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1160,7 +1160,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-iOS-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1207,7 +1207,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-tvOS-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1248,7 +1248,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-tvOS-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = appletvos;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
@@ -1299,7 +1299,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-macOS-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1342,7 +1342,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-macOS-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1408,7 +1408,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-iOS";
-				PRODUCT_NAME = "IrisKit Example iOS";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1452,7 +1452,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-iOS";
-				PRODUCT_NAME = "IrisKit Example iOS";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1502,7 +1502,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-tvOS";
-				PRODUCT_NAME = "IrisKit Example tvOS";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1547,7 +1547,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-tvOS";
-				PRODUCT_NAME = "IrisKit Example tvOS";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1601,7 +1601,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-macOS";
-				PRODUCT_NAME = "IrisKit Example macOS";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1646,7 +1646,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-Example-macOS";
-				PRODUCT_NAME = "IrisKit Example macOS";
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1699,7 +1699,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-tvOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1751,7 +1751,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-tvOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1814,7 +1814,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-macOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1868,7 +1868,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-macOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1926,7 +1926,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-iOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1979,7 +1979,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nmdias.news.IrisKit-iOS";
-				PRODUCT_NAME = IrisKit;
+				PRODUCT_NAME = FeedParser;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1992,7 +1992,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "IrisKit iOS Tests" */ = {
+		A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "FeedParser iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A09C85061CE9AE2300D20CAB /* Debug */,
@@ -2001,7 +2001,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit tvOS Tests" */ = {
+		A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "FeedParser tvOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A09C85161CE9AE4F00D20CAB /* Debug */,
@@ -2010,7 +2010,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "IrisKit macOS Tests" */ = {
+		A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "FeedParser macOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A09C85251CE9AE6A00D20CAB /* Debug */,
@@ -2019,7 +2019,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "IrisKit" */ = {
+		A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "FeedParser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4D981CE867DF00C52142 /* Debug */,
@@ -2028,7 +2028,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "IrisKit Example iOS" */ = {
+		A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4DBB1CE869AE00C52142 /* Debug */,
@@ -2037,7 +2037,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "IrisKit Example tvOS" */ = {
+		A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4DCF1CE86A0600C52142 /* Debug */,
@@ -2046,7 +2046,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "IrisKit Example macOS" */ = {
+		A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4DE01CE86A7700C52142 /* Debug */,
@@ -2055,7 +2055,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4DF11CE86C3800C52142 /* Build configuration list for PBXNativeTarget "IrisKit tvOS" */ = {
+		A0EF4DF11CE86C3800C52142 /* Build configuration list for PBXNativeTarget "FeedParser tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4DF21CE86C3800C52142 /* Debug */,
@@ -2064,7 +2064,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4E031CE86CA200C52142 /* Build configuration list for PBXNativeTarget "IrisKit macOS" */ = {
+		A0EF4E031CE86CA200C52142 /* Build configuration list for PBXNativeTarget "FeedParser macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4E041CE86CA200C52142 /* Debug */,
@@ -2073,7 +2073,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "IrisKit iOS" */ = {
+		A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "FeedParser iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4E161CE86D1E00C52142 /* Debug */,

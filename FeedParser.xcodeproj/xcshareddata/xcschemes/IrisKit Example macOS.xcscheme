@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-               BuildableName = "IrisKit Example tvOS.app"
-               BlueprintName = "IrisKit Example tvOS"
-               ReferencedContainer = "container:IrisKit.xcodeproj">
+               BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
+               BuildableName = "FeedParser.app"
+               BlueprintName = "FeedParser Example macOS"
+               ReferencedContainer = "container:FeedParser.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-            BuildableName = "IrisKit Example tvOS.app"
-            BlueprintName = "IrisKit Example tvOS"
-            ReferencedContainer = "container:IrisKit.xcodeproj">
+            BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
+            BuildableName = "FeedParser.app"
+            BlueprintName = "FeedParser Example macOS"
+            ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-            BuildableName = "IrisKit Example tvOS.app"
-            BlueprintName = "IrisKit Example tvOS"
-            ReferencedContainer = "container:IrisKit.xcodeproj">
+            BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
+            BuildableName = "FeedParser.app"
+            BlueprintName = "FeedParser Example macOS"
+            ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-            BuildableName = "IrisKit Example tvOS.app"
-            BlueprintName = "IrisKit Example tvOS"
-            ReferencedContainer = "container:IrisKit.xcodeproj">
+            BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
+            BuildableName = "FeedParser.app"
+            BlueprintName = "FeedParser Example macOS"
+            ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
