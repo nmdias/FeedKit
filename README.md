@@ -1,11 +1,11 @@
-# IrisKit
+# FeedParser
 
 An RSS/Atom feed parser
 
-[![Build Status](https://travis-ci.org/nmdias/IrisKit.svg)](https://travis-ci.org/nmdias/IrisKit)
+[![Build Status](https://travis-ci.org/nmdias/FeedParser.svg)](https://travis-ci.org/nmdias/FeedParser)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/IrisKit.svg)](https://cocoapods.org/pods/IrisKit)
-[![Platform](https://img.shields.io/cocoapods/p/IrisKit.svg?style=flat)](http://cocoadocs.org/docsets/IrisKit)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/FeedParser.svg)](https://cocoapods.org/pods/FeedParser)
+[![Platform](https://img.shields.io/cocoapods/p/FeedParser.svg?style=flat)](http://cocoadocs.org/docsets/FeedParser)
 
 ## Requirements
 
@@ -22,7 +22,7 @@ An RSS/Atom feed parser
 $ gem install cocoapods
 ```
 
-To integrate IrisKit into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate FeedParser into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -30,7 +30,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'IrisKit', '~> 1.1'
+  pod 'FeedParser', '~> 1.1'
 end
 ```
 
@@ -49,21 +49,21 @@ To install Carthage with [Homebrew](http://brew.sh/) use the following command:
 $ brew update
 $ brew install carthage
 ```
-To integrate IrisKit into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate FeedParser into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "nmdias/IrisKit" ~> 1.1
+github "nmdias/FeedParser" ~> 1.1
 ```
 Build the framework:
 
 ```bash
 $ carthage update
 ```
-Then, drag the built `IrisKit.framework` into your Xcode project.
+Then, drag the built `FeedParser.framework` into your Xcode project.
 
 ## License
 
-IrisKit is released under the MIT license. See LICENSE for details.
+FeedParser is released under the MIT license. See LICENSE for details.
 
 
 
