@@ -123,9 +123,9 @@
 		A0EF4E021CE86CA200C52142 /* FeedParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0EF4E131CE86D1E00C52142 /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */; };
 		A0EF4E141CE86D1E00C52142 /* FeedParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0EF4E1C1CE86F6100C52142 /* IrisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* IrisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A0EF4E1D1CE86F6100C52142 /* IrisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* IrisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A0EF4E1E1CE86F6100C52142 /* IrisKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* IrisKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EF4E1C1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EF4E1D1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EF4E1E1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,7 +270,7 @@
 		A0EF4DE81CE86C3800C52142 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0EF4E1B1CE86F6100C52142 /* IrisKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IrisKit.h; path = Sources/IrisKit.h; sourceTree = "<group>"; };
+		A0EF4E1B1CE86F6100C52142 /* FeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedParser.h; path = Sources/FeedParser.h; sourceTree = "<group>"; };
 		A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = "<group>"; };
 		A0EF4E201CE86F6E00C52142 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-macOS.plist"; path = "Sources/Info-macOS.plist"; sourceTree = "<group>"; };
 		A0EF4E211CE86F6E00C52142 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Sources/Info-tvOS.plist"; sourceTree = "<group>"; };
@@ -508,7 +508,7 @@
 			children = (
 				A0CA54881CE8A87E00A951E3 /* Core */,
 				A0CA543A1CE8A56700A951E3 /* Model */,
-				A0EF4E1B1CE86F6100C52142 /* IrisKit.h */,
+				A0EF4E1B1CE86F6100C52142 /* FeedParser.h */,
 				A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */,
 				A0EF4E201CE86F6E00C52142 /* Info-macOS.plist */,
 				A0EF4E211CE86F6E00C52142 /* Info-tvOS.plist */,
@@ -523,7 +523,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E1D1CE86F6100C52142 /* IrisKit.h in Headers */,
+				A0EF4E1D1CE86F6100C52142 /* FeedParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +531,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E1E1CE86F6100C52142 /* IrisKit.h in Headers */,
+				A0EF4E1E1CE86F6100C52142 /* FeedParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +539,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E1C1CE86F6100C52142 /* IrisKit.h in Headers */,
+				A0EF4E1C1CE86F6100C52142 /* FeedParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
