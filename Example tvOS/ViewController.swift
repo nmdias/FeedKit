@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Iris Example tvOS
+//  FeedParser Example tvOS
 //
 //  Created by Nuno Dias on 15/05/16.
 //

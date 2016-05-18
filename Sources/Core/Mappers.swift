@@ -1,6 +1,6 @@
 //
 //  Mappers.swift
-//  Iris
+//  FeedParser
 //
 //  Created by Nuno Dias on 15/05/16.
 //
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension IrisFeedParser {
+extension FeedParser {
     
     func map(attributes attributeDict: [String : String], toFeed feed: RSS2Feed, forElement element: RSS2FeedElement) {
         

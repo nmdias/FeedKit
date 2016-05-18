@@ -1,6 +1,6 @@
 //
 //  ContentTestCase.swift
-//  IrisKit
+//  FeedParser
 //
 //  Created by Nuno Dias on 17/05/16.
 //
@@ -15,7 +15,7 @@ class ContentTestCase: BaseTestCase {
         
         // Given
         let URL = fileURL("Content", type: "xml")
-        let parser = IrisFeedParser(URL: URL)
+        let parser = FeedParser(URL: URL)
         
         // When
         parser.parse { (feed) in

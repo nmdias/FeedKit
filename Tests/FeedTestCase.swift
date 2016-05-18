@@ -1,6 +1,6 @@
 //
 //  FeedTestCase.swift
-//  IrisKit
+//  FeedParser
 //
 //  Created by Nuno Dias on 17/05/16.
 //
@@ -15,7 +15,7 @@ class FeedTestCase: BaseTestCase {
         
         // Given
         let URL = fileURL("RSS2", type: "xml")
-        let parser = IrisFeedParser(URL: URL)
+        let parser = FeedParser(URL: URL)
         
         // When
         parser.parse { (feed) in
@@ -84,7 +84,7 @@ class FeedTestCase: BaseTestCase {
         
         // Given
         let URL = fileURL("RSS2", type: "xml")
-        let parser = IrisFeedParser(URL: URL)
+        let parser = FeedParser(URL: URL)
         
         // When
         parser.parse { (feed) in

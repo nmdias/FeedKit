@@ -1,6 +1,6 @@
 //
 //  BaseTestCase.swift
-//  IrisKit
+//  FeedParser
 //
 //  Created by Nuno Dias on 17/05/16.
 //

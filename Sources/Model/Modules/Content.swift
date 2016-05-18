@@ -1,9 +1,9 @@
 //
 //  Content.swift
-//  Iris
+//  FeedParser
 //
 //  Created by Nuno Dias on 23/07/15.
-//  Copyright © 2015 Iris. All rights reserved.
+//  Copyright © 2015 FeedParser. All rights reserved.
 //
 
 import Foundation

@@ -1,6 +1,6 @@
 //
-//  Parser.swift
-//  Iris
+//  FeedParser.swift
+//  FeedParser
 //
 //  Created by Nuno Dias on 15/05/16.
 //
@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class IrisFeedParser: NSObject, NSXMLParserDelegate {
+public class FeedParser: NSObject, NSXMLParserDelegate {
     
     // MARK: - Private properties
     
@@ -22,7 +22,7 @@ public class IrisFeedParser: NSObject, NSXMLParserDelegate {
     /// The current path along the XML's DOM elements. Path components are updated to reflect the current XML element being parsed. e.g. "/rss/channel/title" mean it's currently parsing the channels `<title>` element.
     private var currentXMLDOMPath: NSURL? = NSURL(string: "/")
     
-    // FIXME: - The `XMLParser` property should not be an optional property and the delegate should be set by the time the Iris Parser has been initialized. Fix this when the specified initializer bug has been fix in a new swift release.
+    // FIXME: - The `XMLParser` property should not be an optional property and the delegate should be set by the time the Parser has been initialized. Fix this when the specified initializer bug has been fix in a new swift release.
     /// The XML parser.
     private var XMLParser: NSXMLParser?
     

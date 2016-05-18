@@ -1,6 +1,6 @@
 //
 //  SyndicationTestCase.swift
-//  IrisKit
+//  FeedParser
 //
 //  Created by Nuno Dias on 17/05/16.
 //
@@ -15,7 +15,7 @@ class SyndicationTestCase: BaseTestCase {
 
         // Given
         let URL = fileURL("Syndication", type: "xml")
-        let parser = IrisFeedParser(URL: URL)
+        let parser = FeedParser(URL: URL)
         
         // When
         parser.parse { (feed) in

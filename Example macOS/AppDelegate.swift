@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Iris Example macOS
+//  FeedParser Example macOS
 //
 //  Created by Nuno Dias on 15/05/16.
 //

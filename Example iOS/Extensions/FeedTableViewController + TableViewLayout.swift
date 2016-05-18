@@ -1,6 +1,6 @@
 //
 //  FeedTableViewController + TableViewLayout.swift
-//  Iris
+//  FeedParser
 //
 //  Created by Nuno Dias on 14/05/16.
 //

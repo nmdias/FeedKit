@@ -1,6 +1,6 @@
 //
 //  FeedTableViewController.swift
-//  Iris
+//  FeedParser
 //
 //  Created by Nuno Dias on 15/05/16.
 //
@@ -20,7 +20,7 @@ class FeedTableViewController: UITableViewController {
         
         self.title = "Feed"
         
-        IrisFeedParser(URL: feedURL).parse { (feed) in
+        FeedParser(URL: feedURL).parse { (feed) in
             self.feed = feed
             self.tableView.reloadData()
         }

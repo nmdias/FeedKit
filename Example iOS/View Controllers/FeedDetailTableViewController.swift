@@ -1,6 +1,6 @@
 //
 //  FeedDetailTableViewController.swift
-//  Iris
+//  FeedParser
 //
 //  Created by Nuno Dias on 15/05/16.
 //
