@@ -30,7 +30,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'FeedParser', '~> 1.1'
+  pod 'FeedParser', '~> 2.0'
 end
 ```
 
@@ -52,7 +52,7 @@ $ brew install carthage
 To integrate FeedParser into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "nmdias/FeedParser" ~> 1.1
+github "nmdias/FeedParser" ~> 2.0
 ```
 Build the framework:
 
