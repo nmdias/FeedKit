@@ -63,7 +63,7 @@ Then, drag the built `FeedParser.framework` into your Xcode project.
 
 ## License
 
-FeedParser is released under the MIT license. See LICENSE for details.
+FeedParser is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedParser/blob/master/LICENSE) for details.
 
 
 
