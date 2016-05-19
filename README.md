@@ -40,7 +40,7 @@ Then, run the following command:
 $ pod install
 ```
 
-If you just wish to try it out:
+To just try it out:
 
 ```bash
 $ pod try FeedParser
