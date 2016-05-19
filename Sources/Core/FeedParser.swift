@@ -53,17 +53,14 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      
      - returns: An instance of the feed parser.
      */
-    // FIXME: - Convert to a failable initializer and return nil in `assertionFailure` when a fix is released for the compiler error "All stored properties of a class instance must be initialized before returning nil from an initializer"
-    // See: http://stackoverflow.com/a/26497229/1544047
     public init(URL: NSURL) {
         
         guard let parser = NSXMLParser(contentsOfURL: URL) else {
             assertionFailure("Unable to initialize the parser with the provided URL: \(URL)")
             return
         }
-        
+
         self.XMLParser = parser
-        
     }
     
     // MARK: - Public methods
