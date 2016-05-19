@@ -39,6 +39,13 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
+
+If you just wish to try it out:
+
+```bash
+$ pod try FeedParser
+```
+
 ### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a dependency manager that builds your dependencies and provides you with binary frameworks.
