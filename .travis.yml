@@ -1,3 +1,62 @@
 language: objective-c
 osx_image: xcode7.3
-xcode_project: FeedParser.xcodeproj
+env:
+  global:
+  - LC_CTYPE=en_US.UTF-8
+  - LANG=en_US.UTF-8
+  - PROJECT=FeedParser.xcodeproj
+  - IOS_SDK=iphonesimulator9.3
+  - OSX_SDK=macosx10.11
+  - TVOS_SDK=appletvsimulator9.2
+  - WATCHOS_SDK=watchsimulator2.2
+  # Framework targets
+  - FRAMEWORK_SCHEME_IOS="FeedParser iOS"
+  - FRAMEWORK_SCHEME_MACOS="FeedParser macOS"
+  - FRAMEWORK_SCHEME_TVOS="FeedParser tvOS"
+  - FRAMEWORK_SCHEME_WATCHOS="FeedParser watchOS"
+  # Example targets
+  - EXAMPLE_SCHEME_IOS="FeedParser Example iOS"
+  - EXAMPLE_SCHEME_TVOS="FeedParser Example tvOS"
+  - EXAMPLE_SCHEME_MACOS="FeedParser Example macOS"
+  
+  matrix:
+    - DESTINATION="OS=8.1,name=iPhone 4S"          SCHEME="$FRAMEWORK_SCHEME_IOS"     SDK="$IOS_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_IOS"   POD_LINT="YES" 
+    - DESTINATION="OS=8.2,name=iPhone 5"           SCHEME="$FRAMEWORK_SCHEME_IOS"     SDK="$IOS_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_IOS"   POD_LINT="NO" 
+    - DESTINATION="OS=8.3,name=iPhone 5S"          SCHEME="$FRAMEWORK_SCHEME_IOS"     SDK="$IOS_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_IOS"   POD_LINT="NO" 
+    - DESTINATION="OS=8.4,name=iPhone 6"           SCHEME="$FRAMEWORK_SCHEME_IOS"     SDK="$IOS_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_IOS"   POD_LINT="NO" 
+    - DESTINATION="OS=9.0,name=iPhone 6"           SCHEME="$FRAMEWORK_SCHEME_IOS"     SDK="$IOS_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_IOS"   POD_LINT="NO" 
+    - DESTINATION="OS=9.1,name=iPhone 6 Plus"      SCHEME="$FRAMEWORK_SCHEME_IOS"     SDK="$IOS_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_IOS"   POD_LINT="NO" 
+    - DESTINATION="OS=9.2,name=iPhone 6S"          SCHEME="$FRAMEWORK_SCHEME_IOS"     SDK="$IOS_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_IOS"   POD_LINT="NO" 
+    - DESTINATION="OS=9.3,name=iPhone 6S Plus"     SCHEME="$FRAMEWORK_SCHEME_IOS"     SDK="$IOS_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_IOS"   POD_LINT="NO" 
+    - DESTINATION="arch=x86_64"                    SCHEME="$FRAMEWORK_SCHEME_MACOS"   SDK="$OSX_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_MACOS" POD_LINT="NO" 
+    - DESTINATION="OS=9.2,name=Apple TV 1080p"     SCHEME="$FRAMEWORK_SCHEME_TVOS"    SDK="$TVOS_SDK"    RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_TVOS"  POD_LINT="NO" 
+    - DESTINATION="OS=2.2,name=Apple Watch - 42mm" SCHEME="$FRAMEWORK_SCHEME_WATCHOS" SDK="$WATCHOS_SDK" RUN_TESTS="NO"  BUILD_EXAMPLE="NO"  EXAMPLE_SCHEME=""                      POD_LINT="NO" 
+    
+script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+
+  # Build Framework in Debug and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+        xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c;
+    else
+        xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
+    fi
+    
+  # Build Framework in Release and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+        xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO test | xcpretty -c;
+    else
+        xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
+    fi
+    
+  # Build Example in Debug if specified
+  - if [ $BUILD_EXAMPLE == "YES" ]; then
+        xcodebuild -project "$PROJECT" -scheme "$EXAMPLE_SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
+    fi
+    
+  # Run `pod lib lint` if specified
+  - if [ $POD_LINT == "YES" ]; then
+        pod lib lint;
+    fi
