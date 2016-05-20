@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A09C850C1CE9AE4F00D20CAB"
+               BuildableName = "FeedParser tvOS Tests.xctest"
+               BlueprintName = "FeedParser tvOS Tests"
+               ReferencedContainer = "container:FeedParser.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A0EF4DE71CE86C3800C52142"
+            BuildableName = "FeedParser.framework"
+            BlueprintName = "FeedParser tvOS"
+            ReferencedContainer = "container:FeedParser.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A09C84FD1CE9AE2300D20CAB"
+               BuildableName = "FeedParser iOS Tests.xctest"
+               BlueprintName = "FeedParser iOS Tests"
+               ReferencedContainer = "container:FeedParser.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A0EF4E0B1CE86D1E00C52142"
+            BuildableName = "FeedParser.framework"
+            BlueprintName = "FeedParser iOS"
+            ReferencedContainer = "container:FeedParser.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
