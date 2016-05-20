@@ -37,13 +37,11 @@ class SyndicationTestCase: BaseTestCase {
         parser.parse { (feed) in
             
             // Then
-            guard let channel = feed?.channel else {
-                assert(false)
-            }
+            assert(feed?.channel != nil)
             
-            assert(channel.syUpdatePeriod == SyndicationUpdatePeriod.Hourly)
-            assert(channel.syUpdateFrequency == UInt(2))
-            assert(channel.syUpdateBase == "2000-01-01T12:00+00:00")
+            assert(feed?.channel?.syUpdatePeriod == SyndicationUpdatePeriod.Hourly)
+            assert(feed?.channel?.syUpdateFrequency == UInt(2))
+            assert(feed?.channel?.syUpdateBase == "2000-01-01T12:00+00:00")
 
         }
         
