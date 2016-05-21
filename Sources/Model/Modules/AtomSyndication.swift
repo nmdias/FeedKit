@@ -24,8 +24,17 @@
 
 import Foundation
 
-// See: http://www.rssboard.org/rss-profile#namespace-elements-atom
 
+/** 
+ 
+    The Atom syndication format, which serves a similar purpose to RSS, offers 
+    some elements closely comparable to RSS elements and others that provide new 
+    capabilities. Any of these elements can be used in RSS by employing Atom 
+    as a namespace.
+    
+    See: http://www.rssboard.org/rss-profile#namespace-elements-atom
+ 
+*/
 protocol AtomSyndication {
     
     
