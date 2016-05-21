@@ -2212,6 +2212,7 @@
 				A0370EBF1CEF9D5A009583A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "FeedParser iOS Tests" */ = {
 			isa = XCConfigurationList;
