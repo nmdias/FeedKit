@@ -25,8 +25,13 @@
 import Foundation
 
 /**
-    TODO: - Add description
-    See: http://dublincore.org/documents/1999/07/02/dces/
+ 
+    The Dublin Core namespace supports the Dublin Core Metadata Initiative, a 
+    standard for describing resources on the Internet to identify their author, 
+    date of publication, publisher and similar information.
+ 
+    See: http://www.rssboard.org/rss-profile#namespace-elements-dublin
+ 
 */
 protocol DublinCoreProtocol {
     
