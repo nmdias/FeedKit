@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0370EB81CEF9D5A009583A3"
-               BuildableName = "FeedParser watchOS.framework"
+               BuildableName = "FeedParser.framework"
                BlueprintName = "FeedParser watchOS"
                ReferencedContainer = "container:FeedParser.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0370EB81CEF9D5A009583A3"
-            BuildableName = "FeedParser watchOS.framework"
+            BuildableName = "FeedParser.framework"
             BlueprintName = "FeedParser watchOS"
             ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0370EB81CEF9D5A009583A3"
-            BuildableName = "FeedParser watchOS.framework"
+            BuildableName = "FeedParser.framework"
             BlueprintName = "FeedParser watchOS"
             ReferencedContainer = "container:FeedParser.xcodeproj">
          </BuildableReference>
