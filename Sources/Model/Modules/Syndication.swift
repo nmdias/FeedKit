@@ -29,6 +29,7 @@ protocol SyndicationProtocol {
     var syUpdatePeriod:       SyndicationUpdatePeriod? { get set }
     var syUpdateFrequency:    UInt? { get set }
     var syUpdateBase:         String? { get set }
+    
 }
 
 enum SyndicationElement: String {
@@ -40,8 +41,11 @@ enum SyndicationElement: String {
 }
 
 /**
+ 
     Update periods as described by the `<sy:updatePeriod>` element of the Syndication Module specification.
+ 
     See: http://cyber.law.harvard.edu/rss/skipHoursDays.html#skiphours
+ 
 */
 public enum SyndicationUpdatePeriod: String {
     

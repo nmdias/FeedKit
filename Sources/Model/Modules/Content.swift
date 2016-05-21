@@ -25,7 +25,12 @@
 import Foundation
 
 /**
-    The Content namespace offers a means of defining item content with more precision than the description element.
+ 
+    The Content namespace offers a means of defining item content with more precision
+    than the description element.
+ 
+    See: http://www.rssboard.org/rss-profile#namespace-elements-content
+ 
 */
 protocol ContentProtocol {
     
