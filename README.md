@@ -1,6 +1,6 @@
 # FeedParser
 
-An RSS/Atom feed parser
+An RSS and Atom feed parser written in Swift
 
 [![Build Status](https://travis-ci.org/nmdias/FeedParser.svg)](https://travis-ci.org/nmdias/FeedParser)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
