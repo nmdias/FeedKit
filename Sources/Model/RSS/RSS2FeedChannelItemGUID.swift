@@ -57,8 +57,10 @@ import Foundation
 public class RSS2FeedChannelItemGUID {
     
     /**
-        The attributes of the `<item>`'s `<guid>` element
-    */
+     
+     The element's attributes
+     
+     */
     public class Attributes {
         
         /// isPermaLink is an optional attribute. The default value is true. If the value is false, the guid may not be assumed to be a url, or a url to anything in particular.
@@ -66,10 +68,18 @@ public class RSS2FeedChannelItemGUID {
         
     }
     
-    // The element's attributes
+    /**
+     
+     The element's attributes
+     
+     */
     public var attributes: Attributes?
     
-    /// The actual `<guid>` value.
+    /**
+     
+     The element's value
+     
+     */
     public var value: String?
     
     public init() {}

@@ -30,8 +30,10 @@ import Foundation
 public class RSS2FeedChannelCategory {
     
     /**
-        The attributes of the `<channel>`'s `<category>` element
-    */
+     
+     The element's attributes
+     
+     */
     public class Attributes {
         
         /// A string that identifies a categorization taxonomy. It's an optional attribute of `<category>`. e.g. "http://www.fool.com/cusips"
@@ -39,10 +41,18 @@ public class RSS2FeedChannelCategory {
         
     }
     
-    /// The element's attributes
+    /**
+     
+     The element's attributes
+     
+     */
     public var attributes: Attributes?
     
-    /// The actual `<category>` value
+    /**
+     
+     The element's value
+     
+     */
     public var value: String?
 
     public init() {}

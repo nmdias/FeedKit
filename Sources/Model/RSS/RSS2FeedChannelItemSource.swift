@@ -45,8 +45,10 @@ import Foundation
 public class RSS2FeedChannelItemSource {
     
     /**
-        The attributes of the `<item>`'s `<source>` element
-    */
+     
+     The element's attributes
+     
+     */
     public class Attributes {
         
         /// Required attribute of the `Source` element, which links to the XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
@@ -54,10 +56,18 @@ public class RSS2FeedChannelItemSource {
         
     }
     
-    // The element's attributes
+    /**
+     
+     The element's attributes
+     
+     */
     public var attributes: Attributes?
     
-    /// The actual `<source>` value
+    /**
+     
+     The element's value
+     
+     */
     public var value: String?
     
     public init() {}

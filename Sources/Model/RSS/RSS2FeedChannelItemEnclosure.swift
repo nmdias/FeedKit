@@ -42,8 +42,10 @@ import Foundation
 public class RSS2FeedChannelItemEnclosure {
     
     /**
-        The attributes of the `<item>`'s `<enclosure>` element
-    */
+     
+     The element's attributes
+     
+     */
     public class Attributes {
         
         /// Where the enclosure is located. It's an attribute of the `<enclosure>` element. e.g. "http://www.scripting.com/mp3s/weatherReportSuite.mp3"
@@ -57,7 +59,11 @@ public class RSS2FeedChannelItemEnclosure {
         
     }
     
-    // The element's attributes
+    /**
+     
+     The element's attributes
+     
+     */
     public var attributes: Attributes?
     
     public init() {}
