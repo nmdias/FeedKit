@@ -266,12 +266,24 @@ public class RSS2FeedChannel: SyndicationProtocol, DublinCoreProtocol {
      
      A hint for aggregators telling them which hours they can skip.
      
+     An XML element that contains up to 24 <hour> sub-elements whose value is a
+     number between 0 and 23, representing a time in GMT, when aggregators, if they
+     support the feature, may not read the channel on hours listed in the skipHours
+     element.
+     
+     The hour beginning at midnight is hour zero.
+     
      */
     public var skipHours: [RSS2FeedChannelSkipHour]?
         
     /**
      
      A hint for aggregators telling them which days they can skip.
+     
+     An XML element that contains up to seven <day> sub-elements whose value 
+     is Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday. 
+     Aggregators may not read the channel during days listed in the skipDays 
+     element.
      
      */
     public var skipDays: [RSS2FeedChannelSkipDay]?

@@ -48,13 +48,31 @@ public class RSS2FeedChannelItemEnclosure {
      */
     public class Attributes {
         
-        /// Where the enclosure is located. It's an attribute of the `<enclosure>` element. e.g. "http://www.scripting.com/mp3s/weatherReportSuite.mp3"
+        /** 
+         
+         Where the enclosure is located.
+         
+         Example: http://www.scripting.com/mp3s/weatherReportSuite.mp3
+         
+         */
         public var url: String?
         
-        /// How big it is in bytes. It's an attribute of the `<enclosure>` element. e.g."12216320"
+        /** 
+         
+         How big the media object is in bytes.
+         
+         Example: 12216320
+         
+         */
         public var length: UInt64?
         
-        /// Standard MIME type. It's an attribute of the `<enclosure>` element. e.g. "audio/mpeg"
+        /** 
+         
+         Standard MIME type.
+         
+         Example: audio/mpeg
+         
+         */
         public var type: String?
         
     }

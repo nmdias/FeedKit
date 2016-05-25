@@ -56,7 +56,14 @@ public class RSS2FeedChannelItemCategory {
      */
     public class Attributes {
         
-        /// A string that identifies a categorization taxonomy. It's an optional attribute of `<category>`. e.g. "http://www.fool.com/cusips"
+        /** 
+         
+         A string that identifies a categorization taxonomy. It's an optional 
+         attribute of `<category>`.
+         
+         Example: http://www.fool.com/cusips
+         
+         */
         public var domain: String?
         
     }

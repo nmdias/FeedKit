@@ -63,7 +63,20 @@ public class RSS2FeedChannelItemGUID {
      */
     public class Attributes {
         
-        /// isPermaLink is an optional attribute. The default value is true. If the value is false, the guid may not be assumed to be a url, or a url to anything in particular.
+        /** 
+         
+         If the guid element has an attribute named "isPermaLink" with a value of
+         true, the reader may assume that it is a permalink to the item, that is,
+         a url that can be opened in a Web browser, that points to the full item
+         described by the <item> element. An example:
+         
+         <guid isPermaLink="true">http://inessential.com/2002/09/01.php#a2</guid>
+         
+         isPermaLink is optional, its default value is true. If its value is false,
+         the guid may not be assumed to be a url, or a url to anything in
+         particular.
+         
+         */
         public var isPermaLink: Bool?
         
     }

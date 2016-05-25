@@ -46,16 +46,32 @@ import Foundation
  */
 public class RSS2FeedChannelTextInput {
     
-    /// The label of the Submit button in the text input area.
+    /** 
+     
+     The label of the Submit button in the text input area. 
+     
+     */
     public var title: String?
     
-    /// Explains the text input area.
+    /** 
+     
+     Explains the text input area. 
+     
+     */
     public var description: String?
     
-    /// The name of the text object in the text input area.
+    /** 
+     
+     The name of the text object in the text input area. 
+     
+     */
     public var name: String?
     
-    /// The URL of the CGI script that processes text input requests.
+    /** 
+     
+     The URL of the CGI script that processes text input requests. 
+     
+     */
     public var link: String?
     
     public init() {}

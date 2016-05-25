@@ -25,8 +25,15 @@
 import Foundation
 
 /**
-    Hours of the day as described by the `skipHours` element of the RSS 2.0 specification.
-    See: http://cyber.law.harvard.edu/rss/skipHoursDays.html#skipdays
-*/
-
+ 
+ A hint for aggregators telling them which hours they can skip.
+ 
+ An XML element that contains up to 24 <hour> sub-elements whose value is a 
+ number between 0 and 23, representing a time in GMT, when aggregators, if they
+ support the feature, may not read the channel on hours listed in the skipHours
+ element.
+ 
+ The hour beginning at midnight is hour zero.
+ 
+ */
 public typealias RSS2FeedChannelSkipHour = UInt
