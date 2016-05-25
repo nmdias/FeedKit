@@ -80,7 +80,7 @@ public class AtomFeedEntryContent {
     
     /**
      
-     The actual value
+     The element's value
      
      */
     public var value: String?

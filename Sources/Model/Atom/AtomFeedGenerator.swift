@@ -79,9 +79,9 @@ public class AtomFeedGenerator {
      */
     public var attributes: Attributes?
     
-    /** 
+    /**
      
-     The actual value
+     The element's value
      
      */
     public var value: String?
