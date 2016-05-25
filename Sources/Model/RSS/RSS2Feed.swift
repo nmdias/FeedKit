@@ -25,8 +25,18 @@
 import Foundation
 
 /**
-    Data model for the XML DOM of the RSS 2.0 Specification
-    See http://cyber.law.harvard.edu/rss/rss.html
+ 
+ Data model for the XML DOM of the RSS 2.0 Specification
+ See http://cyber.law.harvard.edu/rss/rss.html
+ 
+ At the top level, a RSS document is a <rss> element, with a mandatory 
+ attribute called version, that specifies the version of RSS that the 
+ document conforms to. If it conforms to this specification, the version 
+ attribute must be 2.0.
+ 
+ Subordinate to the <rss> element is a single <channel> element, which 
+ contains information about the channel (metadata) and its contents.
+ 
 */
 public class RSS2Feed {
     

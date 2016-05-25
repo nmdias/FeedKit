@@ -25,8 +25,31 @@
 import Foundation
 
 /**
-    Specifies a GIF, JPEG or PNG image that can be displayed with the channel. `Image` is an optional element of the `<channel>`.
-*/
+ 
+ Specifies a GIF, JPEG or PNG image that can be displayed with the channel.
+ 
+ <image> is an optional sub-element of <channel>, which contains three
+ required and three optional sub-elements.
+ 
+ <url> is the URL of a GIF, JPEG or PNG image that represents the channel.
+ 
+ <title> describes the image, it's used in the ALT attribute of the HTML
+ <img> tag when the channel is rendered in HTML.
+ 
+ <link> is the URL of the site, when the channel is rendered, the image
+ is a link to the site. (Note, in practice the image <title> and <link>
+ should have the same value as the channel's <title> and <link>.
+ 
+ Optional elements include <width> and <height>, numbers, indicating the
+ width and height of the image in pixels. <description> contains text
+ that is included in the TITLE attribute of the link formed around the
+ image in the HTML rendering.
+ 
+ Maximum value for width is 144, default value is 88.
+ 
+ Maximum value for height is 400, default value is 31.
+ 
+ */
 public class RSS2FeedChannelImage {
     
     /// The URL of a GIF, JPEG or PNG image that represents the channel.

@@ -25,8 +25,25 @@
 import Foundation
 
 /**
-    A text input box that can be displayed with the channel. A channel may optionally contain a `<textInput>` sub-element, which contains four required sub-elements.
-*/
+ 
+ Specifies a text input box that can be displayed with the channel.
+ 
+ A channel may optionally contain a <textInput> sub-element, which contains
+ four required sub-elements.
+ 
+ <title> -- The label of the Submit button in the text input area.
+ 
+ <description> -- Explains the text input area.
+ 
+ <name> -- The name of the text object in the text input area.
+ 
+ <link> -- The URL of the CGI script that processes text input requests.
+ 
+ The purpose of the <textInput> element is something of a mystery. You can
+ use it to specify a search engine box. Or to allow a reader to provide
+ feedback. Most aggregators ignore it.
+ 
+ */
 public class RSS2FeedChannelTextInput {
     
     /// The label of the Submit button in the text input area.

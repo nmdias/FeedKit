@@ -25,8 +25,20 @@
 import Foundation
 
 /**
-    The enclosure of an `<item>`. It's an optional element. Associates a media object such as an audio or video file with the item.
-*/
+ 
+ Describes a media object that is attached to the item.
+ 
+ <enclosure> is an optional sub-element of <item>.
+ 
+ It has three required attributes. url says where the enclosure is located,
+ length says how big it is in bytes, and type says what its type is, a
+ standard MIME type.
+ 
+ The url must be an http url.
+ 
+ <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" length="12216320" type="audio/mpeg" />
+ 
+ */
 public class RSS2FeedChannelItemEnclosure {
     
     /**
