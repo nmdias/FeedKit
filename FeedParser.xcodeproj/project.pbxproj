@@ -478,6 +478,7 @@
 		A0CA543A1CE8A56700A951E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A0CA543C1CE8A56700A951E3 /* Modules */,
 				A0D8C8791CF38F9700D115B8 /* Atom */,
 				A0D8C8371CF38F3D00D115B8 /* RSS */,
 				A0CA543B1CE8A56700A951E3 /* FeedType.swift */,
@@ -535,7 +536,6 @@
 				A0D8C8421CF38F8200D115B8 /* RSS2FeedChannelSkipDay.swift */,
 				A0D8C8431CF38F8200D115B8 /* RSS2FeedChannelSkipHour.swift */,
 				A0D8C8441CF38F8200D115B8 /* RSS2FeedChannelTextInput.swift */,
-				A0CA543C1CE8A56700A951E3 /* Modules */,
 			);
 			name = RSS;
 			sourceTree = "<group>";
