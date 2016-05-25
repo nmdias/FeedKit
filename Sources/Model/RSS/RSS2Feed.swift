@@ -40,7 +40,12 @@ import Foundation
 */
 public class RSS2Feed {
     
-    /// The feed's `<channel>` element
+    /**
+     
+     Subordinate to the <rss> element. Contains information about the channel
+     (metadata) and its contents.
+     
+     */
     public var channel: RSS2FeedChannel?
     
     public init() {}
