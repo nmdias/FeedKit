@@ -303,7 +303,7 @@ extension FeedParser {
         
     }
     
-    func map(string: String, toFeed feed: RSS2Feed, forElement element: SyndicationElement) {
+    func map(string: String, toFeed feed: RSS2Feed, forElement element: SyndicationElementPaths) {
         
         switch element {
             
