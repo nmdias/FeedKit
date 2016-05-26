@@ -45,7 +45,7 @@ public class SyndicationNamespace {
      assumed.
      
      */
-    var syUpdatePeriod: SyndicationUpdatePeriod?
+    public var syUpdatePeriod: SyndicationUpdatePeriod?
     
     /**
      
@@ -56,7 +56,7 @@ public class SyndicationNamespace {
      of 1 is assumed.
      
      */
-    var syUpdateFrequency: UInt?
+    public var syUpdateFrequency: UInt?
     
     /**
      
@@ -65,6 +65,6 @@ public class SyndicationNamespace {
      the form: yyyy-mm-ddThh:mm
      
      */
-    var syUpdateBase: String?
+    public var syUpdateBase: String?
     
 }
