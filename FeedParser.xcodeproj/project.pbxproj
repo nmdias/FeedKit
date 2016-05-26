@@ -169,6 +169,9 @@
 		A0DE942E1CF791B800D1F19C /* AtomTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE942D1CF791B800D1F19C /* AtomTestCase.swift */; };
 		A0DE942F1CF791B800D1F19C /* AtomTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE942D1CF791B800D1F19C /* AtomTestCase.swift */; };
 		A0DE94301CF791B800D1F19C /* AtomTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE942D1CF791B800D1F19C /* AtomTestCase.swift */; };
+		A0DE94321CF7946700D1F19C /* Atom.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0DE94311CF7946700D1F19C /* Atom.xml */; };
+		A0DE94331CF7946700D1F19C /* Atom.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0DE94311CF7946700D1F19C /* Atom.xml */; };
+		A0DE94341CF7946700D1F19C /* Atom.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0DE94311CF7946700D1F19C /* Atom.xml */; };
 		A0E83A721CF7325E00DC60B3 /* ContentElementPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A6A1CF7325E00DC60B3 /* ContentElementPath.swift */; };
 		A0E83A731CF7325E00DC60B3 /* ContentElementPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A6A1CF7325E00DC60B3 /* ContentElementPath.swift */; };
 		A0E83A741CF7325E00DC60B3 /* ContentElementPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A6A1CF7325E00DC60B3 /* ContentElementPath.swift */; };
@@ -361,6 +364,7 @@
 		A0D8C88E1CF395CA00D115B8 /* AtomFeedLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomFeedLink.swift; path = Atom/AtomFeedLink.swift; sourceTree = "<group>"; };
 		A0DE94281CF790C200D1F19C /* AtomFeedElementPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomFeedElementPath.swift; path = Atom/AtomFeedElementPath.swift; sourceTree = "<group>"; };
 		A0DE942D1CF791B800D1F19C /* AtomTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomTestCase.swift; sourceTree = "<group>"; };
+		A0DE94311CF7946700D1F19C /* Atom.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Atom.xml; path = xml/Atom.xml; sourceTree = "<group>"; };
 		A0E83A6A1CF7325E00DC60B3 /* ContentElementPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentElementPath.swift; sourceTree = "<group>"; };
 		A0E83A6B1CF7325E00DC60B3 /* ContentNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentNamespace.swift; sourceTree = "<group>"; };
 		A0E83A6D1CF7325E00DC60B3 /* DublinCoreChannelElementPaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCoreChannelElementPaths.swift; sourceTree = "<group>"; };
@@ -546,6 +550,7 @@
 		A0D20C2C1CEAFACB00B4509D /* xml */ = {
 			isa = PBXGroup;
 			children = (
+				A0DE94311CF7946700D1F19C /* Atom.xml */,
 				A0D20C2D1CEAFB1200B4509D /* Content.xml */,
 				A0D20C2E1CEAFB1200B4509D /* DC.xml */,
 				A0D20C2F1CEAFB1200B4509D /* RSS2.xml */,
@@ -1006,6 +1011,7 @@
 			files = (
 				A0D20C3E1CEB032700B4509D /* DC.xml in Resources */,
 				A0D20C3F1CEB032700B4509D /* RSS2.xml in Resources */,
+				A0DE94321CF7946700D1F19C /* Atom.xml in Resources */,
 				A0D20C3D1CEB032700B4509D /* Content.xml in Resources */,
 				A0D20C401CEB032700B4509D /* Syndication.xml in Resources */,
 			);
@@ -1017,6 +1023,7 @@
 			files = (
 				A0D20C421CEB032800B4509D /* DC.xml in Resources */,
 				A0D20C431CEB032800B4509D /* RSS2.xml in Resources */,
+				A0DE94331CF7946700D1F19C /* Atom.xml in Resources */,
 				A0D20C411CEB032800B4509D /* Content.xml in Resources */,
 				A0D20C441CEB032800B4509D /* Syndication.xml in Resources */,
 			);
@@ -1028,6 +1035,7 @@
 			files = (
 				A0D20C461CEB032900B4509D /* DC.xml in Resources */,
 				A0D20C471CEB032900B4509D /* RSS2.xml in Resources */,
+				A0DE94341CF7946700D1F19C /* Atom.xml in Resources */,
 				A0D20C451CEB032900B4509D /* Content.xml in Resources */,
 				A0D20C481CEB032900B4509D /* Syndication.xml in Resources */,
 			);
