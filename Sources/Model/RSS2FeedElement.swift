@@ -24,10 +24,13 @@
 
 import Foundation
 
-
 /**
-    TODO: - Add description
-*/
+ 
+ Describes the individual path for each XML DOM element of an RSS feed
+ 
+ See http://web.resource.org/rss/1.0/modules/content/
+ 
+ */
 enum RSS2FeedElement: String {
 
     case RSS                                = "/rss"
@@ -75,7 +78,11 @@ enum RSS2FeedElement: String {
     case RSSChannelItemPubDate              = "/rss/channel/item/pubDate"
     case RSSChannelItemSource               = "/rss/channel/item/source"
     
-    /// Describes the XML DOM path to the specified node.
+    /** 
+     
+     Describes the XML DOM path to the specified node. 
+     
+     */
     var path: String {
         return self.rawValue
     }
