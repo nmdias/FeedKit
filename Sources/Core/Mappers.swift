@@ -305,6 +305,11 @@ extension FeedParser {
     
     func map(string: String, toFeed feed: RSS2Feed, forElement element: SyndicationElementPaths) {
         
+        /// If the syndication variable has not been initialized yet, do it before assiging any values
+        if  feed.channel?.syndication == nil {
+            feed.channel?.syndication = SyndicationNamespace()
+        }
+        
         switch element {
             
         case .UpdatePeriod:
@@ -316,8 +321,8 @@ extension FeedParser {
             
             feed.channel?.syndication?.syUpdatePeriod = syUpdatePeriod
             
-        case .UpdateFrequency:  feed.channel?.syndication?.syUpdateFrequency   = UInt(string)
-        case .UpdateBase:       feed.channel?.syndication?.syUpdateBase        = feed.channel?.syndication?.syUpdateBase?.stringByAppendingString(string) ?? string
+        case .UpdateFrequency:  feed.channel?.syndication?.syUpdateFrequency = UInt(string)
+        case .UpdateBase:       feed.channel?.syndication?.syUpdateBase = feed.channel?.syndication?.syUpdateBase?.stringByAppendingString(string) ?? string
             
         }
         
@@ -333,11 +338,14 @@ extension FeedParser {
         
     }
     
-    func map(string: String, toFeed feed: RSS2Feed, forElement element: DublinCoreElementPath) {
+    func map(string: String, toFeed feed: RSS2Feed, forElement element: DublinCoreChannelElementPath) {
+        
+        /// If the dublin core variable has not been initialized yet, do it before assiging any values
+        if feed.channel?.dublinCore == nil {
+           feed.channel?.dublinCore = DublinCoreNamespace()
+        }
         
         switch element {
-            
-            // Channel
             
         case .RSSChannelTitle:                  feed.channel?.dublinCore?.dcTitle                          = feed.channel?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string
         case .RSSChannelCreator:                feed.channel?.dublinCore?.dcCreator                        = feed.channel?.dublinCore?.dcCreator?.stringByAppendingString(string) ?? string
@@ -354,8 +362,19 @@ extension FeedParser {
         case .RSSChannelRelation:               feed.channel?.dublinCore?.dcRelation                       = feed.channel?.dublinCore?.dcRelation?.stringByAppendingString(string) ?? string
         case .RSSChannelCoverage:               feed.channel?.dublinCore?.dcCoverage                       = feed.channel?.dublinCore?.dcCoverage?.stringByAppendingString(string) ?? string
         case .RSSChannelRights:                 feed.channel?.dublinCore?.dcRights                         = feed.channel?.dublinCore?.dcRights?.stringByAppendingString(string) ?? string
-            
-            // Item.
+  
+        }
+        
+    }
+    
+    func map(string: String, toFeed feed: RSS2Feed, forElement element: DublinCoreChannelItemElementPath) {
+        
+        /// If the dublin core variable has not been initialized yet, do it before assiging any values
+        if  feed.channel?.items?.last?.dublinCore == nil {
+            feed.channel?.items?.last?.dublinCore = DublinCoreNamespace()
+        }
+        
+        switch element {
             
         case .RSSChannelItemTitle:              feed.channel?.items?.last?.dublinCore?.dcTitle             = feed.channel?.items?.last?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string
         case .RSSChannelItemCreator:            feed.channel?.items?.last?.dublinCore?.dcCreator           = feed.channel?.items?.last?.dublinCore?.dcCreator?.stringByAppendingString(string) ?? string
