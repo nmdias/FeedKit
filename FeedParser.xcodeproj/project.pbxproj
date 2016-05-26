@@ -38,7 +38,6 @@
 		A0370EC21CEF9EF6009583A3 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0370EC31CEF9F30009583A3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0370ED11CEF9F30009583A3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
-		A0370ED21CEF9F35009583A3 /* AtomSyndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */; };
 		A0370ED61CEF9F3B009583A3 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54891CE8A89C00A951E3 /* FeedParser.swift */; };
 		A0370ED71CEF9F3B009583A3 /* Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA548E1CE8AA7900A951E3 /* Mappers.swift */; };
 		A0370ED81CEF9F3B009583A3 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA54921CE8AAB800A951E3 /* Debug.swift */; };
@@ -65,9 +64,6 @@
 		A0CA544F1CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0CA54501CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0CA54511CE8A56700A951E3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
-		A0CA54521CE8A56700A951E3 /* AtomSyndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */; };
-		A0CA54531CE8A56700A951E3 /* AtomSyndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */; };
-		A0CA54541CE8A56700A951E3 /* AtomSyndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */; };
 		A0CA54851CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
 		A0CA54861CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
 		A0CA54871CE8A56700A951E3 /* RSS2FeedElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */; };
@@ -325,7 +321,6 @@
 		A09C85291CE9B0C300D20CAB /* Info-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		A0CA543B1CE8A56700A951E3 /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
-		A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomSyndication.swift; sourceTree = "<group>"; };
 		A0CA544E1CE8A56700A951E3 /* RSS2FeedElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2FeedElement.swift; sourceTree = "<group>"; };
 		A0CA54891CE8A89C00A951E3 /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedParser.swift; path = Sources/Core/FeedParser.swift; sourceTree = "<group>"; };
 		A0CA548E1CE8AA7900A951E3 /* Mappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mappers.swift; path = Sources/Core/Mappers.swift; sourceTree = "<group>"; };
@@ -519,7 +514,6 @@
 				A0E83A691CF7325E00DC60B3 /* Content */,
 				A0E83A6C1CF7325E00DC60B3 /* Dublin Core */,
 				A0E83A6F1CF7325E00DC60B3 /* Syndication */,
-				A0CA543D1CE8A56700A951E3 /* AtomSyndication.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1087,7 +1081,6 @@
 				A0D8C8601CF38F8200D115B8 /* RSS2FeedChannelItemCategory.swift in Sources */,
 				A0370ED61CEF9F3B009583A3 /* FeedParser.swift in Sources */,
 				A0D8C84C1CF38F8200D115B8 /* RSS2FeedChannel.swift in Sources */,
-				A0370ED21CEF9F35009583A3 /* AtomSyndication.swift in Sources */,
 				A023F3811CF43B9E00C98065 /* AtomFeedEntryCategory.swift in Sources */,
 				A0E83A7D1CF7325E00DC60B3 /* DublinCoreElementPaths.swift in Sources */,
 				A0D8C8701CF38F8200D115B8 /* RSS2FeedChannelSkipDay.swift in Sources */,
@@ -1213,7 +1206,6 @@
 				A08D5DB41CF4E89800451D19 /* AtomFeedEntryContent.swift in Sources */,
 				A0E83A8C1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */,
 				A0E83A911CF7371000DC60B3 /* ParseResult.swift in Sources */,
-				A0CA54531CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
 				A0D8C8621CF38F8200D115B8 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
 				A0CA54941CE8AAB800A951E3 /* Debug.swift in Sources */,
 				A0CA548B1CE8A89C00A951E3 /* FeedParser.swift in Sources */,
@@ -1259,7 +1251,6 @@
 				A08D5DB51CF4E89800451D19 /* AtomFeedEntryContent.swift in Sources */,
 				A0E83A8D1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */,
 				A0E83A921CF7371000DC60B3 /* ParseResult.swift in Sources */,
-				A0CA54541CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
 				A0D8C8631CF38F8200D115B8 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
 				A0CA54951CE8AAB800A951E3 /* Debug.swift in Sources */,
 				A0CA548C1CE8A89C00A951E3 /* FeedParser.swift in Sources */,
@@ -1305,7 +1296,6 @@
 				A08D5DB31CF4E89800451D19 /* AtomFeedEntryContent.swift in Sources */,
 				A0E83A8B1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */,
 				A0E83A901CF7371000DC60B3 /* ParseResult.swift in Sources */,
-				A0CA54521CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
 				A0D8C8611CF38F8200D115B8 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
 				A0CA54931CE8AAB800A951E3 /* Debug.swift in Sources */,
 				A0CA548A1CE8A89C00A951E3 /* FeedParser.swift in Sources */,
