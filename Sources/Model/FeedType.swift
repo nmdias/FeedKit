@@ -24,12 +24,23 @@
 
 import Foundation
 
+/**
+ 
+ Identifies the type of feed, and can be initialized from a string of the top-level 
+ element of a feed.
+ 
+ */
 public enum FeedType: String {
     
     case Atom = "feed"
     case RSS1 = "rdf:RDF"
     case RSS2 = "rss"
     
+    /**
+     
+     The top-level element of the feed within an XML DOM
+     
+     */
     var path: String {
         return self.rawValue
     }
