@@ -26,14 +26,16 @@ import Foundation
 
 /**
  
- The element path's of the Dublin Core namespace for the XML DOM
+ Describes the individual path for each XML DOM element of the `Dublin Core` namespace
+ 
+ See http://web.resource.org/rss/1.0/modules/dc/
  
  */
 public enum DublinCoreElementPath: String {
     
     /**
      
-     The Dublin Core namespace declaration
+     The `Dublin Core` namespace declaration
      
      */
     public static let namespace = [ "xmlns:dc" : "http://purl.org/dc/elements/1.1/" ]
