@@ -26,15 +26,21 @@ import Foundation
 
 /**
  
- The Content namespace offers a means of defining item content with more 
- precision than the description element.
+ A module for the actual content of websites, in multiple formats.
  
- See: http://www.rssboard.org/rss-profile#namespace-elements-content
+ See http://web.resource.org/rss/1.0/modules/content/
  
 */
 public class ContentNamespace {
     
-    /// The content:encoded element defines the full content of an item (OPTIONAL). This element has a more precise purpose than the description element, which can be the full content, a summary or some other form of excerpt at the publisher's discretion. The content MUST be suitable for presentation as HTML and be encoded as character data in the same manner as the description element.
+    /**
+     
+     An element whose contents are the entity-encoded or CDATA-escaped version
+     of the content of the item. 
+     
+     Example: <content:encoded><![CDATA[<p>What a <em>beautiful</em> day!</p>]]></content:encoded>
+     
+     */
     var contentEncoded: String?
     
 }
