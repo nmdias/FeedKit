@@ -1,5 +1,5 @@
 //
-//  Syndication.swift
+//  SyndicationElementPaths.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -24,7 +24,7 @@
 
 import Foundation
 
-enum SyndicationElement: String {
+enum SyndicationElementPaths: String {
     
     case UpdatePeriod         = "sy:updatePeriod"
     case UpdateFrequency      = "sy:updateFrequency"
