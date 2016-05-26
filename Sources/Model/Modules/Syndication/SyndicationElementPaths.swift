@@ -24,6 +24,14 @@
 
 import Foundation
 
+/**
+ 
+ Describes the individual path for each XML DOM element of the `Syndication`
+ namespace
+ 
+ See http://web.resource.org/rss/1.0/modules/syndication/
+ 
+ */
 enum SyndicationElementPaths: String {
     
     case UpdatePeriod         = "sy:updatePeriod"
