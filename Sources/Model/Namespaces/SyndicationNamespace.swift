@@ -24,10 +24,47 @@
 
 import Foundation
 
+/**
+ 
+ Provides syndication hints to aggregators and others picking up this RDF Site 
+ Summary (RSS) feed regarding how often it is updated. For example, if you 
+ updated your file twice an hour, updatePeriod would be "hourly" and 
+ updateFrequency would be "2". The syndication module borrows from Ian Davis's 
+ Open Content Syndication (OCS) directory format. It supercedes the RSS 0.91 
+ skipDay and skipHour elements.
+ 
+ See http://web.resource.org/rss/1.0/modules/syndication/
+ 
+ */
 public class SyndicationNamespace {
     
-    var syUpdatePeriod:       SyndicationUpdatePeriod?
-    var syUpdateFrequency:    UInt?
-    var syUpdateBase:         String?
+    /**
+     
+     Describes the period over which the channel format is updated. Acceptable 
+     values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is 
+     assumed.
+     
+     */
+    var syUpdatePeriod: SyndicationUpdatePeriod?
+    
+    /**
+     
+     Used to describe the frequency of updates in relation to the update period.
+     A positive integer indicates how many times in that period the channel is 
+     updated. For example, an updatePeriod of daily, and an updateFrequency of 
+     2 indicates the channel format is updated twice daily. If omitted a value 
+     of 1 is assumed.
+     
+     */
+    var syUpdateFrequency: UInt?
+    
+    /**
+     
+     Defines a base date to be used in concert with updatePeriod and 
+     updateFrequency to calculate the publishing schedule. The date format takes
+     the form: yyyy-mm-ddThh:mm
+     
+     */
+    var syUpdateBase: String?
     
 }

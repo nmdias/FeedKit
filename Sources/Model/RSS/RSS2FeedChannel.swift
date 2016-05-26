@@ -307,6 +307,18 @@ public class RSS2FeedChannel {
     
     public var dublinCore: DublinCoreNamespace?
     
+    /**
+     
+     Provides syndication hints to aggregators and others picking up this RDF Site
+     Summary (RSS) feed regarding how often it is updated. For example, if you
+     updated your file twice an hour, updatePeriod would be "hourly" and
+     updateFrequency would be "2". The syndication module borrows from Ian Davis's
+     Open Content Syndication (OCS) directory format. It supercedes the RSS 0.91
+     skipDay and skipHour elements.
+     
+     See http://web.resource.org/rss/1.0/modules/syndication/
+     
+     */
     public var syndication: SyndicationNamespace?
     
     
