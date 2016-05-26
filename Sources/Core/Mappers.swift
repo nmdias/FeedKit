@@ -26,7 +26,7 @@ import Foundation
 
 extension FeedParser {
     
-    func map(attributes attributeDict: [String : String], toFeed feed: RSS2Feed, forElement element: RSS2FeedElement) {
+    func map(attributes attributeDict: [String : String], toFeed feed: RSS2Feed, forElement element: RSS2FeedElementPath) {
         
         switch element {
             
@@ -217,7 +217,7 @@ extension FeedParser {
      
      */
     
-    func map(string: String, toFeed feed: RSS2Feed, forElement element: RSS2FeedElement) {
+    func map(string: String, toFeed feed: RSS2Feed, forElement element: RSS2FeedElementPath) {
         
         switch element {
             

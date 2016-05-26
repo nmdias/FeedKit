@@ -31,7 +31,7 @@ import Foundation
  See http://web.resource.org/rss/1.0/modules/content/
  
  */
-enum RSS2FeedElement: String {
+enum RSS2FeedElementPath: String {
 
     case RSS                                = "/rss"
     case RSSChannel                         = "/rss/channel"

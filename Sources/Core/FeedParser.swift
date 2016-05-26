@@ -96,7 +96,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`
         self.currentXMLDOMPath = self.currentXMLDOMPath?.URLByAppendingPathComponent(elementName)
         
-        guard let element = RSS2FeedElement(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") else {
+        guard let element = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") else {
             Debug.log("Unable to infer XML DOM element from current path: '\(self.currentXMLDOMPath)'")
             return
         }
@@ -122,7 +122,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             return
         }
         
-        if let element = RSS2FeedElement(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+        if let element = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.feed!, forElement: element)
         }
             
@@ -143,7 +143,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     public func parser(parser: NSXMLParser, foundCharacters string: String) {
         Debug.log("parser: \(parser.debugDescription), foundCharacters: \(string)")
         
-        if let feedElement = RSS2FeedElement(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+        if let feedElement = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.feed!, forElement: feedElement)
         }
             
