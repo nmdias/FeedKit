@@ -12,7 +12,7 @@ An RSS and Atom feed parser written in Swift
 
 FeedParser is under active development and it's `2.1.0` release successfully parses all versions of the RSS specification, from `RSS 0.90` to `RSS 2.0.0`.  Atom feeds support will be made available in version `3.0.0`.
 
-### 3.0.0 Release Objectives
+###### 3.0.0
 
 The objectives of the 3.0.0 release are to make `FeedParser` fully documented and thoroughly mappable to a strongly typed model with:
 
