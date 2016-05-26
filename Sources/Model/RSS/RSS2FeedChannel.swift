@@ -27,7 +27,7 @@ import Foundation
 /**
     Subordinate to the `<rss>` element is a single `<channel>` element, which contains information about the channels (metadata) and its contents.
 */
-public class RSS2FeedChannel: SyndicationProtocol {
+public class RSS2FeedChannel {
     
     // MARK: - RSS2
     
@@ -307,17 +307,7 @@ public class RSS2FeedChannel: SyndicationProtocol {
     
     public var dublinCore: DublinCoreNamespace?
     
-    
-    // MARK: - Syndication Module
-    
-    /// Describes the period over which the channel format is updated. Acceptable values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is assumed.
-    public var syUpdatePeriod: SyndicationUpdatePeriod?
-    
-    /// Used to describe the frequency of updates in relation to the update period. A positive integer indicates how many times in that period the channel is updated. For example, an updatePeriod of daily, and an updateFrequency of 2 indicates the channel format is updated twice daily. If omitted a value of 1 is assumed.
-    public var syUpdateFrequency: UInt?
-    
-    /// Defines a base date to be used in concert with updatePeriod and updateFrequency to calculate the publishing schedule. The date format takes the form: yyyy-mm-ddThh:mm
-    public var syUpdateBase: String?
+    public var syndication: SyndicationNamespace?
     
     
     // MARK: - Initializers

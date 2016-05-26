@@ -24,14 +24,6 @@
 
 import Foundation
 
-protocol SyndicationProtocol {
-    
-    var syUpdatePeriod:       SyndicationUpdatePeriod? { get set }
-    var syUpdateFrequency:    UInt? { get set }
-    var syUpdateBase:         String? { get set }
-    
-}
-
 enum SyndicationElement: String {
     
     case UpdatePeriod         = "sy:updatePeriod"

@@ -314,10 +314,10 @@ extension FeedParser {
                 return
             }
             
-            feed.channel?.syUpdatePeriod = syUpdatePeriod
+            feed.channel?.syndication?.syUpdatePeriod = syUpdatePeriod
             
-        case .UpdateFrequency:  feed.channel?.syUpdateFrequency   = UInt(string)
-        case .UpdateBase:       feed.channel?.syUpdateBase        = feed.channel?.syUpdateBase?.stringByAppendingString(string) ?? string
+        case .UpdateFrequency:  feed.channel?.syndication?.syUpdateFrequency   = UInt(string)
+        case .UpdateBase:       feed.channel?.syndication?.syUpdateBase        = feed.channel?.syndication?.syUpdateBase?.stringByAppendingString(string) ?? string
             
         }
         
