@@ -316,6 +316,8 @@ public class RSS2FeedChannel: SyndicationProtocol, DublinCoreProtocol {
     
     
     // MARK: - Dublin Core Module
+    
+    
     /**
      
      A name given to the resource

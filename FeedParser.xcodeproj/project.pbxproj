@@ -182,6 +182,10 @@
 		A0E83A4A1CF6D36F00DC60B3 /* DublinCoreElementPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A481CF6D36F00DC60B3 /* DublinCoreElementPaths.swift */; };
 		A0E83A4B1CF6D36F00DC60B3 /* DublinCoreElementPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A481CF6D36F00DC60B3 /* DublinCoreElementPaths.swift */; };
 		A0E83A4C1CF6D36F00DC60B3 /* DublinCoreElementPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A481CF6D36F00DC60B3 /* DublinCoreElementPaths.swift */; };
+		A0E83A4E1CF6D55E00DC60B3 /* ContentElementPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A4D1CF6D55E00DC60B3 /* ContentElementPath.swift */; };
+		A0E83A4F1CF6D55E00DC60B3 /* ContentElementPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A4D1CF6D55E00DC60B3 /* ContentElementPath.swift */; };
+		A0E83A501CF6D55E00DC60B3 /* ContentElementPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A4D1CF6D55E00DC60B3 /* ContentElementPath.swift */; };
+		A0E83A511CF6D55E00DC60B3 /* ContentElementPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A4D1CF6D55E00DC60B3 /* ContentElementPath.swift */; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB61CE869AE00C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB51CE869AE00C52142 /* Assets.xcassets */; };
 		A0EF4DB91CE869AE00C52142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB71CE869AE00C52142 /* LaunchScreen.storyboard */; };
@@ -341,6 +345,7 @@
 		A0D8C8841CF3926300D115B8 /* AtomFeedEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomFeedEntry.swift; path = Atom/AtomFeedEntry.swift; sourceTree = "<group>"; };
 		A0D8C88E1CF395CA00D115B8 /* AtomFeedLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomFeedLink.swift; path = Atom/AtomFeedLink.swift; sourceTree = "<group>"; };
 		A0E83A481CF6D36F00DC60B3 /* DublinCoreElementPaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DublinCoreElementPaths.swift; path = "Element Paths/DublinCoreElementPaths.swift"; sourceTree = "<group>"; };
+		A0E83A4D1CF6D55E00DC60B3 /* ContentElementPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentElementPath.swift; path = "Element Paths/ContentElementPath.swift"; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* FeedParser Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedParser Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -569,6 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				A0E83A481CF6D36F00DC60B3 /* DublinCoreElementPaths.swift */,
+				A0E83A4D1CF6D55E00DC60B3 /* ContentElementPath.swift */,
 			);
 			name = "Element Paths";
 			sourceTree = "<group>";
@@ -1070,6 +1076,7 @@
 				A0370ED51CEF9F35009583A3 /* Syndication.swift in Sources */,
 				A023F3721CF4344700C98065 /* AtomFeedGenerator.swift in Sources */,
 				A023F37C1CF4386F00C98065 /* AtomFeedEntryLink.swift in Sources */,
+				A0E83A511CF6D55E00DC60B3 /* ContentElementPath.swift in Sources */,
 				A0D8C8921CF395CA00D115B8 /* AtomFeedLink.swift in Sources */,
 				A0370ED31CEF9F35009583A3 /* Content.swift in Sources */,
 			);
@@ -1177,6 +1184,7 @@
 				A0CA54591CE8A56700A951E3 /* DublinCore.swift in Sources */,
 				A023F3701CF4344700C98065 /* AtomFeedGenerator.swift in Sources */,
 				A023F37A1CF4386F00C98065 /* AtomFeedEntryLink.swift in Sources */,
+				A0E83A4F1CF6D55E00DC60B3 /* ContentElementPath.swift in Sources */,
 				A0D8C8901CF395CA00D115B8 /* AtomFeedLink.swift in Sources */,
 				A0CA54561CE8A56700A951E3 /* Content.swift in Sources */,
 			);
@@ -1219,6 +1227,7 @@
 				A0CA545A1CE8A56700A951E3 /* DublinCore.swift in Sources */,
 				A023F3711CF4344700C98065 /* AtomFeedGenerator.swift in Sources */,
 				A023F37B1CF4386F00C98065 /* AtomFeedEntryLink.swift in Sources */,
+				A0E83A501CF6D55E00DC60B3 /* ContentElementPath.swift in Sources */,
 				A0D8C8911CF395CA00D115B8 /* AtomFeedLink.swift in Sources */,
 				A0CA54571CE8A56700A951E3 /* Content.swift in Sources */,
 			);
@@ -1261,6 +1270,7 @@
 				A0CA54581CE8A56700A951E3 /* DublinCore.swift in Sources */,
 				A023F36F1CF4344700C98065 /* AtomFeedGenerator.swift in Sources */,
 				A023F3791CF4386F00C98065 /* AtomFeedEntryLink.swift in Sources */,
+				A0E83A4E1CF6D55E00DC60B3 /* ContentElementPath.swift in Sources */,
 				A0D8C88F1CF395CA00D115B8 /* AtomFeedLink.swift in Sources */,
 				A0CA54551CE8A56700A951E3 /* Content.swift in Sources */,
 			);
