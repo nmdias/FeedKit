@@ -26,7 +26,8 @@ import Foundation
 
 /**
  
- Describes the individual path for each XML DOM element of the `Content` namespace
+ Describes the individual path for each XML DOM element of the `Content` 
+ namespace
  
  See http://web.resource.org/rss/1.0/modules/content/
  
