@@ -26,6 +26,9 @@ import Foundation
 
 /**
  
+ Data model for the XML DOM of the Atom Specification
+ See https://tools.ietf.org/html/rfc4287
+ 
  The "atom:feed" element is the document (i.e., top-level) element of
  an Atom Feed Document, acting as a container for metadata and data
  associated with the feed.  Its element children consist of metadata
