@@ -34,42 +34,9 @@ class ContentTestCase: BaseTestCase {
         let parser = FeedParser(URL: URL)
         
         // When
-        parser.parse { (feed) in
+        parser.parse { (result) in
             
-            // Then
-            assert(feed?.channel != nil)
             
-            assert(feed?.channel?.dcTitle                      == "title")
-            assert(feed?.channel?.dcCreator                    == "creator")
-            assert(feed?.channel?.dcSubject                    == "subject")
-            assert(feed?.channel?.dcDescription                == "description")
-            assert(feed?.channel?.dcPublisher                  == "publisher")
-            assert(feed?.channel?.dcContributor                == "contributor")
-            assert(feed?.channel?.dcDate                       == "date")
-            assert(feed?.channel?.dcType                       == "type")
-            assert(feed?.channel?.dcFormat                     == "format")
-            assert(feed?.channel?.dcIdentifier                 == "identifier")
-            assert(feed?.channel?.dcSource                     == "source")
-            assert(feed?.channel?.dcLanguage                   == "language")
-            assert(feed?.channel?.dcRelation                   == "relation")
-            assert(feed?.channel?.dcCoverage                   == "coverage")
-            assert(feed?.channel?.dcRights                     == "rights")
-            
-            assert(feed?.channel?.items?.last?.dcTitle         == "title")
-            assert(feed?.channel?.items?.last?.dcCreator       == "creator")
-            assert(feed?.channel?.items?.last?.dcSubject       == "subject")
-            assert(feed?.channel?.items?.last?.dcDescription   == "description")
-            assert(feed?.channel?.items?.last?.dcPublisher     == "publisher")
-            assert(feed?.channel?.items?.last?.dcContributor   == "contributor")
-            assert(feed?.channel?.items?.last?.dcDate          == "date")
-            assert(feed?.channel?.items?.last?.dcType          == "type")
-            assert(feed?.channel?.items?.last?.dcFormat        == "format")
-            assert(feed?.channel?.items?.last?.dcIdentifier    == "identifier")
-            assert(feed?.channel?.items?.last?.dcSource        == "source")
-            assert(feed?.channel?.items?.last?.dcLanguage      == "language")
-            assert(feed?.channel?.items?.last?.dcRelation      == "relation")
-            assert(feed?.channel?.items?.last?.dcCoverage      == "coverage")
-            assert(feed?.channel?.items?.last?.dcRights        == "rights")
             
         }
         

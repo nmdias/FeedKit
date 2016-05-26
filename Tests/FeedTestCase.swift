@@ -34,7 +34,9 @@ class FeedTestCase: BaseTestCase {
         let parser = FeedParser(URL: URL)
         
         // When
-        parser.parse { (feed) in
+        parser.parse { (result) in
+            
+            let feed = result.rss2Feed
             
             // Then
             assert(feed?.channel != nil)
@@ -101,7 +103,9 @@ class FeedTestCase: BaseTestCase {
         let parser = FeedParser(URL: URL)
         
         // When
-        parser.parse { (feed) in
+        parser.parse { (result) in
+            
+            let feed = result.rss2Feed
             
             // Then
             assert(feed?.channel != nil)

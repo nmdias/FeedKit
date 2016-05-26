@@ -34,42 +34,46 @@ class DublinCoreTestCase: BaseTestCase {
         let parser = FeedParser(URL: URL)
         
         // When
-        parser.parse { (feed) in
+        parser.parse { (result) in
+            
+            let feed = result.rss2Feed
             
             // Then
             assert(feed?.channel != nil)
             
-            assert(feed?.channel?.dcTitle                      == "title")
-            assert(feed?.channel?.dcCreator                    == "creator")
-            assert(feed?.channel?.dcSubject                    == "subject")
-            assert(feed?.channel?.dcDescription                == "description")
-            assert(feed?.channel?.dcPublisher                  == "publisher")
-            assert(feed?.channel?.dcContributor                == "contributor")
-            assert(feed?.channel?.dcDate                       == "date")
-            assert(feed?.channel?.dcType                       == "type")
-            assert(feed?.channel?.dcFormat                     == "format")
-            assert(feed?.channel?.dcIdentifier                 == "identifier")
-            assert(feed?.channel?.dcSource                     == "source")
-            assert(feed?.channel?.dcLanguage                   == "language")
-            assert(feed?.channel?.dcRelation                   == "relation")
-            assert(feed?.channel?.dcCoverage                   == "coverage")
-            assert(feed?.channel?.dcRights                     == "rights")
+            assert(feed?.channel?.dublinCore?.dcTitle                      == "title")
+            assert(feed?.channel?.dublinCore?.dcCreator                    == "creator")
+            assert(feed?.channel?.dublinCore?.dcSubject                    == "subject")
+            assert(feed?.channel?.dublinCore?.dcDescription                == "description")
+            assert(feed?.channel?.dublinCore?.dcPublisher                  == "publisher")
+            assert(feed?.channel?.dublinCore?.dcContributor                == "contributor")
+            assert(feed?.channel?.dublinCore?.dcDate                       == "date")
+            assert(feed?.channel?.dublinCore?.dcType                       == "type")
+            assert(feed?.channel?.dublinCore?.dcFormat                     == "format")
+            assert(feed?.channel?.dublinCore?.dcIdentifier                 == "identifier")
+            assert(feed?.channel?.dublinCore?.dcSource                     == "source")
+            assert(feed?.channel?.dublinCore?.dcLanguage                   == "language")
+            assert(feed?.channel?.dublinCore?.dcRelation                   == "relation")
+            assert(feed?.channel?.dublinCore?.dcCoverage                   == "coverage")
+            assert(feed?.channel?.dublinCore?.dcRights                     == "rights")
             
-            assert(feed?.channel?.items?.last?.dcTitle         == "title")
-            assert(feed?.channel?.items?.last?.dcCreator       == "creator")
-            assert(feed?.channel?.items?.last?.dcSubject       == "subject")
-            assert(feed?.channel?.items?.last?.dcDescription   == "description")
-            assert(feed?.channel?.items?.last?.dcPublisher     == "publisher")
-            assert(feed?.channel?.items?.last?.dcContributor   == "contributor")
-            assert(feed?.channel?.items?.last?.dcDate          == "date")
-            assert(feed?.channel?.items?.last?.dcType          == "type")
-            assert(feed?.channel?.items?.last?.dcFormat        == "format")
-            assert(feed?.channel?.items?.last?.dcIdentifier    == "identifier")
-            assert(feed?.channel?.items?.last?.dcSource        == "source")
-            assert(feed?.channel?.items?.last?.dcLanguage      == "language")
-            assert(feed?.channel?.items?.last?.dcRelation      == "relation")
-            assert(feed?.channel?.items?.last?.dcCoverage      == "coverage")
-            assert(feed?.channel?.items?.last?.dcRights        == "rights")
+            assert(feed?.channel?.items?.last?.dublinCore != nil)
+            
+            assert(feed?.channel?.items?.last?.dublinCore?.dcTitle         == "title")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcCreator       == "creator")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcSubject       == "subject")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcDescription   == "description")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcPublisher     == "publisher")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcContributor   == "contributor")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcDate          == "date")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcType          == "type")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcFormat        == "format")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcIdentifier    == "identifier")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcSource        == "source")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcLanguage      == "language")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcRelation      == "relation")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcCoverage      == "coverage")
+            assert(feed?.channel?.items?.last?.dublinCore?.dcRights        == "rights")
             
         }
         

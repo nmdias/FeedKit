@@ -34,14 +34,16 @@ class SyndicationTestCase: BaseTestCase {
         let parser = FeedParser(URL: URL)
         
         // When
-        parser.parse { (feed) in
+        parser.parse { (result) in
+            
+            let feed = result.rss2Feed
             
             // Then
             assert(feed?.channel != nil)
-            
-            assert(feed?.channel?.syUpdatePeriod == SyndicationUpdatePeriod.Hourly)
-            assert(feed?.channel?.syUpdateFrequency == UInt(2))
-            assert(feed?.channel?.syUpdateBase == "2000-01-01T12:00+00:00")
+
+            assert(feed?.channel?.syndication?.syUpdatePeriod == SyndicationUpdatePeriod.Hourly)
+            assert(feed?.channel?.syndication?.syUpdateFrequency == UInt(2))
+            assert(feed?.channel?.syndication?.syUpdateBase == "2000-01-01T12:00+00:00")
 
         }
         
