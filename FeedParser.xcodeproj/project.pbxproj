@@ -190,6 +190,14 @@
 		A0E83A871CF7325E00DC60B3 /* SyndicationNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A711CF7325E00DC60B3 /* SyndicationNamespace.swift */; };
 		A0E83A881CF7325E00DC60B3 /* SyndicationNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A711CF7325E00DC60B3 /* SyndicationNamespace.swift */; };
 		A0E83A891CF7325E00DC60B3 /* SyndicationNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A711CF7325E00DC60B3 /* SyndicationNamespace.swift */; };
+		A0E83A8B1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A8A1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift */; };
+		A0E83A8C1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A8A1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift */; };
+		A0E83A8D1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A8A1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift */; };
+		A0E83A8E1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A8A1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift */; };
+		A0E83A901CF7371000DC60B3 /* ParseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A8F1CF7371000DC60B3 /* ParseResult.swift */; };
+		A0E83A911CF7371000DC60B3 /* ParseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A8F1CF7371000DC60B3 /* ParseResult.swift */; };
+		A0E83A921CF7371000DC60B3 /* ParseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A8F1CF7371000DC60B3 /* ParseResult.swift */; };
+		A0E83A931CF7371000DC60B3 /* ParseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E83A8F1CF7371000DC60B3 /* ParseResult.swift */; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB61CE869AE00C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB51CE869AE00C52142 /* Assets.xcassets */; };
 		A0EF4DB91CE869AE00C52142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB71CE869AE00C52142 /* LaunchScreen.storyboard */; };
@@ -351,6 +359,8 @@
 		A0E83A6E1CF7325E00DC60B3 /* DublinCoreNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCoreNamespace.swift; sourceTree = "<group>"; };
 		A0E83A701CF7325E00DC60B3 /* SyndicationElementPaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationElementPaths.swift; sourceTree = "<group>"; };
 		A0E83A711CF7325E00DC60B3 /* SyndicationNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationNamespace.swift; sourceTree = "<group>"; };
+		A0E83A8A1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationUpdatePeriod.swift; sourceTree = "<group>"; };
+		A0E83A8F1CF7371000DC60B3 /* ParseResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseResult.swift; path = Sources/Core/ParseResult.swift; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* FeedParser Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedParser Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -520,6 +530,7 @@
 				A0CA54891CE8A89C00A951E3 /* FeedParser.swift */,
 				A0CA548E1CE8AA7900A951E3 /* Mappers.swift */,
 				A0CA54921CE8AAB800A951E3 /* Debug.swift */,
+				A0E83A8F1CF7371000DC60B3 /* ParseResult.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -597,6 +608,7 @@
 			children = (
 				A0E83A701CF7325E00DC60B3 /* SyndicationElementPaths.swift */,
 				A0E83A711CF7325E00DC60B3 /* SyndicationNamespace.swift */,
+				A0E83A8A1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift */,
 			);
 			path = Syndication;
 			sourceTree = "<group>";
@@ -1088,6 +1100,8 @@
 				A023F36D1CF432A800C98065 /* AtomFeedContributor.swift in Sources */,
 				A0D8C8881CF3926300D115B8 /* AtomFeedEntry.swift in Sources */,
 				A0D8C8831CF390F700D115B8 /* AtomFeedAuthor.swift in Sources */,
+				A0E83A8E1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */,
+				A0E83A931CF7371000DC60B3 /* ParseResult.swift in Sources */,
 				A08D5DB61CF4E89800451D19 /* AtomFeedEntryContent.swift in Sources */,
 				A0D8C86C1CF38F8200D115B8 /* RSS2FeedChannelItemSource.swift in Sources */,
 				A0D8C8641CF38F8200D115B8 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
@@ -1197,6 +1211,8 @@
 				A0D8C8861CF3926300D115B8 /* AtomFeedEntry.swift in Sources */,
 				A0D8C8811CF390F700D115B8 /* AtomFeedAuthor.swift in Sources */,
 				A08D5DB41CF4E89800451D19 /* AtomFeedEntryContent.swift in Sources */,
+				A0E83A8C1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */,
+				A0E83A911CF7371000DC60B3 /* ParseResult.swift in Sources */,
 				A0CA54531CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
 				A0D8C8621CF38F8200D115B8 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
 				A0CA54941CE8AAB800A951E3 /* Debug.swift in Sources */,
@@ -1241,6 +1257,8 @@
 				A0D8C8871CF3926300D115B8 /* AtomFeedEntry.swift in Sources */,
 				A0D8C8821CF390F700D115B8 /* AtomFeedAuthor.swift in Sources */,
 				A08D5DB51CF4E89800451D19 /* AtomFeedEntryContent.swift in Sources */,
+				A0E83A8D1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */,
+				A0E83A921CF7371000DC60B3 /* ParseResult.swift in Sources */,
 				A0CA54541CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
 				A0D8C8631CF38F8200D115B8 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
 				A0CA54951CE8AAB800A951E3 /* Debug.swift in Sources */,
@@ -1285,6 +1303,8 @@
 				A0D8C8851CF3926300D115B8 /* AtomFeedEntry.swift in Sources */,
 				A0D8C8801CF390F700D115B8 /* AtomFeedAuthor.swift in Sources */,
 				A08D5DB31CF4E89800451D19 /* AtomFeedEntryContent.swift in Sources */,
+				A0E83A8B1CF7339B00DC60B3 /* SyndicationUpdatePeriod.swift in Sources */,
+				A0E83A901CF7371000DC60B3 /* ParseResult.swift in Sources */,
 				A0CA54521CE8A56700A951E3 /* AtomSyndication.swift in Sources */,
 				A0D8C8611CF38F8200D115B8 /* RSS2FeedChannelItemEnclosure.swift in Sources */,
 				A0CA54931CE8AAB800A951E3 /* Debug.swift in Sources */,

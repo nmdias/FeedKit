@@ -40,9 +40,9 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     
     // FIXME: - The `XMLParser` property should not be an optional property and the delegate should be set by the time the Parser has been initialized. Fix this when the specified initializer bug has been fix in a new swift release.
     /// The XML parser.
-    private var XMLParser: NSXMLParser?
+    private var xmlParser: NSXMLParser?
     
-    private var finished: ((feed: RSS2Feed?) -> ())?
+    private var result: (ParseResult -> Void)?
     
     // MARK: - Initializers
     
@@ -60,7 +60,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             return
         }
 
-        self.XMLParser = parser
+        self.xmlParser = parser
     }
     
     // MARK: - Public methods
@@ -68,10 +68,10 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     /**
      Starts parsing the feed.
      */
-    public func parse(finished: (feed: RSS2Feed?) -> ()) {
-        self.finished = finished
-        self.XMLParser?.delegate = self
-        self.XMLParser?.parse()
+    public func parse(result: ParseResult -> Void) {
+        self.result = result
+        self.xmlParser?.delegate = self
+        self.xmlParser?.parse()
     }
     
     
@@ -83,7 +83,11 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     
     public func parserDidEndDocument(parser: NSXMLParser) {
         Debug.log("parser: \(parser), didEndDocument")
-        self.finished?(feed: self.feed)
+
+        let parseResult = ParseResult()
+        parseResult.rss2Feed = self.feed
+        self.result?(parseResult)
+        
     }
     
     public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
@@ -122,11 +126,11 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             self.map(string, toFeed: self.feed!, forElement: element)
         }
             
-        else if let dublinCoreElement = DublinCoreElement(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+        else if let dublinCoreElement = DublinCoreElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.feed!, forElement: dublinCoreElement)
         }
             
-        else if let contentElement = ContentElement(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+        else if let contentElement = ContentElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.feed!, forElement: contentElement)
         }
             
@@ -143,11 +147,11 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             self.map(string, toFeed: self.feed!, forElement: feedElement)
         }
             
-        else if let syndicationElement = SyndicationElement(rawValue: self.currentXMLDOMPath?.lastPathComponent ?? "") {
+        else if let syndicationElement = SyndicationElementPaths(rawValue: self.currentXMLDOMPath?.lastPathComponent ?? "") {
             self.map(string, toFeed: self.feed!, forElement: syndicationElement)
         }
             
-        else if let dublinCoreElement = DublinCoreElement(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+        else if let dublinCoreElement = DublinCoreElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.feed!, forElement: dublinCoreElement)
         }
             
