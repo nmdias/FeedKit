@@ -327,7 +327,7 @@ extension FeedParser {
         
         switch element {
             
-        case .RSSChannelItemContent: feed.channel?.items?.last?.contentEncoded = feed.channel?.items?.last?.contentEncoded?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemContent: feed.channel?.items?.last?.content?.contentEncoded = feed.channel?.items?.last?.content?.contentEncoded?.stringByAppendingString(string) ?? string
             
         }
         

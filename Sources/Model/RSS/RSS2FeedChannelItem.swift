@@ -36,7 +36,7 @@ import Foundation
  however at least one of title or description must be present.
  
  */
-public class RSS2FeedChannelItem: ContentProtocol {
+public class RSS2FeedChannelItem {
     
     /**
      
@@ -219,13 +219,7 @@ public class RSS2FeedChannelItem: ContentProtocol {
     
     public var dublinCore: DublinCoreNamespace?
     
+    public var content: ContentNamespace?
     
-    // MARK: - Content Module
-    
-    /// The content:encoded element defines the full content of an item (OPTIONAL). This element has a more precise purpose than the description element, which can be the full content, a summary or some other form of excerpt at the publisher's discretion. The content MUST be suitable for presentation as HTML and be encoded as character data in the same manner as the description element.
-    var contentEncoded: String?
-    
-    // TODO: Uncomment?
-//    public init() {}
     
 }

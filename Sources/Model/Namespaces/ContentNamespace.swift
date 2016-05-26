@@ -32,10 +32,10 @@ import Foundation
  See: http://www.rssboard.org/rss-profile#namespace-elements-content
  
 */
-protocol ContentProtocol {
+public class ContentNamespace {
     
     /// The content:encoded element defines the full content of an item (OPTIONAL). This element has a more precise purpose than the description element, which can be the full content, a summary or some other form of excerpt at the publisher's discretion. The content MUST be suitable for presentation as HTML and be encoded as character data in the same manner as the description element.
-    var contentEncoded: String? { get set }
+    var contentEncoded: String?
     
 }
 
