@@ -28,6 +28,8 @@ public class ParseResult {
     
     public var feedType: FeedType?
     public var rss2Feed: RSS2Feed?
+    public var atomFeed: AtomFeed?
+    
     public init() {
         
     }
