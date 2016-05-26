@@ -10,9 +10,9 @@ import Foundation
 
 /**
  
- Update periods as described by the `<sy:updatePeriod>` element of the Syndication Module specification.
- 
- See: http://cyber.law.harvard.edu/rss/skipHoursDays.html#skiphours
+ Describes the period over which the channel format is updated. Acceptable
+ values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is
+ assumed.
  
  */
 public enum SyndicationUpdatePeriod: String {
@@ -24,26 +24,3 @@ public enum SyndicationUpdatePeriod: String {
     case Yearly     = "yearly"
     
 }
-
-//extension SyndicationUpdatePeriod {
-//    
-//    /**
-//     Lowercase the incoming `rawValue` string to try and match the `SyndicationUpdatePeriod`'s `rawValue`
-//     */
-//    public init?(rawValue: String) {
-//        
-//        switch rawValue.lowercaseString {
-//            
-//        case "hourly":      self = .Hourly
-//        case "daily":       self = .Daily
-//        case "weekly":      self = .Weekly
-//        case "monthly":     self = .Monthly
-//        case "yearly":      self = .Yearly
-//            
-//        default: return nil
-//            
-//        }
-//        
-//    }
-//    
-//}
