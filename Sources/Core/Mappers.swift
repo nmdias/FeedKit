@@ -333,7 +333,7 @@ extension FeedParser {
         
     }
     
-    func map(string: String, toFeed feed: RSS2Feed, forElement element: DublinCoreElement) {
+    func map(string: String, toFeed feed: RSS2Feed, forElement element: DublinCoreElementPath) {
         
         switch element {
             
