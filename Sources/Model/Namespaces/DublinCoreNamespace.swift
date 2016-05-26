@@ -32,14 +32,14 @@ import Foundation
  See https://tools.ietf.org/html/rfc5013
  
 */
-protocol DublinCoreProtocol {
+public class DublinCoreNamespace {
     
     /** 
      
      A name given to the resource 
      
      */
-    var dcTitle: String? { get set }
+    var dcTitle: String?
     
     /** 
      
@@ -49,7 +49,7 @@ protocol DublinCoreProtocol {
      Typically, the name of a Creator should be used to indicate the entity.
      
      */
-    var dcCreator: String? { get set }
+    var dcCreator: String?
     
     /** 
      
@@ -61,7 +61,7 @@ protocol DublinCoreProtocol {
      use the Coverage element.
      
      */
-    var dcSubject: String? { get set }
+    var dcSubject: String?
     
     /** 
      
@@ -72,7 +72,7 @@ protocol DublinCoreProtocol {
      resource.
      
      */
-    var dcDescription: String? { get set }
+    var dcDescription: String?
     
     /** 
      
@@ -82,7 +82,7 @@ protocol DublinCoreProtocol {
      Typically, the name of a Publisher should be used to indicate the entity.
      
      */
-    var dcPublisher: String? { get set }
+    var dcPublisher: String?
     
     /** 
      
@@ -93,7 +93,7 @@ protocol DublinCoreProtocol {
      Typically, the name of a Contributor should be used to indicate the entity.
      
      */
-    var dcContributor: String? { get set }
+    var dcContributor: String?
     
     /** 
      
@@ -105,7 +105,7 @@ protocol DublinCoreProtocol {
      as the W3CDTF profile of ISO 8601 [W3CDTF].
      
      */
-    var dcDate: String? { get set }
+    var dcDate: String?
     
     /** 
      
@@ -116,7 +116,7 @@ protocol DublinCoreProtocol {
      medium, or dimensions of the resource, use the Format element.
      
      */
-    var dcType: String? { get set }
+    var dcType: String?
     
     /** 
      
@@ -127,7 +127,7 @@ protocol DublinCoreProtocol {
      Media Types [MIME].
      
      */
-    var dcFormat: String? { get set }
+    var dcFormat: String?
     
     /** 
      
@@ -137,7 +137,7 @@ protocol DublinCoreProtocol {
      conforming to a formal identification system.
      
      */
-    var dcIdentifier: String? { get set }
+    var dcIdentifier: String?
     
     /** 
      
@@ -148,7 +148,7 @@ protocol DublinCoreProtocol {
      by means of a string conforming to a formal identification system.
      
      */
-    var dcSource: String? { get set }
+    var dcSource: String?
     
     /** 
      
@@ -158,7 +158,7 @@ protocol DublinCoreProtocol {
      RFC 4646 [RFC4646].
      
      */
-    var dcLanguage: String? { get set }
+    var dcLanguage: String?
     
     /** 
      
@@ -168,7 +168,7 @@ protocol DublinCoreProtocol {
      a string conforming to a formal identification system.
      
      */
-    var dcRelation: String? { get set }
+    var dcRelation: String?
     
     /** 
      
@@ -186,7 +186,7 @@ protocol DublinCoreProtocol {
      coordinates or date ranges.
      
      */
-    var dcCoverage: String? { get set }
+    var dcCoverage: String?
     
     /**
      
@@ -197,6 +197,6 @@ protocol DublinCoreProtocol {
      rights.
      
      */
-    var dcRights: String? { get set }
+    var dcRights: String?
     
 }

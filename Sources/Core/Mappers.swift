@@ -339,39 +339,39 @@ extension FeedParser {
             
             // Channel
             
-        case .RSSChannelTitle:                  feed.channel?.dcTitle                          = feed.channel?.dcTitle?.stringByAppendingString(string) ?? string
-        case .RSSChannelCreator:                feed.channel?.dcCreator                        = feed.channel?.dcCreator?.stringByAppendingString(string) ?? string
-        case .RSSChannelSubject:                feed.channel?.dcSubject                        = feed.channel?.dcSubject?.stringByAppendingString(string) ?? string
-        case .RSSChannelDescription:            feed.channel?.dcDescription                    = feed.channel?.dcDescription?.stringByAppendingString(string) ?? string
-        case .RSSChannelPublisher:              feed.channel?.dcPublisher                      = feed.channel?.dcPublisher?.stringByAppendingString(string) ?? string
-        case .RSSChannelContributor:            feed.channel?.dcContributor                    = feed.channel?.dcContributor?.stringByAppendingString(string) ?? string
-        case .RSSChannelDate:                   feed.channel?.dcDate                           = feed.channel?.dcDate?.stringByAppendingString(string) ?? string
-        case .RSSChannelType:                   feed.channel?.dcType                           = feed.channel?.dcType?.stringByAppendingString(string) ?? string
-        case .RSSChannelFormat:                 feed.channel?.dcFormat                         = feed.channel?.dcFormat?.stringByAppendingString(string) ?? string
-        case .RSSChannelIdentifier:             feed.channel?.dcIdentifier                     = feed.channel?.dcIdentifier?.stringByAppendingString(string) ?? string
-        case .RSSChannelSource:                 feed.channel?.dcSource                         = feed.channel?.dcSource?.stringByAppendingString(string) ?? string
-        case .RSSChannelLanguage:               feed.channel?.dcLanguage                       = feed.channel?.dcLanguage?.stringByAppendingString(string) ?? string
-        case .RSSChannelRelation:               feed.channel?.dcRelation                       = feed.channel?.dcRelation?.stringByAppendingString(string) ?? string
-        case .RSSChannelCoverage:               feed.channel?.dcCoverage                       = feed.channel?.dcCoverage?.stringByAppendingString(string) ?? string
-        case .RSSChannelRights:                 feed.channel?.dcRights                         = feed.channel?.dcRights?.stringByAppendingString(string) ?? string
+        case .RSSChannelTitle:                  feed.channel?.dublinCore?.dcTitle                          = feed.channel?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string
+        case .RSSChannelCreator:                feed.channel?.dublinCore?.dcCreator                        = feed.channel?.dublinCore?.dcCreator?.stringByAppendingString(string) ?? string
+        case .RSSChannelSubject:                feed.channel?.dublinCore?.dcSubject                        = feed.channel?.dublinCore?.dcSubject?.stringByAppendingString(string) ?? string
+        case .RSSChannelDescription:            feed.channel?.dublinCore?.dcDescription                    = feed.channel?.dublinCore?.dcDescription?.stringByAppendingString(string) ?? string
+        case .RSSChannelPublisher:              feed.channel?.dublinCore?.dcPublisher                      = feed.channel?.dublinCore?.dcPublisher?.stringByAppendingString(string) ?? string
+        case .RSSChannelContributor:            feed.channel?.dublinCore?.dcContributor                    = feed.channel?.dublinCore?.dcContributor?.stringByAppendingString(string) ?? string
+        case .RSSChannelDate:                   feed.channel?.dublinCore?.dcDate                           = feed.channel?.dublinCore?.dcDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelType:                   feed.channel?.dublinCore?.dcType                           = feed.channel?.dublinCore?.dcType?.stringByAppendingString(string) ?? string
+        case .RSSChannelFormat:                 feed.channel?.dublinCore?.dcFormat                         = feed.channel?.dublinCore?.dcFormat?.stringByAppendingString(string) ?? string
+        case .RSSChannelIdentifier:             feed.channel?.dublinCore?.dcIdentifier                     = feed.channel?.dublinCore?.dcIdentifier?.stringByAppendingString(string) ?? string
+        case .RSSChannelSource:                 feed.channel?.dublinCore?.dcSource                         = feed.channel?.dublinCore?.dcSource?.stringByAppendingString(string) ?? string
+        case .RSSChannelLanguage:               feed.channel?.dublinCore?.dcLanguage                       = feed.channel?.dublinCore?.dcLanguage?.stringByAppendingString(string) ?? string
+        case .RSSChannelRelation:               feed.channel?.dublinCore?.dcRelation                       = feed.channel?.dublinCore?.dcRelation?.stringByAppendingString(string) ?? string
+        case .RSSChannelCoverage:               feed.channel?.dublinCore?.dcCoverage                       = feed.channel?.dublinCore?.dcCoverage?.stringByAppendingString(string) ?? string
+        case .RSSChannelRights:                 feed.channel?.dublinCore?.dcRights                         = feed.channel?.dublinCore?.dcRights?.stringByAppendingString(string) ?? string
             
-            // Item
+            // Item.
             
-        case .RSSChannelItemTitle:              feed.channel?.items?.last?.dcTitle             = feed.channel?.items?.last?.dcTitle?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemCreator:            feed.channel?.items?.last?.dcCreator           = feed.channel?.items?.last?.dcCreator?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemSubject:            feed.channel?.items?.last?.dcSubject           = feed.channel?.items?.last?.dcSubject?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemDescription:        feed.channel?.items?.last?.dcDescription       = feed.channel?.items?.last?.dcDescription?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemPublisher:          feed.channel?.items?.last?.dcPublisher         = feed.channel?.items?.last?.dcPublisher?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemContributor:        feed.channel?.items?.last?.dcContributor       = feed.channel?.items?.last?.dcContributor?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemDate:               feed.channel?.items?.last?.dcDate              = feed.channel?.items?.last?.dcDate?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemType:               feed.channel?.items?.last?.dcType              = feed.channel?.items?.last?.dcType?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemFormat:             feed.channel?.items?.last?.dcFormat            = feed.channel?.items?.last?.dcFormat?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemIdentifier:         feed.channel?.items?.last?.dcIdentifier        = feed.channel?.items?.last?.dcIdentifier?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemSource:             feed.channel?.items?.last?.dcSource            = feed.channel?.items?.last?.dcSource?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemLanguage:           feed.channel?.items?.last?.dcLanguage          = feed.channel?.items?.last?.dcLanguage?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemRelation:           feed.channel?.items?.last?.dcRelation          = feed.channel?.items?.last?.dcRelation?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemCoverage:           feed.channel?.items?.last?.dcCoverage          = feed.channel?.items?.last?.dcCoverage?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemRights:             feed.channel?.items?.last?.dcRights            = feed.channel?.items?.last?.dcRights?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemTitle:              feed.channel?.items?.last?.dublinCore?.dcTitle             = feed.channel?.items?.last?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemCreator:            feed.channel?.items?.last?.dublinCore?.dcCreator           = feed.channel?.items?.last?.dublinCore?.dcCreator?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemSubject:            feed.channel?.items?.last?.dublinCore?.dcSubject           = feed.channel?.items?.last?.dublinCore?.dcSubject?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDescription:        feed.channel?.items?.last?.dublinCore?.dcDescription       = feed.channel?.items?.last?.dublinCore?.dcDescription?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemPublisher:          feed.channel?.items?.last?.dublinCore?.dcPublisher         = feed.channel?.items?.last?.dublinCore?.dcPublisher?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemContributor:        feed.channel?.items?.last?.dublinCore?.dcContributor       = feed.channel?.items?.last?.dublinCore?.dcContributor?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDate:               feed.channel?.items?.last?.dublinCore?.dcDate              = feed.channel?.items?.last?.dublinCore?.dcDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemType:               feed.channel?.items?.last?.dublinCore?.dcType              = feed.channel?.items?.last?.dublinCore?.dcType?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemFormat:             feed.channel?.items?.last?.dublinCore?.dcFormat            = feed.channel?.items?.last?.dublinCore?.dcFormat?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemIdentifier:         feed.channel?.items?.last?.dublinCore?.dcIdentifier        = feed.channel?.items?.last?.dublinCore?.dcIdentifier?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemSource:             feed.channel?.items?.last?.dublinCore?.dcSource            = feed.channel?.items?.last?.dublinCore?.dcSource?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemLanguage:           feed.channel?.items?.last?.dublinCore?.dcLanguage          = feed.channel?.items?.last?.dublinCore?.dcLanguage?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemRelation:           feed.channel?.items?.last?.dublinCore?.dcRelation          = feed.channel?.items?.last?.dublinCore?.dcRelation?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemCoverage:           feed.channel?.items?.last?.dublinCore?.dcCoverage          = feed.channel?.items?.last?.dublinCore?.dcCoverage?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemRights:             feed.channel?.items?.last?.dublinCore?.dcRights            = feed.channel?.items?.last?.dublinCore?.dcRights?.stringByAppendingString(string) ?? string
             
         }
         
