@@ -502,7 +502,6 @@
 				A0D8C8791CF38F9700D115B8 /* Atom */,
 				A0D8C8371CF38F3D00D115B8 /* RSS */,
 				A0CA543B1CE8A56700A951E3 /* FeedType.swift */,
-				A0CA544E1CE8A56700A951E3 /* RSS2FeedElementPath.swift */,
 			);
 			name = Model;
 			path = Sources/Model;
@@ -543,6 +542,7 @@
 		A0D8C8371CF38F3D00D115B8 /* RSS */ = {
 			isa = PBXGroup;
 			children = (
+				A0CA544E1CE8A56700A951E3 /* RSS2FeedElementPath.swift */,
 				A0D8C8381CF38F8200D115B8 /* RSS2Feed.swift */,
 				A0D8C8391CF38F8200D115B8 /* RSS2FeedChannel.swift */,
 				A0D8C83A1CF38F8200D115B8 /* RSS2FeedChannelCategory.swift */,

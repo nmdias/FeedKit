@@ -25,8 +25,11 @@
 import Foundation
 
 /**
-    Subordinate to the `<rss>` element is a single `<channel>` element, which contains information about the channels (metadata) and its contents.
-*/
+ 
+ Subordinate to the <rss> element. Contains information about the channel
+ (metadata) and its contents.
+ 
+ */
 public class RSS2FeedChannel {
     
     // MARK: - RSS2
