@@ -1,5 +1,5 @@
 //
-//  DublinCoreElementPaths.swift
+//  DublinCoreChannelElementPaths.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -27,12 +27,12 @@ import Foundation
 /**
  
  Describes the individual path for each XML DOM element of the `Dublin Core` 
- namespace
+ namespace applied to an RSS channel
  
  See http://web.resource.org/rss/1.0/modules/dc/
  
  */
-public enum DublinCoreElementPath: String {
+public enum DublinCoreChannelElementPath: String {
     
     /**
      
@@ -56,20 +56,5 @@ public enum DublinCoreElementPath: String {
     case RSSChannelRelation       		= "/rss/channel/dc:relation"
     case RSSChannelCoverage       		= "/rss/channel/dc:coverage"
     case RSSChannelRights         		= "/rss/channel/dc:rights"
-    case RSSChannelItemTitle          	= "/rss/channel/item/dc:title"
-    case RSSChannelItemCreator        	= "/rss/channel/item/dc:creator"
-    case RSSChannelItemSubject        	= "/rss/channel/item/dc:subject"
-    case RSSChannelItemDescription    	= "/rss/channel/item/dc:description"
-    case RSSChannelItemPublisher      	= "/rss/channel/item/dc:publisher"
-    case RSSChannelItemContributor    	= "/rss/channel/item/dc:contributor"
-    case RSSChannelItemDate           	= "/rss/channel/item/dc:date"
-    case RSSChannelItemType           	= "/rss/channel/item/dc:type"
-    case RSSChannelItemFormat         	= "/rss/channel/item/dc:format"
-    case RSSChannelItemIdentifier     	= "/rss/channel/item/dc:identifier"
-    case RSSChannelItemSource         	= "/rss/channel/item/dc:source"
-    case RSSChannelItemLanguage       	= "/rss/channel/item/dc:language"
-    case RSSChannelItemRelation       	= "/rss/channel/item/dc:relation"
-    case RSSChannelItemCoverage       	= "/rss/channel/item/dc:coverage"
-    case RSSChannelItemRights         	= "/rss/channel/item/dc:rights"
     
 }

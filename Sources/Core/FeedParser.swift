@@ -126,8 +126,12 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             self.map(string, toFeed: self.feed!, forElement: element)
         }
             
-        else if let dublinCoreElement = DublinCoreElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: dublinCoreElement)
+        else if let dublinCoreChannelElement = DublinCoreChannelElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(string, toFeed: self.feed!, forElement: dublinCoreChannelElement)
+        }
+            
+        else if let dublinCoreChannelItemElement = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(string, toFeed: self.feed!, forElement: dublinCoreChannelItemElement)
         }
             
         else if let contentElement = ContentElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
@@ -151,8 +155,12 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             self.map(string, toFeed: self.feed!, forElement: syndicationElement)
         }
             
-        else if let dublinCoreElement = DublinCoreElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: dublinCoreElement)
+        else if let dublinCoreChannelElement = DublinCoreChannelElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(string, toFeed: self.feed!, forElement: dublinCoreChannelElement)
+        }
+            
+        else if let dublinCoreChannelItemElement = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(string, toFeed: self.feed!, forElement: dublinCoreChannelItemElement)
         }
             
         else {
