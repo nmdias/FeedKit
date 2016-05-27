@@ -59,6 +59,29 @@ public class AtomFeedEntry {
     
     /**
      
+     The "atom:author" element is a Person construct that indicates the
+     author of the entry or feed.
+     
+     If an atom:entry element does not contain atom:author elements, then
+     the atom:author elements of the contained atom:source element are
+     considered to apply.  In an Atom Feed Document, the atom:author
+     elements of the containing atom:feed element are considered to apply
+     to the entry if there are no atom:author elements in the locations
+     described above.
+     
+     */
+    public var authors: [AtomFeedEntryAuthor]?
+    
+    /**
+     
+     The "atom:contributor" element is a Person construct that indicates a
+     person or other entity who contributed to the entry or feed.
+     
+     */
+    public var contributors: [AtomFeedEntryContributor]?
+    
+    /**
+     
      The "atom:link" element defines a reference from an entry or feed to
      a Web resource.  This specification assigns no meaning to the content
      (if any) of this element.
