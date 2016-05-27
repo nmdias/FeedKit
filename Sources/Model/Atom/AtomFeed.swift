@@ -51,7 +51,7 @@ public class AtomFeed {
      readable description or subtitle for a feed.
      
      */
-    public var subtitle: String?
+    public var subtitle: AtomFeedSubtitle?
     
     /**
      
