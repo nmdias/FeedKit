@@ -33,8 +33,28 @@ import Foundation
  */
 enum AtomFeedElementPath: String {
     
-    case Feed                               = "/feed"
-    
+    case Feed                   = "/feed"
+    case FeedTitle              = "/feed/title"
+    case FeedSubtitle           = "/feed/subtitle"
+    case FeedLink               = "/feed/link"
+    case FeedUpdated            = "/feed/updated"
+    case FeedAuthor             = "/feed/author"
+    case FeedContributor        = "/feed/contributor"
+    case FeedID                 = "/feed/id"
+    case FeedGenerator          = "/feed/generator"
+    case FeedIcon               = "/feed/icon"
+    case FeedLogo               = "/feed/logo"
+    case FeedRights             = "/feed/rights"
+    case FeedEntry              = "/feed/entry"
+    case FeedEntryTitle         = "/feed/entry/title"
+    case FeedEntrySummary       = "/feed/entry/summary"
+    case FeedEntryLink          = "/feed/entry/link"
+    case FeedEntryUpdated       = "/feed/entry/updated"
+    case FeedEntryID            = "/feed/entry/id"
+    case FeedEntryContent       = "/feed/entry/content"
+    case FeedEntryPublished     = "/feed/entry/published"
+    case FeedEntrySource        = "/feed/entry/source"
+    case FeedEntryRights        = "/feed/entry/rights"
     
     /**
      
