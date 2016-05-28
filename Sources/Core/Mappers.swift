@@ -571,24 +571,18 @@ extension FeedParser {
         case .RSSChannelSkipHours:              break
         case .RSSChannelSkipHoursHour:
             
-            guard let hour = RSSFeedChannelSkipHour(string) where 0...23 ~= hour  else {
-                assertionFailure("Unexpected characters: \(string) found in path: \(element.path)")
-                return
+            if let hour = RSSFeedChannelSkipHour(string) where 0...23 ~= hour  {
+                feed.channel?.skipHours?.append(hour)
             }
-            
-            feed.channel?.skipHours?.append(hour)
             
             // Channel Skip Days
             
         case .RSSChannelSkipDays:               break
         case .RSSChannelSkipDaysDay:
             
-            guard let day = RSSFeedChannelSkipDay(rawValue: string) else {
-                assertionFailure("Unexpected characters: \(string) found in path: \(element.path)")
-                return
+            if let day = RSSFeedChannelSkipDay(rawValue: string) {
+                feed.channel?.skipDays?.append(day)
             }
-            
-            feed.channel?.skipDays?.append(day)
             
             // Channel Item
             
@@ -618,15 +612,7 @@ extension FeedParser {
         
         switch element {
             
-        case .UpdatePeriod:
-            
-            guard let syUpdatePeriod = SyndicationUpdatePeriod(rawValue: string) else {
-                assertionFailure("Unexpected characters: \(string) found in element: \(element.rawValue)")
-                return
-            }
-            
-            feed.channel?.syndication?.syUpdatePeriod = syUpdatePeriod
-            
+        case .UpdatePeriod:     feed.channel?.syndication?.syUpdatePeriod = SyndicationUpdatePeriod(rawValue: string)
         case .UpdateFrequency:  feed.channel?.syndication?.syUpdateFrequency = Int(string)
         case .UpdateBase:       feed.channel?.syndication?.syUpdateBase = feed.channel?.syndication?.syUpdateBase?.stringByAppendingString(string) ?? string
             

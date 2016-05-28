@@ -130,10 +130,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             self.map(attributes: attributeDict, toFeed: self.atomFeed!, forElement: element)
         }
         
-        else {
-            assertionFailure("Unable to infer XML DOM element from current path: '\(self.currentXMLDOMPath)'")
-        }
-        
     }
     
     public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
@@ -169,15 +165,11 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         else if let contentElement = ContentElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.rssFeed!, forElement: contentElement)
         }
-            
-        else {
-            assertionFailure("Undefined element for current path: \(self.currentXMLDOMPath)")
-        }
         
     }
     
     public func parser(parser: NSXMLParser, foundCharacters string: String) {
-        
+
         if let feedElement = AtomFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.atomFeed!, forElement: feedElement)
         }
@@ -196,10 +188,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             
         else if let dublinCoreChannelItemElement = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelItemElement)
-        }
-            
-        else {
-            assertionFailure("Undefined element for current path: \(self.currentXMLDOMPath)")
         }
         
     }
