@@ -55,7 +55,7 @@ public class AtomFeedEntry {
      is a useful summary when there is none.
      
      */
-    public var summary: String?
+    public var summary: AtomFeedEntrySummary?
     
     /**
      

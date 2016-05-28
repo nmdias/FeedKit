@@ -235,6 +235,10 @@
 		A0EF4E1C1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4E1D1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4E1E1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0F8F6081CF97D160093AA85 /* AtomFeedEntrySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F8F6071CF97D150093AA85 /* AtomFeedEntrySummary.swift */; };
+		A0F8F6091CF97D160093AA85 /* AtomFeedEntrySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F8F6071CF97D150093AA85 /* AtomFeedEntrySummary.swift */; };
+		A0F8F60A1CF97D160093AA85 /* AtomFeedEntrySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F8F6071CF97D150093AA85 /* AtomFeedEntrySummary.swift */; };
+		A0F8F60B1CF97D160093AA85 /* AtomFeedEntrySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F8F6071CF97D150093AA85 /* AtomFeedEntrySummary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -407,6 +411,7 @@
 		A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = "<group>"; };
 		A0EF4E201CE86F6E00C52142 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-macOS.plist"; path = "Sources/Info-macOS.plist"; sourceTree = "<group>"; };
 		A0EF4E211CE86F6E00C52142 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Sources/Info-tvOS.plist"; sourceTree = "<group>"; };
+		A0F8F6071CF97D150093AA85 /* AtomFeedEntrySummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomFeedEntrySummary.swift; path = Atom/AtomFeedEntrySummary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,6 +607,7 @@
 				A0D8C88E1CF395CA00D115B8 /* AtomFeedLink.swift */,
 				A023F36E1CF4344700C98065 /* AtomFeedGenerator.swift */,
 				A0D8C8841CF3926300D115B8 /* AtomFeedEntry.swift */,
+				A0F8F6071CF97D150093AA85 /* AtomFeedEntrySummary.swift */,
 				A08D5DB21CF4E89800451D19 /* AtomFeedEntryContent.swift */,
 				A023F3731CF4372600C98065 /* AtomFeedEntryAuthor.swift */,
 				A023F3781CF4386F00C98065 /* AtomFeedEntryLink.swift */,
@@ -1122,6 +1128,7 @@
 				A023F3811CF43B9E00C98065 /* AtomFeedEntryCategory.swift in Sources */,
 				A0E83A7D1CF7325E00DC60B3 /* DublinCoreChannelElementPaths.swift in Sources */,
 				A0D8C8701CF38F8200D115B8 /* RSS2FeedChannelSkipDay.swift in Sources */,
+				A0F8F60B1CF97D160093AA85 /* AtomFeedEntrySummary.swift in Sources */,
 				A023F3771CF4372600C98065 /* AtomFeedEntryAuthor.swift in Sources */,
 				A023F3861CF43CDE00C98065 /* AtomFeedEntrySource.swift in Sources */,
 				A0D8C8481CF38F8200D115B8 /* RSS2Feed.swift in Sources */,
@@ -1239,6 +1246,7 @@
 				A023F37F1CF43B9E00C98065 /* AtomFeedEntryCategory.swift in Sources */,
 				A0D8C8461CF38F8200D115B8 /* RSS2Feed.swift in Sources */,
 				A0E83A7B1CF7325E00DC60B3 /* DublinCoreChannelElementPaths.swift in Sources */,
+				A0F8F6091CF97D160093AA85 /* AtomFeedEntrySummary.swift in Sources */,
 				A023F3751CF4372600C98065 /* AtomFeedEntryAuthor.swift in Sources */,
 				A023F3841CF43CDE00C98065 /* AtomFeedEntrySource.swift in Sources */,
 				A0D8C8661CF38F8200D115B8 /* RSS2FeedChannelItemGUID.swift in Sources */,
@@ -1288,6 +1296,7 @@
 				A023F3801CF43B9E00C98065 /* AtomFeedEntryCategory.swift in Sources */,
 				A0D8C8471CF38F8200D115B8 /* RSS2Feed.swift in Sources */,
 				A0E83A7C1CF7325E00DC60B3 /* DublinCoreChannelElementPaths.swift in Sources */,
+				A0F8F60A1CF97D160093AA85 /* AtomFeedEntrySummary.swift in Sources */,
 				A023F3761CF4372600C98065 /* AtomFeedEntryAuthor.swift in Sources */,
 				A023F3851CF43CDE00C98065 /* AtomFeedEntrySource.swift in Sources */,
 				A0D8C8671CF38F8200D115B8 /* RSS2FeedChannelItemGUID.swift in Sources */,
@@ -1337,6 +1346,7 @@
 				A023F37E1CF43B9E00C98065 /* AtomFeedEntryCategory.swift in Sources */,
 				A0D8C8451CF38F8200D115B8 /* RSS2Feed.swift in Sources */,
 				A0E83A7A1CF7325E00DC60B3 /* DublinCoreChannelElementPaths.swift in Sources */,
+				A0F8F6081CF97D160093AA85 /* AtomFeedEntrySummary.swift in Sources */,
 				A023F3741CF4372600C98065 /* AtomFeedEntryAuthor.swift in Sources */,
 				A023F3831CF43CDE00C98065 /* AtomFeedEntrySource.swift in Sources */,
 				A0D8C8651CF38F8200D115B8 /* RSS2FeedChannelItemGUID.swift in Sources */,
