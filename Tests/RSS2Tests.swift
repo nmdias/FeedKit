@@ -1,5 +1,5 @@
 //
-//  FeedTestCase.swift
+//  RSS2Tests.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -27,7 +27,7 @@ import FeedParser
 
 class FeedTestCase: BaseTestCase {
     
-    func testFeed() {
+    func testRSS2Feed() {
         
         // Given
         let URL = fileURL("RSS2", type: "xml")
@@ -36,7 +36,7 @@ class FeedTestCase: BaseTestCase {
         // When
         parser.parse { (result) in
             
-            let feed = result.rss2Feed
+            let feed = result.rssFeed
             
             // Then
             assert(feed?.channel != nil)
@@ -105,7 +105,7 @@ class FeedTestCase: BaseTestCase {
         // When
         parser.parse { (result) in
             
-            let feed = result.rss2Feed
+            let feed = result.rssFeed
             
             // Then
             assert(feed?.channel != nil)

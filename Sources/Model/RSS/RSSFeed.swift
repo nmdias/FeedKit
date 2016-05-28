@@ -1,5 +1,5 @@
 //
-//  RSS2FeedChannelSkipHour.swift
+//  RSSFeed.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,14 +26,28 @@ import Foundation
 
 /**
  
- A hint for aggregators telling them which hours they can skip.
+ Data model for the XML DOM of the RSS 2.0 Specification
+ See http://cyber.law.harvard.edu/rss/rss.html
  
- An XML element that contains up to 24 <hour> sub-elements whose value is a 
- number between 0 and 23, representing a time in GMT, when aggregators, if they
- support the feature, may not read the channel on hours listed in the skipHours
- element.
+ At the top level, a RSS document is a <rss> element, with a mandatory 
+ attribute called version, that specifies the version of RSS that the 
+ document conforms to. If it conforms to this specification, the version 
+ attribute must be 2.0.
  
- The hour beginning at midnight is hour zero.
+ Subordinate to the <rss> element is a single <channel> element, which 
+ contains information about the channel (metadata) and its contents.
  
- */
-public typealias RSS2FeedChannelSkipHour = UInt
+*/
+public class RSSFeed {
+    
+    /**
+     
+     Subordinate to the <rss> element. Contains information about the channel
+     (metadata) and its contents.
+     
+     */
+    public var channel: RSSFeedChannel?
+    
+    public init() {}
+    
+}

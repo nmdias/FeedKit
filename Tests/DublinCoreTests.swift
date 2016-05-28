@@ -1,5 +1,5 @@
 //
-//  DublinCoreTestCase.swift
+//  DublinCoreTests.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -36,7 +36,7 @@ class DublinCoreTestCase: BaseTestCase {
         // When
         parser.parse { (result) in
             
-            let feed = result.rss2Feed
+            let feed = result.rssFeed
             
             // Then
             assert(feed?.channel != nil)

@@ -1,5 +1,5 @@
 //
-//  RSS2Feed.swift
+//  ContentTests.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -22,32 +22,31 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import XCTest
+import FeedParser
 
-/**
- 
- Data model for the XML DOM of the RSS 2.0 Specification
- See http://cyber.law.harvard.edu/rss/rss.html
- 
- At the top level, a RSS document is a <rss> element, with a mandatory 
- attribute called version, that specifies the version of RSS that the 
- document conforms to. If it conforms to this specification, the version 
- attribute must be 2.0.
- 
- Subordinate to the <rss> element is a single <channel> element, which 
- contains information about the channel (metadata) and its contents.
- 
-*/
-public class RSS2Feed {
+class ContentTestCase: BaseTestCase {
     
-    /**
-     
-     Subordinate to the <rss> element. Contains information about the channel
-     (metadata) and its contents.
-     
-     */
-    public var channel: RSS2FeedChannel?
+    func testContent() {
+        
+        // Given
+        let URL = fileURL("Content", type: "xml")
+        let parser = FeedParser(URL: URL)
+        
+        // When
+        parser.parse { (result) in
+            
+            
+            
+        }
+        
+    }
     
-    public init() {}
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measureBlock {
+            // Put the code you want to measure the time of here.
+        }
+    }
     
 }

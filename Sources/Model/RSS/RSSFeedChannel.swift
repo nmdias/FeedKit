@@ -1,5 +1,5 @@
 //
-//  RSS2Channel.swift
+//  RSSChannel.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -30,9 +30,9 @@ import Foundation
  (metadata) and its contents.
  
  */
-public class RSS2FeedChannel {
+public class RSSFeedChannel {
     
-    // MARK: - RSS2
+    // MARK: - RSS
     
     /**
      
@@ -139,7 +139,7 @@ public class RSS2FeedChannel {
      Example: Newspapers
      
      */
-    public var categories: [RSS2FeedChannelCategory]?
+    public var categories: [RSSFeedChannelCategory]?
     
     /**
      
@@ -189,7 +189,7 @@ public class RSS2FeedChannel {
      http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
      
      */
-    public var cloud: RSS2FeedChannelCloud?
+    public var cloud: RSSFeedChannelCloud?
 
     /**
      
@@ -241,7 +241,7 @@ public class RSS2FeedChannel {
      Maximum value for height is 400, default value is 31.
      
      */
-    public var image: RSS2FeedChannelImage?
+    public var image: RSSFeedChannelImage?
     
     /**
      
@@ -263,7 +263,7 @@ public class RSS2FeedChannel {
      feedback. Most aggregators ignore it.
      
      */
-    public var textInput: RSS2FeedChannelTextInput?
+    public var textInput: RSSFeedChannelTextInput?
     
     /**
      
@@ -277,7 +277,7 @@ public class RSS2FeedChannel {
      The hour beginning at midnight is hour zero.
      
      */
-    public var skipHours: [RSS2FeedChannelSkipHour]?
+    public var skipHours: [RSSFeedChannelSkipHour]?
         
     /**
      
@@ -289,7 +289,7 @@ public class RSS2FeedChannel {
      element.
      
      */
-    public var skipDays: [RSS2FeedChannelSkipDay]?
+    public var skipDays: [RSSFeedChannelSkipDay]?
     
     /** 
      
@@ -303,7 +303,7 @@ public class RSS2FeedChannel {
      however at least one of title or description must be present.
      
      */
-    public var items: [RSS2FeedChannelItem]?
+    public var items: [RSSFeedChannelItem]?
     
     
     // MARK: - Namespaces

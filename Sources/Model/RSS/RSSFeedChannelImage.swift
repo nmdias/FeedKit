@@ -1,5 +1,5 @@
 //
-//  RSS2ChannelImage.swift
+//  RSSChannelImage.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -50,7 +50,7 @@ import Foundation
  Maximum value for height is 400, default value is 31.
  
  */
-public class RSS2FeedChannelImage {
+public class RSSFeedChannelImage {
     
     /// The URL of a GIF, JPEG or PNG image that represents the channel.
     public var url: String?

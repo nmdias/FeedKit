@@ -307,14 +307,14 @@ extension FeedParser {
 
 extension FeedParser {
     
-    func map(attributes attributeDict: [String : String], toFeed feed: RSS2Feed, forElement element: RSS2FeedElementPath) {
+    func map(attributes attributeDict: [String : String], toFeed feed: RSSFeed, forElement element: RSSFeedElementPath) {
         
         switch element {
             
         case .RSSChannel:
             
             if  feed.channel == nil {
-                feed.channel = RSS2FeedChannel()
+                feed.channel = RSSFeedChannel()
             }
             
         case .RSSChannelItem:
@@ -323,12 +323,12 @@ extension FeedParser {
                 feed.channel?.items = []
             }
             
-            feed.channel?.items?.append(RSS2FeedChannelItem())
+            feed.channel?.items?.append(RSSFeedChannelItem())
             
         case .RSSChannelImage:
             
             if  feed.channel?.image == nil {
-                feed.channel?.image = RSS2FeedChannelImage()
+                feed.channel?.image = RSSFeedChannelImage()
             }
             
         case .RSSChannelSkipDays:
@@ -346,7 +346,7 @@ extension FeedParser {
         case .RSSChannelTextInput:
             
             if  feed.channel?.textInput == nil {
-                feed.channel?.textInput = RSS2FeedChannelTextInput()
+                feed.channel?.textInput = RSSFeedChannelTextInput()
             }
             
         case .RSSChannelCategory:
@@ -355,7 +355,7 @@ extension FeedParser {
                 feed.channel?.categories = []
             }
             
-            feed.channel?.categories?.append(RSS2FeedChannelCategory())
+            feed.channel?.categories?.append(RSSFeedChannelCategory())
             
             let domain = attributeDict["domain"]
             
@@ -363,14 +363,14 @@ extension FeedParser {
              Only initializes the `attributes` variable if the `<category>`s `domain` attribute is present.
              */
             if let domain = domain {
-                feed.channel?.categories?.last?.attributes = RSS2FeedChannelCategory.Attributes()
+                feed.channel?.categories?.last?.attributes = RSSFeedChannelCategory.Attributes()
                 feed.channel?.categories?.last?.attributes?.domain = domain
             }
             
         case .RSSChannelCloud:
             
             if  feed.channel?.cloud == nil {
-                feed.channel?.cloud = RSS2FeedChannelCloud()
+                feed.channel?.cloud = RSSFeedChannelCloud()
             }
             
             let domain                  = attributeDict["domain"]
@@ -388,7 +388,7 @@ extension FeedParser {
                 registerProcedure       != nil ||
                 protocolSpecification   != nil {
                 
-                feed.channel?.cloud?.attributes = RSS2FeedChannelCloud.Attributes()
+                feed.channel?.cloud?.attributes = RSSFeedChannelCloud.Attributes()
                 feed.channel?.cloud?.attributes?.domain = domain
                 feed.channel?.cloud?.attributes?.port = UInt(port ?? "")
                 feed.channel?.cloud?.attributes?.path = path
@@ -403,7 +403,7 @@ extension FeedParser {
                 feed.channel?.items?.last?.categories = []
             }
             
-            feed.channel?.items?.last?.categories?.append(RSS2FeedChannelItemCategory())
+            feed.channel?.items?.last?.categories?.append(RSSFeedChannelItemCategory())
             
             let domain = attributeDict["domain"]
             
@@ -411,14 +411,14 @@ extension FeedParser {
              Only initializes the `attributes` variable if the `<category>`s `domain` attribute is present.
              */
             if let domain = domain {
-                feed.channel?.items?.last?.categories?.last?.attributes = RSS2FeedChannelItemCategory.Attributes()
+                feed.channel?.items?.last?.categories?.last?.attributes = RSSFeedChannelItemCategory.Attributes()
                 feed.channel?.items?.last?.categories?.last?.attributes?.domain = domain
             }
             
         case .RSSChannelItemEnclosure:
             
             if  feed.channel?.items?.last?.enclosure == nil {
-                feed.channel?.items?.last?.enclosure = RSS2FeedChannelItemEnclosure()
+                feed.channel?.items?.last?.enclosure = RSSFeedChannelItemEnclosure()
             }
             
             let url     = attributeDict["url"]
@@ -431,7 +431,7 @@ extension FeedParser {
             if  url     != nil ||
                 length  != nil {
                 
-                feed.channel?.items?.last?.enclosure?.attributes = RSS2FeedChannelItemEnclosure.Attributes()
+                feed.channel?.items?.last?.enclosure?.attributes = RSSFeedChannelItemEnclosure.Attributes()
                 feed.channel?.items?.last?.enclosure?.attributes?.url = url
                 feed.channel?.items?.last?.enclosure?.attributes?.type = type
                 feed.channel?.items?.last?.enclosure?.attributes?.length = UInt64(length ?? "")
@@ -442,7 +442,7 @@ extension FeedParser {
         case .RSSChannelItemGUID:
             
             if  feed.channel?.items?.last?.guid == nil {
-                feed.channel?.items?.last?.guid = RSS2FeedChannelItemGUID()
+                feed.channel?.items?.last?.guid = RSSFeedChannelItemGUID()
             }
             
             let isPermaLink = attributeDict["isPermaLink"]
@@ -451,14 +451,14 @@ extension FeedParser {
              Only initializes the `attributes` variable if the `<guid>`s `isPermaLink` attribute is present.
              */
             if let isPermaLink = isPermaLink where isPermaLink.lowercaseString == "true" || isPermaLink.lowercaseString == "false" {
-                feed.channel?.items?.last?.guid?.attributes = RSS2FeedChannelItemGUID.Attributes()
+                feed.channel?.items?.last?.guid?.attributes = RSSFeedChannelItemGUID.Attributes()
                 feed.channel?.items?.last?.guid?.attributes?.isPermaLink = NSString(string: isPermaLink).boolValue
             }
             
         case .RSSChannelItemSource:
             
             if  feed.channel?.items?.last?.source == nil {
-                feed.channel?.items?.last?.source = RSS2FeedChannelItemSource()
+                feed.channel?.items?.last?.source = RSSFeedChannelItemSource()
             }
             
             let url = attributeDict["url"]
@@ -467,7 +467,7 @@ extension FeedParser {
              Only initializes the `attributes` variable if the `<source>` `url` attribute is present.
              */
             if let url = url {
-                feed.channel?.items?.last?.source?.attributes = RSS2FeedChannelItemSource.Attributes()
+                feed.channel?.items?.last?.source?.attributes = RSSFeedChannelItemSource.Attributes()
                 feed.channel?.items?.last?.source?.attributes?.url = url
             }
             
@@ -498,7 +498,7 @@ extension FeedParser {
      
      */
     
-    func map(string: String, toFeed feed: RSS2Feed, forElement element: RSS2FeedElementPath) {
+    func map(string: String, toFeed feed: RSSFeed, forElement element: RSSFeedElementPath) {
         
         switch element {
             
@@ -546,7 +546,7 @@ extension FeedParser {
         case .RSSChannelSkipHours:              break
         case .RSSChannelSkipHoursHour:
             
-            guard let hour = RSS2FeedChannelSkipHour(string) where 0...23 ~= hour  else {
+            guard let hour = RSSFeedChannelSkipHour(string) where 0...23 ~= hour  else {
                 assertionFailure("Unexpected characters: \(string) found in path: \(element.path)")
                 return
             }
@@ -558,7 +558,7 @@ extension FeedParser {
         case .RSSChannelSkipDays:               break
         case .RSSChannelSkipDaysDay:
             
-            guard let day = RSS2FeedChannelSkipDay(rawValue: string) else {
+            guard let day = RSSFeedChannelSkipDay(rawValue: string) else {
                 assertionFailure("Unexpected characters: \(string) found in path: \(element.path)")
                 return
             }
@@ -584,7 +584,7 @@ extension FeedParser {
         
     }
     
-    func map(string: String, toFeed feed: RSS2Feed, forElement element: SyndicationElementPaths) {
+    func map(string: String, toFeed feed: RSSFeed, forElement element: SyndicationElementPaths) {
         
         /// If the syndication variable has not been initialized yet, do it before assiging any values
         if  feed.channel?.syndication == nil {
@@ -609,7 +609,7 @@ extension FeedParser {
         
     }
     
-    func map(string: String, toFeed feed: RSS2Feed, forElement element: ContentElementPath) {
+    func map(string: String, toFeed feed: RSSFeed, forElement element: ContentElementPath) {
         
         switch element {
             
@@ -619,7 +619,7 @@ extension FeedParser {
         
     }
     
-    func map(string: String, toFeed feed: RSS2Feed, forElement element: DublinCoreChannelElementPath) {
+    func map(string: String, toFeed feed: RSSFeed, forElement element: DublinCoreChannelElementPath) {
         
         /// If the dublin core variable has not been initialized yet, do it before assiging any values
         if feed.channel?.dublinCore == nil {
@@ -648,7 +648,7 @@ extension FeedParser {
         
     }
     
-    func map(string: String, toFeed feed: RSS2Feed, forElement element: DublinCoreChannelItemElementPath) {
+    func map(string: String, toFeed feed: RSSFeed, forElement element: DublinCoreChannelItemElementPath) {
         
         /// If the dublin core variable has not been initialized yet, do it before assiging any values
         if  feed.channel?.items?.last?.dublinCore == nil {

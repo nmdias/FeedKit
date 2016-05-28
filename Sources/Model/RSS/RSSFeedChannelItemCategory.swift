@@ -1,5 +1,5 @@
 //
-//  RSS2ChannelItemCategory.swift
+//  RSSChannelItemCategory.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -47,7 +47,7 @@ import Foundation
  same domain.
  
  */
-public class RSS2FeedChannelItemCategory {
+public class RSSFeedChannelItemCategory {
     
     /**
      

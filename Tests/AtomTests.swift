@@ -1,5 +1,5 @@
 //
-//  AtomTestCase.swift
+//  AtomTests.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //

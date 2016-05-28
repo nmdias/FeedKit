@@ -1,5 +1,5 @@
 //
-//  RSS2ChannelItem.swift
+//  RSSChannelItem.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -36,7 +36,7 @@ import Foundation
  however at least one of title or description must be present.
  
  */
-public class RSS2FeedChannelItem {
+public class RSSFeedChannelItem {
     
     /**
      
@@ -110,7 +110,7 @@ public class RSS2FeedChannelItem {
      same domain.
      
      */
-    public var categories: [RSS2FeedChannelItemCategory]?
+    public var categories: [RSSFeedChannelItemCategory]?
     
     /**
      
@@ -145,7 +145,7 @@ public class RSS2FeedChannelItem {
      <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" length="12216320" type="audio/mpeg" />
      
      */
-    public var enclosure: RSS2FeedChannelItemEnclosure?
+    public var enclosure: RSSFeedChannelItemEnclosure?
     
     /**
      
@@ -177,7 +177,7 @@ public class RSS2FeedChannelItem {
      particular.
      
      */
-    public var guid: RSS2FeedChannelItemGUID?
+    public var guid: RSSFeedChannelItemGUID?
     
     /**
      
@@ -212,7 +212,7 @@ public class RSS2FeedChannelItem {
      an item from an aggregator to a weblog authoring tool.
      
      */
-    public var source: RSS2FeedChannelItemSource?
+    public var source: RSSFeedChannelItemSource?
     
     
     // MARK: - Namespaces

@@ -1,5 +1,5 @@
 //
-//  SyndicationTestCase.swift
+//  RSSChannelSkipDay.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -22,38 +22,51 @@
 //  SOFTWARE.
 //
 
-import XCTest
-import FeedParser
+import Foundation
 
-class SyndicationTestCase: BaseTestCase {
+/**
+ 
+ A hint for aggregators telling them which days they can skip.
+ 
+ An XML element that contains up to seven <day> sub-elements whose value
+ is Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
+ Aggregators may not read the channel during days listed in the skipDays
+ element.
+ 
+ */
+public enum RSSFeedChannelSkipDay: String {
     
-    func testSyndication() {
+    case Monday     = "monday"
+    case Tuesday    = "tuesday"
+    case Wednesday  = "wednesday"
+    case Thursday   = "thursday"
+    case Friday     = "friday"
+    case Saturday   = "saturday"
+    case Sunday     = "sunday"
+    
+}
 
-        // Given
-        let URL = fileURL("Syndication", type: "xml")
-        let parser = FeedParser(URL: URL)
+extension RSSFeedChannelSkipDay {
+    
+    /**
+        Lowercase the incoming `rawValue` string to try and match the `RSSFeedChannelSkipDay`'s `rawValue`
+    */
+    public init?(rawValue: String) {
         
-        // When
-        parser.parse { (result) in
+        switch rawValue.lowercaseString {
             
-            let feed = result.rss2Feed
+        case "monday":     self = .Monday
+        case "tuesday":    self = .Tuesday
+        case "wednesday":  self = .Wednesday
+        case "thursday":   self = .Thursday
+        case "friday":     self = .Friday
+        case "saturday":   self = .Saturday
+        case "sunday":     self = .Sunday
             
-            // Then
-            assert(feed?.channel != nil)
-
-            assert(feed?.channel?.syndication?.syUpdatePeriod == SyndicationUpdatePeriod.Hourly)
-            assert(feed?.channel?.syndication?.syUpdateFrequency == UInt(2))
-            assert(feed?.channel?.syndication?.syUpdateBase == "2000-01-01T12:00+00:00")
-
+        default: return nil
+            
         }
         
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
     }
     
 }

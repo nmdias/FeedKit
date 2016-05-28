@@ -1,5 +1,5 @@
 //
-//  RSS2FeedChannelCloud.swift
+//  RSSFeedChannelCloud.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -51,7 +51,7 @@ import Foundation
  http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
  
  */
-public class RSS2FeedChannelCloud {
+public class RSSFeedChannelCloud {
     
     /**
         The attributes of the `<channel>`'s `<cloud>` element

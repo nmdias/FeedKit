@@ -1,5 +1,5 @@
 //
-//  RSS2ChannelItemSource.swift
+//  RSSChannelCategory.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -25,24 +25,9 @@
 import Foundation
 
 /**
- 
- The RSS channel that the item came from.
- 
- <source> is an optional sub-element of <item>.
- 
- Its value is the name of the RSS channel that the item came from, derived
- from its <title>. It has one required attribute, url, which links to the
- XMLization of the source.
- 
- <source url="http://www.tomalak.org/links2.xml">Tomalak's Realm</source>
- 
- The purpose of this element is to propagate credit for links, to
- publicize the sources of news items. It can be used in the Post command
- of an aggregator. It should be generated automatically when forwarding
- an item from an aggregator to a weblog authoring tool.
- 
- */
-public class RSS2FeedChannelItemSource {
+    The category of `<channel>`. Identifies a category or tag to which the feed belongs.
+*/
+public class RSSFeedChannelCategory {
     
     /**
      
@@ -51,8 +36,8 @@ public class RSS2FeedChannelItemSource {
      */
     public class Attributes {
         
-        /// Required attribute of the `Source` element, which links to the XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
-        public var url: String?
+        /// A string that identifies a categorization taxonomy. It's an optional attribute of `<category>`. e.g. "http://www.fool.com/cusips"
+        public var domain: String?
         
     }
     
@@ -69,7 +54,7 @@ public class RSS2FeedChannelItemSource {
      
      */
     public var value: String?
-    
+
     public init() {}
     
 }

@@ -29,7 +29,7 @@ let feedURL = NSURL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rs
 
 class FeedTableViewController: UITableViewController {
     
-    var feed: RSS2Feed?
+    var feed: RSSFeed?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class FeedTableViewController: UITableViewController {
         self.title = "Feed"
         
         FeedParser(URL: feedURL).parse { (result) in
-            self.feed = result.rss2Feed
+            self.feed = result.rssFeed
             self.tableView.reloadData()
         }
         

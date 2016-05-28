@@ -30,13 +30,13 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     // MARK: - Private properties
     
     /// The RSS feed model
-    private var rssFeed: RSS2Feed? = RSS2Feed()
+    private var rssFeed: RSSFeed? = RSSFeed()
     
     /// The Atom feed model
     private var atomFeed: AtomFeed? = AtomFeed()
     
     /// The current feed item being parsed.
-    private var feedItem: RSS2FeedChannelItem?
+    private var feedItem: RSSFeedChannelItem?
     
     /// The current path along the XML's DOM elements. Path components are updated to reflect the current XML element being parsed. e.g. "/rss/channel/title" mean it's currently parsing the channels `<title>` element.
     private var currentXMLDOMPath: NSURL? = NSURL(string: "/")
@@ -88,7 +88,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         Debug.log("parser: \(parser), didEndDocument")
 
         let parseResult = ParseResult()
-        parseResult.rss2Feed = self.rssFeed
+        parseResult.rssFeed = self.rssFeed
         parseResult.atomFeed = self.atomFeed
         self.result?(parseResult)
         
@@ -100,7 +100,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`
         self.currentXMLDOMPath = self.currentXMLDOMPath?.URLByAppendingPathComponent(elementName)
         
-        if let element = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+        if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(attributes: attributeDict, toFeed: self.rssFeed!, forElement: element)
         }
         
@@ -134,7 +134,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             self.map(string, toFeed: self.atomFeed!, forElement: element)
         }
         
-        else if let element = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+        else if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.rssFeed!, forElement: element)
         }
             
@@ -163,7 +163,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             self.map(string, toFeed: self.atomFeed!, forElement: feedElement)
         }
         
-        else if let feedElement = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+        else if let feedElement = RSSFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.rssFeed!, forElement: feedElement)
         }
             

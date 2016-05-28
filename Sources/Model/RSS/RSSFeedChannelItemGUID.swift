@@ -1,5 +1,5 @@
 //
-//  RSS2FeedChannelItemGUID.swift
+//  RSSFeedChannelItemGUID.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -54,7 +54,7 @@ import Foundation
  particular.
  
  */
-public class RSS2FeedChannelItemGUID {
+public class RSSFeedChannelItemGUID {
     
     /**
      

@@ -1,5 +1,5 @@
 //
-//  ContentTestCase.swift
+//  SyndicationTests.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -25,19 +25,26 @@
 import XCTest
 import FeedParser
 
-class ContentTestCase: BaseTestCase {
+class SyndicationTestCase: BaseTestCase {
     
-    func testContent() {
-        
+    func testSyndication() {
+
         // Given
-        let URL = fileURL("Content", type: "xml")
+        let URL = fileURL("Syndication", type: "xml")
         let parser = FeedParser(URL: URL)
         
         // When
         parser.parse { (result) in
             
+            let feed = result.rssFeed
             
-            
+            // Then
+            assert(feed?.channel != nil)
+
+            assert(feed?.channel?.syndication?.syUpdatePeriod == SyndicationUpdatePeriod.Hourly)
+            assert(feed?.channel?.syndication?.syUpdateFrequency == UInt(2))
+            assert(feed?.channel?.syndication?.syUpdateBase == "2000-01-01T12:00+00:00")
+
         }
         
     }

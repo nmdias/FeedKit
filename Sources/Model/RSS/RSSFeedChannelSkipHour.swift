@@ -1,5 +1,5 @@
 //
-//  RSS2ChannelCategory.swift
+//  RSSFeedChannelSkipHour.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -25,36 +25,15 @@
 import Foundation
 
 /**
-    The category of `<channel>`. Identifies a category or tag to which the feed belongs.
-*/
-public class RSS2FeedChannelCategory {
-    
-    /**
-     
-     The element's attributes
-     
-     */
-    public class Attributes {
-        
-        /// A string that identifies a categorization taxonomy. It's an optional attribute of `<category>`. e.g. "http://www.fool.com/cusips"
-        public var domain: String?
-        
-    }
-    
-    /**
-     
-     The element's attributes
-     
-     */
-    public var attributes: Attributes?
-    
-    /**
-     
-     The element's value
-     
-     */
-    public var value: String?
-
-    public init() {}
-    
-}
+ 
+ A hint for aggregators telling them which hours they can skip.
+ 
+ An XML element that contains up to 24 <hour> sub-elements whose value is a 
+ number between 0 and 23, representing a time in GMT, when aggregators, if they
+ support the feature, may not read the channel on hours listed in the skipHours
+ element.
+ 
+ The hour beginning at midnight is hour zero.
+ 
+ */
+public typealias RSSFeedChannelSkipHour = UInt

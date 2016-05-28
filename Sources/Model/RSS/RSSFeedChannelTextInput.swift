@@ -1,5 +1,5 @@
 //
-//  RSS2ChannelItemEnclosure.swift
+//  RSSChannelTextInput.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,63 +26,53 @@ import Foundation
 
 /**
  
- Describes a media object that is attached to the item.
+ Specifies a text input box that can be displayed with the channel.
  
- <enclosure> is an optional sub-element of <item>.
+ A channel may optionally contain a <textInput> sub-element, which contains
+ four required sub-elements.
  
- It has three required attributes. url says where the enclosure is located,
- length says how big it is in bytes, and type says what its type is, a
- standard MIME type.
+ <title> -- The label of the Submit button in the text input area.
  
- The url must be an http url.
+ <description> -- Explains the text input area.
  
- <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" length="12216320" type="audio/mpeg" />
+ <name> -- The name of the text object in the text input area.
+ 
+ <link> -- The URL of the CGI script that processes text input requests.
+ 
+ The purpose of the <textInput> element is something of a mystery. You can
+ use it to specify a search engine box. Or to allow a reader to provide
+ feedback. Most aggregators ignore it.
  
  */
-public class RSS2FeedChannelItemEnclosure {
+public class RSSFeedChannelTextInput {
     
-    /**
+    /** 
      
-     The element's attributes
+     The label of the Submit button in the text input area. 
      
      */
-    public class Attributes {
-        
-        /** 
-         
-         Where the enclosure is located.
-         
-         Example: http://www.scripting.com/mp3s/weatherReportSuite.mp3
-         
-         */
-        public var url: String?
-        
-        /** 
-         
-         How big the media object is in bytes.
-         
-         Example: 12216320
-         
-         */
-        public var length: UInt64?
-        
-        /** 
-         
-         Standard MIME type.
-         
-         Example: audio/mpeg
-         
-         */
-        public var type: String?
-        
-    }
+    public var title: String?
     
-    /**
+    /** 
      
-     The element's attributes
+     Explains the text input area. 
      
      */
-    public var attributes: Attributes?
+    public var description: String?
+    
+    /** 
+     
+     The name of the text object in the text input area. 
+     
+     */
+    public var name: String?
+    
+    /** 
+     
+     The URL of the CGI script that processes text input requests. 
+     
+     */
+    public var link: String?
     
     public init() {}
     
