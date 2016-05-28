@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  RSSChannelTextInput.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,54 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ Specifies a text input box that can be displayed with the channel.
+ 
+ A channel may optionally contain a <textInput> sub-element, which contains
+ four required sub-elements.
+ 
+ <title> -- The label of the Submit button in the text input area.
+ 
+ <description> -- Explains the text input area.
+ 
+ <name> -- The name of the text object in the text input area.
+ 
+ <link> -- The URL of the CGI script that processes text input requests.
+ 
+ The purpose of the <textInput> element is something of a mystery. You can
+ use it to specify a search engine box. Or to allow a reader to provide
+ feedback. Most aggregators ignore it.
  
  */
-public enum FeedType: String {
+public class RSSFeedChannelTextInput {
     
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
-    
-    /**
+    /** 
      
-     The top-level element of the feed within an XML DOM
+     The label of the Submit button in the text input area. 
      
      */
-    var path: String {
-        return self.rawValue
-    }
+    public var title: String?
+    
+    /** 
+     
+     Explains the text input area. 
+     
+     */
+    public var description: String?
+    
+    /** 
+     
+     The name of the text object in the text input area. 
+     
+     */
+    public var name: String?
+    
+    /** 
+     
+     The URL of the CGI script that processes text input requests. 
+     
+     */
+    public var link: String?
+    
+    public init() {}
     
 }

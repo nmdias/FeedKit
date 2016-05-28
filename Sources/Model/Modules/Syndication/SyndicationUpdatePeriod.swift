@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  SyndicationUpdatePeriod.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,43 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ Describes the period over which the channel format is updated. Acceptable
+ values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is
+ assumed.
  
  */
-public enum FeedType: String {
+public enum SyndicationUpdatePeriod: String {
     
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
+    case Hourly     = "hourly"
+    case Daily      = "daily"
+    case Weekly     = "weekly"
+    case Monthly    = "monthly"
+    case Yearly     = "yearly"
+    
+}
+
+extension SyndicationUpdatePeriod {
     
     /**
      
-     The top-level element of the feed within an XML DOM
+     Lowercase the incoming `rawValue` string to try and match the
+     `SyUpdatePeriod`'s `rawValue`
      
      */
-    var path: String {
-        return self.rawValue
+    public init?(rawValue: String) {
+        
+        switch rawValue.lowercaseString {
+            
+        case "hourly":  self = .Hourly
+        case "daily":   self = .Daily
+        case "weekly":  self = .Weekly
+        case "monthly": self = .Monthly
+        case "yearly":  self = .Yearly
+            
+        default: return nil
+            
+        }
+        
     }
     
 }

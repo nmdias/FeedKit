@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  SyndicationElementPaths.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,19 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ Describes the individual path for each XML DOM element of the `Syndication`
+ namespace
+ 
+ See http://web.resource.org/rss/1.0/modules/syndication/
  
  */
-public enum FeedType: String {
+enum SyndicationElementPaths: String {
     
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
-    
-    /**
-     
-     The top-level element of the feed within an XML DOM
-     
-     */
-    var path: String {
-        return self.rawValue
-    }
+    case UpdatePeriod         = "sy:updatePeriod"
+    case UpdateFrequency      = "sy:updateFrequency"
+    case UpdateBase           = "sy:updateBase"
     
 }
+
+
+

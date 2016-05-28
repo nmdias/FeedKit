@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  AtomFeedEntryContributor.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,41 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ The "atom:contributor" element is a Person construct that indicates a
+ person or other entity who contributed to the entry or feed.
  
  */
-public enum FeedType: String {
-    
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
+public class AtomFeedEntryContributor {
     
     /**
      
-     The top-level element of the feed within an XML DOM
+     The "atom:name" element's content conveys a human-readable name for
+     the person.  The content of atom:name is Language-Sensitive.  Person
+     constructs MUST contain exactly one "atom:name" element.
      
      */
-    var path: String {
-        return self.rawValue
-    }
+    public var name: String?
+    
+    /**
+     
+     The "atom:email" element's content conveys an e-mail address
+     associated with the person.  Person constructs MAY contain an
+     atom:email element, but MUST NOT contain more than one.  Its content
+     MUST conform to the "addr-spec" production in [RFC2822].
+     
+     */
+    public var email: String?
+    
+    /**
+     
+     The "atom:uri" element's content conveys an IRI associated with the
+     person.  Person constructs MAY contain an atom:uri element, but MUST
+     NOT contain more than one.  The content of atom:uri in a Person
+     construct MUST be an IRI reference [RFC3987].
+     
+     */
+    public var uri: String?
+    
+    public init() {}
     
 }

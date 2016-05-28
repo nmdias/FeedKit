@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  RSSFeedChannelSkipHour.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,14 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ A hint for aggregators telling them which hours they can skip.
+ 
+ An XML element that contains up to 24 <hour> sub-elements whose value is a 
+ number between 0 and 23, representing a time in GMT, when aggregators, if they
+ support the feature, may not read the channel on hours listed in the skipHours
+ element.
+ 
+ The hour beginning at midnight is hour zero.
  
  */
-public enum FeedType: String {
-    
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
-    
-    /**
-     
-     The top-level element of the feed within an XML DOM
-     
-     */
-    var path: String {
-        return self.rawValue
-    }
-    
-}
+public typealias RSSFeedChannelSkipHour = Int

@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  ContentTests.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -22,27 +22,48 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import XCTest
+import FeedParser
 
-/**
- 
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
- 
- */
-public enum FeedType: String {
+class ContentTests: BaseTestCase {
     
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
+    func testContent() {
+        
+        // Given
+        let URL = fileURL("Content", type: "xml")
+        let parser = FeedParser(URL: URL)
+        
+        // When
+        parser.parse { (result) in
+            
+            // Then
+            
+            
+        }
+        
+    }
     
-    /**
-     
-     The top-level element of the feed within an XML DOM
-     
-     */
-    var path: String {
-        return self.rawValue
+    func testContentParsingPerformance() {
+        
+        self.measureBlock {
+            
+            // Given
+            let expectation = self.expectationWithDescription("Content Parsing Performance")
+            let URL = self.fileURL("Content", type: "xml")
+            let parser = FeedParser(URL: URL)
+            
+            // When
+            parser.parse({ (result) in
+                
+                // Then
+                expectation.fulfill()
+                
+            })
+            
+            self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
+            
+        }
+        
     }
     
 }

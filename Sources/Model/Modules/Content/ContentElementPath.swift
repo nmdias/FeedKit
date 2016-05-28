@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  ContentElementPath.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,21 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ Describes the individual path for each XML DOM element of the `Content` 
+ namespace
+ 
+ See http://web.resource.org/rss/1.0/modules/content/
  
  */
-public enum FeedType: String {
-    
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
+public enum ContentElementPath: String {
     
     /**
      
-     The top-level element of the feed within an XML DOM
+     The `Content` namespace declaration
      
      */
-    var path: String {
-        return self.rawValue
-    }
+    public static let namespace = [ "xmlns:content" : "http://purl.org/rss/1.0/modules/content/" ]
+    
+    case RSSChannelItemContent = "/rss/channel/item/content:encoded"
     
 }

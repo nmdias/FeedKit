@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  ParseResult.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -24,25 +24,13 @@
 
 import Foundation
 
-/**
- 
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
- 
- */
-public enum FeedType: String {
+public class ParseResult {
     
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
+    public var feedType: FeedType?
+    public var rssFeed: RSSFeed?
+    public var atomFeed: AtomFeed?
     
-    /**
-     
-     The top-level element of the feed within an XML DOM
-     
-     */
-    var path: String {
-        return self.rawValue
+    public init() {
+        
     }
-    
 }

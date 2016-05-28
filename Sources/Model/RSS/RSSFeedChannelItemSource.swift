@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  RSSChannelItemSource.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,50 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ The RSS channel that the item came from.
+ 
+ <source> is an optional sub-element of <item>.
+ 
+ Its value is the name of the RSS channel that the item came from, derived
+ from its <title>. It has one required attribute, url, which links to the
+ XMLization of the source.
+ 
+ <source url="http://www.tomalak.org/links2.xml">Tomalak's Realm</source>
+ 
+ The purpose of this element is to propagate credit for links, to
+ publicize the sources of news items. It can be used in the Post command
+ of an aggregator. It should be generated automatically when forwarding
+ an item from an aggregator to a weblog authoring tool.
  
  */
-public enum FeedType: String {
-    
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
+public class RSSFeedChannelItemSource {
     
     /**
      
-     The top-level element of the feed within an XML DOM
+     The element's attributes
      
      */
-    var path: String {
-        return self.rawValue
+    public class Attributes {
+        
+        /// Required attribute of the `Source` element, which links to the XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
+        public var url: String?
+        
     }
+    
+    /**
+     
+     The element's attributes
+     
+     */
+    public var attributes: Attributes?
+    
+    /**
+     
+     The element's value
+     
+     */
+    public var value: String?
+    
+    public init() {}
     
 }

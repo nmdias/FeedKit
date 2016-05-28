@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  AtomFeedSubtitle.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,45 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ The "atom:subtitle" element is a Text construct that conveys a human-
+ readable description or subtitle for a feed.
  
  */
-public enum FeedType: String {
-    
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
+public class AtomFeedSubtitle {
     
     /**
      
-     The top-level element of the feed within an XML DOM
+     The element's attributes
      
      */
-    var path: String {
-        return self.rawValue
+    public class Attributes {
+        
+        /**
+         
+         Text constructs MAY have a "type" attribute.  When present, the value
+         MUST be one of "text", "html", or "xhtml".  If the "type" attribute
+         is not provided, Atom Processors MUST behave as though it were
+         present with a value of "text".
+         
+         */
+        public var type: String?
+        
     }
+    
+    /**
+     
+     The element's attributes
+     
+     */
+    public var attributes: Attributes?
+    
+    /**
+     
+     The element's value
+     
+     */
+    public var value: String?
+    
+    public init() {}
     
 }

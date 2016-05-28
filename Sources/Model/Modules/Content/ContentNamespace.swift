@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  Content.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,22 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ A module for the actual content of websites, in multiple formats.
  
- */
-public enum FeedType: String {
-    
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
+ See http://web.resource.org/rss/1.0/modules/content/
+ 
+*/
+public class ContentNamespace {
     
     /**
      
-     The top-level element of the feed within an XML DOM
+     An element whose contents are the entity-encoded or CDATA-escaped version
+     of the content of the item. 
+     
+     Example: <content:encoded><![CDATA[<p>What a <em>beautiful</em> day!</p>]]></content:encoded>
      
      */
-    var path: String {
-        return self.rawValue
-    }
+    var contentEncoded: String?
     
 }
+

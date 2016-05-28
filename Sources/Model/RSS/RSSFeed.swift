@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  RSSFeed.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,28 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ Data model for the XML DOM of the RSS 2.0 Specification
+ See http://cyber.law.harvard.edu/rss/rss.html
  
- */
-public enum FeedType: String {
-    
-    case Atom = "feed"
-    case RSS1 = "rdf:RDF"
-    case RSS2 = "rss"
+ At the top level, a RSS document is a <rss> element, with a mandatory 
+ attribute called version, that specifies the version of RSS that the 
+ document conforms to. If it conforms to this specification, the version 
+ attribute must be 2.0.
+ 
+ Subordinate to the <rss> element is a single <channel> element, which 
+ contains information about the channel (metadata) and its contents.
+ 
+*/
+public class RSSFeed {
     
     /**
      
-     The top-level element of the feed within an XML DOM
+     Subordinate to the <rss> element. Contains information about the channel
+     (metadata) and its contents.
      
      */
-    var path: String {
-        return self.rawValue
-    }
+    public var channel: RSSFeedChannel?
+    
+    public init() {}
     
 }
