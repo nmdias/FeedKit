@@ -56,7 +56,7 @@ public class SyndicationNamespace {
      of 1 is assumed.
      
      */
-    public var syUpdateFrequency: UInt?
+    public var syUpdateFrequency: Int?
     
     /**
      

@@ -149,7 +149,7 @@ public class AtomFeedEntryLink {
          attribute.
          
          */
-        public var length: UInt?
+        public var length: Int?
         
     }
     

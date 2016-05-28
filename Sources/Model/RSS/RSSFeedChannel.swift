@@ -213,7 +213,7 @@ public class RSSFeedChannel {
      as Gnutella.
      
      */
-    public var ttl: UInt?
+    public var ttl: Int?
     
     /**
      

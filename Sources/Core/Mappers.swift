@@ -83,7 +83,7 @@ extension FeedParser {
                 feed.links?.last?.attributes?.type      = type
                 feed.links?.last?.attributes?.rel       = rel
                 feed.links?.last?.attributes?.title     = title
-                feed.links?.last?.attributes?.length    = UInt(length ?? "")
+                feed.links?.last?.attributes?.length    = Int(length ?? "")
                 
             }
             
@@ -200,7 +200,7 @@ extension FeedParser {
                 feed.entries?.last?.links?.last?.attributes?.type      = type
                 feed.entries?.last?.links?.last?.attributes?.rel       = rel
                 feed.entries?.last?.links?.last?.attributes?.title     = title
-                feed.entries?.last?.links?.last?.attributes?.length    = UInt(length ?? "")
+                feed.entries?.last?.links?.last?.attributes?.length    = Int(length ?? "")
                 
             }
             
@@ -390,7 +390,7 @@ extension FeedParser {
                 
                 feed.channel?.cloud?.attributes = RSSFeedChannelCloud.Attributes()
                 feed.channel?.cloud?.attributes?.domain = domain
-                feed.channel?.cloud?.attributes?.port = UInt(port ?? "")
+                feed.channel?.cloud?.attributes?.port = Int(port ?? "")
                 feed.channel?.cloud?.attributes?.path = path
                 feed.channel?.cloud?.attributes?.registerProcedure = registerProcedure
                 feed.channel?.cloud?.attributes?.protocolSpecification = protocolSpecification
@@ -434,7 +434,7 @@ extension FeedParser {
                 feed.channel?.items?.last?.enclosure?.attributes = RSSFeedChannelItemEnclosure.Attributes()
                 feed.channel?.items?.last?.enclosure?.attributes?.url = url
                 feed.channel?.items?.last?.enclosure?.attributes?.type = type
-                feed.channel?.items?.last?.enclosure?.attributes?.length = UInt64(length ?? "")
+                feed.channel?.items?.last?.enclosure?.attributes?.length = Int(length ?? "")
                 
             }
             
@@ -520,7 +520,7 @@ extension FeedParser {
         case .RSSChannelGenerator:              feed.channel?.generator                               = feed.channel?.generator?.stringByAppendingString(string) ?? string
         case .RSSChannelDocs:                   feed.channel?.docs                                    = feed.channel?.docs?.stringByAppendingString(string) ?? string
         case .RSSChannelRating:                 feed.channel?.rating                                  = feed.channel?.rating?.stringByAppendingString(string) ?? string
-        case .RSSChannelTTL:                    feed.channel?.ttl                                     = UInt(string)
+        case .RSSChannelTTL:                    feed.channel?.ttl                                     = Int(string)
         case .RSSChannelCloud:                  break
             
             // Channel Image
@@ -529,8 +529,8 @@ extension FeedParser {
         case .RSSChannelImageURL:               feed.channel?.image?.url                              = feed.channel?.image?.url?.stringByAppendingString(string) ?? string
         case .RSSChannelImageTitle:             feed.channel?.image?.title                            = feed.channel?.image?.title?.stringByAppendingString(string) ?? string
         case .RSSChannelImageLink:              feed.channel?.image?.link                             = feed.channel?.image?.link?.stringByAppendingString(string) ?? string
-        case .RSSChannelImageWidth:             feed.channel?.image?.width                            = UInt(string)
-        case .RSSChannelImageHeight:            feed.channel?.image?.height                           = UInt(string)
+        case .RSSChannelImageWidth:             feed.channel?.image?.width                            = Int(string)
+        case .RSSChannelImageHeight:            feed.channel?.image?.height                           = Int(string)
         case .RSSChannelImageDescription:       feed.channel?.image?.description                      = feed.channel?.image?.description?.stringByAppendingString(string) ?? string
             
             // Channel Text Input
@@ -602,7 +602,7 @@ extension FeedParser {
             
             feed.channel?.syndication?.syUpdatePeriod = syUpdatePeriod
             
-        case .UpdateFrequency:  feed.channel?.syndication?.syUpdateFrequency = UInt(string)
+        case .UpdateFrequency:  feed.channel?.syndication?.syUpdateFrequency = Int(string)
         case .UpdateBase:       feed.channel?.syndication?.syUpdateBase = feed.channel?.syndication?.syUpdateBase?.stringByAppendingString(string) ?? string
             
         }

@@ -62,10 +62,10 @@ public class RSSFeedChannelImage {
     public var link: String?
     
     /// Optional element `<width>` indicating the width of the image in pixels. Maximum value for width is 144, default value is 88.
-    public var width: UInt?
+    public var width: Int?
     
     /// Optional element `<height>` indicating the height of the image in pixels. Maximum value for height is 400, default value is 31.
-    public var height: UInt?
+    public var height: Int?
     
     /// Contains text that is included in the TITLE attribute of the link formed around the image in the HTML rendering.
     public var description: String?

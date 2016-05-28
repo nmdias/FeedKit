@@ -62,7 +62,7 @@ public class RSSFeedChannelCloud {
         public var domain: String?
         
         /// The port to connect to.
-        public var port: UInt?
+        public var port: Int?
         
         /// The path to the RPC service. e.g. "/RPC2"
         public var path: String?

@@ -36,4 +36,4 @@ import Foundation
  The hour beginning at midnight is hour zero.
  
  */
-public typealias RSSFeedChannelSkipHour = UInt
+public typealias RSSFeedChannelSkipHour = Int
