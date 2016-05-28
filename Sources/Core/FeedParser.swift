@@ -60,7 +60,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      */
     private var currentXMLDOMPath: NSURL? = NSURL(string: "/")
     
-    // FIXME: - The `XMLParser` property should not be an optional property and the delegate should be set by the time the Parser has been initialized. Fix this when the specified initializer bug has been fix in a new swift release.
     /** 
      
      The XML parser. 
