@@ -4,12 +4,34 @@
     <subtitle type="html">A &lt;em&gt;lot&lt;/em&gt; of effort went into making this effortless</subtitle>
     <updated>2005-07-31T12:29:29Z</updated>
     <id>tag:example.org,2003:3</id>
-    <link rel="alternate" type="text/html" hreflang="en" href="http://example.org/" />
+    <link rel="alternate" type="text/html" hreflang="en" href="http://example.org/" title="Human-readable information about the link" length="1234" />
     <link rel="self" type="application/atom+xml" href="http://example.org/feed.atom" />
     <rights>Copyright (c) 2003, Mark Pilgrim</rights>
+    <logo>http://www.example.uk/logo.png</logo>
     <generator uri="http://www.example.com/" version="1.0">Example Toolkit</generator>
+    <author>
+        <name>Pilgrim Mark</name>
+        <uri>http://example.org/</uri>
+        <email>1234@example.com</email>
+    </author>
+    <author>
+        <name>Mark the Pilgrim</name>
+        <uri>http://example.org/</uri>
+        <email>5678@example.com</email>
+    </author>
+    <contributor>
+        <name>Jane Doe</name>
+        <uri>http://example.org/</uri>
+        <email>9101@example.com</email>
+    </contributor>
+    <contributor>
+        <name>John Doe</name>
+        <uri>http://example.org/</uri>
+        <email>2345@example.com</email>
+    </contributor>
     <entry>
         <title>Atom draft-07 snapshot</title>
+        <summary type="text">An overview of Atom 1.0</summary>
         <link rel="alternate" type="text/html" href="http://example.org/2005/04/02/atom" />
         <link rel="enclosure" type="audio/mpeg" length="1337" href="http://example.org/audio/ph34r_my_podcast.mp3" />
         <id>tag:example.org,2003:3.2397</id>
@@ -22,9 +44,13 @@
         </author>
         <contributor>
             <name>Sam Ruby</name>
+            <uri>http://example.org/</uri>
+            <email>2345@example.com</email>
         </contributor>
         <contributor>
             <name>Joe Gregorio</name>
+            <uri>http://example.org/</uri>
+            <email>2345@example.com</email>
         </contributor>
         <content type="xhtml" xml:lang="en" xml:base="http://diveintomark.org/">
             <div xmlns="http://www.w3.org/1999/xhtml">
