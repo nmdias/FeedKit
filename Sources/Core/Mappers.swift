@@ -41,7 +41,8 @@ extension FeedParser {
             
             /**
              
-             Only initializes the `attributes` variable if the `<subtitle>`s type attribute is present.
+             Only initializes the `attributes` variable if the `<subtitle>`s type 
+             attribute is present.
              
              */
             if type != nil {
@@ -68,7 +69,8 @@ extension FeedParser {
             
             /**
              
-             Only initializes the `attributes` variable if at least one of the `<link>`s attribute is present.
+             Only initializes the `attributes` variable if at least one of the 
+             `<link>`s attribute is present.
              
              */
             if  href        != nil ||
@@ -124,7 +126,8 @@ extension FeedParser {
             
             /**
              
-             Only initializes the `attributes` variable if at least on fo the the `<generator>`s attributes are present.
+             Only initializes the `attributes` variable if at least on fo the the 
+             `<generator>`s attributes are present.
              
              */
             if  uri     != nil ||
@@ -158,7 +161,8 @@ extension FeedParser {
             
             /**
              
-             Only initializes the `attributes` variable if at the `<summary>`s attributes are present.
+             Only initializes the `attributes` variable if at the `<summary>`s 
+             attributes are present.
              
              */
             if  type != nil {
@@ -185,7 +189,8 @@ extension FeedParser {
             
             /**
              
-             Only initializes the `attributes` variable if at least one of the `<link>`s attribute is present.
+             Only initializes the `attributes` variable if at least one of the 
+             `<link>`s attribute is present.
              
              */
             if  href        != nil ||
@@ -217,7 +222,8 @@ extension FeedParser {
             
             /**
              
-             Only initializes the `attributes` variable if at the `<content>`s attributes are present.
+             Only initializes the `attributes` variable if at the `<content>`s 
+             attributes are present.
              
              */
             if  type != nil {
@@ -360,7 +366,10 @@ extension FeedParser {
             let domain = attributeDict["domain"]
             
             /**
-             Only initializes the `attributes` variable if the `<category>`s `domain` attribute is present.
+             
+             Only initializes the `attributes` variable if the `<category>`s `domain`
+             attribute is present.
+             
              */
             if let domain = domain {
                 feed.channel?.categories?.last?.attributes = RSSFeedChannelCategory.Attributes()
@@ -380,7 +389,10 @@ extension FeedParser {
             let protocolSpecification   = attributeDict["protocol"]
             
             /**
-             Only initializes the `attributes` variable if at least one of the `<cloud>`s attribute is present.
+             
+             Only initializes the `attributes` variable if at least one of the 
+             `<cloud>`s attribute is present.
+             
              */
             if  domain                  != nil ||
                 port                    != nil ||
@@ -408,7 +420,10 @@ extension FeedParser {
             let domain = attributeDict["domain"]
             
             /**
-             Only initializes the `attributes` variable if the `<category>`s `domain` attribute is present.
+             
+             Only initializes the `attributes` variable if the `<category>`s `domain`
+             attribute is present.
+             
              */
             if let domain = domain {
                 feed.channel?.items?.last?.categories?.last?.attributes = RSSFeedChannelItemCategory.Attributes()
@@ -426,7 +441,10 @@ extension FeedParser {
             let length  = attributeDict["length"]
             
             /**
-             Only initializes the `attributes` variable if at least one of the `<enclosure>`s attribute is present.
+             
+             Only initializes the `attributes` variable if at least one of the 
+             `<enclosure>`s attribute is present.
+             
              */
             if  url     != nil ||
                 length  != nil {
@@ -448,7 +466,10 @@ extension FeedParser {
             let isPermaLink = attributeDict["isPermaLink"]
             
             /**
-             Only initializes the `attributes` variable if the `<guid>`s `isPermaLink` attribute is present.
+             
+             Only initializes the `attributes` variable if the `<guid>`s 
+             `isPermaLink` attribute is present.
+             
              */
             if let isPermaLink = isPermaLink where isPermaLink.lowercaseString == "true" || isPermaLink.lowercaseString == "false" {
                 feed.channel?.items?.last?.guid?.attributes = RSSFeedChannelItemGUID.Attributes()
@@ -464,7 +485,8 @@ extension FeedParser {
             let url = attributeDict["url"]
             
             /**
-             Only initializes the `attributes` variable if the `<source>` `url` attribute is present.
+             Only initializes the `attributes` variable if the `<source>` `url` 
+             attribute is present.
              */
             if let url = url {
                 feed.channel?.items?.last?.source?.attributes = RSSFeedChannelItemSource.Attributes()
@@ -483,18 +505,21 @@ extension FeedParser {
      Maps a parsed string to the feed model.
      
      Discussion:
-     Characters found while parsing any given feed element are assigned or appended to the
-     corresponding `model` property. If the corresponding `model` property is `nil`, the string
-     of characters is assigned, otherwise, appended.
+     Characters found while parsing any given feed element are assigned or 
+     appended to the corresponding `model` property. If the corresponding 
+     `model` property is `nil`, the string of characters is assigned, 
+     otherwise, appended.
      
      Note:
-     Switch cases with a `break` statement mean there are no values associated with that element,
-     or they might just be parents to an element, or contain only attributes. Attributes are handled
-     in the `parser(_:didStartElement:namespaceURI:qualifiedName:attributes:)` delegate method.
+     Switch cases with a `break` statement mean there are no values 
+     associated with that element, or they might just be parents to an 
+     element, or contain only attributes. Attributes are handled in the
+     `parser(_:didStartElement:namespaceURI:qualifiedName:attributes:)` 
+     delegate method.
      
-     - parameter string: The string to map to the model.
-     - parameter feed: The feed to map to.
-     - parameter element: The element that identifies the property that should be mapped in the feed model.
+     - parameter string:    The string to map to the model.
+     - parameter feed:      The feed to map to.
+     - parameter element:   The element that identifies the property that should be mapped in the feed model.
      
      */
     

@@ -49,7 +49,10 @@ public enum RSSFeedChannelSkipDay: String {
 extension RSSFeedChannelSkipDay {
     
     /**
-        Lowercase the incoming `rawValue` string to try and match the `RSSFeedChannelSkipDay`'s `rawValue`
+     
+     Lowercase the incoming `rawValue` string to try and match the 
+     `RSSFeedChannelSkipDay`'s `rawValue`
+     
     */
     public init?(rawValue: String) {
         

@@ -25,14 +25,18 @@
 import Foundation
 
 /**
+ 
  A debug functions wrapper.
+ 
  */
 internal class Debug {
     
     /**
-     Logs the specified message when the build configuration is set to debug mode.
+     
+     Logs messages when the build configuration is set to debug mode.
      
      - parameter message: The message to print
+     
      */
     static func log(message: String, file: String = #file, line: Int = #line) {
         #if DEBUG

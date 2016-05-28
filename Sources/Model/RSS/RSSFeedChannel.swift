@@ -31,9 +31,7 @@ import Foundation
  
  */
 public class RSSFeedChannel {
-    
-    // MARK: - RSS
-    
+        
     /**
      
      The name of the channel. It's how people refer to your service. If 

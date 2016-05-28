@@ -26,8 +26,8 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the top-level 
- element of a feed.
+ Identifies the type of feed, and can be initialized from a string of the 
+ top-level element of a feed.
  
  */
 public enum FeedType: String {

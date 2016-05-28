@@ -29,20 +29,43 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     
     // MARK: - Private properties
     
-    /// The RSS feed model
+    /**
+     
+     The RSS feed model
+     
+     */
     private var rssFeed: RSSFeed? = RSSFeed()
     
-    /// The Atom feed model
+    /**
+     
+     The Atom feed model
+     
+     */
     private var atomFeed: AtomFeed? = AtomFeed()
     
-    /// The current feed item being parsed.
+    /**
+     
+     The current feed item being parsed.
+     
+     */
     private var feedItem: RSSFeedChannelItem?
     
-    /// The current path along the XML's DOM elements. Path components are updated to reflect the current XML element being parsed. e.g. "/rss/channel/title" mean it's currently parsing the channels `<title>` element.
+    /** 
+     
+     The current path along the XML's DOM elements. Path components are 
+     updated to reflect the current XML element being parsed.
+     e.g. "/rss/channel/title" mean it's currently parsing the channels 
+     `<title>` element.
+     
+     */
     private var currentXMLDOMPath: NSURL? = NSURL(string: "/")
     
     // FIXME: - The `XMLParser` property should not be an optional property and the delegate should be set by the time the Parser has been initialized. Fix this when the specified initializer bug has been fix in a new swift release.
-    /// The XML parser.
+    /** 
+     
+     The XML parser. 
+     
+     */
     private var xmlParser: NSXMLParser?
     
     private var result: (ParseResult -> Void)?
@@ -50,11 +73,13 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     // MARK: - Initializers
     
     /**
+     
      Initializes the parser with the XML content referenced by the given URL.
      
      - parameter URL: An NSURL object specifying a URL
      
      - returns: An instance of the feed parser.
+     
      */
     public init(URL: NSURL) {
         
@@ -69,7 +94,9 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     // MARK: - Public methods
     
     /**
+     
      Starts parsing the feed.
+     
      */
     public func parse(result: ParseResult -> Void) {
         self.result = result
