@@ -40,3 +40,29 @@ public enum SyndicationUpdatePeriod: String {
     case Yearly     = "yearly"
     
 }
+
+extension SyndicationUpdatePeriod {
+    
+    /**
+     
+     Lowercase the incoming `rawValue` string to try and match the
+     `SyUpdatePeriod`'s `rawValue`
+     
+     */
+    public init?(rawValue: String) {
+        
+        switch rawValue.lowercaseString {
+            
+        case "hourly":  self = .Hourly
+        case "daily":   self = .Daily
+        case "weekly":  self = .Weekly
+        case "monthly": self = .Monthly
+        case "yearly":  self = .Yearly
+            
+        default: return nil
+            
+        }
+        
+    }
+    
+}

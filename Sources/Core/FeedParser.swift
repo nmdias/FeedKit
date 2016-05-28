@@ -60,7 +60,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      */
     private var currentXMLDOMPath: NSURL? = NSURL(string: "/")
     
-    /** 
+    /**
      
      The XML parser. 
      
