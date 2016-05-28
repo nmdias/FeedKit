@@ -150,6 +150,7 @@ class AtomTestCase: BaseTestCase {
             assert(feed?.entries?.first?.contributors?.last?.email == "2345@example.com")
             assert(feed?.entries?.first?.contributors?.last?.uri == "http://example.org/")
             assert(feed?.entries?.first?.content != nil)
+            assert(feed?.entries?.first?.content?.value == "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><i>[Update: The Atom draft is finished.]</i></p></div>")
             assert(feed?.entries?.first?.content?.attributes != nil)
             assert(feed?.entries?.first?.content?.attributes?.type == "xhtml")
             assert(feed?.entries?.first?.content?.attributes?.src == nil)
