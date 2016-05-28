@@ -36,7 +36,7 @@ internal class Debug {
      */
     static func log(message: String, file: String = #file, line: Int = #line) {
         #if DEBUG
-            print("\(file.lastPathComponent):\(line): \(message)")
+            print("\(NSURL(string: file)?.lastPathComponent):\(line): \(message)")
         #endif
     }
     
