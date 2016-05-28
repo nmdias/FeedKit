@@ -202,10 +202,14 @@ class RSS2Tests: BaseTestCase {
             let URL = self.fileURL("RSS2", type: "xml")
             let parser = FeedParser(URL: URL)
             
+            // When
             parser.parse({ (result) in
+                
+                // Then
                 expectation.fulfill()
+                
             })
-            
+
             self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
             
         }

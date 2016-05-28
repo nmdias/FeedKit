@@ -58,10 +58,14 @@ class SyndicationTests: BaseTestCase {
             let URL = self.fileURL("Syndication", type: "xml")
             let parser = FeedParser(URL: URL)
             
+            // When
             parser.parse({ (result) in
+                
+                // Then
                 expectation.fulfill()
+                
             })
-            
+
             self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
             
         }

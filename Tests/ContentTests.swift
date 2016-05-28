@@ -36,6 +36,7 @@ class ContentTests: BaseTestCase {
         // When
         parser.parse { (result) in
             
+            // Then
             
             
         }
@@ -51,8 +52,12 @@ class ContentTests: BaseTestCase {
             let URL = self.fileURL("Content", type: "xml")
             let parser = FeedParser(URL: URL)
             
+            // When
             parser.parse({ (result) in
+                
+                // Then
                 expectation.fulfill()
+                
             })
             
             self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
