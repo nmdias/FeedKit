@@ -26,6 +26,287 @@ import Foundation
 
 extension FeedParser {
     
+    func map(attributes attributeDict: [String : String], toFeed feed: AtomFeed, forElement element: AtomFeedElementPath) {
+        
+        switch element {
+        case .Feed: break
+        case .FeedTitle: break
+        case .FeedSubtitle:
+
+            if  feed.subtitle == nil {
+                feed.subtitle = AtomFeedSubtitle()
+            }
+            
+            let type = attributeDict["type"]
+            
+            /**
+             
+             Only initializes the `attributes` variable if the `<subtitle>`s type attribute is present.
+             
+             */
+            if type != nil {
+                
+                feed.subtitle?.attributes = AtomFeedSubtitle.Attributes()
+                feed.subtitle?.attributes?.type = type
+                
+            }
+        
+        case .FeedLink:
+
+            if  feed.links == nil {
+                feed.links = []
+            }
+            
+            feed.links?.append(AtomFeedLink())
+            
+            let href        = attributeDict["href"]
+            let hreflang    = attributeDict["hreflang"]
+            let rel         = attributeDict["rel"]
+            let type        = attributeDict["type"]
+            let title       = attributeDict["title"]
+            let length      = attributeDict["length"]
+            
+            /**
+             
+             Only initializes the `attributes` variable if at least one of the `<link>`s attribute is present.
+             
+             */
+            if  href        != nil ||
+                hreflang    != nil ||
+                rel         != nil ||
+                title       != nil ||
+                length      != nil {
+
+                feed.links?.last?.attributes = AtomFeedLink.Attributes()
+                feed.links?.last?.attributes?.href      = href
+                feed.links?.last?.attributes?.hreflang  = hreflang
+                feed.links?.last?.attributes?.type      = type
+                feed.links?.last?.attributes?.rel       = rel
+                feed.links?.last?.attributes?.title     = title
+                feed.links?.last?.attributes?.length    = UInt(length ?? "")
+                
+            }
+            
+        case .FeedUpdated: break
+            
+        case .FeedAuthor:
+            
+            if  feed.authors == nil {
+                feed.authors = []
+            }
+            
+            feed.authors?.append(AtomFeedAuthor())
+            
+        case .FeedAuthorName: break
+        case .FeedAuthorEmail: break
+        case .FeedAuthorUri: break
+            
+        case .FeedContributor:
+            
+            if  feed.contributors == nil {
+                feed.contributors = []
+            }
+            
+            feed.contributors?.append(AtomFeedContributor())
+            
+        case .FeedContributorName: break
+        case .FeedContributorEmail: break
+        case .FeedContributorUri: break
+        case .FeedID: break
+        case .FeedGenerator:
+            
+            if  feed.generator == nil {
+                feed.generator = AtomFeedGenerator()
+            }
+            
+            let uri     = attributeDict["uri"]
+            let version = attributeDict["version"]
+            
+            /**
+             
+             Only initializes the `attributes` variable if at least on fo the the `<generator>`s attributes are present.
+             
+             */
+            if  uri     != nil ||
+                version != nil {
+                
+                feed.generator?.attributes = AtomFeedGenerator.Attributes()
+                feed.generator?.attributes?.uri = uri
+                feed.generator?.attributes?.version = version
+                
+            }
+            
+        case .FeedIcon: break
+        case .FeedLogo: break
+        case .FeedRights: break
+        case .FeedEntry:
+            
+            if  feed.entries == nil {
+                feed.entries = []
+            }
+            
+            feed.entries?.append(AtomFeedEntry())
+            
+        case .FeedEntryTitle: break
+        case .FeedEntrySummary:
+            
+            if  feed.entries?.last?.summary == nil {
+                feed.entries?.last?.summary = AtomFeedEntrySummary()
+            }
+            
+            let type = attributeDict["type"]
+            
+            /**
+             
+             Only initializes the `attributes` variable if at the `<summary>`s attributes are present.
+             
+             */
+            if  type != nil {
+                
+                feed.entries?.last?.summary?.attributes = AtomFeedEntrySummary.Attributes()
+                feed.entries?.last?.summary?.attributes?.type = type
+                
+            }
+            
+        case .FeedEntryLink:
+            
+            if  feed.entries?.last?.links == nil {
+                feed.entries?.last?.links = []
+            }
+            
+            feed.entries?.last?.links?.append(AtomFeedEntryLink())
+            
+            let href        = attributeDict["href"]
+            let hreflang    = attributeDict["hreflang"]
+            let rel         = attributeDict["rel"]
+            let type        = attributeDict["type"]
+            let title       = attributeDict["title"]
+            let length      = attributeDict["length"]
+            
+            /**
+             
+             Only initializes the `attributes` variable if at least one of the `<link>`s attribute is present.
+             
+             */
+            if  href        != nil ||
+                hreflang    != nil ||
+                rel         != nil ||
+                title       != nil ||
+                length      != nil {
+                
+                feed.entries?.last?.links?.last?.attributes = AtomFeedEntryLink.Attributes()
+                feed.entries?.last?.links?.last?.attributes?.href      = href
+                feed.entries?.last?.links?.last?.attributes?.hreflang  = hreflang
+                feed.entries?.last?.links?.last?.attributes?.type      = type
+                feed.entries?.last?.links?.last?.attributes?.rel       = rel
+                feed.entries?.last?.links?.last?.attributes?.title     = title
+                feed.entries?.last?.links?.last?.attributes?.length    = UInt(length ?? "")
+                
+            }
+            
+        case .FeedEntryUpdated: break
+        case .FeedEntryID: break
+        case .FeedEntryContent:
+            
+            if  feed.entries?.last?.content == nil {
+                feed.entries?.last?.content = AtomFeedEntryContent()
+            }
+            
+            let type  = attributeDict["type"]
+            let src   = attributeDict["src"]
+            
+            /**
+             
+             Only initializes the `attributes` variable if at the `<content>`s attributes are present.
+             
+             */
+            if  type != nil {
+                
+                feed.entries?.last?.content?.attributes = AtomFeedEntryContent.Attributes()
+                feed.entries?.last?.content?.attributes?.type = type
+                feed.entries?.last?.content?.attributes?.src = src
+                
+            }
+            
+        case .FeedEntryPublished: break
+        case .FeedEntrySource: break
+        case .FeedEntryRights: break
+            
+        case .FeedEntryAuthor:
+            
+            if  feed.entries?.last?.authors == nil {
+                feed.entries?.last?.authors = []
+            }
+            
+            feed.entries?.last?.authors?.append(AtomFeedEntryAuthor())
+            
+        case .FeedEntryAuthorName: break
+        case .FeedEntryAuthorEmail: break
+        case .FeedEntryAuthorUri: break
+            
+        case .FeedEntryContributor:
+            
+            if  feed.entries?.last?.contributors == nil {
+                feed.entries?.last?.contributors = []
+            }
+            
+            feed.entries?.last?.contributors?.append(AtomFeedEntryContributor())
+            
+        case .FeedEntryContributorName: break
+        case .FeedEntryContributorEmail: break
+        case .FeedEntryContributorUri: break
+            
+        }
+        
+    }
+    
+    func map(string: String, toFeed feed: AtomFeed, forElement element: AtomFeedElementPath) {
+        
+        switch element {
+        case .Feed:                             break
+        case .FeedTitle:                        feed.title                                      = feed.title?.stringByAppendingString(string) ?? string
+        case .FeedSubtitle:                     feed.subtitle?.value                            = feed.subtitle?.value?.stringByAppendingString(string) ?? string
+        case .FeedLink:                         break
+        case .FeedUpdated:                      feed.updated                                    = feed.updated?.stringByAppendingString(string) ?? string
+        case .FeedAuthor:                       break
+        case .FeedAuthorName:                   feed.authors?.last?.name                        = feed.authors?.last?.name?.stringByAppendingString(string) ?? string
+        case .FeedAuthorEmail:                  feed.authors?.last?.email                       = feed.authors?.last?.email?.stringByAppendingString(string) ?? string
+        case .FeedAuthorUri:                    feed.authors?.last?.uri                         = feed.authors?.last?.uri?.stringByAppendingString(string) ?? string
+        case .FeedContributor:                  break
+        case .FeedContributorName:              feed.contributors?.last?.name                   = feed.contributors?.last?.name?.stringByAppendingString(string) ?? string
+        case .FeedContributorEmail:             feed.contributors?.last?.email                  = feed.contributors?.last?.email?.stringByAppendingString(string) ?? string
+        case .FeedContributorUri:               feed.contributors?.last?.uri                    = feed.contributors?.last?.uri?.stringByAppendingString(string) ?? string
+        case .FeedID:                           feed.id                                         = feed.id?.stringByAppendingString(string) ?? string
+        case .FeedGenerator:                    feed.generator?.value                           = feed.generator?.value?.stringByAppendingString(string) ?? string
+        case .FeedIcon:                         feed.icon                                       = feed.icon?.stringByAppendingString(string) ?? string
+        case .FeedLogo:                         feed.logo                                       = feed.logo?.stringByAppendingString(string) ?? string
+        case .FeedRights:                       feed.rights                                     = feed.rights?.stringByAppendingString(string) ?? string
+        case .FeedEntry:                        break
+        case .FeedEntryTitle:                   feed.entries?.last?.title                       = feed.entries?.last?.title?.stringByAppendingString(string) ?? string
+        case .FeedEntrySummary:                 feed.entries?.last?.summary?.value              = feed.entries?.last?.summary?.value?.stringByAppendingString(string) ?? string
+        case .FeedEntryLink:                    break
+        case .FeedEntryUpdated:                 feed.entries?.last?.updated                     = feed.entries?.last?.updated?.stringByAppendingString(string) ?? string
+        case .FeedEntryID:                      feed.entries?.last?.id                          = feed.entries?.last?.id?.stringByAppendingString(string) ?? string
+        case .FeedEntryContent:                 feed.entries?.last?.content?.value              = feed.entries?.last?.content?.value?.stringByAppendingString(string) ?? string
+        case .FeedEntryPublished:               feed.entries?.last?.published                   = feed.entries?.last?.published?.stringByAppendingString(string) ?? string
+        case .FeedEntrySource:                  break
+        case .FeedEntryRights:                  feed.entries?.last?.rights                      = feed.entries?.last?.rights?.stringByAppendingString(string) ?? string
+        case .FeedEntryAuthor:                  break
+        case .FeedEntryAuthorName:              feed.entries?.last?.authors?.last?.name         = feed.entries?.last?.authors?.last?.name?.stringByAppendingString(string) ?? string
+        case .FeedEntryAuthorEmail:             feed.entries?.last?.authors?.last?.email        = feed.entries?.last?.authors?.last?.email?.stringByAppendingString(string) ?? string
+        case .FeedEntryAuthorUri:               feed.entries?.last?.authors?.last?.uri          = feed.entries?.last?.authors?.last?.uri?.stringByAppendingString(string) ?? string
+        case .FeedEntryContributor:             break
+        case .FeedEntryContributorName:         feed.entries?.last?.contributors?.last?.name    = feed.entries?.last?.contributors?.last?.name?.stringByAppendingString(string) ?? string
+        case .FeedEntryContributorEmail:        feed.entries?.last?.contributors?.last?.email   = feed.entries?.last?.contributors?.last?.email?.stringByAppendingString(string) ?? string
+        case .FeedEntryContributorUri:          feed.entries?.last?.contributors?.last?.uri     = feed.entries?.last?.contributors?.last?.uri?.stringByAppendingString(string) ?? string
+        }
+        
+    }
+    
+}
+
+extension FeedParser {
+    
     func map(attributes attributeDict: [String : String], toFeed feed: RSS2Feed, forElement element: RSS2FeedElementPath) {
         
         switch element {
@@ -397,3 +678,4 @@ extension FeedParser {
     }
     
 }
+
