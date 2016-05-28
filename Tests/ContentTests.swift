@@ -25,7 +25,7 @@
 import XCTest
 import FeedParser
 
-class ContentTestCase: BaseTestCase {
+class ContentTests: BaseTestCase {
     
     func testContent() {
         

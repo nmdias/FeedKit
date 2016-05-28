@@ -25,7 +25,7 @@
 import XCTest
 import FeedParser
 
-class FeedTestCase: BaseTestCase {
+class RSS2Tests: BaseTestCase {
     
     func testRSS2Feed() {
         

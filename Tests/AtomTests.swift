@@ -25,7 +25,7 @@
 import XCTest
 import FeedParser
 
-class AtomTestCase: BaseTestCase {
+class AtomTests: BaseTestCase {
     
     func testAtomFeed() {
         

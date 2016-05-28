@@ -25,7 +25,7 @@
 import XCTest
 import FeedParser
 
-class SyndicationTestCase: BaseTestCase {
+class SyndicationTests: BaseTestCase {
     
     func testSyndication() {
 

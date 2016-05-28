@@ -25,7 +25,7 @@
 import XCTest
 import FeedParser
 
-class DublinCoreTestCase: BaseTestCase {
+class DublinCoreTests: BaseTestCase {
     
     func testDublinCore() {
         
