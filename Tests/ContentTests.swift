@@ -42,11 +42,23 @@ class ContentTests: BaseTestCase {
         
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func testContentParsingPerformance() {
+        
         self.measureBlock {
-            // Put the code you want to measure the time of here.
+            
+            // Given
+            let expectation = self.expectationWithDescription("Content Parsing Performance")
+            let URL = self.fileURL("Content", type: "xml")
+            let parser = FeedParser(URL: URL)
+            
+            parser.parse({ (result) in
+                expectation.fulfill()
+            })
+            
+            self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
+            
         }
+        
     }
     
 }
