@@ -83,7 +83,7 @@ extension FeedParser {
                 feed.links?.last?.attributes?.type      = type
                 feed.links?.last?.attributes?.rel       = rel
                 feed.links?.last?.attributes?.title     = title
-                feed.links?.last?.attributes?.length    = Int(length ?? "")
+                feed.links?.last?.attributes?.length    = Int64(length ?? "")
                 
             }
             
@@ -200,7 +200,7 @@ extension FeedParser {
                 feed.entries?.last?.links?.last?.attributes?.type      = type
                 feed.entries?.last?.links?.last?.attributes?.rel       = rel
                 feed.entries?.last?.links?.last?.attributes?.title     = title
-                feed.entries?.last?.links?.last?.attributes?.length    = Int(length ?? "")
+                feed.entries?.last?.links?.last?.attributes?.length    = Int64(length ?? "")
                 
             }
             
@@ -434,7 +434,7 @@ extension FeedParser {
                 feed.channel?.items?.last?.enclosure?.attributes = RSSFeedChannelItemEnclosure.Attributes()
                 feed.channel?.items?.last?.enclosure?.attributes?.url = url
                 feed.channel?.items?.last?.enclosure?.attributes?.type = type
-                feed.channel?.items?.last?.enclosure?.attributes?.length = Int(length ?? "")
+                feed.channel?.items?.last?.enclosure?.attributes?.length = Int64(length ?? "")
                 
             }
             

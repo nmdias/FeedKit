@@ -149,7 +149,7 @@ public class AtomFeedLink {
          attribute.
          
          */
-        public var length: Int?
+        public var length: Int64?
         
     }
     

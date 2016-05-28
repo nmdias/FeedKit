@@ -64,7 +64,7 @@ public class RSSFeedChannelItemEnclosure {
          Example: 12216320
          
          */
-        public var length: Int?
+        public var length: Int64?
         
         /** 
          
