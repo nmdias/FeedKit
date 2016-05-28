@@ -29,8 +29,11 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     
     // MARK: - Private properties
     
-    /// The current feed being parsed.
-    private var feed: RSS2Feed? = RSS2Feed()
+    /// The RSS feed model
+    private var rssFeed: RSS2Feed? = RSS2Feed()
+    
+    /// The Atom feed model
+    private var atomFeed: AtomFeed? = AtomFeed()
     
     /// The current feed item being parsed.
     private var feedItem: RSS2FeedChannelItem?
@@ -85,7 +88,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         Debug.log("parser: \(parser), didEndDocument")
 
         let parseResult = ParseResult()
-        parseResult.rss2Feed = self.feed
+        parseResult.rss2Feed = self.rssFeed
+        parseResult.atomFeed = self.atomFeed
         self.result?(parseResult)
         
     }
@@ -96,13 +100,17 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`
         self.currentXMLDOMPath = self.currentXMLDOMPath?.URLByAppendingPathComponent(elementName)
         
-        guard let element = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") else {
-            Debug.log("Unable to infer XML DOM element from current path: '\(self.currentXMLDOMPath)'")
-            return
+        if let element = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(attributes: attributeDict, toFeed: self.rssFeed!, forElement: element)
         }
         
-        self.map(attributes: attributeDict, toFeed: self.feed!, forElement: element)
+        else if let element = AtomFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(attributes: attributeDict, toFeed: self.atomFeed!, forElement: element)
+        }
         
+        else {
+            Debug.log("Unable to infer XML DOM element from current path: '\(self.currentXMLDOMPath)'")
+        }
         
     }
     
@@ -122,20 +130,24 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             return
         }
         
-        if let element = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: element)
+        if let element = AtomFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(string, toFeed: self.atomFeed!, forElement: element)
+        }
+        
+        else if let element = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(string, toFeed: self.rssFeed!, forElement: element)
         }
             
         else if let dublinCoreChannelElement = DublinCoreChannelElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: dublinCoreChannelElement)
+            self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelElement)
         }
             
         else if let dublinCoreChannelItemElement = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: dublinCoreChannelItemElement)
+            self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelItemElement)
         }
             
         else if let contentElement = ContentElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: contentElement)
+            self.map(string, toFeed: self.rssFeed!, forElement: contentElement)
         }
             
         else {
@@ -147,20 +159,24 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     public func parser(parser: NSXMLParser, foundCharacters string: String) {
         Debug.log("parser: \(parser.debugDescription), foundCharacters: \(string)")
         
-        if let feedElement = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: feedElement)
+        if let feedElement = AtomFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(string, toFeed: self.atomFeed!, forElement: feedElement)
+        }
+        
+        else if let feedElement = RSS2FeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+            self.map(string, toFeed: self.rssFeed!, forElement: feedElement)
         }
             
         else if let syndicationElement = SyndicationElementPaths(rawValue: self.currentXMLDOMPath?.lastPathComponent ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: syndicationElement)
+            self.map(string, toFeed: self.rssFeed!, forElement: syndicationElement)
         }
             
         else if let dublinCoreChannelElement = DublinCoreChannelElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: dublinCoreChannelElement)
+            self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelElement)
         }
             
         else if let dublinCoreChannelItemElement = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(string, toFeed: self.feed!, forElement: dublinCoreChannelItemElement)
+            self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelItemElement)
         }
             
         else {
