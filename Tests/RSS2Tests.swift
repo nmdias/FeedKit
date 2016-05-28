@@ -209,7 +209,7 @@ class RSS2Tests: BaseTestCase {
                 expectation.fulfill()
                 
             })
-
+            
             self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
             
         }

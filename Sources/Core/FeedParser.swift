@@ -106,12 +106,9 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     
     // MARK: - NSXMLParser delegate
     
-    public func parserDidStartDocument(parser: NSXMLParser) {
-        Debug.log("parser: \(parser), didStartDocument")
-    }
+    public func parserDidStartDocument(parser: NSXMLParser) { }
     
     public func parserDidEndDocument(parser: NSXMLParser) {
-        Debug.log("parser: \(parser), didEndDocument")
 
         let parseResult = ParseResult()
         parseResult.rssFeed = self.rssFeed
@@ -121,7 +118,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     }
     
     public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        Debug.log("parser: \(parser.debugDescription), didStartElement: \(elementName), namespaceURI: \(namespaceURI), qualifiedName: \(qName), attributeDict: \(attributeDict)")
         
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`
         self.currentXMLDOMPath = self.currentXMLDOMPath?.URLByAppendingPathComponent(elementName)
@@ -135,13 +131,12 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         }
         
         else {
-            Debug.log("Unable to infer XML DOM element from current path: '\(self.currentXMLDOMPath)'")
+            assertionFailure("Unable to infer XML DOM element from current path: '\(self.currentXMLDOMPath)'")
         }
         
     }
     
     public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        Debug.log("parser: \(parser.debugDescription), didEndElement: \(elementName), namespaceURI: \(namespaceURI), qualifiedName: \(qName)")
         
         // Update the current path along the XML's DOM elements by deleting last component
         self.currentXMLDOMPath = self.currentXMLDOMPath?.URLByDeletingLastPathComponent
@@ -149,7 +144,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     }
     
     public func parser(parser: NSXMLParser, foundCDATA CDATABlock: NSData) {
-        Debug.log("parser: \(parser.debugDescription), foundCDATA: \(CDATABlock.debugDescription)")
         
         guard let string = NSString(data: CDATABlock, encoding: NSUTF8StringEncoding) as? String else {
             assertionFailure("Unable to convert the bytes in `CDATABlock` to Unicode characters using the encoding provided at current path: \(self.currentXMLDOMPath)")
@@ -183,7 +177,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     }
     
     public func parser(parser: NSXMLParser, foundCharacters string: String) {
-        Debug.log("parser: \(parser.debugDescription), foundCharacters: \(string)")
         
         if let feedElement = AtomFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(string, toFeed: self.atomFeed!, forElement: feedElement)
@@ -206,7 +199,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         }
             
         else {
-            Debug.log("Undefined element for current path: \(self.currentXMLDOMPath)")
+            assertionFailure("Undefined element for current path: \(self.currentXMLDOMPath)")
         }
         
     }
@@ -215,11 +208,11 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     // MARK: - NSXMLParser delegate errors
     
     public func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
-        Debug.log("parser: \(parser), parseErrorOccurred: \(parseError.debugDescription)")
+
     }
     
     public func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError) {
-        Debug.log("parser: \(parser), validationErrorOccurred: \(validationError.debugDescription)")
+        
     }
     
     
