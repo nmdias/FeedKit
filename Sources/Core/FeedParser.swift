@@ -31,6 +31,15 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     
     /**
      
+     The Feed Type currently being parsed. The Initial value of this variable
+     is unknown until a recognizable element that matches a feed type is 
+     found.
+     
+     */
+    private var feedType: FeedType?
+    
+    /**
+     
      The RSS feed model
      
      */
@@ -47,7 +56,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      
      The current path along the XML's DOM elements. Path components are 
      updated to reflect the current XML element being parsed.
-     e.g. "/rss/channel/title" mean it's currently parsing the channels 
+     e.g. "/rss/channel/title" mean it's currently parsing the channels
      `<title>` element.
      
      */
@@ -114,15 +123,27 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`
         self.currentXMLDOMPath = self.currentXMLDOMPath?.URLByAppendingPathComponent(elementName)
-        
-        
-        
-        if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(attributes: attributeDict, toFeed: self.rssFeed!, forElement: element)
+
+        // Get the feed type from the element, if it hasn't been done yet
+        guard let feedType = self.feedType else {
+            self.feedType = FeedType(rawValue: elementName)
+            return
         }
         
-        else if let element = AtomFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
-            self.map(attributes: attributeDict, toFeed: self.atomFeed!, forElement: element)
+        switch feedType {
+            
+        case .Atom:
+            
+            if let element = AtomFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+                self.map(attributes: attributeDict, toFeed: self.atomFeed!, forElement: element)
+            }
+            
+        case .RSS1, .RSS2:
+            
+            if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
+                self.map(attributes: attributeDict, toFeed: self.rssFeed!, forElement: element)
+            }
+            
         }
         
     }
