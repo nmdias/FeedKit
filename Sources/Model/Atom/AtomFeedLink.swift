@@ -164,24 +164,31 @@ public class AtomFeedLink {
 
 // MARK: - Initializers
 
-public extension AtomFeedLink {
+extension AtomFeedLink {
     
-    public convenience init(attributes attributeDict: [String : String]) {
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = AtomFeedLink.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension AtomFeedLink.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
         
         self.init()
         
-        if attributeDict.isEmpty {
-            return
-        }
-        
-        self.attributes             = AtomFeedLink.Attributes()
-        
-        self.attributes?.href       = attributeDict["href"]
-        self.attributes?.hreflang   = attributeDict["hreflang"]
-        self.attributes?.type       = attributeDict["type"]
-        self.attributes?.rel        = attributeDict["rel"]
-        self.attributes?.title      = attributeDict["title"]
-        self.attributes?.length     = Int64(attributeDict["length"] ?? "")
+        self.href       = attributeDict["href"]
+        self.hreflang   = attributeDict["hreflang"]
+        self.type       = attributeDict["type"]
+        self.rel        = attributeDict["rel"]
+        self.title      = attributeDict["title"]
+        self.length     = Int64(attributeDict["length"] ?? "")
         
     }
     
