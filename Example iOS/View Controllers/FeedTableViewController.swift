@@ -42,8 +42,12 @@ class FeedTableViewController: UITableViewController {
         }
         
     }
-    
-    // MARK: - Table view data source
+
+}
+
+// MARK: - Table View Data Source
+
+extension FeedTableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
@@ -69,7 +73,11 @@ class FeedTableViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - Table view delegate
+}
+
+// MARK: - Table View Delegate
+
+extension FeedTableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let layout = TableViewLayout(indexPath: indexPath) else { fatalError() }
@@ -81,11 +89,17 @@ class FeedTableViewController: UITableViewController {
         }
     }
     
+}
+
+// MARK: - Navigation
+
+extension FeedTableViewController {
+    
     // MARK: - Navigation
     
     func showDetailViewControllerWithText(text: String) {
         let viewController = FeedDetailTableViewController(text: text)
         self.showViewController(viewController, sender: self)
     }
-
+    
 }
