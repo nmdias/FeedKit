@@ -69,7 +69,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      */
     private var xmlParser: NSXMLParser?
     
-    private var result: (ParseResult -> Void)?
+    private var result: (Result -> Void)?
     
     // MARK: - Initializers
     
@@ -99,7 +99,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      Starts parsing the feed.
      
      */
-    public func parse(result: ParseResult -> Void) {
+    public func parse(result: Result -> Void) {
         self.result = result
         self.xmlParser?.delegate = self
         self.xmlParser?.parse()
@@ -135,11 +135,12 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     
     public func parserDidEndDocument(parser: NSXMLParser) {
 
-        let parseResult = ParseResult()
-        parseResult.rssFeed = self.rssFeed
-        parseResult.atomFeed = self.atomFeed
-        parseResult.feedType = self.feedType
-        self.result?(parseResult)
+        guard let feedType = self.feedType else { return }
+        
+        switch feedType {
+        case .Atom: self.result?(Result.Atom(self.atomFeed!))
+        case .RSS1, .RSS2: self.result?(Result.RSS(self.rssFeed!))
+        }
         
     }
     
@@ -198,12 +199,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     // MARK: - NSXMLParser delegate errors
     
     public func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
-
+        self.result?(Result.Failure(parseError))
     }
-    
-    public func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError) {
-        
-    }
-    
     
 }

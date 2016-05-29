@@ -1,5 +1,5 @@
 //
-//  ParseResult.swift
+//  Result.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -24,13 +24,85 @@
 
 import Foundation
 
-public class ParseResult {
+public enum Result {
     
-    public var feedType: FeedType?
-    public var rssFeed: RSSFeed?
-    public var atomFeed: AtomFeed?
+    case Atom(AtomFeed)
+    case RSS(RSSFeed)
+    case Failure(NSError)
     
-    public init() {
+    /** 
+     
+     Returns `true` if the result is a success, `false` otherwise. 
+     
+     */
+    public var isSuccess: Bool {
+        
+        switch self {
+        case .Atom:     return true
+        case .RSS:      return true
+        case .Failure:  return false
+        }
         
     }
+    
+    /** 
+     
+     Returns `true` if the result is a failure, `false` otherwise.
+     
+     */
+    public var isFailure: Bool {
+        
+        return !isSuccess
+        
+    }
+    
+    /** 
+     
+     Returns the parsed rss feed value if the result is a success, `nil` 
+     otherwise.
+     
+     */
+    public var rssFeed: RSSFeed? {
+        
+        switch self {
+        case .Atom(_): return nil
+        case .RSS(let value): return value
+        case .Failure(_): return nil
+        }
+        
+    }
+    
+    /**
+     
+     Returns the parsed atom feed if the result is a success, `nil` otherwise.
+     
+     */
+    public var atomFeed: AtomFeed? {
+        
+        switch self {
+        case .Atom(let value): return value
+        case .RSS(_): return nil
+        case .Failure(_): return nil
+        }
+        
+    }
+    
+    
+    
+    /** 
+     
+     Returns the associated error value if the result is a failure, `nil` 
+     otherwise.
+     
+     */
+    public var error: ErrorType? {
+        
+        switch self {
+        case .Atom(_): return nil
+        case .RSS(_): return nil
+        case .Failure(let error): return error
+        }
+        
+    }
+    
 }
