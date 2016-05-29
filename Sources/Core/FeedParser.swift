@@ -43,13 +43,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      */
     private var atomFeed: AtomFeed? = AtomFeed()
     
-    /**
-     
-     The current feed item being parsed.
-     
-     */
-    private var feedItem: RSSFeedChannelItem?
-    
     /** 
      
      The current path along the XML's DOM elements. Path components are 
@@ -121,6 +114,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`
         self.currentXMLDOMPath = self.currentXMLDOMPath?.URLByAppendingPathComponent(elementName)
+        
+        
         
         if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath?.absoluteString ?? "") {
             self.map(attributes: attributeDict, toFeed: self.rssFeed!, forElement: element)
