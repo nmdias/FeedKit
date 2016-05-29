@@ -160,6 +160,29 @@ public class AtomFeedLink {
      */
     public var attributes: Attributes?
     
-    public init() {}
+}
+
+// MARK: - Initializers
+
+public extension AtomFeedLink {
+    
+    public convenience init(attributes attributeDict: [String : String]) {
+        
+        self.init()
+        
+        if attributeDict.isEmpty {
+            return
+        }
+        
+        self.attributes             = AtomFeedLink.Attributes()
+        
+        self.attributes?.href       = attributeDict["href"]
+        self.attributes?.hreflang   = attributeDict["hreflang"]
+        self.attributes?.type       = attributeDict["type"]
+        self.attributes?.rel        = attributeDict["rel"]
+        self.attributes?.title      = attributeDict["title"]
+        self.attributes?.length     = Int64(attributeDict["length"] ?? "")
+        
+    }
     
 }

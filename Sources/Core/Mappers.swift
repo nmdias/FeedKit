@@ -57,37 +57,8 @@ extension FeedParser {
             if  feed.links == nil {
                 feed.links = []
             }
-            
-            feed.links?.append(AtomFeedLink())
-            
-            let href        = attributeDict["href"]
-            let hreflang    = attributeDict["hreflang"]
-            let rel         = attributeDict["rel"]
-            let type        = attributeDict["type"]
-            let title       = attributeDict["title"]
-            let length      = attributeDict["length"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if at least one of the 
-             `<link>`s attribute is present.
-             
-             */
-            if  href        != nil ||
-                hreflang    != nil ||
-                rel         != nil ||
-                title       != nil ||
-                length      != nil {
 
-                feed.links?.last?.attributes = AtomFeedLink.Attributes()
-                feed.links?.last?.attributes?.href      = href
-                feed.links?.last?.attributes?.hreflang  = hreflang
-                feed.links?.last?.attributes?.type      = type
-                feed.links?.last?.attributes?.rel       = rel
-                feed.links?.last?.attributes?.title     = title
-                feed.links?.last?.attributes?.length    = Int64(length ?? "")
-                
-            }
+            feed.links?.append(AtomFeedLink(attributes: attributeDict))
             
         case .FeedUpdated: break
             
