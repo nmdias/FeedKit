@@ -115,6 +115,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         let parseResult = ParseResult()
         parseResult.rssFeed = self.rssFeed
         parseResult.atomFeed = self.atomFeed
+        parseResult.feedType = self.feedType
         self.result?(parseResult)
         
     }
