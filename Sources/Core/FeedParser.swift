@@ -163,48 +163,68 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             return
         }
         
-        if let element = AtomFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-            self.map(string, toFeed: self.atomFeed!, forElement: element)
-        }
+        guard let feedType = self.feedType else { return }
         
-        else if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-            self.map(string, toFeed: self.rssFeed!, forElement: element)
-        }
+        switch feedType {
             
-        else if let dublinCoreChannelElement = DublinCoreChannelElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-            self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelElement)
-        }
+        case .Atom:
             
-        else if let dublinCoreChannelItemElement = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-            self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelItemElement)
-        }
+            if let element = AtomFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.map(string, toFeed: self.atomFeed!, forElement: element)
+            }
             
-        else if let contentElement = ContentElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-            self.map(string, toFeed: self.rssFeed!, forElement: contentElement)
+        case .RSS1, .RSS2:
+            
+            if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.map(string, toFeed: self.rssFeed!, forElement: element)
+            }
+                
+            else if let dublinCoreChannelElement = DublinCoreChannelElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelElement)
+            }
+                
+            else if let dublinCoreChannelItemElement = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelItemElement)
+            }
+                
+            else if let contentElement = ContentElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.map(string, toFeed: self.rssFeed!, forElement: contentElement)
+            }
+            
         }
         
     }
     
     public func parser(parser: NSXMLParser, foundCharacters string: String) {
 
-        if let feedElement = AtomFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-            self.map(string, toFeed: self.atomFeed!, forElement: feedElement)
-        }
+        guard let feedType = self.feedType else { return }
         
-        else if let feedElement = RSSFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-            self.map(string, toFeed: self.rssFeed!, forElement: feedElement)
-        }
+        switch feedType {
             
-        else if let syndicationElement = SyndicationElementPaths(rawValue: self.currentXMLDOMPath.lastPathComponent ?? "") {
-            self.map(string, toFeed: self.rssFeed!, forElement: syndicationElement)
-        }
+        case .Atom:
             
-        else if let dublinCoreChannelElement = DublinCoreChannelElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-            self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelElement)
-        }
+            if let feedElement = AtomFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.map(string, toFeed: self.atomFeed!, forElement: feedElement)
+            }
             
-        else if let dublinCoreChannelItemElement = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-            self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelItemElement)
+        case .RSS1, .RSS2:
+            
+            if let feedElement = RSSFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.map(string, toFeed: self.rssFeed!, forElement: feedElement)
+            }
+                
+            else if let syndicationElement = SyndicationElementPaths(rawValue: self.currentXMLDOMPath.lastPathComponent ?? "") {
+                self.map(string, toFeed: self.rssFeed!, forElement: syndicationElement)
+            }
+                
+            else if let dublinCoreChannelElement = DublinCoreChannelElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelElement)
+            }
+                
+            else if let dublinCoreChannelItemElement = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.map(string, toFeed: self.rssFeed!, forElement: dublinCoreChannelItemElement)
+            }
+            
         }
         
     }
