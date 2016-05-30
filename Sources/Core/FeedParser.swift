@@ -154,15 +154,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         }
         
         switch feedType {
-            
         case .Atom: self.atomFeed?.map(attributes: attributeDict, forPath: self.currentXMLDOMPath.absoluteString)
-            
-        case .RSS1, .RSS2:
-            
-            if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-                self.map(attributes: attributeDict, toFeed: self.rssFeed!, forElement: element)
-            }
-            
+        case .RSS1, .RSS2: self.rssFeed?.map(attributes: attributeDict, forPath: self.currentXMLDOMPath.absoluteString)
         }
         
     }
