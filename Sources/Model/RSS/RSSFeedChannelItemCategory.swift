@@ -85,3 +85,30 @@ public class RSSFeedChannelItemCategory {
     public init() {}
     
 }
+
+// MARK: - Initializers
+
+extension RSSFeedChannelItemCategory {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = RSSFeedChannelItemCategory.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension RSSFeedChannelItemCategory.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.domain = attributeDict["domain"]
+        
+    }
+    
+}

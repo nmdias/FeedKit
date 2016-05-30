@@ -80,3 +80,32 @@ public class AtomFeedCategory {
     public init() {}
     
 }
+
+// MARK: - Initializers
+
+extension AtomFeedCategory {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = AtomFeedCategory.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension AtomFeedCategory.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.term   = attributeDict["term"]
+        self.scheme = attributeDict["scheme"]
+        self.label  = attributeDict["label"]
+        
+    }
+    
+}

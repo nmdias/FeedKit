@@ -87,3 +87,32 @@ public class RSSFeedChannelItemEnclosure {
     public init() {}
     
 }
+
+// MARK: - Initializers
+
+extension RSSFeedChannelItemEnclosure {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = RSSFeedChannelItemEnclosure.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension RSSFeedChannelItemEnclosure.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.url     = attributeDict["url"]
+        self.type    = attributeDict["type"]
+        self.length  = Int64(attributeDict["length"] ?? "")
+        
+    }
+    
+}

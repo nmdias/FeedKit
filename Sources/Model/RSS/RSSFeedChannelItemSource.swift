@@ -73,3 +73,30 @@ public class RSSFeedChannelItemSource {
     public init() {}
     
 }
+
+// MARK: - Initializers
+
+extension RSSFeedChannelItemSource {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = RSSFeedChannelItemSource.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension RSSFeedChannelItemSource.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.url = attributeDict["url"]
+        
+    }
+    
+}

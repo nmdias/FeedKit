@@ -89,3 +89,31 @@ public class AtomFeedGenerator {
     public init() {}
     
 }
+
+// MARK: - Initializers
+
+extension AtomFeedGenerator {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = AtomFeedGenerator.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension AtomFeedGenerator.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.uri        = attributeDict["uri"]
+        self.version    = attributeDict["version"]
+        
+    }
+    
+}

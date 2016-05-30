@@ -98,3 +98,31 @@ public class RSSFeedChannelItemGUID {
     public init() {}
     
 }
+
+// MARK: - Initializers
+
+extension RSSFeedChannelItemGUID {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = RSSFeedChannelItemGUID.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension RSSFeedChannelItemGUID.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.isPermaLink = attributeDict["isPermaLink"]?.bool
+        
+    }
+    
+}
+

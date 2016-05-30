@@ -107,6 +107,35 @@ public class RSSFeedChannelCloud {
      */
     public var attributes: Attributes?
     
-    public init() {}
+}
+
+// MARK: - Initializers
+
+extension RSSFeedChannelCloud {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = RSSFeedChannelCloud.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension RSSFeedChannelCloud.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.domain                  = attributeDict["domain"]
+        self.port                    = Int(attributeDict["port"] ?? "")
+        self.path                    = attributeDict["path"]
+        self.registerProcedure       = attributeDict["registerProcedure"]
+        self.protocolSpecification   = attributeDict["protocol"]
+        
+    }
     
 }

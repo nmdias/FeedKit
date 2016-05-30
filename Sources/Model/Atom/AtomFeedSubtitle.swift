@@ -68,3 +68,30 @@ public class AtomFeedSubtitle {
     public init() {}
     
 }
+
+// MARK: - Initializers
+
+extension AtomFeedSubtitle {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = AtomFeedSubtitle.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension AtomFeedSubtitle.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.type = attributeDict["type"]
+        
+    }
+    
+}

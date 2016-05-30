@@ -74,3 +74,30 @@ public class AtomFeedEntrySummary {
     public init() {}
     
 }
+
+// MARK: - Initializers
+
+extension AtomFeedEntrySummary {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = AtomFeedEntrySummary.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension AtomFeedEntrySummary.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.type = attributeDict["type"]
+        
+    }
+    
+}

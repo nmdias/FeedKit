@@ -163,3 +163,35 @@ public class AtomFeedEntryLink {
     public init() {}
     
 }
+
+// MARK: - Initializers
+
+extension AtomFeedEntryLink {
+    
+    convenience init(attributes attributeDict: [String : String]) {
+        self.init()
+        self.attributes = AtomFeedEntryLink.Attributes(attributes: attributeDict)
+    }
+    
+}
+
+extension AtomFeedEntryLink.Attributes {
+    
+    convenience init?(attributes attributeDict: [String : String]) {
+        
+        if attributeDict.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.href       = attributeDict["href"]
+        self.hreflang   = attributeDict["hreflang"]
+        self.type       = attributeDict["type"]
+        self.rel        = attributeDict["rel"]
+        self.title      = attributeDict["title"]
+        self.length     = Int64(attributeDict["length"] ?? "")
+        
+    }
+    
+}
