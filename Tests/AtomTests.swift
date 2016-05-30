@@ -73,6 +73,16 @@ class AtomTests: BaseTestCase {
             // Feed updated
             assert(feed?.updated == "2005-07-31T12:29:29Z")
             
+            // Feed categories
+            
+            assert(feed?.categories != nil)
+            assert(feed?.categories?.count == 2)
+            
+            assert(feed?.categories?.first?.attributes != nil)
+            assert(feed?.categories?.first?.attributes?.term == "music")
+            
+            assert(feed?.categories?.last?.attributes != nil)
+            assert(feed?.categories?.last?.attributes?.term == "video")
             // Feed authors
             
             assert(feed?.authors?.count == 2)
