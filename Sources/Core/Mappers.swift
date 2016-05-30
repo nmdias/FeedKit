@@ -34,22 +34,7 @@ extension FeedParser {
         case .FeedSubtitle:
 
             if  feed.subtitle == nil {
-                feed.subtitle = AtomFeedSubtitle()
-            }
-            
-            let type = attributeDict["type"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if the `<subtitle>`s type 
-             attribute is present.
-             
-             */
-            if type != nil {
-                
-                feed.subtitle?.attributes = AtomFeedSubtitle.Attributes()
-                feed.subtitle?.attributes?.type = type
-                
+                feed.subtitle = AtomFeedSubtitle(attributes: attributeDict)
             }
         
         case .FeedLink:
@@ -89,25 +74,7 @@ extension FeedParser {
         case .FeedGenerator:
             
             if  feed.generator == nil {
-                feed.generator = AtomFeedGenerator()
-            }
-            
-            let uri     = attributeDict["uri"]
-            let version = attributeDict["version"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if at least on fo the the 
-             `<generator>`s attributes are present.
-             
-             */
-            if  uri     != nil ||
-                version != nil {
-                
-                feed.generator?.attributes = AtomFeedGenerator.Attributes()
-                feed.generator?.attributes?.uri = uri
-                feed.generator?.attributes?.version = version
-                
+                feed.generator = AtomFeedGenerator(attributes: attributeDict)
             }
             
         case .FeedIcon: break
@@ -125,22 +92,7 @@ extension FeedParser {
         case .FeedEntrySummary:
             
             if  feed.entries?.last?.summary == nil {
-                feed.entries?.last?.summary = AtomFeedEntrySummary()
-            }
-            
-            let type = attributeDict["type"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if at the `<summary>`s 
-             attributes are present.
-             
-             */
-            if  type != nil {
-                
-                feed.entries?.last?.summary?.attributes = AtomFeedEntrySummary.Attributes()
-                feed.entries?.last?.summary?.attributes?.type = type
-                
+                feed.entries?.last?.summary = AtomFeedEntrySummary(attributes: attributeDict)
             }
             
         case .FeedEntryLink:
@@ -149,60 +101,14 @@ extension FeedParser {
                 feed.entries?.last?.links = []
             }
             
-            feed.entries?.last?.links?.append(AtomFeedEntryLink())
-            
-            let href        = attributeDict["href"]
-            let hreflang    = attributeDict["hreflang"]
-            let rel         = attributeDict["rel"]
-            let type        = attributeDict["type"]
-            let title       = attributeDict["title"]
-            let length      = attributeDict["length"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if at least one of the 
-             `<link>`s attribute is present.
-             
-             */
-            if  href        != nil ||
-                hreflang    != nil ||
-                rel         != nil ||
-                title       != nil ||
-                length      != nil {
-                
-                feed.entries?.last?.links?.last?.attributes = AtomFeedEntryLink.Attributes()
-                feed.entries?.last?.links?.last?.attributes?.href      = href
-                feed.entries?.last?.links?.last?.attributes?.hreflang  = hreflang
-                feed.entries?.last?.links?.last?.attributes?.type      = type
-                feed.entries?.last?.links?.last?.attributes?.rel       = rel
-                feed.entries?.last?.links?.last?.attributes?.title     = title
-                feed.entries?.last?.links?.last?.attributes?.length    = Int64(length ?? "")
-                
-            }
+            feed.entries?.last?.links?.append(AtomFeedEntryLink(attributes: attributeDict))
             
         case .FeedEntryUpdated: break
         case .FeedEntryID: break
         case .FeedEntryContent:
             
             if  feed.entries?.last?.content == nil {
-                feed.entries?.last?.content = AtomFeedEntryContent()
-            }
-            
-            let type  = attributeDict["type"]
-            let src   = attributeDict["src"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if at the `<content>`s 
-             attributes are present.
-             
-             */
-            if  type != nil {
-                
-                feed.entries?.last?.content?.attributes = AtomFeedEntryContent.Attributes()
-                feed.entries?.last?.content?.attributes?.type = type
-                feed.entries?.last?.content?.attributes?.src = src
-                
+                feed.entries?.last?.content = AtomFeedEntryContent(attributes: attributeDict)
             }
             
         case .FeedEntryPublished: break
@@ -332,52 +238,12 @@ extension FeedParser {
                 feed.channel?.categories = []
             }
             
-            feed.channel?.categories?.append(RSSFeedChannelCategory())
-            
-            let domain = attributeDict["domain"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if the `<category>`s `domain`
-             attribute is present.
-             
-             */
-            if let domain = domain {
-                feed.channel?.categories?.last?.attributes = RSSFeedChannelCategory.Attributes()
-                feed.channel?.categories?.last?.attributes?.domain = domain
-            }
+            feed.channel?.categories?.append(RSSFeedChannelCategory(attributes: attributeDict))
             
         case .RSSChannelCloud:
             
             if  feed.channel?.cloud == nil {
-                feed.channel?.cloud = RSSFeedChannelCloud()
-            }
-            
-            let domain                  = attributeDict["domain"]
-            let port                    = attributeDict["port"]
-            let path                    = attributeDict["path"]
-            let registerProcedure       = attributeDict["registerProcedure"]
-            let protocolSpecification   = attributeDict["protocol"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if at least one of the 
-             `<cloud>`s attribute is present.
-             
-             */
-            if  domain                  != nil ||
-                port                    != nil ||
-                path                    != nil ||
-                registerProcedure       != nil ||
-                protocolSpecification   != nil {
-                
-                feed.channel?.cloud?.attributes = RSSFeedChannelCloud.Attributes()
-                feed.channel?.cloud?.attributes?.domain = domain
-                feed.channel?.cloud?.attributes?.port = Int(port ?? "")
-                feed.channel?.cloud?.attributes?.path = path
-                feed.channel?.cloud?.attributes?.registerProcedure = registerProcedure
-                feed.channel?.cloud?.attributes?.protocolSpecification = protocolSpecification
-                
+                feed.channel?.cloud = RSSFeedChannelCloud(attributes: attributeDict)
             }
             
         case .RSSChannelItemCategory:
@@ -386,82 +252,24 @@ extension FeedParser {
                 feed.channel?.items?.last?.categories = []
             }
             
-            feed.channel?.items?.last?.categories?.append(RSSFeedChannelItemCategory())
-            
-            let domain = attributeDict["domain"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if the `<category>`s `domain`
-             attribute is present.
-             
-             */
-            if let domain = domain {
-                feed.channel?.items?.last?.categories?.last?.attributes = RSSFeedChannelItemCategory.Attributes()
-                feed.channel?.items?.last?.categories?.last?.attributes?.domain = domain
-            }
+            feed.channel?.items?.last?.categories?.append(RSSFeedChannelItemCategory(attributes: attributeDict))
             
         case .RSSChannelItemEnclosure:
             
             if  feed.channel?.items?.last?.enclosure == nil {
-                feed.channel?.items?.last?.enclosure = RSSFeedChannelItemEnclosure()
+                feed.channel?.items?.last?.enclosure = RSSFeedChannelItemEnclosure(attributes: attributeDict)
             }
-            
-            let url     = attributeDict["url"]
-            let type    = attributeDict["type"]
-            let length  = attributeDict["length"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if at least one of the 
-             `<enclosure>`s attribute is present.
-             
-             */
-            if  url     != nil ||
-                length  != nil {
-                
-                feed.channel?.items?.last?.enclosure?.attributes = RSSFeedChannelItemEnclosure.Attributes()
-                feed.channel?.items?.last?.enclosure?.attributes?.url = url
-                feed.channel?.items?.last?.enclosure?.attributes?.type = type
-                feed.channel?.items?.last?.enclosure?.attributes?.length = Int64(length ?? "")
-                
-            }
-            
             
         case .RSSChannelItemGUID:
             
             if  feed.channel?.items?.last?.guid == nil {
-                feed.channel?.items?.last?.guid = RSSFeedChannelItemGUID()
-            }
-            
-            let isPermaLink = attributeDict["isPermaLink"]
-            
-            /**
-             
-             Only initializes the `attributes` variable if the `<guid>`s 
-             `isPermaLink` attribute is present.
-             
-             */
-            if let isPermaLink = isPermaLink where isPermaLink.lowercaseString == "true" || isPermaLink.lowercaseString == "false" {
-                feed.channel?.items?.last?.guid?.attributes = RSSFeedChannelItemGUID.Attributes()
-                feed.channel?.items?.last?.guid?.attributes?.isPermaLink = NSString(string: isPermaLink).boolValue
+                feed.channel?.items?.last?.guid = RSSFeedChannelItemGUID(attributes: attributeDict)
             }
             
         case .RSSChannelItemSource:
             
             if  feed.channel?.items?.last?.source == nil {
-                feed.channel?.items?.last?.source = RSSFeedChannelItemSource()
-            }
-            
-            let url = attributeDict["url"]
-            
-            /**
-             Only initializes the `attributes` variable if the `<source>` `url` 
-             attribute is present.
-             */
-            if let url = url {
-                feed.channel?.items?.last?.source?.attributes = RSSFeedChannelItemSource.Attributes()
-                feed.channel?.items?.last?.source?.attributes?.url = url
+                feed.channel?.items?.last?.source = RSSFeedChannelItemSource(attributes: attributeDict)
             }
             
         default: break
