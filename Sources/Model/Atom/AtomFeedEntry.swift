@@ -103,6 +103,15 @@ public class AtomFeedEntry {
     
     /**
      
+     The "atom:category" element conveys information about a category
+     associated with an entry or feed.  This specification assigns no
+     meaning to the content (if any) of this element.
+     
+     */
+    public var categories: [AtomFeedEntryCategory]?
+    
+    /**
+     
      The "atom:id" element conveys a permanent, universally unique
      identifier for an entry or feed.
      

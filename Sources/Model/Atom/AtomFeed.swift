@@ -74,6 +74,15 @@ public class AtomFeed {
     
     /**
      
+     The "atom:category" element conveys information about a category
+     associated with an entry or feed.  This specification assigns no
+     meaning to the content (if any) of this element.
+     
+     */
+    public var categories: [AtomFeedCategory]?
+    
+    /**
+     
      The "atom:author" element is a Person construct that indicates the
      author of the entry or feed.
      
