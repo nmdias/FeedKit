@@ -47,6 +47,14 @@ extension FeedParser {
             
         case .FeedUpdated: break
             
+        case .FeedCategory:
+            
+            if  feed.categories == nil {
+                feed.categories = []
+            }
+            
+            feed.categories?.append(AtomFeedCategory(attributes: attributeDict))
+            
         case .FeedAuthor:
             
             if  feed.authors == nil {
@@ -104,6 +112,16 @@ extension FeedParser {
             feed.entries?.last?.links?.append(AtomFeedEntryLink(attributes: attributeDict))
             
         case .FeedEntryUpdated: break
+            
+        case .FeedEntryCategory:
+            
+            if  feed.entries?.last?.categories == nil {
+                feed.entries?.last?.categories = []
+            }
+            
+            feed.entries?.last?.categories?.append(AtomFeedEntryCategory(attributes: attributeDict))
+            
+            
         case .FeedEntryID: break
         case .FeedEntryContent:
             
@@ -151,6 +169,7 @@ extension FeedParser {
         case .FeedSubtitle:                     feed.subtitle?.value                            = feed.subtitle?.value?.stringByAppendingString(string) ?? string
         case .FeedLink:                         break
         case .FeedUpdated:                      feed.updated                                    = feed.updated?.stringByAppendingString(string) ?? string
+        case .FeedCategory:                     break
         case .FeedAuthor:                       break
         case .FeedAuthorName:                   feed.authors?.last?.name                        = feed.authors?.last?.name?.stringByAppendingString(string) ?? string
         case .FeedAuthorEmail:                  feed.authors?.last?.email                       = feed.authors?.last?.email?.stringByAppendingString(string) ?? string
@@ -169,6 +188,7 @@ extension FeedParser {
         case .FeedEntrySummary:                 feed.entries?.last?.summary?.value              = feed.entries?.last?.summary?.value?.stringByAppendingString(string) ?? string
         case .FeedEntryLink:                    break
         case .FeedEntryUpdated:                 feed.entries?.last?.updated                     = feed.entries?.last?.updated?.stringByAppendingString(string) ?? string
+        case .FeedEntryCategory:                break
         case .FeedEntryID:                      feed.entries?.last?.id                          = feed.entries?.last?.id?.stringByAppendingString(string) ?? string
         case .FeedEntryContent:                 feed.entries?.last?.content?.value              = feed.entries?.last?.content?.value?.stringByAppendingString(string) ?? string
         case .FeedEntryPublished:               feed.entries?.last?.published                   = feed.entries?.last?.published?.stringByAppendingString(string) ?? string
