@@ -112,9 +112,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         
         switch feedType {
             
-        case .Atom:
-            
-                 if let element = AtomFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.map(string, toFeed: self.atomFeed!, forElement: element) }
+        case .Atom: self.atomFeed?.map(characters: string, forPath: self.currentXMLDOMPath.absoluteString)
 
         case .RSS1, .RSS2:
             
@@ -157,11 +155,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         
         switch feedType {
             
-        case .Atom:
-            
-            if let element = AtomFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-                self.map(attributes: attributeDict, toFeed: self.atomFeed!, forElement: element)
-            }
+        case .Atom: self.atomFeed?.map(attributes: attributeDict, forPath: self.currentXMLDOMPath.absoluteString)
             
         case .RSS1, .RSS2:
             
@@ -181,7 +175,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     }
     
     public func parser(parser: NSXMLParser, foundCDATA CDATABlock: NSData) {
-        
+
         guard let string = NSString(data: CDATABlock, encoding: NSUTF8StringEncoding) as? String else {
             assertionFailure("Unable to convert the bytes in `CDATABlock` to Unicode characters using the encoding provided at current path: \(self.currentXMLDOMPath)")
             return
