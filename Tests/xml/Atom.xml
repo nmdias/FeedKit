@@ -9,6 +9,8 @@
     <rights>Copyright (c) 2003, Mark Pilgrim</rights>
     <logo>http://www.example.uk/logo.png</logo>
     <generator uri="http://www.example.com/" version="1.0">Example Toolkit</generator>
+    <category term="music" />
+    <category term="video" />
     <author>
         <name>Pilgrim Mark</name>
         <uri>http://example.org/</uri>
@@ -37,6 +39,8 @@
         <id>tag:example.org,2003:3.2397</id>
         <updated>2005-07-31T12:29:29Z</updated>
         <published>2003-12-13T08:29:29-04:00</published>
+        <category term="music" />
+        <category term="video" />
         <author>
             <name>Mark Pilgrim</name>
             <uri>http://example.org/</uri>
