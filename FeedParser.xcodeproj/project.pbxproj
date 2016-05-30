@@ -35,6 +35,10 @@
 		A023F38E1CF43ECA00C98065 /* AtomFeedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A023F38C1CF43ECA00C98065 /* AtomFeedCategory.swift */; };
 		A023F38F1CF43ECA00C98065 /* AtomFeedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A023F38C1CF43ECA00C98065 /* AtomFeedCategory.swift */; };
 		A023F3901CF43ECA00C98065 /* AtomFeedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A023F38C1CF43ECA00C98065 /* AtomFeedCategory.swift */; };
+		A029EC491CFC1D9D007FD0B7 /* String + Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A029EC481CFC1D9D007FD0B7 /* String + Bool.swift */; };
+		A029EC4A1CFC1D9D007FD0B7 /* String + Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A029EC481CFC1D9D007FD0B7 /* String + Bool.swift */; };
+		A029EC4B1CFC1D9D007FD0B7 /* String + Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A029EC481CFC1D9D007FD0B7 /* String + Bool.swift */; };
+		A029EC4C1CFC1D9D007FD0B7 /* String + Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A029EC481CFC1D9D007FD0B7 /* String + Bool.swift */; };
 		A0370EC21CEF9EF6009583A3 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0370EC31CEF9F30009583A3 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA543B1CE8A56700A951E3 /* FeedType.swift */; };
 		A0370ED11CEF9F30009583A3 /* RSSFeedElementPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CA544E1CE8A56700A951E3 /* RSSFeedElementPath.swift */; };
@@ -326,6 +330,7 @@
 		A023F37D1CF43B9E00C98065 /* AtomFeedEntryCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomFeedEntryCategory.swift; path = Atom/AtomFeedEntryCategory.swift; sourceTree = "<group>"; };
 		A023F3821CF43CDE00C98065 /* AtomFeedEntrySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomFeedEntrySource.swift; path = Atom/AtomFeedEntrySource.swift; sourceTree = "<group>"; };
 		A023F38C1CF43ECA00C98065 /* AtomFeedCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomFeedCategory.swift; path = Atom/AtomFeedCategory.swift; sourceTree = "<group>"; };
+		A029EC481CFC1D9D007FD0B7 /* String + Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String + Bool.swift"; path = "Sources/Extensions/String + Bool.swift"; sourceTree = "<group>"; };
 		A0370EB91CEF9D5A009583A3 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0370EC11CEF9E0A009583A3 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-watchOS.plist"; path = "Sources/Info-watchOS.plist"; sourceTree = "<group>"; };
 		A03978051CE8AF4C0042A1C4 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTableViewController.swift; path = "View Controllers/FeedTableViewController.swift"; sourceTree = "<group>"; };
@@ -489,6 +494,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A029EC471CFC1D6D007FD0B7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A029EC481CFC1D9D007FD0B7 /* String + Bool.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		A03978041CE8AF320042A1C4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,6 +722,7 @@
 		A0EF4E1A1CE86F4800C52142 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A029EC471CFC1D6D007FD0B7 /* Extensions */,
 				A0CA54881CE8A87E00A951E3 /* Core */,
 				A0CA543A1CE8A56700A951E3 /* Model */,
 				A0EF4E1B1CE86F6100C52142 /* FeedParser.h */,
@@ -1114,6 +1128,7 @@
 				A0370EC31CEF9F30009583A3 /* FeedType.swift in Sources */,
 				A0D8C8741CF38F8200D115B8 /* RSSFeedChannelSkipHour.swift in Sources */,
 				A0370ED71CEF9F3B009583A3 /* Mappers.swift in Sources */,
+				A029EC4C1CFC1D9D007FD0B7 /* String + Bool.swift in Sources */,
 				A0E83A751CF7325E00DC60B3 /* ContentElementPath.swift in Sources */,
 				A0D8C8541CF38F8200D115B8 /* RSSFeedChannelCloud.swift in Sources */,
 				A0D8C8601CF38F8200D115B8 /* RSSFeedChannelItemCategory.swift in Sources */,
@@ -1231,6 +1246,7 @@
 				A0D8C8721CF38F8200D115B8 /* RSSFeedChannelSkipHour.swift in Sources */,
 				A0CA54901CE8AA7900A951E3 /* Mappers.swift in Sources */,
 				A0D8C8521CF38F8200D115B8 /* RSSFeedChannelCloud.swift in Sources */,
+				A029EC4A1CFC1D9D007FD0B7 /* String + Bool.swift in Sources */,
 				A0E83A731CF7325E00DC60B3 /* ContentElementPath.swift in Sources */,
 				A0D8C85E1CF38F8200D115B8 /* RSSFeedChannelItemCategory.swift in Sources */,
 				A0D8C84A1CF38F8200D115B8 /* RSSFeedChannel.swift in Sources */,
@@ -1280,6 +1296,7 @@
 				A0D8C8731CF38F8200D115B8 /* RSSFeedChannelSkipHour.swift in Sources */,
 				A0CA54911CE8AA7900A951E3 /* Mappers.swift in Sources */,
 				A0D8C8531CF38F8200D115B8 /* RSSFeedChannelCloud.swift in Sources */,
+				A029EC4B1CFC1D9D007FD0B7 /* String + Bool.swift in Sources */,
 				A0E83A741CF7325E00DC60B3 /* ContentElementPath.swift in Sources */,
 				A0D8C85F1CF38F8200D115B8 /* RSSFeedChannelItemCategory.swift in Sources */,
 				A0D8C84B1CF38F8200D115B8 /* RSSFeedChannel.swift in Sources */,
@@ -1329,6 +1346,7 @@
 				A0D8C8711CF38F8200D115B8 /* RSSFeedChannelSkipHour.swift in Sources */,
 				A0CA548F1CE8AA7900A951E3 /* Mappers.swift in Sources */,
 				A0D8C8511CF38F8200D115B8 /* RSSFeedChannelCloud.swift in Sources */,
+				A029EC491CFC1D9D007FD0B7 /* String + Bool.swift in Sources */,
 				A0E83A721CF7325E00DC60B3 /* ContentElementPath.swift in Sources */,
 				A0D8C85D1CF38F8200D115B8 /* RSSFeedChannelItemCategory.swift in Sources */,
 				A0D8C8491CF38F8200D115B8 /* RSSFeedChannel.swift in Sources */,
