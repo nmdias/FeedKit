@@ -36,13 +36,4 @@ public enum FeedType: String {
     case RSS1 = "rdf:RDF"
     case RSS2 = "rss"
     
-    /**
-     
-     The top-level element of the feed within an XML DOM
-     
-     */
-    var path: String {
-        return self.rawValue
-    }
-    
 }

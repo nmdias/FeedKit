@@ -575,6 +575,7 @@
 		A07F3BDF1CFE136900C3AF80 /* Atom */ = {
 			isa = PBXGroup;
 			children = (
+				A07F3BF01CFE136900C3AF80 /* Mappers */,
 				A07F3BE01CFE136900C3AF80 /* AtomFeed.swift */,
 				A07F3BE11CFE136900C3AF80 /* AtomFeedAuthor.swift */,
 				A07F3BE21CFE136900C3AF80 /* AtomFeedCategory.swift */,
@@ -591,7 +592,6 @@
 				A07F3BED1CFE136900C3AF80 /* AtomFeedLink.swift */,
 				A07F3BEE1CFE136900C3AF80 /* AtomFeedSubtitle.swift */,
 				A07F3BEF1CFE136900C3AF80 /* AtomPath.swift */,
-				A07F3BF01CFE136900C3AF80 /* Mappers */,
 			);
 			path = Atom;
 			sourceTree = "<group>";
