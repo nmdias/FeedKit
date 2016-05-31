@@ -1,5 +1,5 @@
 //
-//  RSSFeed + Attributes MApper.swift
+//  RSSFeed + Attributes Mapper.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,11 +26,9 @@ import Foundation
 
 extension RSSFeed {
     
-    func map(attributes attributeDict: [String : String], forPath path: String) {
+    func map(attributes attributeDict: [String : String], forPath path: RSSPath) {
         
-        guard let element = RSSFeedElementPath(rawValue: path) else { return }
-        
-        switch element {
+        switch path {
             
         case .RSSChannel:
             

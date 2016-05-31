@@ -1,5 +1,5 @@
 //
-//  DublinCoreChannelItemElementPath.swift
+//  RSSDublinCoreChannelItemPath.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -32,7 +32,7 @@ import Foundation
  See http://web.resource.org/rss/1.0/modules/dc/
  
  */
-public enum DublinCoreChannelItemElementPath: String {
+public enum RSSDublinCoreChannelItemPath: String {
     
     /**
      

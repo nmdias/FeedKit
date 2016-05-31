@@ -112,16 +112,19 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         
         switch feedType {
             
-        case .Atom: self.atomFeed?.map(characters: string, forPath: self.currentXMLDOMPath.absoluteString)
+        case .Atom:
+            
+            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.atomFeed?.map(characters: string, forPath: path)
+            }
 
         case .RSS1, .RSS2:
             
-                 if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.map(string, toFeed: self.rssFeed!, forElement: element) }
-            else if let element = RSSFeedElementPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.map(string, toFeed: self.rssFeed!, forElement: element) }
-            else if let element = DublinCoreChannelElementPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.map(string, toFeed: self.rssFeed!, forElement: element) }
-            else if let element = DublinCoreChannelItemElementPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.map(string, toFeed: self.rssFeed!, forElement: element) }
-            else if let element = SyndicationElementPaths(rawValue: self.currentXMLDOMPath.lastPathComponent ?? "") { self.map(string, toFeed: self.rssFeed!, forElement: element) }
-            else if let element = ContentElementPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.map(string, toFeed: self.rssFeed!, forElement: element) }
+                 if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.rssFeed?.map(string, forPath: path) }
+            else if let path = RSSDublinCoreChannelPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.rssFeed?.map(string, forPath: path) }
+            else if let path = RSSDublinCoreChannelItemPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.rssFeed?.map(string, forPath: path) }
+            else if let path = RSSSyndicationPath(rawValue: self.currentXMLDOMPath.lastPathComponent ?? "") { self.rssFeed?.map(string, forPath: path) }
+            else if let path = RSSContentPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.rssFeed?.map(string, forPath: path) }
             
         }
         
@@ -154,8 +157,19 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         }
         
         switch feedType {
-        case .Atom: self.atomFeed?.map(attributes: attributeDict, forPath: self.currentXMLDOMPath.absoluteString)
-        case .RSS1, .RSS2: self.rssFeed?.map(attributes: attributeDict, forPath: self.currentXMLDOMPath.absoluteString)
+        case .Atom:
+            
+            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.atomFeed?.map(attributes: attributeDict, forPath: path)
+            }
+            
+        case .RSS1, .RSS2:
+            
+            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.rssFeed?.map(attributes: attributeDict, forPath: path)
+            }
+
+            
         }
         
     }

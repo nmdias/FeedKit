@@ -26,11 +26,9 @@ import Foundation
 
 extension AtomFeed {
     
-    func map(characters string: String, forPath path: String) {
+    func map(characters string: String, forPath path: AtomPath) {
         
-        guard let element = AtomFeedElementPath(rawValue: path) else { return }
-        
-        switch element {
+        switch path {
         case .Feed:                             break
         case .FeedTitle:                        self.title                                      = self.title?.stringByAppendingString(string) ?? string
         case .FeedSubtitle:                     self.subtitle?.value                            = self.subtitle?.value?.stringByAppendingString(string) ?? string

@@ -1,5 +1,5 @@
 //
-//  AtomFeedElementPath.swift
+//  AtomPath.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -31,7 +31,7 @@ import Foundation
  See https://tools.ietf.org/html/rfc4287
  
  */
-enum AtomFeedElementPath: String {
+enum AtomPath: String {
     
     case Feed                           = "/feed"
     case FeedTitle                      = "/feed/title"
