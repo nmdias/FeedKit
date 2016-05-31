@@ -72,13 +72,4 @@ enum AtomPath: String {
     case FeedEntryContributorEmail      = "/feed/entry/contributor/email"
     case FeedEntryContributorUri        = "/feed/entry/contributor/uri"
     
-    /**
-     
-     Describes the XML DOM path to the specified node.
-     
-     */
-    var path: String {
-        return self.rawValue
-    }
-    
 }

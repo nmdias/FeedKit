@@ -78,13 +78,4 @@ enum RSSPath: String {
     case RSSChannelItemPubDate              = "/rss/channel/item/pubDate"
     case RSSChannelItemSource               = "/rss/channel/item/source"
     
-    /** 
-     
-     Describes the XML DOM path to the specified node. 
-     
-     */
-    var path: String {
-        return self.rawValue
-    }
-    
 }
