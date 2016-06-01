@@ -137,10 +137,6 @@
 		A07F3C8A1CFE136900C3AF80 /* DublinCoreNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */; };
 		A07F3C8B1CFE136900C3AF80 /* DublinCoreNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */; };
 		A07F3C8C1CFE136900C3AF80 /* DublinCoreNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */; };
-		A07F3C911CFE136900C3AF80 /* DublinCorePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C021CFE136900C3AF80 /* DublinCorePath.swift */; };
-		A07F3C921CFE136900C3AF80 /* DublinCorePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C021CFE136900C3AF80 /* DublinCorePath.swift */; };
-		A07F3C931CFE136900C3AF80 /* DublinCorePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C021CFE136900C3AF80 /* DublinCorePath.swift */; };
-		A07F3C941CFE136900C3AF80 /* DublinCorePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C021CFE136900C3AF80 /* DublinCorePath.swift */; };
 		A07F3C951CFE136900C3AF80 /* SyndicationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C041CFE136900C3AF80 /* SyndicationPath.swift */; };
 		A07F3C961CFE136900C3AF80 /* SyndicationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C041CFE136900C3AF80 /* SyndicationPath.swift */; };
 		A07F3C971CFE136900C3AF80 /* SyndicationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C041CFE136900C3AF80 /* SyndicationPath.swift */; };
@@ -377,7 +373,6 @@
 		A07F3BFD1CFE136900C3AF80 /* ContentNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentNamespace.swift; sourceTree = "<group>"; };
 		A07F3BFE1CFE136900C3AF80 /* ContentPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentPath.swift; sourceTree = "<group>"; };
 		A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCoreNamespace.swift; sourceTree = "<group>"; };
-		A07F3C021CFE136900C3AF80 /* DublinCorePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCorePath.swift; sourceTree = "<group>"; };
 		A07F3C041CFE136900C3AF80 /* SyndicationPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationPath.swift; sourceTree = "<group>"; };
 		A07F3C051CFE136900C3AF80 /* SyndicationNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationNamespace.swift; sourceTree = "<group>"; };
 		A07F3C061CFE136900C3AF80 /* SyndicationUpdatePeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationUpdatePeriod.swift; sourceTree = "<group>"; };
@@ -651,7 +646,6 @@
 		A07F3BFF1CFE136900C3AF80 /* Dublin Core */ = {
 			isa = PBXGroup;
 			children = (
-				A07F3C021CFE136900C3AF80 /* DublinCorePath.swift */,
 				A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */,
 			);
 			path = "Dublin Core";
@@ -1209,7 +1203,6 @@
 				A07F3CB41CFE136900C3AF80 /* RSSFeedChannelImage.swift in Sources */,
 				A07F3CD81CFE136900C3AF80 /* RSSPath.swift in Sources */,
 				A07F3C541CFE136900C3AF80 /* AtomFeedGenerator.swift in Sources */,
-				A07F3C941CFE136900C3AF80 /* DublinCorePath.swift in Sources */,
 				A07F3C401CFE136900C3AF80 /* AtomFeedEntryContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1331,7 +1324,6 @@
 				A07F3CB21CFE136900C3AF80 /* RSSFeedChannelImage.swift in Sources */,
 				A07F3CD61CFE136900C3AF80 /* RSSPath.swift in Sources */,
 				A07F3C521CFE136900C3AF80 /* AtomFeedGenerator.swift in Sources */,
-				A07F3C921CFE136900C3AF80 /* DublinCorePath.swift in Sources */,
 				A07F3C3E1CFE136900C3AF80 /* AtomFeedEntryContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1385,7 +1377,6 @@
 				A07F3CB31CFE136900C3AF80 /* RSSFeedChannelImage.swift in Sources */,
 				A07F3CD71CFE136900C3AF80 /* RSSPath.swift in Sources */,
 				A07F3C531CFE136900C3AF80 /* AtomFeedGenerator.swift in Sources */,
-				A07F3C931CFE136900C3AF80 /* DublinCorePath.swift in Sources */,
 				A07F3C3F1CFE136900C3AF80 /* AtomFeedEntryContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1439,7 +1430,6 @@
 				A07F3CB11CFE136900C3AF80 /* RSSFeedChannelImage.swift in Sources */,
 				A07F3CD51CFE136900C3AF80 /* RSSPath.swift in Sources */,
 				A07F3C511CFE136900C3AF80 /* AtomFeedGenerator.swift in Sources */,
-				A07F3C911CFE136900C3AF80 /* DublinCorePath.swift in Sources */,
 				A07F3C3D1CFE136900C3AF80 /* AtomFeedEntryContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
