@@ -26,7 +26,7 @@ import Foundation
 
 extension RSSFeed {
     
-    func map(string: String, forPath path: RSSContentPath) {
+    func map(string: String, forPath path: ContentPath) {
         
         switch path {
             

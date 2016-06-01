@@ -1,5 +1,5 @@
 //
-//  RSSSyndicationPath.swift
+//  ContentPath.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,19 +26,21 @@ import Foundation
 
 /**
  
- Describes the individual path for each XML DOM element of the `Syndication`
+ Describes the individual path for each XML DOM element of the `Content` 
  namespace
  
- See http://web.resource.org/rss/1.0/modules/syndication/
+ See http://web.resource.org/rss/1.0/modules/content/
  
  */
-enum RSSSyndicationPath: String {
+public enum ContentPath: String {
     
-    case UpdatePeriod         = "sy:updatePeriod"
-    case UpdateFrequency      = "sy:updateFrequency"
-    case UpdateBase           = "sy:updateBase"
+    /**
+     
+     The `Content` namespace declaration
+     
+     */
+    public static let namespace = [ "xmlns:content" : "http://purl.org/rss/1.0/modules/content/" ]
+    
+    case RSSChannelItemContent = "/rss/channel/item/content:encoded"
     
 }
-
-
-

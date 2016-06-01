@@ -26,7 +26,7 @@ import Foundation
 
 extension RSSFeed {
     
-    func map(string: String, forPath path: RSSDublinCoreChannelPath) {
+    func map(string: String, forPath path: DublinCorePath) {
         
         /// If the dublin core variable has not been initialized yet, do it before assiging any values
         if self.channel?.dublinCore == nil {

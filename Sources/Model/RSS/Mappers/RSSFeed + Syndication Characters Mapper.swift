@@ -26,7 +26,7 @@ import Foundation
 
 extension RSSFeed {
     
-    func map(string: String, forPath path: RSSSyndicationPath) {
+    func map(string: String, forPath path: SyndicationPath) {
         
         /// If the syndication variable has not been initialized yet, do it before assiging any values
         if  self.channel?.syndication == nil {
