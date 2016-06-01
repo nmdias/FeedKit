@@ -108,6 +108,50 @@ extension RSSFeed {
                 self.channel?.items?.last?.source = RSSFeedChannelItemSource(attributes: attributeDict)
             }
             
+        case
+        .RSSChannelDublinCoreTitle,
+        .RSSChannelDublinCoreCreator,
+        .RSSChannelDublinCoreSubject,
+        .RSSChannelDublinCoreDescription,
+        .RSSChannelDublinCorePublisher,
+        .RSSChannelDublinCoreContributor,
+        .RSSChannelDublinCoreDate,
+        .RSSChannelDublinCoreType,
+        .RSSChannelDublinCoreFormat,
+        .RSSChannelDublinCoreIdentifier,
+        .RSSChannelDublinCoreSource,
+        .RSSChannelDublinCoreLanguage,
+        .RSSChannelDublinCoreRelation,
+        .RSSChannelDublinCoreCoverage,
+        .RSSChannelDublinCoreRights:
+            
+            if self.channel?.dublinCore == nil {
+                self.channel?.dublinCore = DublinCoreNamespace()
+            }
+            
+        case
+        
+        .RSSChannelItemDublinCoreTitle,
+        .RSSChannelItemDublinCoreCreator,
+        .RSSChannelItemDublinCoreSubject,
+        .RSSChannelItemDublinCoreDescription,
+        .RSSChannelItemDublinCorePublisher,
+        .RSSChannelItemDublinCoreContributor,
+        .RSSChannelItemDublinCoreDate,
+        .RSSChannelItemDublinCoreType,
+        .RSSChannelItemDublinCoreFormat,
+        .RSSChannelItemDublinCoreIdentifier,
+        .RSSChannelItemDublinCoreSource,
+        .RSSChannelItemDublinCoreLanguage,
+        .RSSChannelItemDublinCoreRelation,
+        .RSSChannelItemDublinCoreCoverage,
+        .RSSChannelItemDublinCoreRights:
+            
+            /// If the dublin core variable has not been initialized yet, do it before assiging any values
+            if  self.channel?.items?.last?.dublinCore == nil {
+                self.channel?.items?.last?.dublinCore = DublinCoreNamespace()
+            }
+            
         default: break
             
             

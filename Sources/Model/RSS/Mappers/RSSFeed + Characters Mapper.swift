@@ -124,9 +124,44 @@ extension RSSFeed {
         case .RSSChannelItemPubDate:            self.channel?.items?.last?.pubDate                    = self.channel?.items?.last?.pubDate?.stringByAppendingString(string) ?? string
         case .RSSChannelItemSource:             self.channel?.items?.last?.source?.value              = self.channel?.items?.last?.source?.value?.stringByAppendingString(string) ?? string
             
+            // Dublin Core
+            
+        case .RSSChannelDublinCoreTitle:                  self.channel?.dublinCore?.dcTitle                          = self.channel?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreCreator:                self.channel?.dublinCore?.dcCreator                        = self.channel?.dublinCore?.dcCreator?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreSubject:                self.channel?.dublinCore?.dcSubject                        = self.channel?.dublinCore?.dcSubject?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreDescription:            self.channel?.dublinCore?.dcDescription                    = self.channel?.dublinCore?.dcDescription?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCorePublisher:              self.channel?.dublinCore?.dcPublisher                      = self.channel?.dublinCore?.dcPublisher?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreContributor:            self.channel?.dublinCore?.dcContributor                    = self.channel?.dublinCore?.dcContributor?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreDate:                   self.channel?.dublinCore?.dcDate                           = self.channel?.dublinCore?.dcDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreType:                   self.channel?.dublinCore?.dcType                           = self.channel?.dublinCore?.dcType?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreFormat:                 self.channel?.dublinCore?.dcFormat                         = self.channel?.dublinCore?.dcFormat?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreIdentifier:             self.channel?.dublinCore?.dcIdentifier                     = self.channel?.dublinCore?.dcIdentifier?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreSource:                 self.channel?.dublinCore?.dcSource                         = self.channel?.dublinCore?.dcSource?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreLanguage:               self.channel?.dublinCore?.dcLanguage                       = self.channel?.dublinCore?.dcLanguage?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreRelation:               self.channel?.dublinCore?.dcRelation                       = self.channel?.dublinCore?.dcRelation?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreCoverage:               self.channel?.dublinCore?.dcCoverage                       = self.channel?.dublinCore?.dcCoverage?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreRights:                 self.channel?.dublinCore?.dcRights                         = self.channel?.dublinCore?.dcRights?.stringByAppendingString(string) ?? string
+            
+        case .RSSChannelItemDublinCoreTitle:              self.channel?.items?.last?.dublinCore?.dcTitle             = self.channel?.items?.last?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreCreator:            self.channel?.items?.last?.dublinCore?.dcCreator           = self.channel?.items?.last?.dublinCore?.dcCreator?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreSubject:            self.channel?.items?.last?.dublinCore?.dcSubject           = self.channel?.items?.last?.dublinCore?.dcSubject?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreDescription:        self.channel?.items?.last?.dublinCore?.dcDescription       = self.channel?.items?.last?.dublinCore?.dcDescription?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCorePublisher:          self.channel?.items?.last?.dublinCore?.dcPublisher         = self.channel?.items?.last?.dublinCore?.dcPublisher?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreContributor:        self.channel?.items?.last?.dublinCore?.dcContributor       = self.channel?.items?.last?.dublinCore?.dcContributor?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreDate:               self.channel?.items?.last?.dublinCore?.dcDate              = self.channel?.items?.last?.dublinCore?.dcDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreType:               self.channel?.items?.last?.dublinCore?.dcType              = self.channel?.items?.last?.dublinCore?.dcType?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreFormat:             self.channel?.items?.last?.dublinCore?.dcFormat            = self.channel?.items?.last?.dublinCore?.dcFormat?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreIdentifier:         self.channel?.items?.last?.dublinCore?.dcIdentifier        = self.channel?.items?.last?.dublinCore?.dcIdentifier?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreSource:             self.channel?.items?.last?.dublinCore?.dcSource            = self.channel?.items?.last?.dublinCore?.dcSource?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreLanguage:           self.channel?.items?.last?.dublinCore?.dcLanguage          = self.channel?.items?.last?.dublinCore?.dcLanguage?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreRelation:           self.channel?.items?.last?.dublinCore?.dcRelation          = self.channel?.items?.last?.dublinCore?.dcRelation?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreCoverage:           self.channel?.items?.last?.dublinCore?.dcCoverage          = self.channel?.items?.last?.dublinCore?.dcCoverage?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreRights:             self.channel?.items?.last?.dublinCore?.dcRights            = self.channel?.items?.last?.dublinCore?.dcRights?.stringByAppendingString(string) ?? string
+            
+            
         }
         
-        
     }
+    
     
 }
