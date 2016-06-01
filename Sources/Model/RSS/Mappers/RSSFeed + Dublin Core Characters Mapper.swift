@@ -50,38 +50,51 @@ extension RSSFeed {
         case .RSSChannelRelation:               self.channel?.dublinCore?.dcRelation                       = self.channel?.dublinCore?.dcRelation?.stringByAppendingString(string) ?? string
         case .RSSChannelCoverage:               self.channel?.dublinCore?.dcCoverage                       = self.channel?.dublinCore?.dcCoverage?.stringByAppendingString(string) ?? string
         case .RSSChannelRights:                 self.channel?.dublinCore?.dcRights                         = self.channel?.dublinCore?.dcRights?.stringByAppendingString(string) ?? string
+
+        case
+        
+        .RSSChannelItemTitle,
+        .RSSChannelItemCreator,
+        .RSSChannelItemSubject,
+        .RSSChannelItemDescription,
+        .RSSChannelItemPublisher,
+        .RSSChannelItemContributor,
+        .RSSChannelItemDate,
+        .RSSChannelItemType,
+        .RSSChannelItemFormat,
+        .RSSChannelItemIdentifier,
+        .RSSChannelItemSource,
+        .RSSChannelItemLanguage,
+        .RSSChannelItemRelation,
+        .RSSChannelItemCoverage,
+        .RSSChannelItemRights:
+            
+            /// If the dublin core variable has not been initialized yet, do it before assiging any values
+            if  self.channel?.items?.last?.dublinCore == nil {
+                self.channel?.items?.last?.dublinCore = DublinCoreNamespace()
+            }
+            
+            switch path {
+            case .RSSChannelItemTitle:              self.channel?.items?.last?.dublinCore?.dcTitle             = self.channel?.items?.last?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemCreator:            self.channel?.items?.last?.dublinCore?.dcCreator           = self.channel?.items?.last?.dublinCore?.dcCreator?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemSubject:            self.channel?.items?.last?.dublinCore?.dcSubject           = self.channel?.items?.last?.dublinCore?.dcSubject?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemDescription:        self.channel?.items?.last?.dublinCore?.dcDescription       = self.channel?.items?.last?.dublinCore?.dcDescription?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemPublisher:          self.channel?.items?.last?.dublinCore?.dcPublisher         = self.channel?.items?.last?.dublinCore?.dcPublisher?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemContributor:        self.channel?.items?.last?.dublinCore?.dcContributor       = self.channel?.items?.last?.dublinCore?.dcContributor?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemDate:               self.channel?.items?.last?.dublinCore?.dcDate              = self.channel?.items?.last?.dublinCore?.dcDate?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemType:               self.channel?.items?.last?.dublinCore?.dcType              = self.channel?.items?.last?.dublinCore?.dcType?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemFormat:             self.channel?.items?.last?.dublinCore?.dcFormat            = self.channel?.items?.last?.dublinCore?.dcFormat?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemIdentifier:         self.channel?.items?.last?.dublinCore?.dcIdentifier        = self.channel?.items?.last?.dublinCore?.dcIdentifier?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemSource:             self.channel?.items?.last?.dublinCore?.dcSource            = self.channel?.items?.last?.dublinCore?.dcSource?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemLanguage:           self.channel?.items?.last?.dublinCore?.dcLanguage          = self.channel?.items?.last?.dublinCore?.dcLanguage?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemRelation:           self.channel?.items?.last?.dublinCore?.dcRelation          = self.channel?.items?.last?.dublinCore?.dcRelation?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemCoverage:           self.channel?.items?.last?.dublinCore?.dcCoverage          = self.channel?.items?.last?.dublinCore?.dcCoverage?.stringByAppendingString(string) ?? string
+            case .RSSChannelItemRights:             self.channel?.items?.last?.dublinCore?.dcRights            = self.channel?.items?.last?.dublinCore?.dcRights?.stringByAppendingString(string) ?? string
+            default: break
+            }
             
         }
-        
-    }
-    
-    func map(string: String, forPath path: RSSDublinCoreChannelItemPath) {
-        
-        /// If the dublin core variable has not been initialized yet, do it before assiging any values
-        if  self.channel?.items?.last?.dublinCore == nil {
-            self.channel?.items?.last?.dublinCore = DublinCoreNamespace()
-        }
-        
-        switch path {
-            
-        case .RSSChannelItemTitle:              self.channel?.items?.last?.dublinCore?.dcTitle             = self.channel?.items?.last?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemCreator:            self.channel?.items?.last?.dublinCore?.dcCreator           = self.channel?.items?.last?.dublinCore?.dcCreator?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemSubject:            self.channel?.items?.last?.dublinCore?.dcSubject           = self.channel?.items?.last?.dublinCore?.dcSubject?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemDescription:        self.channel?.items?.last?.dublinCore?.dcDescription       = self.channel?.items?.last?.dublinCore?.dcDescription?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemPublisher:          self.channel?.items?.last?.dublinCore?.dcPublisher         = self.channel?.items?.last?.dublinCore?.dcPublisher?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemContributor:        self.channel?.items?.last?.dublinCore?.dcContributor       = self.channel?.items?.last?.dublinCore?.dcContributor?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemDate:               self.channel?.items?.last?.dublinCore?.dcDate              = self.channel?.items?.last?.dublinCore?.dcDate?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemType:               self.channel?.items?.last?.dublinCore?.dcType              = self.channel?.items?.last?.dublinCore?.dcType?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemFormat:             self.channel?.items?.last?.dublinCore?.dcFormat            = self.channel?.items?.last?.dublinCore?.dcFormat?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemIdentifier:         self.channel?.items?.last?.dublinCore?.dcIdentifier        = self.channel?.items?.last?.dublinCore?.dcIdentifier?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemSource:             self.channel?.items?.last?.dublinCore?.dcSource            = self.channel?.items?.last?.dublinCore?.dcSource?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemLanguage:           self.channel?.items?.last?.dublinCore?.dcLanguage          = self.channel?.items?.last?.dublinCore?.dcLanguage?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemRelation:           self.channel?.items?.last?.dublinCore?.dcRelation          = self.channel?.items?.last?.dublinCore?.dcRelation?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemCoverage:           self.channel?.items?.last?.dublinCore?.dcCoverage          = self.channel?.items?.last?.dublinCore?.dcCoverage?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemRights:             self.channel?.items?.last?.dublinCore?.dcRights            = self.channel?.items?.last?.dublinCore?.dcRights?.stringByAppendingString(string) ?? string
-            
-        }
-        
+     
     }
     
 }
