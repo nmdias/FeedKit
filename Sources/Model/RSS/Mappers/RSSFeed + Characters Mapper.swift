@@ -124,6 +124,11 @@ extension RSSFeed {
         case .RSSChannelItemPubDate:            self.channel?.items?.last?.pubDate                    = self.channel?.items?.last?.pubDate?.stringByAppendingString(string) ?? string
         case .RSSChannelItemSource:             self.channel?.items?.last?.source?.value              = self.channel?.items?.last?.source?.value?.stringByAppendingString(string) ?? string
             
+            // Content
+            
+        case .RSSChannelItemContentEncoded: self.channel?.items?.last?.content?.contentEncoded = self.channel?.items?.last?.content?.contentEncoded?.stringByAppendingString(string) ?? string
+
+            
             // Dublin Core
             
         case .RSSChannelDublinCoreTitle:                  self.channel?.dublinCore?.dcTitle                          = self.channel?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string

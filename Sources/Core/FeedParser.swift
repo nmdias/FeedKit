@@ -122,7 +122,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             
                  if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.rssFeed?.map(string, forPath: path) }
             else if let path = SyndicationPath(rawValue: self.currentXMLDOMPath.lastPathComponent ?? "") { self.rssFeed?.map(string, forPath: path) }
-            else if let path = ContentPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.rssFeed?.map(string, forPath: path) }
             
         }
         

@@ -117,10 +117,6 @@
 		A07F3C721CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BF71CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift */; };
 		A07F3C731CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BF71CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift */; };
 		A07F3C741CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BF71CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift */; };
-		A07F3C751CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BF81CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift */; };
-		A07F3C761CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BF81CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift */; };
-		A07F3C771CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BF81CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift */; };
-		A07F3C781CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BF81CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift */; };
 		A07F3C7D1CFE136900C3AF80 /* RSSFeed + Syndication Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFA1CFE136900C3AF80 /* RSSFeed + Syndication Characters Mapper.swift */; };
 		A07F3C7E1CFE136900C3AF80 /* RSSFeed + Syndication Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFA1CFE136900C3AF80 /* RSSFeed + Syndication Characters Mapper.swift */; };
 		A07F3C7F1CFE136900C3AF80 /* RSSFeed + Syndication Characters Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFA1CFE136900C3AF80 /* RSSFeed + Syndication Characters Mapper.swift */; };
@@ -129,10 +125,6 @@
 		A07F3C821CFE136900C3AF80 /* ContentNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFD1CFE136900C3AF80 /* ContentNamespace.swift */; };
 		A07F3C831CFE136900C3AF80 /* ContentNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFD1CFE136900C3AF80 /* ContentNamespace.swift */; };
 		A07F3C841CFE136900C3AF80 /* ContentNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFD1CFE136900C3AF80 /* ContentNamespace.swift */; };
-		A07F3C851CFE136900C3AF80 /* ContentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFE1CFE136900C3AF80 /* ContentPath.swift */; };
-		A07F3C861CFE136900C3AF80 /* ContentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFE1CFE136900C3AF80 /* ContentPath.swift */; };
-		A07F3C871CFE136900C3AF80 /* ContentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFE1CFE136900C3AF80 /* ContentPath.swift */; };
-		A07F3C881CFE136900C3AF80 /* ContentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BFE1CFE136900C3AF80 /* ContentPath.swift */; };
 		A07F3C891CFE136900C3AF80 /* DublinCoreNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */; };
 		A07F3C8A1CFE136900C3AF80 /* DublinCoreNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */; };
 		A07F3C8B1CFE136900C3AF80 /* DublinCoreNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */; };
@@ -368,10 +360,8 @@
 		A07F3BF31CFE136900C3AF80 /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		A07F3BF61CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSSFeed + Attributes Mapper.swift"; sourceTree = "<group>"; };
 		A07F3BF71CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSSFeed + Characters Mapper.swift"; sourceTree = "<group>"; };
-		A07F3BF81CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSSFeed + Content Characters Mapper.swift"; sourceTree = "<group>"; };
 		A07F3BFA1CFE136900C3AF80 /* RSSFeed + Syndication Characters Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSSFeed + Syndication Characters Mapper.swift"; sourceTree = "<group>"; };
 		A07F3BFD1CFE136900C3AF80 /* ContentNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentNamespace.swift; sourceTree = "<group>"; };
-		A07F3BFE1CFE136900C3AF80 /* ContentPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentPath.swift; sourceTree = "<group>"; };
 		A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCoreNamespace.swift; sourceTree = "<group>"; };
 		A07F3C041CFE136900C3AF80 /* SyndicationPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationPath.swift; sourceTree = "<group>"; };
 		A07F3C051CFE136900C3AF80 /* SyndicationNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationNamespace.swift; sourceTree = "<group>"; };
@@ -618,7 +608,6 @@
 			children = (
 				A07F3BF61CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift */,
 				A07F3BF71CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift */,
-				A07F3BF81CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift */,
 				A07F3BFA1CFE136900C3AF80 /* RSSFeed + Syndication Characters Mapper.swift */,
 			);
 			path = Mappers;
@@ -637,7 +626,6 @@
 		A07F3BFC1CFE136900C3AF80 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				A07F3BFE1CFE136900C3AF80 /* ContentPath.swift */,
 				A07F3BFD1CFE136900C3AF80 /* ContentNamespace.swift */,
 			);
 			path = Content;
@@ -1165,7 +1153,6 @@
 				A07F3C301CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C441CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
 				A07F3C501CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
-				A07F3C881CFE136900C3AF80 /* ContentPath.swift in Sources */,
 				A07F3C3C1CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C6C1CFE136900C3AF80 /* FeedType.swift in Sources */,
 				A07F3C741CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
@@ -1198,7 +1185,6 @@
 				A07F3C281CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A07F3C641CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A07F3C981CFE136900C3AF80 /* SyndicationPath.swift in Sources */,
-				A07F3C781CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift in Sources */,
 				A07F3C841CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB41CFE136900C3AF80 /* RSSFeedChannelImage.swift in Sources */,
 				A07F3CD81CFE136900C3AF80 /* RSSPath.swift in Sources */,
@@ -1286,7 +1272,6 @@
 				A07F3C2E1CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C421CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
 				A07F3C4E1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
-				A07F3C861CFE136900C3AF80 /* ContentPath.swift in Sources */,
 				A07F3C3A1CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C6A1CFE136900C3AF80 /* FeedType.swift in Sources */,
 				A07F3C721CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
@@ -1319,7 +1304,6 @@
 				A07F3C261CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A07F3C621CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A07F3C961CFE136900C3AF80 /* SyndicationPath.swift in Sources */,
-				A07F3C761CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift in Sources */,
 				A07F3C821CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB21CFE136900C3AF80 /* RSSFeedChannelImage.swift in Sources */,
 				A07F3CD61CFE136900C3AF80 /* RSSPath.swift in Sources */,
@@ -1339,7 +1323,6 @@
 				A07F3C2F1CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C431CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
 				A07F3C4F1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
-				A07F3C871CFE136900C3AF80 /* ContentPath.swift in Sources */,
 				A07F3C3B1CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C6B1CFE136900C3AF80 /* FeedType.swift in Sources */,
 				A07F3C731CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
@@ -1372,7 +1355,6 @@
 				A07F3C271CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A07F3C631CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A07F3C971CFE136900C3AF80 /* SyndicationPath.swift in Sources */,
-				A07F3C771CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift in Sources */,
 				A07F3C831CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB31CFE136900C3AF80 /* RSSFeedChannelImage.swift in Sources */,
 				A07F3CD71CFE136900C3AF80 /* RSSPath.swift in Sources */,
@@ -1392,7 +1374,6 @@
 				A07F3C2D1CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C411CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
 				A07F3C4D1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
-				A07F3C851CFE136900C3AF80 /* ContentPath.swift in Sources */,
 				A07F3C391CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C691CFE136900C3AF80 /* FeedType.swift in Sources */,
 				A07F3C711CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
@@ -1425,7 +1406,6 @@
 				A07F3C251CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A07F3C611CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A07F3C951CFE136900C3AF80 /* SyndicationPath.swift in Sources */,
-				A07F3C751CFE136900C3AF80 /* RSSFeed + Content Characters Mapper.swift in Sources */,
 				A07F3C811CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB11CFE136900C3AF80 /* RSSFeedChannelImage.swift in Sources */,
 				A07F3CD51CFE136900C3AF80 /* RSSPath.swift in Sources */,

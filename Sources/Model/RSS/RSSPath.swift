@@ -78,6 +78,10 @@ enum RSSPath: String {
     case RSSChannelItemPubDate              = "/rss/channel/item/pubDate"
     case RSSChannelItemSource               = "/rss/channel/item/source"
     
+    // Content
+    
+    case RSSChannelItemContentEncoded = "/rss/channel/item/content:encoded"
+    
     // Dublin Core
     
     case RSSChannelDublinCoreTitle                = "/rss/channel/dc:title"
