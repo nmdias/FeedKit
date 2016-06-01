@@ -605,6 +605,7 @@
 			children = (
 				A07F3BF51CFE136900C3AF80 /* Mappers */,
 				A07F3BFB1CFE136900C3AF80 /* Modules */,
+				A07F3C141CFE136900C3AF80 /* RSSPath.swift */,
 				A07F3C071CFE136900C3AF80 /* RSSFeed.swift */,
 				A07F3C081CFE136900C3AF80 /* RSSFeedChannel.swift */,
 				A07F3C091CFE136900C3AF80 /* RSSFeedChannelCategory.swift */,
@@ -618,7 +619,6 @@
 				A07F3C111CFE136900C3AF80 /* RSSFeedChannelSkipDay.swift */,
 				A07F3C121CFE136900C3AF80 /* RSSFeedChannelSkipHour.swift */,
 				A07F3C131CFE136900C3AF80 /* RSSFeedChannelTextInput.swift */,
-				A07F3C141CFE136900C3AF80 /* RSSPath.swift */,
 			);
 			path = RSS;
 			sourceTree = "<group>";
@@ -648,8 +648,8 @@
 		A07F3BFC1CFE136900C3AF80 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				A07F3BFD1CFE136900C3AF80 /* ContentNamespace.swift */,
 				A07F3BFE1CFE136900C3AF80 /* ContentPath.swift */,
+				A07F3BFD1CFE136900C3AF80 /* ContentNamespace.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -657,8 +657,8 @@
 		A07F3BFF1CFE136900C3AF80 /* Dublin Core */ = {
 			isa = PBXGroup;
 			children = (
-				A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */,
 				A07F3C021CFE136900C3AF80 /* DublinCorePath.swift */,
+				A07F3C001CFE136900C3AF80 /* DublinCoreNamespace.swift */,
 			);
 			path = "Dublin Core";
 			sourceTree = "<group>";

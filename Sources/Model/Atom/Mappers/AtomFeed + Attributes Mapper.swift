@@ -29,9 +29,7 @@ extension AtomFeed {
     func map(attributes attributeDict: [String : String], forPath path: AtomPath) {
         
         switch path {
-            
-        case .Feed: break
-        case .FeedTitle: break
+
         case .FeedSubtitle:
             
             if  self.subtitle == nil {
@@ -45,9 +43,7 @@ extension AtomFeed {
             }
             
             self.links?.append(AtomFeedLink(attributes: attributeDict))
-            
-        case .FeedUpdated: break
-            
+                        
         case .FeedCategory:
             
             if  self.categories == nil {
@@ -63,11 +59,7 @@ extension AtomFeed {
             }
             
             self.authors?.append(AtomFeedAuthor())
-            
-        case .FeedAuthorName: break
-        case .FeedAuthorEmail: break
-        case .FeedAuthorUri: break
-            
+
         case .FeedContributor:
             
             if  self.contributors == nil {
@@ -76,19 +68,12 @@ extension AtomFeed {
             
             self.contributors?.append(AtomFeedContributor())
             
-        case .FeedContributorName: break
-        case .FeedContributorEmail: break
-        case .FeedContributorUri: break
-        case .FeedID: break
         case .FeedGenerator:
             
             if  self.generator == nil {
                 self.generator = AtomFeedGenerator(attributes: attributeDict)
             }
-            
-        case .FeedIcon: break
-        case .FeedLogo: break
-        case .FeedRights: break
+
         case .FeedEntry:
             
             if  self.entries == nil {
@@ -97,7 +82,6 @@ extension AtomFeed {
             
             self.entries?.append(AtomFeedEntry())
             
-        case .FeedEntryTitle: break
         case .FeedEntrySummary:
             
             if  self.entries?.last?.summary == nil {
@@ -112,8 +96,6 @@ extension AtomFeed {
             
             self.entries?.last?.links?.append(AtomFeedEntryLink(attributes: attributeDict))
             
-        case .FeedEntryUpdated: break
-            
         case .FeedEntryCategory:
             
             if  self.entries?.last?.categories == nil {
@@ -122,17 +104,11 @@ extension AtomFeed {
             
             self.entries?.last?.categories?.append(AtomFeedEntryCategory(attributes: attributeDict))
             
-            
-        case .FeedEntryID: break
         case .FeedEntryContent:
             
             if  self.entries?.last?.content == nil {
                 self.entries?.last?.content = AtomFeedEntryContent(attributes: attributeDict)
             }
-            
-        case .FeedEntryPublished: break
-        case .FeedEntrySource: break
-        case .FeedEntryRights: break
             
         case .FeedEntryAuthor:
             
@@ -142,10 +118,6 @@ extension AtomFeed {
             
             self.entries?.last?.authors?.append(AtomFeedEntryAuthor())
             
-        case .FeedEntryAuthorName: break
-        case .FeedEntryAuthorEmail: break
-        case .FeedEntryAuthorUri: break
-            
         case .FeedEntryContributor:
             
             if  self.entries?.last?.contributors == nil {
@@ -154,9 +126,7 @@ extension AtomFeed {
             
             self.entries?.last?.contributors?.append(AtomFeedEntryContributor())
             
-        case .FeedEntryContributorName: break
-        case .FeedEntryContributorEmail: break
-        case .FeedEntryContributorUri: break
+        default: break
             
         }
         
