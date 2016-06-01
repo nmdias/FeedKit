@@ -120,7 +120,9 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
 
         case .RSS1, .RSS2:
             
-                 if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) { self.rssFeed?.map(string, forPath: path) }
+            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.rssFeed?.map(string, forPath: path)
+            }
             
         }
         
@@ -153,6 +155,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         }
         
         switch feedType {
+            
         case .Atom:
             
             if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
@@ -165,7 +168,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
                 self.rssFeed?.map(attributes: attributeDict, forPath: path)
             }
 
-            
         }
         
     }
