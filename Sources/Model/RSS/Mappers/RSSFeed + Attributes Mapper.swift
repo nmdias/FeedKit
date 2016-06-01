@@ -109,6 +109,16 @@ extension RSSFeed {
             }
             
         case
+        .RSSChannelSyndicationUpdateBase,
+        .RSSChannelSyndicationUpdatePeriod,
+        .RSSChannelSyndicationUpdateFrequency:
+            
+            /// If the syndication variable has not been initialized yet, do it before assiging any values
+            if  self.channel?.syndication == nil {
+                self.channel?.syndication = SyndicationNamespace()
+            }
+            
+        case
         .RSSChannelDublinCoreTitle,
         .RSSChannelDublinCoreCreator,
         .RSSChannelDublinCoreSubject,

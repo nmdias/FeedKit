@@ -80,7 +80,13 @@ enum RSSPath: String {
     
     // Content
     
-    case RSSChannelItemContentEncoded = "/rss/channel/item/content:encoded"
+    case RSSChannelItemContentEncoded               = "/rss/channel/item/content:encoded"
+    
+    // Syndication
+    
+    case RSSChannelSyndicationUpdatePeriod         = "/rss/channel/sy:updatePeriod"
+    case RSSChannelSyndicationUpdateFrequency      = "/rss/channel/sy:updateFrequency"
+    case RSSChannelSyndicationUpdateBase           = "/rss/channel/sy:updateBase"
     
     // Dublin Core
     

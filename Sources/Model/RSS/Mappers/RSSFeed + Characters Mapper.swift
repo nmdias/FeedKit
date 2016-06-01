@@ -128,6 +128,11 @@ extension RSSFeed {
             
         case .RSSChannelItemContentEncoded: self.channel?.items?.last?.content?.contentEncoded = self.channel?.items?.last?.content?.contentEncoded?.stringByAppendingString(string) ?? string
 
+            // Syndication
+            
+        case .RSSChannelSyndicationUpdatePeriod:     self.channel?.syndication?.syUpdatePeriod = SyndicationUpdatePeriod(rawValue: string)
+        case .RSSChannelSyndicationUpdateFrequency:  self.channel?.syndication?.syUpdateFrequency = Int(string)
+        case .RSSChannelSyndicationUpdateBase:       self.channel?.syndication?.syUpdateBase = self.channel?.syndication?.syUpdateBase?.stringByAppendingString(string) ?? string
             
             // Dublin Core
             
@@ -162,9 +167,10 @@ extension RSSFeed {
         case .RSSChannelItemDublinCoreRelation:           self.channel?.items?.last?.dublinCore?.dcRelation          = self.channel?.items?.last?.dublinCore?.dcRelation?.stringByAppendingString(string) ?? string
         case .RSSChannelItemDublinCoreCoverage:           self.channel?.items?.last?.dublinCore?.dcCoverage          = self.channel?.items?.last?.dublinCore?.dcCoverage?.stringByAppendingString(string) ?? string
         case .RSSChannelItemDublinCoreRights:             self.channel?.items?.last?.dublinCore?.dcRights            = self.channel?.items?.last?.dublinCore?.dcRights?.stringByAppendingString(string) ?? string
-            
+           
             
         }
+        
         
     }
     
