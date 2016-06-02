@@ -67,7 +67,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      The XML parser. 
      
      */
-    private var xmlParser: NSXMLParser?
+    private var xmlParser: NSXMLParser
     
     private var result: (Result -> Void)?
     
@@ -82,11 +82,10 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      - returns: An instance of the feed parser.
      
      */
-    public init(URL: NSURL) {
-        
+    public init?(URL: NSURL) {
+
         guard let parser = NSXMLParser(contentsOfURL: URL) else {
-            assertionFailure("Unable to initialize the parser with the provided URL: \(URL)")
-            return
+            return nil
         }
 
         self.xmlParser = parser
@@ -127,8 +126,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      */
     public func parse(result: Result -> Void) {
         self.result = result
-        self.xmlParser?.delegate = self
-        self.xmlParser?.parse()
+        self.xmlParser.delegate = self
+        self.xmlParser.parse()
     }
     
     

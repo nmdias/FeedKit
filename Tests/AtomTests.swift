@@ -31,7 +31,7 @@ class AtomTests: BaseTestCase {
         
         // Given
         let URL = fileURL("Atom", type: "xml")
-        let parser = FeedParser(URL: URL)
+        let parser = FeedParser(URL: URL)!
         
         // When
         parser.parse { (result) in
@@ -177,7 +177,7 @@ class AtomTests: BaseTestCase {
             // Given
             let expectation = self.expectationWithDescription("Atom Parsing Performance")
             let URL = self.fileURL("Atom", type: "xml")
-            let parser = FeedParser(URL: URL)
+            let parser = FeedParser(URL: URL)!
             
             // When
             parser.parse({ (result) in

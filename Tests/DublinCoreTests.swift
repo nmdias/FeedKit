@@ -31,7 +31,7 @@ class DublinCoreTests: BaseTestCase {
         
         // Given
         let URL = fileURL("DC", type: "xml")
-        let parser = FeedParser(URL: URL)
+        let parser = FeedParser(URL: URL)!
         
         // When
         parser.parse { (result) in
@@ -86,7 +86,7 @@ class DublinCoreTests: BaseTestCase {
             // Given
             let expectation = self.expectationWithDescription("Dublin Core Parsing Performance")
             let URL = self.fileURL("DC", type: "xml")
-            let parser = FeedParser(URL: URL)
+            let parser = FeedParser(URL: URL)!
             
             // When
             parser.parse({ (result) in

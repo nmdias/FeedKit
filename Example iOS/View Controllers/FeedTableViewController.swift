@@ -36,7 +36,7 @@ class FeedTableViewController: UITableViewController {
         
         self.title = "Feed"
         
-        FeedParser(URL: feedURL).parse { (result) in
+        FeedParser(URL: feedURL)!.parse { (result) in
             self.feed = result.rssFeed
             self.tableView.reloadData()
         }
