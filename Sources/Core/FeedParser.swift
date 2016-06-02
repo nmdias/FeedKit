@@ -92,6 +92,19 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         self.xmlParser = parser
     }
     
+    /**
+     
+     Initializes the parser with the XML contents encapsulated in a given data object.
+     
+     - parameter data: An `NSData` object containing XML markup.
+
+     - returns: An instance of the `FeedParser`.
+     
+     */
+    public init(data: NSData) {
+        self.xmlParser = NSXMLParser(data: data)
+    }
+    
     // MARK: - Public methods
     
     /**
