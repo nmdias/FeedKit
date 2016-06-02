@@ -105,6 +105,19 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         self.xmlParser = NSXMLParser(data: data)
     }
     
+    /**
+     
+     Initializes the parser with the specified stream.
+     
+     - parameter stream: The input stream. The content is incrementally loaded from the specified stream and parsed. The the underlying `NSXMLParser` will open the stream, and synchronously read from it without scheduling it.
+     
+     - returns: An instance of the `FeedParser`.
+     
+     */
+    public init(stream: NSInputStream) {
+        self.xmlParser = NSXMLParser(stream: stream)
+    }
+    
     // MARK: - Public methods
     
     /**
