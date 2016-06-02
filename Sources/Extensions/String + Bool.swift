@@ -25,7 +25,13 @@
 import Foundation
 
 extension String {
-    
+
+    /**
+     
+     Convert a string representation of a logical value to it's `Bool` 
+     equivalent
+     
+     */
     var bool: Bool? {
         
         switch self {
