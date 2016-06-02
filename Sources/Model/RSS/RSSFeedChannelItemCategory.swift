@@ -96,6 +96,8 @@ extension RSSFeedChannelItemCategory {
      
      - parameter attributeDict: A dictionary with the attributes of the `<category>` element
      
+     - returns: A `RSSFeedChannelItemCategory` instance
+     
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
@@ -111,6 +113,8 @@ extension RSSFeedChannelItemCategory.Attributes {
      Initializes the `Attributes` of the `RSSFeedChannelItemCategory`
      
      - parameter: A dictionary with the attributes of an `<item>`s sub-element `<category>`
+     
+     - returns: A `RSSFeedChannelItemCategory.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {

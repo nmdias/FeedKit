@@ -91,6 +91,8 @@ extension AtomFeedCategory {
      
      - parameter attributeDict: A dictionary with the attributes of the "atom:category" element
      
+     - returns: An `AtomFeedCategory` instance
+     
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
@@ -106,6 +108,8 @@ extension AtomFeedCategory.Attributes {
      Initializes the `Attributes` of the `AtomFeedCategory`
      
      - parameter: A dictionary with the attributes of the "atom:category" element
+     
+     - returns: An `AtomFeedCategory.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {

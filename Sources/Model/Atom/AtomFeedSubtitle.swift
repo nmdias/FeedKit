@@ -79,6 +79,8 @@ extension AtomFeedSubtitle {
      
      - parameter attributeDict: A dictionary with the attributes of the "atom:subtitle" element
      
+     - returns: An `AtomFeedSubtitle` instance
+     
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
@@ -94,6 +96,8 @@ extension AtomFeedSubtitle.Attributes {
      Initializes the `Attributes` of the `AtomFeedSubtitle`
      
      - parameter: A dictionary with the attributes of the "atom:subtitle" element
+     
+     - returns: An `AtomFeedSubtitle.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {

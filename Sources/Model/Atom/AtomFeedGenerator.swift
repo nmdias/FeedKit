@@ -100,6 +100,8 @@ extension AtomFeedGenerator {
      
      - parameter attributeDict: A dictionary with the attributes of the "atom:generator" element
      
+     - returns: An `AtomFeedGenerator` instance
+     
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
@@ -115,6 +117,8 @@ extension AtomFeedGenerator.Attributes {
      Initializes the `Attributes` of the `AtomFeedGenerator`
      
      - parameter: A dictionary with the attributes of the "atom:generator" element
+     
+     - returns: An `AtomFeedGenerator.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {

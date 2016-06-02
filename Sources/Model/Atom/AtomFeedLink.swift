@@ -172,6 +172,8 @@ extension AtomFeedLink {
      
      - parameter attributeDict: A dictionary with the attributes of the "atom:link" element
      
+     - returns: An `AtomFeedLink` instance
+     
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
@@ -187,6 +189,8 @@ extension AtomFeedLink.Attributes {
      Initializes the `Attributes` of the `AtomFeedLink`
      
      - parameter: A dictionary with the attributes of the "atom:link" element
+     
+     - returns: An `AtomFeedLink.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {

@@ -98,6 +98,8 @@ extension RSSFeedChannelItemEnclosure {
      
      - parameter attributeDict: A dictionary with the attributes of the `<enclosure>` element
      
+     - returns: A `RSSFeedChannelItemEnclosure` instance
+     
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
@@ -113,6 +115,8 @@ extension RSSFeedChannelItemEnclosure.Attributes {
      Initializes the `Attributes` of the `RSSFeedChannelItemEnclosure`
      
      - parameter: A dictionary with the attributes of the `<enclosure>` element
+     
+     - returns: A `RSSFeedChannelItemEnclosure.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {

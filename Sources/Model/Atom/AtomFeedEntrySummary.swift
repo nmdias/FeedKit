@@ -85,6 +85,8 @@ extension AtomFeedEntrySummary {
      
      - parameter attributeDict: A dictionary with the attributes of the "atom:summary" element
      
+     - returns: An `AtomFeedEntrySummary` instance
+     
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
@@ -100,6 +102,8 @@ extension AtomFeedEntrySummary.Attributes {
      Initializes the `Attributes` of the `AtomFeedEntrySummary`
      
      - parameter: A dictionary with the attributes of the "atom:summary" element
+     
+     - returns: An `AtomFeedEntrySummary.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {
