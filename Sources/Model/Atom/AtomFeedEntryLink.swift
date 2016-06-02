@@ -168,6 +168,13 @@ public class AtomFeedEntryLink {
 
 extension AtomFeedEntryLink {
     
+    /**
+     
+     Initializes the `AtomFeedEntryLink` with the attributes of the "atom:link" element
+     
+     - parameter attributeDict: A dictionary with the attributes of the "atom:link" element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedEntryLink.Attributes(attributes: attributeDict)
@@ -177,6 +184,13 @@ extension AtomFeedEntryLink {
 
 extension AtomFeedEntryLink.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `AtomFeedEntryLink`
+     
+     - parameter: A dictionary with the attributes of the "atom:link" element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

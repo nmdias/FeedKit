@@ -94,6 +94,13 @@ public class AtomFeedGenerator {
 
 extension AtomFeedGenerator {
     
+    /**
+     
+     Initializes the `AtomFeedGenerator` with the attributes of the "atom:generator" element
+     
+     - parameter attributeDict: A dictionary with the attributes of the "atom:generator" element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedGenerator.Attributes(attributes: attributeDict)
@@ -103,6 +110,13 @@ extension AtomFeedGenerator {
 
 extension AtomFeedGenerator.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `AtomFeedGenerator`
+     
+     - parameter: A dictionary with the attributes of the "atom:generator" element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

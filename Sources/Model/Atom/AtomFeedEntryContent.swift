@@ -93,6 +93,13 @@ public class AtomFeedEntryContent {
 
 extension AtomFeedEntryContent {
     
+    /**
+     
+     Initializes the `AtomFeedEntryContent` with the attributes of the "atom:content" element
+     
+     - parameter attributeDict: A dictionary with the attributes of the "atom:content" element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedEntryContent.Attributes(attributes: attributeDict)
@@ -102,6 +109,13 @@ extension AtomFeedEntryContent {
 
 extension AtomFeedEntryContent.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `AtomFeedEntryContent`
+     
+     - parameter: A dictionary with the attributes of the "atom:content" element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

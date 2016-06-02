@@ -85,6 +85,13 @@ public class AtomFeedEntryCategory {
 
 extension AtomFeedEntryCategory {
     
+    /**
+     
+     Initializes the `AtomFeedEntryCategory` with the attributes of the "atom:category" element
+     
+     - parameter attributeDict: A dictionary with the attributes of the "atom:category" element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedEntryCategory.Attributes(attributes: attributeDict)
@@ -94,6 +101,13 @@ extension AtomFeedEntryCategory {
 
 extension AtomFeedEntryCategory.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `AtomFeedEntryCategory`
+     
+     - parameter: A dictionary with the attributes of the "atom:category" element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

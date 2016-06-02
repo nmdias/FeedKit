@@ -73,6 +73,13 @@ public class AtomFeedSubtitle {
 
 extension AtomFeedSubtitle {
     
+    /**
+     
+     Initializes the `AtomFeedSubtitle` with the attributes of the "atom:subtitle" element
+     
+     - parameter attributeDict: A dictionary with the attributes of the "atom:subtitle" element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedSubtitle.Attributes(attributes: attributeDict)
@@ -82,6 +89,13 @@ extension AtomFeedSubtitle {
 
 extension AtomFeedSubtitle.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `AtomFeedSubtitle`
+     
+     - parameter: A dictionary with the attributes of the "atom:subtitle" element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {
