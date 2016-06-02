@@ -103,6 +103,13 @@ public class RSSFeedChannelItemGUID {
 
 extension RSSFeedChannelItemGUID {
     
+    /**
+     
+     Initializes the `RSSFeedChannelItemGUID` with the attributes of the `<guid>` element
+     
+     - parameter attributeDict: A dictionary with the attributes of the `<guid>` element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedChannelItemGUID.Attributes(attributes: attributeDict)
@@ -112,6 +119,13 @@ extension RSSFeedChannelItemGUID {
 
 extension RSSFeedChannelItemGUID.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `RSSFeedChannelItemGUID`
+     
+     - parameter: A dictionary with the attributes of the `<guid>` element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

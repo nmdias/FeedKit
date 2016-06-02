@@ -113,6 +113,13 @@ public class RSSFeedChannelCloud {
 
 extension RSSFeedChannelCloud {
     
+    /**
+     
+     Initializes the `RSSFeedChannelCloud` with the attributes of the `<cloud>` element
+     
+     - parameter attributeDict: A dictionary with the attributes of the `<cloud>` element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedChannelCloud.Attributes(attributes: attributeDict)
@@ -122,6 +129,13 @@ extension RSSFeedChannelCloud {
 
 extension RSSFeedChannelCloud.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `RSSFeedChannelCloud`
+     
+     - parameter: A dictionary with the attributes of the `<cloud>` element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

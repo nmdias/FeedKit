@@ -90,6 +90,13 @@ public class RSSFeedChannelItemCategory {
 
 extension RSSFeedChannelItemCategory {
     
+    /**
+     
+     Initializes the `RSSFeedChannelItemCategory` with the attributes of an `<item>`s sub-element `<category>`
+     
+     - parameter attributeDict: A dictionary with the attributes of the `<category>` element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedChannelItemCategory.Attributes(attributes: attributeDict)
@@ -99,6 +106,13 @@ extension RSSFeedChannelItemCategory {
 
 extension RSSFeedChannelItemCategory.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `RSSFeedChannelItemCategory`
+     
+     - parameter: A dictionary with the attributes of an `<item>`s sub-element `<category>`
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

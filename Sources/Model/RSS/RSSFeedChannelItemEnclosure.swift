@@ -92,6 +92,13 @@ public class RSSFeedChannelItemEnclosure {
 
 extension RSSFeedChannelItemEnclosure {
     
+    /**
+     
+     Initializes the `RSSFeedChannelItemEnclosure` with the attributes of the `<enclosure>` element
+     
+     - parameter attributeDict: A dictionary with the attributes of the `<enclosure>` element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedChannelItemEnclosure.Attributes(attributes: attributeDict)
@@ -101,6 +108,13 @@ extension RSSFeedChannelItemEnclosure {
 
 extension RSSFeedChannelItemEnclosure.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `RSSFeedChannelItemEnclosure`
+     
+     - parameter: A dictionary with the attributes of the `<enclosure>` element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

@@ -63,6 +63,13 @@ public class RSSFeedChannelCategory {
 
 extension RSSFeedChannelCategory {
     
+    /**
+     
+     Initializes the `RSSFeedChannelCategory` with the attributes of the `<category>` element
+     
+     - parameter attributeDict: A dictionary with the attributes of the `<category>` element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedChannelCategory.Attributes(attributes: attributeDict)
@@ -72,6 +79,13 @@ extension RSSFeedChannelCategory {
 
 extension RSSFeedChannelCategory.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `RSSFeedChannelCategory`
+     
+     - parameter: A dictionary with the attributes of the `<category>` element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

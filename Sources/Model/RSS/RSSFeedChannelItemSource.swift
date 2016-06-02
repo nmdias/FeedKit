@@ -78,6 +78,13 @@ public class RSSFeedChannelItemSource {
 
 extension RSSFeedChannelItemSource {
     
+    /**
+     
+     Initializes the `RSSFeedChannelItemSource` with the attributes of the `<source>` element
+     
+     - parameter attributeDict: A dictionary with the attributes of the `<source>` element
+     
+     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedChannelItemSource.Attributes(attributes: attributeDict)
@@ -87,6 +94,13 @@ extension RSSFeedChannelItemSource {
 
 extension RSSFeedChannelItemSource.Attributes {
     
+    /**
+     
+     Initializes the `Attributes` of the `RSSFeedChannelItemSource`
+     
+     - parameter: A dictionary with the attributes of the `<source>` element
+     
+     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {
