@@ -39,9 +39,11 @@ public enum Error {
      
      */
     var code: Int {
+        
         switch self {
         case .FeedNotFound: return -1000
         }
+        
     }
     
     /**
@@ -50,6 +52,7 @@ public enum Error {
      
      */
     var userInfo: [String: String] {
+        
         switch self {
         case .FeedNotFound:
             return [
