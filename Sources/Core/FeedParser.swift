@@ -158,9 +158,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
 // MARK: - NSXMLParser delegate
 
 extension FeedParser {
-    
-    public func parserDidStartDocument(parser: NSXMLParser) { }
-    
+        
     public func parserDidEndDocument(parser: NSXMLParser) {
         
         guard let feedType = self.feedType else { return }
