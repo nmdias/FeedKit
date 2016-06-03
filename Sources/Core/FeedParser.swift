@@ -158,14 +158,17 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
 // MARK: - NSXMLParser delegate
 
 extension FeedParser {
-        
+    
     public func parserDidEndDocument(parser: NSXMLParser) {
         
-        guard let feedType = self.feedType else { return }
+        guard let feedType = self.feedType else {
+            self.result?(Result.Failure(error(Error.FeedNotFound)))
+            return
+        }
         
         switch feedType {
-        case .Atom: self.result?(Result.Atom(self.atomFeed!))
-        case .RSS1, .RSS2: self.result?(Result.RSS(self.rssFeed!))
+        case .Atom:         self.result?(Result.Atom(self.atomFeed!))
+        case .RSS1, .RSS2:  self.result?(Result.RSS(self.rssFeed!))
         }
         
     }
