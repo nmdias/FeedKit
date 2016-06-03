@@ -24,50 +24,55 @@
 
 import Foundation
 
-public struct Error {
+/**
+ 
+ Error types with `NSError` codes and user info providers
+ 
+ */
+public enum Error {
     
-    /** 
-     
-     The domain used for creating all Alamofire errors. 
-     
-     */
-    public static let domain = "com.feedparser.error"
+    case FeedNotFound
     
     /**
      
-     Error Codes and `NSError` user info provider
+     The error's code for the specified case.
      
      */
-    public enum Code: Int {
-        
-        case FeedNotFound = -1000
-        
-        var userInfo: [String: String] {
-            switch self {
-            case .FeedNotFound:
-                return [
-                    NSLocalizedDescriptionKey: "Feed not found",
-                    NSLocalizedFailureReasonErrorKey: "Couldn't parse any known feed from the provided DOM structure",
-                    NSLocalizedRecoverySuggestionErrorKey: "Provide a valid Atom/RSS DOM structure "
-                ]
-            }
-            
+    var code: Int {
+        switch self {
+        case .FeedNotFound: return -1000
+        }
+    }
+    
+    /**
+     
+     The error's userInfo dictionary for the specified case.
+     
+     */
+    var userInfo: [String: String] {
+        switch self {
+        case .FeedNotFound:
+            return [
+                NSLocalizedDescriptionKey: "Feed not found",
+                NSLocalizedFailureReasonErrorKey: "Couldn't parse any known feed from the provided DOM structure",
+                NSLocalizedRecoverySuggestionErrorKey: "Provide a valid Atom/RSS DOM structure "
+            ]
         }
         
     }
     
-    /**
-     
-     Creates an `NSError` from the specified Code
-     
-     - parameter code: The error code.
-     
-     - returns: An `NSError` with the given error code
-     
-     */
-    static func error(code: Code) -> NSError {
-        return NSError(domain: Error.domain, code: code.rawValue, userInfo: code.userInfo)
-    }
-    
+}
+
+/**
+ 
+ Creates an `NSError` from the specified Code
+ 
+ - parameter code: The error code.
+ 
+ - returns: An `NSError` with the given error code
+ 
+ */
+internal func error(error: Error) -> NSError {
+    return NSError(domain:"com.feedparser.error", code: error.code, userInfo: error.userInfo)
 }
 
