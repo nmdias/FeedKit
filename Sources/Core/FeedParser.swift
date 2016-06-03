@@ -153,12 +153,16 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         
     }
     
-    // MARK: - NSXMLParser delegate
+}
+
+// MARK: - NSXMLParser delegate
+
+extension FeedParser {
     
     public func parserDidStartDocument(parser: NSXMLParser) { }
     
     public func parserDidEndDocument(parser: NSXMLParser) {
-
+        
         guard let feedType = self.feedType else { return }
         
         switch feedType {
@@ -172,7 +176,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`
         self.currentXMLDOMPath = self.currentXMLDOMPath.URLByAppendingPathComponent(elementName)
-
+        
         // Get the feed type from the element, if it hasn't been done yet
         guard let feedType = self.feedType else {
             self.feedType = FeedType(rawValue: elementName)
@@ -200,7 +204,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.rssFeed?.map(attributes: attributeDict, forPath: path)
             }
-
+            
         }
         
     }
@@ -213,7 +217,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     }
     
     public func parser(parser: NSXMLParser, foundCDATA CDATABlock: NSData) {
-
+        
         guard let string = NSString(data: CDATABlock, encoding: NSUTF8StringEncoding) as? String else {
             assertionFailure("Unable to convert the bytes in `CDATABlock` to Unicode characters using the encoding provided at current path: \(self.currentXMLDOMPath)")
             return
@@ -227,8 +231,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         self.mapCharacters(string)
     }
     
-    
-    // MARK: - NSXMLParser delegate errors
+    // MARK: - Errors
     
     public func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
         self.result?(Result.Failure(parseError))
