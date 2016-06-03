@@ -27,7 +27,6 @@ import Foundation
 
 public class FeedParser: NSObject, NSXMLParserDelegate {
     
-    // MARK: - Private properties
     
     /**
      
@@ -38,6 +37,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      */
     private var feedType: FeedType?
     
+    
+    
     /**
      
      The RSS feed model
@@ -45,12 +46,15 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      */
     private var rssFeed: RSSFeed?
     
+    
+    
     /**
      
      The Atom feed model
      
      */
     private var atomFeed: AtomFeed?
+    
     
     /** 
      
@@ -62,6 +66,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      */
     private var currentXMLDOMPath: NSURL = NSURL(string: "/")!
     
+    
+    
     /**
      
      The XML parser. 
@@ -69,9 +75,11 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      */
     private var xmlParser: NSXMLParser
     
+    
+    
     private var result: (Result -> Void)?
     
-    // MARK: - Initializers
+    
     
     /**
      
@@ -91,6 +99,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         self.xmlParser = parser
     }
     
+    
+    
     /**
      
      Initializes the parser with the XML contents encapsulated in a given data object.
@@ -103,6 +113,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     public init(data: NSData) {
         self.xmlParser = NSXMLParser(data: data)
     }
+    
+    
     
     /**
      
@@ -117,7 +129,9 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         self.xmlParser = NSXMLParser(stream: stream)
     }
     
-    // MARK: - Public methods
+    
+    
+    // MARK: - Functions
     
     /**
      
@@ -131,7 +145,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     }
     
     
-    func mapCharacters(string: String) {
+    
+    private func mapCharacters(string: String) {
         
         guard let feedType = self.feedType else { return }
         
@@ -153,9 +168,13 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         
     }
     
+    
+    
 }
 
+
 // MARK: - NSXMLParser delegate
+
 
 extension FeedParser {
     
@@ -231,11 +250,10 @@ extension FeedParser {
     public func parser(parser: NSXMLParser, foundCharacters string: String) {
         self.mapCharacters(string)
     }
-    
-    // MARK: - Errors
-    
+
     public func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
         self.result?(Result.Failure(parseError))
     }
     
 }
+
