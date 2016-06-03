@@ -43,14 +43,14 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
      The RSS feed model
      
      */
-    private var rssFeed: RSSFeed? = RSSFeed()
+    private var rssFeed: RSSFeed?
     
     /**
      
      The Atom feed model
      
      */
-    private var atomFeed: AtomFeed? = AtomFeed()
+    private var atomFeed: AtomFeed?
     
     /** 
      
@@ -183,11 +183,19 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             
         case .Atom:
             
+            if  self.atomFeed == nil {
+                self.atomFeed = AtomFeed()
+            }
+            
             if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.atomFeed?.map(attributes: attributeDict, forPath: path)
             }
             
         case .RSS1, .RSS2:
+            
+            if  self.rssFeed == nil {
+                self.rssFeed = RSSFeed()
+            }
             
             if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.rssFeed?.map(attributes: attributeDict, forPath: path)

@@ -29,7 +29,7 @@ extension AtomFeed {
     func map(attributes attributeDict: [String : String], forPath path: AtomPath) {
         
         switch path {
-
+            
         case .FeedSubtitle:
             
             if  self.subtitle == nil {
