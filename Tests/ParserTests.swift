@@ -40,5 +40,42 @@ class ParserTests: BaseTestCase {
         assert(parser.parser.result != nil)
         
     }
+    
+    func testParserRSSModelInitialization() {
+        
+        // Given
+        let URL = fileURL("RSS2", type: "xml")
+        let parser = FeedParser(URL: URL)!
+        
+        // When
+        parser.parse { (result) in
+        
+            // Then
+            assert(parser.parser.feedType == FeedType.RSS2)
+            assert(parser.parser.rssFeed != nil)
+            assert(parser.parser.atomFeed == nil)
+        
+        }
+        
+    }
 
+    
+    func testParserAtomModelInitialization() {
+        
+        // Given
+        let URL = fileURL("Atom", type: "xml")
+        let parser = FeedParser(URL: URL)!
+        
+        // When
+        parser.parse { (result) in
+            
+            // Then
+            assert(parser.parser.feedType == FeedType.Atom)
+            assert(parser.parser.atomFeed != nil)
+            assert(parser.parser.rssFeed == nil)
+            
+        }
+        
+    }
+    
 }

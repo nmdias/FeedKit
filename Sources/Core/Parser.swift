@@ -34,7 +34,7 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
      found.
      
      */
-    private var feedType: FeedType?
+    var feedType: FeedType?
     
     
     
@@ -43,7 +43,7 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
      The RSS feed model
      
      */
-    private var rssFeed: RSSFeed?
+    var rssFeed: RSSFeed?
     
     
     
@@ -52,7 +52,7 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
      The Atom feed model
      
      */
-    private var atomFeed: AtomFeed?
+    var atomFeed: AtomFeed?
     
     
     /**
