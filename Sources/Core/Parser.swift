@@ -204,7 +204,8 @@ extension Parser {
     func parser(parser: NSXMLParser, foundCDATA CDATABlock: NSData) {
         
         guard let string = NSString(data: CDATABlock, encoding: NSUTF8StringEncoding) as? String else {
-            assertionFailure("Unable to convert the bytes in `CDATABlock` to Unicode characters using the encoding provided at current path: \(self.currentXMLDOMPath)")
+            self.abortParsing()
+            self.result?(Result.Failure(error(Error.FeedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString))))
             return
         }
         
