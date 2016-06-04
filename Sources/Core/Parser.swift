@@ -24,6 +24,13 @@
 
 import Foundation
 
+/**
+ 
+ The actual engine behind the `FeedParser` framework. `Parser` handles 
+ the parsing of RSS and Atom feeds. It is an `NSXMLParserDelegate` of
+ itself.
+ 
+ */
 class Parser: NSXMLParser, NSXMLParserDelegate {
     
     
@@ -105,7 +112,12 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
     }
     
     
-    
+    /**
+     
+     Redirects characters found between XML elements to their proper model
+     mappers based on the `currentXMLDOMPath`
+     
+     */
     private func mapCharacters(string: String) {
         
         guard let feedType = self.feedType else { return }
