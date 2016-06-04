@@ -199,6 +199,9 @@
 		A0AA54741D02C095000A2264 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* Error.swift */; };
 		A0AA54751D02C096000A2264 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* Error.swift */; };
 		A0AA54761D02C096000A2264 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* Error.swift */; };
+		A0AA547D1D02E307000A2264 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA54781D02E2BA000A2264 /* ParserTests.swift */; };
+		A0AA547E1D02E308000A2264 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA54781D02E2BA000A2264 /* ParserTests.swift */; };
+		A0AA547F1D02E308000A2264 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA54781D02E2BA000A2264 /* ParserTests.swift */; };
 		A0C161F51D0219D500FC5C06 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* Error.swift */; };
 		A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C351CEB007100B4509D /* BaseTestCase.swift */; };
 		A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D20C351CEB007100B4509D /* BaseTestCase.swift */; };
@@ -385,6 +388,7 @@
 		A09C85291CE9B0C300D20CAB /* Info-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		A0AA546F1D02C07C000A2264 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		A0AA54781D02E2BA000A2264 /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
 		A0C161F41D0219D500FC5C06 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		A0D20C2D1CEAFB1200B4509D /* Content.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Content.xml; path = xml/Content.xml; sourceTree = "<group>"; };
 		A0D20C2E1CEAFB1200B4509D /* DC.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = DC.xml; path = xml/DC.xml; sourceTree = "<group>"; };
@@ -657,6 +661,7 @@
 				A09C85291CE9B0C300D20CAB /* Info-macOS.plist */,
 				A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */,
 				A0D20C351CEB007100B4509D /* BaseTestCase.swift */,
+				A0AA54781D02E2BA000A2264 /* ParserTests.swift */,
 				A0D20C391CEB01E400B4509D /* DublinCoreTests.swift */,
 				A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */,
 				A05C1F1A1CEBB58A0092D70E /* ContentTests.swift */,
@@ -1201,6 +1206,7 @@
 				A05C1F171CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
 				A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */,
 				A05C1F1F1CEBB6080092D70E /* RSS2Tests.swift in Sources */,
+				A0AA547D1D02E307000A2264 /* ParserTests.swift in Sources */,
 				A0DE942E1CF791B800D1F19C /* AtomTests.swift in Sources */,
 				A05C1F1B1CEBB58A0092D70E /* ContentTests.swift in Sources */,
 			);
@@ -1214,6 +1220,7 @@
 				A05C1F181CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
 				A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */,
 				A05C1F201CEBB6080092D70E /* RSS2Tests.swift in Sources */,
+				A0AA547E1D02E308000A2264 /* ParserTests.swift in Sources */,
 				A0DE942F1CF791B800D1F19C /* AtomTests.swift in Sources */,
 				A05C1F1C1CEBB58A0092D70E /* ContentTests.swift in Sources */,
 			);
@@ -1227,6 +1234,7 @@
 				A05C1F191CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
 				A0D20C381CEB007100B4509D /* BaseTestCase.swift in Sources */,
 				A05C1F211CEBB6080092D70E /* RSS2Tests.swift in Sources */,
+				A0AA547F1D02E308000A2264 /* ParserTests.swift in Sources */,
 				A0DE94301CF791B800D1F19C /* AtomTests.swift in Sources */,
 				A05C1F1D1CEBB58A0092D70E /* ContentTests.swift in Sources */,
 			);

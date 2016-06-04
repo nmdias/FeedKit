@@ -66,7 +66,7 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
     private var currentXMLDOMPath: NSURL = NSURL(string: "/")!
     
     
-    private var result: (Result -> Void)?
+    var result: (Result -> Void)?
     
     
     
