@@ -26,6 +26,15 @@ import Foundation
 
 extension RSSFeed {
     
+    /**
+     
+     Maps the attributes of the specified dictionary for a given `RSSPath`
+     to the `RSSFeed` model
+     
+     - parameter attributeDict:     The attribute dictionary to map to the model
+     - parameter path:              The path of feed's element
+     
+     */
     func map(attributes attributeDict: [String : String], forPath path: RSSPath) {
         
         switch path {

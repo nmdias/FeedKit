@@ -26,6 +26,15 @@ import Foundation
 
 extension AtomFeed {
     
+    /**
+     
+     Maps the attributes of the specified dictionary for a given `AtomPath` 
+     to the `AtomFeed` model
+     
+     - parameter attributeDict:     The attribute dictionary to map to the model
+     - parameter path:              The path of feed's element
+     
+     */
     func map(attributes attributeDict: [String : String], forPath path: AtomPath) {
         
         switch path {

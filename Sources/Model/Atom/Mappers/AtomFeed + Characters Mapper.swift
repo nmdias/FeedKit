@@ -26,6 +26,14 @@ import Foundation
 
 extension AtomFeed {
     
+    /**
+     
+     Maps the characters in the specified string to the `AtomFeed` model
+     
+     - parameter string:    The string to map to the model
+     - parameter path:      The path of feed's element
+     
+     */
     func map(characters string: String, forPath path: AtomPath) {
         
         switch path {

@@ -28,27 +28,12 @@ extension RSSFeed {
     
     /**
      
-     Maps a parsed string to the feed model.
+     Maps the characters in the specified string to the `RSSFeed` model
      
-     Discussion:
-     Characters found while parsing any given feed element are assigned or
-     appended to the corresponding `model` property. If the corresponding
-     `model` property is `nil`, the string of characters is assigned,
-     otherwise, appended.
-     
-     Note:
-     Switch cases with a `break` statement mean there are no values
-     associated with that element, or they might just be parents to an
-     element, or contain only attributes. Attributes are handled in the
-     `parser(_:didStartElement:namespaceURI:qualifiedName:attributes:)`
-     delegate method.
-     
-     - parameter string:    The string to map to the model.
-     - parameter feed:      The feed to map to.
-     - parameter element:   The element that identifies the property that should be mapped in the feed model.
+     - parameter string:    The string to map to the model
+     - parameter path:      The path of feed's element
      
      */
-    
     func map(string: String, forPath path: RSSPath) {
         
         switch path {
