@@ -665,17 +665,17 @@
 			isa = PBXGroup;
 			children = (
 				A0D20C2C1CEAFACB00B4509D /* xml */,
+				A0DE942D1CF791B800D1F19C /* AtomTests.swift */,
+				A0D20C351CEB007100B4509D /* BaseTestCase.swift */,
+				A05C1F1A1CEBB58A0092D70E /* ContentTests.swift */,
+				A0D20C391CEB01E400B4509D /* DublinCoreTests.swift */,
+				A060D7261D03455E00F0DACE /* ParserErrorTests.swift */,
+				A0AA54781D02E2BA000A2264 /* ParserTests.swift */,
+				A05C1F1E1CEBB6080092D70E /* RSS2Tests.swift */,
+				A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */,
 				A09C85281CE9B0C300D20CAB /* Info-iOS.plist */,
 				A09C85291CE9B0C300D20CAB /* Info-macOS.plist */,
 				A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */,
-				A0D20C351CEB007100B4509D /* BaseTestCase.swift */,
-				A0AA54781D02E2BA000A2264 /* ParserTests.swift */,
-				A060D7261D03455E00F0DACE /* ParserErrorTests.swift */,
-				A0D20C391CEB01E400B4509D /* DublinCoreTests.swift */,
-				A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */,
-				A05C1F1A1CEBB58A0092D70E /* ContentTests.swift */,
-				A05C1F1E1CEBB6080092D70E /* RSS2Tests.swift */,
-				A0DE942D1CF791B800D1F19C /* AtomTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
