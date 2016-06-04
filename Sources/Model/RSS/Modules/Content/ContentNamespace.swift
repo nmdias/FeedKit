@@ -41,7 +41,7 @@ public class ContentNamespace {
      Example: <content:encoded><![CDATA[<p>What a <em>beautiful</em> day!</p>]]></content:encoded>
      
      */
-    var contentEncoded: String?
+    public var contentEncoded: String?
     
 }
 
