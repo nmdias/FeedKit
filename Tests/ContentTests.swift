@@ -36,8 +36,12 @@ class ContentTests: BaseTestCase {
         // When
         parser.parse { (result) in
             
-            // Then
+            let feed = result.rssFeed
             
+            // Then
+            assert(feed != nil)
+            assert(feed?.channel?.items?.last?.content != nil)
+            assert(feed?.channel?.items?.last?.content?.contentEncoded == "<p>What a <em>beautiful</em> day!</p>")
             
         }
         
