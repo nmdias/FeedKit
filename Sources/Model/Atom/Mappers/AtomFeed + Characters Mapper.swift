@@ -58,6 +58,9 @@ extension AtomFeed {
         case .FeedEntryContent:                 self.entries?.last?.content?.value              = self.entries?.last?.content?.value?.stringByAppendingString(string) ?? string
         case .FeedEntryPublished:               self.entries?.last?.published                   = self.entries?.last?.published?.stringByAppendingString(string) ?? string
         case .FeedEntrySource:                  break
+        case .FeedEntrySourceID:                self.entries?.last?.source?.id                  = self.entries?.last?.source?.id?.stringByAppendingString(string) ?? string
+        case .FeedEntrySourceTitle:             self.entries?.last?.source?.title               = self.entries?.last?.source?.title?.stringByAppendingString(string) ?? string
+        case .FeedEntrySourceUpdated:           self.entries?.last?.source?.updated             = self.entries?.last?.source?.updated?.stringByAppendingString(string) ?? string
         case .FeedEntryRights:                  self.entries?.last?.rights                      = self.entries?.last?.rights?.stringByAppendingString(string) ?? string
         case .FeedEntryAuthor:                  break
         case .FeedEntryAuthorName:              self.entries?.last?.authors?.last?.name         = self.entries?.last?.authors?.last?.name?.stringByAppendingString(string) ?? string

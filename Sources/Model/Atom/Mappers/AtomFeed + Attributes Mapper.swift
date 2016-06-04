@@ -88,6 +88,22 @@ extension AtomFeed {
                 self.entries?.last?.summary = AtomFeedEntrySummary(attributes: attributeDict)
             }
             
+        case .FeedEntryAuthor:
+            
+            if  self.entries?.last?.authors == nil {
+                self.entries?.last?.authors = []
+            }
+            
+            self.entries?.last?.authors?.append(AtomFeedEntryAuthor())
+            
+        case .FeedEntryContributor:
+            
+            if  self.entries?.last?.contributors == nil {
+                self.entries?.last?.contributors = []
+            }
+            
+            self.entries?.last?.contributors?.append(AtomFeedEntryContributor())
+            
         case .FeedEntryLink:
             
             if  self.entries?.last?.links == nil {
@@ -110,22 +126,12 @@ extension AtomFeed {
                 self.entries?.last?.content = AtomFeedEntryContent(attributes: attributeDict)
             }
             
-        case .FeedEntryAuthor:
+        case .FeedEntrySource:
             
-            if  self.entries?.last?.authors == nil {
-                self.entries?.last?.authors = []
+            if  self.entries?.last?.source == nil {
+                self.entries?.last?.source = AtomFeedEntrySource()
             }
-            
-            self.entries?.last?.authors?.append(AtomFeedEntryAuthor())
-            
-        case .FeedEntryContributor:
-            
-            if  self.entries?.last?.contributors == nil {
-                self.entries?.last?.contributors = []
-            }
-            
-            self.entries?.last?.contributors?.append(AtomFeedEntryContributor())
-            
+
         default: break
             
         }
