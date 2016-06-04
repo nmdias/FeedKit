@@ -68,18 +68,5 @@
             <pubDate>Fri, 05 Oct 2007 09:00:00 CST</pubDate>
             <source url="http://la.example.com/rss.xml">Los Angeles Herald-Examiner</source>
         </item>
-        <item>
-            <title>Seventh Heaven! Ryan Hurls Another No Hitter</title>
-            <link>http://dallas.example.com/1991/05/02/nolan.htm</link>
-            <author>jbb@dallas.example.com (Joe Bob Briggs)</author>
-            <category>movies</category>
-            <category domain="rec.arts.movies.reviews">1983/V</category>
-            <comments>http://dallas.example.com/feedback/1983/06/joebob.htm</comments>
-            <description><![CDATA[I'm headed for France. I wasn't gonna go this year, but then last week <a href="http://www.imdb.com/title/tt0086525/">Valley Girl</a> came out and I said to myself, Joe Bob, you gotta get out of the country for a while.]]></description>
-            <enclosure length="24986239" type="audio/mpeg" url="http://dallas.example.com/joebob_050689.mp3" />
-            <guid>http://dallas.example.com/1983/05/06/joebob.htm</guid>
-            <pubDate>Fri, 05 Oct 2007 09:00:00 CST</pubDate>
-            <source url="http://la.example.com/rss.xml">Los Angeles Herald-Examiner</source>
-        </item>
     </channel>
 </rss>
