@@ -24,6 +24,12 @@
 
 import Foundation
 
+/**
+ 
+ Used to provide the result of a parsed feed, whether the parsing was
+ successfull or encountered an error.
+ 
+ */
 public enum Result {
     
     case Atom(AtomFeed)
