@@ -53,48 +53,48 @@ extension RSSFeed {
         
         switch path {
             
-        case .RSS: break
+        case .RSS:                                        break
             
             // Channel
             
-        case .RSSChannel:                       break
-        case .RSSChannelTitle:                  self.channel?.title                                   = self.channel?.title?.stringByAppendingString(string) ?? string
-        case .RSSChannelLink:                   self.channel?.link                                    = self.channel?.link?.stringByAppendingString(string) ?? string
-        case .RSSChannelDescription:            self.channel?.description                             = self.channel?.description?.stringByAppendingString(string) ?? string
-        case .RSSChannelLanguage:               self.channel?.language                                = self.channel?.language?.stringByAppendingString(string) ?? string
-        case .RSSChannelCopyright:              self.channel?.copyright                               = self.channel?.copyright?.stringByAppendingString(string) ?? string
-        case .RSSChannelManagingEditor:         self.channel?.managingEditor                          = self.channel?.managingEditor?.stringByAppendingString(string) ?? string
-        case .RSSChannelWebMaster:              self.channel?.webMaster                               = self.channel?.webMaster?.stringByAppendingString(string) ?? string
-        case .RSSChannelPubDate:                self.channel?.pubDate                                 = self.channel?.pubDate?.stringByAppendingString(string) ?? string
-        case .RSSChannelLastBuildDate:          self.channel?.lastBuildDate                           = self.channel?.lastBuildDate?.stringByAppendingString(string) ?? string
-        case .RSSChannelCategory:               self.channel?.categories?.last?.value                 = self.channel?.categories?.last?.value?.stringByAppendingString(string) ?? string
-        case .RSSChannelGenerator:              self.channel?.generator                               = self.channel?.generator?.stringByAppendingString(string) ?? string
-        case .RSSChannelDocs:                   self.channel?.docs                                    = self.channel?.docs?.stringByAppendingString(string) ?? string
-        case .RSSChannelRating:                 self.channel?.rating                                  = self.channel?.rating?.stringByAppendingString(string) ?? string
-        case .RSSChannelTTL:                    self.channel?.ttl                                     = Int(string)
-        case .RSSChannelCloud:                  break
+        case .RSSChannel:                                 break
+        case .RSSChannelTitle:                            self.channel?.title                                   = self.channel?.title?.stringByAppendingString(string) ?? string
+        case .RSSChannelLink:                             self.channel?.link                                    = self.channel?.link?.stringByAppendingString(string) ?? string
+        case .RSSChannelDescription:                      self.channel?.description                             = self.channel?.description?.stringByAppendingString(string) ?? string
+        case .RSSChannelLanguage:                         self.channel?.language                                = self.channel?.language?.stringByAppendingString(string) ?? string
+        case .RSSChannelCopyright:                        self.channel?.copyright                               = self.channel?.copyright?.stringByAppendingString(string) ?? string
+        case .RSSChannelManagingEditor:                   self.channel?.managingEditor                          = self.channel?.managingEditor?.stringByAppendingString(string) ?? string
+        case .RSSChannelWebMaster:                        self.channel?.webMaster                               = self.channel?.webMaster?.stringByAppendingString(string) ?? string
+        case .RSSChannelPubDate:                          self.channel?.pubDate                                 = self.channel?.pubDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelLastBuildDate:                    self.channel?.lastBuildDate                           = self.channel?.lastBuildDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelCategory:                         self.channel?.categories?.last?.value                 = self.channel?.categories?.last?.value?.stringByAppendingString(string) ?? string
+        case .RSSChannelGenerator:                        self.channel?.generator                               = self.channel?.generator?.stringByAppendingString(string) ?? string
+        case .RSSChannelDocs:                             self.channel?.docs                                    = self.channel?.docs?.stringByAppendingString(string) ?? string
+        case .RSSChannelRating:                           self.channel?.rating                                  = self.channel?.rating?.stringByAppendingString(string) ?? string
+        case .RSSChannelTTL:                              self.channel?.ttl                                     = Int(string)
+        case .RSSChannelCloud:                            break
             
             // Channel Image
             
-        case .RSSChannelImage:                  break
-        case .RSSChannelImageURL:               self.channel?.image?.url                              = self.channel?.image?.url?.stringByAppendingString(string) ?? string
-        case .RSSChannelImageTitle:             self.channel?.image?.title                            = self.channel?.image?.title?.stringByAppendingString(string) ?? string
-        case .RSSChannelImageLink:              self.channel?.image?.link                             = self.channel?.image?.link?.stringByAppendingString(string) ?? string
-        case .RSSChannelImageWidth:             self.channel?.image?.width                            = Int(string)
-        case .RSSChannelImageHeight:            self.channel?.image?.height                           = Int(string)
-        case .RSSChannelImageDescription:       self.channel?.image?.description                      = self.channel?.image?.description?.stringByAppendingString(string) ?? string
+        case .RSSChannelImage:                            break
+        case .RSSChannelImageURL:                         self.channel?.image?.url                              = self.channel?.image?.url?.stringByAppendingString(string) ?? string
+        case .RSSChannelImageTitle:                       self.channel?.image?.title                            = self.channel?.image?.title?.stringByAppendingString(string) ?? string
+        case .RSSChannelImageLink:                        self.channel?.image?.link                             = self.channel?.image?.link?.stringByAppendingString(string) ?? string
+        case .RSSChannelImageWidth:                       self.channel?.image?.width                            = Int(string)
+        case .RSSChannelImageHeight:                      self.channel?.image?.height                           = Int(string)
+        case .RSSChannelImageDescription:                 self.channel?.image?.description                      = self.channel?.image?.description?.stringByAppendingString(string) ?? string
             
             // Channel Text Input
             
-        case .RSSChannelTextInput:              break
-        case .RSSChannelTextInputTitle:         self.channel?.textInput?.title                        = self.channel?.textInput?.title?.stringByAppendingString(string) ?? string
-        case .RSSChannelTextInputDescription:   self.channel?.textInput?.description                  = self.channel?.textInput?.description?.stringByAppendingString(string) ?? string
-        case .RSSChannelTextInputName:          self.channel?.textInput?.name                         = self.channel?.textInput?.name?.stringByAppendingString(string) ?? string
-        case .RSSChannelTextInputLink:          self.channel?.textInput?.link                         = self.channel?.textInput?.link?.stringByAppendingString(string) ?? string
+        case .RSSChannelTextInput:                        break
+        case .RSSChannelTextInputTitle:                   self.channel?.textInput?.title                        = self.channel?.textInput?.title?.stringByAppendingString(string) ?? string
+        case .RSSChannelTextInputDescription:             self.channel?.textInput?.description                  = self.channel?.textInput?.description?.stringByAppendingString(string) ?? string
+        case .RSSChannelTextInputName:                    self.channel?.textInput?.name                         = self.channel?.textInput?.name?.stringByAppendingString(string) ?? string
+        case .RSSChannelTextInputLink:                    self.channel?.textInput?.link                         = self.channel?.textInput?.link?.stringByAppendingString(string) ?? string
             
             // Channel Skip Hours
             
-        case .RSSChannelSkipHours:              break
+        case .RSSChannelSkipHours:                        break
         case .RSSChannelSkipHoursHour:
             
             if let hour = RSSFeedChannelSkipHour(string) where 0...23 ~= hour  {
@@ -103,7 +103,7 @@ extension RSSFeed {
             
             // Channel Skip Days
             
-        case .RSSChannelSkipDays:               break
+        case .RSSChannelSkipDays:                         break
         case .RSSChannelSkipDaysDay:
             
             if let day = RSSFeedChannelSkipDay(rawValue: string) {
@@ -112,29 +112,29 @@ extension RSSFeed {
             
             // Channel Item
             
-        case .RSSChannelItem:                   break
-        case .RSSChannelItemTitle:              self.channel?.items?.last?.title                      = self.channel?.items?.last?.title?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemLink:               self.channel?.items?.last?.link                       = self.channel?.items?.last?.link?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemDescription:        self.channel?.items?.last?.description                = self.channel?.items?.last?.description?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemAuthor:             self.channel?.items?.last?.author                     = self.channel?.items?.last?.author?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemCategory:           self.channel?.items?.last?.categories?.last?.value    = self.channel?.items?.last?.categories?.last?.value?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemComments:           self.channel?.items?.last?.comments                   = self.channel?.items?.last?.comments?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemEnclosure:          break
-        case .RSSChannelItemGUID:               self.channel?.items?.last?.guid?.value                = self.channel?.items?.last?.guid?.value?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemPubDate:            self.channel?.items?.last?.pubDate                    = self.channel?.items?.last?.pubDate?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemSource:             self.channel?.items?.last?.source?.value              = self.channel?.items?.last?.source?.value?.stringByAppendingString(string) ?? string
+        case .RSSChannelItem:                             break
+        case .RSSChannelItemTitle:                        self.channel?.items?.last?.title                      = self.channel?.items?.last?.title?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemLink:                         self.channel?.items?.last?.link                       = self.channel?.items?.last?.link?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDescription:                  self.channel?.items?.last?.description                = self.channel?.items?.last?.description?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemAuthor:                       self.channel?.items?.last?.author                     = self.channel?.items?.last?.author?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemCategory:                     self.channel?.items?.last?.categories?.last?.value    = self.channel?.items?.last?.categories?.last?.value?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemComments:                     self.channel?.items?.last?.comments                   = self.channel?.items?.last?.comments?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemEnclosure:                    break
+        case .RSSChannelItemGUID:                         self.channel?.items?.last?.guid?.value                = self.channel?.items?.last?.guid?.value?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemPubDate:                      self.channel?.items?.last?.pubDate                    = self.channel?.items?.last?.pubDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemSource:                       self.channel?.items?.last?.source?.value              = self.channel?.items?.last?.source?.value?.stringByAppendingString(string) ?? string
             
-            // Content
+            // Namespace - Content
             
-        case .RSSChannelItemContentEncoded: self.channel?.items?.last?.content?.contentEncoded = self.channel?.items?.last?.content?.contentEncoded?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemContentEncoded:               self.channel?.items?.last?.content?.contentEncoded = self.channel?.items?.last?.content?.contentEncoded?.stringByAppendingString(string) ?? string
 
-            // Syndication
+            // Namespace - Syndication
             
-        case .RSSChannelSyndicationUpdatePeriod:     self.channel?.syndication?.syUpdatePeriod = SyndicationUpdatePeriod(rawValue: string)
-        case .RSSChannelSyndicationUpdateFrequency:  self.channel?.syndication?.syUpdateFrequency = Int(string)
-        case .RSSChannelSyndicationUpdateBase:       self.channel?.syndication?.syUpdateBase = self.channel?.syndication?.syUpdateBase?.stringByAppendingString(string) ?? string
+        case .RSSChannelSyndicationUpdatePeriod:          self.channel?.syndication?.syUpdatePeriod = SyndicationUpdatePeriod(rawValue: string)
+        case .RSSChannelSyndicationUpdateFrequency:       self.channel?.syndication?.syUpdateFrequency = Int(string)
+        case .RSSChannelSyndicationUpdateBase:            self.channel?.syndication?.syUpdateBase = self.channel?.syndication?.syUpdateBase?.stringByAppendingString(string) ?? string
             
-            // Dublin Core
+            // Namespace - Dublin Core
             
         case .RSSChannelDublinCoreTitle:                  self.channel?.dublinCore?.dcTitle                          = self.channel?.dublinCore?.dcTitle?.stringByAppendingString(string) ?? string
         case .RSSChannelDublinCoreCreator:                self.channel?.dublinCore?.dcCreator                        = self.channel?.dublinCore?.dcCreator?.stringByAppendingString(string) ?? string
