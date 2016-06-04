@@ -141,7 +141,7 @@ extension Parser {
     func parserDidEndDocument(parser: NSXMLParser) {
         
         guard let feedType = self.feedType else {
-            self.result?(Result.Failure(error(Error.FeedNotFound)))
+            self.result?(Result.Failure(Error.FeedNotFound.value))
             return
         }
         
@@ -205,7 +205,7 @@ extension Parser {
         
         guard let string = NSString(data: CDATABlock, encoding: NSUTF8StringEncoding) as? String else {
             self.abortParsing()
-            self.result?(Result.Failure(error(Error.FeedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString))))
+            self.result?(Result.Failure(Error.FeedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString).value))
             return
         }
         

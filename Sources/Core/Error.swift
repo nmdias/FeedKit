@@ -75,18 +75,13 @@ public enum Error {
         
     }
     
+    /**
+     
+     The `NSError` from the specified case
+     
+     */
+    var value: NSError {
+        return NSError(domain:"com.feedparser.error", code: self.code, userInfo: self.userInfo)
+    }
+    
 }
-
-/**
- 
- Creates an `NSError` from the specified Code
- 
- - parameter code: The error code.
- 
- - returns: An `NSError` with the given error code
- 
- */
-internal func error(error: Error) -> NSError {
-    return NSError(domain:"com.feedparser.error", code: error.code, userInfo: error.userInfo)
-}
-
