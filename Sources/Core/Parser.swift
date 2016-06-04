@@ -69,7 +69,15 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
     var result: (Result -> Void)?
     
     
-    
+    /**
+     
+     Initializes a parser with the XML contents encapsulated in a given 
+     data object.
+     
+     The sole purpose of overriding this method is to become it's own
+     delegate, and thus, hanlde the parsing logic
+     
+     */
     override init(data: NSData) {
         super.init(data: data)
         self.delegate = self
