@@ -108,6 +108,13 @@ extension RSSFeed {
                 self.channel?.items?.last?.source = RSSFeedChannelItemSource(attributes: attributeDict)
             }
             
+        case .RSSChannelItemContentEncoded:
+            
+            if  self.channel?.items?.last?.content == nil {
+                self.channel?.items?.last?.content = ContentNamespace()
+            }
+            
+            
         case
         .RSSChannelSyndicationUpdateBase,
         .RSSChannelSyndicationUpdatePeriod,
