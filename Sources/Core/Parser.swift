@@ -66,7 +66,16 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
     private var currentXMLDOMPath: NSURL = NSURL(string: "/")!
     
     
+    
+    /**
+     
+     A completion handler, providing a callback with a `Result` object.
+     This closure is called whenever the parser finishes or an error as
+     ocurred.
+     
+     */
     var result: (Result -> Void)?
+    
     
     
     /**
