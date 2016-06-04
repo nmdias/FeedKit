@@ -146,8 +146,13 @@ extension Parser {
         }
         
         switch feedType {
-        case .Atom:         self.result?(Result.Atom(self.atomFeed!))
-        case .RSS1, .RSS2:  self.result?(Result.RSS(self.rssFeed!))
+        
+        case .Atom:
+            self.result?(Result.Atom(self.atomFeed!))
+        
+        case .RSS1, .RSS2:
+            self.result?(Result.RSS(self.rssFeed!))
+            
         }
         
     }
