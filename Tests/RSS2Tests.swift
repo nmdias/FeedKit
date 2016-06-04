@@ -60,16 +60,20 @@ class RSS2Tests: BaseTestCase {
             assert(feed?.channel?.categories?.last?.value == "News/Media/Science")
             assert(feed?.channel?.categories?.last?.attributes != nil)
             assert(feed?.channel?.categories?.last?.attributes?.domain == "dmoz")
+            
             assert(feed?.channel?.generator == "Iris Gen")
             assert(feed?.channel?.docs == "http://blogs.law.harvard.edu/tech/rss")
+            
             assert(feed?.channel?.cloud?.attributes != nil)
             assert(feed?.channel?.cloud?.attributes?.domain == "server.iris.com")
             assert(feed?.channel?.cloud?.attributes?.path == "/rpc")
             assert(feed?.channel?.cloud?.attributes?.port == 80)
             assert(feed?.channel?.cloud?.attributes?.protocolSpecification == "xml-rpc")
             assert(feed?.channel?.cloud?.attributes?.registerProcedure == "cloud.notify")
+            
             assert(feed?.channel?.rating == "(PICS-1.1 \"http://www.rsac.org/ratingsv01.html\" l by \"webmaster@example.com\" on \"2007.01.29T10:09-0800\" r (n 0 s 0 v 0 l 0))")
             assert(feed?.channel?.ttl == 60)
+            
             assert(feed?.channel?.image != nil)
             assert(feed?.channel?.image?.link == "http://www.iris.news/")
             assert(feed?.channel?.image?.url == "http://www.iris.news/image.jpg")
@@ -77,10 +81,12 @@ class RSS2Tests: BaseTestCase {
             assert(feed?.channel?.image?.description == "Read the Iris news feed.")
             assert(feed?.channel?.image?.width == 64)
             assert(feed?.channel?.image?.height == 192)
+            
             assert(feed?.channel?.skipDays != nil)
             assert(feed?.channel?.skipDays?.count == 2)
             assert(feed?.channel?.skipDays?.first == .Saturday)
             assert(feed?.channel?.skipDays?.last == .Sunday)
+            
             assert(feed?.channel?.skipHours != nil)
             assert(feed?.channel?.skipHours?.count == 5)
             assert(feed?.channel?.skipHours?.first == 0)
@@ -88,6 +94,7 @@ class RSS2Tests: BaseTestCase {
             assert(feed?.channel?.skipHours?[2] == 2)
             assert(feed?.channel?.skipHours?[3] == 22)
             assert(feed?.channel?.skipHours?[4] == 23)
+            
             assert(feed?.channel?.textInput != nil)
             assert(feed?.channel?.textInput?.title == "TextInput Inquiry")
             assert(feed?.channel?.textInput?.description == "Your aggregator supports the textInput element. What software are you using?")
@@ -113,53 +120,74 @@ class RSS2Tests: BaseTestCase {
             assert(feed?.channel != nil)
             
             assert(feed?.channel?.items != nil)
+            assert(feed?.channel?.items?.count == 2)
+            
             assert(feed?.channel?.items?.first?.title == "Seventh Heaven! Ryan Hurls Another No Hitter")
             assert(feed?.channel?.items?.first?.link == "http://dallas.example.com/1991/05/02/nolan.htm")
             assert(feed?.channel?.items?.first?.author == "jbb@dallas.example.com (Joe Bob Briggs)")
+            
             assert(feed?.channel?.items?.first?.categories != nil)
+            assert(feed?.channel?.items?.first?.categories?.count == 2)
+            
             assert(feed?.channel?.items?.first?.categories?.first?.value == "movies")
             assert(feed?.channel?.items?.first?.categories?.first?.attributes == nil)
             assert(feed?.channel?.items?.first?.categories?.first?.attributes?.domain == nil)
+            
             assert(feed?.channel?.items?.first?.categories?.last?.value == "1983/V")
             assert(feed?.channel?.items?.first?.categories?.last?.attributes != nil)
             assert(feed?.channel?.items?.first?.categories?.last?.attributes?.domain == "rec.arts.movies.reviews")
+            
             assert(feed?.channel?.items?.first?.comments == "http://dallas.example.com/feedback/1983/06/joebob.htm")
             assert(feed?.channel?.items?.first?.description == "I'm headed for France. I wasn't gonna go this year, but then last week \"Valley Girl\" came out and I said to myself, Joe Bob, you gotta get out of the country for a while.")
+            
             assert(feed?.channel?.items?.first?.enclosure != nil)
             assert(feed?.channel?.items?.first?.enclosure?.attributes != nil)
             assert(feed?.channel?.items?.first?.enclosure?.attributes?.length == 24986239)
             assert(feed?.channel?.items?.first?.enclosure?.attributes?.type == "audio/mpeg")
             assert(feed?.channel?.items?.first?.enclosure?.attributes?.url == "http://dallas.example.com/joebob_050689.mp3")
+            
             assert(feed?.channel?.items?.first?.guid != nil)
             assert(feed?.channel?.items?.first?.guid?.value == "tag:dallas.example.com,4131:news")
             assert(feed?.channel?.items?.first?.guid?.attributes?.isPermaLink == false)
+            
             assert(feed?.channel?.items?.first?.pubDate == "Fri, 05 Oct 2007 09:00:00 CST")
+            
             assert(feed?.channel?.items?.first?.source != nil)
             assert(feed?.channel?.items?.first?.source?.value == "Los Angeles Herald-Examiner")
             assert(feed?.channel?.items?.first?.source?.attributes != nil)
             assert(feed?.channel?.items?.first?.source?.attributes?.url == "http://la.example.com/rss.xml")
+            
             assert(feed?.channel?.items?.last?.title == "Seventh Heaven! Ryan Hurls Another No Hitter")
             assert(feed?.channel?.items?.last?.link == "http://dallas.example.com/1991/05/02/nolan.htm")
             assert(feed?.channel?.items?.last?.author == "jbb@dallas.example.com (Joe Bob Briggs)")
+            
             assert(feed?.channel?.items?.last?.categories != nil)
+            assert(feed?.channel?.items?.last?.categories?.count == 2)
+            
             assert(feed?.channel?.items?.last?.categories?.first?.value == "movies")
             assert(feed?.channel?.items?.last?.categories?.first?.attributes == nil)
             assert(feed?.channel?.items?.last?.categories?.first?.attributes?.domain == nil)
+            
             assert(feed?.channel?.items?.last?.categories?.last?.value == "1983/V")
             assert(feed?.channel?.items?.last?.categories?.last?.attributes != nil)
             assert(feed?.channel?.items?.last?.categories?.last?.attributes?.domain == "rec.arts.movies.reviews")
+            
             assert(feed?.channel?.items?.last?.comments == "http://dallas.example.com/feedback/1983/06/joebob.htm")
             assert(feed?.channel?.items?.last?.description == "I\'m headed for France. I wasn\'t gonna go this year, but then last week <a href=\"http://www.imdb.com/title/tt0086525/\">Valley Girl</a> came out and I said to myself, Joe Bob, you gotta get out of the country for a while.")
+            
             assert(feed?.channel?.items?.last?.enclosure != nil)
             assert(feed?.channel?.items?.last?.enclosure?.attributes != nil)
             assert(feed?.channel?.items?.last?.enclosure?.attributes?.length == 24986239)
             assert(feed?.channel?.items?.last?.enclosure?.attributes?.type == "audio/mpeg")
             assert(feed?.channel?.items?.last?.enclosure?.attributes?.url == "http://dallas.example.com/joebob_050689.mp3")
+            
             assert(feed?.channel?.items?.last?.guid != nil)
             assert(feed?.channel?.items?.last?.guid?.value == "http://dallas.example.com/item/1234")
             assert(feed?.channel?.items?.last?.guid?.attributes != nil )
             assert(feed?.channel?.items?.last?.guid?.attributes?.isPermaLink == true)
+            
             assert(feed?.channel?.items?.last?.pubDate == "Fri, 05 Oct 2007 09:00:00 CST")
+            
             assert(feed?.channel?.items?.last?.source != nil)
             assert(feed?.channel?.items?.last?.source?.value == "Los Angeles Herald-Examiner")
             assert(feed?.channel?.items?.last?.source?.attributes != nil)
