@@ -12,12 +12,12 @@ An RSS and Atom feed parser written in Swift
 
 - [x] [Atom Syndication Format](https://tools.ietf.org/html/rfc4287)
 - [x] [RSS/RSS2+](http://cyber.law.harvard.edu/rss/rss.html) 
-- [x] [RSS-DEV Namespaces](http://web.resource.org/rss/)
+- [x] RSS-DEV Namespaces
  - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
  - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
  - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
-- [x] Comprehensive Unit Test Coverage
-- [x] [Complete Documentation](http://cocoadocs.org/docsets/FeedParser)
+- [x] [Documentation](http://cocoadocs.org/docsets/FeedParser)
+- [x] Unit Test Coverage
 
 ## Requirements
 
@@ -79,6 +79,20 @@ Build the framework:
 $ carthage update
 ```
 Then, drag the built `FeedParser.framework` into your Xcode project.
+
+## Usage
+    
+### Parsing an RSS feed
+    
+´´´swift
+let URL = NSURL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
+
+FeedParser(URL: URL)?.parse({ (result) in
+    
+    result.rssFeed // An `RSSFeed` model
+    
+})
+´´´
 
 ## License
 
