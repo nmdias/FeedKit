@@ -103,6 +103,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 ```
 
 ### Parse Result cases
+`FeedType` and, or `Error` handling can be acomplished using the `Result` enum
 
 ```swift
 FeedParser(URL: URL)?.parse({ (result) in
