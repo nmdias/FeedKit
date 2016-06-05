@@ -10,13 +10,12 @@ An RSS and Atom feed parser written in Swift
 
 ## Features
 
-- [x] Parses the most popular feed Types and Namespaces
- - [x] Atom Syndication Format, as defined by the [RFC 4287](https://tools.ietf.org/html/rfc4287)
- - [x] RSS/RSS2+, as defined by the `Berkman Center for Internet & Society at Harvard Law` [specification](http://cyber.law.harvard.edu/rss/rss.html) 
- - [x] Module namespaces, as defined by the [RSS-DEV Working Group](http://web.resource.org/rss/)
-  - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
-  - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
-  - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
+- [x] [Atom Syndication Format](https://tools.ietf.org/html/rfc4287)
+- [x] [RSS/RSS2+](http://cyber.law.harvard.edu/rss/rss.html) 
+- [x] [RSS-DEV Namespaces](http://web.resource.org/rss/)
+ - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
+ - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
+ - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
 - [x] Comprehensive Unit Test Coverage
 - [x] [Complete Documentation](http://cocoadocs.org/docsets/FeedParser)
 
