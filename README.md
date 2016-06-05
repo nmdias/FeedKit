@@ -94,6 +94,14 @@ FeedParser(URL: URL)?.parse({ (result) in
 })
 ```
 
+### Parsing an Atom feed
+    
+```swift
+FeedParser(URL: URL)?.parse({ (result) in
+    result.atomFeed // An `AtomFeed` model
+})
+```
+
 ## License
 
 FeedParser is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedParser/blob/master/LICENSE) for details.
