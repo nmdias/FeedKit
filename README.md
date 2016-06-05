@@ -102,6 +102,23 @@ FeedParser(URL: URL)?.parse({ (result) in
 })
 ```
 
+### Parse Result cases
+
+```swift
+FeedParser(URL: URL)?.parse({ (result) in
+    
+    switch result {
+    case .RSS(let rssFeed):
+        print(rssFeed)
+    case .Atom(let atomFeed):
+        print(atomFeed)
+    case .Failure(let error):
+        print(error)
+    }
+    
+})
+```
+
 ## License
 
 FeedParser is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedParser/blob/master/LICENSE) for details.
