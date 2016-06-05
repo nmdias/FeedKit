@@ -42,7 +42,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'FeedParser', '~> 2.1'
+  pod 'FeedParser', '~> 3.0'
 end
 ```
 
@@ -102,7 +102,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 })
 ```
 
-### Parse Result cases
+### Parse Result
 Multiple `FeedType`'s and, or `Error handling` can be acomplished using the `Result` enum
 
 ```swift
