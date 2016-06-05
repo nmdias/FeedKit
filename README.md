@@ -82,7 +82,7 @@ Then, drag the built `FeedParser.framework` into your Xcode project.
 
 ## Usage
     
-### RSS feed parsing
+### RSS Feed Parsing
     
 ```swift
 import FeedParser
@@ -94,7 +94,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 })
 ```
 
-### Atom feed parsing
+### Atom Feed Parsing
     
 ```swift
 FeedParser(URL: URL)?.parse({ (result) in
@@ -119,6 +119,48 @@ FeedParser(URL: URL)?.parse({ (result) in
     
 })
 ```
+
+### Model Preview
+
+#### RSSFeed
+
+```swift
+FeedParser(URL: URL)?.parse({ (result) in
+    
+    guard let feed = result.rssFeed where result.isSuccess else {
+        print(result.error)
+        return
+    }
+    
+    print(feed.title)                      // The feed's `Title`
+    print(feed.items?.count)               // The number of articles
+    print(feed.items?.first?.title)        // The feed's first article `Title`
+    print(feed.items?.first?.description)  // The feed's first article `Description`
+    print(feed.items?.first?.pubDate)      // The feed's first article `Publication Date`
+    
+})
+```
+> Refer to the [`RSSFeed` documentation](http://cocoadocs.org/docsets/FeedParser) for the complete model description
+
+#### AtomFeed
+
+```swift
+FeedParser(URL: URL)?.parse({ (result) in
+    
+    guard let feed = result.atomFeed where result.isSuccess else {
+        print(result.error)
+        return
+    }
+    
+    print(feed.title)                    // The feed's `Title`
+    print(feed.entries?.count)           // The number of articles
+    print(feed.entries?.first?.title)    // The feed's first article `Title`
+    print(feed.entries?.first?.summary)  // The feed's first article `Summary`
+    print(feed.entries?.first?.updated)  // The feed's first article `Updated Date`
+    
+})
+```
+> Refer to the [`AtomFeed` documentation](http://cocoadocs.org/docsets/FeedParser) for the complete model description
 
 ## License
 
