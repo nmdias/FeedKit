@@ -84,7 +84,7 @@ Then, drag the built `FeedParser.framework` into your Xcode project.
     
 ### Parsing an RSS feed
     
-´´´swift
+```swift
 let URL = NSURL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
 
 FeedParser(URL: URL)?.parse({ (result) in
@@ -92,7 +92,7 @@ FeedParser(URL: URL)?.parse({ (result) in
     result.rssFeed // An `RSSFeed` model
     
 })
-´´´
+```
 
 ## License
 
