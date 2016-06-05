@@ -71,7 +71,7 @@ $ brew install carthage
 To integrate FeedParser into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "nmdias/FeedParser" ~> 2.1
+github "nmdias/FeedParser" ~> 3.0
 ```
 Build the framework:
 
