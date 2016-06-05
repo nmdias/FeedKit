@@ -144,7 +144,7 @@ FeedParser(URL: URL)?.parse({ (result) in
     
 })
 ```
-> Refer to the [`RSSFeed` documentation](http://cocoadocs.org/docsets/FeedParser) for the complete model description
+> Refer to the [`RSSFeed`](http://cocoadocs.org/docsets/FeedParser) documentation for the complete model properties and description
 
 #### AtomFeed
 
@@ -164,7 +164,7 @@ FeedParser(URL: URL)?.parse({ (result) in
     
 })
 ```
-> Refer to the [`AtomFeed` documentation](http://cocoadocs.org/docsets/FeedParser) for the complete model description
+> Refer to the [`AtomFeed`](http://cocoadocs.org/docsets/FeedParser) documentation for the complete model properties and description
 
 ## License
 
