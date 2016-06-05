@@ -82,7 +82,7 @@ Then, drag the built `FeedParser.framework` into your Xcode project.
 
 ## Usage
     
-### Parsing an RSS feed
+### RSS feed parsing
     
 ```swift
 import FeedParser
@@ -94,7 +94,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 })
 ```
 
-### Parsing an Atom feed
+### Atom feed parsing
     
 ```swift
 FeedParser(URL: URL)?.parse({ (result) in
