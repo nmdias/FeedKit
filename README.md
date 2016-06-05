@@ -8,20 +8,16 @@ An RSS and Atom feed parser written in Swift
 [![Platform](https://img.shields.io/cocoapods/p/FeedParser.svg?style=flat)](http://cocoadocs.org/docsets/FeedParser)
 [![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/FeedParser.svg)](http://cocoadocs.org/docsets/FeedParser/)
 
-## Developer's Notice
+## Features
 
-FeedParser is under active development and it's `2.1.0` release successfully parses all versions of the RSS specification, from `RSS 0.90` to `RSS 2.0.0`.  Atom feeds support will be made available in version `3.0.0`.
-
-###### 3.0.0
-
-The objectives of the 3.0.0 release are to make `FeedParser` fully documented and thoroughly mappable to a strongly typed model with:
-
- - [x] 100% RSS compatibility, as defined by the Berkman Center for Internet & Society at Harvard Law School [specification](http://cyber.law.harvard.edu/rss/rss.html) 
- - [ ] 100% extensible to the Module's namespace defined by the [RSS-DEV Working Group](http://web.resource.org/rss/)
-  - [x] Dublin Core
-  - [x] Syndication
-  - [ ] Content
- - [ ] 100% Atom compatibility, as defined by the Atom Syndication Format specification at [RFC 5988](https://tools.ietf.org/html/rfc4287)
+- [x] Atom, as defined by the `Atom Syndication Format` [RFC 4287](https://tools.ietf.org/html/rfc4287)
+- [x] RSS/RSS2, as defined by the `Berkman Center for Internet & Society at Harvard Law` [specification](http://cyber.law.harvard.edu/rss/rss.html) 
+- [x] Module's namespace, as defined by the [RSS-DEV Working Group](http://web.resource.org/rss/)
+ - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
+ - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
+ - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
+- [x] Comprehensive Unit Test Coverage
+- [x] [Complete Documentation](http://cocoadocs.org/docsets/FeedParser)
 
 ## Requirements
 
