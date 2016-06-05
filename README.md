@@ -82,7 +82,7 @@ Then, drag the built `FeedParser.framework` into your Xcode project.
 
 ## Usage
     
-### RSS
+### RSS Feed Parsing
     
 ```swift
 import FeedParser
@@ -94,13 +94,15 @@ FeedParser(URL: URL)?.parse({ (result) in
 })
 ```
 
-### Atom
+### Atom Feed Parsing
     
 ```swift
 FeedParser(URL: URL)?.parse({ (result) in
     result.atomFeed // An `AtomFeed` model
 })
 ```
+
+> Aditional initializers can also be found for `NSData` and `NSInputStream` objects.
 
 ### Parse Result
 Multiple `FeedType`'s and, or `Error handling` can be acomplished using the `Result` enum
