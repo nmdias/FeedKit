@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelTextInput.swift
+//  RSSFeedTextInput.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -44,7 +44,7 @@ import Foundation
  feedback. Most aggregators ignore it.
  
  */
-public class RSSFeedChannelTextInput {
+public class RSSFeedTextInput {
     
     /** 
      

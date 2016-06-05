@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelItemEnclosure.swift
+//  RSSFeedItemEnclosure.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -39,7 +39,7 @@ import Foundation
  <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" length="12216320" type="audio/mpeg" />
  
  */
-public class RSSFeedChannelItemEnclosure {
+public class RSSFeedItemEnclosure {
     
     /**
      
@@ -90,33 +90,33 @@ public class RSSFeedChannelItemEnclosure {
 
 // MARK: - Initializers
 
-extension RSSFeedChannelItemEnclosure {
+extension RSSFeedItemEnclosure {
     
     /**
      
-     Initializes the `RSSFeedChannelItemEnclosure` with the attributes of the `<enclosure>` element
+     Initializes the `RSSFeedItemEnclosure` with the attributes of the `<enclosure>` element
      
      - parameter attributeDict: A dictionary with the attributes of the `<enclosure>` element
      
-     - returns: A `RSSFeedChannelItemEnclosure` instance
+     - returns: A `RSSFeedItemEnclosure` instance
      
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
-        self.attributes = RSSFeedChannelItemEnclosure.Attributes(attributes: attributeDict)
+        self.attributes = RSSFeedItemEnclosure.Attributes(attributes: attributeDict)
     }
     
 }
 
-extension RSSFeedChannelItemEnclosure.Attributes {
+extension RSSFeedItemEnclosure.Attributes {
     
     /**
      
-     Initializes the `Attributes` of the `RSSFeedChannelItemEnclosure`
+     Initializes the `Attributes` of the `RSSFeedItemEnclosure`
      
      - parameter: A dictionary with the attributes of the `<enclosure>` element
      
-     - returns: A `RSSFeedChannelItemEnclosure.Attributes` instance
+     - returns: A `RSSFeedItemEnclosure.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {

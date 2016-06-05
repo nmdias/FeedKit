@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelItemSource.swift
+//  RSSFeedItemCategory.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,23 +26,28 @@ import Foundation
 
 /**
  
- The RSS channel that the item came from.
+ Includes the item in one or more categories.
  
- <source> is an optional sub-element of <item>.
+ <category> is an optional sub-element of <item>.
  
- Its value is the name of the RSS channel that the item came from, derived
- from its <title>. It has one required attribute, url, which links to the
- XMLization of the source.
+ It has one optional attribute, domain, a string that identifies a
+ categorization taxonomy.
  
- <source url="http://www.tomalak.org/links2.xml">Tomalak's Realm</source>
+ The value of the element is a forward-slash-separated string that
+ identifies a hierarchic location in the indicated taxonomy. Processors
+ may establish conventions for the interpretation of categories.
  
- The purpose of this element is to propagate credit for links, to
- publicize the sources of news items. It can be used in the Post command
- of an aggregator. It should be generated automatically when forwarding
- an item from an aggregator to a weblog authoring tool.
+ Two examples are provided below:
+ 
+ <category>Grateful Dead</category>
+ <category domain="http://www.fool.com/cusips">MSFT</category>
+ 
+ You may include as many category elements as you need to, for different
+ domains, and to have an item cross-referenced in different parts of the
+ same domain.
  
  */
-public class RSSFeedChannelItemSource {
+public class RSSFeedItemCategory {
     
     /**
      
@@ -51,8 +56,15 @@ public class RSSFeedChannelItemSource {
      */
     public class Attributes {
         
-        /// Required attribute of the `Source` element, which links to the XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
-        public var url: String?
+        /** 
+         
+         A string that identifies a categorization taxonomy. It's an optional 
+         attribute of `<category>`.
+         
+         Example: http://www.fool.com/cusips
+         
+         */
+        public var domain: String?
         
     }
     
@@ -76,33 +88,33 @@ public class RSSFeedChannelItemSource {
 
 // MARK: - Initializers
 
-extension RSSFeedChannelItemSource {
+extension RSSFeedItemCategory {
     
     /**
      
-     Initializes the `RSSFeedChannelItemSource` with the attributes of the `<source>` element
+     Initializes the `RSSFeedItemCategory` with the attributes of an `<item>`s sub-element `<category>`
      
-     - parameter attributeDict: A dictionary with the attributes of the `<source>` element
+     - parameter attributeDict: A dictionary with the attributes of the `<category>` element
      
-     - returns: A `RSSFeedChannelItemSource` instance
+     - returns: A `RSSFeedItemCategory` instance
      
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
-        self.attributes = RSSFeedChannelItemSource.Attributes(attributes: attributeDict)
+        self.attributes = RSSFeedItemCategory.Attributes(attributes: attributeDict)
     }
     
 }
 
-extension RSSFeedChannelItemSource.Attributes {
+extension RSSFeedItemCategory.Attributes {
     
     /**
      
-     Initializes the `Attributes` of the `RSSFeedChannelItemSource`
+     Initializes the `Attributes` of the `RSSFeedItemCategory`
      
-     - parameter: A dictionary with the attributes of the `<source>` element
+     - parameter: A dictionary with the attributes of an `<item>`s sub-element `<category>`
      
-     - returns: A `RSSFeedChannelItemSource.Attributes` instance
+     - returns: A `RSSFeedItemCategory.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {
@@ -113,7 +125,7 @@ extension RSSFeedChannelItemSource.Attributes {
         
         self.init()
         
-        self.url = attributeDict["url"]
+        self.domain = attributeDict["domain"]
         
     }
     

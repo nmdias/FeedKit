@@ -40,8 +40,8 @@ class ContentTests: BaseTestCase {
             
             // Then
             assert(feed != nil)
-            assert(feed?.channel?.items?.last?.content != nil)
-            assert(feed?.channel?.items?.last?.content?.contentEncoded == "<p>What a <em>beautiful</em> day!</p>")
+            assert(feed?.items?.last?.content != nil)
+            assert(feed?.items?.last?.content?.contentEncoded == "<p>What a <em>beautiful</em> day!</p>")
             
         }
         

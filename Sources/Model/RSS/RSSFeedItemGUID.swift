@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelItemGUID.swift
+//  RSSFeedItemGUID.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -54,7 +54,7 @@ import Foundation
  particular.
  
  */
-public class RSSFeedChannelItemGUID {
+public class RSSFeedItemGUID {
     
     /**
      
@@ -101,33 +101,33 @@ public class RSSFeedChannelItemGUID {
 
 // MARK: - Initializers
 
-extension RSSFeedChannelItemGUID {
+extension RSSFeedItemGUID {
     
     /**
      
-     Initializes the `RSSFeedChannelItemGUID` with the attributes of the `<guid>` element
+     Initializes the `RSSFeedItemGUID` with the attributes of the `<guid>` element
      
      - parameter attributeDict: A dictionary with the attributes of the `<guid>` element
      
-     - returns: A `RSSFeedChannelItemGUID` instance
+     - returns: A `RSSFeedItemGUID` instance
      
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
-        self.attributes = RSSFeedChannelItemGUID.Attributes(attributes: attributeDict)
+        self.attributes = RSSFeedItemGUID.Attributes(attributes: attributeDict)
     }
     
 }
 
-extension RSSFeedChannelItemGUID.Attributes {
+extension RSSFeedItemGUID.Attributes {
     
     /**
      
-     Initializes the `Attributes` of the `RSSFeedChannelItemGUID`
+     Initializes the `Attributes` of the `RSSFeedItemGUID`
      
      - parameter: A dictionary with the attributes of the `<guid>` element
      
-     - returns: A `RSSFeedChannelItemGUID.Attributes` instance
+     - returns: A `RSSFeedItemGUID.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {

@@ -39,11 +39,11 @@ class SyndicationTests: BaseTestCase {
             let feed = result.rssFeed
             
             // Then
-            assert(feed?.channel != nil)
+            assert(feed != nil)
 
-            assert(feed?.channel?.syndication?.syUpdatePeriod == SyndicationUpdatePeriod.Hourly)
-            assert(feed?.channel?.syndication?.syUpdateFrequency == Int(2))
-            assert(feed?.channel?.syndication?.syUpdateBase == "2000-01-01T12:00+00:00")
+            assert(feed?.syndication?.syUpdatePeriod == SyndicationUpdatePeriod.Hourly)
+            assert(feed?.syndication?.syUpdateFrequency == Int(2))
+            assert(feed?.syndication?.syUpdateBase == "2000-01-01T12:00+00:00")
 
         }
         

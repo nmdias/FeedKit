@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelItem.swift
+//  RSSFeedItem.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -36,7 +36,7 @@ import Foundation
  however at least one of title or description must be present.
  
  */
-public class RSSFeedChannelItem {
+public class RSSFeedItem {
     
     /**
      
@@ -110,7 +110,7 @@ public class RSSFeedChannelItem {
      same domain.
      
      */
-    public var categories: [RSSFeedChannelItemCategory]?
+    public var categories: [RSSFeedItemCategory]?
     
     /**
      
@@ -145,7 +145,7 @@ public class RSSFeedChannelItem {
      <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" length="12216320" type="audio/mpeg" />
      
      */
-    public var enclosure: RSSFeedChannelItemEnclosure?
+    public var enclosure: RSSFeedItemEnclosure?
     
     /**
      
@@ -177,7 +177,7 @@ public class RSSFeedChannelItem {
      particular.
      
      */
-    public var guid: RSSFeedChannelItemGUID?
+    public var guid: RSSFeedItemGUID?
     
     /**
      
@@ -212,7 +212,7 @@ public class RSSFeedChannelItem {
      an item from an aggregator to a weblog authoring tool.
      
      */
-    public var source: RSSFeedChannelItemSource?
+    public var source: RSSFeedItemSource?
     
     
     // MARK: - Namespaces

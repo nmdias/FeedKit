@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelSkipDay.swift
+//  RSSFeedSkipDay.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -34,7 +34,7 @@ import Foundation
  element.
  
  */
-public enum RSSFeedChannelSkipDay: String {
+public enum RSSFeedSkipDay: String {
     
     case Monday     = "monday"
     case Tuesday    = "tuesday"
@@ -46,12 +46,12 @@ public enum RSSFeedChannelSkipDay: String {
     
 }
 
-extension RSSFeedChannelSkipDay {
+extension RSSFeedSkipDay {
     
     /**
      
      Lowercase the incoming `rawValue` string to try and match the 
-     `RSSFeedChannelSkipDay`'s `rawValue`
+     `RSSFeedSkipDay`'s `rawValue`
      
     */
     public init?(rawValue: String) {

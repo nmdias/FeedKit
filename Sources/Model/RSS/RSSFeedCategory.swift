@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelItemCategory.swift
+//  RSSFeedCategory.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -25,29 +25,9 @@
 import Foundation
 
 /**
- 
- Includes the item in one or more categories.
- 
- <category> is an optional sub-element of <item>.
- 
- It has one optional attribute, domain, a string that identifies a
- categorization taxonomy.
- 
- The value of the element is a forward-slash-separated string that
- identifies a hierarchic location in the indicated taxonomy. Processors
- may establish conventions for the interpretation of categories.
- 
- Two examples are provided below:
- 
- <category>Grateful Dead</category>
- <category domain="http://www.fool.com/cusips">MSFT</category>
- 
- You may include as many category elements as you need to, for different
- domains, and to have an item cross-referenced in different parts of the
- same domain.
- 
- */
-public class RSSFeedChannelItemCategory {
+    The category of `<channel>`. Identifies a category or tag to which the feed belongs.
+*/
+public class RSSFeedCategory {
     
     /**
      
@@ -56,14 +36,7 @@ public class RSSFeedChannelItemCategory {
      */
     public class Attributes {
         
-        /** 
-         
-         A string that identifies a categorization taxonomy. It's an optional 
-         attribute of `<category>`.
-         
-         Example: http://www.fool.com/cusips
-         
-         */
+        /// A string that identifies a categorization taxonomy. It's an optional attribute of `<category>`. e.g. "http://www.fool.com/cusips"
         public var domain: String?
         
     }
@@ -81,40 +54,40 @@ public class RSSFeedChannelItemCategory {
      
      */
     public var value: String?
-    
+
     public init() {}
     
 }
 
 // MARK: - Initializers
 
-extension RSSFeedChannelItemCategory {
+extension RSSFeedCategory {
     
     /**
      
-     Initializes the `RSSFeedChannelItemCategory` with the attributes of an `<item>`s sub-element `<category>`
+     Initializes the `RSSFeedCategory` with the attributes of the `<category>` element
      
      - parameter attributeDict: A dictionary with the attributes of the `<category>` element
      
-     - returns: A `RSSFeedChannelItemCategory` instance
+     - returns: A `RSSFeedCategory` instance
      
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
-        self.attributes = RSSFeedChannelItemCategory.Attributes(attributes: attributeDict)
+        self.attributes = RSSFeedCategory.Attributes(attributes: attributeDict)
     }
     
 }
 
-extension RSSFeedChannelItemCategory.Attributes {
+extension RSSFeedCategory.Attributes {
     
     /**
      
-     Initializes the `Attributes` of the `RSSFeedChannelItemCategory`
+     Initializes the `Attributes` of the `RSSFeedCategory`
      
-     - parameter: A dictionary with the attributes of an `<item>`s sub-element `<category>`
+     - parameter: A dictionary with the attributes of the `<category>` element
      
-     - returns: A `RSSFeedChannelItemCategory.Attributes` instance
+     - returns: A `RSSFeedCategory.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {

@@ -39,88 +39,82 @@ extension RSSFeed {
         
         switch path {
             
-        case .RSSChannel:
-            
-            if  self.channel == nil {
-                self.channel = RSSFeedChannel()
-            }
-            
         case .RSSChannelItem:
             
-            if  self.channel?.items == nil {
-                self.channel?.items = []
+            if  self.items == nil {
+                self.items = []
             }
             
-            self.channel?.items?.append(RSSFeedChannelItem())
+            self.items?.append(RSSFeedItem())
             
         case .RSSChannelImage:
             
-            if  self.channel?.image == nil {
-                self.channel?.image = RSSFeedChannelImage()
+            if  self.image == nil {
+                self.image = RSSFeedImage()
             }
             
         case .RSSChannelSkipDays:
             
-            if  self.channel?.skipDays == nil {
-                self.channel?.skipDays = []
+            if  self.skipDays == nil {
+                self.skipDays = []
             }
             
         case .RSSChannelSkipHours:
             
-            if  self.channel?.skipHours == nil {
-                self.channel?.skipHours = []
+            if  self.skipHours == nil {
+                self.skipHours = []
             }
             
         case .RSSChannelTextInput:
             
-            if  self.channel?.textInput == nil {
-                self.channel?.textInput = RSSFeedChannelTextInput()
+            if  self.textInput == nil {
+                self.textInput = RSSFeedTextInput()
             }
             
         case .RSSChannelCategory:
             
-            if  self.channel?.categories == nil {
-                self.channel?.categories = []
+            if  self.categories == nil {
+                self.categories = []
             }
             
-            self.channel?.categories?.append(RSSFeedChannelCategory(attributes: attributeDict))
+            self.categories?.append(RSSFeedCategory(attributes: attributeDict))
             
         case .RSSChannelCloud:
             
-            if  self.channel?.cloud == nil {
-                self.channel?.cloud = RSSFeedChannelCloud(attributes: attributeDict)
+            if  self.cloud == nil {
+                self.cloud = RSSFeedCloud(attributes: attributeDict)
             }
             
         case .RSSChannelItemCategory:
             
-            if  self.channel?.items?.last?.categories == nil {
-                self.channel?.items?.last?.categories = []
+            if  self.items?.last?.categories == nil {
+                self.items?.last?.categories = []
             }
             
-            self.channel?.items?.last?.categories?.append(RSSFeedChannelItemCategory(attributes: attributeDict))
+            self.items?.last?.categories?.append(RSSFeedItemCategory(attributes: attributeDict))
             
         case .RSSChannelItemEnclosure:
             
-            if  self.channel?.items?.last?.enclosure == nil {
-                self.channel?.items?.last?.enclosure = RSSFeedChannelItemEnclosure(attributes: attributeDict)
+            if  self.items?.last?.enclosure == nil {
+                self.items?.last?.enclosure = RSSFeedItemEnclosure(attributes: attributeDict)
             }
             
         case .RSSChannelItemGUID:
             
-            if  self.channel?.items?.last?.guid == nil {
-                self.channel?.items?.last?.guid = RSSFeedChannelItemGUID(attributes: attributeDict)
+            if  self.items?.last?.guid == nil {
+                self.items?.last?.guid = RSSFeedItemGUID(attributes: attributeDict)
             }
             
         case .RSSChannelItemSource:
             
-            if  self.channel?.items?.last?.source == nil {
-                self.channel?.items?.last?.source = RSSFeedChannelItemSource(attributes: attributeDict)
+            if  self.items?.last?.source == nil {
+                self.items?.last?.source = RSSFeedItemSource(attributes: attributeDict)
             }
             
         case .RSSChannelItemContentEncoded:
             
-            if  self.channel?.items?.last?.content == nil {
-                self.channel?.items?.last?.content = ContentNamespace()
+            if  self.items?.last?.content == nil {
+                self.items?.last?.content = ContentNamespace()
             }
             
             
@@ -130,8 +124,8 @@ extension RSSFeed {
         .RSSChannelSyndicationUpdateFrequency:
             
             /// If the syndication variable has not been initialized yet, do it before assiging any values
-            if  self.channel?.syndication == nil {
-                self.channel?.syndication = SyndicationNamespace()
+            if  self.syndication == nil {
+                self.syndication = SyndicationNamespace()
             }
             
         case
@@ -151,8 +145,8 @@ extension RSSFeed {
         .RSSChannelDublinCoreCoverage,
         .RSSChannelDublinCoreRights:
             
-            if self.channel?.dublinCore == nil {
-                self.channel?.dublinCore = DublinCoreNamespace()
+            if  self.dublinCore == nil {
+                self.dublinCore = DublinCoreNamespace()
             }
             
         case
@@ -174,8 +168,8 @@ extension RSSFeed {
         .RSSChannelItemDublinCoreRights:
             
             /// If the dublin core variable has not been initialized yet, do it before assiging any values
-            if  self.channel?.items?.last?.dublinCore == nil {
-                self.channel?.items?.last?.dublinCore = DublinCoreNamespace()
+            if  self.items?.last?.dublinCore == nil {
+                self.items?.last?.dublinCore = DublinCoreNamespace()
             }
             
         default: break

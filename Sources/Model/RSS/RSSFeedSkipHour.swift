@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelSkipHour.swift
+//  RSSFeedSkipHour.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -36,4 +36,4 @@ import Foundation
  The hour beginning at midnight is hour zero.
  
  */
-public typealias RSSFeedChannelSkipHour = Int
+public typealias RSSFeedSkipHour = Int

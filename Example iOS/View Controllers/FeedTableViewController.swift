@@ -56,7 +56,7 @@ extension FeedTableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 3
-        case 1: return self.feed?.channel?.items?.count ?? 0
+        case 1: return self.feed?.items?.count ?? 0
         default: fatalError()
         }
     }
@@ -65,10 +65,10 @@ extension FeedTableViewController {
         let cell = reusableCell()
         guard let layout = TableViewLayout(indexPath: indexPath) else { fatalError() }
         switch layout {
-        case .Title:        cell.textLabel?.text = self.feed?.channel?.title ?? "[no title]"
-        case .Link:         cell.textLabel?.text = self.feed?.channel?.link ?? "[no link]"
-        case .Description:  cell.textLabel?.text = self.feed?.channel?.description ?? "[no description]"
-        case .Items:        cell.textLabel?.text = self.feed?.channel?.items?[indexPath.row].title ?? "[no title]"
+        case .Title:        cell.textLabel?.text = self.feed?.title ?? "[no title]"
+        case .Link:         cell.textLabel?.text = self.feed?.link ?? "[no link]"
+        case .Description:  cell.textLabel?.text = self.feed?.description ?? "[no description]"
+        case .Items:        cell.textLabel?.text = self.feed?.items?[indexPath.row].title ?? "[no title]"
         }
         return cell
     }
@@ -82,10 +82,10 @@ extension FeedTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let layout = TableViewLayout(indexPath: indexPath) else { fatalError() }
         switch layout {
-        case .Title:        self.showDetailViewControllerWithText(self.feed?.channel?.title ?? "[no title]")
-        case .Link:         self.showDetailViewControllerWithText(self.feed?.channel?.link ?? "[no link]")
-        case .Description:  self.showDetailViewControllerWithText(self.feed?.channel?.description ?? "[no link]")
-        case .Items:        self.showDetailViewControllerWithText(self.feed?.channel?.items?[indexPath.row].description ?? "[no description]")
+        case .Title:        self.showDetailViewControllerWithText(self.feed?.title ?? "[no title]")
+        case .Link:         self.showDetailViewControllerWithText(self.feed?.link ?? "[no link]")
+        case .Description:  self.showDetailViewControllerWithText(self.feed?.description ?? "[no link]")
+        case .Items:        self.showDetailViewControllerWithText(self.feed?.items?[indexPath.row].description ?? "[no description]")
         }
     }
     

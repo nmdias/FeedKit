@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelImage.swift
+//  RSSFeedImage.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -50,7 +50,7 @@ import Foundation
  Maximum value for height is 400, default value is 31.
  
  */
-public class RSSFeedChannelImage {
+public class RSSFeedImage {
     
     /** 
      

@@ -1,5 +1,5 @@
 //
-//  RSSFeedChannelCloud.swift
+//  RSSFeedCloud.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -51,7 +51,7 @@ import Foundation
  http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
  
  */
-public class RSSFeedChannelCloud {
+public class RSSFeedCloud {
     
     /**
      
@@ -111,33 +111,33 @@ public class RSSFeedChannelCloud {
 
 // MARK: - Initializers
 
-extension RSSFeedChannelCloud {
+extension RSSFeedCloud {
     
     /**
      
-     Initializes the `RSSFeedChannelCloud` with the attributes of the `<cloud>` element
+     Initializes the `RSSFeedCloud` with the attributes of the `<cloud>` element
      
      - parameter attributeDict: A dictionary with the attributes of the `<cloud>` element
      
-     - returns: A `RSSFeedChannelCloud` instance
+     - returns: A `RSSFeedCloud` instance
      
      */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
-        self.attributes = RSSFeedChannelCloud.Attributes(attributes: attributeDict)
+        self.attributes = RSSFeedCloud.Attributes(attributes: attributeDict)
     }
     
 }
 
-extension RSSFeedChannelCloud.Attributes {
+extension RSSFeedCloud.Attributes {
     
     /**
      
-     Initializes the `Attributes` of the `RSSFeedChannelCloud`
+     Initializes the `Attributes` of the `RSSFeedCloud`
      
      - parameter: A dictionary with the attributes of the `<cloud>` element
      
-     - returns: A `RSSFeedChannelCloud.Attributes` instance
+     - returns: A `RSSFeedCloud.Attributes` instance
      
      */
     convenience init?(attributes attributeDict: [String : String]) {
