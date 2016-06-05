@@ -114,11 +114,11 @@ FeedParser(URL: URL)?.parse({ (result) in
     
     switch result {
     case .RSS(let rssFeed):
-        print(rssFeed)
+        print(rssFeed) // An `RSSFeed` model
     case .Atom(let atomFeed):
-        print(atomFeed)
+        print(atomFeed) // An `AtomFeed` model
     case .Failure(let error):
-        print(error)
+        print(error) // An `NSError` object
     }
     
 })
