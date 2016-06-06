@@ -7,8 +7,6 @@ An RSS and Atom feed parser written in Swift
 [![CocoaPods Compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedParser)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/FeedParser.svg)](https://img.shields.io/cocoapods/v/FeedParser.svg)
 [![Language](https://img.shields.io/badge/swift-v2.2-orange.svg)](https://swift.org)
-
-[![Platform](https://img.shields.io/cocoapods/p/FeedParser.svg?style=flat)](http://cocoadocs.org/docsets/FeedParser)
 [![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/FeedParser.svg)](http://cocoadocs.org/docsets/FeedParser/)
 
 ## Features
@@ -24,8 +22,11 @@ An RSS and Atom feed parser written in Swift
 
 ## Requirements
 
-- iOS 8.0+ / Mac OS X 10.9+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 7.3+
+![ios](https://img.shields.io/badge/ios-8.0%2b-lightgrey.svg)
+![tvos](https://img.shields.io/badge/tvos-9.0%2b-lightgrey.svg)
+![watchos](https://img.shields.io/badge/watchos-2.0%2b-lightgrey.svg)
+![mac osx](https://img.shields.io/badge/mac%20osx-10.9%2b-lightgrey.svg)
+![xcode](https://img.shields.io/badge/xcode-7.3%2b-lightgrey.svg)
 
 ## Installation
 
