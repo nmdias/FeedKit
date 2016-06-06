@@ -39,9 +39,9 @@ class ContentTests: BaseTestCase {
             let feed = result.rssFeed
             
             // Then
-            assert(feed != nil)
-            assert(feed?.items?.last?.content != nil)
-            assert(feed?.items?.last?.content?.contentEncoded == "<p>What a <em>beautiful</em> day!</p>")
+            XCTAssertNotNil(feed)
+            XCTAssertNotNil(feed?.items?.last?.content)
+            XCTAssertEqual(feed?.items?.last?.content?.contentEncoded, "<p>What a <em>beautiful</em> day!</p>")
             
         }
         
