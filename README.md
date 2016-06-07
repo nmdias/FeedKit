@@ -38,7 +38,13 @@ An RSS and Atom feed parser written in Swift
 $ gem install cocoapods
 ```
 
-To integrate FeedParser into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To give `FeedParser` a try with an example project, run the following command: 
+
+```bash
+$ pod try FeedParser
+```
+
+To integrate `FeedParser` into your Xcode project, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -54,12 +60,6 @@ Then, run the following command:
 
 ```bash
 $ pod install
-```
-
-Or, if you just wish try it out, run the following command:
-
-```bash
-$ pod try FeedParser
 ```
 
 ### Carthage
@@ -170,7 +170,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 ```
 > Refer to the [`AtomFeed`](http://cocoadocs.org/docsets/FeedParser) documentation for the complete model properties and description
 
-### Background parsing
+### Background Parsing
 
 ```swift
 dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
