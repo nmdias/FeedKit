@@ -2,12 +2,12 @@
 
 An RSS and Atom feed parser written in Swift
 
-[![Build Status](https://travis-ci.org/nmdias/FeedParser.svg)](https://travis-ci.org/nmdias/FeedParser)
-[![Carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
-[![CocoaPods Compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedParser)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/FeedParser.svg)](https://img.shields.io/cocoapods/v/FeedParser.svg)
-[![Language](https://img.shields.io/badge/swift-v2.2-orange.svg)](https://swift.org)
-[![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/FeedParser.svg)](http://cocoadocs.org/docsets/FeedParser/)
+[![build status](https://travis-ci.org/nmdias/FeedParser.svg)](https://travis-ci.org/nmdias/FeedParser)
+[![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
+[![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedParser)
+[![cocoapods compatible](https://img.shields.io/cocoapods/v/FeedParser.svg)](https://img.shields.io/cocoapods/v/FeedParser.svg)
+[![language](https://img.shields.io/badge/swift-v2.2-orange.svg)](https://swift.org)
+[![documentation](https://img.shields.io/cocoapods/metrics/doc-percent/FeedParser.svg)](http://cocoadocs.org/docsets/FeedParser/)
 
 ## Features
 
@@ -169,6 +169,19 @@ FeedParser(URL: URL)?.parse({ (result) in
 })
 ```
 > Refer to the [`AtomFeed`](http://cocoadocs.org/docsets/FeedParser) documentation for the complete model properties and description
+
+### Background parsing
+
+```swift
+dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
+    // Run parsing in a background thread
+    FeedParser(URL: URL)?.parse({ (result) in
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            // Perform updates to the UI
+        })
+    })
+})
+```     
 
 ## License
 
