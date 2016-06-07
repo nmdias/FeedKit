@@ -218,6 +218,4 @@ public class AtomFeed {
      */
     public var entries: [AtomFeedEntry]?
     
-    public init() {}
-    
 }

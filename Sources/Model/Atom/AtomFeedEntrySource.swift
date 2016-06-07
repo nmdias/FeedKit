@@ -72,7 +72,5 @@ public class AtomFeedEntrySource {
      
      */
     public var updated: String?
-    
-    public init() {}
 
 }

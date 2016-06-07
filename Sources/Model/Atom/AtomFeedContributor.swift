@@ -61,6 +61,4 @@ public class AtomFeedContributor {
      */
     public var uri: String?
     
-    public init() {}
-    
 }

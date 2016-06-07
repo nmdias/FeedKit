@@ -54,8 +54,6 @@ public class RSSFeedCategory {
      
      */
     public var value: String?
-
-    public init() {}
     
 }
 

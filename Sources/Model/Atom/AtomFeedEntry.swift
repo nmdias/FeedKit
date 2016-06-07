@@ -212,6 +212,4 @@ public class AtomFeedEntry {
      */
     public var rights: String?
     
-    public init() {}
-    
 }

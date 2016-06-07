@@ -160,8 +160,6 @@ public class AtomFeedEntryLink {
      */
     public var attributes: Attributes?
     
-    public init() {}
-    
 }
 
 // MARK: - Initializers

@@ -84,8 +84,6 @@ public class RSSFeedItemEnclosure {
      */
     public var attributes: Attributes?
     
-    public init() {}
-    
 }
 
 // MARK: - Initializers

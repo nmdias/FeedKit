@@ -71,8 +71,6 @@ public class AtomFeedEntrySummary {
      */
     public var value: String?
     
-    public init() {}
-    
 }
 
 // MARK: - Initializers

@@ -77,8 +77,6 @@ public class AtomFeedCategory {
      */
     public var attributes: Attributes?
     
-    public init() {}
-    
 }
 
 // MARK: - Initializers

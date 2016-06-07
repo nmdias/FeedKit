@@ -221,5 +221,4 @@ public class RSSFeedItem {
     
     public var content: ContentNamespace?
     
-    
 }

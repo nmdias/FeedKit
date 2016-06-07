@@ -82,8 +82,6 @@ public class RSSFeedItemCategory {
      */
     public var value: String?
     
-    public init() {}
-    
 }
 
 // MARK: - Initializers

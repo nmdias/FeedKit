@@ -86,8 +86,6 @@ public class AtomFeedGenerator {
      */
     public var value: String?
     
-    public init() {}
-    
 }
 
 // MARK: - Initializers

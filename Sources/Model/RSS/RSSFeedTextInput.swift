@@ -74,6 +74,4 @@ public class RSSFeedTextInput {
      */
     public var link: String?
     
-    public init() {}
-    
 }

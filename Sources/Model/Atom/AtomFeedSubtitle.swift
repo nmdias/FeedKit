@@ -65,8 +65,6 @@ public class AtomFeedSubtitle {
      */
     public var value: String?
     
-    public init() {}
-    
 }
 
 // MARK: - Initializers

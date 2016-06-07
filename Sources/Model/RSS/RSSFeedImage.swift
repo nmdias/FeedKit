@@ -100,6 +100,4 @@ public class RSSFeedImage {
      */
     public var description: String?
     
-    public init() {}
-    
 }

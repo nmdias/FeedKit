@@ -330,9 +330,4 @@ public class RSSFeed {
      */
     public var syndication: SyndicationNamespace?
     
-    
-    // MARK: - Initializers
-    
-    public init() {}
-    
 }

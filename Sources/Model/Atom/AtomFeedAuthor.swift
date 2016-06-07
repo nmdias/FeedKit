@@ -68,6 +68,4 @@ public class AtomFeedAuthor {
      */
     public var uri: String?
     
-    public init() {}
-    
 }
