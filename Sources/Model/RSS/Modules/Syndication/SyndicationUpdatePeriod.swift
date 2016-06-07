@@ -32,12 +32,46 @@ import Foundation
  
  */
 public enum SyndicationUpdatePeriod: String {
+
+    /** 
+     
+     Every hour, the channel is updated the number of times specified 
+     by `syUpdateFrequency`
+     
+     */
+    case Hourly = "hourly"
     
-    case Hourly     = "hourly"
-    case Daily      = "daily"
-    case Weekly     = "weekly"
-    case Monthly    = "monthly"
-    case Yearly     = "yearly"
+    /** 
+     
+     Every day, the channel is updated the number of times specified 
+     by `syUpdateFrequency`
+     
+     */
+    case Daily = "daily"
+    
+    /** 
+     
+     Every week, the channel is updated the number of times specified 
+     by `syUpdateFrequency`
+     
+     */
+    case Weekly = "weekly"
+    
+    /** 
+     
+     Every month, the channel is updated the number of times specified 
+     by `syUpdateFrequency`
+     
+     */
+    case Monthly = "monthly"
+    
+    /** 
+     
+     Every year, the channel is updated the number of times specified 
+     by `syUpdateFrequency
+     
+     */
+    case Yearly = "yearly"
     
 }
 
