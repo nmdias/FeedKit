@@ -32,8 +32,25 @@ import Foundation
  */
 public enum Result {
     
+    /**
+     
+     The `AtomFeed` model with a parsed Atom feed
+     
+     */
     case Atom(AtomFeed)
+    
+    /**
+     
+     The `RSSFeed` model with a parsed RSS feed
+     
+     */
     case RSS(RSSFeed)
+    
+    /**
+     
+     The failure `NSError` generator from parsing errors
+     
+     */
     case Failure(NSError)
     
     /** 
