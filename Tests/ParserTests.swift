@@ -37,7 +37,7 @@ class ParserTests: BaseTestCase {
         parser.parse { (result) in }
         
         // Then
-        assert(parser.parser.result != nil)
+        XCTAssertNotNil(parser.parser.result)
         
     }
     
@@ -51,9 +51,9 @@ class ParserTests: BaseTestCase {
         parser.parse { (result) in
         
             // Then
-            assert(parser.parser.feedType == FeedType.RSS2)
-            assert(parser.parser.rssFeed != nil)
-            assert(parser.parser.atomFeed == nil)
+            XCTAssertEqual(parser.parser.feedType, FeedType.RSS2)
+            XCTAssertNotNil(parser.parser.rssFeed)
+            XCTAssertNil(parser.parser.atomFeed)
         
         }
         
@@ -70,9 +70,9 @@ class ParserTests: BaseTestCase {
         parser.parse { (result) in
             
             // Then
-            assert(parser.parser.feedType == FeedType.Atom)
-            assert(parser.parser.atomFeed != nil)
-            assert(parser.parser.rssFeed == nil)
+            XCTAssertEqual(parser.parser.feedType, FeedType.Atom)
+            XCTAssertNotNil(parser.parser.atomFeed)
+            XCTAssertNil(parser.parser.rssFeed)
             
         }
         
