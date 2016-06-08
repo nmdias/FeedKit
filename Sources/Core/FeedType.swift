@@ -26,14 +26,31 @@ import Foundation
 
 /**
  
- Identifies the type of feed, and can be initialized from a string of the 
- top-level element of a feed.
+ Types of feed. The `rawValue` matches the top-level XML element
+ of a feed.
  
  */
 public enum FeedType: String {
     
+    /**
+     
+     The `Atom Syndication Format feed type
+     
+     */
     case Atom = "feed"
+    
+    /**
+     
+     The Really Simple Syndication feed type version 0.9
+     
+     */
     case RSS1 = "rdf:RDF"
+    
+    /**
+     
+     The Really Simple Syndication feed type version 2.0
+     
+     */
     case RSS2 = "rss"
     
 }
