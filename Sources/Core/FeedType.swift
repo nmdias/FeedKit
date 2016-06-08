@@ -30,7 +30,7 @@ import Foundation
  of a feed.
  
  */
-public enum FeedType: String {
+enum FeedType: String {
     
     /**
      
