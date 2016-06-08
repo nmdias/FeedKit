@@ -217,8 +217,24 @@ public class RSSFeedItem {
     
     // MARK: - Namespaces
     
+    
+    /**
+     
+     The Dublin Core Metadata Element Set is a standard for cross-domain
+     resource description.
+     
+     See https://tools.ietf.org/html/rfc5013
+     
+     */
     public var dublinCore: DublinCoreNamespace?
     
+    /**
+     
+     A module for the actual content of websites, in multiple formats.
+     
+     See http://web.resource.org/rss/1.0/modules/content/
+     
+     */
     public var content: ContentNamespace?
     
 }
