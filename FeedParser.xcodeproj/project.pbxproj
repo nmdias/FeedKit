@@ -20,6 +20,10 @@
 		A053F4E01D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */; };
 		A053F4E11D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */; };
 		A053F4E21D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */; };
+		A053F4E41D0EF9C800B4203D /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E31D0EF9C800B4203D /* DateSpec.swift */; };
+		A053F4E51D0EF9C800B4203D /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E31D0EF9C800B4203D /* DateSpec.swift */; };
+		A053F4E61D0EF9C800B4203D /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E31D0EF9C800B4203D /* DateSpec.swift */; };
+		A053F4E71D0EF9C800B4203D /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E31D0EF9C800B4203D /* DateSpec.swift */; };
 		A05C1F171CEBB47D0092D70E /* SyndicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */; };
 		A05C1F181CEBB47D0092D70E /* SyndicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */; };
 		A05C1F191CEBB47D0092D70E /* SyndicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */; };
@@ -348,6 +352,7 @@
 		A039780F1CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedTableViewController + TableViewLayout.swift"; path = "Extensions/FeedTableViewController + TableViewLayout.swift"; sourceTree = "<group>"; };
 		A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFC822DateFormatter.swift; path = Sources/Dates/RFC822DateFormatter.swift; sourceTree = "<group>"; };
 		A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFC3339DateFormatter.swift; path = Sources/Dates/RFC3339DateFormatter.swift; sourceTree = "<group>"; };
+		A053F4E31D0EF9C800B4203D /* DateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSpec.swift; path = Sources/Dates/DateSpec.swift; sourceTree = "<group>"; };
 		A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationTests.swift; sourceTree = "<group>"; };
 		A05C1F1A1CEBB58A0092D70E /* ContentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTests.swift; sourceTree = "<group>"; };
 		A05C1F1E1CEBB6080092D70E /* RSS2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2Tests.swift; sourceTree = "<group>"; };
@@ -519,6 +524,7 @@
 		A03402711D0C16D7005900CD /* Dates */ = {
 			isa = PBXGroup;
 			children = (
+				A053F4E31D0EF9C800B4203D /* DateSpec.swift */,
 				A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */,
 				A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */,
 			);
@@ -1206,6 +1212,7 @@
 				A07F3CA01CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
 				A053F4E21D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */,
 				A07F3C601CFE136900C3AF80 /* AtomPath.swift in Sources */,
+				A053F4E71D0EF9C800B4203D /* DateSpec.swift in Sources */,
 				A07F3CAC1CFE136900C3AF80 /* RSSFeedCategory.swift in Sources */,
 				A07F3C341CFE136900C3AF80 /* AtomFeedEntry.swift in Sources */,
 				A07F3CC81CFE136900C3AF80 /* RSSFeedItemSource.swift in Sources */,
@@ -1332,6 +1339,7 @@
 				A07F3C9E1CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
 				A053F4E01D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */,
 				A07F3C5E1CFE136900C3AF80 /* AtomPath.swift in Sources */,
+				A053F4E51D0EF9C800B4203D /* DateSpec.swift in Sources */,
 				A07F3CAA1CFE136900C3AF80 /* RSSFeedCategory.swift in Sources */,
 				A07F3C321CFE136900C3AF80 /* AtomFeedEntry.swift in Sources */,
 				A07F3CC61CFE136900C3AF80 /* RSSFeedItemSource.swift in Sources */,
@@ -1384,6 +1392,7 @@
 				A07F3C9F1CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
 				A053F4E11D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */,
 				A07F3C5F1CFE136900C3AF80 /* AtomPath.swift in Sources */,
+				A053F4E61D0EF9C800B4203D /* DateSpec.swift in Sources */,
 				A07F3CAB1CFE136900C3AF80 /* RSSFeedCategory.swift in Sources */,
 				A07F3C331CFE136900C3AF80 /* AtomFeedEntry.swift in Sources */,
 				A07F3CC71CFE136900C3AF80 /* RSSFeedItemSource.swift in Sources */,
@@ -1436,6 +1445,7 @@
 				A07F3CC11CFE136900C3AF80 /* RSSFeedItemGUID.swift in Sources */,
 				A053F4DF1D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */,
 				A07F3C6D1CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift in Sources */,
+				A053F4E41D0EF9C800B4203D /* DateSpec.swift in Sources */,
 				A07F3C9D1CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
 				A07F3C5D1CFE136900C3AF80 /* AtomPath.swift in Sources */,
 				A07F3CA91CFE136900C3AF80 /* RSSFeedCategory.swift in Sources */,
