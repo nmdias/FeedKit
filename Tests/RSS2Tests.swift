@@ -48,8 +48,8 @@ class RSS2Tests: BaseTestCase {
             XCTAssertEqual(feed?.copyright, "Copyright 2015, Iris News")
             XCTAssertEqual(feed?.managingEditor, "john.appleseed.editor@iris.news (John Appleseed)")
             XCTAssertEqual(feed?.webMaster, "john.appleseed.master@iris.news (John Appleseed)")
-            XCTAssertEqual(feed?.pubDate, "Sun, 16 Aug 2015 05:00:00 GMT")
-            XCTAssertEqual(feed?.lastBuildDate, "Sun, 16 Aug 2015 18:18:55 GMT")
+            XCTAssertNotNil(feed?.pubDate)
+            XCTAssertNotNil(feed?.lastBuildDate)
             
             XCTAssertNotNil(feed?.categories)
             XCTAssertEqual(feed?.categories?.count, 2)
@@ -150,7 +150,7 @@ class RSS2Tests: BaseTestCase {
             XCTAssertEqual(feed?.items?.first?.guid?.value, "tag:dallas.example.com,4131:news")
             XCTAssertEqual(feed?.items?.first?.guid?.attributes?.isPermaLink, false)
             
-            XCTAssertEqual(feed?.items?.first?.pubDate, "Fri, 05 Oct 2007 09:00:00 CST")
+            XCTAssertNotNil(feed?.items?.first?.pubDate)
             
             XCTAssertNotNil(feed?.items?.first?.source)
             XCTAssertEqual(feed?.items?.first?.source?.value, "Los Angeles Herald-Examiner")
@@ -186,7 +186,7 @@ class RSS2Tests: BaseTestCase {
             XCTAssertNotNil(feed?.items?.last?.guid?.attributes)
             XCTAssertEqual(feed?.items?.last?.guid?.attributes?.isPermaLink, true)
             
-            XCTAssertEqual(feed?.items?.last?.pubDate, "Fri, 05 Oct 2007 09:00:00 CST")
+            XCTAssertNotNil(feed?.items?.last?.pubDate)
             
             XCTAssertNotNil(feed?.items?.last?.source)
             XCTAssertEqual(feed?.items?.last?.source?.value, "Los Angeles Herald-Examiner")

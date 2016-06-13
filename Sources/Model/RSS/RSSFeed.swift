@@ -126,7 +126,7 @@ public class RSSFeed {
      Example: Sat, 07 Sep 2002 00:00:01 GMT
      
      */
-    public var pubDate: String?
+    public var pubDate: NSDate?
     
     /**
      
@@ -135,7 +135,7 @@ public class RSSFeed {
      Example: Sat, 07 Sep 2002 09:42:31 GMT
      
      */
-    public var lastBuildDate: String?
+    public var lastBuildDate: NSDate?
     
     /**
      

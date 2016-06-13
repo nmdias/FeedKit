@@ -192,7 +192,7 @@ public class RSSFeedItem {
      that date.
      
      */
-    public var pubDate: String?
+    public var pubDate: NSDate?
     
     /**
      

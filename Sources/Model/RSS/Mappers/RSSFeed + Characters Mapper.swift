@@ -50,8 +50,8 @@ extension RSSFeed {
         case .RSSChannelCopyright:                        self.copyright                               = self.copyright?.stringByAppendingString(string) ?? string
         case .RSSChannelManagingEditor:                   self.managingEditor                          = self.managingEditor?.stringByAppendingString(string) ?? string
         case .RSSChannelWebMaster:                        self.webMaster                               = self.webMaster?.stringByAppendingString(string) ?? string
-        case .RSSChannelPubDate:                          self.pubDate                                 = self.pubDate?.stringByAppendingString(string) ?? string
-        case .RSSChannelLastBuildDate:                    self.lastBuildDate                           = self.lastBuildDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelPubDate:                          self.pubDate                                 = string.dateFromSpec(.RFC822)
+        case .RSSChannelLastBuildDate:                    self.lastBuildDate                           = string.dateFromSpec(.RFC822)
         case .RSSChannelCategory:                         self.categories?.last?.value                 = self.categories?.last?.value?.stringByAppendingString(string) ?? string
         case .RSSChannelGenerator:                        self.generator                               = self.generator?.stringByAppendingString(string) ?? string
         case .RSSChannelDocs:                             self.docs                                    = self.docs?.stringByAppendingString(string) ?? string
@@ -106,7 +106,7 @@ extension RSSFeed {
         case .RSSChannelItemComments:                     self.items?.last?.comments                        = self.items?.last?.comments?.stringByAppendingString(string) ?? string
         case .RSSChannelItemEnclosure:                    break
         case .RSSChannelItemGUID:                         self.items?.last?.guid?.value                     = self.items?.last?.guid?.value?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemPubDate:                      self.items?.last?.pubDate                         = self.items?.last?.pubDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemPubDate:                      self.items?.last?.pubDate                         = string.dateFromSpec(.RFC822)
         case .RSSChannelItemSource:                       self.items?.last?.source?.value                   = self.items?.last?.source?.value?.stringByAppendingString(string) ?? string
             
             // Namespace - Content
