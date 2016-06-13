@@ -268,6 +268,9 @@
 		A0EF4E1C1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4E1D1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4E1E1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0FF62841D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
+		A0FF62851D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
+		A0FF62861D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1199,6 +1202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07F3C201CFE136900C3AF80 /* String + bool.swift in Sources */,
+				A0FF62841D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */,
 				A07F3C1C1CFE136900C3AF80 /* Result.swift in Sources */,
 				A07F3CD41CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A07F3C5C1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
@@ -1330,6 +1334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07F3C1E1CFE136900C3AF80 /* String + bool.swift in Sources */,
+				A0FF62861D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */,
 				A07F3C1A1CFE136900C3AF80 /* Result.swift in Sources */,
 				A07F3CD21CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A07F3C5A1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
@@ -1384,6 +1389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07F3C1F1CFE136900C3AF80 /* String + bool.swift in Sources */,
+				A0FF62851D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */,
 				A07F3C1B1CFE136900C3AF80 /* Result.swift in Sources */,
 				A07F3CD31CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A07F3C5B1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
