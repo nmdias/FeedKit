@@ -58,10 +58,10 @@
 		A07F3C1A1CFE136900C3AF80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDB1CFE136900C3AF80 /* Result.swift */; };
 		A07F3C1B1CFE136900C3AF80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDB1CFE136900C3AF80 /* Result.swift */; };
 		A07F3C1C1CFE136900C3AF80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDB1CFE136900C3AF80 /* Result.swift */; };
-		A07F3C1D1CFE136900C3AF80 /* String + Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + Bool.swift */; };
-		A07F3C1E1CFE136900C3AF80 /* String + Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + Bool.swift */; };
-		A07F3C1F1CFE136900C3AF80 /* String + Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + Bool.swift */; };
-		A07F3C201CFE136900C3AF80 /* String + Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + Bool.swift */; };
+		A07F3C1D1CFE136900C3AF80 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + bool.swift */; };
+		A07F3C1E1CFE136900C3AF80 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + bool.swift */; };
+		A07F3C1F1CFE136900C3AF80 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + bool.swift */; };
+		A07F3C201CFE136900C3AF80 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + bool.swift */; };
 		A07F3C211CFE136900C3AF80 /* AtomFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BE01CFE136900C3AF80 /* AtomFeed.swift */; };
 		A07F3C221CFE136900C3AF80 /* AtomFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BE01CFE136900C3AF80 /* AtomFeed.swift */; };
 		A07F3C231CFE136900C3AF80 /* AtomFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BE01CFE136900C3AF80 /* AtomFeed.swift */; };
@@ -370,7 +370,7 @@
 		A060D72A1D0353B200F0DACE /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		A07F3BDA1CFE136900C3AF80 /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
 		A07F3BDB1CFE136900C3AF80 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		A07F3BDD1CFE136900C3AF80 /* String + Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Bool.swift"; sourceTree = "<group>"; };
+		A07F3BDD1CFE136900C3AF80 /* String + bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + bool.swift"; sourceTree = "<group>"; };
 		A07F3BE01CFE136900C3AF80 /* AtomFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomFeed.swift; sourceTree = "<group>"; };
 		A07F3BE11CFE136900C3AF80 /* AtomFeedAuthor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomFeedAuthor.swift; sourceTree = "<group>"; };
 		A07F3BE21CFE136900C3AF80 /* AtomFeedCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomFeedCategory.swift; sourceTree = "<group>"; };
@@ -574,7 +574,7 @@
 		A07F3BDC1CFE136900C3AF80 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A07F3BDD1CFE136900C3AF80 /* String + Bool.swift */,
+				A07F3BDD1CFE136900C3AF80 /* String + bool.swift */,
 				A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */,
 			);
 			name = Extensions;
@@ -1195,7 +1195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07F3C201CFE136900C3AF80 /* String + Bool.swift in Sources */,
+				A07F3C201CFE136900C3AF80 /* String + bool.swift in Sources */,
 				A07F3C1C1CFE136900C3AF80 /* Result.swift in Sources */,
 				A07F3CD41CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A07F3C5C1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
@@ -1326,7 +1326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07F3C1E1CFE136900C3AF80 /* String + Bool.swift in Sources */,
+				A07F3C1E1CFE136900C3AF80 /* String + bool.swift in Sources */,
 				A07F3C1A1CFE136900C3AF80 /* Result.swift in Sources */,
 				A07F3CD21CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A07F3C5A1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
@@ -1380,7 +1380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07F3C1F1CFE136900C3AF80 /* String + Bool.swift in Sources */,
+				A07F3C1F1CFE136900C3AF80 /* String + bool.swift in Sources */,
 				A07F3C1B1CFE136900C3AF80 /* Result.swift in Sources */,
 				A07F3CD31CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A07F3C5B1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
@@ -1434,7 +1434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07F3C1D1CFE136900C3AF80 /* String + Bool.swift in Sources */,
+				A07F3C1D1CFE136900C3AF80 /* String + bool.swift in Sources */,
 				A07F3C191CFE136900C3AF80 /* Result.swift in Sources */,
 				A07F3CD11CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A07F3C591CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,

@@ -24,7 +24,29 @@
 
 import Foundation
 
+/**
+ 
+ Date specifications
+ 
+ */
 enum DateSpec {
+    
+    /**
+     
+     The `Standard for the format of arpa internet text messages`
+     
+     See https://www.ietf.org/rfc/rfc0822.txt
+     
+     */
     case RFC822
+    
+    /**
+     
+     The `Date and Time on the Internet: Timestamps`
+     
+     See https://www.ietf.org/rfc/rfc3339.txt
+     
+     */
     case RFC3999
+    
 }
