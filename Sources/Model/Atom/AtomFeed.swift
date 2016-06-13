@@ -70,7 +70,7 @@ public class AtomFeed {
      modifications necessarily result in a changed atom:updated value.
      
      */
-    public var updated: String?
+    public var updated: NSDate?
     
     /**
      

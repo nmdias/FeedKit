@@ -41,7 +41,7 @@ extension AtomFeed {
         case .FeedTitle:                        self.title                                      = self.title?.stringByAppendingString(string) ?? string
         case .FeedSubtitle:                     self.subtitle?.value                            = self.subtitle?.value?.stringByAppendingString(string) ?? string
         case .FeedLink:                         break
-        case .FeedUpdated:                      self.updated                                    = self.updated?.stringByAppendingString(string) ?? string
+        case .FeedUpdated:                      self.updated                                    = string.dateFromSpec(.RFC3999)
         case .FeedCategory:                     break
         case .FeedAuthor:                       break
         case .FeedAuthorName:                   self.authors?.last?.name                        = self.authors?.last?.name?.stringByAppendingString(string) ?? string
@@ -60,15 +60,15 @@ extension AtomFeed {
         case .FeedEntryTitle:                   self.entries?.last?.title                       = self.entries?.last?.title?.stringByAppendingString(string) ?? string
         case .FeedEntrySummary:                 self.entries?.last?.summary?.value              = self.entries?.last?.summary?.value?.stringByAppendingString(string) ?? string
         case .FeedEntryLink:                    break
-        case .FeedEntryUpdated:                 self.entries?.last?.updated                     = self.entries?.last?.updated?.stringByAppendingString(string) ?? string
+        case .FeedEntryUpdated:                 self.entries?.last?.updated                     = string.dateFromSpec(.RFC3999)
         case .FeedEntryCategory:                break
         case .FeedEntryID:                      self.entries?.last?.id                          = self.entries?.last?.id?.stringByAppendingString(string) ?? string
         case .FeedEntryContent:                 self.entries?.last?.content?.value              = self.entries?.last?.content?.value?.stringByAppendingString(string) ?? string
-        case .FeedEntryPublished:               self.entries?.last?.published                   = self.entries?.last?.published?.stringByAppendingString(string) ?? string
+        case .FeedEntryPublished:               self.entries?.last?.published                   = string.dateFromSpec(.RFC3999)
         case .FeedEntrySource:                  break
         case .FeedEntrySourceID:                self.entries?.last?.source?.id                  = self.entries?.last?.source?.id?.stringByAppendingString(string) ?? string
         case .FeedEntrySourceTitle:             self.entries?.last?.source?.title               = self.entries?.last?.source?.title?.stringByAppendingString(string) ?? string
-        case .FeedEntrySourceUpdated:           self.entries?.last?.source?.updated             = self.entries?.last?.source?.updated?.stringByAppendingString(string) ?? string
+        case .FeedEntrySourceUpdated:           self.entries?.last?.source?.updated             = string.dateFromSpec(.RFC3999)
         case .FeedEntryRights:                  self.entries?.last?.rights                      = self.entries?.last?.rights?.stringByAppendingString(string) ?? string
         case .FeedEntryAuthor:                  break
         case .FeedEntryAuthorName:              self.entries?.last?.authors?.last?.name         = self.entries?.last?.authors?.last?.name?.stringByAppendingString(string) ?? string

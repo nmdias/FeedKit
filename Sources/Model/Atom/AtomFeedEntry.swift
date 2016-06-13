@@ -99,7 +99,7 @@ public class AtomFeedEntry {
      Publishers MAY change the value of this element over time.
      
      */
-    public var updated: String?
+    public var updated: NSDate?
     
     /**
      
@@ -172,7 +172,7 @@ public class AtomFeedEntry {
      creation or first availability of the resource.
      
      */
-    public var published: String?
+    public var published: NSDate?
     
     /**
      
