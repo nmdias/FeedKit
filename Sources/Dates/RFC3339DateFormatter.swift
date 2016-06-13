@@ -48,18 +48,13 @@ class RFC3339DateFormatter: NSDateFormatter {
     }
     
     override func dateFromString(string: String) -> NSDate? {
-        
-        for (index, dateFormat) in self.dateFormats.enumerate() {
+        for dateFormat in self.dateFormats {
             self.dateFormat = dateFormat
             if let date = super.dateFromString(string) {
-                print("\(index) - \(dateFormat)")
                 return date
             }
-            
         }
-        
         return nil
-        
     }
     
 }
