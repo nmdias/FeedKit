@@ -28,6 +28,9 @@
 		A053F4EA1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */; };
 		A053F4EB1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */; };
 		A053F4EC1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */; };
+		A053F4EE1D0EFA2F00B4203D /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4ED1D0EFA2F00B4203D /* DateTests.swift */; };
+		A053F4EF1D0EFA2F00B4203D /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4ED1D0EFA2F00B4203D /* DateTests.swift */; };
+		A053F4F01D0EFA2F00B4203D /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4ED1D0EFA2F00B4203D /* DateTests.swift */; };
 		A05C1F171CEBB47D0092D70E /* SyndicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */; };
 		A05C1F181CEBB47D0092D70E /* SyndicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */; };
 		A05C1F191CEBB47D0092D70E /* SyndicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */; };
@@ -358,6 +361,7 @@
 		A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFC3339DateFormatter.swift; path = Sources/Dates/RFC3339DateFormatter.swift; sourceTree = "<group>"; };
 		A053F4E31D0EF9C800B4203D /* DateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSpec.swift; path = Sources/Dates/DateSpec.swift; sourceTree = "<group>"; };
 		A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + dateFromSpec.swift"; sourceTree = "<group>"; };
+		A053F4ED1D0EFA2F00B4203D /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationTests.swift; sourceTree = "<group>"; };
 		A05C1F1A1CEBB58A0092D70E /* ContentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTests.swift; sourceTree = "<group>"; };
 		A05C1F1E1CEBB6080092D70E /* RSS2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2Tests.swift; sourceTree = "<group>"; };
@@ -693,6 +697,7 @@
 				A0DE942D1CF791B800D1F19C /* AtomTests.swift */,
 				A0D20C351CEB007100B4509D /* BaseTestCase.swift */,
 				A05C1F1A1CEBB58A0092D70E /* ContentTests.swift */,
+				A053F4ED1D0EFA2F00B4203D /* DateTests.swift */,
 				A0D20C391CEB01E400B4509D /* DublinCoreTests.swift */,
 				A060D7261D03455E00F0DACE /* ParserErrorTests.swift */,
 				A0AA54781D02E2BA000A2264 /* ParserTests.swift */,
@@ -1248,6 +1253,7 @@
 				A05C1F171CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
 				A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */,
 				A060D7271D03455E00F0DACE /* ParserErrorTests.swift in Sources */,
+				A053F4EE1D0EFA2F00B4203D /* DateTests.swift in Sources */,
 				A05C1F1F1CEBB6080092D70E /* RSS2Tests.swift in Sources */,
 				A0AA547D1D02E307000A2264 /* ParserTests.swift in Sources */,
 				A0DE942E1CF791B800D1F19C /* AtomTests.swift in Sources */,
@@ -1263,6 +1269,7 @@
 				A05C1F181CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
 				A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */,
 				A060D7281D03455E00F0DACE /* ParserErrorTests.swift in Sources */,
+				A053F4EF1D0EFA2F00B4203D /* DateTests.swift in Sources */,
 				A05C1F201CEBB6080092D70E /* RSS2Tests.swift in Sources */,
 				A0AA547E1D02E308000A2264 /* ParserTests.swift in Sources */,
 				A0DE942F1CF791B800D1F19C /* AtomTests.swift in Sources */,
@@ -1278,6 +1285,7 @@
 				A05C1F191CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
 				A0D20C381CEB007100B4509D /* BaseTestCase.swift in Sources */,
 				A060D7291D03455E00F0DACE /* ParserErrorTests.swift in Sources */,
+				A053F4F01D0EFA2F00B4203D /* DateTests.swift in Sources */,
 				A05C1F211CEBB6080092D70E /* RSS2Tests.swift in Sources */,
 				A0AA547F1D02E308000A2264 /* ParserTests.swift in Sources */,
 				A0DE94301CF791B800D1F19C /* AtomTests.swift in Sources */,
