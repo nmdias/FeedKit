@@ -43,7 +43,7 @@ class DateTests: BaseTestCase {
         // Then
         XCTAssertNotNil(date)
         
-        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second, .TimeZone, .Calendar], fromDate: date!)
+        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date!)
         
         XCTAssertEqual(components.day, 4)
         XCTAssertEqual(components.month, 2)
@@ -51,7 +51,6 @@ class DateTests: BaseTestCase {
         XCTAssertEqual(components.hour, 22)
         XCTAssertEqual(components.minute, 3)
         XCTAssertEqual(components.second, 45)
-        XCTAssertEqual(components.calendar?.calendarIdentifier, NSCalendarIdentifierGregorian)
         
     }
     
@@ -71,7 +70,7 @@ class DateTests: BaseTestCase {
         // Then
         XCTAssertNotNil(date)
         
-        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second, .TimeZone, .Calendar], fromDate: date!)
+        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date!)
         
         XCTAssertEqual(components.day, 15)
         XCTAssertEqual(components.month, 1)
@@ -79,7 +78,6 @@ class DateTests: BaseTestCase {
         XCTAssertEqual(components.hour, 16)
         XCTAssertEqual(components.minute, 54)
         XCTAssertEqual(components.second, 10)
-        XCTAssertEqual(components.calendar?.calendarIdentifier, NSCalendarIdentifierGregorian)
         
     }
     
