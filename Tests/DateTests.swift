@@ -30,9 +30,12 @@ class DateTests: BaseTestCase {
     func testRFC822DateFormatter() {
         
         // Given
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let rfc822DateFormatter = RFC822DateFormatter()
         let dateString = "Tue, 04 Feb 2014 22:03:45 Z"
+        
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        calendar.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        calendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         
         // When
         let date = rfc822DateFormatter.dateFromString(dateString)
@@ -48,8 +51,6 @@ class DateTests: BaseTestCase {
         XCTAssertEqual(components.hour, 22)
         XCTAssertEqual(components.minute, 3)
         XCTAssertEqual(components.second, 45)
-        XCTAssertEqual(components.timeZone?.daylightSavingTimeOffset, 3600)
-        XCTAssertEqual(components.timeZone?.secondsFromGMT, 3600)
         XCTAssertEqual(components.calendar?.calendarIdentifier, NSCalendarIdentifierGregorian)
         
     }
@@ -57,9 +58,12 @@ class DateTests: BaseTestCase {
     func testRFC3339DateFormatter() {
         
         // Given
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let rfc3339DateFormatter = RFC3339DateFormatter()
         let dateString = "2016-01-15T15:54:10-01:00"
+        
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        calendar.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        calendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         
         // When
         let date = rfc3339DateFormatter.dateFromString(dateString)
@@ -75,8 +79,6 @@ class DateTests: BaseTestCase {
         XCTAssertEqual(components.hour, 16)
         XCTAssertEqual(components.minute, 54)
         XCTAssertEqual(components.second, 10)
-        XCTAssertEqual(components.timeZone?.daylightSavingTimeOffset, 3600)
-        XCTAssertEqual(components.timeZone?.secondsFromGMT, 3600)
         XCTAssertEqual(components.calendar?.calendarIdentifier, NSCalendarIdentifierGregorian)
         
     }
