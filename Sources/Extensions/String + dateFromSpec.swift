@@ -40,6 +40,7 @@ extension String {
         switch spec {
         case .RFC822:   return RFC822DateFormatter().dateFromString(self)
         case .RFC3999:  return RFC3339DateFormatter().dateFromString(self)
+        case .ISO8601:  return ISO8601DateFormatter().dateFromString(self)
         }
     }
     

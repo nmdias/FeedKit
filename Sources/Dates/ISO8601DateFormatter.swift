@@ -1,5 +1,5 @@
 //
-//  DateSpec.swift
+//  ISO8601DateFormatter.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,36 +26,21 @@ import Foundation
 
 /**
  
- Date specifications
+ Converts date and time textual representations within the ISO8601
+ date specification into `NSDate` objects
  
  */
-enum DateSpec {
+class ISO8601DateFormatter: NSDateFormatter {
+
+    override init() {
+        super.init()
+        self.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        self.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        self.dateFormat = "yyyy-mm-ddThh:mm"
+    }
     
-    /**
-     
-     The `Standard for the format of arpa internet text messages`
-     
-     See https://www.ietf.org/rfc/rfc0822.txt
-     
-     */
-    case RFC822
-    
-    /**
-     
-     The `Date and Time on the Internet: Timestamps`
-     
-     See https://www.ietf.org/rfc/rfc3339.txt
-     
-     */
-    case RFC3999
-    
-    /**
-     
-     The `W3CDTF` date time format specification
-     
-     See http://www.w3.org/TR/NOTE-datetime
-     
-     */
-    case ISO8601
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) not supported")
+    }
     
 }

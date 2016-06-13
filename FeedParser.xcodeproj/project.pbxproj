@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00BEBD51D0F3E1200F8AEFA /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
 		A0370EC21CEF9EF6009583A3 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A03978061CE8AF4C0042A1C4 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03978051CE8AF4C0042A1C4 /* FeedTableViewController.swift */; };
 		A039780D1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */; };
@@ -351,6 +352,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601DateFormatter.swift; path = Sources/Dates/ISO8601DateFormatter.swift; sourceTree = "<group>"; };
 		A0370EB91CEF9D5A009583A3 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0370EC11CEF9E0A009583A3 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-watchOS.plist"; path = "Sources/Info-watchOS.plist"; sourceTree = "<group>"; };
 		A03978051CE8AF4C0042A1C4 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTableViewController.swift; path = "View Controllers/FeedTableViewController.swift"; sourceTree = "<group>"; };
@@ -536,6 +538,7 @@
 				A053F4E31D0EF9C800B4203D /* DateSpec.swift */,
 				A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */,
 				A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */,
+				A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */,
 			);
 			name = Dates;
 			sourceTree = "<group>";
@@ -1467,6 +1470,7 @@
 				A07F3C9D1CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
 				A07F3C5D1CFE136900C3AF80 /* AtomPath.swift in Sources */,
 				A07F3CA91CFE136900C3AF80 /* RSSFeedCategory.swift in Sources */,
+				A00BEBD51D0F3E1200F8AEFA /* ISO8601DateFormatter.swift in Sources */,
 				A07F3C311CFE136900C3AF80 /* AtomFeedEntry.swift in Sources */,
 				A07F3CC51CFE136900C3AF80 /* RSSFeedItemSource.swift in Sources */,
 				A07F3C491CFE136900C3AF80 /* AtomFeedEntrySource.swift in Sources */,
