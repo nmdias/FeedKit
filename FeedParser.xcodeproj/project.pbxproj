@@ -16,6 +16,10 @@
 		A053F4DB1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */; };
 		A053F4DC1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */; };
 		A053F4DD1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */; };
+		A053F4DF1D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */; };
+		A053F4E01D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */; };
+		A053F4E11D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */; };
+		A053F4E21D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */; };
 		A05C1F171CEBB47D0092D70E /* SyndicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */; };
 		A05C1F181CEBB47D0092D70E /* SyndicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */; };
 		A05C1F191CEBB47D0092D70E /* SyndicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */; };
@@ -343,6 +347,7 @@
 		A039780E1CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedTableViewController + ReusableCell.swift"; path = "Extensions/FeedTableViewController + ReusableCell.swift"; sourceTree = "<group>"; };
 		A039780F1CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedTableViewController + TableViewLayout.swift"; path = "Extensions/FeedTableViewController + TableViewLayout.swift"; sourceTree = "<group>"; };
 		A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFC822DateFormatter.swift; path = Sources/Dates/RFC822DateFormatter.swift; sourceTree = "<group>"; };
+		A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFC3339DateFormatter.swift; path = Sources/Dates/RFC3339DateFormatter.swift; sourceTree = "<group>"; };
 		A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyndicationTests.swift; sourceTree = "<group>"; };
 		A05C1F1A1CEBB58A0092D70E /* ContentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTests.swift; sourceTree = "<group>"; };
 		A05C1F1E1CEBB6080092D70E /* RSS2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS2Tests.swift; sourceTree = "<group>"; };
@@ -515,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */,
+				A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */,
 			);
 			name = Dates;
 			sourceTree = "<group>";
@@ -1198,6 +1204,7 @@
 				A07F3CC41CFE136900C3AF80 /* RSSFeedItemGUID.swift in Sources */,
 				A07F3C701CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift in Sources */,
 				A07F3CA01CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
+				A053F4E21D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */,
 				A07F3C601CFE136900C3AF80 /* AtomPath.swift in Sources */,
 				A07F3CAC1CFE136900C3AF80 /* RSSFeedCategory.swift in Sources */,
 				A07F3C341CFE136900C3AF80 /* AtomFeedEntry.swift in Sources */,
@@ -1323,6 +1330,7 @@
 				A07F3CC21CFE136900C3AF80 /* RSSFeedItemGUID.swift in Sources */,
 				A07F3C6E1CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift in Sources */,
 				A07F3C9E1CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
+				A053F4E01D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */,
 				A07F3C5E1CFE136900C3AF80 /* AtomPath.swift in Sources */,
 				A07F3CAA1CFE136900C3AF80 /* RSSFeedCategory.swift in Sources */,
 				A07F3C321CFE136900C3AF80 /* AtomFeedEntry.swift in Sources */,
@@ -1374,6 +1382,7 @@
 				A07F3CC31CFE136900C3AF80 /* RSSFeedItemGUID.swift in Sources */,
 				A07F3C6F1CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift in Sources */,
 				A07F3C9F1CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
+				A053F4E11D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */,
 				A07F3C5F1CFE136900C3AF80 /* AtomPath.swift in Sources */,
 				A07F3CAB1CFE136900C3AF80 /* RSSFeedCategory.swift in Sources */,
 				A07F3C331CFE136900C3AF80 /* AtomFeedEntry.swift in Sources */,
@@ -1425,6 +1434,7 @@
 				A07F3C151CFE136900C3AF80 /* FeedParser.swift in Sources */,
 				A07F3C451CFE136900C3AF80 /* AtomFeedEntryLink.swift in Sources */,
 				A07F3CC11CFE136900C3AF80 /* RSSFeedItemGUID.swift in Sources */,
+				A053F4DF1D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */,
 				A07F3C6D1CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift in Sources */,
 				A07F3C9D1CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
 				A07F3C5D1CFE136900C3AF80 /* AtomPath.swift in Sources */,
