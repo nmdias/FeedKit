@@ -39,12 +39,12 @@ class RFC822DateFormatter: NSDateFormatter {
     
     override init() {
         super.init()
-        self.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         self.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        self.locale = NSLocale(localeIdentifier: "en_US_POSIX")
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) not supported")
     }
     
     override func dateFromString(string: String) -> NSDate? {
