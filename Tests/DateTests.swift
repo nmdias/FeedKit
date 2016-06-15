@@ -81,6 +81,33 @@ class DateTests: BaseTestCase {
         
     }
     
+    func testISO8601DateFormatter() {
+        
+        // Given
+        let iso8601DateFormatter = RFC3339DateFormatter()
+        let dateString = "1994-11-05T08:15:30-05:00"
+        
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        calendar.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        calendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        
+        // When
+        let date = iso8601DateFormatter.dateFromString(dateString)
+        
+        // Then
+        XCTAssertNotNil(date)
+        
+        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date!)
+        
+        XCTAssertEqual(components.day, 5)
+        XCTAssertEqual(components.month, 11)
+        XCTAssertEqual(components.year, 1994)
+        XCTAssertEqual(components.hour, 13)
+        XCTAssertEqual(components.minute, 15)
+        XCTAssertEqual(components.second, 30)
+        
+    }
+    
     func testDateFromRFC822Spec() {
         
         // Given
