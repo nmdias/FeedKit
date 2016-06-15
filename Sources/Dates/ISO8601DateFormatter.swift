@@ -36,6 +36,7 @@ class ISO8601DateFormatter: NSDateFormatter {
         "yyyy-mm-dd'T'hh:mm",
         "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
         "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ",
+        "yyyy-MM-dd'T'HH:mmSSZZZZZ"
         ]
     
     override init() {
