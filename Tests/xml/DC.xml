@@ -7,7 +7,7 @@
         <dc:description>description</dc:description>
         <dc:publisher>publisher</dc:publisher>
         <dc:contributor>contributor</dc:contributor>
-        <dc:date>date</dc:date>
+        <dc:date>2000-01-01T12:00+00:00</dc:date>
         <dc:type>type</dc:type>
         <dc:format>format</dc:format>
         <dc:identifier>identifier</dc:identifier>
@@ -23,7 +23,7 @@
             <dc:description>description</dc:description>
             <dc:publisher>publisher</dc:publisher>
             <dc:contributor>contributor</dc:contributor>
-            <dc:date>date</dc:date>
+            <dc:date>2000-01-01T12:00+00:00</dc:date>
             <dc:type>type</dc:type>
             <dc:format>format</dc:format>
             <dc:identifier>identifier</dc:identifier>
