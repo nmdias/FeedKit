@@ -65,6 +65,6 @@ public class SyndicationNamespace {
      the form: yyyy-mm-ddThh:mm
      
      */
-    public var syUpdateBase: String?
+    public var syUpdateBase: NSDate?
     
 }

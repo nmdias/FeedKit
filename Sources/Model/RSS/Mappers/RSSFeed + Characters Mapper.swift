@@ -117,7 +117,7 @@ extension RSSFeed {
             
         case .RSSChannelSyndicationUpdatePeriod:          self.syndication?.syUpdatePeriod                  = SyndicationUpdatePeriod(rawValue: string)
         case .RSSChannelSyndicationUpdateFrequency:       self.syndication?.syUpdateFrequency               = Int(string)
-        case .RSSChannelSyndicationUpdateBase:            self.syndication?.syUpdateBase                    = self.syndication?.syUpdateBase?.stringByAppendingString(string) ?? string
+        case .RSSChannelSyndicationUpdateBase:            self.syndication?.syUpdateBase                    = string.dateFromSpec(.ISO8601)
             
             // Namespace - Dublin Core
             
