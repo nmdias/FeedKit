@@ -17,6 +17,10 @@ An RSS and Atom feed parser written in Swift
  - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
  - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
  - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
+- [x] Dates Support
+ - [x] [RFC822](https://www.ietf.org/rfc/rfc0822.txt)
+ - [x] [RFC3999](https://www.ietf.org/rfc/rfc3339.txt)
+ - [x] [ISO8601](http://www.w3.org/TR/NOTE-datetime)
 - [x] [Documentation](http://cocoadocs.org/docsets/FeedParser)
 - [x] Unit Test Coverage
 
