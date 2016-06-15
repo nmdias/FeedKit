@@ -31,16 +31,31 @@ import Foundation
  
  */
 class ISO8601DateFormatter: NSDateFormatter {
-
+    
+    let dateFormats = [
+        "yyyy-mm-dd'T'hh:mm",
+        "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
+        "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ",
+        ]
+    
     override init() {
         super.init()
         self.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         self.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        self.dateFormat = "yyyy-mm-ddThh:mm"
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) not supported")
+    }
+    
+    override func dateFromString(string: String) -> NSDate? {
+        for dateFormat in self.dateFormats {
+            self.dateFormat = dateFormat
+            if let date = super.dateFromString(string) {
+                return date
+            }
+        }
+        return nil
     }
     
 }
