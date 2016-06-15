@@ -127,7 +127,7 @@ extension RSSFeed {
         case .RSSChannelDublinCoreDescription:            self.dublinCore?.dcDescription                    = self.dublinCore?.dcDescription?.stringByAppendingString(string) ?? string
         case .RSSChannelDublinCorePublisher:              self.dublinCore?.dcPublisher                      = self.dublinCore?.dcPublisher?.stringByAppendingString(string) ?? string
         case .RSSChannelDublinCoreContributor:            self.dublinCore?.dcContributor                    = self.dublinCore?.dcContributor?.stringByAppendingString(string) ?? string
-        case .RSSChannelDublinCoreDate:                   self.dublinCore?.dcDate                           = self.dublinCore?.dcDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelDublinCoreDate:                   self.dublinCore?.dcDate                           = string.dateFromSpec(.ISO8601)
         case .RSSChannelDublinCoreType:                   self.dublinCore?.dcType                           = self.dublinCore?.dcType?.stringByAppendingString(string) ?? string
         case .RSSChannelDublinCoreFormat:                 self.dublinCore?.dcFormat                         = self.dublinCore?.dcFormat?.stringByAppendingString(string) ?? string
         case .RSSChannelDublinCoreIdentifier:             self.dublinCore?.dcIdentifier                     = self.dublinCore?.dcIdentifier?.stringByAppendingString(string) ?? string
@@ -143,7 +143,7 @@ extension RSSFeed {
         case .RSSChannelItemDublinCoreDescription:        self.items?.last?.dublinCore?.dcDescription       = self.items?.last?.dublinCore?.dcDescription?.stringByAppendingString(string) ?? string
         case .RSSChannelItemDublinCorePublisher:          self.items?.last?.dublinCore?.dcPublisher         = self.items?.last?.dublinCore?.dcPublisher?.stringByAppendingString(string) ?? string
         case .RSSChannelItemDublinCoreContributor:        self.items?.last?.dublinCore?.dcContributor       = self.items?.last?.dublinCore?.dcContributor?.stringByAppendingString(string) ?? string
-        case .RSSChannelItemDublinCoreDate:               self.items?.last?.dublinCore?.dcDate              = self.items?.last?.dublinCore?.dcDate?.stringByAppendingString(string) ?? string
+        case .RSSChannelItemDublinCoreDate:               self.items?.last?.dublinCore?.dcDate              = string.dateFromSpec(.ISO8601)
         case .RSSChannelItemDublinCoreType:               self.items?.last?.dublinCore?.dcType              = self.items?.last?.dublinCore?.dcType?.stringByAppendingString(string) ?? string
         case .RSSChannelItemDublinCoreFormat:             self.items?.last?.dublinCore?.dcFormat            = self.items?.last?.dublinCore?.dcFormat?.stringByAppendingString(string) ?? string
         case .RSSChannelItemDublinCoreIdentifier:         self.items?.last?.dublinCore?.dcIdentifier        = self.items?.last?.dublinCore?.dcIdentifier?.stringByAppendingString(string) ?? string
