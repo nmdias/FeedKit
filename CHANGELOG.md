@@ -1,5 +1,12 @@
 # Change Log
 
+## [3.1.0](https://github.com/nmdias/FeedParser/releases/tag/3.1.0)
+### Added
+- Dates support
+ - RFC822
+ - RFC3999
+ - ISO8601
+
 ## [3.0.0](https://github.com/nmdias/FeedParser/releases/tag/3.0.0)
 ### Added
 - Support for Atom feeds according to RFC 4287
