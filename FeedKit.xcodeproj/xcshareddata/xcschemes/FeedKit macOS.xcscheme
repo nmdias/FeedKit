@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A09C851B1CE9AE6A00D20CAB"
-               BuildableName = "FeedKit.xctest"
+               BuildableName = "FeedKit macOS Tests.xctest"
                BlueprintName = "FeedKit macOS Tests"
                ReferencedContainer = "container:FeedKit.xcodeproj">
             </BuildableReference>
