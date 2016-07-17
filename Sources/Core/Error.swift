@@ -31,7 +31,19 @@ import Foundation
  */
 public enum Error {
     
+    /**
+     
+     Couldn't parse any known feed from the provided DOM structure
+     
+     */
     case FeedNotFound
+    
+    /**
+     
+     Unable to convert the bytes in `CDATABlock` to Unicode characters using
+     the UTF-8 encoding
+     
+     */
     case FeedCDATABlockEncodingError(path: String)
     
     /**
