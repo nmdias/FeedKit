@@ -1,5 +1,8 @@
 # Change Log
 
+## [4.0.0](https://github.com/nmdias/FeedParser/releases/tag/4.0.0)
+The `FeedParser` framework has been renamed `FeedKit` to prevent conflicts between the `FeedParser` module and the `FeedParser` class naming
+
 ## [3.1.0](https://github.com/nmdias/FeedParser/releases/tag/3.1.0)
 ### Added
 - Dates support
