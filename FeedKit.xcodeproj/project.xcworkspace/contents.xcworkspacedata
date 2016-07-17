@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Volumes/Documents/Source Control/IrisKit/FeedParser.xcodeproj">
+      location = "self:/Volumes/Documents/Source Control/FeedKit/FeedKit.xcodeproj">
    </FileRef>
 </Workspace>

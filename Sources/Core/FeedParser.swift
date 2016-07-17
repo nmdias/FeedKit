@@ -34,7 +34,7 @@ public class FeedParser {
     
     /**
      
-     The actual engine behind the `FeedParser` framework. `Parser` handles
+     The actual engine behind the `FeedKit` framework. `Parser` handles
      the parsing of RSS and Atom feeds.
      
      */

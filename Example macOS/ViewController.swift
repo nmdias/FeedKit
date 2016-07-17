@@ -23,7 +23,7 @@
 //
 
 import Cocoa
-import FeedParser
+import FeedKit
 
 let feedURL = NSURL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
 

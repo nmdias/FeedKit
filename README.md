@@ -1,13 +1,13 @@
-# FeedParser
+# FeedKit
 
 An RSS and Atom feed parser written in Swift
 
-[![build status](https://travis-ci.org/nmdias/FeedParser.svg)](https://travis-ci.org/nmdias/FeedParser)
+[![build status](https://travis-ci.org/nmdias/FeedKit.svg)](https://travis-ci.org/nmdias/FeedKit)
 [![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
-[![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedParser)
-[![cocoapods compatible](https://img.shields.io/cocoapods/v/FeedParser.svg)](https://img.shields.io/cocoapods/v/FeedParser.svg)
+[![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedKit)
+[![cocoapods compatible](https://img.shields.io/cocoapods/v/FeedKit.svg)](https://img.shields.io/cocoapods/v/FeedKit.svg)
 [![language](https://img.shields.io/badge/swift-v2.2-orange.svg)](https://swift.org)
-[![documentation](https://img.shields.io/cocoapods/metrics/doc-percent/FeedParser.svg)](http://cocoadocs.org/docsets/FeedParser/)
+[![documentation](https://img.shields.io/cocoapods/metrics/doc-percent/FeedKit.svg)](http://cocoadocs.org/docsets/FeedKit/)
 
 ## Features
 
@@ -21,7 +21,7 @@ An RSS and Atom feed parser written in Swift
  - [x] [RFC822](https://www.ietf.org/rfc/rfc0822.txt)
  - [x] [RFC3999](https://www.ietf.org/rfc/rfc3339.txt)
  - [x] [ISO8601](http://www.w3.org/TR/NOTE-datetime)
-- [x] [Documentation](http://cocoadocs.org/docsets/FeedParser)
+- [x] [Documentation](http://cocoadocs.org/docsets/FeedKit)
 - [x] Unit Test Coverage
 
 ## Requirements
@@ -42,13 +42,13 @@ An RSS and Atom feed parser written in Swift
 $ gem install cocoapods
 ```
 
-To give `FeedParser` a try with an example project, run the following command: 
+To give `FeedKit` a try with an example project, run the following command: 
 
 ```bash
-$ pod try FeedParser
+$ pod try FeedKit
 ```
 
-To integrate `FeedParser` into your Xcode project, specify it in your `Podfile`:
+To integrate `FeedKit` into your Xcode project, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -56,7 +56,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'FeedParser', '~> 3.1'
+  pod 'FeedKit', '~> 3.1'
 end
 ```
 
@@ -76,17 +76,17 @@ To install Carthage with [Homebrew](http://brew.sh/) use the following command:
 $ brew update
 $ brew install carthage
 ```
-To integrate FeedParser into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate FeedKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "nmdias/FeedParser" ~> 3.1
+github "nmdias/FeedKit" ~> 3.1
 ```
 Build the framework:
 
 ```bash
 $ carthage update
 ```
-Then, drag the built `FeedParser.framework` into your Xcode project.
+Then, drag the built `FeedKit.framework` into your Xcode project.
 
 ## Usage
 
@@ -95,7 +95,7 @@ Then, drag the built `FeedParser.framework` into your Xcode project.
 #### RSS
     
 ```swift
-import FeedParser
+import FeedKit
 
 let URL = NSURL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
 
@@ -152,7 +152,7 @@ FeedParser(URL: URL)?.parse({ (result) in
     
 })
 ```
-> Refer to the [`RSSFeed`](http://cocoadocs.org/docsets/FeedParser) documentation for the complete model properties and description
+> Refer to the [`RSSFeed`](http://cocoadocs.org/docsets/FeedKit) documentation for the complete model properties and description
 
 #### AtomFeed
 
@@ -172,7 +172,7 @@ FeedParser(URL: URL)?.parse({ (result) in
     
 })
 ```
-> Refer to the [`AtomFeed`](http://cocoadocs.org/docsets/FeedParser) documentation for the complete model properties and description
+> Refer to the [`AtomFeed`](http://cocoadocs.org/docsets/FeedKit) documentation for the complete model properties and description
 
 ### Background Parsing
 
@@ -189,7 +189,7 @@ dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
 
 ## License
 
-FeedParser is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedParser/blob/master/LICENSE) for details.
+FeedKit is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedKit/blob/master/LICENSE) for details.
 
 
 

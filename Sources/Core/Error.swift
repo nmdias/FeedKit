@@ -81,7 +81,7 @@ public enum Error {
      
      */
     var value: NSError {
-        return NSError(domain:"com.feedparser.error", code: self.code, userInfo: self.userInfo)
+        return NSError(domain:"com.feedkit.error", code: self.code, userInfo: self.userInfo)
     }
     
 }

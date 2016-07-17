@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-               BuildableName = "FeedParser Example tvOS.app"
-               BlueprintName = "FeedParser Example tvOS"
-               ReferencedContainer = "container:FeedParser.xcodeproj">
+               BuildableName = "FeedKit.app"
+               BlueprintName = "FeedKit Example tvOS"
+               ReferencedContainer = "container:FeedKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-            BuildableName = "FeedParser Example tvOS.app"
-            BlueprintName = "FeedParser Example tvOS"
-            ReferencedContainer = "container:FeedParser.xcodeproj">
+            BuildableName = "FeedKit.app"
+            BlueprintName = "FeedKit Example tvOS"
+            ReferencedContainer = "container:FeedKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-            BuildableName = "FeedParser Example tvOS.app"
-            BlueprintName = "FeedParser Example tvOS"
-            ReferencedContainer = "container:FeedParser.xcodeproj">
+            BuildableName = "FeedKit.app"
+            BlueprintName = "FeedKit Example tvOS"
+            ReferencedContainer = "container:FeedKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0EF4DC11CE86A0600C52142"
-            BuildableName = "FeedParser Example tvOS.app"
-            BlueprintName = "FeedParser Example tvOS"
-            ReferencedContainer = "container:FeedParser.xcodeproj">
+            BuildableName = "FeedKit.app"
+            BlueprintName = "FeedKit Example tvOS"
+            ReferencedContainer = "container:FeedKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

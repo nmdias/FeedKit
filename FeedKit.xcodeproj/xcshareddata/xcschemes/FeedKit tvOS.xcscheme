@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
-               BuildableName = "FeedParser Example macOS.app"
-               BlueprintName = "FeedParser Example macOS"
-               ReferencedContainer = "container:FeedParser.xcodeproj">
+               BlueprintIdentifier = "A0EF4DE71CE86C3800C52142"
+               BuildableName = "FeedKit.framework"
+               BlueprintName = "FeedKit tvOS"
+               ReferencedContainer = "container:FeedKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,24 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A09C850C1CE9AE4F00D20CAB"
+               BuildableName = "FeedKit.xctest"
+               BlueprintName = "FeedKit tvOS Tests"
+               ReferencedContainer = "container:FeedKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
-            BuildableName = "FeedParser Example macOS.app"
-            BlueprintName = "FeedParser Example macOS"
-            ReferencedContainer = "container:FeedParser.xcodeproj">
+            BlueprintIdentifier = "A0EF4DE71CE86C3800C52142"
+            BuildableName = "FeedKit.framework"
+            BlueprintName = "FeedKit tvOS"
+            ReferencedContainer = "container:FeedKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -51,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
-            BuildableName = "FeedParser Example macOS.app"
-            BlueprintName = "FeedParser Example macOS"
-            ReferencedContainer = "container:FeedParser.xcodeproj">
+            BlueprintIdentifier = "A0EF4DE71CE86C3800C52142"
+            BuildableName = "FeedKit.framework"
+            BlueprintName = "FeedKit tvOS"
+            ReferencedContainer = "container:FeedKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0EF4DD41CE86A7700C52142"
-            BuildableName = "FeedParser Example macOS.app"
-            BlueprintName = "FeedParser Example macOS"
-            ReferencedContainer = "container:FeedParser.xcodeproj">
+            BlueprintIdentifier = "A0EF4DE71CE86C3800C52142"
+            BuildableName = "FeedKit.framework"
+            BlueprintName = "FeedKit tvOS"
+            ReferencedContainer = "container:FeedKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

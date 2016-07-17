@@ -23,7 +23,7 @@
 //
 
 import XCTest
-@testable import FeedParser
+@testable import FeedKit
 
 class ParserTests: BaseTestCase {
     

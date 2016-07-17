@@ -10,7 +10,7 @@
 		A00BEBD51D0F3E1200F8AEFA /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
 		A01F67A01D1692B20038910F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F679C1D16922D0038910F /* ViewController.swift */; };
 		A01F67A11D16931A0038910F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01F67991D1691510038910F /* Main.storyboard */; };
-		A0370EC21CEF9EF6009583A3 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0370EC21CEF9EF6009583A3 /* FeedKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A03978061CE8AF4C0042A1C4 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03978051CE8AF4C0042A1C4 /* FeedTableViewController.swift */; };
 		A039780D1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */; };
 		A03978101CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780E1CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift */; };
@@ -213,9 +213,9 @@
 		A07F3CD61CFE136900C3AF80 /* RSSPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C141CFE136900C3AF80 /* RSSPath.swift */; };
 		A07F3CD71CFE136900C3AF80 /* RSSPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C141CFE136900C3AF80 /* RSSPath.swift */; };
 		A07F3CD81CFE136900C3AF80 /* RSSPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C141CFE136900C3AF80 /* RSSPath.swift */; };
-		A09C85031CE9AE2300D20CAB /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */; };
-		A09C85121CE9AE4F00D20CAB /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedParser.framework */; };
-		A09C85211CE9AE6A00D20CAB /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */; };
+		A09C85031CE9AE2300D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */; };
+		A09C85121CE9AE4F00D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedKit.framework */; };
+		A09C85211CE9AE6A00D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedKit.framework */; };
 		A0AA54701D02C07C000A2264 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* Parser.swift */; };
 		A0AA54711D02C07C000A2264 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* Parser.swift */; };
 		A0AA54721D02C07C000A2264 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* Parser.swift */; };
@@ -260,15 +260,15 @@
 		A0EF4DCC1CE86A0600C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */; };
 		A0EF4DD81CE86A7700C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */; };
 		A0EF4DDA1CE86A7700C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DD91CE86A7700C52142 /* Assets.xcassets */; };
-		A0EF4DEF1CE86C3800C52142 /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedParser.framework */; };
-		A0EF4DF01CE86C3800C52142 /* FeedParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0EF4E011CE86CA200C52142 /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */; };
-		A0EF4E021CE86CA200C52142 /* FeedParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0EF4E131CE86D1E00C52142 /* FeedParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */; };
-		A0EF4E141CE86D1E00C52142 /* FeedParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0EF4E1C1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A0EF4E1D1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A0EF4E1E1CE86F6100C52142 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EF4DEF1CE86C3800C52142 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedKit.framework */; };
+		A0EF4DF01CE86C3800C52142 /* FeedKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0EF4E011CE86CA200C52142 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedKit.framework */; };
+		A0EF4E021CE86CA200C52142 /* FeedKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0EF4E131CE86D1E00C52142 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */; };
+		A0EF4E141CE86D1E00C52142 /* FeedKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0EF4E1C1CE86F6100C52142 /* FeedKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EF4E1D1CE86F6100C52142 /* FeedKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EF4E1E1CE86F6100C52142 /* FeedKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0FF62841D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
 		A0FF62851D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
 		A0FF62861D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
@@ -326,7 +326,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A0EF4DF01CE86C3800C52142 /* FeedParser.framework in Embed Frameworks */,
+				A0EF4DF01CE86C3800C52142 /* FeedKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +337,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A0EF4E021CE86CA200C52142 /* FeedParser.framework in Embed Frameworks */,
+				A0EF4E021CE86CA200C52142 /* FeedKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +348,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A0EF4E141CE86D1E00C52142 /* FeedParser.framework in Embed Frameworks */,
+				A0EF4E141CE86D1E00C52142 /* FeedKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +359,7 @@
 		A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601DateFormatter.swift; path = Sources/Dates/ISO8601DateFormatter.swift; sourceTree = "<group>"; };
 		A01F679A1D1691510038910F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A01F679C1D16922D0038910F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A0370EB91CEF9D5A009583A3 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0370EB91CEF9D5A009583A3 /* FeedKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0370EC11CEF9E0A009583A3 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-watchOS.plist"; path = "Sources/Info-watchOS.plist"; sourceTree = "<group>"; };
 		A03978051CE8AF4C0042A1C4 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTableViewController.swift; path = "View Controllers/FeedTableViewController.swift"; sourceTree = "<group>"; };
 		A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedDetailTableViewController.swift; path = "View Controllers/FeedDetailTableViewController.swift"; sourceTree = "<group>"; };
@@ -416,9 +416,9 @@
 		A07F3C121CFE136900C3AF80 /* RSSFeedSkipHour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeedSkipHour.swift; sourceTree = "<group>"; };
 		A07F3C131CFE136900C3AF80 /* RSSFeedTextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeedTextInput.swift; sourceTree = "<group>"; };
 		A07F3C141CFE136900C3AF80 /* RSSPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSPath.swift; sourceTree = "<group>"; };
-		A09C84FE1CE9AE2300D20CAB /* FeedParser iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedParser iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A09C850D1CE9AE4F00D20CAB /* FeedParser tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedParser tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A09C851C1CE9AE6A00D20CAB /* FeedParser macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedParser macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C84FE1CE9AE2300D20CAB /* FeedKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C850D1CE9AE4F00D20CAB /* FeedKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09C851C1CE9AE6A00D20CAB /* FeedKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C85281CE9B0C300D20CAB /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		A09C85291CE9B0C300D20CAB /* Info-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
@@ -433,25 +433,25 @@
 		A0D20C391CEB01E400B4509D /* DublinCoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCoreTests.swift; sourceTree = "<group>"; };
 		A0DE942D1CF791B800D1F19C /* AtomTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomTests.swift; sourceTree = "<group>"; };
 		A0DE94311CF7946700D1F19C /* Atom.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Atom.xml; path = xml/Atom.xml; sourceTree = "<group>"; };
-		A0EF4DAC1CE869AD00C52142 /* FeedParser Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedParser Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DAC1CE869AD00C52142 /* FeedKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DB81CE869AE00C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0EF4DBA1CE869AE00C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EF4DC21CE86A0600C52142 /* FeedParser Example tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedParser Example tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DC21CE86A0600C52142 /* FeedKit Example tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedKit Example tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DC41CE86A0600C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DC61CE86A0600C52142 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0EF4DC91CE86A0600C52142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0EF4DCB1CE86A0600C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DCD1CE86A0600C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EF4DD51CE86A7700C52142 /* FeedParser Example macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedParser Example macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DD51CE86A7700C52142 /* FeedKit Example macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedKit Example macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DD71CE86A7700C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DD91CE86A7700C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0EF4DDE1CE86A7700C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EF4DE81CE86C3800C52142 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0EF4E1B1CE86F6100C52142 /* FeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedParser.h; path = Sources/FeedParser.h; sourceTree = "<group>"; };
+		A0EF4DE81CE86C3800C52142 /* FeedKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4DFA1CE86CA200C52142 /* FeedKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF4E1B1CE86F6100C52142 /* FeedKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedKit.h; path = Sources/FeedKit.h; sourceTree = "<group>"; };
 		A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = "<group>"; };
 		A0EF4E201CE86F6E00C52142 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-macOS.plist"; path = "Sources/Info-macOS.plist"; sourceTree = "<group>"; };
 		A0EF4E211CE86F6E00C52142 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Sources/Info-tvOS.plist"; sourceTree = "<group>"; };
@@ -469,7 +469,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C85031CE9AE2300D20CAB /* FeedParser.framework in Frameworks */,
+				A09C85031CE9AE2300D20CAB /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +477,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C85121CE9AE4F00D20CAB /* FeedParser.framework in Frameworks */,
+				A09C85121CE9AE4F00D20CAB /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +485,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C85211CE9AE6A00D20CAB /* FeedParser.framework in Frameworks */,
+				A09C85211CE9AE6A00D20CAB /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +493,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E131CE86D1E00C52142 /* FeedParser.framework in Frameworks */,
+				A0EF4E131CE86D1E00C52142 /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +501,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4DEF1CE86C3800C52142 /* FeedParser.framework in Frameworks */,
+				A0EF4DEF1CE86C3800C52142 /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +509,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E011CE86CA200C52142 /* FeedParser.framework in Frameworks */,
+				A0EF4E011CE86CA200C52142 /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,16 +746,16 @@
 		A0EF4DA01CE8689E00C52142 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0EF4DAC1CE869AD00C52142 /* FeedParser Example iOS.app */,
-				A0EF4DC21CE86A0600C52142 /* FeedParser Example tvOS.app */,
-				A0EF4DD51CE86A7700C52142 /* FeedParser Example macOS.app */,
-				A0EF4DE81CE86C3800C52142 /* FeedParser.framework */,
-				A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */,
-				A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */,
-				A09C84FE1CE9AE2300D20CAB /* FeedParser iOS Tests.xctest */,
-				A09C850D1CE9AE4F00D20CAB /* FeedParser tvOS Tests.xctest */,
-				A09C851C1CE9AE6A00D20CAB /* FeedParser macOS Tests.xctest */,
-				A0370EB91CEF9D5A009583A3 /* FeedParser.framework */,
+				A0EF4DAC1CE869AD00C52142 /* FeedKit Example iOS.app */,
+				A0EF4DC21CE86A0600C52142 /* FeedKit Example tvOS.app */,
+				A0EF4DD51CE86A7700C52142 /* FeedKit Example macOS.app */,
+				A0EF4DE81CE86C3800C52142 /* FeedKit.framework */,
+				A0EF4DFA1CE86CA200C52142 /* FeedKit.framework */,
+				A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */,
+				A09C84FE1CE9AE2300D20CAB /* FeedKit iOS Tests.xctest */,
+				A09C850D1CE9AE4F00D20CAB /* FeedKit tvOS Tests.xctest */,
+				A09C851C1CE9AE6A00D20CAB /* FeedKit macOS Tests.xctest */,
+				A0370EB91CEF9D5A009583A3 /* FeedKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -804,7 +804,7 @@
 				A07F3BD91CFE136900C3AF80 /* Core */,
 				A07F3BDC1CFE136900C3AF80 /* Extensions */,
 				A07F3BDE1CFE136900C3AF80 /* Model */,
-				A0EF4E1B1CE86F6100C52142 /* FeedParser.h */,
+				A0EF4E1B1CE86F6100C52142 /* FeedKit.h */,
 				A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */,
 				A0EF4E201CE86F6E00C52142 /* Info-macOS.plist */,
 				A0EF4E211CE86F6E00C52142 /* Info-tvOS.plist */,
@@ -820,7 +820,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0370EC21CEF9EF6009583A3 /* FeedParser.h in Headers */,
+				A0370EC21CEF9EF6009583A3 /* FeedKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,7 +828,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E1D1CE86F6100C52142 /* FeedParser.h in Headers */,
+				A0EF4E1D1CE86F6100C52142 /* FeedKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,7 +836,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E1E1CE86F6100C52142 /* FeedParser.h in Headers */,
+				A0EF4E1E1CE86F6100C52142 /* FeedKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,16 +844,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EF4E1C1CE86F6100C52142 /* FeedParser.h in Headers */,
+				A0EF4E1C1CE86F6100C52142 /* FeedKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A0370EB81CEF9D5A009583A3 /* FeedParser watchOS */ = {
+		A0370EB81CEF9D5A009583A3 /* FeedKit watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0370EC01CEF9D5A009583A3 /* Build configuration list for PBXNativeTarget "FeedParser watchOS" */;
+			buildConfigurationList = A0370EC01CEF9D5A009583A3 /* Build configuration list for PBXNativeTarget "FeedKit watchOS" */;
 			buildPhases = (
 				A0370EB41CEF9D5A009583A3 /* Sources */,
 				A0370EB51CEF9D5A009583A3 /* Frameworks */,
@@ -864,14 +864,14 @@
 			);
 			dependencies = (
 			);
-			name = "FeedParser watchOS";
+			name = "FeedKit watchOS";
 			productName = "FeedParser watchOS";
-			productReference = A0370EB91CEF9D5A009583A3 /* FeedParser.framework */;
+			productReference = A0370EB91CEF9D5A009583A3 /* FeedKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A09C84FD1CE9AE2300D20CAB /* FeedParser iOS Tests */ = {
+		A09C84FD1CE9AE2300D20CAB /* FeedKit iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "FeedParser iOS Tests" */;
+			buildConfigurationList = A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "FeedKit iOS Tests" */;
 			buildPhases = (
 				A09C84FA1CE9AE2300D20CAB /* Sources */,
 				A09C84FB1CE9AE2300D20CAB /* Frameworks */,
@@ -882,14 +882,14 @@
 			dependencies = (
 				A09C85051CE9AE2300D20CAB /* PBXTargetDependency */,
 			);
-			name = "FeedParser iOS Tests";
+			name = "FeedKit iOS Tests";
 			productName = "IrisKit iOS Tests";
-			productReference = A09C84FE1CE9AE2300D20CAB /* FeedParser iOS Tests.xctest */;
+			productReference = A09C84FE1CE9AE2300D20CAB /* FeedKit iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A09C850C1CE9AE4F00D20CAB /* FeedParser tvOS Tests */ = {
+		A09C850C1CE9AE4F00D20CAB /* FeedKit tvOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "FeedParser tvOS Tests" */;
+			buildConfigurationList = A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "FeedKit tvOS Tests" */;
 			buildPhases = (
 				A09C85091CE9AE4F00D20CAB /* Sources */,
 				A09C850A1CE9AE4F00D20CAB /* Frameworks */,
@@ -900,14 +900,14 @@
 			dependencies = (
 				A09C85141CE9AE4F00D20CAB /* PBXTargetDependency */,
 			);
-			name = "FeedParser tvOS Tests";
+			name = "FeedKit tvOS Tests";
 			productName = "IrisKit tvOS Tests";
-			productReference = A09C850D1CE9AE4F00D20CAB /* FeedParser tvOS Tests.xctest */;
+			productReference = A09C850D1CE9AE4F00D20CAB /* FeedKit tvOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A09C851B1CE9AE6A00D20CAB /* FeedParser macOS Tests */ = {
+		A09C851B1CE9AE6A00D20CAB /* FeedKit macOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "FeedParser macOS Tests" */;
+			buildConfigurationList = A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "FeedKit macOS Tests" */;
 			buildPhases = (
 				A09C85181CE9AE6A00D20CAB /* Sources */,
 				A09C85191CE9AE6A00D20CAB /* Frameworks */,
@@ -918,14 +918,14 @@
 			dependencies = (
 				A09C85231CE9AE6A00D20CAB /* PBXTargetDependency */,
 			);
-			name = "FeedParser macOS Tests";
+			name = "FeedKit macOS Tests";
 			productName = "IrisKit macOS Tests";
-			productReference = A09C851C1CE9AE6A00D20CAB /* FeedParser macOS Tests.xctest */;
+			productReference = A09C851C1CE9AE6A00D20CAB /* FeedKit macOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A0EF4DAB1CE869AD00C52142 /* FeedParser Example iOS */ = {
+		A0EF4DAB1CE869AD00C52142 /* FeedKit Example iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example iOS" */;
+			buildConfigurationList = A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "FeedKit Example iOS" */;
 			buildPhases = (
 				A0EF4DA81CE869AD00C52142 /* Sources */,
 				A0EF4DA91CE869AD00C52142 /* Frameworks */,
@@ -937,14 +937,14 @@
 			dependencies = (
 				A0EF4E121CE86D1E00C52142 /* PBXTargetDependency */,
 			);
-			name = "FeedParser Example iOS";
+			name = "FeedKit Example iOS";
 			productName = "Iris Example iOS";
-			productReference = A0EF4DAC1CE869AD00C52142 /* FeedParser Example iOS.app */;
+			productReference = A0EF4DAC1CE869AD00C52142 /* FeedKit Example iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A0EF4DC11CE86A0600C52142 /* FeedParser Example tvOS */ = {
+		A0EF4DC11CE86A0600C52142 /* FeedKit Example tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example tvOS" */;
+			buildConfigurationList = A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "FeedKit Example tvOS" */;
 			buildPhases = (
 				A0EF4DBE1CE86A0600C52142 /* Sources */,
 				A0EF4DBF1CE86A0600C52142 /* Frameworks */,
@@ -956,14 +956,14 @@
 			dependencies = (
 				A0EF4DEE1CE86C3800C52142 /* PBXTargetDependency */,
 			);
-			name = "FeedParser Example tvOS";
+			name = "FeedKit Example tvOS";
 			productName = "Iris Example tvOS";
-			productReference = A0EF4DC21CE86A0600C52142 /* FeedParser Example tvOS.app */;
+			productReference = A0EF4DC21CE86A0600C52142 /* FeedKit Example tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A0EF4DD41CE86A7700C52142 /* FeedParser Example macOS */ = {
+		A0EF4DD41CE86A7700C52142 /* FeedKit Example macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example macOS" */;
+			buildConfigurationList = A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "FeedKit Example macOS" */;
 			buildPhases = (
 				A0EF4DD11CE86A7700C52142 /* Sources */,
 				A0EF4DD21CE86A7700C52142 /* Frameworks */,
@@ -975,14 +975,14 @@
 			dependencies = (
 				A0EF4E001CE86CA200C52142 /* PBXTargetDependency */,
 			);
-			name = "FeedParser Example macOS";
+			name = "FeedKit Example macOS";
 			productName = "Iris Example macOS";
-			productReference = A0EF4DD51CE86A7700C52142 /* FeedParser Example macOS.app */;
+			productReference = A0EF4DD51CE86A7700C52142 /* FeedKit Example macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A0EF4DE71CE86C3800C52142 /* FeedParser tvOS */ = {
+		A0EF4DE71CE86C3800C52142 /* FeedKit tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4DF11CE86C3800C52142 /* Build configuration list for PBXNativeTarget "FeedParser tvOS" */;
+			buildConfigurationList = A0EF4DF11CE86C3800C52142 /* Build configuration list for PBXNativeTarget "FeedKit tvOS" */;
 			buildPhases = (
 				A0EF4DE31CE86C3800C52142 /* Sources */,
 				A0EF4DE41CE86C3800C52142 /* Frameworks */,
@@ -993,14 +993,14 @@
 			);
 			dependencies = (
 			);
-			name = "FeedParser tvOS";
+			name = "FeedKit tvOS";
 			productName = "Iris tvOS";
-			productReference = A0EF4DE81CE86C3800C52142 /* FeedParser.framework */;
+			productReference = A0EF4DE81CE86C3800C52142 /* FeedKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A0EF4DF91CE86CA200C52142 /* FeedParser macOS */ = {
+		A0EF4DF91CE86CA200C52142 /* FeedKit macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4E031CE86CA200C52142 /* Build configuration list for PBXNativeTarget "FeedParser macOS" */;
+			buildConfigurationList = A0EF4E031CE86CA200C52142 /* Build configuration list for PBXNativeTarget "FeedKit macOS" */;
 			buildPhases = (
 				A0EF4DF51CE86CA200C52142 /* Sources */,
 				A0EF4DF61CE86CA200C52142 /* Frameworks */,
@@ -1011,14 +1011,14 @@
 			);
 			dependencies = (
 			);
-			name = "FeedParser macOS";
+			name = "FeedKit macOS";
 			productName = "Iris macOS";
-			productReference = A0EF4DFA1CE86CA200C52142 /* FeedParser.framework */;
+			productReference = A0EF4DFA1CE86CA200C52142 /* FeedKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A0EF4E0B1CE86D1E00C52142 /* FeedParser iOS */ = {
+		A0EF4E0B1CE86D1E00C52142 /* FeedKit iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "FeedParser iOS" */;
+			buildConfigurationList = A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "FeedKit iOS" */;
 			buildPhases = (
 				A0EF4E071CE86D1E00C52142 /* Sources */,
 				A0EF4E081CE86D1E00C52142 /* Frameworks */,
@@ -1029,9 +1029,9 @@
 			);
 			dependencies = (
 			);
-			name = "FeedParser iOS";
+			name = "FeedKit iOS";
 			productName = "Iris iOS";
-			productReference = A0EF4E0C1CE86D1E00C52142 /* FeedParser.framework */;
+			productReference = A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1075,7 +1075,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "FeedParser" */;
+			buildConfigurationList = A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "FeedKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1088,16 +1088,16 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0EF4E0B1CE86D1E00C52142 /* FeedParser iOS */,
-				A0EF4DE71CE86C3800C52142 /* FeedParser tvOS */,
-				A0EF4DF91CE86CA200C52142 /* FeedParser macOS */,
-				A0370EB81CEF9D5A009583A3 /* FeedParser watchOS */,
-				A0EF4DAB1CE869AD00C52142 /* FeedParser Example iOS */,
-				A0EF4DC11CE86A0600C52142 /* FeedParser Example tvOS */,
-				A0EF4DD41CE86A7700C52142 /* FeedParser Example macOS */,
-				A09C84FD1CE9AE2300D20CAB /* FeedParser iOS Tests */,
-				A09C850C1CE9AE4F00D20CAB /* FeedParser tvOS Tests */,
-				A09C851B1CE9AE6A00D20CAB /* FeedParser macOS Tests */,
+				A0EF4E0B1CE86D1E00C52142 /* FeedKit iOS */,
+				A0EF4DE71CE86C3800C52142 /* FeedKit tvOS */,
+				A0EF4DF91CE86CA200C52142 /* FeedKit macOS */,
+				A0370EB81CEF9D5A009583A3 /* FeedKit watchOS */,
+				A0EF4DAB1CE869AD00C52142 /* FeedKit Example iOS */,
+				A0EF4DC11CE86A0600C52142 /* FeedKit Example tvOS */,
+				A0EF4DD41CE86A7700C52142 /* FeedKit Example macOS */,
+				A09C84FD1CE9AE2300D20CAB /* FeedKit iOS Tests */,
+				A09C850C1CE9AE4F00D20CAB /* FeedKit tvOS Tests */,
+				A09C851B1CE9AE6A00D20CAB /* FeedKit macOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1503,32 +1503,32 @@
 /* Begin PBXTargetDependency section */
 		A09C85051CE9AE2300D20CAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4E0B1CE86D1E00C52142 /* FeedParser iOS */;
+			target = A0EF4E0B1CE86D1E00C52142 /* FeedKit iOS */;
 			targetProxy = A09C85041CE9AE2300D20CAB /* PBXContainerItemProxy */;
 		};
 		A09C85141CE9AE4F00D20CAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4DE71CE86C3800C52142 /* FeedParser tvOS */;
+			target = A0EF4DE71CE86C3800C52142 /* FeedKit tvOS */;
 			targetProxy = A09C85131CE9AE4F00D20CAB /* PBXContainerItemProxy */;
 		};
 		A09C85231CE9AE6A00D20CAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4DF91CE86CA200C52142 /* FeedParser macOS */;
+			target = A0EF4DF91CE86CA200C52142 /* FeedKit macOS */;
 			targetProxy = A09C85221CE9AE6A00D20CAB /* PBXContainerItemProxy */;
 		};
 		A0EF4DEE1CE86C3800C52142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4DE71CE86C3800C52142 /* FeedParser tvOS */;
+			target = A0EF4DE71CE86C3800C52142 /* FeedKit tvOS */;
 			targetProxy = A0EF4DED1CE86C3800C52142 /* PBXContainerItemProxy */;
 		};
 		A0EF4E001CE86CA200C52142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4DF91CE86CA200C52142 /* FeedParser macOS */;
+			target = A0EF4DF91CE86CA200C52142 /* FeedKit macOS */;
 			targetProxy = A0EF4DFF1CE86CA200C52142 /* PBXContainerItemProxy */;
 		};
 		A0EF4E121CE86D1E00C52142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0EF4E0B1CE86D1E00C52142 /* FeedParser iOS */;
+			target = A0EF4E0B1CE86D1E00C52142 /* FeedKit iOS */;
 			targetProxy = A0EF4E111CE86D1E00C52142 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1608,8 +1608,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-watchOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-watchOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1661,8 +1661,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-watchOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-watchOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1716,8 +1716,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-iOS-Tests";
-				PRODUCT_NAME = "FeedParser iOS Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-iOS-Tests";
+				PRODUCT_NAME = "FeedKit iOS Tests";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1758,8 +1758,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-iOS-Tests";
-				PRODUCT_NAME = "FeedParser iOS Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-iOS-Tests";
+				PRODUCT_NAME = "FeedKit iOS Tests";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1805,8 +1805,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-tvOS-Tests";
-				PRODUCT_NAME = "FeedParser tvOS Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-tvOS-Tests";
+				PRODUCT_NAME = "FeedKit tvOS Tests";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1846,8 +1846,8 @@
 				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-tvOS-Tests";
-				PRODUCT_NAME = "FeedParser tvOS Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-tvOS-Tests";
+				PRODUCT_NAME = "FeedKit tvOS Tests";
 				SDKROOT = appletvos;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
@@ -1897,8 +1897,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-macOS-Tests";
-				PRODUCT_NAME = "FeedParser macOS Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-macOS-Tests";
+				PRODUCT_NAME = "FeedKit macOS Tests";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1940,8 +1940,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-macOS-Tests";
-				PRODUCT_NAME = "FeedParser macOS Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-macOS-Tests";
+				PRODUCT_NAME = "FeedKit macOS Tests";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1997,8 +1997,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-iOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-iOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2049,8 +2049,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-tvOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-tvOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -2106,8 +2106,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-macOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-macOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2156,8 +2156,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-watchOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-watchOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -2206,8 +2206,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-Example-iOS";
-				PRODUCT_NAME = "FeedParser Example iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-Example-iOS";
+				PRODUCT_NAME = "FeedKit Example iOS";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2249,8 +2249,8 @@
 				INFOPLIST_FILE = "Example tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-Example-tvOS";
-				PRODUCT_NAME = "FeedParser Example tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-Example-tvOS";
+				PRODUCT_NAME = "FeedKit Example tvOS";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -2296,8 +2296,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-Example-macOS";
-				PRODUCT_NAME = "FeedParser Example macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-Example-macOS";
+				PRODUCT_NAME = "FeedKit Example macOS";
 				SDKROOT = macosx;
 			};
 			name = "Release Test";
@@ -2338,8 +2338,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-iOS-Tests";
-				PRODUCT_NAME = "FeedParser iOS Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-iOS-Tests";
+				PRODUCT_NAME = "FeedKit iOS Tests";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2379,8 +2379,8 @@
 				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-tvOS-Tests";
-				PRODUCT_NAME = "FeedParser tvOS Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-tvOS-Tests";
+				PRODUCT_NAME = "FeedKit tvOS Tests";
 				SDKROOT = appletvos;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
@@ -2424,8 +2424,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-macOS-Tests";
-				PRODUCT_NAME = "FeedParser macOS Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-macOS-Tests";
+				PRODUCT_NAME = "FeedKit macOS Tests";
 				SDKROOT = macosx;
 			};
 			name = "Release Test";
@@ -2490,8 +2490,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-Example-iOS";
-				PRODUCT_NAME = "FeedParser Example iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-Example-iOS";
+				PRODUCT_NAME = "FeedKit Example iOS";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2534,8 +2534,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-Example-iOS";
-				PRODUCT_NAME = "FeedParser Example iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-Example-iOS";
+				PRODUCT_NAME = "FeedKit Example iOS";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2584,8 +2584,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-Example-tvOS";
-				PRODUCT_NAME = "FeedParser Example tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-Example-tvOS";
+				PRODUCT_NAME = "FeedKit Example tvOS";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
@@ -2629,8 +2629,8 @@
 				INFOPLIST_FILE = "Example tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-Example-tvOS";
-				PRODUCT_NAME = "FeedParser Example tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-Example-tvOS";
+				PRODUCT_NAME = "FeedKit Example tvOS";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -2683,8 +2683,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-Example-macOS";
-				PRODUCT_NAME = "FeedParser Example macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-Example-macOS";
+				PRODUCT_NAME = "FeedKit Example macOS";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2728,8 +2728,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-Example-macOS";
-				PRODUCT_NAME = "FeedParser Example macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-Example-macOS";
+				PRODUCT_NAME = "FeedKit Example macOS";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -2781,8 +2781,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-tvOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-tvOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2833,8 +2833,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-tvOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-tvOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -2896,8 +2896,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-macOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-macOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2950,8 +2950,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-macOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-macOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3008,8 +3008,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-iOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-iOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3061,8 +3061,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.feedparser.FeedParser-iOS";
-				PRODUCT_NAME = FeedParser;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-iOS";
+				PRODUCT_NAME = FeedKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3075,7 +3075,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A0370EC01CEF9D5A009583A3 /* Build configuration list for PBXNativeTarget "FeedParser watchOS" */ = {
+		A0370EC01CEF9D5A009583A3 /* Build configuration list for PBXNativeTarget "FeedKit watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0370EBE1CEF9D5A009583A3 /* Debug */,
@@ -3085,7 +3085,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "FeedParser iOS Tests" */ = {
+		A09C85081CE9AE2300D20CAB /* Build configuration list for PBXNativeTarget "FeedKit iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A09C85061CE9AE2300D20CAB /* Debug */,
@@ -3095,7 +3095,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "FeedParser tvOS Tests" */ = {
+		A09C85151CE9AE4F00D20CAB /* Build configuration list for PBXNativeTarget "FeedKit tvOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A09C85161CE9AE4F00D20CAB /* Debug */,
@@ -3105,7 +3105,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "FeedParser macOS Tests" */ = {
+		A09C85241CE9AE6A00D20CAB /* Build configuration list for PBXNativeTarget "FeedKit macOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A09C85251CE9AE6A00D20CAB /* Debug */,
@@ -3115,7 +3115,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "FeedParser" */ = {
+		A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "FeedKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4D981CE867DF00C52142 /* Debug */,
@@ -3125,7 +3125,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example iOS" */ = {
+		A0EF4DBD1CE869AE00C52142 /* Build configuration list for PBXNativeTarget "FeedKit Example iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4DBB1CE869AE00C52142 /* Debug */,
@@ -3135,7 +3135,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example tvOS" */ = {
+		A0EF4DCE1CE86A0600C52142 /* Build configuration list for PBXNativeTarget "FeedKit Example tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4DCF1CE86A0600C52142 /* Debug */,
@@ -3145,7 +3145,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "FeedParser Example macOS" */ = {
+		A0EF4DDF1CE86A7700C52142 /* Build configuration list for PBXNativeTarget "FeedKit Example macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4DE01CE86A7700C52142 /* Debug */,
@@ -3155,7 +3155,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4DF11CE86C3800C52142 /* Build configuration list for PBXNativeTarget "FeedParser tvOS" */ = {
+		A0EF4DF11CE86C3800C52142 /* Build configuration list for PBXNativeTarget "FeedKit tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4DF21CE86C3800C52142 /* Debug */,
@@ -3165,7 +3165,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4E031CE86CA200C52142 /* Build configuration list for PBXNativeTarget "FeedParser macOS" */ = {
+		A0EF4E031CE86CA200C52142 /* Build configuration list for PBXNativeTarget "FeedKit macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4E041CE86CA200C52142 /* Debug */,
@@ -3175,7 +3175,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "FeedParser iOS" */ = {
+		A0EF4E151CE86D1E00C52142 /* Build configuration list for PBXNativeTarget "FeedKit iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0EF4E161CE86D1E00C52142 /* Debug */,

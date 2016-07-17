@@ -23,7 +23,7 @@
 //
 
 import XCTest
-import FeedParser
+import FeedKit
 
 class ContentTests: BaseTestCase {
     

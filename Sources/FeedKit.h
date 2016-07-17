@@ -1,5 +1,5 @@
 //
-//  FeedParser.h
+//  FeedKit.h
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -24,12 +24,12 @@
 
 @import Foundation;
 
-//! Project version number for FeedParser.
-FOUNDATION_EXPORT double FeedParserVersionNumber;
+//! Project version number for FeedKit.
+FOUNDATION_EXPORT double FeedKitVersionNumber;
 
-//! Project version string for FeedParser.
-FOUNDATION_EXPORT const unsigned char FeedParserVersionString[];
+//! Project version string for FeedKit.
+FOUNDATION_EXPORT const unsigned char FeedKitVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <FeedParser/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <FeedKit/PublicHeader.h>
 
 

@@ -4,20 +4,20 @@ env:
   global:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
-  - PROJECT=FeedParser.xcodeproj
+  - PROJECT=FeedKit.xcodeproj
   - IOS_SDK=iphonesimulator9.3
   - OSX_SDK=macosx10.11
   - TVOS_SDK=appletvsimulator9.2
   - WATCHOS_SDK=watchsimulator2.2
   # Framework targets
-  - FRAMEWORK_SCHEME_IOS="FeedParser iOS"
-  - FRAMEWORK_SCHEME_MACOS="FeedParser macOS"
-  - FRAMEWORK_SCHEME_TVOS="FeedParser tvOS"
-  - FRAMEWORK_SCHEME_WATCHOS="FeedParser watchOS"
+  - FRAMEWORK_SCHEME_IOS="FeedKit iOS"
+  - FRAMEWORK_SCHEME_MACOS="FeedKit macOS"
+  - FRAMEWORK_SCHEME_TVOS="FeedKit tvOS"
+  - FRAMEWORK_SCHEME_WATCHOS="FeedKit watchOS"
   # Example targets
-  - EXAMPLE_SCHEME_IOS="FeedParser Example iOS"
-  - EXAMPLE_SCHEME_TVOS="FeedParser Example tvOS"
-  - EXAMPLE_SCHEME_MACOS="FeedParser Example macOS"
+  - EXAMPLE_SCHEME_IOS="FeedKit Example iOS"
+  - EXAMPLE_SCHEME_TVOS="FeedKit Example tvOS"
+  - EXAMPLE_SCHEME_MACOS="FeedKit Example macOS"
   
   matrix:
     - DESTINATION="OS=8.1,name=iPhone 4S"          SCHEME="$FRAMEWORK_SCHEME_IOS"     SDK="$IOS_SDK"     RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_IOS"   POD_LINT="YES" 

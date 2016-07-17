@@ -26,7 +26,7 @@ import Foundation
 
 /**
  
- The actual engine behind the `FeedParser` framework. `Parser` handles 
+ The actual engine behind the `FeedKit` framework. `Parser` handles 
  the parsing of RSS and Atom feeds. It is an `NSXMLParserDelegate` of
  itself.
  

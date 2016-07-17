@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0370EB81CEF9D5A009583A3"
+               BlueprintIdentifier = "A0EF4E0B1CE86D1E00C52142"
                BuildableName = "FeedParser.framework"
-               BlueprintName = "FeedParser watchOS"
-               ReferencedContainer = "container:FeedParser.xcodeproj">
+               BlueprintName = "FeedKit iOS"
+               ReferencedContainer = "container:FeedKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A09C84FD1CE9AE2300D20CAB"
+               BuildableName = "FeedKit.xctest"
+               BlueprintName = "FeedKit iOS Tests"
+               ReferencedContainer = "container:FeedKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A0EF4E0B1CE86D1E00C52142"
+            BuildableName = "FeedParser.framework"
+            BlueprintName = "FeedKit iOS"
+            ReferencedContainer = "container:FeedKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -45,10 +64,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0370EB81CEF9D5A009583A3"
+            BlueprintIdentifier = "A0EF4E0B1CE86D1E00C52142"
             BuildableName = "FeedParser.framework"
-            BlueprintName = "FeedParser watchOS"
-            ReferencedContainer = "container:FeedParser.xcodeproj">
+            BlueprintName = "FeedKit iOS"
+            ReferencedContainer = "container:FeedKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +82,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0370EB81CEF9D5A009583A3"
+            BlueprintIdentifier = "A0EF4E0B1CE86D1E00C52142"
             BuildableName = "FeedParser.framework"
-            BlueprintName = "FeedParser watchOS"
-            ReferencedContainer = "container:FeedParser.xcodeproj">
+            BlueprintName = "FeedKit iOS"
+            ReferencedContainer = "container:FeedKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
