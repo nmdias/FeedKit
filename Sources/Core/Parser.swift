@@ -108,7 +108,16 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
      */
     func parse(result: Result -> Void) {
         self.result = result
-        self.parse()
+        
+        if self.parse() == false {
+            
+            guard let error = self.parserError else {
+                self.result?(Result.Failure(Error.FeedNotFound.value))
+                return
+            }
+            
+            self.result?(Result.Failure(error))
+        }
     }
     
     
