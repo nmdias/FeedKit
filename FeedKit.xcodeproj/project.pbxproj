@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8352091F1D3E65C100BADF32 /* URLNotFoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352091E1D3E65C100BADF32 /* URLNotFoundTests.swift */; };
+		835209201D3E65C100BADF32 /* URLNotFoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352091E1D3E65C100BADF32 /* URLNotFoundTests.swift */; };
+		835209211D3E65C100BADF32 /* URLNotFoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352091E1D3E65C100BADF32 /* URLNotFoundTests.swift */; };
 		A00BEBD51D0F3E1200F8AEFA /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
 		A01F67A01D1692B20038910F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F679C1D16922D0038910F /* ViewController.swift */; };
 		A01F67A11D16931A0038910F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01F67991D1691510038910F /* Main.storyboard */; };
@@ -356,6 +359,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8352091E1D3E65C100BADF32 /* URLNotFoundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLNotFoundTests.swift; sourceTree = "<group>"; };
 		A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601DateFormatter.swift; path = Sources/Dates/ISO8601DateFormatter.swift; sourceTree = "<group>"; };
 		A01F679A1D1691510038910F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A01F679C1D16922D0038910F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -710,6 +714,7 @@
 				A060D7261D03455E00F0DACE /* ParserErrorTests.swift */,
 				A0AA54781D02E2BA000A2264 /* ParserTests.swift */,
 				A05C1F1E1CEBB6080092D70E /* RSS2Tests.swift */,
+				8352091E1D3E65C100BADF32 /* URLNotFoundTests.swift */,
 				A05C1F161CEBB47D0092D70E /* SyndicationTests.swift */,
 				A09C85281CE9B0C300D20CAB /* Info-iOS.plist */,
 				A09C85291CE9B0C300D20CAB /* Info-macOS.plist */,
@@ -1261,6 +1266,7 @@
 			files = (
 				A0D20C3A1CEB01E400B4509D /* DublinCoreTests.swift in Sources */,
 				A05C1F171CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
+				8352091F1D3E65C100BADF32 /* URLNotFoundTests.swift in Sources */,
 				A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */,
 				A060D7271D03455E00F0DACE /* ParserErrorTests.swift in Sources */,
 				A053F4EE1D0EFA2F00B4203D /* DateTests.swift in Sources */,
@@ -1277,6 +1283,7 @@
 			files = (
 				A0D20C3B1CEB01E400B4509D /* DublinCoreTests.swift in Sources */,
 				A05C1F181CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
+				835209201D3E65C100BADF32 /* URLNotFoundTests.swift in Sources */,
 				A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */,
 				A060D7281D03455E00F0DACE /* ParserErrorTests.swift in Sources */,
 				A053F4EF1D0EFA2F00B4203D /* DateTests.swift in Sources */,
@@ -1293,6 +1300,7 @@
 			files = (
 				A0D20C3C1CEB01E400B4509D /* DublinCoreTests.swift in Sources */,
 				A05C1F191CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
+				835209211D3E65C100BADF32 /* URLNotFoundTests.swift in Sources */,
 				A0D20C381CEB007100B4509D /* BaseTestCase.swift in Sources */,
 				A060D7291D03455E00F0DACE /* ParserErrorTests.swift in Sources */,
 				A053F4F01D0EFA2F00B4203D /* DateTests.swift in Sources */,
