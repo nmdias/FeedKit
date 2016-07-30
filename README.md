@@ -88,6 +88,14 @@ $ carthage update
 ```
 Then, drag the built `FeedKit.framework` into your Xcode project.
 
+### Manually
+
+Drag `FeedKit.xcodeproj` into your Xcode project.
+
+ > It should appear nested underneath your application's blue project icon.
+ 
+Click on the `+` button under the "Embedded Binaries" section of your app's target and select the `FeedKit.framework` that matches the desired platform.
+
 ## Usage
 
 ### Feed Parsing
