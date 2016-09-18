@@ -1,5 +1,9 @@
 # Change Log
 
+## [4.1.0](https://github.com/nmdias/FeedParser/releases/tag/4.1.0)
+### Added
+- Support for Xcode 8 (Swift 2.3)
+
 ## [4.0.0](https://github.com/nmdias/FeedParser/releases/tag/4.0.0)
 The `FeedParser` framework has been renamed `FeedKit` to prevent conflicts between the `FeedParser` module and the `FeedParser` class naming
 
