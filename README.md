@@ -30,7 +30,7 @@ An RSS and Atom feed parser written in Swift
 ![tvos](https://img.shields.io/badge/tvos-9.0%2b-lightgrey.svg)
 ![watchos](https://img.shields.io/badge/watchos-2.0%2b-lightgrey.svg)
 ![mac os](https://img.shields.io/badge/mac%20os-10.9%2b-lightgrey.svg)
-![xcode](https://img.shields.io/badge/xcode-7.3%2b-lightgrey.svg)
+![xcode](https://img.shields.io/badge/xcode-8.0%2b-lightgrey.svg)
 
 ## Installation
 
