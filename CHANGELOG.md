@@ -1,5 +1,9 @@
 # Change Log
 
+## [5.0.0](https://github.com/nmdias/FeedParser/releases/tag/5.0.0)
+### Added
+- Support for Swift 3.0
+
 ## [4.1.0](https://github.com/nmdias/FeedParser/releases/tag/4.1.0)
 ### Added
 - Support for Xcode 8 (Swift 2.3)
