@@ -42,17 +42,17 @@ import Foundation
  an item from an aggregator to a weblog authoring tool.
  
  */
-public class RSSFeedItemSource {
+open class RSSFeedItemSource {
     
     /**
      
      The element's attributes
      
      */
-    public class Attributes {
+    open class Attributes {
         
         /// Required attribute of the `Source` element, which links to the XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
-        public var url: String?
+        open var url: String?
         
     }
     
@@ -61,14 +61,14 @@ public class RSSFeedItemSource {
      The element's attributes
      
      */
-    public var attributes: Attributes?
+    open var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    public var value: String?
+    open var value: String?
     
 }
 

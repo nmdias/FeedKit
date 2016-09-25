@@ -30,14 +30,14 @@ import Foundation
  the entry.  The content of atom:content is Language-Sensitive.
  
  */
-public class AtomFeedEntryContent {
+open class AtomFeedEntryContent {
     
     /**
      
      The element's attributes
      
      */
-    public class Attributes {
+    open class Attributes {
         
         /**
          
@@ -49,7 +49,7 @@ public class AtomFeedEntryContent {
          the type attribute were present with a value of "text".
          
          */
-        public var type: String?
+        open var type: String?
         
         /**
          
@@ -67,7 +67,7 @@ public class AtomFeedEntryContent {
          server-provided media type is authoritative.
          
          */
-        public var src: String?
+        open var src: String?
         
     }
     
@@ -76,14 +76,14 @@ public class AtomFeedEntryContent {
      The element's attributes
      
      */
-    public var attributes: Attributes?
+    open var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    public var value: String?
+    open var value: String?
     
 }
 

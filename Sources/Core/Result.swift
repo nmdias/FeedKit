@@ -37,38 +37,38 @@ public enum Result {
      The `AtomFeed` model with a parsed Atom feed
      
      */
-    case Atom(AtomFeed)
+    case atom(AtomFeed)
     
     /**
      
      The `RSSFeed` model with a parsed RSS feed
      
      */
-    case RSS(RSSFeed)
+    case rss(RSSFeed)
     
     /**
      
      The failure `NSError` generator from parsing errors
      
      */
-    case Failure(NSError)
+    case failure(NSError)
     
-    /** 
+    /**
      
-     Returns `true` if the result is a success, `false` otherwise. 
+     Returns `true` if the result is a success, `false` otherwise.
      
      */
     public var isSuccess: Bool {
         
         switch self {
-        case .Atom:     return true
-        case .RSS:      return true
-        case .Failure:  return false
+        case .atom:     return true
+        case .rss:      return true
+        case .failure:  return false
         }
         
     }
     
-    /** 
+    /**
      
      Returns `true` if the result is a failure, `false` otherwise.
      
@@ -79,18 +79,18 @@ public enum Result {
         
     }
     
-    /** 
+    /**
      
-     Returns the parsed rss feed value if the result is a success, `nil` 
+     Returns the parsed rss feed value if the result is a success, `nil`
      otherwise.
      
      */
     public var rssFeed: RSSFeed? {
         
         switch self {
-        case .Atom(_): return nil
-        case .RSS(let value): return value
-        case .Failure(_): return nil
+        case .atom(_): return nil
+        case .rss(let value): return value
+        case .failure(_): return nil
         }
         
     }
@@ -103,27 +103,27 @@ public enum Result {
     public var atomFeed: AtomFeed? {
         
         switch self {
-        case .Atom(let value): return value
-        case .RSS(_): return nil
-        case .Failure(_): return nil
+        case .atom(let value): return value
+        case .rss(_): return nil
+        case .failure(_): return nil
         }
         
     }
     
     
     
-    /** 
+    /**
      
-     Returns the associated error value if the result is a failure, `nil` 
+     Returns the associated error value if the result is a failure, `nil`
      otherwise.
      
      */
-    public var error: ErrorType? {
+    public var error: NSError? {
         
         switch self {
-        case .Atom(_): return nil
-        case .RSS(_): return nil
-        case .Failure(let error): return error
+        case .atom(_): return nil
+        case .rss(_): return nil
+        case .failure(let error): return error
         }
         
     }

@@ -26,12 +26,12 @@ import XCTest
 
 class BaseTestCase: XCTestCase {
     
-    let timeout: NSTimeInterval = 10.0
+    let timeout: TimeInterval = 10.0
     
-    func fileURL(name: String, type: String) -> NSURL {
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let filePath = bundle.pathForResource(name, ofType: type)!
-        return NSURL(fileURLWithPath: filePath)
+    func fileURL(_ name: String, type: String) -> URL {
+        let bundle = Bundle(for: type(of: self))
+        let filePath = bundle.path(forResource: name, ofType: type)!
+        return URL(fileURLWithPath: filePath)
     }
     
 }

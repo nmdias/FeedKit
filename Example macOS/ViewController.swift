@@ -25,7 +25,7 @@
 import Cocoa
 import FeedKit
 
-let feedURL = NSURL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
+let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
 
 class ViewController: NSViewController {
 
@@ -61,9 +61,9 @@ class ViewController: NSViewController {
 
 extension ViewController: NSTableViewDelegate {
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        guard let cell = tableView.makeViewWithIdentifier("Cell", owner: nil) as? NSTableCellView else {
+        guard let cell = tableView.make(withIdentifier: "Cell", owner: nil) as? NSTableCellView else {
             return nil
         }
         
@@ -88,7 +88,7 @@ extension ViewController: NSTableViewDelegate {
         
     }
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         self.updateTextView()
     }
     
@@ -98,7 +98,7 @@ extension ViewController: NSTableViewDelegate {
 
 extension ViewController: NSTableViewDataSource {
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         switch tableView {
         case self.feedTableView: return 3
         case self.feedItemsTableView: return self.feed?.items?.count ?? 0

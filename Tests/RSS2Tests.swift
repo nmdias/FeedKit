@@ -199,10 +199,10 @@ class RSS2Tests: BaseTestCase {
     
     func testRSS2FeedParsingPerformance() {
 
-        self.measureBlock {
+        self.measure {
             
             // Given
-            let expectation = self.expectationWithDescription("RSS2 Parsing Performance")
+            let expectation = self.expectation(description: "RSS2 Parsing Performance")
             let URL = self.fileURL("RSS2", type: "xml")
             let parser = FeedParser(URL: URL)!
             
@@ -214,7 +214,7 @@ class RSS2Tests: BaseTestCase {
                 
             })
             
-            self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
+            self.waitForExpectations(timeout: self.timeout, handler: nil)
             
         }
         

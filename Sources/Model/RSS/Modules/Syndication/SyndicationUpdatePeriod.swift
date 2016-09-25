@@ -85,7 +85,7 @@ extension SyndicationUpdatePeriod {
      */
     public init?(rawValue: String) {
         
-        switch rawValue.lowercaseString {
+        switch rawValue.lowercased() {
             
         case "hourly":  self = .Hourly
         case "daily":   self = .Daily

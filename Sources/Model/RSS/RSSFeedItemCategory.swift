@@ -47,14 +47,14 @@ import Foundation
  same domain.
  
  */
-public class RSSFeedItemCategory {
+open class RSSFeedItemCategory {
     
     /**
      
      The element's attributes
      
      */
-    public class Attributes {
+    open class Attributes {
         
         /** 
          
@@ -64,7 +64,7 @@ public class RSSFeedItemCategory {
          Example: http://www.fool.com/cusips
          
          */
-        public var domain: String?
+        open var domain: String?
         
     }
     
@@ -73,14 +73,14 @@ public class RSSFeedItemCategory {
      The element's attributes
      
      */
-    public var attributes: Attributes?
+    open var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    public var value: String?
+    open var value: String?
     
 }
 

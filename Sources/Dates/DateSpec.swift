@@ -38,7 +38,7 @@ enum DateSpec {
      See https://www.ietf.org/rfc/rfc0822.txt
      
      */
-    case RFC822
+    case rfc822
     
     /**
      
@@ -47,7 +47,7 @@ enum DateSpec {
      See https://www.ietf.org/rfc/rfc3339.txt
      
      */
-    case RFC3999
+    case rfc3999
     
     /**
      
@@ -56,6 +56,6 @@ enum DateSpec {
      See http://www.w3.org/TR/NOTE-datetime
      
      */
-    case ISO8601
+    case iso8601
     
 }

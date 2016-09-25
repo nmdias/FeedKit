@@ -26,11 +26,11 @@ import Foundation
 
 /**
  
- An RSS and Atom feed parser. `FeedParser` uses `Foundation`'s 
- `NSXMLParser`.
+ An RSS and Atom feed parser. `FeedParser` uses `Foundation`'s
+ `XMLParser`.
  
  */
-public class FeedParser {
+open class FeedParser {
     
     /**
      
@@ -46,14 +46,14 @@ public class FeedParser {
      
      Initializes the parser with the XML content referenced by the given URL.
      
-     - parameter URL: An NSURL object specifying a URL
+     - parameter URL: An URL object specifying a URL
      
      - returns: An instance of the feed parser.
      
      */
-    public init?(URL: NSURL) {
+    public init?(URL: URL) {
         
-        guard let parser = Parser(contentsOfURL: URL) else {
+        guard let parser = Parser(contentsOf: URL) else {
             return nil
         }
         
@@ -67,12 +67,12 @@ public class FeedParser {
      
      Initializes the parser with the XML contents encapsulated in a given data object.
      
-     - parameter data: An `NSData` object containing XML markup.
+     - parameter data: An `Data` object containing XML markup.
      
      - returns: An instance of the `FeedParser`.
      
      */
-    public init(data: NSData) {
+    public init(data: Data) {
         self.parser = Parser(data: data)
     }
     
@@ -82,12 +82,12 @@ public class FeedParser {
      
      Initializes the parser with the specified stream.
      
-     - parameter stream: The input stream. The content is incrementally loaded from the specified stream and parsed. The the underlying `NSXMLParser` will open the stream, and synchronously read from it without scheduling it.
+     - parameter stream: The input stream. The content is incrementally loaded from the specified stream and parsed. The the underlying `XMLParser` will open the stream, and synchronously read from it without scheduling it.
      
      - returns: An instance of the `FeedParser`.
      
      */
-    public init(stream: NSInputStream) {
+    public init(stream: InputStream) {
         self.parser = Parser(stream: stream)
     }
     
@@ -98,7 +98,7 @@ public class FeedParser {
      Starts parsing the feed.
      
      */
-    public func parse(result: Result -> Void) {
+    open func parse(_ result: @escaping (Result) -> Void) {
         self.parser.parse(result)
     }
     

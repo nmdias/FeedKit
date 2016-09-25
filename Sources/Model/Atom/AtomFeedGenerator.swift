@@ -43,14 +43,14 @@ import Foundation
  indicates the version of the generating agent.
  
  */
-public class AtomFeedGenerator {
+open class AtomFeedGenerator {
     
     /**
      
      The element's attributes
      
      */
-    public class Attributes {
+    open class Attributes {
         
         /**
          
@@ -60,7 +60,7 @@ public class AtomFeedGenerator {
          representation that is relevant to that agent.
          
          */
-        public var uri: String?
+        open var uri: String?
         
         /**
          
@@ -68,7 +68,7 @@ public class AtomFeedGenerator {
          indicates the version of the generating agent.
          
          */
-        public var version: String?
+        open var version: String?
         
     }
     
@@ -77,14 +77,14 @@ public class AtomFeedGenerator {
      The element's attributes
      
      */
-    public var attributes: Attributes?
+    open var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    public var value: String?
+    open var value: String?
     
 }
 

@@ -36,7 +36,7 @@ import Foundation
  however at least one of title or description must be present.
  
  */
-public class RSSFeedItem {
+open class RSSFeedItem {
     
     /**
      
@@ -45,7 +45,7 @@ public class RSSFeedItem {
      Example: Venice Film Festival Tries to Quit Sinking
      
      */
-    public var title: String?
+    open var title: String?
     
     /**
      
@@ -54,7 +54,7 @@ public class RSSFeedItem {
      Example: http://nytimes.com/2004/12/07FEST.html
      
      */
-    public var link: String?
+    open var link: String?
     
     /**
      
@@ -65,7 +65,7 @@ public class RSSFeedItem {
      Cinema was being staged.
      
      */
-    public var description: String?
+    open var description: String?
     
     /**
      
@@ -85,7 +85,7 @@ public class RSSFeedItem {
      <author>lawyer@boyer.net (Lawyer Boyer)</author>
      
      */
-    public var author: String?
+    open var author: String?
     
     /**
      
@@ -110,7 +110,7 @@ public class RSSFeedItem {
      same domain.
      
      */
-    public var categories: [RSSFeedItemCategory]?
+    open var categories: [RSSFeedItemCategory]?
     
     /**
      
@@ -128,7 +128,7 @@ public class RSSFeedItem {
      http://cyber.law.harvard.edu/rss/weblogComments.html
      
      */
-    public var comments: String?
+    open var comments: String?
     
     /**
      
@@ -145,7 +145,7 @@ public class RSSFeedItem {
      <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" length="12216320" type="audio/mpeg" />
      
      */
-    public var enclosure: RSSFeedItemEnclosure?
+    open var enclosure: RSSFeedItemEnclosure?
     
     /**
      
@@ -177,7 +177,7 @@ public class RSSFeedItem {
      particular.
      
      */
-    public var guid: RSSFeedItemGUID?
+    open var guid: RSSFeedItemGUID?
     
     /**
      
@@ -192,7 +192,7 @@ public class RSSFeedItem {
      that date.
      
      */
-    public var pubDate: NSDate?
+    open var pubDate: Date?
     
     /**
      
@@ -212,7 +212,7 @@ public class RSSFeedItem {
      an item from an aggregator to a weblog authoring tool.
      
      */
-    public var source: RSSFeedItemSource?
+    open var source: RSSFeedItemSource?
     
     
     // MARK: - Namespaces
@@ -226,7 +226,7 @@ public class RSSFeedItem {
      See https://tools.ietf.org/html/rfc5013
      
      */
-    public var dublinCore: DublinCoreNamespace?
+    open var dublinCore: DublinCoreNamespace?
     
     /**
      
@@ -235,6 +235,6 @@ public class RSSFeedItem {
      See http://web.resource.org/rss/1.0/modules/content/
      
      */
-    public var content: ContentNamespace?
+    open var content: ContentNamespace?
     
 }

@@ -25,7 +25,7 @@
 import UIKit
 import FeedKit
 
-let feedURL = NSURL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
+let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
 
 class FeedTableViewController: UITableViewController {
     
@@ -49,11 +49,11 @@ class FeedTableViewController: UITableViewController {
 
 extension FeedTableViewController {
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 3
         case 1: return self.feed?.items?.count ?? 0
@@ -61,14 +61,14 @@ extension FeedTableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = reusableCell()
         guard let layout = TableViewLayout(indexPath: indexPath) else { fatalError() }
         switch layout {
-        case .Title:        cell.textLabel?.text = self.feed?.title ?? "[no title]"
-        case .Link:         cell.textLabel?.text = self.feed?.link ?? "[no link]"
-        case .Description:  cell.textLabel?.text = self.feed?.description ?? "[no description]"
-        case .Items:        cell.textLabel?.text = self.feed?.items?[indexPath.row].title ?? "[no title]"
+        case .title:        cell.textLabel?.text = self.feed?.title ?? "[no title]"
+        case .link:         cell.textLabel?.text = self.feed?.link ?? "[no link]"
+        case .description:  cell.textLabel?.text = self.feed?.description ?? "[no description]"
+        case .items:        cell.textLabel?.text = self.feed?.items?[indexPath.row].title ?? "[no title]"
         }
         return cell
     }
@@ -79,13 +79,13 @@ extension FeedTableViewController {
 
 extension FeedTableViewController {
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let layout = TableViewLayout(indexPath: indexPath) else { fatalError() }
         switch layout {
-        case .Title:        self.showDetailViewControllerWithText(self.feed?.title ?? "[no title]")
-        case .Link:         self.showDetailViewControllerWithText(self.feed?.link ?? "[no link]")
-        case .Description:  self.showDetailViewControllerWithText(self.feed?.description ?? "[no link]")
-        case .Items:        self.showDetailViewControllerWithText(self.feed?.items?[indexPath.row].description ?? "[no description]")
+        case .title:        self.showDetailViewControllerWithText(self.feed?.title ?? "[no title]")
+        case .link:         self.showDetailViewControllerWithText(self.feed?.link ?? "[no link]")
+        case .description:  self.showDetailViewControllerWithText(self.feed?.description ?? "[no link]")
+        case .items:        self.showDetailViewControllerWithText(self.feed?.items?[indexPath.row].description ?? "[no description]")
         }
     }
     
@@ -97,9 +97,9 @@ extension FeedTableViewController {
     
     // MARK: - Navigation
     
-    func showDetailViewControllerWithText(text: String) {
+    func showDetailViewControllerWithText(_ text: String) {
         let viewController = FeedDetailTableViewController(text: text)
-        self.showViewController(viewController, sender: self)
+        self.show(viewController, sender: self)
     }
     
 }

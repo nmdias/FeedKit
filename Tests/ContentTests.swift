@@ -49,10 +49,10 @@ class ContentTests: BaseTestCase {
     
     func testContentParsingPerformance() {
         
-        self.measureBlock {
+        self.measure {
             
             // Given
-            let expectation = self.expectationWithDescription("Content Parsing Performance")
+            let expectation = self.expectation(description: "Content Parsing Performance")
             let URL = self.fileURL("Content", type: "xml")
             let parser = FeedParser(URL: URL)!
             
@@ -64,7 +64,7 @@ class ContentTests: BaseTestCase {
                 
             })
             
-            self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
+            self.waitForExpectations(timeout: self.timeout, handler: nil)
             
         }
         

@@ -39,14 +39,14 @@ import Foundation
  <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" length="12216320" type="audio/mpeg" />
  
  */
-public class RSSFeedItemEnclosure {
+open class RSSFeedItemEnclosure {
     
     /**
      
      The element's attributes
      
      */
-    public class Attributes {
+    open class Attributes {
         
         /** 
          
@@ -55,7 +55,7 @@ public class RSSFeedItemEnclosure {
          Example: http://www.scripting.com/mp3s/weatherReportSuite.mp3
          
          */
-        public var url: String?
+        open var url: String?
         
         /** 
          
@@ -64,7 +64,7 @@ public class RSSFeedItemEnclosure {
          Example: 12216320
          
          */
-        public var length: Int64?
+        open var length: Int64?
         
         /** 
          
@@ -73,7 +73,7 @@ public class RSSFeedItemEnclosure {
          Example: audio/mpeg
          
          */
-        public var type: String?
+        open var type: String?
         
     }
     
@@ -82,7 +82,7 @@ public class RSSFeedItemEnclosure {
      The element's attributes
      
      */
-    public var attributes: Attributes?
+    open var attributes: Attributes?
     
 }
 

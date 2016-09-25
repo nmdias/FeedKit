@@ -29,18 +29,18 @@ extension String {
     /**
      
      Attempts to convert the textual representation of a date with 
-     the specified `DateSpec` to an `NSDate` object
+     the specified `DateSpec` to an `Date` object
      
      - paramater spec: The `DateSpec` to interpert the string
      
-     - returns: An `NSDate` object, or nil if the conversion failed
+     - returns: A `Date` object, or nil if the conversion failed
      
      */
-    func dateFromSpec(spec: DateSpec) -> NSDate? {
+    func dateFromSpec(_ spec: DateSpec) -> Date? {
         switch spec {
-        case .RFC822:   return RFC822DateFormatter().dateFromString(self)
-        case .RFC3999:  return RFC3339DateFormatter().dateFromString(self)
-        case .ISO8601:  return ISO8601DateFormatter().dateFromString(self)
+        case .rfc822:   return RFC822DateFormatter().date(from: self)
+        case .rfc3999:  return RFC3339DateFormatter().date(from: self)
+        case .iso8601:  return ISO8601DateFormatter().date(from: self)
         }
     }
     

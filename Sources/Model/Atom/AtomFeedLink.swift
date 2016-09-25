@@ -31,14 +31,14 @@ import Foundation
  (if any) of this element.
  
  */
-public class AtomFeedLink {
+open class AtomFeedLink {
     
     /**
      
      The element's attributes
      
      */
-    public class Attributes {
+    open class Attributes {
         
         /**
          
@@ -47,7 +47,7 @@ public class AtomFeedLink {
          [RFC3987].
          
          */
-        public var href: String?
+        open var href: String?
         
         /**
          
@@ -101,7 +101,7 @@ public class AtomFeedLink {
          information provided in the containing element.
          
          */
-        public var rel: String?
+        open var rel: String?
         
         /**
          
@@ -114,7 +114,7 @@ public class AtomFeedLink {
          a MIME media type [MIMEREG].
          
          */
-        public var type: String?
+        open var type: String?
         
         /**
          
@@ -125,7 +125,7 @@ public class AtomFeedLink {
          language tag [RFC3066].
          
          */
-        public var hreflang: String?
+        open var hreflang: String?
         
         /**
          
@@ -136,7 +136,7 @@ public class AtomFeedLink {
          MAY have a title attribute.
          
          */
-        public var title: String?
+        open var title: String?
         
         /**
          
@@ -149,7 +149,7 @@ public class AtomFeedLink {
          attribute.
          
          */
-        public var length: Int64?
+        open var length: Int64?
         
     }
     
@@ -158,7 +158,7 @@ public class AtomFeedLink {
      The element's attributes
      
      */
-    public var attributes: Attributes?
+    open var attributes: Attributes?
     
 }
 

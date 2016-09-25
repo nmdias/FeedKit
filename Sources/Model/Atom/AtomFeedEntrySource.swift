@@ -45,7 +45,7 @@ import Foundation
  in the atom:source element.
  
  */
-public class AtomFeedEntrySource {
+open class AtomFeedEntrySource {
     
     /**
      
@@ -53,7 +53,7 @@ public class AtomFeedEntrySource {
      identifier for an entry or feed.
      
      */
-    public var id: String?
+    open var id: String?
     
     /**
      
@@ -61,7 +61,7 @@ public class AtomFeedEntrySource {
      readable title for an entry or feed.
      
      */
-    public var title: String?
+    open var title: String?
     
     /**
      
@@ -71,6 +71,6 @@ public class AtomFeedEntrySource {
      modifications necessarily result in a changed atom:updated value.
      
      */
-    public var updated: NSDate?
+    open var updated: Date?
 
 }

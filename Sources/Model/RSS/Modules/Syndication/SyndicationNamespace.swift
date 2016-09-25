@@ -36,7 +36,7 @@ import Foundation
  See http://web.resource.org/rss/1.0/modules/syndication/
  
  */
-public class SyndicationNamespace {
+open class SyndicationNamespace {
     
     /**
      
@@ -45,7 +45,7 @@ public class SyndicationNamespace {
      assumed.
      
      */
-    public var syUpdatePeriod: SyndicationUpdatePeriod?
+    open var syUpdatePeriod: SyndicationUpdatePeriod?
     
     /**
      
@@ -56,7 +56,7 @@ public class SyndicationNamespace {
      of 1 is assumed.
      
      */
-    public var syUpdateFrequency: Int?
+    open var syUpdateFrequency: Int?
     
     /**
      
@@ -65,6 +65,6 @@ public class SyndicationNamespace {
      the form: yyyy-mm-ddThh:mm
      
      */
-    public var syUpdateBase: NSDate?
+    open var syUpdateBase: Date?
     
 }

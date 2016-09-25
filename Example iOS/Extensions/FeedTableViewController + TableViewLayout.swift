@@ -26,17 +26,17 @@ import Foundation
 
 extension FeedTableViewController {
     enum TableViewLayout {
-        case Title, Link, Description, Items
-        init?(indexPath: NSIndexPath) {
+        case title, link, description, items
+        init?(indexPath: IndexPath) {
             switch indexPath.section {
             case 0:
                 switch indexPath.row {
-                case 0: self = .Title
-                case 1: self = .Link
-                case 2: self = .Description
+                case 0: self = .title
+                case 1: self = .link
+                case 2: self = .description
                 default: return nil
                 }
-            case 1: self = .Items
+            case 1: self = .items
             default: return nil
             }
         }

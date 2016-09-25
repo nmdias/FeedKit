@@ -97,7 +97,7 @@ extension RSSFeedSkipDay {
     */
     public init?(rawValue: String) {
         
-        switch rawValue.lowercaseString {
+        switch rawValue.lowercased() {
             
         case "monday":     self = .Monday
         case "tuesday":    self = .Tuesday

@@ -27,10 +27,10 @@ import Foundation
 /**
 
  Converts date and time textual representations within the RFC822
- date specification into `NSDate` objects
+ date specification into `Date` objects
  
  */
-class RFC822DateFormatter: NSDateFormatter {
+class RFC822DateFormatter: DateFormatter {
     
     let dateFormats = [
         "EEE, d MMM yyyy HH:mm:ss zzz",
@@ -39,18 +39,18 @@ class RFC822DateFormatter: NSDateFormatter {
     
     override init() {
         super.init()
-        self.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        self.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        self.timeZone = TimeZone(secondsFromGMT: 0)
+        self.locale = Locale(identifier: "en_US_POSIX")
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) not supported")
     }
     
-    override func dateFromString(string: String) -> NSDate? {
+    override func date(from string: String) -> Date? {
         for dateFormat in self.dateFormats {
             self.dateFormat = dateFormat
-            if let date = super.dateFromString(string) {
+            if let date = super.date(from: string) {
                 return date
             }
         }

@@ -33,17 +33,17 @@ class DateTests: BaseTestCase {
         let rfc822DateFormatter = RFC822DateFormatter()
         let dateString = "Tue, 04 Feb 2014 22:03:45 Z"
         
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        calendar.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        calendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        calendar.locale = Locale(identifier: "en_US_POSIX")
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         
         // When
-        let date = rfc822DateFormatter.dateFromString(dateString)
+        let date = rfc822DateFormatter.date(from: dateString)
         
         // Then
         XCTAssertNotNil(date)
         
-        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date!)
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date!)
         
         XCTAssertEqual(components.day, 4)
         XCTAssertEqual(components.month, 2)
@@ -60,17 +60,17 @@ class DateTests: BaseTestCase {
         let rfc3339DateFormatter = RFC3339DateFormatter()
         let dateString = "2016-01-15T15:54:10-01:00"
         
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        calendar.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        calendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        calendar.locale = Locale(identifier: "en_US_POSIX")
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         
         // When
-        let date = rfc3339DateFormatter.dateFromString(dateString)
+        let date = rfc3339DateFormatter.date(from: dateString)
         
         // Then
         XCTAssertNotNil(date)
         
-        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date!)
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date!)
         
         XCTAssertEqual(components.day, 15)
         XCTAssertEqual(components.month, 1)
@@ -87,17 +87,17 @@ class DateTests: BaseTestCase {
         let iso8601DateFormatter = RFC3339DateFormatter()
         let dateString = "1994-11-05T08:15:30-05:00"
         
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        calendar.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        calendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        calendar.locale = Locale(identifier: "en_US_POSIX")
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         
         // When
-        let date = iso8601DateFormatter.dateFromString(dateString)
+        let date = iso8601DateFormatter.date(from: dateString)
         
         // Then
         XCTAssertNotNil(date)
         
-        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date!)
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date!)
         
         XCTAssertEqual(components.day, 5)
         XCTAssertEqual(components.month, 11)
@@ -111,7 +111,7 @@ class DateTests: BaseTestCase {
     func testDateFromRFC822Spec() {
         
         // Given
-        let spec = DateSpec.RFC822
+        let spec = DateSpec.rfc822
         let dateStrings = [
             "Tue, 04 Feb 2014 22:10:15 Z",
             "Sun, 05 Jun 2016 08:35:14 Z",
@@ -132,7 +132,7 @@ class DateTests: BaseTestCase {
         ]
         
         // When
-        let dates = dateStrings.flatMap { (dateString) -> NSDate? in
+        let dates = dateStrings.flatMap { (dateString) -> Date? in
             return dateString.dateFromSpec(spec)
         }
         
@@ -144,7 +144,7 @@ class DateTests: BaseTestCase {
     func testDateFromRFC3339Spec() {
         
         // Given
-        let spec = DateSpec.RFC3999
+        let spec = DateSpec.rfc3999
         let dateStrings = [
             "2016-06-05T09:30:01Z",
             "2016-06-05T03:18:00Z",
@@ -161,7 +161,7 @@ class DateTests: BaseTestCase {
         ]
         
         // When
-        let dates = dateStrings.flatMap { (dateString) -> NSDate? in
+        let dates = dateStrings.flatMap { (dateString) -> Date? in
             return dateString.dateFromSpec(spec)
         }
         

@@ -37,9 +37,9 @@ class ParserErrorTests: BaseTestCase {
         parser.parse { (result) in
         
             switch result {
-            case .Atom(_): XCTFail("Unexpected atom feed found")
-            case .RSS(_): XCTFail("Unexpected rss feed found")
-            case .Failure(let error): XCTAssertEqual(error.code, Error.FeedNotFound.code)
+            case .atom(_): XCTFail("Unexpected atom feed found")
+            case .rss(_): XCTFail("Unexpected rss feed found")
+            case .failure(let error): XCTAssertEqual(error.code, ParserError.feedNotFound.code)
             }
         
         }

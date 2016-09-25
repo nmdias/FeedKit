@@ -31,7 +31,7 @@ import Foundation
  See http://web.resource.org/rss/1.0/modules/content/
  
 */
-public class ContentNamespace {
+open class ContentNamespace {
     
     /**
      
@@ -41,7 +41,7 @@ public class ContentNamespace {
      Example: <content:encoded><![CDATA[<p>What a <em>beautiful</em> day!</p>]]></content:encoded>
      
      */
-    public var contentEncoded: String?
+    open var contentEncoded: String?
     
 }
 

@@ -30,7 +30,7 @@ import Foundation
  person or other entity who contributed to the entry or feed.
  
  */
-public class AtomFeedContributor {
+open class AtomFeedContributor {
     
     /**
      
@@ -39,7 +39,7 @@ public class AtomFeedContributor {
      constructs MUST contain exactly one "atom:name" element.
      
      */
-    public var name: String?
+    open var name: String?
     
     /**
      
@@ -49,7 +49,7 @@ public class AtomFeedContributor {
      MUST conform to the "addr-spec" production in [RFC2822].
      
      */
-    public var email: String?
+    open var email: String?
     
     /**
      
@@ -59,6 +59,6 @@ public class AtomFeedContributor {
      construct MUST be an IRI reference [RFC3987].
      
      */
-    public var uri: String?
+    open var uri: String?
     
 }

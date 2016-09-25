@@ -81,10 +81,10 @@ class DublinCoreTests: BaseTestCase {
     
     func testDublinCoreParsingPerformance() {
         
-        self.measureBlock {
+        self.measure {
             
             // Given
-            let expectation = self.expectationWithDescription("Dublin Core Parsing Performance")
+            let expectation = self.expectation(description: "Dublin Core Parsing Performance")
             let URL = self.fileURL("DC", type: "xml")
             let parser = FeedParser(URL: URL)!
             
@@ -96,7 +96,7 @@ class DublinCoreTests: BaseTestCase {
                 
             })
             
-            self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
+            self.waitForExpectations(timeout: self.timeout, handler: nil)
             
         }
         

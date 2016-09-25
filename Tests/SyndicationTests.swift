@@ -50,10 +50,10 @@ class SyndicationTests: BaseTestCase {
     
     func testSyndicationParsingPerformance() {
         
-        self.measureBlock {
+        self.measure {
             
             // Given
-            let expectation = self.expectationWithDescription("Syndication Parsing Performance")
+            let expectation = self.expectation(description: "Syndication Parsing Performance")
             let URL = self.fileURL("Syndication", type: "xml")
             let parser = FeedParser(URL: URL)!
             
@@ -65,7 +65,7 @@ class SyndicationTests: BaseTestCase {
                 
             })
 
-            self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
+            self.waitForExpectations(timeout: self.timeout, handler: nil)
             
         }
         

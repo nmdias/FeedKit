@@ -27,9 +27,9 @@ import UIKit
 extension FeedTableViewController {
     func reusableCell() -> UITableViewCell {
         let reuseIdentifier = "Cell"
-        if let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) { return cell }
-        let cell = UITableViewCell(style: .Value1, reuseIdentifier: reuseIdentifier)
-        cell.accessoryType = .DisclosureIndicator
+        if let cell = self.tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) { return cell }
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: reuseIdentifier)
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 }

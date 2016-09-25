@@ -26,11 +26,11 @@ import UIKit
 
 class FeedDetailTableViewController: UITableViewController {
     
-    private let text: String
+    fileprivate let text: String
     
     init(text: String) {
         self.text = text
-        super.init(style: .Grouped)
+        super.init(style: .grouped)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,9 +45,9 @@ class FeedDetailTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return 1 }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return 1 }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = self.text
         return cell

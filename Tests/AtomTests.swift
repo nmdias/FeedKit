@@ -177,10 +177,10 @@ class AtomTests: BaseTestCase {
     
     func testAtomFeedParsingPerformance() {
         
-        self.measureBlock {
+        self.measure {
             
             // Given
-            let expectation = self.expectationWithDescription("Atom Parsing Performance")
+            let expectation = self.expectation(description: "Atom Parsing Performance")
             let URL = self.fileURL("Atom", type: "xml")
             let parser = FeedParser(URL: URL)!
             
@@ -192,7 +192,7 @@ class AtomTests: BaseTestCase {
                 
             })
 
-            self.waitForExpectationsWithTimeout(self.timeout, handler: nil)
+            self.waitForExpectations(timeout: self.timeout, handler: nil)
             
         }
         

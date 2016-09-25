@@ -35,7 +35,7 @@ import Foundation
  elements followed by zero or more atom:entry child elements.
  
  */
-public class AtomFeed {
+open class AtomFeed {
     
     /**
      
@@ -43,7 +43,7 @@ public class AtomFeed {
      readable title for an entry or feed.
      
      */
-    public var title: String?
+    open var title: String?
     
     /**
      
@@ -51,7 +51,7 @@ public class AtomFeed {
      readable description or subtitle for a feed.
      
      */
-    public var subtitle: AtomFeedSubtitle?
+    open var subtitle: AtomFeedSubtitle?
     
     /**
      
@@ -60,7 +60,7 @@ public class AtomFeed {
      (if any) of this element.
      
      */
-    public var links: [AtomFeedLink]?
+    open var links: [AtomFeedLink]?
     
     /**
      
@@ -70,7 +70,7 @@ public class AtomFeed {
      modifications necessarily result in a changed atom:updated value.
      
      */
-    public var updated: NSDate?
+    open var updated: Date?
     
     /**
      
@@ -79,7 +79,7 @@ public class AtomFeed {
      meaning to the content (if any) of this element.
      
      */
-    public var categories: [AtomFeedCategory]?
+    open var categories: [AtomFeedCategory]?
     
     /**
      
@@ -94,7 +94,7 @@ public class AtomFeed {
      described above.
      
      */
-    public var authors: [AtomFeedAuthor]?
+    open var authors: [AtomFeedAuthor]?
     
     /**
      
@@ -102,7 +102,7 @@ public class AtomFeed {
      person or other entity who contributed to the entry or feed.
      
      */
-    public var contributors: [AtomFeedContributor]?
+    open var contributors: [AtomFeedContributor]?
     
     /**
      
@@ -146,7 +146,7 @@ public class AtomFeed {
      normalized, e.g., by using NFC or NFKC.
      
      */
-    public var id: String?
+    open var id: String?
     
     /**
      
@@ -167,7 +167,7 @@ public class AtomFeed {
      indicates the version of the generating agent.
      
      */
-    public var generator: AtomFeedGenerator?
+    open var generator: AtomFeedGenerator?
     
     /**
      
@@ -179,7 +179,7 @@ public class AtomFeed {
      (vertical) and SHOULD be suitable for presentation at a small size.
      
      */
-    public var icon: String?
+    open var icon: String?
     
     /**
      
@@ -190,7 +190,7 @@ public class AtomFeed {
      (vertical).
      
      */
-    public var logo: String?
+    open var logo: String?
     
     /**
      
@@ -205,7 +205,7 @@ public class AtomFeed {
      present, is considered to apply to the entry.
      
      */
-    public var rights: String?
+    open var rights: String?
     
     /**
      
@@ -216,6 +216,6 @@ public class AtomFeed {
      Atom Entry Document.
      
      */
-    public var entries: [AtomFeedEntry]?
+    open var entries: [AtomFeedEntry]?
     
 }

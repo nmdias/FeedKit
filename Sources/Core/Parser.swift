@@ -26,12 +26,12 @@ import Foundation
 
 /**
  
- The actual engine behind the `FeedKit` framework. `Parser` handles 
- the parsing of RSS and Atom feeds. It is an `NSXMLParserDelegate` of
+ The actual engine behind the `FeedKit` framework. `Parser` handles
+ the parsing of RSS and Atom feeds. It is an `XMLParserDelegate` of
  itself.
  
  */
-class Parser: NSXMLParser, NSXMLParserDelegate {
+class Parser: XMLParser, XMLParserDelegate {
     
     
     /**
@@ -70,7 +70,7 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
      `<title>` element.
      
      */
-    private var currentXMLDOMPath: NSURL = NSURL(string: "/")!
+    fileprivate var currentXMLDOMPath: URL = URL(string: "/")!
     
     
     
@@ -81,20 +81,20 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
      ocurred.
      
      */
-    var result: (Result -> Void)?
+    var result: ((Result) -> Void)?
     
     
     
     /**
      
-     Initializes a parser with the XML contents encapsulated in a given 
+     Initializes a parser with the XML contents encapsulated in a given
      data object.
      
      The sole purpose of overriding this method is to become it's own
      delegate, and thus, hanlde the parsing logic
      
      */
-    override init(data: NSData) {
+    override init(data: Data) {
         super.init(data: data)
         self.delegate = self
     }
@@ -106,17 +106,17 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
      Starts parsing the feed.
      
      */
-    func parse(result: Result -> Void) {
+    func parse(_ result: @escaping (Result) -> Void) {
         self.result = result
         
         if self.parse() == false {
             
             guard let error = self.parserError else {
-                self.result?(Result.Failure(Error.FeedNotFound.value))
+                self.result?(Result.failure(ParserError.feedNotFound.value))
                 return
             }
             
-            self.result?(Result.Failure(error))
+            self.result?(Result.failure(error as NSError))
         }
     }
     
@@ -127,7 +127,7 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
      mappers based on the `currentXMLDOMPath`
      
      */
-    private func mapCharacters(string: String) {
+    fileprivate func mapCharacters(_ string: String) {
         
         guard let feedType = self.feedType else { return }
         
@@ -135,14 +135,14 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
             
         case .Atom:
             
-            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString!) {
+            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.atomFeed?.map(characters: string, forPath: path)
             }
             
         case .RSS1, .RSS2:
             
-            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString!) {
-                self.rssFeed?.map(string, forPath: path)
+            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.rssFeed?.map(string: string, forPath: path)
             }
             
         }
@@ -154,34 +154,34 @@ class Parser: NSXMLParser, NSXMLParserDelegate {
 }
 
 
-// MARK: - NSXMLParser delegate
+// MARK: - XMLParser delegate
 
 
 extension Parser {
     
-    func parserDidEndDocument(parser: NSXMLParser) {
+    func parserDidEndDocument(_ parser: XMLParser) {
         
         guard let feedType = self.feedType else {
-            self.result?(Result.Failure(Error.FeedNotFound.value))
+            self.result?(Result.failure(ParserError.feedNotFound.value))
             return
         }
         
         switch feedType {
-        
+            
         case .Atom:
-            self.result?(Result.Atom(self.atomFeed!))
-        
+            self.result?(Result.atom(self.atomFeed!))
+            
         case .RSS1, .RSS2:
-            self.result?(Result.RSS(self.rssFeed!))
+            self.result?(Result.rss(self.rssFeed!))
             
         }
         
     }
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`
-        self.currentXMLDOMPath = self.currentXMLDOMPath.URLByAppendingPathComponent(elementName)!
+        self.currentXMLDOMPath = self.currentXMLDOMPath.appendingPathComponent(elementName)
         
         // Get the feed type from the element, if it hasn't been done yet
         guard let feedType = self.feedType else {
@@ -197,7 +197,7 @@ extension Parser {
                 self.atomFeed = AtomFeed()
             }
             
-            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString!) {
+            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.atomFeed?.map(attributes: attributeDict, forPath: path)
             }
             
@@ -207,7 +207,7 @@ extension Parser {
                 self.rssFeed = RSSFeed()
             }
             
-            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString!) {
+            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.rssFeed?.map(attributes: attributeDict, forPath: path)
             }
             
@@ -215,18 +215,18 @@ extension Parser {
         
     }
     
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         // Update the current path along the XML's DOM elements by deleting last component
-        self.currentXMLDOMPath = self.currentXMLDOMPath.URLByDeletingLastPathComponent!
+        self.currentXMLDOMPath = self.currentXMLDOMPath.deletingLastPathComponent()
         
     }
     
-    func parser(parser: NSXMLParser, foundCDATA CDATABlock: NSData) {
+    func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
         
-        guard let string = NSString(data: CDATABlock, encoding: NSUTF8StringEncoding) as? String else {
+        guard let string = String(data: CDATABlock, encoding: .utf8) else {
             self.abortParsing()
-            self.result?(Result.Failure(Error.FeedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString!).value))
+            self.result?(Result.failure(ParserError.feedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString).value))
             return
         }
         
@@ -234,12 +234,12 @@ extension Parser {
         
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
         self.mapCharacters(string)
     }
     
-    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
-        self.result?(Result.Failure(parseError))
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        self.result?(Result.failure(parseError as NSError))
     }
     
 }

@@ -27,10 +27,10 @@ import Foundation
 /**
  
  Converts date and time textual representations within the ISO8601
- date specification into `NSDate` objects
+ date specification into `Date` objects
  
  */
-class ISO8601DateFormatter: NSDateFormatter {
+class ISO8601DateFormatter: DateFormatter {
     
     let dateFormats = [
         "yyyy-mm-dd'T'hh:mm",
@@ -41,18 +41,18 @@ class ISO8601DateFormatter: NSDateFormatter {
     
     override init() {
         super.init()
-        self.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        self.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        self.timeZone = TimeZone(secondsFromGMT: 0)
+        self.locale = Locale(identifier: "en_US_POSIX")
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) not supported")
     }
     
-    override func dateFromString(string: String) -> NSDate? {
+    override func date(from string: String) -> Date? {
         for dateFormat in self.dateFormats {
             self.dateFormat = dateFormat
-            if let date = super.dateFromString(string) {
+            if let date = super.date(from: string) {
                 return date
             }
         }
