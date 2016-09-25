@@ -6,7 +6,7 @@ An RSS and Atom feed parser written in Swift
 [![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedKit)
 [![cocoapods compatible](https://img.shields.io/cocoapods/v/FeedKit.svg)](https://img.shields.io/cocoapods/v/FeedKit.svg)
-[![language](https://img.shields.io/badge/swift-v2.3-orange.svg)](https://swift.org)
+[![language](https://img.shields.io/badge/swift-v3.0-orange.svg)](https://swift.org)
 [![documentation](https://img.shields.io/cocoapods/metrics/doc-percent/FeedKit.svg)](http://cocoadocs.org/docsets/FeedKit/)
 
 ## Features
@@ -56,7 +56,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'FeedKit', '~> 4.1'
+  pod 'FeedKit', '~> 5.0'
 end
 ```
 
@@ -79,7 +79,7 @@ $ brew install carthage
 To integrate FeedKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "nmdias/FeedKit" ~> 4.1
+github "nmdias/FeedKit" ~> 5.0
 ```
 Build the framework:
 
@@ -105,7 +105,7 @@ Click on the `+` button under the "Embedded Binaries" section of your app's targ
 ```swift
 import FeedKit
 
-let URL = NSURL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
+let URL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
 
 FeedParser(URL: URL)?.parse({ (result) in
     result.rssFeed // An `RSSFeed` model
@@ -120,7 +120,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 })
 ```
 
-> Aditional initializers can also be found for `NSData` and `NSInputStream` objects.
+> Aditional initializers can also be found for `Data` and `InputStream` objects.
 
 ### Parse Result
 Multiple `FeedType`'s and, or `Error handling` can be acomplished using the `Result` enum
@@ -185,14 +185,14 @@ FeedParser(URL: URL)?.parse({ (result) in
 ### Background Parsing
 
 ```swift
-dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
+DispatchQueue.global(qos: .userInitiated).async {
     // Run parsing in a background thread
     FeedParser(URL: URL)?.parse({ (result) in
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            // Perform updates to the UI
-        })
+        DispatchQueue.main.async {
+            // Perform updates in the main thread when finished
+        }
     })
-})
+}
 ```     
 
 ## License
