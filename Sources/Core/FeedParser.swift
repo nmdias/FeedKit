@@ -103,6 +103,14 @@ open class FeedParser {
     }
     
     
+    /**
+     
+     Stops parsing the feed.
+     
+     */
+    open func abortParsing() {
+        self.parser.abortParsing()
+    }
     
 }
 
