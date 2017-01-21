@@ -107,8 +107,31 @@ class Parser: XMLParser, XMLParserDelegate {
      
      */
     func parse(_ result: @escaping (Result) -> Void) {
+        
         self.result = result
+        
         self.parse()
+        
+        if let error = parsingError {
+            self.result?(Result.failure(error))
+            return
+        }
+        
+        guard let feedType = self.feedType else {
+            self.result?(Result.failure(ParserError.feedNotFound.value))
+            return
+        }
+        
+        switch feedType {
+            
+        case .Atom:
+            self.result?(Result.atom(self.atomFeed!))
+            
+        case .RSS1, .RSS2:
+            self.result?(Result.rss(self.rssFeed!))
+            
+        }
+        
     }
     
     
@@ -140,6 +163,7 @@ class Parser: XMLParser, XMLParserDelegate {
         
     }
     
+    var parsingError: NSError?
     
     
 }
@@ -149,25 +173,6 @@ class Parser: XMLParser, XMLParserDelegate {
 
 
 extension Parser {
-    
-    func parserDidEndDocument(_ parser: XMLParser) {
-        
-        guard let feedType = self.feedType else {
-            self.result?(Result.failure(ParserError.feedNotFound.value))
-            return
-        }
-        
-        switch feedType {
-            
-        case .Atom:
-            self.result?(Result.atom(self.atomFeed!))
-            
-        case .RSS1, .RSS2:
-            self.result?(Result.rss(self.rssFeed!))
-            
-        }
-        
-    }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
@@ -217,7 +222,7 @@ extension Parser {
         
         guard let string = String(data: CDATABlock, encoding: .utf8) else {
             self.abortParsing()
-            self.result?(Result.failure(ParserError.feedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString).value))
+            self.parsingError = ParserError.feedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString).value
             return
         }
         
@@ -230,7 +235,7 @@ extension Parser {
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-        self.result?(Result.failure(parseError as NSError))
+        self.parsingError = parseError as NSError
     }
     
 }
