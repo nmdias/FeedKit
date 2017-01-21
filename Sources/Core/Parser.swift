@@ -108,16 +108,7 @@ class Parser: XMLParser, XMLParserDelegate {
      */
     func parse(_ result: @escaping (Result) -> Void) {
         self.result = result
-        
-        if self.parse() == false {
-            
-            guard let error = self.parserError else {
-                self.result?(Result.failure(ParserError.feedNotFound.value))
-                return
-            }
-            
-            self.result?(Result.failure(error as NSError))
-        }
+        self.parse()
     }
     
     
