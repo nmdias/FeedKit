@@ -171,6 +171,14 @@ extension RSSFeed {
             if  self.items?.last?.dublinCore == nil {
                 self.items?.last?.dublinCore = DublinCoreNamespace()
             }
+
+        case
+        .RSSChannelItunesAuthor,
+        .RSSChannelItunesBlock,
+
+            if self.iTunes == nil {
+                self.iTunes = ITunesNamespace()
+            }
             
         default: break
             

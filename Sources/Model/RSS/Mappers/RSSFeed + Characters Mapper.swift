@@ -155,6 +155,7 @@ extension RSSFeed {
             
             // Namespace - iTunes Podcasting Tags
 
+        case .RSSChannelItunesAuthor:                     self.iTunes?.iTunesAuthor                         = self.iTunes?.iTunesAuthor?.appending(string) ?? string
         default: print("didnt match")
 
         }
