@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?>
+<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Dan Carlin's Hardcore History</title>
+        <description>In "Hardcore History" journalist and broadcaster Dan Carlin takes his "Martian", unorthodox way of thinking and applies it to the past. Was Alexander the Great as bad a person as Adolf Hitler? What would Apaches with modern weapons be like? Will our modern civilization ever fall like civilizations from past eras? This isn't academic history (and Carlin isn't a historian) but the podcast's unique blend of high drama, masterful narration and Twilight Zone-style twists has entertained millions of listeners.</description>
+        <itunes:summary>In "Hardcore History" journalist and broadcaster Dan Carlin takes his "Martian", unorthodox way of thinking and applies it to the past. Was Alexander the Great as bad a person as Adolf Hitler? What would Apaches with modern weapons be like? Will our modern civilization ever fall like civilizations from past eras? This isn't academic history (and Carlin isn't a historian) but the podcast's unique blend of high drama, masterful narration and Twilight Zone-style twists has entertained millions of listeners.</itunes:summary>
+        <itunes:subtitle>This isn't academic history (and Carlin isn't a historian) but the podcast's unique blend of high drama, masterful narration and Twilight Zone-style twists has entertained millions of listeners.</itunes:subtitle>
+        <link>http://www.dancarlin.com</link>
+        <pubDate>Sun, 07 Aug 2016 12:05:26 PST</pubDate>
+        <language>en-us</language>
+        <managingEditor>dan@dancarlin.com (Dan Carlin)</managingEditor>
+        <webMaster>dan@dancarlin.com (Dan Carlin)</webMaster>
+        <itunes:author>Dan Carlin</itunes:author>
+        <copyright>dancarlin.com</copyright>
+        <itunes:image href="http://www.dancarlin.com/graphics/DC_HH_iTunes.jpg" />
+        <image>
+            <url>http://www.dancarlin.com/graphics/DC_HH_iTunes.jpg</url>
+            <link>http://www.dancarlin.com</link>
+            <title>Dan Carlin's Hardcore History</title>
+        </image>
+        <itunes:owner>
+            <itunes:name>Dan Carlin's Hardcore History</itunes:name>
+            <itunes:email>dan@dancarlin.com </itunes:email>
+        </itunes:owner>
+        <itunes:keywords>History, Military, War, Ancient, Archaeology, Classics, Carlin</itunes:keywords>
+        <itunes:category text="Society &amp; Culture">
+            <itunes:category text="History" /></itunes:category>
+        <itunes:explicit>no</itunes:explicit>
+        <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/dancarlin/history" />
+        <feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="dancarlin/history" />
+        <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
+        <item>
+            <title>Show 58 - Kings of Kings III</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha58_Kings_of_Kings_III.mp3</guid>
+            <description>If this were a movie, the events and cameos would be too numerous and star-studded to mention. It includes Xerxes, Spartans, Immortals, Alexander the Great, scythed chariots, and several of the greatest battles in history.</description>
+            <itunes:subtitle>If this were a movie, the events and cameos would be too numerous and star-studded to mention. It includes Xerxes, Spartans, Immortals, Alexander the Great, scythed chariots, and several of the greatest battles in history.</itunes:subtitle>
+            <itunes:summary>If this were a movie, the events and cameos would be too numerous and star-studded to mention. It includes Xerxes, Spartans, Immortals, Alexander the Great, scythed chariots, and several of the greatest battles in history.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-58-kings-kings-iii</link>
+            <pubDate>Sun, 07 Aug 2016 12:05:26 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha58_Kings_of_Kings_III.mp3" length="288811644" type="audio/mpeg" />
+            <itunes:duration>05:00:30</itunes:duration>
+            <itunes:keywords>Persia, Achaemenid, Xerxes, Darius, Artaxerxes, Greek, Macedonian, ancient history, military, Philip, Alexander, Spartan, Athens, Herodotus, Leonidas, podcast, Plataea, Issus, Salamis, Gaugamela
+            </itunes:keywords>
+        </item>
+        <item>
+            <title>Show 57 - Kings of Kings II</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha57_Kings_of_Kings_II.mp3</guid>
+            <description>From Biblical-era coup conspiracies to the horrific aftermath of ancient combat this second installment of the series on the Kings of Achaemenid Persia goes where only Dan can take it. For better or worse…</description>
+            <itunes:subtitle>From Biblical-era coup conspiracies to the horrific aftermath of ancient combat this second installment of the series on the Kings of Achaemenid Persia goes where only Dan can take it. For better or worse…</itunes:subtitle>
+            <itunes:summary>From Biblical-era coup conspiracies to the horrific aftermath of ancient combat this second installment of the series on the Kings of Achaemenid Persia goes where only Dan can take it. For better or worse…</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-57-kings-kings-ii</link>
+            <pubDate>Sun, 20 Mar 2016 00:08:08 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha57_Kings_of_Kings_II.mp3" length="245664339" type="audio/mpeg" />
+            <itunes:duration>04:15:42</itunes:duration>
+            <itunes:keywords>Persia, Achaemenid, Darius, Cambyses, Bardiya, Smerdis, Greece, Athens, Sparta, Scythian, Herodotus, Ancient Combat, war, history, soldiers, battle, Greek and Persian Wars, podcast
+            </itunes:keywords>
+        </item>
+        <item>
+            <title>Show 56 - Kings of Kings</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha56_Kings_of_Kings.mp3</guid>
+            <description>Often relegated to the role of slavish cannon fodder for Sparta's spears, the Achaemenid Persian empire had a glorious heritage. Under a single king they created the greatest empire the world had ever seen.</description>
+            <itunes:subtitle>Often relegated to the role of slavish cannon fodder for Sparta's spears, the Achaemenid Persian empire had a glorious heritage. Under a single king they created the greatest empire the world had ever seen.</itunes:subtitle>
+            <itunes:summary>Often relegated to the role of slavish cannon fodder for Sparta's spears, the Achaemenid Persian empire had a glorious heritage. Under a single king they created the greatest empire the world had ever seen.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-56-kings-of-kings/</link>
+            <pubDate>Wed, 28 Oct 2015 17:35:08 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha56_Kings_of_Kings.mp3" length="204625133" type="audio/mpeg" />
+            <itunes:duration>03:32:40</itunes:duration>
+            <itunes:keywords>Cyrus, Iran, Persia, Greek, Greece, Xerxes, Assyria, Babylon, Bible, Biblical, ancient, history, Spartans, Athens, Greek and Persian Wars, Medes, Scythians, Herodotus, Elamites
+            </itunes:keywords>
+        </item>
+        <item>
+            <title>Show 55 - Blueprint for Armageddon VI</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha55_Blueprint_for_Armageddon_VI.mp3</guid>
+            <description> The Americans are coming, but will the war be over by the time they get there? Germany throws everything into a last series of stupendous attacks in the West while hoping to avoid getting burned by a fire in the East they helped fan.</description>
+            <itunes:subtitle> The Americans are coming, but will the war be over by the time they get there? Germany throws everything into a last series of stupendous attacks in the West while hoping to avoid getting burned by a fire in the East they helped fan.</itunes:subtitle>
+            <itunes:summary> The Americans are coming, but will the war be over by the time they get there? Germany throws everything into a last series of stupendous attacks in the West while hoping to avoid getting burned by a fire in the East they helped fan.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-55-blueprint-for-armageddon-vi/</link>
+            <pubDate>Tue, 05 May 2015 23:57:12 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha55_Blueprint_for_Armageddon_VI.mp3" length="246726853" type="audio/mpeg" />
+            <itunes:duration>04:16:43</itunes:duration>
+            <itunes:keywords>communism, Lenin, Germany, Kaiser, Ludendorff, Kaiserschlacht, Hundred Days, Spring Offensive, 1918, World War One, First World War, history, Oil, Balfour, Arab, Sykes-Picot,Foch, Pershing, Wilson, Ottoman</itunes:keywords>
+        </item>
+        <item>
+            <title>Show 54 - Blueprint for Armageddon V</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha54_Blueprint_for_Armageddon_V.mp3</guid>
+            <description>Politics, diplomacy, revolution and mutiny take center stage at the start of this episode, but mud, blood, shells and tragedy drown all by the end.</description>
+            <itunes:subtitle>Politics, diplomacy, revolution and mutiny take center stage at the start of this episode, but mud, blood, shells and tragedy drown all by the end.</itunes:subtitle>
+            <itunes:summary>Politics, diplomacy, revolution and mutiny take center stage at the start of this episode, but mud, blood, shells and tragedy drown all by the end.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-54-blueprint-for-armageddon-v/</link>
+            <pubDate>Mon, 29 Dec 2014 22:24:12 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha54_Blueprint_for_Armageddon_V.mp3" length="259429328" type="audio/mpeg" />
+            <itunes:duration>04:29:57</itunes:duration>
+            <itunes:keywords>first world war, Great War, Woodrow Wilson, America, United States, Russia, Pancho Villa, Nicholas II, Ludendorff, Hindenburg, Germany, Passchendaele, Ypres, Haig, Lloyd George, Winston Churchill, Neville, Mutinies of 1917, Russian Revolution, submarines</itunes:keywords>
+        </item>
+        <item>
+            <title>Show 53 - Blueprint for Armageddon IV</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha53_Blueprint_for_Armageddon_IV_clean.mp3</guid>
+            <description>Machine guns, barbed wire and millions upon millions of artillery shells create industrialized meat grinders at Verdun and the Somme. There's never been a human experience like it and it changes a generation.</description>
+            <itunes:subtitle>Machine guns, barbed wire and millions upon millions of artillery shells create industrialized meat grinders at Verdun and the Somme. There's never been a human experience like it and it changes a generation.</itunes:subtitle>
+            <itunes:summary>Machine guns, barbed wire and millions upon millions of artillery shells create industrialized meat grinders at Verdun and the Somme. There's never been a human experience like it and it changes a generation.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-53-blueprint-for-armageddon-iv</link>
+            <pubDate>Sun, 17 Aug 2014 09:21:10 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha53_Blueprint_for_Armageddon_IV_clean.mp3" length="226905886" type="audio/mpeg" />
+            <itunes:duration>03:55:51</itunes:duration>
+            <itunes:keywords>World War One, Great War, history, Europe, history, podcast, war, military, 1916, Britain, France, Russia, Austria-Hungary, tank, artillary, battles, army, Germany, trenches, poison gas, Churchill, Verdun, Somme, Jutland, Naval</itunes:keywords>
+        </item>
+        <item>
+            <title>Show 52 - Blueprint for Armageddon III</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha52_Blueprint_for_Armageddon_III_clean.mp3</guid>
+            <description>The war of maneuver that was supposed to be over quickly instead turns into a lingering bloody stalemate. Trench warfare begins, and with it, all the murderous efforts on both sides to overcome the static defenses.</description>
+            <itunes:subtitle>The war of maneuver that was supposed to be over quickly instead turns into a lingering bloody stalemate. Trench warfare begins, and with it, all the murderous efforts on both sides to overcome the static defenses.</itunes:subtitle>
+            <itunes:summary>The war of maneuver that was supposed to be over quickly instead turns into a lingering bloody stalemate. Trench warfare begins, and with it, all the murderous efforts on both sides to overcome the static defenses.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-52-blueprint-for-armageddon-iii</link>
+            <pubDate>Thu, 24 Apr 2014 12:25:18 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha52_Blueprint_for_Armageddon_III_clean.mp3" length="225609410" type="audio/mpeg" />
+            <itunes:duration>03:54:08</itunes:duration>
+            <itunes:keywords>World War One, Great War, history, Italy, Europe, history, podcast, war, military, 1915, Britain, France, Russia, Austria-Hungary, Serbia, Turkey, battles, army, Armenians, Germany, trenches, poison gas, Churchill, Ypres, Gallipoli, Artillery </itunes:keywords>
+        </item>
+        <item>
+            <title>Show 51 - Blueprint for Armageddon II</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha51_Blueprint_for_Armageddon_II.mp3</guid>
+            <description>The Great Powers all come out swinging in the first round of the worst war the planet has ever seen. Millions of men in dozens of armies vie in the most deadly and complex opening moves of any conflict in world history.</description>
+            <itunes:subtitle>The Great Powers all come out swinging in the first round of the worst war the planet has ever seen. Millions of men in dozens of armies vie in the most deadly and complex opening moves of any conflict in world history.</itunes:subtitle>
+            <itunes:summary>The Great Powers all come out swinging in the first round of the worst war the planet has ever seen. Millions of men in dozens of armies vie in the most deadly and complex opening moves of any conflict in world history.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-51-blueprint-for-armageddon-ii</link>
+            <pubDate>Thu, 30 Jan 2014 21:12:15 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha51_Blueprint_for_Armageddon_II.mp3" length="193299910" type="audio/mpeg" />
+            <itunes:duration>03:20:29</itunes:duration>
+            <itunes:keywords>First World War, World War One, Great War, Kaiser, Czar, Europe, history, podcast, war, military, 1914, Britain, France, Russia, Austria-Hungary, Serbia, Napoleon, battles, army, Belgium, Ludendorff, Moltke, Joffre, Mons, Marne, Tannenberg, Artillery</itunes:keywords>
+        </item>
+        <item>
+            <title>Show 50 - Blueprint for Armageddon I</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha50_Blueprint_for_Armageddon_I.mp3</guid>
+            <description>The planet hadn't seen a major war between all the Great Powers since the downfall of Napoleon at Waterloo in 1815. But 99 years later the dam breaks and a Pandora's Box of violence engulfs the planet.</description>
+            <itunes:subtitle>The planet hadn't seen a major war between all the Great Powers since the downfall of Napoleon at Waterloo in 1815. But 99 years later the dam breaks and a Pandora's Box of violence engulfs the planet.</itunes:subtitle>
+            <itunes:summary>The planet hadn't seen a major war between all the Great Powers since the downfall of Napoleon at Waterloo in 1815. But 99 years later the dam breaks and a Pandora's Box of violence engulfs the planet.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-50-blueprint-for-armageddon-i</link>
+            <pubDate>Tue, 29 Oct 2013 23:12:15 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha50_Blueprint_for_Armageddon_I.mp3" length="180682140" type="audio/mpeg" />
+            <itunes:duration>03:07:20</itunes:duration>
+            <itunes:keywords>First World War, World War One, Great War, Kaiser, Czar, Europe, history, podcast, audio, war, military, 1914, Britain, France, Russia, Austria-Hungary, Serbia, Princip, assassination, Bismarck, Napoleon, battles, army, Belgium, Ludendorff</itunes:keywords>
+        </item>
+        <item>
+            <title>Show 49 - The American Peril</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha49_The_American_Peril.mp3</guid>
+            <description>Imperial temptations and humanitarian nightmares force the United States of the late 19th Century to confront the contradictions between its revolutionary self-image and its expanding national interests.</description>
+            <itunes:subtitle>Imperial temptations and humanitarian nightmares force the United States of the late 19th Century to confront the contradictions between its revolutionary self-image and its expanding national interests.</itunes:subtitle>
+            <itunes:summary>Imperial temptations and humanitarian nightmares force the United States of the late 19th Century to confront the contradictions between its revolutionary self-image and its expanding national interests.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-49-the-american-peril</link>
+            <pubDate>Thu, 25 Jul 2013 14:05:51 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha49_The_American_Peril.mp3" length="236687418" type="audio/mpeg" />
+            <itunes:duration>04:05:41</itunes:duration>
+            <itunes:keywords> Spanish-American, Philippine, Insurrection, William McKinley, Theodore Roosevelt, Cuba, Imperialism, expansion, revolution, history, podcast, United States, America, colonialism, Jingoism, Nationalism, patriotism, isolationism, Moro Wars</itunes:keywords>
+        </item>
+        <item>
+            <title>Show 48 - Prophets of Doom</title>
+            <guid>http://traffic.libsyn.com/dancarlinhh/dchha48_Prophets_of_Doom.mp3</guid>
+            <description>Murderous millennial preachers and prophets take over the German city of Munster after Martin Luther unleashes a Pandora's Box of religious anarchy with the Protestant Reformation.</description>
+            <itunes:subtitle>Murderous millennial preachers and prophets take over the German city of Munster after Martin Luther unleashes a Pandora's Box of religious anarchy with the Protestant Reformation.</itunes:subtitle>
+            <itunes:summary>Murderous millennial preachers and prophets take over the German city of Munster after Martin Luther unleashes a Pandora's Box of religious anarchy with the Protestant Reformation.</itunes:summary>
+            <link>http://www.dancarlin.com/product/hardcore-history-48-prophets-of-doom</link>
+            <pubDate>Mon, 22 Apr 2013 02:27:04 PST</pubDate>
+            <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha48_Prophets_of_Doom.mp3" length="258129561" type="audio/mpeg" />
+            <itunes:duration>04:28:01</itunes:duration>
+            <itunes:keywords>Luther, Reformation, history, podcast, Munster, Anabaptist, religious, fanaticism, terrorism, Christian, Catholic, church, Protestant, German, Pope, Renaissance, Leiden, Lutheran, Rome, David Koresh, cults</itunes:keywords>
+        </item>
+    </channel>
+</rss>

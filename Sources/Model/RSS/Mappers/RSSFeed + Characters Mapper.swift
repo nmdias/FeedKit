@@ -153,7 +153,10 @@ extension RSSFeed {
         case .RSSChannelItemDublinCoreCoverage:           self.items?.last?.dublinCore?.dcCoverage          = self.items?.last?.dublinCore?.dcCoverage?.appending(string) ?? string
         case .RSSChannelItemDublinCoreRights:             self.items?.last?.dublinCore?.dcRights            = self.items?.last?.dublinCore?.dcRights?.appending(string) ?? string
             
-            
+            // Namespace - iTunes Podcasting Tags
+
+        default: print("didnt match")
+
         }
         
         

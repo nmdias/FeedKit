@@ -272,6 +272,21 @@
 		A0FF62841D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
 		A0FF62851D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
 		A0FF62861D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */; };
+		B533B1ED1E3945AE0094B758 /* iTunesCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EA1E3945AE0094B758 /* iTunesCategory.swift */; };
+		B533B1EE1E3945AE0094B758 /* iTunesNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EB1E3945AE0094B758 /* iTunesNamespace.swift */; };
+		B533B1EF1E3945AE0094B758 /* iTunesOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */; };
+		B533B1F01E3945BD0094B758 /* iTunesCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EA1E3945AE0094B758 /* iTunesCategory.swift */; };
+		B533B1F11E3945BD0094B758 /* iTunesNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EB1E3945AE0094B758 /* iTunesNamespace.swift */; };
+		B533B1F21E3945BD0094B758 /* iTunesOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */; };
+		B533B1F31E3945BD0094B758 /* iTunesCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EA1E3945AE0094B758 /* iTunesCategory.swift */; };
+		B533B1F41E3945BD0094B758 /* iTunesNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EB1E3945AE0094B758 /* iTunesNamespace.swift */; };
+		B533B1F51E3945BD0094B758 /* iTunesOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */; };
+		B533B1F61E3945BE0094B758 /* iTunesCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EA1E3945AE0094B758 /* iTunesCategory.swift */; };
+		B533B1F71E3945BE0094B758 /* iTunesNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EB1E3945AE0094B758 /* iTunesNamespace.swift */; };
+		B533B1F81E3945BE0094B758 /* iTunesOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */; };
+		B533B1FA1E39473F0094B758 /* iTunesPodcasting.xml in Resources */ = {isa = PBXBuildFile; fileRef = B533B1F91E39473F0094B758 /* iTunesPodcasting.xml */; };
+		B533B1FB1E39473F0094B758 /* iTunesPodcasting.xml in Resources */ = {isa = PBXBuildFile; fileRef = B533B1F91E39473F0094B758 /* iTunesPodcasting.xml */; };
+		B533B1FC1E39473F0094B758 /* iTunesPodcasting.xml in Resources */ = {isa = PBXBuildFile; fileRef = B533B1F91E39473F0094B758 /* iTunesPodcasting.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -455,6 +470,10 @@
 		A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = "<group>"; };
 		A0EF4E201CE86F6E00C52142 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-macOS.plist"; path = "Sources/Info-macOS.plist"; sourceTree = "<group>"; };
 		A0EF4E211CE86F6E00C52142 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Sources/Info-tvOS.plist"; sourceTree = "<group>"; };
+		B533B1EA1E3945AE0094B758 /* iTunesCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesCategory.swift; sourceTree = "<group>"; };
+		B533B1EB1E3945AE0094B758 /* iTunesNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesNamespace.swift; sourceTree = "<group>"; };
+		B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesOwner.swift; sourceTree = "<group>"; };
+		B533B1F91E39473F0094B758 /* iTunesPodcasting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = iTunesPodcasting.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -592,6 +611,7 @@
 		A07F3BDE1CFE136900C3AF80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B533B1E91E39459B0094B758 /* iTunes */,
 				A07F3BDF1CFE136900C3AF80 /* Atom */,
 				A07F3BF41CFE136900C3AF80 /* RSS */,
 			);
@@ -721,6 +741,7 @@
 		A0D20C2C1CEAFACB00B4509D /* xml */ = {
 			isa = PBXGroup;
 			children = (
+				B533B1F91E39473F0094B758 /* iTunesPodcasting.xml */,
 				A060D7221D03452700F0DACE /* FeedNotFound.xml */,
 				A0DE94311CF7946700D1F19C /* Atom.xml */,
 				A0D20C2D1CEAFB1200B4509D /* Content.xml */,
@@ -811,6 +832,16 @@
 				A0370EC11CEF9E0A009583A3 /* Info-watchOS.plist */,
 			);
 			name = Sources;
+			sourceTree = "<group>";
+		};
+		B533B1E91E39459B0094B758 /* iTunes */ = {
+			isa = PBXGroup;
+			children = (
+				B533B1EA1E3945AE0094B758 /* iTunesCategory.swift */,
+				B533B1EB1E3945AE0094B758 /* iTunesNamespace.swift */,
+				B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */,
+			);
+			name = iTunes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1126,6 +1157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D20C3E1CEB032700B4509D /* DC.xml in Resources */,
+				B533B1FA1E39473F0094B758 /* iTunesPodcasting.xml in Resources */,
 				A0D20C3F1CEB032700B4509D /* RSS2.xml in Resources */,
 				A0DE94321CF7946700D1F19C /* Atom.xml in Resources */,
 				A0D20C3D1CEB032700B4509D /* Content.xml in Resources */,
@@ -1139,6 +1171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D20C421CEB032800B4509D /* DC.xml in Resources */,
+				B533B1FB1E39473F0094B758 /* iTunesPodcasting.xml in Resources */,
 				A0D20C431CEB032800B4509D /* RSS2.xml in Resources */,
 				A0DE94331CF7946700D1F19C /* Atom.xml in Resources */,
 				A0D20C411CEB032800B4509D /* Content.xml in Resources */,
@@ -1152,6 +1185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D20C461CEB032900B4509D /* DC.xml in Resources */,
+				B533B1FC1E39473F0094B758 /* iTunesPodcasting.xml in Resources */,
 				A0D20C471CEB032900B4509D /* RSS2.xml in Resources */,
 				A0DE94341CF7946700D1F19C /* Atom.xml in Resources */,
 				A0D20C451CEB032900B4509D /* Content.xml in Resources */,
@@ -1238,8 +1272,10 @@
 				A053F4EC1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
 				A07F3CC01CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
 				A07F3C241CFE136900C3AF80 /* AtomFeed.swift in Sources */,
+				B533B1F61E3945BE0094B758 /* iTunesCategory.swift in Sources */,
 				A07F3C181CFE136900C3AF80 /* FeedParser.swift in Sources */,
 				A07F3C481CFE136900C3AF80 /* AtomFeedEntryLink.swift in Sources */,
+				B533B1F81E3945BE0094B758 /* iTunesOwner.swift in Sources */,
 				A07F3CC41CFE136900C3AF80 /* RSSFeedItemGUID.swift in Sources */,
 				A07F3C701CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift in Sources */,
 				A07F3CA01CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
@@ -1255,6 +1291,7 @@
 				A07F3C9C1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
 				A07F3C281CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A0AA54761D02C096000A2264 /* ParserError.swift in Sources */,
+				B533B1F71E3945BE0094B758 /* iTunesNamespace.swift in Sources */,
 				A07F3C641CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A053F4DD1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
 				A0AA54731D02C07C000A2264 /* Parser.swift in Sources */,
@@ -1371,8 +1408,10 @@
 				A053F4EA1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
 				A07F3CBE1CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
 				A07F3C221CFE136900C3AF80 /* AtomFeed.swift in Sources */,
+				B533B1F01E3945BD0094B758 /* iTunesCategory.swift in Sources */,
 				A07F3C161CFE136900C3AF80 /* FeedParser.swift in Sources */,
 				A07F3C461CFE136900C3AF80 /* AtomFeedEntryLink.swift in Sources */,
+				B533B1F21E3945BD0094B758 /* iTunesOwner.swift in Sources */,
 				A07F3CC21CFE136900C3AF80 /* RSSFeedItemGUID.swift in Sources */,
 				A07F3C6E1CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift in Sources */,
 				A07F3C9E1CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
@@ -1388,6 +1427,7 @@
 				A07F3C9A1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
 				A07F3C261CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A0AA54741D02C095000A2264 /* ParserError.swift in Sources */,
+				B533B1F11E3945BD0094B758 /* iTunesNamespace.swift in Sources */,
 				A07F3C621CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A053F4DB1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
 				A0AA54711D02C07C000A2264 /* Parser.swift in Sources */,
@@ -1426,8 +1466,10 @@
 				A053F4EB1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
 				A07F3CBF1CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
 				A07F3C231CFE136900C3AF80 /* AtomFeed.swift in Sources */,
+				B533B1F31E3945BD0094B758 /* iTunesCategory.swift in Sources */,
 				A07F3C171CFE136900C3AF80 /* FeedParser.swift in Sources */,
 				A07F3C471CFE136900C3AF80 /* AtomFeedEntryLink.swift in Sources */,
+				B533B1F51E3945BD0094B758 /* iTunesOwner.swift in Sources */,
 				A07F3CC31CFE136900C3AF80 /* RSSFeedItemGUID.swift in Sources */,
 				A07F3C6F1CFE136900C3AF80 /* RSSFeed + Attributes Mapper.swift in Sources */,
 				A07F3C9F1CFE136900C3AF80 /* SyndicationUpdatePeriod.swift in Sources */,
@@ -1443,6 +1485,7 @@
 				A07F3C9B1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
 				A07F3C271CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A0AA54751D02C096000A2264 /* ParserError.swift in Sources */,
+				B533B1F41E3945BD0094B758 /* iTunesNamespace.swift in Sources */,
 				A07F3C631CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A053F4DC1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
 				A0AA54721D02C07C000A2264 /* Parser.swift in Sources */,
@@ -1481,8 +1524,10 @@
 				A07F3CA51CFE136900C3AF80 /* RSSFeed.swift in Sources */,
 				A07F3CB51CFE136900C3AF80 /* RSSFeedItem.swift in Sources */,
 				A07F3CBD1CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
+				B533B1ED1E3945AE0094B758 /* iTunesCategory.swift in Sources */,
 				A07F3C211CFE136900C3AF80 /* AtomFeed.swift in Sources */,
 				A07F3C151CFE136900C3AF80 /* FeedParser.swift in Sources */,
+				B533B1EF1E3945AE0094B758 /* iTunesOwner.swift in Sources */,
 				A07F3C451CFE136900C3AF80 /* AtomFeedEntryLink.swift in Sources */,
 				A07F3CC11CFE136900C3AF80 /* RSSFeedItemGUID.swift in Sources */,
 				A053F4DF1D0EF99B00B4203D /* RFC3339DateFormatter.swift in Sources */,
@@ -1498,6 +1543,7 @@
 				A07F3C651CFE136900C3AF80 /* AtomFeed + Characters Mapper.swift in Sources */,
 				A07F3C291CFE136900C3AF80 /* AtomFeedCategory.swift in Sources */,
 				A07F3C991CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
+				B533B1EE1E3945AE0094B758 /* iTunesNamespace.swift in Sources */,
 				A07F3C251CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A053F4DA1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
 				A07F3C611CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
