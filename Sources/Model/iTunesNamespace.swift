@@ -97,6 +97,23 @@ open class ITunesNamespace {
      */
     open var iTunesImage: String?
 
+    /**
+
+     The content you specify in the <itunes:duration> tag appears in the Time column in the List View on the iTunes Store.
+
+     Specify one of the following formats for the <itunes:duration> tag value:
+
+     HH:MM:SS
+     H:MM:SS
+     MM:SS
+     M:SS
+     Where H = hours, M = minutes, and S = seconds.
+
+     If you specify a single number as a value (without colons), the iTunes Store displays the value as seconds. If you specify one colon, the iTunes Store displays the number to the left as minutes and the number to the right as seconds. If you specify more then two colons, the iTunes Store ignores the numbers farthest to the right.
+     
+     */
+    open var iTunesDuration: TimeInterval?
+
     /** 
  
 
@@ -108,6 +125,24 @@ open class ITunesNamespace {
 
      */
     open var iTunesExplicit: String?
+
+    /**
+
+     Specifying the <itunes:isClosedCaptioned> tag with a Yes value indicates that the video podcast episode is embedded with closed captioning and the iTunes Store should display a closed-caption icon next to the corresponding episode. This tag is only supported at the <item> level (episode).
+
+     Note: If you specify a value other than Yes, no closed-caption indicator appears.
+     
+     */
+    open var isClosedCaptioned: String?
+
+    /**
+
+     Use the <itunes:order> tag to specify the number value in which you would like the episode to appear and override the default ordering of episodes on the iTunes Store.
+
+     For example, if you want an <item> to appear as the first episode of your podcast, specify the <itunes:order> tag with 1. If conflicting order values are present in multiple episodes, the iTunes Store uses <pubDate>.
+     
+     */
+    open var iTunesOrder: Int?
 
     /** 
  

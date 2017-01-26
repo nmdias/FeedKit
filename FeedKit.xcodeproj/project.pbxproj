@@ -290,6 +290,7 @@
 		B5AAFAC51E3949B6003751CA /* iTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFAC41E3949B6003751CA /* iTunesTests.swift */; };
 		B5AAFAC61E3949B6003751CA /* iTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFAC41E3949B6003751CA /* iTunesTests.swift */; };
 		B5AAFAC71E3949B6003751CA /* iTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFAC41E3949B6003751CA /* iTunesTests.swift */; };
+		B5AAFACB1E3AAC1C003751CA /* String + timeIntervalFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFACA1E3AAC1C003751CA /* String + timeIntervalFrom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -478,6 +479,7 @@
 		B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesOwner.swift; sourceTree = "<group>"; };
 		B533B1F91E39473F0094B758 /* iTunesPodcasting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = iTunesPodcasting.xml; sourceTree = "<group>"; };
 		B5AAFAC41E3949B6003751CA /* iTunesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesTests.swift; sourceTree = "<group>"; };
+		B5AAFACA1E3AAC1C003751CA /* String + timeIntervalFrom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + timeIntervalFrom.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -607,6 +609,7 @@
 			children = (
 				A07F3BDD1CFE136900C3AF80 /* String + bool.swift */,
 				A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */,
+				B5AAFACA1E3AAC1C003751CA /* String + timeIntervalFrom.swift */,
 			);
 			name = Extensions;
 			path = Sources/Extensions;
@@ -1529,6 +1532,7 @@
 				A07F3C891CFE136900C3AF80 /* DublinCoreNamespace.swift in Sources */,
 				A07F3CC91CFE136900C3AF80 /* RSSFeedSkipDay.swift in Sources */,
 				A053F4E91D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
+				B5AAFACB1E3AAC1C003751CA /* String + timeIntervalFrom.swift in Sources */,
 				A07F3CA51CFE136900C3AF80 /* RSSFeed.swift in Sources */,
 				A07F3CB51CFE136900C3AF80 /* RSSFeedItem.swift in Sources */,
 				A07F3CBD1CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
