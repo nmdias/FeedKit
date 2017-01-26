@@ -49,7 +49,7 @@ open class ITunesNamespace {
      For example, you might want to block a specific episode if you know that its content would otherwise cause the entire podcast to be removed from the iTunes Store. Specifying any value other than Yes has no effect.
 
      */
-    open var iTunesBlock: Bool?
+    open var iTunesBlock: String?
 
     /**
 
@@ -80,7 +80,7 @@ open class ITunesNamespace {
      </itunes:category>
 
      */
-    open var iTunesCategory: [ITunesCategory]?
+    open var iTunesCategories: [ITunesCategory]?
 
     /**
 
@@ -137,5 +137,17 @@ open class ITunesNamespace {
      */
     open var iTunesOwner: ITunesOwner?
 
+    /**
 
+     The content you specify in the <itunes:subtitle> tag appears in the Description column on the iTunes Store. For best results, choose a subtitle that is only a few words long.
+     
+     */
+    open var iTunesSubtitle: String?
+
+    /**
+
+     The content you specify in the <itunes:summary> tag appears on the iTunes Store page for your podcast. You can specify up to 4000 characters. The information also appears in a separate window if a users clicks the Information icon (Information icon) in the Description column. If you do not specify a <itunes:summary> tag, the iTunes Store uses the information in the <description> tag.
+     
+     */
+    open var iTunesSummary: String?
 }
