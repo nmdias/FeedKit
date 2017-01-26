@@ -75,6 +75,10 @@ open class ITunesCategory {
 
 // MARK: - Initializers
 
-
-
+extension ITunesCategory {
+    convenience init(attributes attributesDict: [String: String]) {
+        self.init()
+        self.category = attributesDict["text"]
+    }
+}
 

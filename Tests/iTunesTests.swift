@@ -24,6 +24,10 @@ class iTunesTests: BaseTestCase {
             // Then
             XCTAssertNotNil(feed)
             XCTAssertEqual(feed?.iTunes?.iTunesAuthor, "Dan Carlin")
+            XCTAssertNotNil(feed?.iTunes)
+            XCTAssertEqual(feed?.iTunes?.iTunesCategories?.last?.category, "Society & Culture")
+            XCTAssertEqual(feed?.iTunes?.iTunesCategories?.last?.subcategory, "History")
+
 
         }
 

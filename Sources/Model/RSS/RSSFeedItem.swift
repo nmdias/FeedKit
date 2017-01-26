@@ -236,5 +236,11 @@ open class RSSFeedItem {
      
      */
     open var content: ContentNamespace?
-    
+
+    /**
+
+     iTunes Podcasting Tags are de facto standard for podcast syndication. For more information see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
+
+     */
+    open var iTunes: ITunesNamespace?
 }
