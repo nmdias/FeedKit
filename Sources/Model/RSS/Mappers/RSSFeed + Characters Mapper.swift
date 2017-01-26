@@ -156,6 +156,10 @@ extension RSSFeed {
             // Namespace - iTunes Podcasting Tags
 
         case .RSSChannelItunesAuthor:                     self.iTunes?.iTunesAuthor                         = self.iTunes?.iTunesAuthor?.appending(string) ?? string
+        case .RSSChannelItunesBlock:                      self.iTunes?.iTunesBlock                          = self.iTunes?.iTunesBlock?.appending(string) ?? string
+        case .RSSChannelItunesCategory:                   self.iTunes?.iTunesCategories?.last?.category     = self.iTunes?.iTunesCategories?.last?.category?.appending(string) ?? string
+        case .RSSChannelItunesSubcategory:                self.iTunes?.iTunesCategories?.last?.subcategory  = self.iTunes?.iTunesCategories?.last?.subcategory?.appending(string) ?? string
+            
         default: print("didnt match")
 
         }

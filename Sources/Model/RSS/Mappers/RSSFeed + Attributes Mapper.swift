@@ -175,11 +175,32 @@ extension RSSFeed {
         case
         .RSSChannelItunesAuthor,
         .RSSChannelItunesBlock,
+        .RSSChannelItunesImage,
+        .RSSChannelItunesCategory,
+        .RSSChannelItunesSubcategory,
+        .RSSChannelItemItunesDuration,
+        .RSSChannelItunesExplicit,
+        .RSSChannelItunesComplete,
+        .RSSChannelItunesNewFeedURL,
+        .RSSChannelItunesOwner,
+        .RSSChannelItunesOwnerName,
+        .RSSChannelItunesOwnerEmail,
+        .RSSChannelItunesSubtitle,
+        .RSSChannelItunesSummary:
 
             if self.iTunes == nil {
                 self.iTunes = ITunesNamespace()
             }
-            
+
+            switch path {
+            case .RSSChannelItunesCategory:
+                if self.iTunes?.iTunesCategories == nil {
+                    self.iTunes?.iTunesCategories = []
+                }
+                self.iTunes?.iTunesCategories.append(ITunesCategory )
+            }
+
+
         default: break
             
             
