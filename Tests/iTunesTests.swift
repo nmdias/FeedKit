@@ -23,12 +23,15 @@ class iTunesTests: BaseTestCase {
 
             // Then
             XCTAssertNotNil(feed)
-            XCTAssertEqual(feed?.iTunes?.iTunesAuthor, "Dan Carlin")
             XCTAssertNotNil(feed?.iTunes)
+            XCTAssertEqual(feed?.iTunes?.iTunesAuthor, "Dan Carlin")
+            XCTAssertEqual(feed?.iTunes?.iTunesBlock, "No")
             XCTAssertEqual(feed?.iTunes?.iTunesCategories?.last?.category, "Society & Culture")
+            XCTAssertEqual(feed?.iTunes?.iTunesImage, "http://www.dancarlin.com/graphics/DC_HH_iTunes.jpg")
             XCTAssertEqual(feed?.iTunes?.iTunesCategories?.last?.subcategory, "History")
             XCTAssertEqual(feed?.iTunes?.iTunesSummary, "In \"Hardcore History\" journalist and broadcaster Dan Carlin takes his \"Martian\", unorthodox way of thinking and applies it to the past. Was Alexander the Great as bad a person as Adolf Hitler? What would Apaches with modern weapons be like? Will our modern civilization ever fall like civilizations from past eras? This isn't academic history (and Carlin isn't a historian) but the podcast's unique blend of high drama, masterful narration and Twilight Zone-style twists has entertained millions of listeners.")
             XCTAssertEqual(feed?.items?.last?.iTunes?.iTunesDuration, 16081)
+
         }
 
     }

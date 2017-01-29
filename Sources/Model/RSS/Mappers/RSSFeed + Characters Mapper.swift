@@ -159,7 +159,7 @@ extension RSSFeed {
         case .RSSChannelItunesBlock:                      self.iTunes?.iTunesBlock                          = self.iTunes?.iTunesBlock?.appending(string) ?? string
         case .RSSChannelItunesCategory:                   break
         case .RSSChannelItunesSubcategory:                break
-        case .RSSChannelItunesImage:                      self.iTunes?.iTunesImage                          = self.iTunes?.iTunesImage?.appending(string) ?? string
+        case .RSSChannelItunesImage:                      break
         case .RSSChannelItunesExplicit:                   self.iTunes?.iTunesExplicit                       = self.iTunes?.iTunesExplicit?.appending(string) ?? string
         case .RSSChannelItunesComplete:                   self.iTunes?.iTunesComplete                       = self.iTunes?.iTunesComplete?.appending(string) ?? string
         case .RSSChannelItunesNewFeedURL:                 self.iTunes?.iTunesNewFeedURL                     = self.iTunes?.iTunesNewFeedURL?.appending(string) ?? string
@@ -172,15 +172,13 @@ extension RSSFeed {
 
         case .RSSChannelItemItunesAuthor:                 self.items?.last?.iTunes?.iTunesAuthor            = self.items?.last?.iTunes?.iTunesAuthor?.appending(string) ?? string
         case .RSSChannelItemItunesBlock:                  self.items?.last?.iTunes?.iTunesBlock             = self.items?.last?.iTunes?.iTunesBlock?.appending(string) ?? string
-        case .RSSChannelItemItunesImage:                  self.items?.last?.iTunes?.iTunesImage             = self.items?.last?.iTunes?.iTunesImage?.appending(string) ?? string
+        case .RSSChannelItemItunesImage:                  break
         case .RSSChannelItemItunesDuration:               self.items?.last?.iTunes?.iTunesDuration          = string.toDuration()
         case .RSSChannelItemItunesExplicit:               self.items?.last?.iTunes?.iTunesExplicit          = self.items?.last?.iTunes?.iTunesExplicit?.appending(string) ?? string
         case .RSSChannelItemItunesIsClosedCaptioned:      self.items?.last?.iTunes?.isClosedCaptioned       = self.items?.last?.iTunes?.isClosedCaptioned?.appending(string) ?? string
         case .RSSChannelItemItunesOrder:                  self.items?.last?.iTunes?.iTunesOrder             = Int(string)
         case .RSSChannelItemItunesSubtitle:               self.items?.last?.iTunes?.iTunesSubtitle          = self.items?.last?.iTunes?.iTunesSubtitle?.appending(string) ?? string
         case .RSSChannelItemItunesSummary:                self.items?.last?.iTunes?.iTunesSummary           = self.items?.last?.iTunes?.iTunesSummary?.appending(string) ?? string
-
-        default: print("didnt match")
 
         }
         

@@ -174,9 +174,9 @@ extension RSSFeed {
         case
         .RSSChannelItunesAuthor,
         .RSSChannelItunesBlock,
-        .RSSChannelItunesImage,
         .RSSChannelItunesCategory,
         .RSSChannelItunesSubcategory,
+        .RSSChannelItunesImage,
         .RSSChannelItunesExplicit,
         .RSSChannelItunesComplete,
         .RSSChannelItunesNewFeedURL,
@@ -200,19 +200,22 @@ extension RSSFeed {
             case .RSSChannelItunesSubcategory:
                 self.iTunes?.iTunesCategories?.last?.subcategory = attributeDict["text"]
 
+            case .RSSChannelItunesImage:
+                self.iTunes?.iTunesImage = attributeDict["href"]
+
             case .RSSChannelItunesOwner:
                 if self.iTunes?.iTunesOwner == nil {
                     self.iTunes?.iTunesOwner = ITunesOwner()
                 }
             default:
-                print("huh")
+                break
             }
 
         case
         .RSSChannelItemItunesAuthor,
         .RSSChannelItemItunesBlock,
-        .RSSChannelItemItunesImage,
         .RSSChannelItemItunesDuration,
+        .RSSChannelItemItunesImage,
         .RSSChannelItemItunesExplicit,
         .RSSChannelItemItunesIsClosedCaptioned,
         .RSSChannelItemItunesOrder,
@@ -221,6 +224,13 @@ extension RSSFeed {
             
             if self.items?.last?.iTunes == nil {
                 self.items?.last?.iTunes = ITunesNamespace()
+            }
+
+            switch path {
+            case .RSSChannelItemItunesImage:
+                self.items?.last?.iTunes?.iTunesImage = attributeDict["href"]
+            default:
+                break
             }
             
         default: break
