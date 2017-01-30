@@ -1,5 +1,12 @@
 # Change Log
 
+## [5.1.0](https://github.com/nmdias/FeedParser/releases/tag/5.1.0)
+### Added
+- Abort Parsing method
+
+### Fixed
+- Completion block executing twice on failure
+
 ## [5.0.0](https://github.com/nmdias/FeedParser/releases/tag/5.0.0)
 ### Added
 - Support for Swift 3.0
