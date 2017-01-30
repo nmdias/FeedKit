@@ -183,6 +183,18 @@ open class ITunesNamespace {
 
      The content you specify in the <itunes:summary> tag appears on the iTunes Store page for your podcast. You can specify up to 4000 characters. The information also appears in a separate window if a users clicks the Information icon (Information icon) in the Description column. If you do not specify a <itunes:summary> tag, the iTunes Store uses the information in the <description> tag.
      
-     */
+     */ 
     open var iTunesSummary: String?
+
+    /**
+ 
+     NOTE: The keywords tag is deprecated by Apple and no longer documented in the official list of tags. However many podcasts still use the tags and it may be of use for developers building directory or search functionality so it is included. 
+     
+     <itunes:keywords>
+     This tag allows users to search on text keywords.
+     Limited to 255 characters or less, plain text, no HTML, words must be separated by spaces.
+     This tag is applicable to the Item element only.
+
+     */
+    open var iTunesKeywords: String?
 }

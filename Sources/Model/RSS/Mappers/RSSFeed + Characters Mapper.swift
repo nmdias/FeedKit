@@ -168,6 +168,7 @@ extension RSSFeed {
         case .RSSChannelItunesOwnerEmail:                 self.iTunes?.iTunesOwner?.email                   = self.iTunes?.iTunesOwner?.email?.appending(string) ?? string
         case .RSSChannelItunesSubtitle:                   self.iTunes?.iTunesSubtitle                       = self.iTunes?.iTunesSubtitle?.appending(string) ?? string
         case .RSSChannelItunesSummary:                    self.iTunes?.iTunesSummary                        = self.iTunes?.iTunesSummary?.appending(string) ?? string
+        case .RSSChannelItunesKeywords:                   self.iTunes?.iTunesKeywords                       = self.iTunes?.iTunesKeywords?.appending(string) ?? string
 
 
         case .RSSChannelItemItunesAuthor:                 self.items?.last?.iTunes?.iTunesAuthor            = self.items?.last?.iTunes?.iTunesAuthor?.appending(string) ?? string
@@ -179,6 +180,7 @@ extension RSSFeed {
         case .RSSChannelItemItunesOrder:                  self.items?.last?.iTunes?.iTunesOrder             = Int(string)
         case .RSSChannelItemItunesSubtitle:               self.items?.last?.iTunes?.iTunesSubtitle          = self.items?.last?.iTunes?.iTunesSubtitle?.appending(string) ?? string
         case .RSSChannelItemItunesSummary:                self.items?.last?.iTunes?.iTunesSummary           = self.items?.last?.iTunes?.iTunesSummary?.appending(string) ?? string
+        case .RSSChannelItemItunesKeywords:               self.items?.last?.iTunes?.iTunesKeywords          = self.items?.last?.iTunes?.iTunesKeywords?.appending(string) ?? string
 
         }
         

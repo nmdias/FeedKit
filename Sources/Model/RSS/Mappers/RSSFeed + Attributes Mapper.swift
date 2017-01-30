@@ -184,7 +184,8 @@ extension RSSFeed {
         .RSSChannelItunesOwnerName,
         .RSSChannelItunesOwnerEmail,
         .RSSChannelItunesSubtitle,
-        .RSSChannelItunesSummary:
+        .RSSChannelItunesSummary,
+        .RSSChannelItunesKeywords:
 
             if self.iTunes == nil {
                 self.iTunes = ITunesNamespace()
@@ -220,7 +221,8 @@ extension RSSFeed {
         .RSSChannelItemItunesIsClosedCaptioned,
         .RSSChannelItemItunesOrder,
         .RSSChannelItemItunesSubtitle,
-        .RSSChannelItemItunesSummary:
+        .RSSChannelItemItunesSummary,
+        .RSSChannelItemItunesKeywords:
             
             if self.items?.last?.iTunes == nil {
                 self.items?.last?.iTunes = ITunesNamespace()
