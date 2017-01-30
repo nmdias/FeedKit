@@ -1,6 +1,5 @@
 //
 //  iTunesCategory.swift
-//  Pods
 //
 //  Copyright (c) 2017 Ben Murphy
 //

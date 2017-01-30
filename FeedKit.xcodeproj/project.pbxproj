@@ -622,7 +622,6 @@
 		A07F3BDE1CFE136900C3AF80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B533B1E91E39459B0094B758 /* iTunes */,
 				A07F3BDF1CFE136900C3AF80 /* Atom */,
 				A07F3BF41CFE136900C3AF80 /* RSS */,
 			);
@@ -697,6 +696,7 @@
 		A07F3BFB1CFE136900C3AF80 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B533B1E91E39459B0094B758 /* iTunes */,
 				A07F3BFC1CFE136900C3AF80 /* Content */,
 				A07F3BFF1CFE136900C3AF80 /* Dublin Core */,
 				A07F3C031CFE136900C3AF80 /* Syndication */,
@@ -855,6 +855,7 @@
 				B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */,
 			);
 			name = iTunes;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
