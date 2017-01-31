@@ -25,11 +25,11 @@
 import Foundation
 
 /**
- 
+
  Describes the individual path for each XML DOM element of an RSS feed
- 
+
  See http://web.resource.org/rss/1.0/modules/content/
- 
+
  */
 enum RSSPath: String {
 
@@ -77,19 +77,19 @@ enum RSSPath: String {
     case RSSChannelItemGUID                 = "/rss/channel/item/guid"
     case RSSChannelItemPubDate              = "/rss/channel/item/pubDate"
     case RSSChannelItemSource               = "/rss/channel/item/source"
-    
+
     // Content
-    
+
     case RSSChannelItemContentEncoded               = "/rss/channel/item/content:encoded"
-    
+
     // Syndication
-    
+
     case RSSChannelSyndicationUpdatePeriod         = "/rss/channel/sy:updatePeriod"
     case RSSChannelSyndicationUpdateFrequency      = "/rss/channel/sy:updateFrequency"
     case RSSChannelSyndicationUpdateBase           = "/rss/channel/sy:updateBase"
-    
+
     // Dublin Core
-    
+
     case RSSChannelDublinCoreTitle                = "/rss/channel/dc:title"
     case RSSChannelDublinCoreCreator              = "/rss/channel/dc:creator"
     case RSSChannelDublinCoreSubject              = "/rss/channel/dc:subject"
@@ -120,5 +120,33 @@ enum RSSPath: String {
     case RSSChannelItemDublinCoreRelation         = "/rss/channel/item/dc:relation"
     case RSSChannelItemDublinCoreCoverage         = "/rss/channel/item/dc:coverage"
     case RSSChannelItemDublinCoreRights           = "/rss/channel/item/dc:rights"
+
+    // iTunes Podcasting Tags
+
+    case RSSChannelItunesAuthor                 = "/rss/channel/itunes:author"
+    case RSSChannelItunesBlock                  = "/rss/channel/itunes:block"
+    case RSSChannelItunesCategory               = "/rss/channel/itunes:category"
+    case RSSChannelItunesSubcategory            = "/rss/channel/itunes:category/itunes:category"
+    case RSSChannelItunesImage                  = "/rss/channel/itunes:image"
+    case RSSChannelItunesExplicit               = "/rss/channel/itunes:explicit"
+    case RSSChannelItunesComplete               = "/rss/channel/itunes:complete"
+    case RSSChannelItunesNewFeedURL             = "/rss/channel/itunes:new-feed-url"
+    case RSSChannelItunesOwner                  = "/rss/channel/itunes:owner"
+    case RSSChannelItunesOwnerEmail             = "/rss/channel/itunes:owner/itunes:email"
+    case RSSChannelItunesOwnerName              = "/rss/channel/itunes:owner/itunes:name"
+    case RSSChannelItunesSubtitle               = "/rss/channel/itunes:subtitle"
+    case RSSChannelItunesSummary                = "/rss/channel/itunes:summary"
+    case RSSChannelItunesKeywords               = "/rss/channel/itunes:keywords"
+
+    case RSSChannelItemItunesAuthor             = "/rss/channel/item/itunes:author"
+    case RSSChannelItemItunesBlock              = "/rss/channel/item/itunes:block"
+    case RSSChannelItemItunesImage              = "/rss/channel/item/itunes:image"
+    case RSSChannelItemItunesDuration           = "/rss/channel/item/itunes:duration"
+    case RSSChannelItemItunesExplicit           = "/rss/channel/item/itunes:explicit"
+    case RSSChannelItemItunesIsClosedCaptioned  = "/rss/channel/item/itunes:isClosedCaptioned"
+    case RSSChannelItemItunesOrder              = "/rss/channel/item/itunes:order"
+    case RSSChannelItemItunesSubtitle           = "/rss/channel/item/itunes:subtitle"
+    case RSSChannelItemItunesSummary            = "/rss/channel/item/itunes:summary"
+    case RSSChannelItemItunesKeywords           = "/rss/channel/item/itunes:keywords"
     
 }

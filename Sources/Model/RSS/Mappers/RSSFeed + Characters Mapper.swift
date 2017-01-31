@@ -153,7 +153,35 @@ extension RSSFeed {
         case .RSSChannelItemDublinCoreCoverage:           self.items?.last?.dublinCore?.dcCoverage          = self.items?.last?.dublinCore?.dcCoverage?.appending(string) ?? string
         case .RSSChannelItemDublinCoreRights:             self.items?.last?.dublinCore?.dcRights            = self.items?.last?.dublinCore?.dcRights?.appending(string) ?? string
             
-            
+            // Namespace - iTunes Podcasting Tags
+
+        case .RSSChannelItunesAuthor:                     self.iTunes?.iTunesAuthor                         = self.iTunes?.iTunesAuthor?.appending(string) ?? string
+        case .RSSChannelItunesBlock:                      self.iTunes?.iTunesBlock                          = self.iTunes?.iTunesBlock?.appending(string) ?? string
+        case .RSSChannelItunesCategory:                   break
+        case .RSSChannelItunesSubcategory:                break
+        case .RSSChannelItunesImage:                      break
+        case .RSSChannelItunesExplicit:                   self.iTunes?.iTunesExplicit                       = self.iTunes?.iTunesExplicit?.appending(string) ?? string
+        case .RSSChannelItunesComplete:                   self.iTunes?.iTunesComplete                       = self.iTunes?.iTunesComplete?.appending(string) ?? string
+        case .RSSChannelItunesNewFeedURL:                 self.iTunes?.iTunesNewFeedURL                     = self.iTunes?.iTunesNewFeedURL?.appending(string) ?? string
+        case .RSSChannelItunesOwner:                      break
+        case .RSSChannelItunesOwnerName:                  self.iTunes?.iTunesOwner?.name                    = self.iTunes?.iTunesOwner?.name?.appending(string) ?? string
+        case .RSSChannelItunesOwnerEmail:                 self.iTunes?.iTunesOwner?.email                   = self.iTunes?.iTunesOwner?.email?.appending(string) ?? string
+        case .RSSChannelItunesSubtitle:                   self.iTunes?.iTunesSubtitle                       = self.iTunes?.iTunesSubtitle?.appending(string) ?? string
+        case .RSSChannelItunesSummary:                    self.iTunes?.iTunesSummary                        = self.iTunes?.iTunesSummary?.appending(string) ?? string
+        case .RSSChannelItunesKeywords:                   self.iTunes?.iTunesKeywords                       = self.iTunes?.iTunesKeywords?.appending(string) ?? string
+
+
+        case .RSSChannelItemItunesAuthor:                 self.items?.last?.iTunes?.iTunesAuthor            = self.items?.last?.iTunes?.iTunesAuthor?.appending(string) ?? string
+        case .RSSChannelItemItunesBlock:                  self.items?.last?.iTunes?.iTunesBlock             = self.items?.last?.iTunes?.iTunesBlock?.appending(string) ?? string
+        case .RSSChannelItemItunesImage:                  break
+        case .RSSChannelItemItunesDuration:               self.items?.last?.iTunes?.iTunesDuration          = string.toDuration()
+        case .RSSChannelItemItunesExplicit:               self.items?.last?.iTunes?.iTunesExplicit          = self.items?.last?.iTunes?.iTunesExplicit?.appending(string) ?? string
+        case .RSSChannelItemItunesIsClosedCaptioned:      self.items?.last?.iTunes?.isClosedCaptioned       = self.items?.last?.iTunes?.isClosedCaptioned?.appending(string) ?? string
+        case .RSSChannelItemItunesOrder:                  self.items?.last?.iTunes?.iTunesOrder             = Int(string)
+        case .RSSChannelItemItunesSubtitle:               self.items?.last?.iTunes?.iTunesSubtitle          = self.items?.last?.iTunes?.iTunesSubtitle?.appending(string) ?? string
+        case .RSSChannelItemItunesSummary:                self.items?.last?.iTunes?.iTunesSummary           = self.items?.last?.iTunes?.iTunesSummary?.appending(string) ?? string
+        case .RSSChannelItemItunesKeywords:               self.items?.last?.iTunes?.iTunesKeywords          = self.items?.last?.iTunes?.iTunesKeywords?.appending(string) ?? string
+
         }
         
         
