@@ -290,6 +290,9 @@
 		B5512FDD1E3FB7F800593452 /* DurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5512FDC1E3FB7F800593452 /* DurationTests.swift */; };
 		B5512FDE1E3FB7F800593452 /* DurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5512FDC1E3FB7F800593452 /* DurationTests.swift */; };
 		B5512FDF1E3FB7F800593452 /* DurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5512FDC1E3FB7F800593452 /* DurationTests.swift */; };
+		B5993FF81E40AEB700949FB6 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFACA1E3AAC1C003751CA /* String + toDuration.swift */; };
+		B5993FF91E40AEB800949FB6 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFACA1E3AAC1C003751CA /* String + toDuration.swift */; };
+		B5993FFA1E40AEB800949FB6 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFACA1E3AAC1C003751CA /* String + toDuration.swift */; };
 		B5AAFAC51E3949B6003751CA /* iTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFAC41E3949B6003751CA /* iTunesTests.swift */; };
 		B5AAFAC61E3949B6003751CA /* iTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFAC41E3949B6003751CA /* iTunesTests.swift */; };
 		B5AAFAC71E3949B6003751CA /* iTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFAC41E3949B6003751CA /* iTunesTests.swift */; };
@@ -1302,6 +1305,7 @@
 				A07F3C4C1CFE136900C3AF80 /* AtomFeedEntrySource.swift in Sources */,
 				A07F3C681CFE136900C3AF80 /* AtomFeed + Characters Mapper.swift in Sources */,
 				A07F3C2C1CFE136900C3AF80 /* AtomFeedCategory.swift in Sources */,
+				B5993FFA1E40AEB800949FB6 /* String + toDuration.swift in Sources */,
 				A07F3C9C1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
 				A07F3C281CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A0AA54761D02C096000A2264 /* ParserError.swift in Sources */,
@@ -1444,6 +1448,7 @@
 				A07F3C4A1CFE136900C3AF80 /* AtomFeedEntrySource.swift in Sources */,
 				A07F3C661CFE136900C3AF80 /* AtomFeed + Characters Mapper.swift in Sources */,
 				A07F3C2A1CFE136900C3AF80 /* AtomFeedCategory.swift in Sources */,
+				B5993FF81E40AEB700949FB6 /* String + toDuration.swift in Sources */,
 				A07F3C9A1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
 				A07F3C261CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A0AA54741D02C095000A2264 /* ParserError.swift in Sources */,
@@ -1502,6 +1507,7 @@
 				A07F3C4B1CFE136900C3AF80 /* AtomFeedEntrySource.swift in Sources */,
 				A07F3C671CFE136900C3AF80 /* AtomFeed + Characters Mapper.swift in Sources */,
 				A07F3C2B1CFE136900C3AF80 /* AtomFeedCategory.swift in Sources */,
+				B5993FF91E40AEB800949FB6 /* String + toDuration.swift in Sources */,
 				A07F3C9B1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
 				A07F3C271CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A0AA54751D02C096000A2264 /* ParserError.swift in Sources */,
