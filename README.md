@@ -21,6 +21,7 @@ An RSS and Atom feed parser written in Swift
  - [x] [RFC822](https://www.ietf.org/rfc/rfc0822.txt)
  - [x] [RFC3999](https://www.ietf.org/rfc/rfc3339.txt)
  - [x] [ISO8601](http://www.w3.org/TR/NOTE-datetime)
+- [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
 - [x] [Documentation](http://cocoadocs.org/docsets/FeedKit)
 - [x] Unit Test Coverage
 
