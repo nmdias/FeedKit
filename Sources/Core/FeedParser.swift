@@ -104,10 +104,8 @@ open class FeedParser {
     
     /**
      
-     Starts parsing the feed.
-     
-     ParseAsync will run asynchnously by default on the main queue. So it is safe to run
-     any UI code on the result closure.
+     Starts parsing the feed asynchronously. Parsing runs by default on the main queue. 
+     So it is safe to run any UI code on the result closure.
      
      If a different queue is specified, the user is responsible to manually bring the 
      resulting closure to whichever queue is apropriate. Usually `DispatchQueue.main.async`.
