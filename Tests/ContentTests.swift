@@ -34,16 +34,12 @@ class ContentTests: BaseTestCase {
         let parser = FeedParser(URL: URL)!
         
         // When
-        parser.parse { (result) in
-            
-            let feed = result.rssFeed
-            
-            // Then
-            XCTAssertNotNil(feed)
-            XCTAssertNotNil(feed?.items?.last?.content)
-            XCTAssertEqual(feed?.items?.last?.content?.contentEncoded, "<p>What a <em>beautiful</em> day!</p>")
-            
-        }
+        let feed = parser.parse().rssFeed
+        
+        // Then
+        XCTAssertNotNil(feed)
+        XCTAssertNotNil(feed?.items?.last?.content)
+        XCTAssertEqual(feed?.items?.last?.content?.contentEncoded, "<p>What a <em>beautiful</em> day!</p>")
         
     }
     
@@ -57,12 +53,12 @@ class ContentTests: BaseTestCase {
             let parser = FeedParser(URL: URL)!
             
             // When
-            parser.parse({ (result) in
+            parser.parseAsync { (result) in
                 
                 // Then
                 expectation.fulfill()
                 
-            })
+            }
             
             self.waitForExpectations(timeout: self.timeout, handler: nil)
             

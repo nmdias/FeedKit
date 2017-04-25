@@ -27,17 +27,17 @@ import XCTest
 
 class ParserTests: BaseTestCase {
     
-    func testParserResultClosure() {
+    func testParserResult() {
         
         // Given
         let URL = fileURL("Content", type: "xml")
         let parser = FeedParser(URL: URL)!
         
         // When
-        parser.parse { (result) in }
+        let result = parser.parse()
         
         // Then
-        XCTAssertNotNil(parser.parser.result)
+        XCTAssertNotNil(result)
         
     }
     
@@ -48,14 +48,12 @@ class ParserTests: BaseTestCase {
         let parser = FeedParser(URL: URL)!
         
         // When
-        parser.parse { (result) in
+        let _ = parser.parse()
         
-            // Then
-            XCTAssertEqual(parser.parser.feedType, FeedType.RSS2)
-            XCTAssertNotNil(parser.parser.rssFeed)
-            XCTAssertNil(parser.parser.atomFeed)
-        
-        }
+        // Then
+        XCTAssertEqual(parser.parser.feedType, FeedType.RSS2)
+        XCTAssertNotNil(parser.parser.rssFeed)
+        XCTAssertNil(parser.parser.atomFeed)
         
     }
 
@@ -67,14 +65,12 @@ class ParserTests: BaseTestCase {
         let parser = FeedParser(URL: URL)!
         
         // When
-        parser.parse { (result) in
-            
-            // Then
-            XCTAssertEqual(parser.parser.feedType, FeedType.Atom)
-            XCTAssertNotNil(parser.parser.atomFeed)
-            XCTAssertNil(parser.parser.rssFeed)
-            
-        }
+        let _ = parser.parse()
+        
+        // Then
+        XCTAssertEqual(parser.parser.feedType, FeedType.Atom)
+        XCTAssertNotNil(parser.parser.atomFeed)
+        XCTAssertNil(parser.parser.rssFeed)
         
     }
     

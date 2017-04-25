@@ -27,22 +27,22 @@ import XCTest
 
 class ParserErrorTests: BaseTestCase {
     
-    func testParserResultClosure() {
+    func testParserResult() {
         
         // Given
         let URL = fileURL("FeedNotFound", type: "xml")
         let parser = FeedParser(URL: URL)!
         
         // When
-        parser.parse { (result) in
+        let result = parser.parse()
         
-            switch result {
-            case .atom(_): XCTFail("Unexpected atom feed found")
-            case .rss(_): XCTFail("Unexpected rss feed found")
-            case .failure(let error): XCTAssertEqual(error.code, ParserError.feedNotFound.code)
-            }
-        
+        // Then
+        switch result {
+        case .atom(_): XCTFail("Unexpected atom feed found")
+        case .rss(_): XCTFail("Unexpected rss feed found")
+        case .failure(let error): XCTAssertEqual(error.code, ParserError.feedNotFound.code)
         }
+
         
     }
     

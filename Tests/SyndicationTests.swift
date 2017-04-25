@@ -34,17 +34,13 @@ class SyndicationTests: BaseTestCase {
         let parser = FeedParser(URL: URL)!
         
         // When
-        parser.parse { (result) in
-            
-            let feed = result.rssFeed
-            
-            // Then
-            XCTAssertNotNil(feed)
-            XCTAssertEqual(feed?.syndication?.syUpdatePeriod , SyndicationUpdatePeriod.Hourly)
-            XCTAssertEqual(feed?.syndication?.syUpdateFrequency , Int(2))
-            XCTAssertNotNil(feed?.syndication?.syUpdateBase)
-
-        }
+        let feed = parser.parse().rssFeed
+        
+        // Then
+        XCTAssertNotNil(feed)
+        XCTAssertEqual(feed?.syndication?.syUpdatePeriod , SyndicationUpdatePeriod.Hourly)
+        XCTAssertEqual(feed?.syndication?.syUpdateFrequency , Int(2))
+        XCTAssertNotNil(feed?.syndication?.syUpdateBase)
         
     }
     
@@ -58,12 +54,12 @@ class SyndicationTests: BaseTestCase {
             let parser = FeedParser(URL: URL)!
             
             // When
-            parser.parse({ (result) in
+            parser.parseAsync { (result) in
                 
                 // Then
                 expectation.fulfill()
                 
-            })
+            }
 
             self.waitForExpectations(timeout: self.timeout, handler: nil)
             
