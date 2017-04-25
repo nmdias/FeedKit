@@ -73,18 +73,6 @@ class Parser: XMLParser, XMLParserDelegate {
     fileprivate var currentXMLDOMPath: URL = URL(string: "/")!
     
     
-    
-    /**
-     
-     A completion handler, providing a callback with a `Result` object.
-     This closure is called whenever the parser finishes or an error as
-     ocurred.
-     
-     */
-    var result: ((Result) -> Void)?
-    
-    
-    
     /**
      
      Initializes a parser with the XML contents encapsulated in a given
@@ -106,29 +94,25 @@ class Parser: XMLParser, XMLParserDelegate {
      Starts parsing the feed.
      
      */
-    func parse(_ result: @escaping (Result) -> Void) {
-        
-        self.result = result
+    func parseFeed() -> Result {
         
         self.parse()
         
         if let error = parsingError {
-            self.result?(Result.failure(error))
-            return
+            return Result.failure(error)
         }
         
         guard let feedType = self.feedType else {
-            self.result?(Result.failure(ParserError.feedNotFound.value))
-            return
+            return Result.failure(ParserError.feedNotFound.value)
         }
         
         switch feedType {
             
         case .Atom:
-            self.result?(Result.atom(self.atomFeed!))
+            return Result.atom(self.atomFeed!)
             
         case .RSS1, .RSS2:
-            self.result?(Result.rss(self.rssFeed!))
+            return Result.rss(self.rssFeed!)
             
         }
         

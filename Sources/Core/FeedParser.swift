@@ -98,10 +98,31 @@ open class FeedParser {
      Starts parsing the feed.
      
      */
-    open func parse(_ result: @escaping (Result) -> Void) {
-        self.parser.parse(result)
+    open func parse() -> Result {
+        return self.parser.parseFeed()
     }
     
+    /**
+     
+     Starts parsing the feed.
+     
+     ParseAsync will run asynchnously by default on the main queue. So it is safe to run
+     any UI code on the result closure.
+     
+     If a different queue is specified, the user is responsible to manually bring the 
+     resulting closure to whichever queue is apropriate. Usually `DispatchQueue.main.async`.
+     
+     If you're unsure, don't provide the `queue` parameter.
+     
+     - parameter queue: The queue on which the completion handler is dispatched.
+     - parameter result: The parse result
+     
+     */
+    open func parseAsync(queue: DispatchQueue = DispatchQueue.main, result: @escaping (Result) -> Void) {
+        queue.async {
+            result(self.parse())
+        }
+    }
     
     /**
      
