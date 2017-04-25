@@ -38,10 +38,9 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FeedParser(URL: feedURL)!.parse { (result) in
-            self.feed = result.rssFeed
-            self.feedItemsTableView.reloadData()
-        }
+        let result = FeedParser(URL: feedURL)!.parse()
+        self.feed = result.rssFeed
+        self.feedItemsTableView.reloadData()
         
     }
 
