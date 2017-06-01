@@ -216,10 +216,6 @@
 		A09C85031CE9AE2300D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */; };
 		A09C85121CE9AE4F00D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedKit.framework */; };
 		A09C85211CE9AE6A00D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedKit.framework */; };
-		A0AA54701D02C07C000A2264 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* Parser.swift */; };
-		A0AA54711D02C07C000A2264 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* Parser.swift */; };
-		A0AA54721D02C07C000A2264 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* Parser.swift */; };
-		A0AA54731D02C07C000A2264 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* Parser.swift */; };
 		A0AA54741D02C095000A2264 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
 		A0AA54751D02C096000A2264 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
 		A0AA54761D02C096000A2264 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
@@ -447,7 +443,6 @@
 		A09C85281CE9B0C300D20CAB /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		A09C85291CE9B0C300D20CAB /* Info-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
-		A0AA546F1D02C07C000A2264 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		A0AA54781D02E2BA000A2264 /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
 		A0C161F41D0219D500FC5C06 /* ParserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
 		A0D20C2D1CEAFB1200B4509D /* Content.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Content.xml; path = xml/Content.xml; sourceTree = "<group>"; };
@@ -602,7 +597,6 @@
 			isa = PBXGroup;
 			children = (
 				A0C161F41D0219D500FC5C06 /* ParserError.swift */,
-				A0AA546F1D02C07C000A2264 /* Parser.swift */,
 				A07F3BDA1CFE136900C3AF80 /* FeedParser.swift */,
 				A060D72A1D0353B200F0DACE /* FeedType.swift */,
 				A07F3BDB1CFE136900C3AF80 /* Result.swift */,
@@ -1312,7 +1306,6 @@
 				B533B1F71E3945BE0094B758 /* iTunesNamespace.swift in Sources */,
 				A07F3C641CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A053F4DD1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
-				A0AA54731D02C07C000A2264 /* Parser.swift in Sources */,
 				A07F3C841CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB41CFE136900C3AF80 /* RSSFeedImage.swift in Sources */,
 				A07F3CD81CFE136900C3AF80 /* RSSPath.swift in Sources */,
@@ -1455,7 +1448,6 @@
 				B533B1F11E3945BD0094B758 /* iTunesNamespace.swift in Sources */,
 				A07F3C621CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A053F4DB1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
-				A0AA54711D02C07C000A2264 /* Parser.swift in Sources */,
 				A07F3C821CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB21CFE136900C3AF80 /* RSSFeedImage.swift in Sources */,
 				A07F3CD61CFE136900C3AF80 /* RSSPath.swift in Sources */,
@@ -1514,7 +1506,6 @@
 				B533B1F41E3945BD0094B758 /* iTunesNamespace.swift in Sources */,
 				A07F3C631CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A053F4DC1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
-				A0AA54721D02C07C000A2264 /* Parser.swift in Sources */,
 				A07F3C831CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB31CFE136900C3AF80 /* RSSFeedImage.swift in Sources */,
 				A07F3CD71CFE136900C3AF80 /* RSSPath.swift in Sources */,
@@ -1536,7 +1527,6 @@
 				A07F3C4D1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
 				A060D72B1D0353B200F0DACE /* FeedType.swift in Sources */,
 				A07F3C391CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
-				A0AA54701D02C07C000A2264 /* Parser.swift in Sources */,
 				A0C161F51D0219D500FC5C06 /* ParserError.swift in Sources */,
 				A07F3C711CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
 				A07F3C551CFE136900C3AF80 /* AtomFeedLink.swift in Sources */,
