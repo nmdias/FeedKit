@@ -243,4 +243,12 @@ open class RSSFeedItem {
 
      */
     open var iTunes: ITunesNamespace?
+    
+    /**
+     
+     Media RSS is a new RSS module that supplements the <enclosure>
+     capabilities of RSS 2.0.
+     
+     */
+    open var media: MediaNamespace?
 }
