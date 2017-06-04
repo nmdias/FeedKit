@@ -36,10 +36,10 @@ open class MediaScene {
     
     /**
      */
-    open var sceneStartTime: String?
+    open var sceneStartTime: TimeInterval?
     
     /**
      */
-    open var sceneEndTime: String?
+    open var sceneEndTime: TimeInterval?
     
 }

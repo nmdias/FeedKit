@@ -46,7 +46,7 @@ open class MediaLocation {
          media object.
          
          */
-        open var start: String?
+        open var start: TimeInterval?
         
         /**
          
@@ -54,7 +54,7 @@ open class MediaLocation {
          object.
          
          */
-        open var end: String?
+        open var end: TimeInterval?
         
     }
     
@@ -94,8 +94,8 @@ extension MediaLocation.Attributes {
         self.init()
         
         self.description = attributeDict["description"]
-        self.start = attributeDict["start"]
-        self.end = attributeDict["end"]
+        self.start = TimeInterval(attributeDict["start"] ?? "")
+        self.end = TimeInterval(attributeDict["end"] ?? "")
         
     }
     
