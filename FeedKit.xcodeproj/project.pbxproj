@@ -89,6 +89,9 @@
 		A042AF841EE337FD004C2F63 /* MediaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042AF821EE337FD004C2F63 /* MediaScene.swift */; };
 		A042AF851EE337FD004C2F63 /* MediaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042AF821EE337FD004C2F63 /* MediaScene.swift */; };
 		A042AF861EE337FD004C2F63 /* MediaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042AF821EE337FD004C2F63 /* MediaScene.swift */; };
+		A042AF881EE3F69A004C2F63 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042AF871EE3F69A004C2F63 /* MediaTests.swift */; };
+		A042AF891EE3F69A004C2F63 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042AF871EE3F69A004C2F63 /* MediaTests.swift */; };
+		A042AF8A1EE3F69A004C2F63 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042AF871EE3F69A004C2F63 /* MediaTests.swift */; };
 		A053F4DA1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */; };
 		A053F4DB1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */; };
 		A053F4DC1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */; };
@@ -293,6 +296,13 @@
 		A07F3CD61CFE136900C3AF80 /* RSSPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C141CFE136900C3AF80 /* RSSPath.swift */; };
 		A07F3CD71CFE136900C3AF80 /* RSSPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C141CFE136900C3AF80 /* RSSPath.swift */; };
 		A07F3CD81CFE136900C3AF80 /* RSSPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3C141CFE136900C3AF80 /* RSSPath.swift */; };
+		A08DF4EF1EE43BE500ED367D /* Media.xml in Resources */ = {isa = PBXBuildFile; fileRef = A08DF4EE1EE43BE500ED367D /* Media.xml */; };
+		A08DF4F01EE43BE500ED367D /* Media.xml in Resources */ = {isa = PBXBuildFile; fileRef = A08DF4EE1EE43BE500ED367D /* Media.xml */; };
+		A08DF4F11EE43BE500ED367D /* Media.xml in Resources */ = {isa = PBXBuildFile; fileRef = A08DF4EE1EE43BE500ED367D /* Media.xml */; };
+		A08DF4F31EE4A15A00ED367D /* MediaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08DF4F21EE4A15A00ED367D /* MediaGroup.swift */; };
+		A08DF4F41EE4A15A00ED367D /* MediaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08DF4F21EE4A15A00ED367D /* MediaGroup.swift */; };
+		A08DF4F51EE4A15A00ED367D /* MediaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08DF4F21EE4A15A00ED367D /* MediaGroup.swift */; };
+		A08DF4F61EE4A15A00ED367D /* MediaGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08DF4F21EE4A15A00ED367D /* MediaGroup.swift */; };
 		A09C85031CE9AE2300D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */; };
 		A09C85121CE9AE4F00D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedKit.framework */; };
 		A09C85211CE9AE6A00D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedKit.framework */; };
@@ -408,12 +418,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A09C85041CE9AE2300D20CAB /* PBXContainerItemProxy */ = {
+		A042AF8F1EE40056004C2F63 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A0EF4D941CE867DF00C52142 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A0EF4E0B1CE86D1E00C52142;
-			remoteInfo = "IrisKit iOS";
+			remoteInfo = "FeedKit iOS";
 		};
 		A09C85131CE9AE4F00D20CAB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -515,6 +525,7 @@
 		A042AF781EE334C1004C2F63 /* MediaLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaLocation.swift; path = Media/MediaLocation.swift; sourceTree = "<group>"; };
 		A042AF7D1EE33743004C2F63 /* MediaRights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaRights.swift; path = Media/MediaRights.swift; sourceTree = "<group>"; };
 		A042AF821EE337FD004C2F63 /* MediaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaScene.swift; path = Media/MediaScene.swift; sourceTree = "<group>"; };
+		A042AF871EE3F69A004C2F63 /* MediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTests.swift; sourceTree = "<group>"; };
 		A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFC822DateFormatter.swift; path = Sources/Dates/RFC822DateFormatter.swift; sourceTree = "<group>"; };
 		A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFC3339DateFormatter.swift; path = Sources/Dates/RFC3339DateFormatter.swift; sourceTree = "<group>"; };
 		A053F4E31D0EF9C800B4203D /* DateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSpec.swift; path = Sources/Dates/DateSpec.swift; sourceTree = "<group>"; };
@@ -569,6 +580,8 @@
 		A07F3C121CFE136900C3AF80 /* RSSFeedSkipHour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeedSkipHour.swift; sourceTree = "<group>"; };
 		A07F3C131CFE136900C3AF80 /* RSSFeedTextInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeedTextInput.swift; sourceTree = "<group>"; };
 		A07F3C141CFE136900C3AF80 /* RSSPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSPath.swift; sourceTree = "<group>"; };
+		A08DF4EE1EE43BE500ED367D /* Media.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Media.xml; path = xml/Media.xml; sourceTree = "<group>"; };
+		A08DF4F21EE4A15A00ED367D /* MediaGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaGroup.swift; path = Media/MediaGroup.swift; sourceTree = "<group>"; };
 		A09C84FE1CE9AE2300D20CAB /* FeedKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C850D1CE9AE4F00D20CAB /* FeedKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C851C1CE9AE6A00D20CAB /* FeedKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -763,6 +776,7 @@
 				A042AF781EE334C1004C2F63 /* MediaLocation.swift */,
 				A042AF7D1EE33743004C2F63 /* MediaRights.swift */,
 				A042AF821EE337FD004C2F63 /* MediaScene.swift */,
+				A08DF4F21EE4A15A00ED367D /* MediaGroup.swift */,
 			);
 			name = Media;
 			sourceTree = "<group>";
@@ -920,6 +934,7 @@
 				A09C85281CE9B0C300D20CAB /* Info-iOS.plist */,
 				A09C85291CE9B0C300D20CAB /* Info-macOS.plist */,
 				A09C852A1CE9B0C300D20CAB /* Info-tvOS.plist */,
+				A042AF871EE3F69A004C2F63 /* MediaTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -934,6 +949,7 @@
 				A0D20C2E1CEAFB1200B4509D /* DC.xml */,
 				A0D20C2F1CEAFB1200B4509D /* RSS2.xml */,
 				A0D20C301CEAFB1200B4509D /* Syndication.xml */,
+				A08DF4EE1EE43BE500ED367D /* Media.xml */,
 			);
 			name = xml;
 			sourceTree = "<group>";
@@ -1098,7 +1114,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A09C85051CE9AE2300D20CAB /* PBXTargetDependency */,
+				A042AF901EE40056004C2F63 /* PBXTargetDependency */,
 			);
 			name = "FeedKit iOS Tests";
 			productName = "IrisKit iOS Tests";
@@ -1343,6 +1359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08DF4EF1EE43BE500ED367D /* Media.xml in Resources */,
 				A0D20C3E1CEB032700B4509D /* DC.xml in Resources */,
 				B533B1FA1E39473F0094B758 /* iTunesPodcasting.xml in Resources */,
 				A0D20C3F1CEB032700B4509D /* RSS2.xml in Resources */,
@@ -1357,6 +1374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08DF4F01EE43BE500ED367D /* Media.xml in Resources */,
 				A0D20C421CEB032800B4509D /* DC.xml in Resources */,
 				B533B1FB1E39473F0094B758 /* iTunesPodcasting.xml in Resources */,
 				A0D20C431CEB032800B4509D /* RSS2.xml in Resources */,
@@ -1371,6 +1389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08DF4F11EE43BE500ED367D /* Media.xml in Resources */,
 				A0D20C461CEB032900B4509D /* DC.xml in Resources */,
 				B533B1FC1E39473F0094B758 /* iTunesPodcasting.xml in Resources */,
 				A0D20C471CEB032900B4509D /* RSS2.xml in Resources */,
@@ -1444,6 +1463,7 @@
 				A0F6953E1EE2202600F34408 /* MediaPeerLink.swift in Sources */,
 				A07F3C5C1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
 				A02534441EDED732008C3D70 /* MediaDescription.swift in Sources */,
+				A08DF4F61EE4A15A00ED367D /* MediaGroup.swift in Sources */,
 				A042AF861EE337FD004C2F63 /* MediaScene.swift in Sources */,
 				A07F3C301CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C441CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
@@ -1523,6 +1543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D20C3A1CEB01E400B4509D /* DublinCoreTests.swift in Sources */,
+				A042AF881EE3F69A004C2F63 /* MediaTests.swift in Sources */,
 				A05C1F171CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
 				B5512FDD1E3FB7F800593452 /* DurationTests.swift in Sources */,
 				A0D20C361CEB007100B4509D /* BaseTestCase.swift in Sources */,
@@ -1541,6 +1562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D20C3B1CEB01E400B4509D /* DublinCoreTests.swift in Sources */,
+				A042AF891EE3F69A004C2F63 /* MediaTests.swift in Sources */,
 				A05C1F181CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
 				B5512FDE1E3FB7F800593452 /* DurationTests.swift in Sources */,
 				A0D20C371CEB007100B4509D /* BaseTestCase.swift in Sources */,
@@ -1559,6 +1581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D20C3C1CEB01E400B4509D /* DublinCoreTests.swift in Sources */,
+				A042AF8A1EE3F69A004C2F63 /* MediaTests.swift in Sources */,
 				A05C1F191CEBB47D0092D70E /* SyndicationTests.swift in Sources */,
 				B5512FDF1E3FB7F800593452 /* DurationTests.swift in Sources */,
 				A0D20C381CEB007100B4509D /* BaseTestCase.swift in Sources */,
@@ -1614,6 +1637,7 @@
 				A0F6953C1EE2202600F34408 /* MediaPeerLink.swift in Sources */,
 				A07F3C5A1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
 				A02534421EDED732008C3D70 /* MediaDescription.swift in Sources */,
+				A08DF4F41EE4A15A00ED367D /* MediaGroup.swift in Sources */,
 				A042AF841EE337FD004C2F63 /* MediaScene.swift in Sources */,
 				A07F3C2E1CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C421CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
@@ -1700,6 +1724,7 @@
 				A0F6953D1EE2202600F34408 /* MediaPeerLink.swift in Sources */,
 				A07F3C5B1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
 				A02534431EDED732008C3D70 /* MediaDescription.swift in Sources */,
+				A08DF4F51EE4A15A00ED367D /* MediaGroup.swift in Sources */,
 				A042AF851EE337FD004C2F63 /* MediaScene.swift in Sources */,
 				A07F3C2F1CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C431CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
@@ -1786,6 +1811,7 @@
 				A0F6953B1EE2202600F34408 /* MediaPeerLink.swift in Sources */,
 				A07F3C2D1CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A02534411EDED732008C3D70 /* MediaDescription.swift in Sources */,
+				A08DF4F31EE4A15A00ED367D /* MediaGroup.swift in Sources */,
 				A042AF831EE337FD004C2F63 /* MediaScene.swift in Sources */,
 				A07F3C411CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
 				A07F3C4D1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
@@ -1863,10 +1889,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A09C85051CE9AE2300D20CAB /* PBXTargetDependency */ = {
+		A042AF901EE40056004C2F63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A0EF4E0B1CE86D1E00C52142 /* FeedKit iOS */;
-			targetProxy = A09C85041CE9AE2300D20CAB /* PBXContainerItemProxy */;
+			targetProxy = A042AF8F1EE40056004C2F63 /* PBXContainerItemProxy */;
 		};
 		A09C85141CE9AE4F00D20CAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
