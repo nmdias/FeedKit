@@ -46,7 +46,7 @@ open class MediaNamespace {
      only be used for this purpose.
      
      */
-    open var mediaGroup: [MediaContent]?
+    open var mediaGroup: MediaGroup?
     
     /**
      
@@ -58,7 +58,7 @@ open class MediaNamespace {
      media. It contains 14 attributes, most of which are optional.
      
      */
-    open var mediaContent: MediaContent?
+    open var mediaContents: [MediaContent]?
     
     /**
      
@@ -205,14 +205,14 @@ open class MediaNamespace {
      received.
      
      */
-    open var mediaResponses: String?
+    open var mediaResponses: [String]?
     
     /**
      
      Allows inclusion of all the URLs pointing to a media object.
      
      */
-    open var mediaBackLinks: String?
+    open var mediaBackLinks: [String]?
     
     /**
      
@@ -247,7 +247,7 @@ open class MediaNamespace {
      content.
      
      */
-    open var mediaSubTitle: String?
+    open var mediaSubTitle: MediaSubTitle?
     
     /**
      
