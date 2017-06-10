@@ -26,22 +26,14 @@ import Foundation
 
 func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
     
-    guard let l = lhs, let r = rhs else {
-        return
-            Optional(lhs) == nil &&
-            Optional(rhs) == nil
+    guard
+        let l = lhs,
+        let r = rhs else {
+            return
+                Optional(lhs) == nil &&
+                Optional(rhs) == nil
     }
     
-    guard l.count == r.count else {
-        return false
-    }
-    
-    for (l, r) in zip(l, r) {
-        if l != r {
-            return false
-        }
-    }
-    
-    return true
+    return l == r
     
 }
