@@ -34,7 +34,7 @@ open class MediaTag {
     /**
      
      */
-    open var weight: Int?
+    open var weight: Int? = 1
     
 }
 
@@ -51,6 +51,27 @@ extension MediaTag {
         
     }
     
+    static func tagsFrom(string: String) -> [MediaTag]? {
+        
+        return string.components(separatedBy: ",").flatMap({ (value) -> MediaTag? in
+            
+            let mediaTag = MediaTag()
+            let components = value.components(separatedBy: ":")
+            
+            if components.count > 0 {
+                mediaTag.tag = components.first?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            }
+            
+            if components.count > 1 {
+                mediaTag.weight = Int(components.last?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) ?? "")
+            }
+            
+            return mediaTag
+            
+        })
+        
+    }
+    
 }
 
 // MARK: - Equatable
@@ -62,7 +83,5 @@ extension MediaTag: Equatable {
             lhs.tag == rhs.tag &&
             lhs.weight == rhs.weight
     }
-    
-
     
 }

@@ -38,7 +38,7 @@ extension RSSFeed {
     func map(attributes attributeDict: [String : String], forPath path: RSSPath) {
 
         switch path {
-
+            
         case .RSSChannelItem:
 
             if  self.items == nil {
@@ -234,6 +234,215 @@ extension RSSFeed {
             default:
                 break
             }
+            
+            // MARK: Media
+            
+        case
+        .RSSChannelItemMediaThumbnail,
+        .RSSChannelItemMediaContent,
+        .RSSChannelItemMediaCommunity,
+        .RSSChannelItemMediaCommunityMediaStarRating,
+        .RSSChannelItemMediaCommunityMediaStatistics,
+        .RSSChannelItemMediaCommunityMediaTags,
+        .RSSChannelItemMediaComments,
+        .RSSChannelItemMediaCommentsMediaComment,
+        .RSSChannelItemMediaEmbed,
+        .RSSChannelItemMediaEmbedMediaParam,
+        .RSSChannelItemMediaResponses,
+        .RSSChannelItemMediaResponsesMediaResponse,
+        .RSSChannelItemMediaBackLinks,
+        .RSSChannelItemMediaBackLinksBackLink,
+        .RSSChannelItemMediaStatus,
+        .RSSChannelItemMediaPrice,
+        .RSSChannelItemMediaLicense,
+        .RSSChannelItemMediaSubTitle,
+        .RSSChannelItemMediaPeerLink,
+        .RSSChannelItemMediaLocation,
+        .RSSChannelItemMediaLocationPosition,
+        .RSSChannelItemMediaRestriction,
+        .RSSChannelItemMediaScenes,
+        .RSSChannelItemMediaScenesMediaScene,
+        
+        .RSSChannelItemMediaGroup,
+        .RSSChannelItemMediaGroupMediaCategory,
+        .RSSChannelItemMediaGroupMediaCredit,
+        .RSSChannelItemMediaGroupMediaRating,
+        .RSSChannelItemMediaGroupMediaContent:
+            
+            if  self.items?.last?.media == nil {
+                self.items?.last?.media = MediaNamespace()
+            }
+            
+            switch path {
+                
+            case .RSSChannelItemMediaThumbnail:
+                
+                if  self.items?.last?.media?.mediaThumbnails == nil {
+                    self.items?.last?.media?.mediaThumbnails = []
+                }
+                
+                self.items?.last?.media?.mediaThumbnails?.append(MediaThumbnail(attributes: attributeDict))
+                
+            case .RSSChannelItemMediaContent:
+                
+                if  self.items?.last?.media?.mediaContents == nil {
+                    self.items?.last?.media?.mediaContents = []
+                }
+                
+                self.items?.last?.media?.mediaContents?.append(MediaContent(attributes: attributeDict))
+                
+            case .RSSChannelItemMediaCommunity:
+                
+                if  self.items?.last?.media?.mediaCommunity == nil {
+                    self.items?.last?.media?.mediaCommunity = MediaCommunity()
+                }
+                
+            case .RSSChannelItemMediaCommunityMediaStarRating:
+                
+                if  self.items?.last?.media?.mediaCommunity?.mediaStarRating == nil {
+                    self.items?.last?.media?.mediaCommunity?.mediaStarRating = MediaStarRating(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaCommunityMediaStatistics:
+                
+                if  self.items?.last?.media?.mediaCommunity?.mediaStatistics == nil {
+                    self.items?.last?.media?.mediaCommunity?.mediaStatistics = MediaStatistics(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaCommunityMediaTags:
+                
+                if  self.items?.last?.media?.mediaCommunity?.mediaTags == nil {
+                    self.items?.last?.media?.mediaCommunity?.mediaTags = []
+                }
+                
+            case .RSSChannelItemMediaComments:
+                
+                if  self.items?.last?.media?.mediaComments == nil {
+                    self.items?.last?.media?.mediaComments = []
+                }
+                
+            case .RSSChannelItemMediaEmbed:
+                
+                if  self.items?.last?.media?.mediaEmbed == nil {
+                    self.items?.last?.media?.mediaEmbed = MediaEmbed(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaEmbedMediaParam:
+                
+                if  self.items?.last?.media?.mediaEmbed?.mediaParams == nil {
+                    self.items?.last?.media?.mediaEmbed?.mediaParams = []
+                }
+                
+                self.items?.last?.media?.mediaEmbed?.mediaParams?.append(MediaParam(attributes: attributeDict))
+                
+            case .RSSChannelItemMediaResponses:
+                
+                if  self.items?.last?.media?.mediaResponses == nil {
+                    self.items?.last?.media?.mediaResponses = []
+                }
+                
+            case .RSSChannelItemMediaBackLinks:
+                
+                if  self.items?.last?.media?.mediaBackLinks == nil {
+                    self.items?.last?.media?.mediaBackLinks = []
+                }
+                
+            case .RSSChannelItemMediaStatus:
+                
+                if  self.items?.last?.media?.mediaStatus == nil {
+                    self.items?.last?.media?.mediaStatus = MediaStatus(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaPrice:
+                
+                if  self.items?.last?.media?.mediaPrices == nil {
+                    self.items?.last?.media?.mediaPrices = []
+                }
+                
+                self.items?.last?.media?.mediaPrices?.append(MediaPrice(attributes: attributeDict))
+                
+            case .RSSChannelItemMediaLicense:
+                
+                if  self.items?.last?.media?.mediaLicense == nil {
+                    self.items?.last?.media?.mediaLicense = MediaLicence(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaSubTitle:
+                
+                if  self.items?.last?.media?.mediaSubTitle == nil {
+                    self.items?.last?.media?.mediaSubTitle = MediaSubTitle(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaPeerLink:
+                
+                if  self.items?.last?.media?.mediaPeerLink == nil {
+                    self.items?.last?.media?.mediaPeerLink = MediaPeerLink(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaLocation:
+                
+                if  self.items?.last?.media?.mediaLocation == nil {
+                    self.items?.last?.media?.mediaLocation = MediaLocation(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaRestriction:
+                
+                if  self.items?.last?.media?.mediaRestriction == nil {
+                    self.items?.last?.media?.mediaRestriction = MediaRestriction(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaScenes:
+                
+                if  self.items?.last?.media?.mediaScenes == nil {
+                    self.items?.last?.media?.mediaScenes = []
+                }
+                
+            case .RSSChannelItemMediaScenesMediaScene:
+                
+                if  self.items?.last?.media?.mediaScenes == nil {
+                    self.items?.last?.media?.mediaScenes = []
+                }
+                
+                self.items?.last?.media?.mediaScenes?.append(MediaScene())
+                
+            case .RSSChannelItemMediaGroup:
+                
+                if  self.items?.last?.media?.mediaGroup == nil {
+                    self.items?.last?.media?.mediaGroup = MediaGroup()
+                }
+                
+            case .RSSChannelItemMediaGroupMediaCategory:
+                
+                if  self.items?.last?.media?.mediaGroup?.mediaCategory == nil {
+                    self.items?.last?.media?.mediaGroup?.mediaCategory = MediaCategory(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaGroupMediaCredit:
+                
+                if  self.items?.last?.media?.mediaGroup?.mediaCredits == nil {
+                    self.items?.last?.media?.mediaGroup?.mediaCredits = []
+                }
+                
+                self.items?.last?.media?.mediaGroup?.mediaCredits?.append(MediaCredit(attributes: attributeDict))
+                
+            case .RSSChannelItemMediaGroupMediaRating:
+                
+                if  self.items?.last?.media?.mediaGroup?.mediaRating == nil {
+                    self.items?.last?.media?.mediaGroup?.mediaRating = MediaRating(attributes: attributeDict)
+                }
+                
+            case .RSSChannelItemMediaGroupMediaContent:
+                
+                if  self.items?.last?.media?.mediaGroup?.mediaContents == nil {
+                    self.items?.last?.media?.mediaGroup?.mediaContents = []
+                }
+                
+                self.items?.last?.media?.mediaGroup?.mediaContents?.append(MediaContent(attributes: attributeDict))
+                
+            default: break
+                
+            }
+
             
         default: break
             

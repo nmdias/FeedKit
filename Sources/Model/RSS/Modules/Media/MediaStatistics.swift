@@ -75,7 +75,7 @@ extension MediaStatistics.Attributes {
         self.init()
         
         self.views = Int(attributeDict["views"] ?? "")
-        self.favorites = Int(attributeDict["favourites"] ?? "")
+        self.favorites = Int(attributeDict["favorites"] ?? "")
         
     }
     

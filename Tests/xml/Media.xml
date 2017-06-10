@@ -16,7 +16,7 @@
                 <media:rating scheme="urn:mpaa">nonadult</media:rating>
             </media:group>
             <media:content
-                url="http://www.foo.com/movie.mov"
+                url="http://www.foo.com/video.mov"
                 fileSize="12216320"
                 type="video/quicktime"
                 medium="video"
@@ -27,8 +27,8 @@
                 samplingrate="44.1"
                 channels="2"
                 duration="185"
-                height="200"
-                width="300"
+                height="300"
+                width="200"
                 lang="en">
             </media:content>
             <media:content
@@ -67,9 +67,7 @@
                 <media:param name="width">512</media:param>
                 <media:param name="height">323</media:param>
                 <media:param name="allowFullScreen">true</media:param>
-                <media:param name="flashVars">
-                    id=12345&amp;vid=678912i&amp;lang=en-us&amp;intl=us&amp;thumbUrl=http://www.foo.com/thumbnail.jpg
-                </media:param>
+                <media:param name="flashVars">id=12345&amp;vid=678912i&amp;lang=en-us&amp;intl=us&amp;thumbUrl=http://www.foo.com/thumbnail.jpg</media:param>
             </media:embed>
             <media:responses>
                 <media:response>http://www.response1.com</media:response>

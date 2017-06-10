@@ -181,7 +181,46 @@ extension RSSFeed {
         case .RSSChannelItemItunesSubtitle:               self.items?.last?.iTunes?.iTunesSubtitle          = self.items?.last?.iTunes?.iTunesSubtitle?.appending(string) ?? string
         case .RSSChannelItemItunesSummary:                self.items?.last?.iTunes?.iTunesSummary           = self.items?.last?.iTunes?.iTunesSummary?.appending(string) ?? string
         case .RSSChannelItemItunesKeywords:               self.items?.last?.iTunes?.iTunesKeywords          = self.items?.last?.iTunes?.iTunesKeywords?.appending(string) ?? string
-
+            
+            // MARK: Media
+            
+        case .RSSChannelItemMediaThumbnail: self.items?.last?.media?.mediaThumbnails?.last?.value = self.items?.last?.media?.mediaThumbnails?.last?.value?.appending(string) ?? string
+        case .RSSChannelItemMediaContent: break
+        case .RSSChannelItemMediaCommunity: break
+        case .RSSChannelItemMediaCommunityMediaStarRating: break
+        case .RSSChannelItemMediaCommunityMediaStatistics: break
+        case .RSSChannelItemMediaCommunityMediaTags: self.items?.last?.media?.mediaCommunity?.mediaTags = MediaTag.tagsFrom(string: string)
+        case .RSSChannelItemMediaComments: break
+        case .RSSChannelItemMediaCommentsMediaComment: self.items?.last?.media?.mediaComments?.append(string)
+        case .RSSChannelItemMediaEmbed: break
+        case .RSSChannelItemMediaEmbedMediaParam: self.items?.last?.media?.mediaEmbed?.mediaParams?.last?.value = self.items?.last?.media?.mediaEmbed?.mediaParams?.last?.value?.appending(string) ?? string
+            
+        case .RSSChannelItemMediaGroup: break
+        case .RSSChannelItemMediaGroupMediaCredit: self.items?.last?.media?.mediaGroup?.mediaCredits?.last?.value  = self.items?.last?.media?.mediaGroup?.mediaCredits?.last?.value?.appending(string) ?? string
+        case .RSSChannelItemMediaGroupMediaCategory: self.items?.last?.media?.mediaGroup?.mediaCategory?.value  = self.items?.last?.media?.mediaGroup?.mediaCategory?.value?.appending(string) ?? string
+        case .RSSChannelItemMediaGroupMediaRating: self.items?.last?.media?.mediaGroup?.mediaRating?.value  = self.items?.last?.media?.mediaGroup?.mediaRating?.value?.appending(string) ?? string
+        case .RSSChannelItemMediaGroupMediaContent: break
+            
+        case .RSSChannelItemMediaResponses: break
+        case .RSSChannelItemMediaResponsesMediaResponse: self.items?.last?.media?.mediaResponses?.append(string)
+        case .RSSChannelItemMediaBackLinks: break
+        case .RSSChannelItemMediaBackLinksBackLink: self.items?.last?.media?.mediaBackLinks?.append(string)
+        case .RSSChannelItemMediaStatus: break
+        case .RSSChannelItemMediaPrice: break
+        case .RSSChannelItemMediaLicense: self.items?.last?.media?.mediaLicense?.value = self.items?.last?.media?.mediaLicense?.value?.appending(string) ?? string
+        case .RSSChannelItemMediaSubTitle: break
+        case .RSSChannelItemMediaPeerLink: break
+        case .RSSChannelItemMediaLocation: break
+        case .RSSChannelItemMediaLocationPosition: self.items?.last?.media?.mediaLocation?.mapFrom(latLng: string)
+            
+        case .RSSChannelItemMediaRestriction: self.items?.last?.media?.mediaRestriction?.value = self.items?.last?.media?.mediaRestriction?.value?.appending(string) ?? string
+        case .RSSChannelItemMediaScenes: break
+        case .RSSChannelItemMediaScenesMediaScene: break
+        case .RSSChannelItemMediaScenesMediaSceneSceneTitle: self.items?.last?.media?.mediaScenes?.last?.sceneTitle = self.items?.last?.media?.mediaScenes?.last?.sceneTitle?.appending(string) ?? string
+        case .RSSChannelItemMediaScenesMediaSceneSceneDescription: self.items?.last?.media?.mediaScenes?.last?.sceneDescription = self.items?.last?.media?.mediaScenes?.last?.sceneDescription?.appending(string) ?? string
+        case .RSSChannelItemMediaScenesMediaSceneSceneStartTime: self.items?.last?.media?.mediaScenes?.last?.sceneStartTime = string.toDuration()
+        case .RSSChannelItemMediaScenesMediaSceneSceneEndTime: self.items?.last?.media?.mediaScenes?.last?.sceneEndTime = string.toDuration()
+            
         }
         
         

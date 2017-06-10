@@ -93,8 +93,8 @@ extension MediaLocation.Attributes {
         self.init()
         
         self.description = attributeDict["description"]
-        self.start = TimeInterval(attributeDict["start"] ?? "")
-        self.end = TimeInterval(attributeDict["end"] ?? "")
+        self.start = attributeDict["start"]?.toDuration()
+        self.end = attributeDict["end"]?.toDuration()
         
     }
     
@@ -124,3 +124,18 @@ extension MediaLocation.Attributes: Equatable {
     
 }
 
+// MARK: - Helpers
+
+extension MediaLocation {
+    
+    func mapFrom(latLng: String) {
+
+        let components = latLng.components(separatedBy: " ")
+        if  components.count == 2 {
+            self.latitude = Double(components.first ?? "")
+            self.longitude = Double(components.last ?? "")
+        }
+        
+    }
+    
+}

@@ -27,7 +27,7 @@ import FeedKit
 
 class MediaTests: BaseTestCase {
     
-    func testMedia5() {
+    func testMedia() {
         
         // Given
         let URL = fileURL("Media", type: "xml")
@@ -63,7 +63,7 @@ class MediaTests: BaseTestCase {
         XCTAssertNotNil(media?.mediaGroup?.mediaContents?.last?.attributes)
         XCTAssertEqual(media?.mediaGroup?.mediaContents?.last?.attributes?.url, "http://www.foo.com/song.wav")
         XCTAssertEqual(media?.mediaGroup?.mediaContents?.last?.attributes?.fileSize, 16000)
-        XCTAssertEqual(media?.mediaGroup?.mediaContents?.last?.attributes?.bitrate,64)
+        XCTAssertEqual(media?.mediaGroup?.mediaContents?.last?.attributes?.bitrate, nil)
         XCTAssertEqual(media?.mediaGroup?.mediaContents?.last?.attributes?.type, "audio/x-wav")
         XCTAssertEqual(media?.mediaGroup?.mediaContents?.last?.attributes?.expression, "full")
         
@@ -94,7 +94,7 @@ class MediaTests: BaseTestCase {
         XCTAssertNotNil(media?.mediaContents)
         XCTAssertNotNil(media?.mediaContents?.first?.attributes)
         XCTAssertEqual(media?.mediaContents?.first?.attributes?.url, "http://www.foo.com/video.mov")
-        XCTAssertEqual(media?.mediaContents?.first?.attributes?.fileSize, 2000)
+        XCTAssertEqual(media?.mediaContents?.first?.attributes?.fileSize, 12216320)
         XCTAssertEqual(media?.mediaContents?.first?.attributes?.type, "video/quicktime")
         XCTAssertEqual(media?.mediaContents?.first?.attributes?.expression, "full")
         XCTAssertEqual(media?.mediaContents?.first?.attributes?.bitrate, 128)
@@ -105,6 +105,13 @@ class MediaTests: BaseTestCase {
         XCTAssertEqual(media?.mediaContents?.first?.attributes?.width, 200)
         XCTAssertEqual(media?.mediaContents?.first?.attributes?.height, 300)
         XCTAssertEqual(media?.mediaContents?.first?.attributes?.lang, "en")
+        
+        XCTAssertNotNil(media?.mediaContents)
+        XCTAssertNotNil(media?.mediaContents?.last?.attributes)
+        XCTAssertEqual(media?.mediaContents?.last?.attributes?.url, "http://www.foo.com/movie.mov")
+        XCTAssertEqual(media?.mediaContents?.last?.attributes?.fileSize, 12216320)
+        XCTAssertEqual(media?.mediaContents?.last?.attributes?.type, "video/quicktime")
+        XCTAssertEqual(media?.mediaContents?.last?.attributes?.expression, "full")
         
         XCTAssertNotNil(media?.mediaCommunity)
         XCTAssertNotNil(media?.mediaCommunity?.mediaStarRating)
@@ -142,7 +149,7 @@ class MediaTests: BaseTestCase {
         XCTAssertEqual(media?.mediaEmbed?.mediaParams?.first?.value, "application/x-shockwave-flash")
         XCTAssertNotNil(media?.mediaEmbed?.mediaParams?.last?.attributes)
         XCTAssertEqual(media?.mediaEmbed?.mediaParams?.last?.attributes?.name, "flashVars")
-        XCTAssertEqual(media?.mediaEmbed?.mediaParams?.last?.value, "id=12345&amp;vid=678912i&amp;lang=en-us&amp;intl=us&amp;thumbUrl=http://www.foo.com/thumbnail.jpg")
+        XCTAssertEqual(media?.mediaEmbed?.mediaParams?.last?.value, "id=12345&vid=678912i&lang=en-us&intl=us&thumbUrl=http://www.foo.com/thumbnail.jpg")
         
         XCTAssertNotNil(media?.mediaResponses)
         XCTAssertEqual(media?.mediaResponses?.first, "http://www.response1.com")
