@@ -25,15 +25,12 @@
 import Foundation
 
 func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
-    
-    guard
-        let l = lhs,
-        let r = rhs else {
-            return
-                Optional(lhs) == nil &&
-                Optional(rhs) == nil
+    switch (lhs,rhs) {
+    case (.some(let lhs), .some(let rhs)):
+        return lhs == rhs
+    case (.none, .none):
+        return true
+    default:
+        return false
     }
-    
-    return l == r
-    
 }
