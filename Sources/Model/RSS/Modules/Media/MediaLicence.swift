@@ -72,7 +72,6 @@ extension MediaLicence {
     
 }
 
-
 extension MediaLicence.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -89,3 +88,26 @@ extension MediaLicence.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaLicence: Equatable {
+    
+    public static func ==(lhs: MediaLicence, rhs: MediaLicence) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaLicence.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaLicence.Attributes, rhs: MediaLicence.Attributes) -> Bool {
+        return
+            lhs.type == rhs.type &&
+            lhs.href == rhs.href
+    }
+    
+}
+

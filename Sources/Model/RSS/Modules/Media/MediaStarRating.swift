@@ -71,7 +71,6 @@ extension MediaStarRating {
     
 }
 
-
 extension MediaStarRating.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -82,7 +81,7 @@ extension MediaStarRating.Attributes {
         
         self.init()
         
-        self.average = Double(attributeDict["type"] ?? "")
+        self.average = Double(attributeDict["average"] ?? "")
         self.count = Int(attributeDict["count"] ?? "")
         self.min = Int(attributeDict["min"] ?? "")
         self.max = Int(attributeDict["max"] ?? "")
@@ -90,3 +89,26 @@ extension MediaStarRating.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaStarRating: Equatable {
+    
+    public static func ==(lhs: MediaStarRating, rhs: MediaStarRating) -> Bool {
+        return lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaStarRating.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaStarRating.Attributes, rhs: MediaStarRating.Attributes) -> Bool {
+        return
+            lhs.average == rhs.average &&
+            lhs.count == rhs.count &&
+            lhs.min == rhs.min &&
+            lhs.max == rhs.max
+    }
+    
+}
+

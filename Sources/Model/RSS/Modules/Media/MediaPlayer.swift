@@ -104,3 +104,26 @@ extension MediaPlayer.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaPlayer: Equatable {
+    
+    public static func ==(lhs: MediaPlayer, rhs: MediaPlayer) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaPlayer.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaPlayer.Attributes, rhs: MediaPlayer.Attributes) -> Bool {
+        return
+            lhs.width == rhs.width &&
+            lhs.height == rhs.height &&
+            lhs.url == rhs.url
+    }
+    
+}

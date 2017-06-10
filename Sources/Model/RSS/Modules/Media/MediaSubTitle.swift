@@ -70,7 +70,6 @@ extension MediaSubTitle {
     
 }
 
-
 extension MediaSubTitle.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -85,6 +84,27 @@ extension MediaSubTitle.Attributes {
         self.lang = attributeDict["lang"]
         self.href = attributeDict["href"]
         
+    }
+    
+}
+
+// MARK: - Equatable
+
+extension MediaSubTitle: Equatable {
+    
+    public static func ==(lhs: MediaSubTitle, rhs: MediaSubTitle) -> Bool {
+        return lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaSubTitle.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaSubTitle.Attributes, rhs: MediaSubTitle.Attributes) -> Bool {
+        return
+            lhs.type == rhs.type &&
+            lhs.lang == rhs.lang &&
+            lhs.href == rhs.href
     }
     
 }

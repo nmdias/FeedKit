@@ -287,3 +287,41 @@ open class MediaNamespace {
     
 }
 
+// MARK: - Equatable
+
+extension MediaNamespace: Equatable {
+    
+    public static func ==(lhs: MediaNamespace, rhs: MediaNamespace) -> Bool {
+        return
+            lhs.mediaGroup == rhs.mediaGroup &&
+            lhs.mediaContents == rhs.mediaContents &&
+            lhs.mediaRating == rhs.mediaRating &&
+            lhs.mediaTitle == rhs.mediaTitle &&
+            lhs.mediaDescription == rhs.mediaDescription &&
+            lhs.mediaKeywords == rhs.mediaKeywords &&
+            lhs.mediaThumbnails == rhs.mediaThumbnails &&
+            lhs.mediaCategory == rhs.mediaCategory &&
+            lhs.mediaHash == rhs.mediaHash &&
+            lhs.mediaPlayer == rhs.mediaPlayer &&
+            lhs.mediaCredits == rhs.mediaCredits &&
+            lhs.mediaCopyright == rhs.mediaCopyright &&
+            lhs.mediaText == rhs.mediaText &&
+            lhs.mediaRestriction == rhs.mediaRestriction &&
+            lhs.mediaCommunity == rhs.mediaCommunity &&
+            lhs.mediaComments == rhs.mediaComments &&
+            lhs.mediaEmbed == rhs.mediaEmbed &&
+            lhs.mediaResponses == rhs.mediaResponses &&
+            lhs.mediaBackLinks == rhs.mediaBackLinks &&
+            lhs.mediaStatus == rhs.mediaStatus &&
+            lhs.mediaPrices == rhs.mediaPrices &&
+            lhs.mediaLicense == rhs.mediaLicense &&
+            lhs.mediaSubTitle == rhs.mediaSubTitle &&
+            lhs.mediaPeerLink == rhs.mediaPeerLink &&
+            lhs.mediaLocation == rhs.mediaLocation &&
+            lhs.mediaRights == rhs.mediaRights &&
+            lhs.mediaScenes == rhs.mediaScenes
+    }
+    
+}
+
+

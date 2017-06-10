@@ -102,3 +102,25 @@ extension MediaRestriction.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaRestriction: Equatable {
+    
+    public static func ==(lhs: MediaRestriction, rhs: MediaRestriction) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaRestriction.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaRestriction.Attributes, rhs: MediaRestriction.Attributes) -> Bool {
+        return
+            lhs.relationship == rhs.relationship &&
+            lhs.type == rhs.type
+    }
+    
+}

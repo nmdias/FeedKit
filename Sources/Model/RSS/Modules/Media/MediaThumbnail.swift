@@ -114,3 +114,27 @@ extension MediaThumbnail.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaThumbnail: Equatable {
+    
+    public static func ==(lhs: MediaThumbnail, rhs: MediaThumbnail) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaThumbnail.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaThumbnail.Attributes, rhs: MediaThumbnail.Attributes) -> Bool {
+        return
+            lhs.url == rhs.url &&
+            lhs.height == rhs.height &&
+            lhs.width == rhs.height &&
+            lhs.time == rhs.time
+    }
+    
+}

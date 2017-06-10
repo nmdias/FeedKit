@@ -86,3 +86,23 @@ extension MediaDescription.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaDescription: Equatable {
+    
+    public static func ==(lhs: MediaDescription, rhs: MediaDescription) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaDescription.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaDescription.Attributes, rhs: MediaDescription.Attributes) -> Bool {
+        return lhs.type == rhs.type
+    }
+    
+}

@@ -75,7 +75,6 @@ extension MediaEmbed {
     
 }
 
-
 extension MediaEmbed.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -90,6 +89,29 @@ extension MediaEmbed.Attributes {
         self.width = Int(attributeDict["width"] ?? "")
         self.height = Int(attributeDict["height"] ?? "")
         
+    }
+    
+}
+
+// MARK: - Equatable
+
+extension MediaEmbed: Equatable {
+    
+    public static func ==(lhs: MediaEmbed, rhs: MediaEmbed) -> Bool {
+        return
+            lhs.mediaParams == rhs.mediaParams &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaEmbed.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaEmbed.Attributes, rhs: MediaEmbed.Attributes) -> Bool {
+        return
+            lhs.url == rhs.url &&
+            lhs.width == rhs.width &&
+            lhs.height == rhs.height
     }
     
 }

@@ -92,7 +92,6 @@ extension MediaPrice {
     
 }
 
-
 extension MediaPrice.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -103,11 +102,36 @@ extension MediaPrice.Attributes {
         
         self.init()
         
-        self.type = attributeDict["algo"]
-        self.price = Double(attributeDict["algo"] ?? "")
-        self.info = attributeDict["algo"]
-        self.currency = attributeDict["algo"]
+        self.type = attributeDict["type"]
+        self.price = Double(attributeDict["price"] ?? "")
+        self.info = attributeDict["info"]
+        self.currency = attributeDict["currency"]
         
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaPrice: Equatable {
+    
+    public static func ==(lhs: MediaPrice, rhs: MediaPrice) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaPrice.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaPrice.Attributes, rhs: MediaPrice.Attributes) -> Bool {
+        return
+            lhs.type == rhs.type &&
+            lhs.price == rhs.price &&
+            lhs.info == rhs.info &&
+            lhs.currency == rhs.currency
+    }
+    
+}
+

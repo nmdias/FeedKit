@@ -98,3 +98,26 @@ extension MediaCredit.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaCredit: Equatable {
+    
+    public static func ==(lhs: MediaCredit, rhs: MediaCredit) -> Bool {
+        return
+            lhs.value == rhs.value &&
+                lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaCredit.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaCredit.Attributes, rhs: MediaCredit.Attributes) -> Bool {
+        return
+            lhs.role == rhs.role &&
+            lhs.scheme == rhs.scheme
+    }
+    
+}
+

@@ -65,7 +65,6 @@ extension MediaRights {
     
 }
 
-
 extension MediaRights.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -78,6 +77,24 @@ extension MediaRights.Attributes {
         
         self.status = attributeDict["status"]
         
+    }
+    
+}
+
+// MARK: - Equatable
+
+extension MediaRights: Equatable {
+    
+    public static func ==(lhs: MediaRights, rhs: MediaRights) -> Bool {
+        return lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaRights.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaRights.Attributes, rhs: MediaRights.Attributes) -> Bool {
+        return lhs.status == rhs.status
     }
     
 }

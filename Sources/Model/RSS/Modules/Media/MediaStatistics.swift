@@ -64,7 +64,6 @@ extension MediaStatistics {
     
 }
 
-
 extension MediaStatistics.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -81,3 +80,24 @@ extension MediaStatistics.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaStatistics: Equatable {
+    
+    public static func ==(lhs: MediaStatistics, rhs: MediaStatistics) -> Bool {
+        return lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaStatistics.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaStatistics.Attributes, rhs: MediaStatistics.Attributes) -> Bool {
+        return
+            lhs.views == rhs.views &&
+            lhs.favorites == rhs.favorites
+    }
+    
+}
+

@@ -341,6 +341,10 @@
 		A0DE94321CF7946700D1F19C /* Atom.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0DE94311CF7946700D1F19C /* Atom.xml */; };
 		A0DE94331CF7946700D1F19C /* Atom.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0DE94311CF7946700D1F19C /* Atom.xml */; };
 		A0DE94341CF7946700D1F19C /* Atom.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0DE94311CF7946700D1F19C /* Atom.xml */; };
+		A0EB53311EEB521E00D13AE5 /* EquatableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */; };
+		A0EB53321EEB521E00D13AE5 /* EquatableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */; };
+		A0EB53331EEB521E00D13AE5 /* EquatableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */; };
+		A0EB53341EEB521E00D13AE5 /* EquatableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB61CE869AE00C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB51CE869AE00C52142 /* Assets.xcassets */; };
 		A0EF4DB91CE869AE00C52142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB71CE869AE00C52142 /* LaunchScreen.storyboard */; };
@@ -599,6 +603,7 @@
 		A0D20C391CEB01E400B4509D /* DublinCoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublinCoreTests.swift; sourceTree = "<group>"; };
 		A0DE942D1CF791B800D1F19C /* AtomTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomTests.swift; sourceTree = "<group>"; };
 		A0DE94311CF7946700D1F19C /* Atom.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Atom.xml; path = xml/Atom.xml; sourceTree = "<group>"; };
+		A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EquatableArray.swift; path = Sources/Global/EquatableArray.swift; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* FeedKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -954,6 +959,14 @@
 			name = xml;
 			sourceTree = "<group>";
 		};
+		A0EB532F1EEB51FC00D13AE5 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */,
+			);
+			name = Global;
+			sourceTree = "<group>";
+		};
 		A0EF4D931CE867DF00C52142 = {
 			isa = PBXGroup;
 			children = (
@@ -1023,6 +1036,7 @@
 		A0EF4E1A1CE86F4800C52142 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A0EB532F1EEB51FC00D13AE5 /* Global */,
 				A03402711D0C16D7005900CD /* Dates */,
 				A07F3BD91CFE136900C3AF80 /* Core */,
 				A07F3BDC1CFE136900C3AF80 /* Extensions */,
@@ -1470,6 +1484,7 @@
 				A07F3C501CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
 				A060D72E1D0353B200F0DACE /* FeedType.swift in Sources */,
 				A042AF631EE326CB004C2F63 /* MediaStatus.swift in Sources */,
+				A0EB53341EEB521E00D13AE5 /* EquatableArray.swift in Sources */,
 				A07F3C3C1CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C741CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
 				A07F3C581CFE136900C3AF80 /* AtomFeedLink.swift in Sources */,
@@ -1644,6 +1659,7 @@
 				A07F3C4E1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
 				A060D72C1D0353B200F0DACE /* FeedType.swift in Sources */,
 				A042AF611EE326CB004C2F63 /* MediaStatus.swift in Sources */,
+				A0EB53321EEB521E00D13AE5 /* EquatableArray.swift in Sources */,
 				A07F3C3A1CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C721CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
 				A07F3C561CFE136900C3AF80 /* AtomFeedLink.swift in Sources */,
@@ -1731,6 +1747,7 @@
 				A07F3C4F1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
 				A060D72D1D0353B200F0DACE /* FeedType.swift in Sources */,
 				A042AF621EE326CB004C2F63 /* MediaStatus.swift in Sources */,
+				A0EB53331EEB521E00D13AE5 /* EquatableArray.swift in Sources */,
 				A07F3C3B1CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C731CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
 				A07F3C571CFE136900C3AF80 /* AtomFeedLink.swift in Sources */,
@@ -1818,6 +1835,7 @@
 				A060D72B1D0353B200F0DACE /* FeedType.swift in Sources */,
 				A07F3C391CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A042AF601EE326CB004C2F63 /* MediaStatus.swift in Sources */,
+				A0EB53311EEB521E00D13AE5 /* EquatableArray.swift in Sources */,
 				A0AA54701D02C07C000A2264 /* Parser.swift in Sources */,
 				A0C161F51D0219D500FC5C06 /* ParserError.swift in Sources */,
 				A07F3C711CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,

@@ -67,7 +67,6 @@ extension MediaParam {
     
 }
 
-
 extension MediaParam.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -83,3 +82,24 @@ extension MediaParam.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaParam: Equatable {
+    
+    public static func ==(lhs: MediaParam, rhs: MediaParam) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaParam.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaParam.Attributes, rhs: MediaParam.Attributes) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
+}
+

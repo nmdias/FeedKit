@@ -88,3 +88,23 @@ extension MediaCopyright.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaCopyright: Equatable {
+    
+    public static func ==(lhs: MediaCopyright, rhs: MediaCopyright) -> Bool {
+        return
+            lhs.value == rhs.value &&
+                lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaCopyright.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaCopyright.Attributes, rhs: MediaCopyright.Attributes) -> Bool {
+        return lhs.url == rhs.url
+    }
+    
+}

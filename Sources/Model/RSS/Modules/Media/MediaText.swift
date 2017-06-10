@@ -120,3 +120,27 @@ extension MediaText.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaText: Equatable {
+    
+    public static func ==(lhs: MediaText, rhs: MediaText) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaText.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaText.Attributes, rhs: MediaText.Attributes) -> Bool {
+        return
+            lhs.type == rhs.type &&
+            lhs.lang == rhs.lang &&
+            lhs.start == rhs.start &&
+            lhs.end == rhs.end
+    }
+    
+}

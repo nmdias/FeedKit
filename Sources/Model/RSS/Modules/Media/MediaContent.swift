@@ -200,3 +200,35 @@ extension MediaContent.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaContent: Equatable {
+    
+    public static func ==(lhs: MediaContent, rhs: MediaContent) -> Bool {
+        return lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaContent.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaContent.Attributes, rhs: MediaContent.Attributes) -> Bool {
+        return
+            lhs.bitrate == rhs.bitrate &&
+            lhs.channels == rhs.channels &&
+            lhs.duration == rhs.duration &&
+            lhs.expression == rhs.expression &&
+            lhs.isDefault == rhs.isDefault &&
+            lhs.fileSize == rhs.fileSize &&
+            lhs.framerate == rhs.framerate &&
+            lhs.height == rhs.height &&
+            lhs.lang == rhs.lang &&
+            lhs.medium == rhs.medium &&
+            lhs.samplingrate == rhs.samplingrate &&
+            lhs.type == rhs.type &&
+            lhs.url == rhs.url &&
+            lhs.width == rhs.width
+    }
+    
+}

@@ -55,3 +55,16 @@ open class MediaCommunity {
     open var mediaTags: [MediaTag]?
     
 }
+
+// MARK: - Equatable
+
+extension MediaCommunity: Equatable {
+    
+    public static func ==(lhs: MediaCommunity, rhs: MediaCommunity) -> Bool {
+        return
+            lhs.mediaStarRating == rhs.mediaStarRating &&
+            lhs.mediaStatistics == rhs.mediaStatistics &&
+            lhs.mediaTags == rhs.mediaTags
+    }
+    
+}

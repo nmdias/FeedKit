@@ -86,3 +86,24 @@ extension MediaRating.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaRating: Equatable {
+    
+    public static func ==(lhs: MediaRating, rhs: MediaRating) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaRating.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaRating.Attributes, rhs: MediaRating.Attributes) -> Bool {
+        return lhs.scheme == rhs.scheme
+    }
+    
+}
+

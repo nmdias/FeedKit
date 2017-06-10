@@ -52,3 +52,17 @@ extension MediaTag {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaTag: Equatable {
+    
+    public static func ==(lhs: MediaTag, rhs: MediaTag) -> Bool {
+        return
+            lhs.tag == rhs.tag &&
+            lhs.weight == rhs.weight
+    }
+    
+
+    
+}

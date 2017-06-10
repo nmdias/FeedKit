@@ -82,7 +82,6 @@ extension MediaLocation {
     
 }
 
-
 extension MediaLocation.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -100,3 +99,28 @@ extension MediaLocation.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaLocation: Equatable {
+    
+    public static func ==(lhs: MediaLocation, rhs: MediaLocation) -> Bool {
+        return
+            lhs.latitude == rhs.latitude &&
+            lhs.longitude == rhs.longitude &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaLocation.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaLocation.Attributes, rhs: MediaLocation.Attributes) -> Bool {
+        return
+            lhs.description == rhs.description &&
+            lhs.start == rhs.start &&
+            lhs.end == rhs.end
+    }
+    
+}
+

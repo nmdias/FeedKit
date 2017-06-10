@@ -86,3 +86,24 @@ extension MediaHash.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaHash: Equatable {
+    
+    public static func ==(lhs: MediaHash, rhs: MediaHash) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaHash.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaHash.Attributes, rhs: MediaHash.Attributes) -> Bool {
+        return lhs.algo == rhs.algo
+    }
+    
+}
+

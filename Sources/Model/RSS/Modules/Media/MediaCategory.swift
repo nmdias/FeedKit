@@ -96,3 +96,25 @@ extension MediaCategory.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaCategory: Equatable {
+    
+    public static func ==(lhs: MediaCategory, rhs: MediaCategory) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaCategory.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaCategory.Attributes, rhs: MediaCategory.Attributes) -> Bool {
+        return
+            lhs.scheme == rhs.scheme &&
+            lhs.label == rhs.label
+    }
+    
+}

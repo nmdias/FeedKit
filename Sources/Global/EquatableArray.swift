@@ -1,5 +1,5 @@
 //
-//  MediaScene.swift
+//  EquatableArray.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //
@@ -24,36 +24,24 @@
 
 import Foundation
 
-open class MediaScene {
+func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
     
-    /**
-     */
-    open var sceneTitle: String?
-    
-    /**
-     */
-    open var sceneDescription: String?
-    
-    /**
-     */
-    open var sceneStartTime: TimeInterval?
-    
-    /**
-     */
-    open var sceneEndTime: TimeInterval?
-    
-}
-
-// MARK: - Equatable
-
-extension MediaScene: Equatable {
-    
-    public static func ==(lhs: MediaScene, rhs: MediaScene) -> Bool {
+    guard let l = lhs, let r = rhs else {
         return
-            lhs.sceneTitle == rhs.sceneTitle &&
-            lhs.sceneDescription == rhs.sceneDescription &&
-            lhs.sceneStartTime == rhs.sceneStartTime &&
-            lhs.sceneEndTime == rhs.sceneEndTime
+            Optional(lhs) == nil &&
+            Optional(rhs) == nil
     }
+    
+    guard l.count == r.count else {
+        return false
+    }
+    
+    for (l, r) in zip(l, r) {
+        if l != r {
+            return false
+        }
+    }
+    
+    return true
     
 }

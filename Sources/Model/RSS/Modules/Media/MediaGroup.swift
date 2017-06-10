@@ -67,3 +67,17 @@ open class MediaGroup {
     open var mediaRating: MediaRating?
     
 }
+
+// MARK: - Equatable
+
+extension MediaGroup: Equatable {
+    
+    public static func ==(lhs: MediaGroup, rhs: MediaGroup) -> Bool {
+        return
+            lhs.mediaContents == rhs.mediaContents &&
+            lhs.mediaCredits == rhs.mediaCredits &&
+            lhs.mediaCategory == rhs.mediaCategory &&
+            lhs.mediaRating == rhs.mediaRating
+    }
+    
+}

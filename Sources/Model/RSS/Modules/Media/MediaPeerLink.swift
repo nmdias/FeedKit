@@ -76,7 +76,6 @@ extension MediaPeerLink {
     
 }
 
-
 extension MediaPeerLink.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
@@ -93,3 +92,26 @@ extension MediaPeerLink.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension MediaPeerLink: Equatable {
+    
+    public static func ==(lhs: MediaPeerLink, rhs: MediaPeerLink) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension MediaPeerLink.Attributes: Equatable {
+    
+    public static func ==(lhs: MediaPeerLink.Attributes, rhs: MediaPeerLink.Attributes) -> Bool {
+        return
+            lhs.type == rhs.type &&
+            lhs.href == rhs.href
+    }
+    
+}
+
