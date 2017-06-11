@@ -80,21 +80,6 @@ open class FeedParser {
     
     /**
      
-     Initializes the parser with the specified stream.
-     
-     - parameter stream: The input stream. The content is incrementally loaded from the specified stream and parsed. The the underlying `XMLParser` will open the stream, and synchronously read from it without scheduling it.
-     
-     - returns: An instance of the `FeedParser`.
-     
-     */
-    public init(stream: InputStream) {
-        self.parser = Parser(stream: stream)
-    }
-    
-    
-    
-    /**
-     
      Starts parsing the feed.
      
      */

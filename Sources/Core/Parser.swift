@@ -85,12 +85,6 @@ class Parser: NSObject, XMLParserDelegate {
         self.xmlParser.delegate = self
     }
     
-    init(stream: InputStream) {
-        self.xmlParser = XMLParser(stream: stream)
-        super.init()
-        self.xmlParser.delegate = self
-    }
-    
     /**
      
      The current path along the XML's DOM elements. Path components are
