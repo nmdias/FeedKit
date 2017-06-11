@@ -117,3 +117,23 @@ extension AtomFeedEntrySummary.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension AtomFeedEntrySummary: Equatable {
+    
+    public static func ==(lhs: AtomFeedEntrySummary, rhs: AtomFeedEntrySummary) -> Bool {
+        return
+            lhs.attributes == rhs.attributes &&
+            lhs.value == rhs.value
+    }
+    
+}
+
+extension AtomFeedEntrySummary.Attributes: Equatable {
+    
+    public static func ==(lhs: AtomFeedEntrySummary.Attributes, rhs: AtomFeedEntrySummary.Attributes) -> Bool {
+        return lhs.type == rhs.type
+    }
+    
+}

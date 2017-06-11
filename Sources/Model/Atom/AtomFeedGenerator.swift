@@ -133,3 +133,25 @@ extension AtomFeedGenerator.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension AtomFeedGenerator: Equatable {
+    
+    public static func ==(lhs: AtomFeedGenerator, rhs: AtomFeedGenerator) -> Bool {
+        return
+            lhs.attributes == rhs.attributes &&
+            lhs.value == rhs.value
+    }
+    
+}
+
+extension AtomFeedGenerator.Attributes: Equatable {
+    
+    public static func ==(lhs: AtomFeedGenerator.Attributes, rhs: AtomFeedGenerator.Attributes) -> Bool {
+        return
+            lhs.uri == rhs.uri &&
+            lhs.version == rhs.version
+    }
+    
+}

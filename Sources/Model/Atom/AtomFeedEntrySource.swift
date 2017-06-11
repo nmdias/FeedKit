@@ -74,3 +74,16 @@ open class AtomFeedEntrySource {
     open var updated: Date?
 
 }
+
+// MARK: - Equatable
+
+extension AtomFeedEntrySource: Equatable {
+    
+    public static func ==(lhs: AtomFeedEntrySource, rhs: AtomFeedEntrySource) -> Bool {
+        return
+            lhs.id == rhs.id &&
+            lhs.title == rhs.title &&
+            lhs.updated == rhs.updated
+    }
+    
+}

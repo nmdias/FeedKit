@@ -69,3 +69,16 @@ open class AtomFeedEntryAuthor {
     open var uri: String?
     
 }
+
+// MARK: - Equatable
+
+extension AtomFeedEntryAuthor: Equatable {
+    
+    public static func ==(lhs: AtomFeedEntryAuthor, rhs: AtomFeedEntryAuthor) -> Bool {
+        return
+            lhs.name == rhs.name &&
+            lhs.email == rhs.email &&
+            lhs.uri == rhs.uri
+    }
+    
+}

@@ -211,3 +211,27 @@ extension AtomFeedLink.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension AtomFeedLink: Equatable {
+    
+    public static func ==(lhs: AtomFeedLink, rhs: AtomFeedLink) -> Bool {
+        return lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension AtomFeedLink.Attributes: Equatable {
+    
+    public static func ==(lhs: AtomFeedLink.Attributes, rhs: AtomFeedLink.Attributes) -> Bool {
+        return
+            lhs.href == rhs.href &&
+            lhs.hreflang == rhs.hreflang &&
+            lhs.type == rhs.type &&
+            lhs.rel == rhs.rel &&
+            lhs.title == rhs.title &&
+            lhs.length == rhs.length
+    }
+    
+}

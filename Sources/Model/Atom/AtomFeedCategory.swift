@@ -125,3 +125,25 @@ extension AtomFeedCategory.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension AtomFeedCategory: Equatable {
+    
+    public static func ==(lhs: AtomFeedCategory, rhs: AtomFeedCategory) -> Bool {
+        return lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension AtomFeedCategory.Attributes: Equatable {
+    
+    public static func ==(lhs: AtomFeedCategory.Attributes, rhs: AtomFeedCategory.Attributes) -> Bool {
+        return
+            lhs.term == rhs.term &&
+            lhs.scheme == rhs.scheme &&
+            lhs.label == rhs.label
+    }
+    
+}
+

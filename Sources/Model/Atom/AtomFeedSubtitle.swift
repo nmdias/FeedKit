@@ -111,3 +111,23 @@ extension AtomFeedSubtitle.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension AtomFeedSubtitle: Equatable {
+    
+    public static func ==(lhs: AtomFeedSubtitle, rhs: AtomFeedSubtitle) -> Bool {
+        return
+            lhs.attributes == rhs.attributes &&
+            lhs.value == rhs.value
+    }
+    
+}
+
+extension AtomFeedSubtitle.Attributes: Equatable {
+    
+    public static func ==(lhs: AtomFeedSubtitle.Attributes, rhs: AtomFeedSubtitle.Attributes) -> Bool {
+        return lhs.type == rhs.type
+    }
+    
+}

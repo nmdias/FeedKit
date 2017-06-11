@@ -219,3 +219,26 @@ open class AtomFeed {
     open var entries: [AtomFeedEntry]?
     
 }
+
+// MARK: - Equatable
+
+extension AtomFeed: Equatable {
+    
+    public static func ==(lhs: AtomFeed, rhs: AtomFeed) -> Bool {
+        return
+            lhs.title == rhs.title &&
+            lhs.subtitle == rhs.subtitle &&
+            lhs.links == rhs.links &&
+            lhs.updated == rhs.updated &&
+            lhs.categories == rhs.categories &&
+            lhs.authors == rhs.authors &&
+            lhs.contributors == rhs.contributors &&
+            lhs.id == rhs.id &&
+            lhs.generator == rhs.generator &&
+            lhs.icon == rhs.icon &&
+            lhs.logo == rhs.logo &&
+            lhs.rights == rhs.rights &&
+            lhs.entries == rhs.entries
+    }
+    
+}
