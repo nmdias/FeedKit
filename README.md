@@ -106,9 +106,9 @@ Click on the `+` button under the "Embedded Binaries" section of your app's targ
 ```swift
 import FeedKit
 
-let URL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
+let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
 
-FeedParser(URL: URL)?.parse({ (result) in
+FeedParser(URL: feedURL)?.parse({ (result) in
     result.rssFeed // An `RSSFeed` model
 })
 ```
@@ -116,7 +116,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 #### Atom
     
 ```swift
-FeedParser(URL: URL)?.parse({ (result) in
+FeedParser(URL: feedURL)?.parse({ (result) in
     result.atomFeed // An `AtomFeed` model
 })
 ```
@@ -127,7 +127,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 Multiple `FeedType`'s and, or `Error handling` can be acomplished using the `Result` enum
 
 ```swift
-FeedParser(URL: URL)?.parse({ (result) in
+FeedParser(URL: feedURL)?.parse({ (result) in
     
     switch result {
     case .RSS(let rssFeed):
@@ -146,7 +146,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 #### RSSFeed
 
 ```swift
-FeedParser(URL: URL)?.parse({ (result) in
+FeedParser(URL: feedURL)?.parse({ (result) in
     
     guard let feed = result.rssFeed where result.isSuccess else {
         print(result.error)
@@ -166,7 +166,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 #### AtomFeed
 
 ```swift
-FeedParser(URL: URL)?.parse({ (result) in
+FeedParser(URL: feedURL)?.parse({ (result) in
     
     guard let feed = result.atomFeed where result.isSuccess else {
         print(result.error)
@@ -188,7 +188,7 @@ FeedParser(URL: URL)?.parse({ (result) in
 ```swift
 DispatchQueue.global(qos: .userInitiated).async {
     // Run parsing in a background thread
-    FeedParser(URL: URL)?.parse({ (result) in
+    FeedParser(URL: feedURL)?.parse({ (result) in
         DispatchQueue.main.async {
             // Perform updates in the main thread when finished
         }
