@@ -39,13 +39,13 @@ extension AtomFeed {
         
         switch path {
             
-        case .FeedSubtitle:
+        case .feedSubtitle:
             
             if  self.subtitle == nil {
                 self.subtitle = AtomFeedSubtitle(attributes: attributeDict)
             }
             
-        case .FeedLink:
+        case .feedLink:
             
             if  self.links == nil {
                 self.links = []
@@ -53,7 +53,7 @@ extension AtomFeed {
             
             self.links?.append(AtomFeedLink(attributes: attributeDict))
                         
-        case .FeedCategory:
+        case .feedCategory:
             
             if  self.categories == nil {
                 self.categories = []
@@ -61,7 +61,7 @@ extension AtomFeed {
             
             self.categories?.append(AtomFeedCategory(attributes: attributeDict))
             
-        case .FeedAuthor:
+        case .feedAuthor:
             
             if  self.authors == nil {
                 self.authors = []
@@ -69,7 +69,7 @@ extension AtomFeed {
             
             self.authors?.append(AtomFeedAuthor())
 
-        case .FeedContributor:
+        case .feedContributor:
             
             if  self.contributors == nil {
                 self.contributors = []
@@ -77,13 +77,13 @@ extension AtomFeed {
             
             self.contributors?.append(AtomFeedContributor())
             
-        case .FeedGenerator:
+        case .feedGenerator:
             
             if  self.generator == nil {
                 self.generator = AtomFeedGenerator(attributes: attributeDict)
             }
 
-        case .FeedEntry:
+        case .feedEntry:
             
             if  self.entries == nil {
                 self.entries = []
@@ -91,13 +91,13 @@ extension AtomFeed {
             
             self.entries?.append(AtomFeedEntry())
             
-        case .FeedEntrySummary:
+        case .feedEntrySummary:
             
             if  self.entries?.last?.summary == nil {
                 self.entries?.last?.summary = AtomFeedEntrySummary(attributes: attributeDict)
             }
             
-        case .FeedEntryAuthor:
+        case .feedEntryAuthor:
             
             if  self.entries?.last?.authors == nil {
                 self.entries?.last?.authors = []
@@ -105,7 +105,7 @@ extension AtomFeed {
             
             self.entries?.last?.authors?.append(AtomFeedEntryAuthor())
             
-        case .FeedEntryContributor:
+        case .feedEntryContributor:
             
             if  self.entries?.last?.contributors == nil {
                 self.entries?.last?.contributors = []
@@ -113,7 +113,7 @@ extension AtomFeed {
             
             self.entries?.last?.contributors?.append(AtomFeedEntryContributor())
             
-        case .FeedEntryLink:
+        case .feedEntryLink:
             
             if  self.entries?.last?.links == nil {
                 self.entries?.last?.links = []
@@ -121,7 +121,7 @@ extension AtomFeed {
             
             self.entries?.last?.links?.append(AtomFeedEntryLink(attributes: attributeDict))
             
-        case .FeedEntryCategory:
+        case .feedEntryCategory:
             
             if  self.entries?.last?.categories == nil {
                 self.entries?.last?.categories = []
@@ -129,13 +129,13 @@ extension AtomFeed {
             
             self.entries?.last?.categories?.append(AtomFeedEntryCategory(attributes: attributeDict))
             
-        case .FeedEntryContent:
+        case .feedEntryContent:
             
             if  self.entries?.last?.content == nil {
                 self.entries?.last?.content = AtomFeedEntryContent(attributes: attributeDict)
             }
             
-        case .FeedEntrySource:
+        case .feedEntrySource:
             
             if  self.entries?.last?.source == nil {
                 self.entries?.last?.source = AtomFeedEntrySource()

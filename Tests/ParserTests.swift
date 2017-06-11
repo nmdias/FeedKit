@@ -51,7 +51,7 @@ class ParserTests: BaseTestCase {
         let _ = parser.parse()
         
         // Then
-        XCTAssertEqual(parser.parser.feedType, FeedType.RSS2)
+        XCTAssertEqual(parser.parser.feedType, FeedType.rss2)
         XCTAssertNotNil(parser.parser.rssFeed)
         XCTAssertNil(parser.parser.atomFeed)
         
@@ -68,7 +68,7 @@ class ParserTests: BaseTestCase {
         let _ = parser.parse()
         
         // Then
-        XCTAssertEqual(parser.parser.feedType, FeedType.Atom)
+        XCTAssertEqual(parser.parser.feedType, FeedType.atom)
         XCTAssertNotNil(parser.parser.atomFeed)
         XCTAssertNil(parser.parser.rssFeed)
         

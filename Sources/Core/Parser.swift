@@ -120,10 +120,10 @@ class Parser: NSObject, XMLParserDelegate {
         
         switch feedType {
             
-        case .Atom:
+        case .atom:
             return Result.atom(self.atomFeed!)
             
-        case .RSS1, .RSS2:
+        case .rss1, .rss2:
             return Result.rss(self.rssFeed!)
             
         }
@@ -143,13 +143,13 @@ class Parser: NSObject, XMLParserDelegate {
         
         switch feedType {
             
-        case .Atom:
+        case .atom:
             
             if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.atomFeed?.map(characters: string, forPath: path)
             }
             
-        case .RSS1, .RSS2:
+        case .rss1, .rss2:
             
             if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.rssFeed?.map(string: string, forPath: path)
@@ -183,7 +183,7 @@ extension Parser {
         
         switch feedType {
             
-        case .Atom:
+        case .atom:
             
             if  self.atomFeed == nil {
                 self.atomFeed = AtomFeed()
@@ -193,7 +193,7 @@ extension Parser {
                 self.atomFeed?.map(attributes: attributeDict, forPath: path)
             }
             
-        case .RSS1, .RSS2:
+        case .rss1, .rss2:
             
             if  self.rssFeed == nil {
                 self.rssFeed = RSSFeed()

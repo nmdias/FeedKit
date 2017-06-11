@@ -37,20 +37,20 @@ enum FeedType: String {
      The `Atom Syndication Format feed type
      
      */
-    case Atom = "feed"
+    case atom = "feed"
     
     /**
      
      The Really Simple Syndication feed type version 0.9
      
      */
-    case RSS1 = "rdf:RDF"
+    case rss1 = "rdf:RDF"
     
     /**
      
      The Really Simple Syndication feed type version 2.0
      
      */
-    case RSS2 = "rss"
+    case rss2 = "rss"
     
 }

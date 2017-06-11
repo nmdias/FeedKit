@@ -38,7 +38,7 @@ class SyndicationTests: BaseTestCase {
         
         // Then
         XCTAssertNotNil(feed)
-        XCTAssertEqual(feed?.syndication?.syUpdatePeriod , SyndicationUpdatePeriod.Hourly)
+        XCTAssertEqual(feed?.syndication?.syUpdatePeriod , SyndicationUpdatePeriod.hourly)
         XCTAssertEqual(feed?.syndication?.syUpdateFrequency , Int(2))
         XCTAssertNotNil(feed?.syndication?.syUpdateBase)
         

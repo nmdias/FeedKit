@@ -82,8 +82,8 @@ class RSS2Tests: BaseTestCase {
         
         XCTAssertNotNil(feed?.skipDays)
         XCTAssertEqual(feed?.skipDays?.count, 2)
-        XCTAssertEqual(feed?.skipDays?.first, .Saturday)
-        XCTAssertEqual(feed?.skipDays?.last, .Sunday)
+        XCTAssertEqual(feed?.skipDays?.first, .saturday)
+        XCTAssertEqual(feed?.skipDays?.last, .sunday)
         
         XCTAssertNotNil(feed?.skipHours)
         XCTAssertEqual(feed?.skipHours?.count, 5)

@@ -39,7 +39,7 @@ public enum SyndicationUpdatePeriod: String {
      by `syUpdateFrequency`
      
      */
-    case Hourly = "hourly"
+    case hourly = "hourly"
     
     /** 
      
@@ -47,7 +47,7 @@ public enum SyndicationUpdatePeriod: String {
      by `syUpdateFrequency`
      
      */
-    case Daily = "daily"
+    case daily = "daily"
     
     /** 
      
@@ -55,7 +55,7 @@ public enum SyndicationUpdatePeriod: String {
      by `syUpdateFrequency`
      
      */
-    case Weekly = "weekly"
+    case weekly = "weekly"
     
     /** 
      
@@ -63,7 +63,7 @@ public enum SyndicationUpdatePeriod: String {
      by `syUpdateFrequency`
      
      */
-    case Monthly = "monthly"
+    case monthly = "monthly"
     
     /** 
      
@@ -71,7 +71,7 @@ public enum SyndicationUpdatePeriod: String {
      by `syUpdateFrequency
      
      */
-    case Yearly = "yearly"
+    case yearly = "yearly"
     
 }
 
@@ -87,11 +87,11 @@ extension SyndicationUpdatePeriod {
         
         switch rawValue.lowercased() {
             
-        case "hourly":  self = .Hourly
-        case "daily":   self = .Daily
-        case "weekly":  self = .Weekly
-        case "monthly": self = .Monthly
-        case "yearly":  self = .Yearly
+        case "hourly":  self = .hourly
+        case "daily":   self = .daily
+        case "weekly":  self = .weekly
+        case "monthly": self = .monthly
+        case "yearly":  self = .yearly
             
         default: return nil
             

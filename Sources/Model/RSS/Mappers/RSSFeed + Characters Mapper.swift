@@ -38,49 +38,49 @@ extension RSSFeed {
         
         switch path {
             
-        case .RSS:                                        break
+        case .rss:                                        break
             
             // Channel
             
-        case .RSSChannel:                                 break
-        case .RSSChannelTitle:                            self.title                                   = self.title?.appending(string) ?? string
-        case .RSSChannelLink:                             self.link                                    = self.link?.appending(string) ?? string
-        case .RSSChannelDescription:                      self.description                             = self.description?.appending(string) ?? string
-        case .RSSChannelLanguage:                         self.language                                = self.language?.appending(string) ?? string
-        case .RSSChannelCopyright:                        self.copyright                               = self.copyright?.appending(string) ?? string
-        case .RSSChannelManagingEditor:                   self.managingEditor                          = self.managingEditor?.appending(string) ?? string
-        case .RSSChannelWebMaster:                        self.webMaster                               = self.webMaster?.appending(string) ?? string
-        case .RSSChannelPubDate:                          self.pubDate                                 = string.dateFromSpec(.rfc822)
-        case .RSSChannelLastBuildDate:                    self.lastBuildDate                           = string.dateFromSpec(.rfc822)
-        case .RSSChannelCategory:                         self.categories?.last?.value                 = self.categories?.last?.value?.appending(string) ?? string
-        case .RSSChannelGenerator:                        self.generator                               = self.generator?.appending(string) ?? string
-        case .RSSChannelDocs:                             self.docs                                    = self.docs?.appending(string) ?? string
-        case .RSSChannelRating:                           self.rating                                  = self.rating?.appending(string) ?? string
-        case .RSSChannelTTL:                              self.ttl                                     = Int(string)
-        case .RSSChannelCloud:                            break
+        case .rssChannel:                                 break
+        case .rssChannelTitle:                            self.title                                   = self.title?.appending(string) ?? string
+        case .rssChannelLink:                             self.link                                    = self.link?.appending(string) ?? string
+        case .rssChannelDescription:                      self.description                             = self.description?.appending(string) ?? string
+        case .rssChannelLanguage:                         self.language                                = self.language?.appending(string) ?? string
+        case .rssChannelCopyright:                        self.copyright                               = self.copyright?.appending(string) ?? string
+        case .rssChannelManagingEditor:                   self.managingEditor                          = self.managingEditor?.appending(string) ?? string
+        case .rssChannelWebMaster:                        self.webMaster                               = self.webMaster?.appending(string) ?? string
+        case .rssChannelPubDate:                          self.pubDate                                 = string.dateFromSpec(.rfc822)
+        case .rssChannelLastBuildDate:                    self.lastBuildDate                           = string.dateFromSpec(.rfc822)
+        case .rssChannelCategory:                         self.categories?.last?.value                 = self.categories?.last?.value?.appending(string) ?? string
+        case .rssChannelGenerator:                        self.generator                               = self.generator?.appending(string) ?? string
+        case .rssChannelDocs:                             self.docs                                    = self.docs?.appending(string) ?? string
+        case .rssChannelRating:                           self.rating                                  = self.rating?.appending(string) ?? string
+        case .rssChannelTTL:                              self.ttl                                     = Int(string)
+        case .rssChannelCloud:                            break
             
             // Channel Image
             
-        case .RSSChannelImage:                            break
-        case .RSSChannelImageURL:                         self.image?.url                              = self.image?.url?.appending(string) ?? string
-        case .RSSChannelImageTitle:                       self.image?.title                            = self.image?.title?.appending(string) ?? string
-        case .RSSChannelImageLink:                        self.image?.link                             = self.image?.link?.appending(string) ?? string
-        case .RSSChannelImageWidth:                       self.image?.width                            = Int(string)
-        case .RSSChannelImageHeight:                      self.image?.height                           = Int(string)
-        case .RSSChannelImageDescription:                 self.image?.description                      = self.image?.description?.appending(string) ?? string
+        case .rssChannelImage:                            break
+        case .rssChannelImageURL:                         self.image?.url                              = self.image?.url?.appending(string) ?? string
+        case .rssChannelImageTitle:                       self.image?.title                            = self.image?.title?.appending(string) ?? string
+        case .rssChannelImageLink:                        self.image?.link                             = self.image?.link?.appending(string) ?? string
+        case .rssChannelImageWidth:                       self.image?.width                            = Int(string)
+        case .rssChannelImageHeight:                      self.image?.height                           = Int(string)
+        case .rssChannelImageDescription:                 self.image?.description                      = self.image?.description?.appending(string) ?? string
             
             // Channel Text Input
             
-        case .RSSChannelTextInput:                        break
-        case .RSSChannelTextInputTitle:                   self.textInput?.title                        = self.textInput?.title?.appending(string) ?? string
-        case .RSSChannelTextInputDescription:             self.textInput?.description                  = self.textInput?.description?.appending(string) ?? string
-        case .RSSChannelTextInputName:                    self.textInput?.name                         = self.textInput?.name?.appending(string) ?? string
-        case .RSSChannelTextInputLink:                    self.textInput?.link                         = self.textInput?.link?.appending(string) ?? string
+        case .rssChannelTextInput:                        break
+        case .rssChannelTextInputTitle:                   self.textInput?.title                        = self.textInput?.title?.appending(string) ?? string
+        case .rssChannelTextInputDescription:             self.textInput?.description                  = self.textInput?.description?.appending(string) ?? string
+        case .rssChannelTextInputName:                    self.textInput?.name                         = self.textInput?.name?.appending(string) ?? string
+        case .rssChannelTextInputLink:                    self.textInput?.link                         = self.textInput?.link?.appending(string) ?? string
             
             // Channel Skip Hours
             
-        case .RSSChannelSkipHours:                        break
-        case .RSSChannelSkipHoursHour:
+        case .rssChannelSkipHours:                        break
+        case .rssChannelSkipHoursHour:
             
             if let hour = RSSFeedSkipHour(string), 0...23 ~= hour  {
                 self.skipHours?.append(hour)
@@ -88,8 +88,8 @@ extension RSSFeed {
             
             // Channel Skip Days
             
-        case .RSSChannelSkipDays:                         break
-        case .RSSChannelSkipDaysDay:
+        case .rssChannelSkipDays:                         break
+        case .rssChannelSkipDaysDay:
             
             if let day = RSSFeedSkipDay(rawValue: string) {
                 self.skipDays?.append(day)
@@ -97,129 +97,129 @@ extension RSSFeed {
             
             // Channel Item
             
-        case .RSSChannelItem:                             break
-        case .RSSChannelItemTitle:                        self.items?.last?.title                           = self.items?.last?.title?.appending(string) ?? string
-        case .RSSChannelItemLink:                         self.items?.last?.link                            = self.items?.last?.link?.appending(string) ?? string
-        case .RSSChannelItemDescription:                  self.items?.last?.description                     = self.items?.last?.description?.appending(string) ?? string
-        case .RSSChannelItemAuthor:                       self.items?.last?.author                          = self.items?.last?.author?.appending(string) ?? string
-        case .RSSChannelItemCategory:                     self.items?.last?.categories?.last?.value         = self.items?.last?.categories?.last?.value?.appending(string) ?? string
-        case .RSSChannelItemComments:                     self.items?.last?.comments                        = self.items?.last?.comments?.appending(string) ?? string
-        case .RSSChannelItemEnclosure:                    break
-        case .RSSChannelItemGUID:                         self.items?.last?.guid?.value                     = self.items?.last?.guid?.value?.appending(string) ?? string
-        case .RSSChannelItemPubDate:                      self.items?.last?.pubDate                         = string.dateFromSpec(.rfc822)
-        case .RSSChannelItemSource:                       self.items?.last?.source?.value                   = self.items?.last?.source?.value?.appending(string) ?? string
+        case .rssChannelItem:                             break
+        case .rssChannelItemTitle:                        self.items?.last?.title                           = self.items?.last?.title?.appending(string) ?? string
+        case .rssChannelItemLink:                         self.items?.last?.link                            = self.items?.last?.link?.appending(string) ?? string
+        case .rssChannelItemDescription:                  self.items?.last?.description                     = self.items?.last?.description?.appending(string) ?? string
+        case .rssChannelItemAuthor:                       self.items?.last?.author                          = self.items?.last?.author?.appending(string) ?? string
+        case .rssChannelItemCategory:                     self.items?.last?.categories?.last?.value         = self.items?.last?.categories?.last?.value?.appending(string) ?? string
+        case .rssChannelItemComments:                     self.items?.last?.comments                        = self.items?.last?.comments?.appending(string) ?? string
+        case .rssChannelItemEnclosure:                    break
+        case .rssChannelItemGUID:                         self.items?.last?.guid?.value                     = self.items?.last?.guid?.value?.appending(string) ?? string
+        case .rssChannelItemPubDate:                      self.items?.last?.pubDate                         = string.dateFromSpec(.rfc822)
+        case .rssChannelItemSource:                       self.items?.last?.source?.value                   = self.items?.last?.source?.value?.appending(string) ?? string
             
             // Namespace - Content
             
-        case .RSSChannelItemContentEncoded:               self.items?.last?.content?.contentEncoded         = self.items?.last?.content?.contentEncoded?.appending(string) ?? string
+        case .rssChannelItemContentEncoded:               self.items?.last?.content?.contentEncoded         = self.items?.last?.content?.contentEncoded?.appending(string) ?? string
             
             // Namespace - Syndication
             
-        case .RSSChannelSyndicationUpdatePeriod:          self.syndication?.syUpdatePeriod                  = SyndicationUpdatePeriod(rawValue: string)
-        case .RSSChannelSyndicationUpdateFrequency:       self.syndication?.syUpdateFrequency               = Int(string)
-        case .RSSChannelSyndicationUpdateBase:            self.syndication?.syUpdateBase                    = string.dateFromSpec(.iso8601)
+        case .rssChannelSyndicationUpdatePeriod:          self.syndication?.syUpdatePeriod                  = SyndicationUpdatePeriod(rawValue: string)
+        case .rssChannelSyndicationUpdateFrequency:       self.syndication?.syUpdateFrequency               = Int(string)
+        case .rssChannelSyndicationUpdateBase:            self.syndication?.syUpdateBase                    = string.dateFromSpec(.iso8601)
             
             // Namespace - Dublin Core
             
-        case .RSSChannelDublinCoreTitle:                  self.dublinCore?.dcTitle                          = self.dublinCore?.dcTitle?.appending(string) ?? string
-        case .RSSChannelDublinCoreCreator:                self.dublinCore?.dcCreator                        = self.dublinCore?.dcCreator?.appending(string) ?? string
-        case .RSSChannelDublinCoreSubject:                self.dublinCore?.dcSubject                        = self.dublinCore?.dcSubject?.appending(string) ?? string
-        case .RSSChannelDublinCoreDescription:            self.dublinCore?.dcDescription                    = self.dublinCore?.dcDescription?.appending(string) ?? string
-        case .RSSChannelDublinCorePublisher:              self.dublinCore?.dcPublisher                      = self.dublinCore?.dcPublisher?.appending(string) ?? string
-        case .RSSChannelDublinCoreContributor:            self.dublinCore?.dcContributor                    = self.dublinCore?.dcContributor?.appending(string) ?? string
-        case .RSSChannelDublinCoreDate:                   self.dublinCore?.dcDate                           = string.dateFromSpec(.iso8601)
-        case .RSSChannelDublinCoreType:                   self.dublinCore?.dcType                           = self.dublinCore?.dcType?.appending(string) ?? string
-        case .RSSChannelDublinCoreFormat:                 self.dublinCore?.dcFormat                         = self.dublinCore?.dcFormat?.appending(string) ?? string
-        case .RSSChannelDublinCoreIdentifier:             self.dublinCore?.dcIdentifier                     = self.dublinCore?.dcIdentifier?.appending(string) ?? string
-        case .RSSChannelDublinCoreSource:                 self.dublinCore?.dcSource                         = self.dublinCore?.dcSource?.appending(string) ?? string
-        case .RSSChannelDublinCoreLanguage:               self.dublinCore?.dcLanguage                       = self.dublinCore?.dcLanguage?.appending(string) ?? string
-        case .RSSChannelDublinCoreRelation:               self.dublinCore?.dcRelation                       = self.dublinCore?.dcRelation?.appending(string) ?? string
-        case .RSSChannelDublinCoreCoverage:               self.dublinCore?.dcCoverage                       = self.dublinCore?.dcCoverage?.appending(string) ?? string
-        case .RSSChannelDublinCoreRights:                 self.dublinCore?.dcRights                         = self.dublinCore?.dcRights?.appending(string) ?? string
+        case .rssChannelDublinCoreTitle:                  self.dublinCore?.dcTitle                          = self.dublinCore?.dcTitle?.appending(string) ?? string
+        case .rssChannelDublinCoreCreator:                self.dublinCore?.dcCreator                        = self.dublinCore?.dcCreator?.appending(string) ?? string
+        case .rssChannelDublinCoreSubject:                self.dublinCore?.dcSubject                        = self.dublinCore?.dcSubject?.appending(string) ?? string
+        case .rssChannelDublinCoreDescription:            self.dublinCore?.dcDescription                    = self.dublinCore?.dcDescription?.appending(string) ?? string
+        case .rssChannelDublinCorePublisher:              self.dublinCore?.dcPublisher                      = self.dublinCore?.dcPublisher?.appending(string) ?? string
+        case .rssChannelDublinCoreContributor:            self.dublinCore?.dcContributor                    = self.dublinCore?.dcContributor?.appending(string) ?? string
+        case .rssChannelDublinCoreDate:                   self.dublinCore?.dcDate                           = string.dateFromSpec(.iso8601)
+        case .rssChannelDublinCoreType:                   self.dublinCore?.dcType                           = self.dublinCore?.dcType?.appending(string) ?? string
+        case .rssChannelDublinCoreFormat:                 self.dublinCore?.dcFormat                         = self.dublinCore?.dcFormat?.appending(string) ?? string
+        case .rssChannelDublinCoreIdentifier:             self.dublinCore?.dcIdentifier                     = self.dublinCore?.dcIdentifier?.appending(string) ?? string
+        case .rssChannelDublinCoreSource:                 self.dublinCore?.dcSource                         = self.dublinCore?.dcSource?.appending(string) ?? string
+        case .rssChannelDublinCoreLanguage:               self.dublinCore?.dcLanguage                       = self.dublinCore?.dcLanguage?.appending(string) ?? string
+        case .rssChannelDublinCoreRelation:               self.dublinCore?.dcRelation                       = self.dublinCore?.dcRelation?.appending(string) ?? string
+        case .rssChannelDublinCoreCoverage:               self.dublinCore?.dcCoverage                       = self.dublinCore?.dcCoverage?.appending(string) ?? string
+        case .rssChannelDublinCoreRights:                 self.dublinCore?.dcRights                         = self.dublinCore?.dcRights?.appending(string) ?? string
             
-        case .RSSChannelItemDublinCoreTitle:              self.items?.last?.dublinCore?.dcTitle             = self.items?.last?.dublinCore?.dcTitle?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreCreator:            self.items?.last?.dublinCore?.dcCreator           = self.items?.last?.dublinCore?.dcCreator?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreSubject:            self.items?.last?.dublinCore?.dcSubject           = self.items?.last?.dublinCore?.dcSubject?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreDescription:        self.items?.last?.dublinCore?.dcDescription       = self.items?.last?.dublinCore?.dcDescription?.appending(string) ?? string
-        case .RSSChannelItemDublinCorePublisher:          self.items?.last?.dublinCore?.dcPublisher         = self.items?.last?.dublinCore?.dcPublisher?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreContributor:        self.items?.last?.dublinCore?.dcContributor       = self.items?.last?.dublinCore?.dcContributor?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreDate:               self.items?.last?.dublinCore?.dcDate              = string.dateFromSpec(.iso8601)
-        case .RSSChannelItemDublinCoreType:               self.items?.last?.dublinCore?.dcType              = self.items?.last?.dublinCore?.dcType?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreFormat:             self.items?.last?.dublinCore?.dcFormat            = self.items?.last?.dublinCore?.dcFormat?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreIdentifier:         self.items?.last?.dublinCore?.dcIdentifier        = self.items?.last?.dublinCore?.dcIdentifier?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreSource:             self.items?.last?.dublinCore?.dcSource            = self.items?.last?.dublinCore?.dcSource?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreLanguage:           self.items?.last?.dublinCore?.dcLanguage          = self.items?.last?.dublinCore?.dcLanguage?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreRelation:           self.items?.last?.dublinCore?.dcRelation          = self.items?.last?.dublinCore?.dcRelation?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreCoverage:           self.items?.last?.dublinCore?.dcCoverage          = self.items?.last?.dublinCore?.dcCoverage?.appending(string) ?? string
-        case .RSSChannelItemDublinCoreRights:             self.items?.last?.dublinCore?.dcRights            = self.items?.last?.dublinCore?.dcRights?.appending(string) ?? string
+        case .rssChannelItemDublinCoreTitle:              self.items?.last?.dublinCore?.dcTitle             = self.items?.last?.dublinCore?.dcTitle?.appending(string) ?? string
+        case .rssChannelItemDublinCoreCreator:            self.items?.last?.dublinCore?.dcCreator           = self.items?.last?.dublinCore?.dcCreator?.appending(string) ?? string
+        case .rssChannelItemDublinCoreSubject:            self.items?.last?.dublinCore?.dcSubject           = self.items?.last?.dublinCore?.dcSubject?.appending(string) ?? string
+        case .rssChannelItemDublinCoreDescription:        self.items?.last?.dublinCore?.dcDescription       = self.items?.last?.dublinCore?.dcDescription?.appending(string) ?? string
+        case .rssChannelItemDublinCorePublisher:          self.items?.last?.dublinCore?.dcPublisher         = self.items?.last?.dublinCore?.dcPublisher?.appending(string) ?? string
+        case .rssChannelItemDublinCoreContributor:        self.items?.last?.dublinCore?.dcContributor       = self.items?.last?.dublinCore?.dcContributor?.appending(string) ?? string
+        case .rssChannelItemDublinCoreDate:               self.items?.last?.dublinCore?.dcDate              = string.dateFromSpec(.iso8601)
+        case .rssChannelItemDublinCoreType:               self.items?.last?.dublinCore?.dcType              = self.items?.last?.dublinCore?.dcType?.appending(string) ?? string
+        case .rssChannelItemDublinCoreFormat:             self.items?.last?.dublinCore?.dcFormat            = self.items?.last?.dublinCore?.dcFormat?.appending(string) ?? string
+        case .rssChannelItemDublinCoreIdentifier:         self.items?.last?.dublinCore?.dcIdentifier        = self.items?.last?.dublinCore?.dcIdentifier?.appending(string) ?? string
+        case .rssChannelItemDublinCoreSource:             self.items?.last?.dublinCore?.dcSource            = self.items?.last?.dublinCore?.dcSource?.appending(string) ?? string
+        case .rssChannelItemDublinCoreLanguage:           self.items?.last?.dublinCore?.dcLanguage          = self.items?.last?.dublinCore?.dcLanguage?.appending(string) ?? string
+        case .rssChannelItemDublinCoreRelation:           self.items?.last?.dublinCore?.dcRelation          = self.items?.last?.dublinCore?.dcRelation?.appending(string) ?? string
+        case .rssChannelItemDublinCoreCoverage:           self.items?.last?.dublinCore?.dcCoverage          = self.items?.last?.dublinCore?.dcCoverage?.appending(string) ?? string
+        case .rssChannelItemDublinCoreRights:             self.items?.last?.dublinCore?.dcRights            = self.items?.last?.dublinCore?.dcRights?.appending(string) ?? string
             
             // Namespace - iTunes Podcasting Tags
 
-        case .RSSChannelItunesAuthor:                     self.iTunes?.iTunesAuthor                         = self.iTunes?.iTunesAuthor?.appending(string) ?? string
-        case .RSSChannelItunesBlock:                      self.iTunes?.iTunesBlock                          = self.iTunes?.iTunesBlock?.appending(string) ?? string
-        case .RSSChannelItunesCategory:                   break
-        case .RSSChannelItunesSubcategory:                break
-        case .RSSChannelItunesImage:                      break
-        case .RSSChannelItunesExplicit:                   self.iTunes?.iTunesExplicit                       = self.iTunes?.iTunesExplicit?.appending(string) ?? string
-        case .RSSChannelItunesComplete:                   self.iTunes?.iTunesComplete                       = self.iTunes?.iTunesComplete?.appending(string) ?? string
-        case .RSSChannelItunesNewFeedURL:                 self.iTunes?.iTunesNewFeedURL                     = self.iTunes?.iTunesNewFeedURL?.appending(string) ?? string
-        case .RSSChannelItunesOwner:                      break
-        case .RSSChannelItunesOwnerName:                  self.iTunes?.iTunesOwner?.name                    = self.iTunes?.iTunesOwner?.name?.appending(string) ?? string
-        case .RSSChannelItunesOwnerEmail:                 self.iTunes?.iTunesOwner?.email                   = self.iTunes?.iTunesOwner?.email?.appending(string) ?? string
-        case .RSSChannelItunesSubtitle:                   self.iTunes?.iTunesSubtitle                       = self.iTunes?.iTunesSubtitle?.appending(string) ?? string
-        case .RSSChannelItunesSummary:                    self.iTunes?.iTunesSummary                        = self.iTunes?.iTunesSummary?.appending(string) ?? string
-        case .RSSChannelItunesKeywords:                   self.iTunes?.iTunesKeywords                       = self.iTunes?.iTunesKeywords?.appending(string) ?? string
+        case .rssChannelItunesAuthor:                     self.iTunes?.iTunesAuthor                         = self.iTunes?.iTunesAuthor?.appending(string) ?? string
+        case .rssChannelItunesBlock:                      self.iTunes?.iTunesBlock                          = self.iTunes?.iTunesBlock?.appending(string) ?? string
+        case .rssChannelItunesCategory:                   break
+        case .rssChannelItunesSubcategory:                break
+        case .rssChannelItunesImage:                      break
+        case .rssChannelItunesExplicit:                   self.iTunes?.iTunesExplicit                       = self.iTunes?.iTunesExplicit?.appending(string) ?? string
+        case .rssChannelItunesComplete:                   self.iTunes?.iTunesComplete                       = self.iTunes?.iTunesComplete?.appending(string) ?? string
+        case .rssChannelItunesNewFeedURL:                 self.iTunes?.iTunesNewFeedURL                     = self.iTunes?.iTunesNewFeedURL?.appending(string) ?? string
+        case .rssChannelItunesOwner:                      break
+        case .rssChannelItunesOwnerName:                  self.iTunes?.iTunesOwner?.name                    = self.iTunes?.iTunesOwner?.name?.appending(string) ?? string
+        case .rssChannelItunesOwnerEmail:                 self.iTunes?.iTunesOwner?.email                   = self.iTunes?.iTunesOwner?.email?.appending(string) ?? string
+        case .rssChannelItunesSubtitle:                   self.iTunes?.iTunesSubtitle                       = self.iTunes?.iTunesSubtitle?.appending(string) ?? string
+        case .rssChannelItunesSummary:                    self.iTunes?.iTunesSummary                        = self.iTunes?.iTunesSummary?.appending(string) ?? string
+        case .rssChannelItunesKeywords:                   self.iTunes?.iTunesKeywords                       = self.iTunes?.iTunesKeywords?.appending(string) ?? string
 
 
-        case .RSSChannelItemItunesAuthor:                 self.items?.last?.iTunes?.iTunesAuthor            = self.items?.last?.iTunes?.iTunesAuthor?.appending(string) ?? string
-        case .RSSChannelItemItunesBlock:                  self.items?.last?.iTunes?.iTunesBlock             = self.items?.last?.iTunes?.iTunesBlock?.appending(string) ?? string
-        case .RSSChannelItemItunesImage:                  break
-        case .RSSChannelItemItunesDuration:               self.items?.last?.iTunes?.iTunesDuration          = string.toDuration()
-        case .RSSChannelItemItunesExplicit:               self.items?.last?.iTunes?.iTunesExplicit          = self.items?.last?.iTunes?.iTunesExplicit?.appending(string) ?? string
-        case .RSSChannelItemItunesIsClosedCaptioned:      self.items?.last?.iTunes?.isClosedCaptioned       = self.items?.last?.iTunes?.isClosedCaptioned?.appending(string) ?? string
-        case .RSSChannelItemItunesOrder:                  self.items?.last?.iTunes?.iTunesOrder             = Int(string)
-        case .RSSChannelItemItunesSubtitle:               self.items?.last?.iTunes?.iTunesSubtitle          = self.items?.last?.iTunes?.iTunesSubtitle?.appending(string) ?? string
-        case .RSSChannelItemItunesSummary:                self.items?.last?.iTunes?.iTunesSummary           = self.items?.last?.iTunes?.iTunesSummary?.appending(string) ?? string
-        case .RSSChannelItemItunesKeywords:               self.items?.last?.iTunes?.iTunesKeywords          = self.items?.last?.iTunes?.iTunesKeywords?.appending(string) ?? string
+        case .rssChannelItemItunesAuthor:                 self.items?.last?.iTunes?.iTunesAuthor            = self.items?.last?.iTunes?.iTunesAuthor?.appending(string) ?? string
+        case .rssChannelItemItunesBlock:                  self.items?.last?.iTunes?.iTunesBlock             = self.items?.last?.iTunes?.iTunesBlock?.appending(string) ?? string
+        case .rssChannelItemItunesImage:                  break
+        case .rssChannelItemItunesDuration:               self.items?.last?.iTunes?.iTunesDuration          = string.toDuration()
+        case .rssChannelItemItunesExplicit:               self.items?.last?.iTunes?.iTunesExplicit          = self.items?.last?.iTunes?.iTunesExplicit?.appending(string) ?? string
+        case .rssChannelItemItunesIsClosedCaptioned:      self.items?.last?.iTunes?.isClosedCaptioned       = self.items?.last?.iTunes?.isClosedCaptioned?.appending(string) ?? string
+        case .rssChannelItemItunesOrder:                  self.items?.last?.iTunes?.iTunesOrder             = Int(string)
+        case .rssChannelItemItunesSubtitle:               self.items?.last?.iTunes?.iTunesSubtitle          = self.items?.last?.iTunes?.iTunesSubtitle?.appending(string) ?? string
+        case .rssChannelItemItunesSummary:                self.items?.last?.iTunes?.iTunesSummary           = self.items?.last?.iTunes?.iTunesSummary?.appending(string) ?? string
+        case .rssChannelItemItunesKeywords:               self.items?.last?.iTunes?.iTunesKeywords          = self.items?.last?.iTunes?.iTunesKeywords?.appending(string) ?? string
             
             // MARK: Media
             
-        case .RSSChannelItemMediaThumbnail: self.items?.last?.media?.mediaThumbnails?.last?.value = self.items?.last?.media?.mediaThumbnails?.last?.value?.appending(string) ?? string
-        case .RSSChannelItemMediaContent: break
-        case .RSSChannelItemMediaCommunity: break
-        case .RSSChannelItemMediaCommunityMediaStarRating: break
-        case .RSSChannelItemMediaCommunityMediaStatistics: break
-        case .RSSChannelItemMediaCommunityMediaTags: self.items?.last?.media?.mediaCommunity?.mediaTags = MediaTag.tagsFrom(string: string)
-        case .RSSChannelItemMediaComments: break
-        case .RSSChannelItemMediaCommentsMediaComment: self.items?.last?.media?.mediaComments?.append(string)
-        case .RSSChannelItemMediaEmbed: break
-        case .RSSChannelItemMediaEmbedMediaParam: self.items?.last?.media?.mediaEmbed?.mediaParams?.last?.value = self.items?.last?.media?.mediaEmbed?.mediaParams?.last?.value?.appending(string) ?? string
+        case .rssChannelItemMediaThumbnail: self.items?.last?.media?.mediaThumbnails?.last?.value = self.items?.last?.media?.mediaThumbnails?.last?.value?.appending(string) ?? string
+        case .rssChannelItemMediaContent: break
+        case .rssChannelItemMediaCommunity: break
+        case .rssChannelItemMediaCommunityMediaStarRating: break
+        case .rssChannelItemMediaCommunityMediaStatistics: break
+        case .rssChannelItemMediaCommunityMediaTags: self.items?.last?.media?.mediaCommunity?.mediaTags = MediaTag.tagsFrom(string: string)
+        case .rssChannelItemMediaComments: break
+        case .rssChannelItemMediaCommentsMediaComment: self.items?.last?.media?.mediaComments?.append(string)
+        case .rssChannelItemMediaEmbed: break
+        case .rssChannelItemMediaEmbedMediaParam: self.items?.last?.media?.mediaEmbed?.mediaParams?.last?.value = self.items?.last?.media?.mediaEmbed?.mediaParams?.last?.value?.appending(string) ?? string
             
-        case .RSSChannelItemMediaGroup: break
-        case .RSSChannelItemMediaGroupMediaCredit: self.items?.last?.media?.mediaGroup?.mediaCredits?.last?.value  = self.items?.last?.media?.mediaGroup?.mediaCredits?.last?.value?.appending(string) ?? string
-        case .RSSChannelItemMediaGroupMediaCategory: self.items?.last?.media?.mediaGroup?.mediaCategory?.value  = self.items?.last?.media?.mediaGroup?.mediaCategory?.value?.appending(string) ?? string
-        case .RSSChannelItemMediaGroupMediaRating: self.items?.last?.media?.mediaGroup?.mediaRating?.value  = self.items?.last?.media?.mediaGroup?.mediaRating?.value?.appending(string) ?? string
-        case .RSSChannelItemMediaGroupMediaContent: break
+        case .rssChannelItemMediaGroup: break
+        case .rssChannelItemMediaGroupMediaCredit: self.items?.last?.media?.mediaGroup?.mediaCredits?.last?.value  = self.items?.last?.media?.mediaGroup?.mediaCredits?.last?.value?.appending(string) ?? string
+        case .rssChannelItemMediaGroupMediaCategory: self.items?.last?.media?.mediaGroup?.mediaCategory?.value  = self.items?.last?.media?.mediaGroup?.mediaCategory?.value?.appending(string) ?? string
+        case .rssChannelItemMediaGroupMediaRating: self.items?.last?.media?.mediaGroup?.mediaRating?.value  = self.items?.last?.media?.mediaGroup?.mediaRating?.value?.appending(string) ?? string
+        case .rssChannelItemMediaGroupMediaContent: break
             
-        case .RSSChannelItemMediaResponses: break
-        case .RSSChannelItemMediaResponsesMediaResponse: self.items?.last?.media?.mediaResponses?.append(string)
-        case .RSSChannelItemMediaBackLinks: break
-        case .RSSChannelItemMediaBackLinksBackLink: self.items?.last?.media?.mediaBackLinks?.append(string)
-        case .RSSChannelItemMediaStatus: break
-        case .RSSChannelItemMediaPrice: break
-        case .RSSChannelItemMediaLicense: self.items?.last?.media?.mediaLicense?.value = self.items?.last?.media?.mediaLicense?.value?.appending(string) ?? string
-        case .RSSChannelItemMediaSubTitle: break
-        case .RSSChannelItemMediaPeerLink: break
-        case .RSSChannelItemMediaLocation: break
-        case .RSSChannelItemMediaLocationPosition: self.items?.last?.media?.mediaLocation?.mapFrom(latLng: string)
+        case .rssChannelItemMediaResponses: break
+        case .rssChannelItemMediaResponsesMediaResponse: self.items?.last?.media?.mediaResponses?.append(string)
+        case .rssChannelItemMediaBackLinks: break
+        case .rssChannelItemMediaBackLinksBackLink: self.items?.last?.media?.mediaBackLinks?.append(string)
+        case .rssChannelItemMediaStatus: break
+        case .rssChannelItemMediaPrice: break
+        case .rssChannelItemMediaLicense: self.items?.last?.media?.mediaLicense?.value = self.items?.last?.media?.mediaLicense?.value?.appending(string) ?? string
+        case .rssChannelItemMediaSubTitle: break
+        case .rssChannelItemMediaPeerLink: break
+        case .rssChannelItemMediaLocation: break
+        case .rssChannelItemMediaLocationPosition: self.items?.last?.media?.mediaLocation?.mapFrom(latLng: string)
             
-        case .RSSChannelItemMediaRestriction: self.items?.last?.media?.mediaRestriction?.value = self.items?.last?.media?.mediaRestriction?.value?.appending(string) ?? string
-        case .RSSChannelItemMediaScenes: break
-        case .RSSChannelItemMediaScenesMediaScene: break
-        case .RSSChannelItemMediaScenesMediaSceneSceneTitle: self.items?.last?.media?.mediaScenes?.last?.sceneTitle = self.items?.last?.media?.mediaScenes?.last?.sceneTitle?.appending(string) ?? string
-        case .RSSChannelItemMediaScenesMediaSceneSceneDescription: self.items?.last?.media?.mediaScenes?.last?.sceneDescription = self.items?.last?.media?.mediaScenes?.last?.sceneDescription?.appending(string) ?? string
-        case .RSSChannelItemMediaScenesMediaSceneSceneStartTime: self.items?.last?.media?.mediaScenes?.last?.sceneStartTime = string.toDuration()
-        case .RSSChannelItemMediaScenesMediaSceneSceneEndTime: self.items?.last?.media?.mediaScenes?.last?.sceneEndTime = string.toDuration()
+        case .rssChannelItemMediaRestriction: self.items?.last?.media?.mediaRestriction?.value = self.items?.last?.media?.mediaRestriction?.value?.appending(string) ?? string
+        case .rssChannelItemMediaScenes: break
+        case .rssChannelItemMediaScenesMediaScene: break
+        case .rssChannelItemMediaScenesMediaSceneSceneTitle: self.items?.last?.media?.mediaScenes?.last?.sceneTitle = self.items?.last?.media?.mediaScenes?.last?.sceneTitle?.appending(string) ?? string
+        case .rssChannelItemMediaScenesMediaSceneSceneDescription: self.items?.last?.media?.mediaScenes?.last?.sceneDescription = self.items?.last?.media?.mediaScenes?.last?.sceneDescription?.appending(string) ?? string
+        case .rssChannelItemMediaScenesMediaSceneSceneStartTime: self.items?.last?.media?.mediaScenes?.last?.sceneStartTime = string.toDuration()
+        case .rssChannelItemMediaScenesMediaSceneSceneEndTime: self.items?.last?.media?.mediaScenes?.last?.sceneEndTime = string.toDuration()
             
         }
         

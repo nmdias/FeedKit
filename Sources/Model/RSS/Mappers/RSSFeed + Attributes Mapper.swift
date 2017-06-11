@@ -39,7 +39,7 @@ extension RSSFeed {
 
         switch path {
             
-        case .RSSChannelItem:
+        case .rssChannelItem:
 
             if  self.items == nil {
                 self.items = []
@@ -47,31 +47,31 @@ extension RSSFeed {
 
             self.items?.append(RSSFeedItem())
 
-        case .RSSChannelImage:
+        case .rssChannelImage:
 
             if  self.image == nil {
                 self.image = RSSFeedImage()
             }
 
-        case .RSSChannelSkipDays:
+        case .rssChannelSkipDays:
 
             if  self.skipDays == nil {
                 self.skipDays = []
             }
 
-        case .RSSChannelSkipHours:
+        case .rssChannelSkipHours:
 
             if  self.skipHours == nil {
                 self.skipHours = []
             }
 
-        case .RSSChannelTextInput:
+        case .rssChannelTextInput:
 
             if  self.textInput == nil {
                 self.textInput = RSSFeedTextInput()
             }
 
-        case .RSSChannelCategory:
+        case .rssChannelCategory:
 
             if  self.categories == nil {
                 self.categories = []
@@ -79,13 +79,13 @@ extension RSSFeed {
 
             self.categories?.append(RSSFeedCategory(attributes: attributeDict))
 
-        case .RSSChannelCloud:
+        case .rssChannelCloud:
 
             if  self.cloud == nil {
                 self.cloud = RSSFeedCloud(attributes: attributeDict)
             }
 
-        case .RSSChannelItemCategory:
+        case .rssChannelItemCategory:
 
             if  self.items?.last?.categories == nil {
                 self.items?.last?.categories = []
@@ -93,25 +93,25 @@ extension RSSFeed {
 
             self.items?.last?.categories?.append(RSSFeedItemCategory(attributes: attributeDict))
 
-        case .RSSChannelItemEnclosure:
+        case .rssChannelItemEnclosure:
 
             if  self.items?.last?.enclosure == nil {
                 self.items?.last?.enclosure = RSSFeedItemEnclosure(attributes: attributeDict)
             }
 
-        case .RSSChannelItemGUID:
+        case .rssChannelItemGUID:
 
             if  self.items?.last?.guid == nil {
                 self.items?.last?.guid = RSSFeedItemGUID(attributes: attributeDict)
             }
 
-        case .RSSChannelItemSource:
+        case .rssChannelItemSource:
 
             if  self.items?.last?.source == nil {
                 self.items?.last?.source = RSSFeedItemSource(attributes: attributeDict)
             }
 
-        case .RSSChannelItemContentEncoded:
+        case .rssChannelItemContentEncoded:
 
             if  self.items?.last?.content == nil {
                 self.items?.last?.content = ContentNamespace()
@@ -119,9 +119,9 @@ extension RSSFeed {
 
 
         case
-        .RSSChannelSyndicationUpdateBase,
-        .RSSChannelSyndicationUpdatePeriod,
-        .RSSChannelSyndicationUpdateFrequency:
+        .rssChannelSyndicationUpdateBase,
+        .rssChannelSyndicationUpdatePeriod,
+        .rssChannelSyndicationUpdateFrequency:
 
             /// If the syndication variable has not been initialized yet, do it before assiging any values
             if  self.syndication == nil {
@@ -129,42 +129,42 @@ extension RSSFeed {
             }
 
         case
-        .RSSChannelDublinCoreTitle,
-        .RSSChannelDublinCoreCreator,
-        .RSSChannelDublinCoreSubject,
-        .RSSChannelDublinCoreDescription,
-        .RSSChannelDublinCorePublisher,
-        .RSSChannelDublinCoreContributor,
-        .RSSChannelDublinCoreDate,
-        .RSSChannelDublinCoreType,
-        .RSSChannelDublinCoreFormat,
-        .RSSChannelDublinCoreIdentifier,
-        .RSSChannelDublinCoreSource,
-        .RSSChannelDublinCoreLanguage,
-        .RSSChannelDublinCoreRelation,
-        .RSSChannelDublinCoreCoverage,
-        .RSSChannelDublinCoreRights:
+        .rssChannelDublinCoreTitle,
+        .rssChannelDublinCoreCreator,
+        .rssChannelDublinCoreSubject,
+        .rssChannelDublinCoreDescription,
+        .rssChannelDublinCorePublisher,
+        .rssChannelDublinCoreContributor,
+        .rssChannelDublinCoreDate,
+        .rssChannelDublinCoreType,
+        .rssChannelDublinCoreFormat,
+        .rssChannelDublinCoreIdentifier,
+        .rssChannelDublinCoreSource,
+        .rssChannelDublinCoreLanguage,
+        .rssChannelDublinCoreRelation,
+        .rssChannelDublinCoreCoverage,
+        .rssChannelDublinCoreRights:
 
             if  self.dublinCore == nil {
                 self.dublinCore = DublinCoreNamespace()
             }
 
         case
-        .RSSChannelItemDublinCoreTitle,
-        .RSSChannelItemDublinCoreCreator,
-        .RSSChannelItemDublinCoreSubject,
-        .RSSChannelItemDublinCoreDescription,
-        .RSSChannelItemDublinCorePublisher,
-        .RSSChannelItemDublinCoreContributor,
-        .RSSChannelItemDublinCoreDate,
-        .RSSChannelItemDublinCoreType,
-        .RSSChannelItemDublinCoreFormat,
-        .RSSChannelItemDublinCoreIdentifier,
-        .RSSChannelItemDublinCoreSource,
-        .RSSChannelItemDublinCoreLanguage,
-        .RSSChannelItemDublinCoreRelation,
-        .RSSChannelItemDublinCoreCoverage,
-        .RSSChannelItemDublinCoreRights:
+        .rssChannelItemDublinCoreTitle,
+        .rssChannelItemDublinCoreCreator,
+        .rssChannelItemDublinCoreSubject,
+        .rssChannelItemDublinCoreDescription,
+        .rssChannelItemDublinCorePublisher,
+        .rssChannelItemDublinCoreContributor,
+        .rssChannelItemDublinCoreDate,
+        .rssChannelItemDublinCoreType,
+        .rssChannelItemDublinCoreFormat,
+        .rssChannelItemDublinCoreIdentifier,
+        .rssChannelItemDublinCoreSource,
+        .rssChannelItemDublinCoreLanguage,
+        .rssChannelItemDublinCoreRelation,
+        .rssChannelItemDublinCoreCoverage,
+        .rssChannelItemDublinCoreRights:
 
             /// If the dublin core variable has not been initialized yet, do it before assiging any values
             if  self.items?.last?.dublinCore == nil {
@@ -172,39 +172,39 @@ extension RSSFeed {
             }
 
         case
-        .RSSChannelItunesAuthor,
-        .RSSChannelItunesBlock,
-        .RSSChannelItunesCategory,
-        .RSSChannelItunesSubcategory,
-        .RSSChannelItunesImage,
-        .RSSChannelItunesExplicit,
-        .RSSChannelItunesComplete,
-        .RSSChannelItunesNewFeedURL,
-        .RSSChannelItunesOwner,
-        .RSSChannelItunesOwnerName,
-        .RSSChannelItunesOwnerEmail,
-        .RSSChannelItunesSubtitle,
-        .RSSChannelItunesSummary,
-        .RSSChannelItunesKeywords:
+        .rssChannelItunesAuthor,
+        .rssChannelItunesBlock,
+        .rssChannelItunesCategory,
+        .rssChannelItunesSubcategory,
+        .rssChannelItunesImage,
+        .rssChannelItunesExplicit,
+        .rssChannelItunesComplete,
+        .rssChannelItunesNewFeedURL,
+        .rssChannelItunesOwner,
+        .rssChannelItunesOwnerName,
+        .rssChannelItunesOwnerEmail,
+        .rssChannelItunesSubtitle,
+        .rssChannelItunesSummary,
+        .rssChannelItunesKeywords:
 
             if self.iTunes == nil {
                 self.iTunes = ITunesNamespace()
             }
 
             switch path {
-            case .RSSChannelItunesCategory:
+            case .rssChannelItunesCategory:
                 if self.iTunes?.iTunesCategories == nil {
                     self.iTunes?.iTunesCategories = []
                 }
                 self.iTunes?.iTunesCategories?.append(ITunesCategory(attributes: attributeDict))
 
-            case .RSSChannelItunesSubcategory:
+            case .rssChannelItunesSubcategory:
                 self.iTunes?.iTunesCategories?.last?.subcategory = attributeDict["text"]
 
-            case .RSSChannelItunesImage:
+            case .rssChannelItunesImage:
                 self.iTunes?.iTunesImage = attributeDict["href"]
 
-            case .RSSChannelItunesOwner:
+            case .rssChannelItunesOwner:
                 if self.iTunes?.iTunesOwner == nil {
                     self.iTunes?.iTunesOwner = ITunesOwner()
                 }
@@ -213,23 +213,23 @@ extension RSSFeed {
             }
 
         case
-        .RSSChannelItemItunesAuthor,
-        .RSSChannelItemItunesBlock,
-        .RSSChannelItemItunesDuration,
-        .RSSChannelItemItunesImage,
-        .RSSChannelItemItunesExplicit,
-        .RSSChannelItemItunesIsClosedCaptioned,
-        .RSSChannelItemItunesOrder,
-        .RSSChannelItemItunesSubtitle,
-        .RSSChannelItemItunesSummary,
-        .RSSChannelItemItunesKeywords:
+        .rssChannelItemItunesAuthor,
+        .rssChannelItemItunesBlock,
+        .rssChannelItemItunesDuration,
+        .rssChannelItemItunesImage,
+        .rssChannelItemItunesExplicit,
+        .rssChannelItemItunesIsClosedCaptioned,
+        .rssChannelItemItunesOrder,
+        .rssChannelItemItunesSubtitle,
+        .rssChannelItemItunesSummary,
+        .rssChannelItemItunesKeywords:
             
             if self.items?.last?.iTunes == nil {
                 self.items?.last?.iTunes = ITunesNamespace()
             }
 
             switch path {
-            case .RSSChannelItemItunesImage:
+            case .rssChannelItemItunesImage:
                 self.items?.last?.iTunes?.iTunesImage = attributeDict["href"]
             default:
                 break
@@ -238,36 +238,36 @@ extension RSSFeed {
             // MARK: Media
             
         case
-        .RSSChannelItemMediaThumbnail,
-        .RSSChannelItemMediaContent,
-        .RSSChannelItemMediaCommunity,
-        .RSSChannelItemMediaCommunityMediaStarRating,
-        .RSSChannelItemMediaCommunityMediaStatistics,
-        .RSSChannelItemMediaCommunityMediaTags,
-        .RSSChannelItemMediaComments,
-        .RSSChannelItemMediaCommentsMediaComment,
-        .RSSChannelItemMediaEmbed,
-        .RSSChannelItemMediaEmbedMediaParam,
-        .RSSChannelItemMediaResponses,
-        .RSSChannelItemMediaResponsesMediaResponse,
-        .RSSChannelItemMediaBackLinks,
-        .RSSChannelItemMediaBackLinksBackLink,
-        .RSSChannelItemMediaStatus,
-        .RSSChannelItemMediaPrice,
-        .RSSChannelItemMediaLicense,
-        .RSSChannelItemMediaSubTitle,
-        .RSSChannelItemMediaPeerLink,
-        .RSSChannelItemMediaLocation,
-        .RSSChannelItemMediaLocationPosition,
-        .RSSChannelItemMediaRestriction,
-        .RSSChannelItemMediaScenes,
-        .RSSChannelItemMediaScenesMediaScene,
+        .rssChannelItemMediaThumbnail,
+        .rssChannelItemMediaContent,
+        .rssChannelItemMediaCommunity,
+        .rssChannelItemMediaCommunityMediaStarRating,
+        .rssChannelItemMediaCommunityMediaStatistics,
+        .rssChannelItemMediaCommunityMediaTags,
+        .rssChannelItemMediaComments,
+        .rssChannelItemMediaCommentsMediaComment,
+        .rssChannelItemMediaEmbed,
+        .rssChannelItemMediaEmbedMediaParam,
+        .rssChannelItemMediaResponses,
+        .rssChannelItemMediaResponsesMediaResponse,
+        .rssChannelItemMediaBackLinks,
+        .rssChannelItemMediaBackLinksBackLink,
+        .rssChannelItemMediaStatus,
+        .rssChannelItemMediaPrice,
+        .rssChannelItemMediaLicense,
+        .rssChannelItemMediaSubTitle,
+        .rssChannelItemMediaPeerLink,
+        .rssChannelItemMediaLocation,
+        .rssChannelItemMediaLocationPosition,
+        .rssChannelItemMediaRestriction,
+        .rssChannelItemMediaScenes,
+        .rssChannelItemMediaScenesMediaScene,
         
-        .RSSChannelItemMediaGroup,
-        .RSSChannelItemMediaGroupMediaCategory,
-        .RSSChannelItemMediaGroupMediaCredit,
-        .RSSChannelItemMediaGroupMediaRating,
-        .RSSChannelItemMediaGroupMediaContent:
+        .rssChannelItemMediaGroup,
+        .rssChannelItemMediaGroupMediaCategory,
+        .rssChannelItemMediaGroupMediaCredit,
+        .rssChannelItemMediaGroupMediaRating,
+        .rssChannelItemMediaGroupMediaContent:
             
             if  self.items?.last?.media == nil {
                 self.items?.last?.media = MediaNamespace()
@@ -275,7 +275,7 @@ extension RSSFeed {
             
             switch path {
                 
-            case .RSSChannelItemMediaThumbnail:
+            case .rssChannelItemMediaThumbnail:
                 
                 if  self.items?.last?.media?.mediaThumbnails == nil {
                     self.items?.last?.media?.mediaThumbnails = []
@@ -283,7 +283,7 @@ extension RSSFeed {
                 
                 self.items?.last?.media?.mediaThumbnails?.append(MediaThumbnail(attributes: attributeDict))
                 
-            case .RSSChannelItemMediaContent:
+            case .rssChannelItemMediaContent:
                 
                 if  self.items?.last?.media?.mediaContents == nil {
                     self.items?.last?.media?.mediaContents = []
@@ -291,43 +291,43 @@ extension RSSFeed {
                 
                 self.items?.last?.media?.mediaContents?.append(MediaContent(attributes: attributeDict))
                 
-            case .RSSChannelItemMediaCommunity:
+            case .rssChannelItemMediaCommunity:
                 
                 if  self.items?.last?.media?.mediaCommunity == nil {
                     self.items?.last?.media?.mediaCommunity = MediaCommunity()
                 }
                 
-            case .RSSChannelItemMediaCommunityMediaStarRating:
+            case .rssChannelItemMediaCommunityMediaStarRating:
                 
                 if  self.items?.last?.media?.mediaCommunity?.mediaStarRating == nil {
                     self.items?.last?.media?.mediaCommunity?.mediaStarRating = MediaStarRating(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaCommunityMediaStatistics:
+            case .rssChannelItemMediaCommunityMediaStatistics:
                 
                 if  self.items?.last?.media?.mediaCommunity?.mediaStatistics == nil {
                     self.items?.last?.media?.mediaCommunity?.mediaStatistics = MediaStatistics(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaCommunityMediaTags:
+            case .rssChannelItemMediaCommunityMediaTags:
                 
                 if  self.items?.last?.media?.mediaCommunity?.mediaTags == nil {
                     self.items?.last?.media?.mediaCommunity?.mediaTags = []
                 }
                 
-            case .RSSChannelItemMediaComments:
+            case .rssChannelItemMediaComments:
                 
                 if  self.items?.last?.media?.mediaComments == nil {
                     self.items?.last?.media?.mediaComments = []
                 }
                 
-            case .RSSChannelItemMediaEmbed:
+            case .rssChannelItemMediaEmbed:
                 
                 if  self.items?.last?.media?.mediaEmbed == nil {
                     self.items?.last?.media?.mediaEmbed = MediaEmbed(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaEmbedMediaParam:
+            case .rssChannelItemMediaEmbedMediaParam:
                 
                 if  self.items?.last?.media?.mediaEmbed?.mediaParams == nil {
                     self.items?.last?.media?.mediaEmbed?.mediaParams = []
@@ -335,25 +335,25 @@ extension RSSFeed {
                 
                 self.items?.last?.media?.mediaEmbed?.mediaParams?.append(MediaParam(attributes: attributeDict))
                 
-            case .RSSChannelItemMediaResponses:
+            case .rssChannelItemMediaResponses:
                 
                 if  self.items?.last?.media?.mediaResponses == nil {
                     self.items?.last?.media?.mediaResponses = []
                 }
                 
-            case .RSSChannelItemMediaBackLinks:
+            case .rssChannelItemMediaBackLinks:
                 
                 if  self.items?.last?.media?.mediaBackLinks == nil {
                     self.items?.last?.media?.mediaBackLinks = []
                 }
                 
-            case .RSSChannelItemMediaStatus:
+            case .rssChannelItemMediaStatus:
                 
                 if  self.items?.last?.media?.mediaStatus == nil {
                     self.items?.last?.media?.mediaStatus = MediaStatus(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaPrice:
+            case .rssChannelItemMediaPrice:
                 
                 if  self.items?.last?.media?.mediaPrices == nil {
                     self.items?.last?.media?.mediaPrices = []
@@ -361,43 +361,43 @@ extension RSSFeed {
                 
                 self.items?.last?.media?.mediaPrices?.append(MediaPrice(attributes: attributeDict))
                 
-            case .RSSChannelItemMediaLicense:
+            case .rssChannelItemMediaLicense:
                 
                 if  self.items?.last?.media?.mediaLicense == nil {
                     self.items?.last?.media?.mediaLicense = MediaLicence(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaSubTitle:
+            case .rssChannelItemMediaSubTitle:
                 
                 if  self.items?.last?.media?.mediaSubTitle == nil {
                     self.items?.last?.media?.mediaSubTitle = MediaSubTitle(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaPeerLink:
+            case .rssChannelItemMediaPeerLink:
                 
                 if  self.items?.last?.media?.mediaPeerLink == nil {
                     self.items?.last?.media?.mediaPeerLink = MediaPeerLink(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaLocation:
+            case .rssChannelItemMediaLocation:
                 
                 if  self.items?.last?.media?.mediaLocation == nil {
                     self.items?.last?.media?.mediaLocation = MediaLocation(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaRestriction:
+            case .rssChannelItemMediaRestriction:
                 
                 if  self.items?.last?.media?.mediaRestriction == nil {
                     self.items?.last?.media?.mediaRestriction = MediaRestriction(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaScenes:
+            case .rssChannelItemMediaScenes:
                 
                 if  self.items?.last?.media?.mediaScenes == nil {
                     self.items?.last?.media?.mediaScenes = []
                 }
                 
-            case .RSSChannelItemMediaScenesMediaScene:
+            case .rssChannelItemMediaScenesMediaScene:
                 
                 if  self.items?.last?.media?.mediaScenes == nil {
                     self.items?.last?.media?.mediaScenes = []
@@ -405,19 +405,19 @@ extension RSSFeed {
                 
                 self.items?.last?.media?.mediaScenes?.append(MediaScene())
                 
-            case .RSSChannelItemMediaGroup:
+            case .rssChannelItemMediaGroup:
                 
                 if  self.items?.last?.media?.mediaGroup == nil {
                     self.items?.last?.media?.mediaGroup = MediaGroup()
                 }
                 
-            case .RSSChannelItemMediaGroupMediaCategory:
+            case .rssChannelItemMediaGroupMediaCategory:
                 
                 if  self.items?.last?.media?.mediaGroup?.mediaCategory == nil {
                     self.items?.last?.media?.mediaGroup?.mediaCategory = MediaCategory(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaGroupMediaCredit:
+            case .rssChannelItemMediaGroupMediaCredit:
                 
                 if  self.items?.last?.media?.mediaGroup?.mediaCredits == nil {
                     self.items?.last?.media?.mediaGroup?.mediaCredits = []
@@ -425,13 +425,13 @@ extension RSSFeed {
                 
                 self.items?.last?.media?.mediaGroup?.mediaCredits?.append(MediaCredit(attributes: attributeDict))
                 
-            case .RSSChannelItemMediaGroupMediaRating:
+            case .rssChannelItemMediaGroupMediaRating:
                 
                 if  self.items?.last?.media?.mediaGroup?.mediaRating == nil {
                     self.items?.last?.media?.mediaGroup?.mediaRating = MediaRating(attributes: attributeDict)
                 }
                 
-            case .RSSChannelItemMediaGroupMediaContent:
+            case .rssChannelItemMediaGroupMediaContent:
                 
                 if  self.items?.last?.media?.mediaGroup?.mediaContents == nil {
                     self.items?.last?.media?.mediaGroup?.mediaContents = []

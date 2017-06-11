@@ -41,49 +41,49 @@ public enum RSSFeedSkipDay: String {
      Aggregator hint to skip parsing on `Monday`
      
      */
-    case Monday = "monday"
+    case monday = "monday"
     
     /**
      
      Aggregator hint to skip parsing on `Tuesday`
      
      */
-    case Tuesday = "tuesday"
+    case tuesday = "tuesday"
     
     /**
      
      Aggregator hint to skip parsing on `Wednesday`
      
      */
-    case Wednesday = "wednesday"
+    case wednesday = "wednesday"
     
     /**
      
      Aggregator hint to skip parsing on `Thursday`
      
      */
-    case Thursday = "thursday"
+    case thursday = "thursday"
     
     /**
      
      Aggregator hint to skip parsing on `Friday`
      
      */
-    case Friday = "friday"
+    case friday = "friday"
     
     /**
      
      Aggregator hint to skip parsing on `Saturday`
      
      */
-    case Saturday = "saturday"
+    case saturday = "saturday"
     
     /**
      
      Aggregator hint to skip parsing on `Sunday`
      
      */
-    case Sunday = "sunday"
+    case sunday = "sunday"
 
 }
 
@@ -99,13 +99,13 @@ extension RSSFeedSkipDay {
         
         switch rawValue.lowercased() {
             
-        case "monday":     self = .Monday
-        case "tuesday":    self = .Tuesday
-        case "wednesday":  self = .Wednesday
-        case "thursday":   self = .Thursday
-        case "friday":     self = .Friday
-        case "saturday":   self = .Saturday
-        case "sunday":     self = .Sunday
+        case "monday":     self = .monday
+        case "tuesday":    self = .tuesday
+        case "wednesday":  self = .wednesday
+        case "thursday":   self = .thursday
+        case "friday":     self = .friday
+        case "saturday":   self = .saturday
+        case "sunday":     self = .sunday
             
         default: return nil
             
