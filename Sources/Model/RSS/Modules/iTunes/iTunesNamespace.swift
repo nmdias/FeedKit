@@ -198,3 +198,27 @@ open class ITunesNamespace {
      */
     open var iTunesKeywords: String?
 }
+
+// MARK: - Equatable
+
+extension ITunesNamespace: Equatable {
+    
+    public static func ==(lhs: ITunesNamespace, rhs: ITunesNamespace) -> Bool {
+        return
+            lhs.iTunesAuthor == rhs.iTunesAuthor &&
+            lhs.iTunesBlock == rhs.iTunesBlock &&
+            lhs.iTunesCategories == rhs.iTunesCategories &&
+            lhs.iTunesImage == rhs.iTunesImage &&
+            lhs.iTunesDuration == rhs.iTunesDuration &&
+            lhs.iTunesExplicit == rhs.iTunesExplicit &&
+            lhs.isClosedCaptioned == rhs.isClosedCaptioned &&
+            lhs.iTunesOrder == rhs.iTunesOrder &&
+            lhs.iTunesComplete == rhs.iTunesComplete &&
+            lhs.iTunesNewFeedURL == rhs.iTunesNewFeedURL &&
+            lhs.iTunesOwner == rhs.iTunesOwner &&
+            lhs.iTunesSubtitle == rhs.iTunesSubtitle &&
+            lhs.iTunesSummary == rhs.iTunesSummary &&
+            lhs.iTunesKeywords == rhs.iTunesKeywords
+    }
+    
+}

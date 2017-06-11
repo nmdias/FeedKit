@@ -132,3 +132,24 @@ extension RSSFeedItemEnclosure.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension RSSFeedItemEnclosure: Equatable {
+    
+    public static func ==(lhs: RSSFeedItemEnclosure, rhs: RSSFeedItemEnclosure) -> Bool {
+        return lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension RSSFeedItemEnclosure.Attributes: Equatable {
+    
+    public static func ==(lhs: RSSFeedItemEnclosure.Attributes, rhs: RSSFeedItemEnclosure.Attributes) -> Bool {
+        return
+            lhs.url == rhs.url &&
+            lhs.type == rhs.type &&
+            lhs.length == rhs.length
+    }
+    
+}

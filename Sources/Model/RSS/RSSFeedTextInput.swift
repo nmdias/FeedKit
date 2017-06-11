@@ -75,3 +75,17 @@ open class RSSFeedTextInput {
     open var link: String?
     
 }
+
+// MARK: - Equatable
+
+extension RSSFeedTextInput: Equatable {
+    
+    public static func ==(lhs: RSSFeedTextInput, rhs: RSSFeedTextInput) -> Bool {
+        return
+            lhs.title == rhs.title &&
+            lhs.description == rhs.description &&
+            lhs.name == rhs.name &&
+            lhs.link == lhs.link
+    }
+    
+}

@@ -66,7 +66,7 @@ open class ITunesCategory {
     /**
 
      The subcategory, if any.
-     
+     lhs.category == rhs.category
      */
     open var subcategory: String?
 
@@ -81,3 +81,14 @@ extension ITunesCategory {
     }
 }
 
+// MARK: - Equatable
+
+extension ITunesCategory: Equatable {
+    
+    public static func ==(lhs: ITunesCategory, rhs: ITunesCategory) -> Bool {
+        return
+            lhs.category == rhs.category &&
+            lhs.subcategory == rhs.subcategory
+    }
+    
+}

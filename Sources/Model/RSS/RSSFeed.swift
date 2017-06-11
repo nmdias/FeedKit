@@ -347,3 +347,35 @@ open class RSSFeed {
     
     
 }
+
+// MARK: - Equatable
+
+extension RSSFeed: Equatable {
+    
+    public static func ==(lhs: RSSFeed, rhs: RSSFeed) -> Bool {
+        return
+            lhs.categories == rhs.categories &&
+            lhs.cloud == rhs.cloud &&
+            lhs.copyright == rhs.copyright &&
+            lhs.description == rhs.description &&
+            lhs.docs == rhs.docs &&
+            lhs.dublinCore == rhs.dublinCore &&
+            lhs.generator == rhs.generator &&
+            lhs.items == rhs.items &&
+            lhs.iTunes == rhs.iTunes &&
+            lhs.language == rhs.language &&
+            lhs.lastBuildDate == rhs.lastBuildDate &&
+            lhs.link == rhs.link &&
+            lhs.managingEditor == rhs.managingEditor &&
+            lhs.pubDate == rhs.pubDate &&
+            lhs.rating == rhs.rating &&
+            lhs.skipDays == rhs.skipDays &&
+            lhs.skipHours == rhs.skipHours &&
+            lhs.syndication == rhs.syndication &&
+            lhs.textInput == rhs.textInput &&
+            lhs.title == rhs.title &&
+            lhs.ttl == rhs.ttl &&
+            lhs.webMaster == rhs.webMaster
+    }
+    
+}

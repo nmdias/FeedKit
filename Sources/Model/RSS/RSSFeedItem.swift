@@ -252,3 +252,26 @@ open class RSSFeedItem {
      */
     open var media: MediaNamespace?
 }
+
+// MARK: - Equatable
+
+extension RSSFeedItem: Equatable {
+    
+    public static func ==(lhs: RSSFeedItem, rhs: RSSFeedItem) -> Bool {
+        return
+            lhs.author == rhs.author &&
+            lhs.categories == rhs.categories &&
+            lhs.comments == rhs.comments &&
+            lhs.content == rhs.content &&
+            lhs.description == rhs.description &&
+            lhs.dublinCore == rhs.dublinCore &&
+            lhs.enclosure == rhs.enclosure &&
+            lhs.guid == rhs.guid &&
+            lhs.iTunes == rhs.iTunes &&
+            lhs.media == rhs.media &&
+            lhs.pubDate == rhs.pubDate &&
+            lhs.source == rhs.source &&
+            lhs.title == rhs.title
+    }
+    
+}

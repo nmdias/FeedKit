@@ -116,3 +116,23 @@ extension RSSFeedItemSource.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension RSSFeedItemSource: Equatable {
+    
+    public static func ==(lhs: RSSFeedItemSource, rhs: RSSFeedItemSource) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension RSSFeedItemSource.Attributes: Equatable {
+    
+    public static func ==(lhs: RSSFeedItemSource.Attributes, rhs: RSSFeedItemSource.Attributes) -> Bool {
+        return lhs.url == rhs.url
+    }
+    
+}

@@ -68,3 +68,16 @@ open class SyndicationNamespace {
     open var syUpdateBase: Date?
     
 }
+
+// MARK: - Equatable
+
+extension SyndicationNamespace: Equatable {
+    
+    public static func ==(lhs: SyndicationNamespace, rhs: SyndicationNamespace) -> Bool {
+        return
+            lhs.syUpdatePeriod == rhs.syUpdatePeriod &&
+            lhs.syUpdateFrequency == rhs.syUpdateFrequency &&
+            lhs.syUpdateBase == rhs.syUpdateBase
+    }
+    
+}

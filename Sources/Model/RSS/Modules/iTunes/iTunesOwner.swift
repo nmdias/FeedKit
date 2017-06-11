@@ -50,5 +50,14 @@ open class ITunesOwner {
     
 }
 
+// MARK: - Equatable
 
-
+extension ITunesOwner: Equatable {
+    
+    public static func ==(lhs: ITunesOwner, rhs: ITunesOwner) -> Bool {
+        return
+            lhs.email == rhs.email &&
+            lhs.name == rhs.name
+    }
+    
+}

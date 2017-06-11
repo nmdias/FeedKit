@@ -101,3 +101,23 @@ extension RSSFeedCategory.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension RSSFeedCategory: Equatable {
+    
+    public static func ==(lhs: RSSFeedCategory, rhs: RSSFeedCategory) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension RSSFeedCategory.Attributes: Equatable {
+    
+    public static func ==(lhs: RSSFeedCategory.Attributes, rhs: RSSFeedCategory.Attributes) -> Bool {
+        return lhs.domain == rhs.domain
+    }
+    
+}

@@ -157,3 +157,26 @@ extension RSSFeedCloud.Attributes {
     }
     
 }
+
+// MARK: - Equatable
+
+extension RSSFeedCloud: Equatable {
+    
+    public static func ==(lhs: RSSFeedCloud, rhs: RSSFeedCloud) -> Bool {
+        return lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension RSSFeedCloud.Attributes: Equatable {
+    
+    public static func ==(lhs: RSSFeedCloud.Attributes, rhs: RSSFeedCloud.Attributes) -> Bool {
+        return
+            lhs.domain == rhs.domain &&
+            lhs.port == rhs.port &&
+            lhs.path == rhs.path &&
+            lhs.registerProcedure == rhs.registerProcedure &&
+            lhs.protocolSpecification == rhs.protocolSpecification
+    }
+    
+}

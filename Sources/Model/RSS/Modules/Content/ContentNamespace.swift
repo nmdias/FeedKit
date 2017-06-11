@@ -45,3 +45,12 @@ open class ContentNamespace {
     
 }
 
+// MARK: - Equatable
+
+extension ContentNamespace: Equatable {
+    
+    public static func ==(lhs: ContentNamespace, rhs: ContentNamespace) -> Bool {
+        return lhs.contentEncoded == rhs.contentEncoded
+    }
+    
+}

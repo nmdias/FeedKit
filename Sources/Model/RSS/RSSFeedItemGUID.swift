@@ -142,3 +142,22 @@ extension RSSFeedItemGUID.Attributes {
     
 }
 
+// MARK: - Equatable
+
+extension RSSFeedItemGUID: Equatable {
+    
+    public static func ==(lhs: RSSFeedItemGUID, rhs: RSSFeedItemGUID) -> Bool {
+        return
+            lhs.value == rhs.value &&
+            lhs.attributes == rhs.attributes
+    }
+    
+}
+
+extension RSSFeedItemGUID.Attributes: Equatable {
+    
+    public static func ==(lhs: RSSFeedItemGUID.Attributes, rhs: RSSFeedItemGUID.Attributes) -> Bool {
+        return lhs.isPermaLink == rhs.isPermaLink
+    }
+    
+}

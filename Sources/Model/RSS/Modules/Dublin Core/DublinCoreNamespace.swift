@@ -200,3 +200,28 @@ open class DublinCoreNamespace {
     open var dcRights: String?
     
 }
+
+// MARK: - Equatable
+
+extension DublinCoreNamespace: Equatable {
+    
+    public static func ==(lhs: DublinCoreNamespace, rhs: DublinCoreNamespace) -> Bool {
+        return
+            lhs.dcTitle == rhs.dcTitle &&
+            lhs.dcCreator == rhs.dcCreator &&
+            lhs.dcSubject == rhs.dcSubject &&
+            lhs.dcDescription == rhs.dcDescription &&
+            lhs.dcPublisher == rhs.dcPublisher &&
+            lhs.dcContributor == rhs.dcContributor &&
+            lhs.dcDate == rhs.dcDate &&
+            lhs.dcType == rhs.dcType &&
+            lhs.dcFormat == rhs.dcFormat &&
+            lhs.dcIdentifier == rhs.dcIdentifier &&
+            lhs.dcSource == rhs.dcSource &&
+            lhs.dcLanguage == rhs.dcLanguage &&
+            lhs.dcRelation == rhs.dcRelation &&
+            lhs.dcCoverage == rhs.dcCoverage &&
+            lhs.dcRights == rhs.dcRights
+    }
+    
+}

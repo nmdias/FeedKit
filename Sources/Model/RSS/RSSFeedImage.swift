@@ -101,3 +101,19 @@ open class RSSFeedImage {
     open var description: String?
     
 }
+
+// MARK: - Equatable
+
+extension RSSFeedImage: Equatable {
+    
+    public static func ==(lhs: RSSFeedImage, rhs: RSSFeedImage) -> Bool {
+        return
+            lhs.url == rhs.url &&
+            lhs.title == rhs.title &&
+            lhs.link == rhs.link &&
+            lhs.width == rhs.width &&
+            lhs.height == rhs.height &&
+            lhs.description == rhs.description
+    }
+    
+}
