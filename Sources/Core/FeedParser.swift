@@ -53,7 +53,7 @@ open class FeedParser {
      */
     public init?(URL: URL) {
         
-        guard let parser = Parser(contentsOf: URL) else {
+        guard let parser = Parser(URL: URL) else {
             return nil
         }
         
@@ -128,7 +128,7 @@ open class FeedParser {
      
      */
     open func abortParsing() {
-        self.parser.abortParsing()
+        self.parser.xmlParser.abortParsing()
     }
     
 }

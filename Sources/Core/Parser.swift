@@ -31,7 +31,7 @@ import Foundation
  itself.
  
  */
-class Parser: XMLParser, XMLParserDelegate {
+class Parser: NSObject, XMLParserDelegate {
     
     
     /**
@@ -64,6 +64,35 @@ class Parser: XMLParser, XMLParserDelegate {
     
     /**
      
+     The XML Parser
+     
+     */
+    let xmlParser: XMLParser
+    
+    
+    // MARK: - Initializers
+    
+    init?(URL: URL) {
+        guard let xmlParser = XMLParser(contentsOf: URL) else { return nil }
+        self.xmlParser = xmlParser
+        super.init()
+        self.xmlParser.delegate = self
+    }
+    
+    init(data: Data) {
+        self.xmlParser = XMLParser(data: data)
+        super.init()
+        self.xmlParser.delegate = self
+    }
+    
+    init(stream: InputStream) {
+        self.xmlParser = XMLParser(stream: stream)
+        super.init()
+        self.xmlParser.delegate = self
+    }
+    
+    /**
+     
      The current path along the XML's DOM elements. Path components are
      updated to reflect the current XML element being parsed.
      e.g. "/rss/channel/title" mean it's currently parsing the channels
@@ -72,23 +101,6 @@ class Parser: XMLParser, XMLParserDelegate {
      */
     fileprivate var currentXMLDOMPath: URL = URL(string: "/")!
     
-    
-    /**
-     
-     Initializes a parser with the XML contents encapsulated in a given
-     data object.
-     
-     The sole purpose of overriding this method is to become it's own
-     delegate, and thus, hanlde the parsing logic
-     
-     */
-    override init(data: Data) {
-        super.init(data: data)
-        self.delegate = self
-    }
-    
-    
-    
     /**
      
      Starts parsing the feed.
@@ -96,7 +108,7 @@ class Parser: XMLParser, XMLParserDelegate {
      */
     func parseFeed() -> Result {
         
-        self.parse()
+        self.xmlParser.parse()
         
         if let error = parsingError {
             return Result.failure(error)
@@ -205,7 +217,7 @@ extension Parser {
     func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
         
         guard let string = String(data: CDATABlock, encoding: .utf8) else {
-            self.abortParsing()
+            self.xmlParser.abortParsing()
             self.parsingError = ParserError.feedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString).value
             return
         }
