@@ -361,6 +361,14 @@
 		A0AA54751D02C096000A2264 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
 		A0AA54761D02C096000A2264 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
 		A0C161F51D0219D500FC5C06 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
+		A0CBFBB71EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */; };
+		A0CBFBB81EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */; };
+		A0CBFBB91EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */; };
+		A0CBFBBA1EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */; };
+		A0CBFBBC1EEF3DBF001FC07A /* iTunesImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBBB1EEF3DBF001FC07A /* iTunesImage.swift */; };
+		A0CBFBBD1EEF3DBF001FC07A /* iTunesImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBBB1EEF3DBF001FC07A /* iTunesImage.swift */; };
+		A0CBFBBE1EEF3DBF001FC07A /* iTunesImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBBB1EEF3DBF001FC07A /* iTunesImage.swift */; };
+		A0CBFBBF1EEF3DBF001FC07A /* iTunesImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBBB1EEF3DBF001FC07A /* iTunesImage.swift */; };
 		A0E834B21EEDD86100BD3383 /* JSONFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834B11EEDD86100BD3383 /* JSONFeed.swift */; };
 		A0E834B31EEDD86100BD3383 /* JSONFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834B11EEDD86100BD3383 /* JSONFeed.swift */; };
 		A0E834B41EEDD86100BD3383 /* JSONFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834B11EEDD86100BD3383 /* JSONFeed.swift */; };
@@ -644,6 +652,8 @@
 		A09C851C1CE9AE6A00D20CAB /* FeedKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0AA546F1D02C07C000A2264 /* XMLFeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = XMLFeedParser.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0C161F41D0219D500FC5C06 /* ParserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ParserError.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iTunesSubCategory.swift; path = RSS/Modules/iTunes/iTunesSubCategory.swift; sourceTree = "<group>"; };
+		A0CBFBBB1EEF3DBF001FC07A /* iTunesImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iTunesImage.swift; path = RSS/Modules/iTunes/iTunesImage.swift; sourceTree = "<group>"; };
 		A0E834B11EEDD86100BD3383 /* JSONFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFeed.swift; path = JSON/JSONFeed.swift; sourceTree = "<group>"; };
 		A0E834B61EEDDAD700BD3383 /* JSONFeedAuthor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFeedAuthor.swift; path = JSON/JSONFeedAuthor.swift; sourceTree = "<group>"; };
 		A0E834BB1EEDDD2900BD3383 /* JSONFeedHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFeedHub.swift; path = JSON/JSONFeedHub.swift; sourceTree = "<group>"; };
@@ -836,11 +846,11 @@
 				A0E834D01EEE03C500BD3383 /* FeedDataType.swift */,
 				A07F3BDA1CFE136900C3AF80 /* FeedParser.swift */,
 				A06B2D631EEE93B60092E084 /* FeedParserProtocol.swift */,
+				A0AA546F1D02C07C000A2264 /* XMLFeedParser.swift */,
+				A060D72A1D0353B200F0DACE /* XMLFeedType.swift */,
 				A06B2D5E1EEE93730092E084 /* JSONFeedParser.swift */,
 				A0C161F41D0219D500FC5C06 /* ParserError.swift */,
 				A07F3BDB1CFE136900C3AF80 /* Result.swift */,
-				A0AA546F1D02C07C000A2264 /* XMLFeedParser.swift */,
-				A060D72A1D0353B200F0DACE /* XMLFeedType.swift */,
 			);
 			name = Core;
 			path = Sources/Core;
@@ -1123,8 +1133,10 @@
 			isa = PBXGroup;
 			children = (
 				B533B1EA1E3945AE0094B758 /* iTunesCategory.swift */,
+				A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */,
 				B533B1EB1E3945AE0094B758 /* iTunesNamespace.swift */,
 				B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */,
+				A0CBFBBB1EEF3DBF001FC07A /* iTunesImage.swift */,
 			);
 			name = iTunes;
 			path = ../..;
@@ -1577,6 +1589,7 @@
 				A07F3CB81CFE136900C3AF80 /* RSSFeedItem.swift in Sources */,
 				A03B7E751EE15D9F008E247B /* MediaRestriction.swift in Sources */,
 				A053F4EC1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
+				A0CBFBBA1EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */,
 				A0E834D41EEE03C500BD3383 /* FeedDataType.swift in Sources */,
 				A07F3CC01CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
 				A07E1E571EE07A77000E46EE /* MediaPlayer.swift in Sources */,
@@ -1613,6 +1626,7 @@
 				A02534341EDEC4C1008C3D70 /* MediaRating.swift in Sources */,
 				B5993FFA1E40AEB800949FB6 /* String + toDuration.swift in Sources */,
 				A07F3C9C1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
+				A0CBFBBF1EEF3DBF001FC07A /* iTunesImage.swift in Sources */,
 				A07F3C281CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A0AA54761D02C096000A2264 /* ParserError.swift in Sources */,
 				B533B1F71E3945BE0094B758 /* iTunesNamespace.swift in Sources */,
@@ -1760,6 +1774,7 @@
 				A07F3CB61CFE136900C3AF80 /* RSSFeedItem.swift in Sources */,
 				A03B7E731EE15D9F008E247B /* MediaRestriction.swift in Sources */,
 				A053F4EA1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
+				A0CBFBB81EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */,
 				A0E834D21EEE03C500BD3383 /* FeedDataType.swift in Sources */,
 				A07F3CBE1CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
 				A07E1E551EE07A77000E46EE /* MediaPlayer.swift in Sources */,
@@ -1796,6 +1811,7 @@
 				A02534321EDEC4C1008C3D70 /* MediaRating.swift in Sources */,
 				B5993FF81E40AEB700949FB6 /* String + toDuration.swift in Sources */,
 				A07F3C9A1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
+				A0CBFBBD1EEF3DBF001FC07A /* iTunesImage.swift in Sources */,
 				A07F3C261CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A0AA54741D02C095000A2264 /* ParserError.swift in Sources */,
 				B533B1F11E3945BD0094B758 /* iTunesNamespace.swift in Sources */,
@@ -1856,6 +1872,7 @@
 				A07F3CB71CFE136900C3AF80 /* RSSFeedItem.swift in Sources */,
 				A03B7E741EE15D9F008E247B /* MediaRestriction.swift in Sources */,
 				A053F4EB1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
+				A0CBFBB91EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */,
 				A0E834D31EEE03C500BD3383 /* FeedDataType.swift in Sources */,
 				A07F3CBF1CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
 				A07E1E561EE07A77000E46EE /* MediaPlayer.swift in Sources */,
@@ -1892,6 +1909,7 @@
 				A02534331EDEC4C1008C3D70 /* MediaRating.swift in Sources */,
 				B5993FF91E40AEB800949FB6 /* String + toDuration.swift in Sources */,
 				A07F3C9B1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
+				A0CBFBBE1EEF3DBF001FC07A /* iTunesImage.swift in Sources */,
 				A07F3C271CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A0AA54751D02C096000A2264 /* ParserError.swift in Sources */,
 				B533B1F41E3945BD0094B758 /* iTunesNamespace.swift in Sources */,
@@ -1952,6 +1970,7 @@
 				A07F3C891CFE136900C3AF80 /* DublinCoreNamespace.swift in Sources */,
 				A03B7E721EE15D9F008E247B /* MediaRestriction.swift in Sources */,
 				A07F3CC91CFE136900C3AF80 /* RSSFeedSkipDay.swift in Sources */,
+				A0CBFBB71EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */,
 				A0E834D11EEE03C500BD3383 /* FeedDataType.swift in Sources */,
 				A053F4E91D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
 				A07E1E541EE07A77000E46EE /* MediaPlayer.swift in Sources */,
@@ -1988,6 +2007,7 @@
 				A07F3C311CFE136900C3AF80 /* AtomFeedEntry.swift in Sources */,
 				A07F3CC51CFE136900C3AF80 /* RSSFeedItemSource.swift in Sources */,
 				A07F3C491CFE136900C3AF80 /* AtomFeedEntrySource.swift in Sources */,
+				A0CBFBBC1EEF3DBF001FC07A /* iTunesImage.swift in Sources */,
 				A07F3C651CFE136900C3AF80 /* AtomFeed + Characters Mapper.swift in Sources */,
 				A07F3C291CFE136900C3AF80 /* AtomFeedCategory.swift in Sources */,
 				A07F3C991CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,

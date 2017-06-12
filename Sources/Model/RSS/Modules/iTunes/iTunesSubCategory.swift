@@ -1,7 +1,7 @@
 //
-//  iTunesCategory.swift
+//  ITunesSubCategory.swift
 //
-//  Copyright (c) 2017 Ben Murphy
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,20 +23,20 @@
 //
 
 /**
-
- Users can browse podcast subject categories in the iTunes Store by choosing 
- a category from the Podcasts pop-up menu in the navigation bar. Use the 
+ 
+ Users can browse podcast subject categories in the iTunes Store by choosing
+ a category from the Podcasts pop-up menu in the navigation bar. Use the
  <itunes:category> tag to specify the browsing category for your podcast.
-
- You can also define a subcategory if one is available within your category. 
- Although you can specify more than one category and subcategory in your 
- feed, the iTunes Store only recognizes the first category and subcategory. 
- For a complete list of categories and subcategories, see Podcasts Connect 
+ 
+ You can also define a subcategory if one is available within your category.
+ Although you can specify more than one category and subcategory in your
+ feed, the iTunes Store only recognizes the first category and subcategory.
+ For a complete list of categories and subcategories, see Podcasts Connect
  categories.
-
- Note: When specifying categories and subcategories, be sure to properly 
+ 
+ Note: When specifying categories and subcategories, be sure to properly
  escape ampersands:
-
+ 
  Single category:
  <itunes:category text="Music" />
  
@@ -45,20 +45,21 @@
  
  Category with subcategory:
  <itunes:category text="Society &amp; Culture">
-    <itunes:category text="History" />
+ <itunes:category text="History" />
  </itunes:category>
  
  Multiple categories:
  <itunes:category text="Society &amp; Culture">
-    <itunes:category text="History" />
+ <itunes:category text="History" />
  </itunes:category>
  <itunes:category text="Technology">
-    <itunes:category text="Gadgets" />
+ <itunes:category text="Gadgets" />
  </itunes:category>
-
+ 
  */
-open class ITunesCategory {
 
+open class ITunesSubCategory {
+    
     
     /**
      
@@ -83,27 +84,20 @@ open class ITunesCategory {
      */
     open var attributes: Attributes?
     
-
-    /**
-     
-     The iTunes SubCategory.
-     
-     */
-    open var subcategory: ITunesSubCategory?
     
 }
 
 // MARK: - Initializers
 
-extension ITunesCategory {
+extension ITunesSubCategory {
     
     convenience init(attributes attributesDict: [String: String]) {
         self.init()
-        self.attributes = ITunesCategory.Attributes(attributes: attributesDict)
+        self.attributes = ITunesSubCategory.Attributes(attributes: attributesDict)
     }
 }
 
-extension ITunesCategory.Attributes {
+extension ITunesSubCategory.Attributes {
     
     convenience init?(attributes attributeDict: [String : String]) {
         
@@ -121,17 +115,17 @@ extension ITunesCategory.Attributes {
 
 // MARK: - Equatable
 
-extension ITunesCategory: Equatable {
+extension ITunesSubCategory: Equatable {
     
-    public static func ==(lhs: ITunesCategory, rhs: ITunesCategory) -> Bool {
+    public static func ==(lhs: ITunesSubCategory, rhs: ITunesSubCategory) -> Bool {
         return lhs.attributes == rhs.attributes
     }
     
 }
 
-extension ITunesCategory.Attributes: Equatable {
+extension ITunesSubCategory.Attributes: Equatable {
     
-    public static func ==(lhs: ITunesCategory.Attributes, rhs: ITunesCategory.Attributes) -> Bool {
+    public static func ==(lhs: ITunesSubCategory.Attributes, rhs: ITunesSubCategory.Attributes) -> Bool {
         return lhs.text == rhs.text
     }
     

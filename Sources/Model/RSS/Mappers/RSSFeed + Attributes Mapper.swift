@@ -183,29 +183,36 @@ extension RSSFeed {
         .rssChannelItunesSummary,
         .rssChannelItunesKeywords:
 
-            if self.iTunes == nil {
+            if  self.iTunes == nil {
                 self.iTunes = ITunesNamespace()
             }
 
             switch path {
+                
             case .rssChannelItunesCategory:
-                if self.iTunes?.iTunesCategories == nil {
+                
+                if  self.iTunes?.iTunesCategories == nil {
                     self.iTunes?.iTunesCategories = []
                 }
+                
                 self.iTunes?.iTunesCategories?.append(ITunesCategory(attributes: attributeDict))
 
             case .rssChannelItunesSubcategory:
-                self.iTunes?.iTunesCategories?.last?.subcategory = attributeDict["text"]
+                
+                self.iTunes?.iTunesCategories?.last?.subcategory = ITunesSubCategory(attributes: attributeDict)
 
             case .rssChannelItunesImage:
-                self.iTunes?.iTunesImage = attributeDict["href"]
+                
+                self.iTunes?.iTunesImage = ITunesImage(attributes: attributeDict)
 
             case .rssChannelItunesOwner:
-                if self.iTunes?.iTunesOwner == nil {
+                
+                if  self.iTunes?.iTunesOwner == nil {
                     self.iTunes?.iTunesOwner = ITunesOwner()
                 }
-            default:
-                break
+                
+            default: break
+                
             }
 
         case
@@ -220,15 +227,18 @@ extension RSSFeed {
         .rssChannelItemItunesSummary,
         .rssChannelItemItunesKeywords:
             
-            if self.items?.last?.iTunes == nil {
+            if  self.items?.last?.iTunes == nil {
                 self.items?.last?.iTunes = ITunesNamespace()
             }
 
             switch path {
+                
             case .rssChannelItemItunesImage:
-                self.items?.last?.iTunes?.iTunesImage = attributeDict["href"]
-            default:
-                break
+                
+                self.items?.last?.iTunes?.iTunesImage = ITunesImage(attributes: attributeDict)
+                
+            default: break
+                
             }
             
             // MARK: Media
@@ -258,7 +268,6 @@ extension RSSFeed {
         .rssChannelItemMediaRestriction,
         .rssChannelItemMediaScenes,
         .rssChannelItemMediaScenesMediaScene,
-        
         .rssChannelItemMediaGroup,
         .rssChannelItemMediaGroupMediaCategory,
         .rssChannelItemMediaGroupMediaCredit,

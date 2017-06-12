@@ -125,7 +125,7 @@ open class ITunesNamespace {
      are different from the standard RSS image tag specifications.
 
      */
-    open var iTunesImage: String?
+    open var iTunesImage: ITunesImage?
 
     /**
 
