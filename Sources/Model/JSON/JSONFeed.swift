@@ -153,9 +153,67 @@ open class JSONFeed {
     
     /**
      
-     Publisher's custom objects
+     Publisher's custom objects.
+     
+     If you find the need to use these extensions please do so as a temporary
+     solution and open an issue on github so that direct support can be added
+     through a strongly typed model.
      
      */
     open var extensions: [String: Any?]?
+    
+}
+
+// MARK: - Initializers
+
+extension JSONFeed {
+    
+    convenience init?(dictionary: [String : Any?]) {
+        
+        if dictionary.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.version        = dictionary["version"] as? String
+        self.title          = dictionary["title"] as? String
+        self.userComment    = dictionary["user_comment"] as? String
+        self.homePageURL    = dictionary["home_page_url"] as? String
+        self.description    = dictionary["description"] as? String
+        self.feedUrl        = dictionary["feed_url"] as? String
+        self.nextUrl        = dictionary["next_url"] as? String
+        self.icon           = dictionary["icon"] as? String
+        self.favicon        = dictionary["favicon"] as? String
+        self.expired        = dictionary["expired"] as? Bool
+        
+        if let items = dictionary["items"] as? [[String: Any?]] {
+            self.items = items.flatMap({ (item) -> JSONFeedItem? in
+                return JSONFeedItem(dictionary: item)
+            })
+        }
+        
+        if let authorDictionary = dictionary["author"] as? [String: Any] {
+            self.author = JSONFeedAuthor(dictionary: authorDictionary)
+        }
+        
+        if let hubs = dictionary["hubs"] as? [[String: Any?]] {
+            self.hubs = hubs.flatMap({ (hub) -> JSONFeedHub? in
+                return JSONFeedHub(dictionary: hub)
+            })
+        }
+        
+        let privateExtensionKeys = dictionary.keys.flatMap { (key) -> String? in
+            return key.hasPrefix("_") ? key : nil
+        }
+        
+        if !privateExtensionKeys.isEmpty {
+            extensions = [:]
+            privateExtensionKeys.forEach { (key) in
+                extensions?[key] = dictionary[key]
+            }
+        }
+        
+    }
     
 }

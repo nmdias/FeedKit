@@ -1,5 +1,5 @@
 //
-//  FeedType.swift
+//  FeedDataType.swift
 //
 //  Copyright (c) 2016 Nuno Manuel Dias
 //
@@ -26,31 +26,24 @@ import Foundation
 
 /**
  
- Types of feed. The `rawValue` matches the top-level XML element
- of a feed.
+ Types of data to determine how to parse a feed.
  
  */
-enum XMLFeedType: String {
+enum FeedDataType: String {
+    case xml
+    case json
+}
+
+extension FeedDataType {
     
-    /**
-     
-     The `Atom Syndication Format feed type
-     
-     */
-    case atom = "feed"
-    
-    /**
-     
-     The Really Simple Syndication feed type version 0.9
-     
-     */
-    case rss1 = "rdf:RDF"
-    
-    /**
-     
-     The Really Simple Syndication feed type version 2.0
-     
-     */
-    case rss2 = "rss"
+    init?(data: Data) {
+        guard let string = String(data: data, encoding: .utf8) else { return nil }
+        guard let char = string.trimmingCharacters(in: .whitespacesAndNewlines).characters.first else { return nil }
+        switch char {
+        case "<": self = .xml
+        case "{": self = .json
+        default: return nil
+        }
+    }
     
 }

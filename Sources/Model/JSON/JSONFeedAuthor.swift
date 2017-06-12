@@ -59,3 +59,23 @@ open class JSONFeedAuthor {
     open var avatar: String?
 
 }
+
+// MARK: - Initializers
+
+extension JSONFeedAuthor {
+    
+    convenience init?(dictionary: [String : Any?]) {
+        
+        if dictionary.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.name = dictionary["name"] as? String
+        self.url = dictionary["url"] as? String
+        self.avatar = dictionary["avatar"] as? String
+        
+    }
+    
+}

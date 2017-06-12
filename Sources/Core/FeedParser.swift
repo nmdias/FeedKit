@@ -38,28 +38,7 @@ open class FeedParser {
      the parsing of RSS and Atom feeds.
      
      */
-    let parser: Parser
-    
-    
-    
-    /**
-     
-     Initializes the parser with the XML content referenced by the given URL.
-     
-     - parameter URL: An URL object specifying a URL
-     
-     - returns: An instance of the feed parser.
-     
-     */
-    public init?(URL: URL) {
-        
-        guard let parser = Parser(URL: URL) else {
-            return nil
-        }
-        
-        self.parser = parser
-        
-    }
+    let parser: FeedParserProtocol
     
     
     
@@ -72,8 +51,38 @@ open class FeedParser {
      - returns: An instance of the `FeedParser`.
      
      */
-    public init(data: Data) {
-        self.parser = Parser(data: data)
+    public init?(data: Data) {
+        
+        guard let feedDataType = FeedDataType(data: data) else { return nil }
+        
+        switch feedDataType {
+        case .json:
+            self.parser = JSONFeedParser(data: data)
+        case .xml:
+            self.parser = XMLFeedParser(data: data)
+        }
+        
+    }
+    
+    
+    
+    /**
+     
+     Initializes the parser with the XML content referenced by the given URL.
+     
+     - parameter URL: An URL object specifying a URL
+     
+     - returns: An instance of the feed parser.
+     
+     */
+    public convenience init?(URL: URL) {
+        
+        guard let data = try? Data(contentsOf: URL) else {
+            return nil
+        }
+        
+        self.init(data: data)
+        
     }
     
     
@@ -84,7 +93,7 @@ open class FeedParser {
      
      */
     open func parse() -> Result {
-        return self.parser.parseFeed()
+        return self.parser.parse()
     }
     
     /**
@@ -109,11 +118,15 @@ open class FeedParser {
     
     /**
      
-     Stops parsing the feed.
+     Stops parsing XML feeds.
      
      */
     open func abortParsing() {
-        self.parser.xmlParser.abortParsing()
+        
+        if let xmlFeedParser = self.parser as? XMLFeedParser {
+            xmlFeedParser.xmlParser.abortParsing()
+        }
+        
     }
     
 }

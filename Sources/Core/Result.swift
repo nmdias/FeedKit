@@ -48,6 +48,13 @@ public enum Result {
     
     /**
      
+     The `JSONFeed` model with a parsed JSON feed
+     
+     */
+    case json(JSONFeed)
+    
+    /**
+     
      The failure `NSError` generator from parsing errors
      
      */
@@ -63,6 +70,7 @@ public enum Result {
         switch self {
         case .atom:     return true
         case .rss:      return true
+        case .json:     return true
         case .failure:  return false
         }
         
@@ -88,9 +96,8 @@ public enum Result {
     public var rssFeed: RSSFeed? {
         
         switch self {
-        case .atom(_): return nil
         case .rss(let value): return value
-        case .failure(_): return nil
+        default: return nil
         }
         
     }
@@ -104,13 +111,24 @@ public enum Result {
         
         switch self {
         case .atom(let value): return value
-        case .rss(_): return nil
-        case .failure(_): return nil
+        default: return nil
         }
         
     }
     
-    
+    /**
+     
+     Returns the parsed json feed if the result is a success, `nil` otherwise.
+     
+     */
+    public var jsonFeed: JSONFeed? {
+        
+        switch self {
+        case .json(let value): return value
+        default: return nil
+        }
+        
+    }
     
     /**
      
@@ -121,9 +139,8 @@ public enum Result {
     public var error: NSError? {
         
         switch self {
-        case .atom(_): return nil
-        case .rss(_): return nil
         case .failure(let error): return error
+        default: return nil
         }
         
     }

@@ -1,5 +1,5 @@
 //
-//  JSONFeedItemAttachment.swift
+//  Parser.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //
@@ -22,47 +22,36 @@
 //  SOFTWARE.
 //
 
-open class JSONFeedItemAttachment {
+import Foundation
+
+open class JSONFeedParser: FeedParserProtocol {
     
-    /**
-     
-     (required, string) specifies the location of the attachment.
-     
-     */
-    open var url: String?
+    let data: Data
     
-    /**
-     
-     (required, string) specifies the type of the attachment, such as 
-     “audio/mpeg.”
-     
-     */
-    open var mimeType: String?
+    required public init(data: Data) {
+        self.data = data
+    }
     
-    /**
-     
-     (optional, string) is a name for the attachment. Important: if there are 
-     multiple attachments, and two or more have the exact same title (when title 
-     is present), then they are considered as alternate representations of the 
-     same thing. In this way a podcaster, for instance, might provide an audio 
-     recording in different formats.
-     
-     */
-    open var title: String?
-    
-    /**
-     
-     (optional, number) specifies how large the file is.
-     
-     */
-    open var sizeInBytes: Int?
-    
-    /**
-     
-     (optional, number) specifies how long it takes to listen to or watch, when 
-     played at normal speed.
-     
-     */
-    open var durationInSeconds: TimeInterval?
+    func parse() -> Result {
+        
+        do {
+            
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            
+            guard let jsonDictionary = jsonObject as? [String: Any?] else {
+                return Result.failure(ParserError.internalError(reason: "Unable to cast serialized json.").value)
+            }
+            
+            guard let jsonFeed = JSONFeed(dictionary: jsonDictionary) else {
+                return Result.failure(ParserError.feedNotFound.value)
+            }
+            
+            return Result.json(jsonFeed)
+            
+        } catch {
+            return Result.failure(error as NSError)
+        }
+        
+    }
     
 }

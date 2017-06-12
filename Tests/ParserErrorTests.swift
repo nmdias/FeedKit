@@ -40,6 +40,7 @@ class ParserErrorTests: BaseTestCase {
         switch result {
         case .atom(_): XCTFail("Unexpected atom feed found")
         case .rss(_): XCTFail("Unexpected rss feed found")
+        case .json(_): XCTFail("Unexpected json feed found")
         case .failure(let error): XCTAssertEqual(error.code, ParserError.feedNotFound.code)
         }
 

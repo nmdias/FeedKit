@@ -130,7 +130,7 @@ open class JSONFeedItem {
      (optional, string) specifies the modification date in RFC 3339 format.
      
      */
-    open var dateModified: String?
+    open var dateModified: Date?
     
     /**
      
@@ -153,9 +153,71 @@ open class JSONFeedItem {
     
     /**
      
-     Publisher's custom objects
+     (optional, array) lists related resources.
+     
+     */
+    open var attachments: [JSONFeedAttachment]?
+    
+    /**
+     
+     Publisher's custom objects. 
+     
+     If you find the need to use these extensions please do so as a temporary
+     solution and open an issue on github so that direct support can be added
+     through a strongly typed model.
      
      */
     open var extensions: [String: Any?]?
     
 }
+
+// MARK: - Initializers
+
+extension JSONFeedItem {
+    
+    convenience init?(dictionary: [String : Any?]) {
+        
+        if dictionary.isEmpty {
+            return nil
+        }
+        
+        self.init()
+        
+        self.id             = dictionary["id"] as? String
+        self.title          = dictionary["title"] as? String
+        self.url            = dictionary["url"] as? String
+        self.externalUrl    = dictionary["external_url"] as? String
+        self.contentText    = dictionary["content_text"] as? String
+        self.contentHtml    = dictionary["content_html"] as? String
+        self.summary        = dictionary["summary"] as? String
+        self.image          = dictionary["image"] as? String
+        self.bannerImage    = dictionary["banner_image"] as? String
+        self.datePublished  = (dictionary["date_published"] as? String)?.dateFromSpec(.rfc3999)
+        self.dateModified   = (dictionary["date_modified"] as? String)?.dateFromSpec(.rfc3999)
+        self.tags           = dictionary["tags"] as? [String]
+        
+        if let authorDictionary = dictionary["author"] as? [String: Any] {
+            self.author = JSONFeedAuthor(dictionary: authorDictionary)
+        }
+        
+        if let attachments = dictionary["attachments"] as? [[String: Any?]] {
+            self.attachments = attachments.flatMap({ (attachment) -> JSONFeedAttachment? in
+                return JSONFeedAttachment(dictionary: attachment)
+            })
+        }
+        
+        let privateExtensionKeys = dictionary.keys.flatMap { (key) -> String? in
+            return key.hasPrefix("_") ? key : nil
+        }
+        
+        if !privateExtensionKeys.isEmpty {
+            extensions = [:]
+            privateExtensionKeys.forEach { (key) in
+                extensions?[key] = dictionary[key]
+            }
+        }
+        
+    }
+    
+}
+

@@ -1,5 +1,5 @@
 //
-//  JSONFeedHub.swift
+//  JSONFeedAttachment.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //
@@ -22,27 +22,54 @@
 //  SOFTWARE.
 //
 
-open class JSONFeedHub {
+open class JSONFeedAttachment {
     
     /**
      
-     
-     
-     */
-    open var type: String?
-    
-    /**
-     
-     
+     (required, string) specifies the location of the attachment.
      
      */
     open var url: String?
+    
+    /**
+     
+     (required, string) specifies the type of the attachment, such as 
+     “audio/mpeg.”
+     
+     */
+    open var mimeType: String?
+    
+    /**
+     
+     (optional, string) is a name for the attachment. Important: if there are 
+     multiple attachments, and two or more have the exact same title (when title 
+     is present), then they are considered as alternate representations of the 
+     same thing. In this way a podcaster, for instance, might provide an audio 
+     recording in different formats.
+     
+     */
+    open var title: String?
+    
+    /**
+     
+     (optional, number) specifies how large the file is.
+     
+     */
+    open var sizeInBytes: Int?
+    
+    /**
+     
+     (optional, number) specifies how long it takes to listen to or watch, when 
+     played at normal speed.
+     
+     */
+    open var durationInSeconds: TimeInterval?
     
 }
 
 // MARK: - Initializers
 
-extension JSONFeedHub {
+extension JSONFeedAttachment {
     
     convenience init?(dictionary: [String : Any?]) {
         
@@ -52,8 +79,11 @@ extension JSONFeedHub {
         
         self.init()
         
-        self.type = dictionary["type"] as? String
-        self.url = dictionary["url"] as? String
+        self.title              = dictionary["title"] as? String
+        self.url                = dictionary["url"] as? String
+        self.mimeType           = dictionary["mime_type"] as? String
+        self.sizeInBytes        = dictionary["size_in_bytes"] as? Int
+        self.durationInSeconds  = dictionary["duration_in_seconds"] as? TimeInterval
         
     }
     

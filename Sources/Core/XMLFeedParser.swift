@@ -31,7 +31,7 @@ import Foundation
  itself.
  
  */
-class Parser: NSObject, XMLParserDelegate {
+class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
     
     
     /**
@@ -41,7 +41,7 @@ class Parser: NSObject, XMLParserDelegate {
      found.
      
      */
-    var feedType: FeedType?
+    var feedType: XMLFeedType?
     
     
     
@@ -72,14 +72,7 @@ class Parser: NSObject, XMLParserDelegate {
     
     // MARK: - Initializers
     
-    init?(URL: URL) {
-        guard let xmlParser = XMLParser(contentsOf: URL) else { return nil }
-        self.xmlParser = xmlParser
-        super.init()
-        self.xmlParser.delegate = self
-    }
-    
-    init(data: Data) {
+    required init(data: Data) {
         self.xmlParser = XMLParser(data: data)
         super.init()
         self.xmlParser.delegate = self
@@ -100,7 +93,7 @@ class Parser: NSObject, XMLParserDelegate {
      Starts parsing the feed.
      
      */
-    func parseFeed() -> Result {
+    func parse() -> Result {
         
         self.xmlParser.parse()
         
@@ -119,7 +112,7 @@ class Parser: NSObject, XMLParserDelegate {
             
         case .rss1, .rss2:
             return Result.rss(self.rssFeed!)
-            
+                        
         }
         
     }
@@ -162,7 +155,7 @@ class Parser: NSObject, XMLParserDelegate {
 // MARK: - XMLParser delegate
 
 
-extension Parser {
+extension XMLFeedParser {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
@@ -171,7 +164,7 @@ extension Parser {
         
         // Get the feed type from the element, if it hasn't been done yet
         guard let feedType = self.feedType else {
-            self.feedType = FeedType(rawValue: elementName)
+            self.feedType = XMLFeedType(rawValue: elementName)
             return
         }
         

@@ -33,7 +33,7 @@ public enum ParserError {
     
     /**
      
-     Couldn't parse any known feed from the provided DOM structure
+     Couldn't parse any known feed
      
      */
     case feedNotFound
@@ -48,6 +48,14 @@ public enum ParserError {
     
     /**
      
+     An internal error from which the user cannot recover.
+     
+     */
+
+    case internalError(reason: String)
+    
+    /**
+     
      The error's code for the specified case.
      
      */
@@ -56,6 +64,7 @@ public enum ParserError {
         switch self {
         case .feedNotFound: return -1000
         case .feedCDATABlockEncodingError: return -10001
+        case .internalError(_): return -90000
         }
         
     }
@@ -72,8 +81,8 @@ public enum ParserError {
         case .feedNotFound:
             return [
                 NSLocalizedDescriptionKey: "Feed not found",
-                NSLocalizedFailureReasonErrorKey: "Couldn't parse any known feed from the provided DOM structure",
-                NSLocalizedRecoverySuggestionErrorKey: "Provide a valid Atom/RSS DOM structure "
+                NSLocalizedFailureReasonErrorKey: "Couldn't parse any known feed",
+                NSLocalizedRecoverySuggestionErrorKey: "Provide a valid Atom/RSS/JSON feed "
             ]
             
         case .feedCDATABlockEncodingError(let path):
@@ -81,6 +90,13 @@ public enum ParserError {
                 NSLocalizedDescriptionKey: "`CDATAblock` encoding error",
                 NSLocalizedFailureReasonErrorKey: "Unable to convert the bytes in `CDATABlock` to Unicode characters using the UTF-8 encoding at current path: \(path)",
                 NSLocalizedRecoverySuggestionErrorKey: "Make sure the encoding provided in a `CDATABlock` is encoded as UTF-8"
+            ]
+        
+        case .internalError(let reason):
+            return [
+                NSLocalizedDescriptionKey: "Internal unresolved error: \(reason)",
+                NSLocalizedFailureReasonErrorKey: "Unable to recover from an internal unresolved error: \(reason)",
+                NSLocalizedRecoverySuggestionErrorKey: "If you're seeing this error you probably should open an issue on github"
             ]
             
         }

@@ -35,6 +35,7 @@ class RFC3339DateFormatter: DateFormatter {
     let dateFormats = [
         "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
         "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ",
+        "yyyy-MM-dd'T'HH:mm:ss-SS:ZZ"
     ]
     
     override init() {
