@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  A string that uniquely identifies the item.

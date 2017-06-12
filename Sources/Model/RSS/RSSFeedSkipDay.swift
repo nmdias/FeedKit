@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  A hint for aggregators telling them which days they can skip.

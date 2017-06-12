@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  An RSS and Atom feed parser. `FeedParser` uses `Foundation`'s

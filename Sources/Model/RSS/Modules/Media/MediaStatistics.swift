@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  This element specifies various statistics about a media object like the

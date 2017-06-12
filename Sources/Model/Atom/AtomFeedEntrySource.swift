@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  If an atom:entry is copied from one feed into another feed, then the

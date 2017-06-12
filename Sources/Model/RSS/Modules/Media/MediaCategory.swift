@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  Allows a taxonomy to be set that gives an indication of the type of media

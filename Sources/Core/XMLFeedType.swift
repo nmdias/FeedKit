@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  Types of feed. The `rawValue` matches the top-level XML element

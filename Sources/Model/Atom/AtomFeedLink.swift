@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
 
  The "atom:link" element defines a reference from an entry or feed to

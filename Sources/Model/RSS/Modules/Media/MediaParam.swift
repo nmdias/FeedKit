@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  Key-Value pairs with aditional parameters for the embeded Media.

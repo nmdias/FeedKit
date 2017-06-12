@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  The "atom:summary" element is a Text construct that conveys a short

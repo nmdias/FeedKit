@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  Specifies a GIF, JPEG or PNG image that can be displayed with the channel.

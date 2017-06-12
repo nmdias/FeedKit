@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  Data model for the XML DOM of the RSS 2.0 Specification

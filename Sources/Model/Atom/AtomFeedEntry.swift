@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  The "atom:entry" element represents an individual entry, acting as a

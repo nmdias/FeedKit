@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
 
  Use the <itunes:owner> tag to specify contact information for the podcast 

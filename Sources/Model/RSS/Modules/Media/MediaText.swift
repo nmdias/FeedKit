@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  Allows the inclusion of a text transcript, closed captioning or lyrics of

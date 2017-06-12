@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
 
  iTunes Podcasting Tags are de facto standard for podcast syndication. For more 

@@ -22,8 +22,6 @@
 //  SOFTWARE.
 //
 
-import Foundation
-
 /**
  
  Allows restrictions to be placed on the aggregator rendering the media in
