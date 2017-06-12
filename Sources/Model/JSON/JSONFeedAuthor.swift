@@ -79,3 +79,16 @@ extension JSONFeedAuthor {
     }
     
 }
+
+// MARK: - Equatable
+
+extension JSONFeedAuthor: Equatable {
+    
+    public static func ==(lhs: JSONFeedAuthor, rhs: JSONFeedAuthor) -> Bool {
+        return
+            lhs.name == rhs.name &&
+            lhs.url == rhs.url &&
+            lhs.avatar == rhs.avatar
+    }
+    
+}

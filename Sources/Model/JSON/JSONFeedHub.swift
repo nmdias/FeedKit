@@ -58,3 +58,15 @@ extension JSONFeedHub {
     }
     
 }
+
+// MARK: - Equatable
+
+extension JSONFeedHub: Equatable {
+    
+    public static func ==(lhs: JSONFeedHub, rhs: JSONFeedHub) -> Bool {
+        return
+            lhs.type == rhs.type &&
+            lhs.url == rhs.url
+    }
+    
+}

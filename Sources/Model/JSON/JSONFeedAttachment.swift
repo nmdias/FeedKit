@@ -88,3 +88,18 @@ extension JSONFeedAttachment {
     }
     
 }
+
+// MARK: - Equatable
+
+extension JSONFeedAttachment: Equatable {
+    
+    public static func ==(lhs: JSONFeedAttachment, rhs: JSONFeedAttachment) -> Bool {
+        return
+            lhs.title == rhs.title &&
+            lhs.url == rhs.url &&
+            lhs.mimeType == rhs.mimeType &&
+            lhs.sizeInBytes == rhs.sizeInBytes &&
+            lhs.durationInSeconds == rhs.durationInSeconds
+    }
+    
+}

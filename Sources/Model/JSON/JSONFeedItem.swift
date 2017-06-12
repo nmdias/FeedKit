@@ -221,3 +221,26 @@ extension JSONFeedItem {
     
 }
 
+// MARK: - Equatable
+
+extension JSONFeedItem: Equatable {
+    
+    public static func ==(lhs: JSONFeedItem, rhs: JSONFeedItem) -> Bool {
+        return
+            lhs.id == rhs.id &&
+            lhs.title == rhs.title &&
+            lhs.url == rhs.url &&
+            lhs.externalUrl == rhs.externalUrl &&
+            lhs.contentText == rhs.contentText &&
+            lhs.contentHtml == rhs.contentHtml &&
+            lhs.summary == rhs.summary &&
+            lhs.image == rhs.image &&
+            lhs.bannerImage == rhs.bannerImage &&
+            lhs.datePublished == rhs.datePublished &&
+            lhs.dateModified == rhs.dateModified &&
+            lhs.tags == rhs.tags &&
+            lhs.author == rhs.author &&
+            lhs.attachments == rhs.attachments
+    }
+    
+}

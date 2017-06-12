@@ -217,3 +217,27 @@ extension JSONFeed {
     }
     
 }
+
+// MARK: - Equatable
+
+extension JSONFeed: Equatable {
+    
+    public static func ==(lhs: JSONFeed, rhs: JSONFeed) -> Bool {
+        return
+            lhs.title == rhs.title &&
+            lhs.version == rhs.version &&
+            lhs.title == rhs.title &&
+            lhs.userComment == rhs.userComment &&
+            lhs.homePageURL == rhs.homePageURL &&
+            lhs.description == rhs.description &&
+            lhs.feedUrl == rhs.feedUrl &&
+            lhs.nextUrl == rhs.nextUrl &&
+            lhs.icon == rhs.icon &&
+            lhs.favicon == rhs.favicon &&
+            lhs.expired == rhs.expired &&
+            lhs.items == rhs.items &&
+            lhs.author == rhs.author &&
+            lhs.hubs == rhs.hubs
+    }
+    
+}
