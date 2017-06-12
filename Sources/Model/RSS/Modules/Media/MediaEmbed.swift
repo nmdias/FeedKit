@@ -24,6 +24,13 @@
 
 import Foundation
 
+/**
+ 
+ Sometimes player-specific embed code is needed for a player to play any
+ video. <media:embed> allows inclusion of such information in the form of
+ key-value pairs.
+ 
+ */
 open class MediaEmbed {
     
     /**
@@ -35,15 +42,21 @@ open class MediaEmbed {
         
         /**
          
+         The location of the embeded media.
+         
          */
         open var url: String?
         
         /**
          
+         The width size for the embeded Media.
+         
          */
         open var width: Int?
         
         /**
+         
+         The height size for the embeded Media.
          
          */
         open var height: Int?
@@ -58,6 +71,8 @@ open class MediaEmbed {
     open var attributes: Attributes?
     
     /**
+     
+      Key-Value pairs with aditional parameters for the embeded Media.
      
      */
     open var mediaParams: [MediaParam]?

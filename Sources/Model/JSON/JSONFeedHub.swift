@@ -22,18 +22,25 @@
 //  SOFTWARE.
 //
 
+/**
+ 
+ Describes an endpoints that can be used to subscribe to real-time notifications 
+ from the publisher of this feed. Each object has a type and url, both of which
+ are required.
+ 
+ */
 open class JSONFeedHub {
     
     /**
      
-     
+     The protocol used to talk with the hub, such as “rssCloud” or “WebSub.”
      
      */
     open var type: String?
     
     /**
      
-     
+     The hub's url.
      
      */
     open var url: String?

@@ -1,7 +1,7 @@
 //
 //  RSSFeed + Attributes Mapper.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -123,7 +123,6 @@ extension RSSFeed {
         .rssChannelSyndicationUpdatePeriod,
         .rssChannelSyndicationUpdateFrequency:
 
-            /// If the syndication variable has not been initialized yet, do it before assiging any values
             if  self.syndication == nil {
                 self.syndication = SyndicationNamespace()
             }
@@ -166,7 +165,6 @@ extension RSSFeed {
         .rssChannelItemDublinCoreCoverage,
         .rssChannelItemDublinCoreRights:
 
-            /// If the dublin core variable has not been initialized yet, do it before assiging any values
             if  self.items?.last?.dublinCore == nil {
                 self.items?.last?.dublinCore = DublinCoreNamespace()
             }

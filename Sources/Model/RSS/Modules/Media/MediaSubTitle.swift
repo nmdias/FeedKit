@@ -24,6 +24,12 @@
 
 import Foundation
 
+/**
+ 
+ Optional link to specify the machine-readable license associated with the
+ content.
+ 
+ */
 open class MediaSubTitle {
     
     /**
@@ -35,15 +41,21 @@ open class MediaSubTitle {
         
         /**
          
+         The type of the subtitle.
+         
          */
         open var type: String?
         
         /**
          
+         The subtitle language based on the RFC 3066.
+         
          */
         open var lang: String?
         
         /**
+         
+         The location of the subtitle.
          
          */
         open var href: String?

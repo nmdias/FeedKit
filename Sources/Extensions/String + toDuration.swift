@@ -1,7 +1,7 @@
 //
-// String + toDuration
+//  String + toDuration.swift
 //
-//Copyright (c) 2017 Ben Murphy
+//  Copyright (c) 2017 Ben Murphy
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,15 +24,18 @@
 
 import Foundation
 
-// MARK: - Convert string in format like "HH:MM:SS" to TimeInterval
 extension String {
 
-    /// Convert the string representation of a time duration to a Time Interval
-    ///
-    /// - Returns: A Time Interval.
+    /**
+     
+     Convert the string representation of a time duration to a Time Interval
+     
+     - return A TimeInterval
+     
+     */
     func toDuration() -> TimeInterval? {
-        let comps = self
-            .components(separatedBy: ":")
+        
+        let comps = self.components(separatedBy: ":")
 
         guard
             !comps.contains(where: { Int($0) == nil }),
@@ -48,7 +51,9 @@ extension String {
                     pow(Double(60), Double(i))
             }
             .reduce(0, +)
+        
     }
+    
 }
 
 

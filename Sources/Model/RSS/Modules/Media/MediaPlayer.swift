@@ -24,6 +24,14 @@
 
 import Foundation
 
+/**
+ 
+ Allows the media object to be accessed through a web browser media player
+ console. This element is required only if a direct media url attribute is
+ not specified in the <media:content> element. It has one required attribute
+ and two optional attributes.
+ 
+ */
 open class MediaPlayer {
     
     /**

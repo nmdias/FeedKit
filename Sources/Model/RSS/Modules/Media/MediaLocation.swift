@@ -24,6 +24,13 @@
 
 import Foundation
 
+/**
+ 
+ Optional element to specify geographical information about various
+ locations captured in the content of a media object. The format conforms
+ to geoRSS.
+ 
+ */
 open class MediaLocation {
     
     /**
@@ -65,8 +72,18 @@ open class MediaLocation {
      */
     open var attributes: Attributes?
     
+    /**
+     
+     The geoRSS's location latitude.
+     
+     */
     open var latitude: Double?
     
+    /**
+     
+     The geoRSS's location longitude.
+     
+     */
     open var longitude: Double?
     
 }

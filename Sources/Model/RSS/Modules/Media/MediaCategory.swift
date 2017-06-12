@@ -24,6 +24,12 @@
 
 import Foundation
 
+/**
+ 
+ Allows a taxonomy to be set that gives an indication of the type of media
+ content, and its particular contents. It has two optional attributes.
+ 
+ */
 open class MediaCategory {
     
     /**
@@ -35,8 +41,8 @@ open class MediaCategory {
         
         /**
          
-         The URI that identifies the categorization scheme. It is an optional attribute. 
-         If this attribute is not included, the default scheme
+         The URI that identifies the categorization scheme. It is an optional 
+         attribute. If this attribute is not included, the default scheme
          is "http://search.yahoo.com/mrss/category_schema".
          
          */
@@ -44,8 +50,8 @@ open class MediaCategory {
         
         /**
          
-         The human readable label that can be displayed in end user applications. 
-         It is an optional attribute.
+         The human readable label that can be displayed in end user 
+         applications. It is an optional attribute.
          
          */
         open var label: String?

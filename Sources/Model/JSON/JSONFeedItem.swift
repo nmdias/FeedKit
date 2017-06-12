@@ -22,6 +22,12 @@
 //  SOFTWARE.
 //
 
+/**
+ 
+ An individual item of a JSON Feed, acting as a container for metadata and data 
+ associated with the item.
+ 
+ */
 open class JSONFeedItem {
     
     /**

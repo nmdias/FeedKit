@@ -1,7 +1,7 @@
 //
 //  AtomFeedGenerator.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -92,15 +92,6 @@ open class AtomFeedGenerator {
 
 extension AtomFeedGenerator {
     
-    /**
-     
-     Initializes the `AtomFeedGenerator` with the attributes of the "atom:generator" element
-     
-     - parameter attributeDict: A dictionary with the attributes of the "atom:generator" element
-     
-     - returns: An `AtomFeedGenerator` instance
-     
-     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedGenerator.Attributes(attributes: attributeDict)
@@ -110,15 +101,6 @@ extension AtomFeedGenerator {
 
 extension AtomFeedGenerator.Attributes {
     
-    /**
-     
-     Initializes the `Attributes` of the `AtomFeedGenerator`
-     
-     - parameter: A dictionary with the attributes of the "atom:generator" element
-     
-     - returns: An `AtomFeedGenerator.Attributes` instance
-     
-     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

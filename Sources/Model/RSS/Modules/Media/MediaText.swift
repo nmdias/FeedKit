@@ -24,6 +24,16 @@
 
 import Foundation
 
+/**
+ 
+ Allows the inclusion of a text transcript, closed captioning or lyrics of
+ the media content. Many of these elements are permitted to provide a time
+ series of text. In such cases, it is encouraged, but not required, that the
+ elements be grouped by language and appear in time sequence order based on
+ the start time. Elements can have overlapping start and end times. It has
+ four optional attributes.
+ 
+ */
 open class MediaText {
     
     /**

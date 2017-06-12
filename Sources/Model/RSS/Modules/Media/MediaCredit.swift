@@ -24,6 +24,15 @@
 
 import Foundation
 
+/**
+ 
+ Notable entity and the contribution to the creation of the media object.
+ Current entities can include people, companies, locations, etc. Specific
+ entities can have multiple roles, and several entities can have the same
+ role. These should appear as distinct <media:credit> elements. It has two
+ optional attributes.
+ 
+ */
 open class MediaCredit {
     
     /**

@@ -1,7 +1,7 @@
 //
 //  MediaRating.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,13 @@
 
 import Foundation
 
+/**
+ 
+ This allows the permissible audience to be declared. If this element is not 
+ included, it assumes that no restrictions are necessary. It has one optional 
+ attribute.
+ 
+ */
 open class MediaRating {
     
     /**

@@ -26,11 +26,18 @@ import Foundation
 
 /**
 
- Users can browse podcast subject categories in the iTunes Store by choosing a category from the Podcasts pop-up menu in the navigation bar. Use the <itunes:category> tag to specify the browsing category for your podcast.
+ Users can browse podcast subject categories in the iTunes Store by choosing 
+ a category from the Podcasts pop-up menu in the navigation bar. Use the 
+ <itunes:category> tag to specify the browsing category for your podcast.
 
- You can also define a subcategory if one is available within your category. Although you can specify more than one category and subcategory in your feed, the iTunes Store only recognizes the first category and subcategory. For a complete list of categories and subcategories, see Podcasts Connect categories.
+ You can also define a subcategory if one is available within your category. 
+ Although you can specify more than one category and subcategory in your 
+ feed, the iTunes Store only recognizes the first category and subcategory. 
+ For a complete list of categories and subcategories, see Podcasts Connect 
+ categories.
 
- Note: When specifying categories and subcategories, be sure to properly escape ampersands:
+ Note: When specifying categories and subcategories, be sure to properly 
+ escape ampersands:
 
  Single category:
 
@@ -66,7 +73,7 @@ open class ITunesCategory {
     /**
 
      The subcategory, if any.
-     lhs.category == rhs.category
+     
      */
     open var subcategory: String?
 

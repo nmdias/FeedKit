@@ -1,7 +1,7 @@
 //
 //  AtomFeedEntryLink.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -166,15 +166,6 @@ open class AtomFeedEntryLink {
 
 extension AtomFeedEntryLink {
     
-    /**
-     
-     Initializes the `AtomFeedEntryLink` with the attributes of the "atom:link" element
-     
-     - parameter attributeDict: A dictionary with the attributes of the "atom:link" element
-     
-     - returns: An `AtomFeedEntryLink` instance
-     
-     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedEntryLink.Attributes(attributes: attributeDict)
@@ -184,15 +175,6 @@ extension AtomFeedEntryLink {
 
 extension AtomFeedEntryLink.Attributes {
     
-    /**
-     
-     Initializes the `Attributes` of the `AtomFeedEntryLink`
-     
-     - parameter: A dictionary with the attributes of the "atom:link" element
-     
-     - returns: An `AtomFeedEntryLink.Attributes` instance
-     
-     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

@@ -24,6 +24,15 @@
 
 import Foundation
 
+/**
+ 
+ Optional tag to include pricing information about a media object. If this
+ tag is not present, the media object is supposed to be free. One media
+ object can have multiple instances of this tag for including different
+ pricing structures. The presence of this tag would mean that media object
+ is not free.
+ 
+ */
 open class MediaPrice {
     
     /**

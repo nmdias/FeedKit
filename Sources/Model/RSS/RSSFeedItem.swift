@@ -1,7 +1,7 @@
 //
 //  RSSFeedItem.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -142,7 +142,8 @@ open class RSSFeedItem {
      
      The url must be an http url.
      
-     <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" length="12216320" type="audio/mpeg" />
+     <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" 
+     length="12216320" type="audio/mpeg" />
      
      */
     open var enclosure: RSSFeedItemEnclosure?
@@ -239,7 +240,9 @@ open class RSSFeedItem {
 
     /**
 
-     iTunes Podcasting Tags are de facto standard for podcast syndication. For more information see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
+     iTunes Podcasting Tags are de facto standard for podcast syndication. 
+     For more information 
+     see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
 
      */
     open var iTunes: ITunesNamespace?

@@ -1,5 +1,5 @@
 //
-//  Parser.swift
+//  JSONFeedParser.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //

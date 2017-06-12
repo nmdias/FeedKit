@@ -1,7 +1,7 @@
 //
 //  AtomFeedCategory.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -83,15 +83,6 @@ open class AtomFeedCategory {
 
 extension AtomFeedCategory {
     
-    /**
-     
-     Initializes the `AtomFeedCategory` with the attributes of the "atom:category" element
-     
-     - parameter attributeDict: A dictionary with the attributes of the "atom:category" element
-     
-     - returns: An `AtomFeedCategory` instance
-     
-     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedCategory.Attributes(attributes: attributeDict)
@@ -101,15 +92,6 @@ extension AtomFeedCategory {
 
 extension AtomFeedCategory.Attributes {
     
-    /**
-     
-     Initializes the `Attributes` of the `AtomFeedCategory`
-     
-     - parameter: A dictionary with the attributes of the "atom:category" element
-     
-     - returns: An `AtomFeedCategory.Attributes` instance
-     
-     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

@@ -24,6 +24,12 @@
 
 import Foundation
 
+/**
+ 
+ Optional tag to specify the status of a media object -- whether it's still
+ active or it has been blocked/deleted.
+ 
+ */
 open class MediaStatus {
     
     /**

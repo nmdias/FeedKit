@@ -24,6 +24,11 @@
 
 import Foundation
 
+/**
+ 
+ Copyright information for the media object. It has one optional attribute.
+ 
+ */
 open class MediaCopyright {
     
     /**

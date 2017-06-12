@@ -24,6 +24,20 @@
 
 import Foundation
 
+/**
+ 
+ Allows restrictions to be placed on the aggregator rendering the media in
+ the feed. Currently, restrictions are based on distributor (URI), country
+ codes and sharing of a media object. This element is purely informational
+ and no obligation can be assumed or implied. Only one <media:restriction>
+ element of the same type can be applied to a media object -- all others
+ will be ignored. Entities in this element should be space-separated.
+ To allow the producer to explicitly declare his/her intentions, two
+ literals are reserved: "all", "none". These literals can only be used once.
+ This element has one required attribute and one optional attribute (with
+ strict requirements for its exclusion).
+ 
+ */
 open class MediaRestriction {
     
     /**

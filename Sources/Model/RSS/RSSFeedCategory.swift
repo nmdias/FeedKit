@@ -1,7 +1,7 @@
 //
 //  RSSFeedCategory.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,8 @@
 import Foundation
 
 /**
-    The category of `<channel>`. Identifies a category or tag to which the feed belongs.
+    The category of `<channel>`. Identifies a category or tag to which the feed 
+ belongs.
 */
 open class RSSFeedCategory {
     
@@ -36,7 +37,12 @@ open class RSSFeedCategory {
      */
     open class Attributes {
         
-        /// A string that identifies a categorization taxonomy. It's an optional attribute of `<category>`. e.g. "http://www.fool.com/cusips"
+        /**
+         
+         A string that identifies a categorization taxonomy. It's an optional 
+         attribute of `<category>`. e.g. "http://www.fool.com/cusips"
+         
+         */
         open var domain: String?
         
     }
@@ -61,15 +67,6 @@ open class RSSFeedCategory {
 
 extension RSSFeedCategory {
     
-    /**
-     
-     Initializes the `RSSFeedCategory` with the attributes of the `<category>` element
-     
-     - parameter attributeDict: A dictionary with the attributes of the `<category>` element
-     
-     - returns: A `RSSFeedCategory` instance
-     
-     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedCategory.Attributes(attributes: attributeDict)
@@ -79,15 +76,6 @@ extension RSSFeedCategory {
 
 extension RSSFeedCategory.Attributes {
     
-    /**
-     
-     Initializes the `Attributes` of the `RSSFeedCategory`
-     
-     - parameter: A dictionary with the attributes of the `<category>` element
-     
-     - returns: A `RSSFeedCategory.Attributes` instance
-     
-     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

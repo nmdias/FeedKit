@@ -24,6 +24,16 @@
 
 import Foundation
 
+/**
+ 
+ <media:content> is a sub-element of either <item> or <media:group>.
+ Media objects that are not the same content should not be included
+ in the same <media:group> element. The sequence of these items implies
+ the order of presentation. While many of the attributes appear to be
+ audio/video specific, this element can be used to publish any type of
+ media. It contains 14 attributes, most of which are optional.
+ 
+ */
 open class MediaContent {
     
     /**

@@ -1,7 +1,7 @@
 //
 //  RSSFeedItemEnclosure.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +36,8 @@ import Foundation
  
  The url must be an http url.
  
- <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" length="12216320" type="audio/mpeg" />
+ <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" 
+ length="12216320" type="audio/mpeg" />
  
  */
 open class RSSFeedItemEnclosure {
@@ -90,15 +91,6 @@ open class RSSFeedItemEnclosure {
 
 extension RSSFeedItemEnclosure {
     
-    /**
-     
-     Initializes the `RSSFeedItemEnclosure` with the attributes of the `<enclosure>` element
-     
-     - parameter attributeDict: A dictionary with the attributes of the `<enclosure>` element
-     
-     - returns: A `RSSFeedItemEnclosure` instance
-     
-     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedItemEnclosure.Attributes(attributes: attributeDict)
@@ -108,15 +100,6 @@ extension RSSFeedItemEnclosure {
 
 extension RSSFeedItemEnclosure.Attributes {
     
-    /**
-     
-     Initializes the `Attributes` of the `RSSFeedItemEnclosure`
-     
-     - parameter: A dictionary with the attributes of the `<enclosure>` element
-     
-     - returns: A `RSSFeedItemEnclosure.Attributes` instance
-     
-     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

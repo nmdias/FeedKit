@@ -28,6 +28,7 @@ import XCTest
 class DurationTests: BaseTestCase {
     
     func testToDuration() {
+        
         // Given
         let hhmmss = "01:15:15"
         let hmmss = "1:20:25"
@@ -40,7 +41,7 @@ class DurationTests: BaseTestCase {
         let leadingZeroes = "001:15:15"
         let tachyon = "-01:15:15"
 
-
+        // Then
         XCTAssertEqual(hhmmss.toDuration(), 4515)
         XCTAssertEqual(hmmss.toDuration(), 4825)
         XCTAssertEqual(mmss.toDuration(), 2595)

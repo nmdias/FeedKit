@@ -24,6 +24,12 @@
 
 import Foundation
 
+/**
+ 
+ This is the hash of the binary media file. It can appear multiple times as
+ long as each instance is a different algo. It has one optional attribute.
+ 
+ */
 open class MediaHash {
     
     /**

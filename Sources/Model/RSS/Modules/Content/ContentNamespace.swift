@@ -1,7 +1,7 @@
 //
 //  ContentNamespace.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +38,9 @@ open class ContentNamespace {
      An element whose contents are the entity-encoded or CDATA-escaped version
      of the content of the item. 
      
-     Example: <content:encoded><![CDATA[<p>What a <em>beautiful</em> day!</p>]]></content:encoded>
+     Example: 
+     <content:encoded><![CDATA[<p>What a <em>beautiful</em> day!</p>]]>
+     </content:encoded>
      
      */
     open var contentEncoded: String?

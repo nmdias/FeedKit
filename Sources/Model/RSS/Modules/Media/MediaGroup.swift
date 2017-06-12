@@ -24,6 +24,15 @@
 
 import Foundation
 
+/**
+ 
+ The <media:group> element is a sub-element of <item>. It allows grouping
+ of <media:content> elements that are effectively the same content,
+ yet different representations. For instance: the same song recorded
+ in both the WAV and MP3 format. It's an optional element that must
+ only be used for this purpose.
+ 
+ */
 open class MediaGroup {
     
     /**

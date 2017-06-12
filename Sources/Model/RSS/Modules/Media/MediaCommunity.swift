@@ -24,6 +24,13 @@
 
 import Foundation
 
+/**
+ 
+ This element stands for the community related content. This allows
+ inclusion of the user perception about a media object in the form of view
+ count, ratings and tags.
+ 
+ */
 open class MediaCommunity {
     
     /**

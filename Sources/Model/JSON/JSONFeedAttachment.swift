@@ -22,6 +22,11 @@
 //  SOFTWARE.
 //
 
+/**
+ 
+ Describes optional attatchments of a JSON Feed item.
+ 
+ */
 open class JSONFeedAttachment {
     
     /**

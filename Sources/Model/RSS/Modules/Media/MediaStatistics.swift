@@ -24,6 +24,12 @@
 
 import Foundation
 
+/**
+ 
+ This element specifies various statistics about a media object like the
+ view count and the favorite count. Valid attributes are views and favorites.
+ 
+ */
 open class MediaStatistics {
     
     /**

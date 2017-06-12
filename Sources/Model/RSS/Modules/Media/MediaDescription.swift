@@ -24,6 +24,12 @@
 
 import Foundation
 
+/**
+ 
+ Short description describing the media object typically a sentence in
+ length. It has one optional attribute.
+ 
+ */
 open class MediaDescription {
     
     /**

@@ -1,7 +1,7 @@
 //
 //  RSSFeedItemGUID.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -101,15 +101,6 @@ open class RSSFeedItemGUID {
 
 extension RSSFeedItemGUID {
     
-    /**
-     
-     Initializes the `RSSFeedItemGUID` with the attributes of the `<guid>` element
-     
-     - parameter attributeDict: A dictionary with the attributes of the `<guid>` element
-     
-     - returns: A `RSSFeedItemGUID` instance
-     
-     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedItemGUID.Attributes(attributes: attributeDict)
@@ -119,15 +110,6 @@ extension RSSFeedItemGUID {
 
 extension RSSFeedItemGUID.Attributes {
     
-    /**
-     
-     Initializes the `Attributes` of the `RSSFeedItemGUID`
-     
-     - parameter: A dictionary with the attributes of the `<guid>` element
-     
-     - returns: A `RSSFeedItemGUID.Attributes` instance
-     
-     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

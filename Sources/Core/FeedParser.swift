@@ -1,7 +1,7 @@
 //
 //  FeedParser.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -44,7 +44,8 @@ open class FeedParser {
     
     /**
      
-     Initializes the parser with the XML contents encapsulated in a given data object.
+     Initializes the parser with the XML contents encapsulated in a given data 
+     object.
      
      - parameter data: An `Data` object containing XML markup.
      

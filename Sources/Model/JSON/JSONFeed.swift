@@ -22,6 +22,13 @@
 //  SOFTWARE.
 //
 
+/***
+ 
+ The JSON Feed format is a pragmatic syndication format, like RSS and Atom, 
+ but with one big difference: it’s JSON instead of XML.
+ See https://jsonfeed.org/version/1
+ 
+ */
 open class JSONFeed {
     
     /**
@@ -138,8 +145,7 @@ open class JSONFeed {
      
      (very optional, array of objects) describes endpoints that can be used to 
      subscribe to real-time notifications from the publisher of this feed. Each 
-     object has a type and url, both of which are required. See the section 
-     “Subscribing to Real-time Notifications” below for details.
+     object has a type and url, both of which are required.
      
      */
     open var hubs: [JSONFeedHub]?

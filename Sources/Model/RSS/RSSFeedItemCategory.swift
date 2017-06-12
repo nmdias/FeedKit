@@ -1,7 +1,7 @@
 //
 //  RSSFeedItemCategory.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -88,15 +88,6 @@ open class RSSFeedItemCategory {
 
 extension RSSFeedItemCategory {
     
-    /**
-     
-     Initializes the `RSSFeedItemCategory` with the attributes of an `<item>`s sub-element `<category>`
-     
-     - parameter attributeDict: A dictionary with the attributes of the `<category>` element
-     
-     - returns: A `RSSFeedItemCategory` instance
-     
-     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedItemCategory.Attributes(attributes: attributeDict)
@@ -106,15 +97,6 @@ extension RSSFeedItemCategory {
 
 extension RSSFeedItemCategory.Attributes {
     
-    /**
-     
-     Initializes the `Attributes` of the `RSSFeedItemCategory`
-     
-     - parameter: A dictionary with the attributes of an `<item>`s sub-element `<category>`
-     
-     - returns: A `RSSFeedItemCategory.Attributes` instance
-     
-     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

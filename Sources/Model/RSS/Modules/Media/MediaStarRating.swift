@@ -24,6 +24,12 @@
 
 import Foundation
 
+/**
+ 
+ This element specifies the rating-related information about a media object.
+ Valid attributes are average, count, min and max.
+ 
+ */
 open class MediaStarRating {
     
     /**
@@ -34,18 +40,30 @@ open class MediaStarRating {
     open class Attributes {
         
         /**
+         
+         The star rating's average.
+         
          */
         open var average: Double?
         
         /**
+         
+         The star rating's total count.
+         
          */
         open var count: Int?
         
         /**
+         
+         The star rating's minimum value.
+         
          */
         open var min: Int?
         
         /**
+         
+         The star rating's maximum value.
+         
          */
         open var max: Int?
         

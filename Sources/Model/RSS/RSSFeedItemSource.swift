@@ -1,7 +1,7 @@
 //
 //  RSSFeedItemSource.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -51,7 +51,12 @@ open class RSSFeedItemSource {
      */
     open class Attributes {
         
-        /// Required attribute of the `Source` element, which links to the XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
+        /**
+         
+         Required attribute of the `Source` element, which links to the 
+         XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
+         
+         */
         open var url: String?
         
     }
@@ -76,15 +81,6 @@ open class RSSFeedItemSource {
 
 extension RSSFeedItemSource {
     
-    /**
-     
-     Initializes the `RSSFeedItemSource` with the attributes of the `<source>` element
-     
-     - parameter attributeDict: A dictionary with the attributes of the `<source>` element
-     
-     - returns: A `RSSFeedItemSource` instance
-     
-     */
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = RSSFeedItemSource.Attributes(attributes: attributeDict)
@@ -94,15 +90,6 @@ extension RSSFeedItemSource {
 
 extension RSSFeedItemSource.Attributes {
     
-    /**
-     
-     Initializes the `Attributes` of the `RSSFeedItemSource`
-     
-     - parameter: A dictionary with the attributes of the `<source>` element
-     
-     - returns: A `RSSFeedItemSource.Attributes` instance
-     
-     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {

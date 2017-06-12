@@ -24,6 +24,11 @@
 
 import Foundation
 
+/**
+ 
+ Optional element for P2P link.
+ 
+ */
 open class MediaPeerLink {
     
     /**
@@ -35,14 +40,14 @@ open class MediaPeerLink {
         
         /**
          
-         
+         The peer link's type.
          
          */
         open var type: String?
         
         /**
          
-         
+         The location of the peer link provider.
          
          */
         open var href: String?

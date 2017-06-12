@@ -1,7 +1,7 @@
 //
 //  AtomFeedEntrySummary.swift
 //
-//  Copyright (c) 2016 Nuno Manuel Dias
+//  Copyright (c) 2017 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -76,16 +76,7 @@ open class AtomFeedEntrySummary {
 // MARK: - Initializers
 
 extension AtomFeedEntrySummary {
-    
-    /**
-     
-     Initializes the `AtomFeedEntrySummary` with the attributes of the "atom:summary" element
-     
-     - parameter attributeDict: A dictionary with the attributes of the "atom:summary" element
-     
-     - returns: An `AtomFeedEntrySummary` instance
-     
-     */
+
     convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedEntrySummary.Attributes(attributes: attributeDict)
@@ -95,15 +86,6 @@ extension AtomFeedEntrySummary {
 
 extension AtomFeedEntrySummary.Attributes {
     
-    /**
-     
-     Initializes the `Attributes` of the `AtomFeedEntrySummary`
-     
-     - parameter: A dictionary with the attributes of the "atom:summary" element
-     
-     - returns: An `AtomFeedEntrySummary.Attributes` instance
-     
-     */
     convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {
