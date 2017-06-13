@@ -1,6 +1,6 @@
 # FeedKit
 
-An RSS and Atom feed parser written in Swift
+An RSS, Atom and JSON Feed parser written in Swift
 
 [![build status](https://travis-ci.org/nmdias/FeedKit.svg)](https://travis-ci.org/nmdias/FeedKit)
 [![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
@@ -12,16 +12,17 @@ An RSS and Atom feed parser written in Swift
 ## Features
 
 - [x] [Atom Syndication Format](https://tools.ietf.org/html/rfc4287)
-- [x] [RSS/RSS2+](http://cyber.law.harvard.edu/rss/rss.html) 
-- [x] RSS-DEV Namespaces
- - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
- - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
- - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
+- [x] [RSS2](http://cyber.law.harvard.edu/rss/rss.html) 
+- [x] Namespaces
+    - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
+    - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
+    - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
+    - [x] [Media RSS](http://www.rssboard.org/media-rss)
+    - [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
 - [x] Dates Support
- - [x] [RFC822](https://www.ietf.org/rfc/rfc0822.txt)
- - [x] [RFC3999](https://www.ietf.org/rfc/rfc3339.txt)
- - [x] [ISO8601](http://www.w3.org/TR/NOTE-datetime)
-- [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
+    - [x] [RFC822](https://www.ietf.org/rfc/rfc0822.txt)
+    - [x] [RFC3999](https://www.ietf.org/rfc/rfc3339.txt)
+    - [x] [ISO8601](http://www.w3.org/TR/NOTE-datetime)
 - [x] [Documentation](http://cocoadocs.org/docsets/FeedKit)
 - [x] Unit Test Coverage
 
@@ -33,168 +34,121 @@ An RSS and Atom feed parser written in Swift
 ![mac os](https://img.shields.io/badge/mac%20os-10.9%2b-lightgrey.svg)
 ![xcode](https://img.shields.io/badge/xcode-8.0%2b-lightgrey.svg)
 
-## Installation
-
-### CocoaPods
-
-[CocoaPods](http://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects. You can install it with the following command:
-
-```bash
-$ gem install cocoapods
-```
-
-To give `FeedKit` a try with an example project, run the following command: 
-
-```bash
-$ pod try FeedKit
-```
-
-To integrate `FeedKit` into your Xcode project, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-use_frameworks!
-
-target 'MyApp' do
-  pod 'FeedKit', '~> 5.0'
-end
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
-```
-
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a dependency manager that builds your dependencies and provides you with binary frameworks.
-
-To install Carthage with [Homebrew](http://brew.sh/) use the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-To integrate FeedKit into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "nmdias/FeedKit" ~> 5.0
-```
-Build the framework:
-
-```bash
-$ carthage update
-```
-Then, drag the built `FeedKit.framework` into your Xcode project.
-
-### Manually
-
-Drag `FeedKit.xcodeproj` into your Xcode project.
-
- > It should appear nested underneath your application's blue project icon.
- 
-Click on the `+` button under the "Embedded Binaries" section of your app's target and select the `FeedKit.framework` that matches the desired platform.
+Installation >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/INSTALL.md) <<
 
 ## Usage
 
-### Feed Parsing
-    
-#### RSS
-    
+Build a URL pointing to an RSS, Atom or JSON Feed.
 ```swift
-import FeedKit
-
 let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
+```
 
-FeedParser(URL: feedURL)?.parse({ (result) in
-    result.rssFeed // An `RSSFeed` model
+FeedKit will do asynchronous parsing on the main queue by default. You can safely update your UI from within the result closure.
+```swift
+FeedParser(URL: feedURL)?.parseAsync { result in
+    // Do your thing
+}
+```     
+
+If a different queue is specified, you are responsible to manually bring the result closure to whichever queue is apropriate. Usually `DispatchQueue.main.async`. If you're unsure, don't provide the `queue` parameter.
+```swift
+FeedParser(URL: feedURL)?.parseAsync(queue: myQueue, result: { (result) in 
+    // Do your thing
 })
 ```
 
-#### Atom
-    
+Alternatively, you can also call `parse` synchronously.
 ```swift
-FeedParser(URL: feedURL)?.parse({ (result) in
-    result.atomFeed // An `AtomFeed` model
-})
+let result = FeedParser(URL: feedURL)?.parse()
 ```
 
-> Aditional initializers can also be found for `Data` and `InputStream` objects.
+#### Initializers
 
-### Parse Result
-Multiple `FeedType`'s and, or `Error handling` can be acomplished using the `Result` enum
+> An aditional initializer can also be found for `Data` objects.
+```swift
+FeedParser(data: data)
+```
+
+#### Feed Models
+FeedKit provides `strongly typed` models for `RSS`, `Atom` and `JSON Feed` formats.    
+```swift
+result.rssFeed      // Really Simple Syndication Feed Model
+result.atomFeed     // Atom Syndication Format Feed Model
+result.jsonFeed     // JSON Feed Model
+```
+
+
+#### Parsing Success
+You can also check if a Feed was successfully parsed or not.
+```swift
+result.isSuccess    // If parsing was a success
+result.isFailure    // If parsing failed
+result.error        // An error, if any
+```
+
+### Handling Multiple Feeds
+Multiple `Feed Types` and `Error` handling can be acomplished using a parse `Result` like this:
 
 ```swift
-FeedParser(URL: feedURL)?.parse({ (result) in
-    
-    switch result {
-    case .RSS(let rssFeed):
-        print(rssFeed) // An `RSSFeed` model
-    case .Atom(let atomFeed):
-        print(atomFeed) // An `AtomFeed` model
-    case .Failure(let error):
-        print(error) // An `NSError` object
-    }
-    
-})
+switch result {
+
+case let .atom(feed):       break
+case let .rss(feed):        break
+case let .json(feed):       break
+case let .failure(error):   break
+
+}
 ```
 
 ### Model Preview
 
-#### RSSFeed
+#### RSS
 
 ```swift
-FeedParser(URL: feedURL)?.parse({ (result) in
-    
-    guard let feed = result.rssFeed where result.isSuccess else {
-        print(result.error)
-        return
-    }
-    
-    print(feed.title)                      // The feed's `Title`
-    print(feed.items?.count)               // The number of articles
-    print(feed.items?.first?.title)        // The feed's first article `Title`
-    print(feed.items?.first?.description)  // The feed's first article `Description`
-    print(feed.items?.first?.pubDate)      // The feed's first article `Publication Date`
-    
-})
-```
-> Refer to the [`RSSFeed`](http://cocoadocs.org/docsets/FeedKit) documentation for the complete model properties and description
-
-#### AtomFeed
-
-```swift
-FeedParser(URL: feedURL)?.parse({ (result) in
-    
-    guard let feed = result.atomFeed where result.isSuccess else {
-        print(result.error)
-        return
-    }
-    
-    print(feed.title)                    // The feed's `Title`
-    print(feed.entries?.count)           // The number of articles
-    print(feed.entries?.first?.title)    // The feed's first article `Title`
-    print(feed.entries?.first?.summary)  // The feed's first article `Summary`
-    print(feed.entries?.first?.updated)  // The feed's first article `Updated Date`
-    
-})
-```
-> Refer to the [`AtomFeed`](http://cocoadocs.org/docsets/FeedKit) documentation for the complete model properties and description
-
-### Background Parsing
-
-```swift
-DispatchQueue.global(qos: .userInitiated).async {
-    // Run parsing in a background thread
-    FeedParser(URL: feedURL)?.parse({ (result) in
-        DispatchQueue.main.async {
-            // Perform updates in the main thread when finished
-        }
-    })
+guard let feed = result.rssFeed, result.isSuccess else {
+    print(result.error)
+    return
 }
-```     
+
+print(feed.title)
+print(feed.description)
+print(feed.image)
+print(feed.pubDate)
+// ...
+
+let item = feed.items?.first
+
+print(item?.title)
+print(item?.description)
+print(item?.pubDate)
+// ...
+```
+
+> Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and description
+
+#### Atom
+
+```swift
+guard let feed = result.atomFeed, result.isSuccess else {
+    print(result.error)
+    return
+}
+
+print(feed.title)
+print(feed.subtitle)
+print(feed.logo)
+print(feed.updated)
+// ...
+
+let entry = feed.entries?.first
+
+print(entry?.title)
+print(entry?.summary)
+print(entry?.updated)
+// ...
+```
+
+> Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and description
 
 ## License
 
