@@ -1,5 +1,9 @@
 # Change Log
 
+## [6.0.1](https://github.com/nmdias/FeedParser/releases/tag/6.0.1)
+### Updated
+- Excluded tests from the SPM
+
 ## [6.0.0](https://github.com/nmdias/FeedParser/releases/tag/6.0.0)
 ### Added
 - Asynchronous feed parsing
