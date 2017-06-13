@@ -1,5 +1,25 @@
 # Change Log
 
+## [6.0.0](https://github.com/nmdias/FeedParser/releases/tag/6.0.0)
+### Added
+- Asynchronous feed parsing
+- iTunes Podcasting Tags Namespace
+- Media Namespace
+- JSON Feed Support
+- Equatable Models (RSS, Atom and JSON)
+- Unit Tests
+
+### Updated
+- Examples with asynchronous feed parsing
+- Unit tests with asynchronous feed parsing
+- Documentation
+
+### Fixed
+- Fixed crashes when trying to parse a feed URL offline #4
+
+### Removed
+- Support for Input Streams
+
 ## [5.1.0](https://github.com/nmdias/FeedParser/releases/tag/5.1.0)
 ### Added
 - Abort Parsing method
