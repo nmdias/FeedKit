@@ -228,8 +228,6 @@ item?.extensions
 
 > Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and description
 
-Installation >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/INSTALL.md) <<
-
 ## License
 
 FeedKit is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedKit/blob/master/LICENSE) for details.
