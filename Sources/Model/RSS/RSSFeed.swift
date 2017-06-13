@@ -38,7 +38,7 @@ import Foundation
  contains information about the channel (metadata) and its contents.
  
  */
-open class RSSFeed {
+public class RSSFeed {
         
     /**
      
@@ -50,7 +50,7 @@ open class RSSFeed {
      Example: GoUpstate.com News Headlines
      
      */
-    open var title: String?
+    public var title: String?
     
     /**
      
@@ -59,7 +59,7 @@ open class RSSFeed {
      Example: http://www.goupstate.com/
      
      */
-    open var link: String?
+    public var link: String?
     
     /**
      
@@ -69,7 +69,7 @@ open class RSSFeed {
      Web site.
      
      */
-    open var description: String?
+    public var description: String?
     
     /**
      
@@ -84,7 +84,7 @@ open class RSSFeed {
      Example: en-us
      
      */
-    open var language: String?
+    public var language: String?
     
     /**
      
@@ -93,7 +93,7 @@ open class RSSFeed {
      Example: Copyright 2002, Spartanburg Herald-Journal
      
      */
-    open var copyright: String?
+    public var copyright: String?
     
     /**
      
@@ -102,7 +102,7 @@ open class RSSFeed {
      Example: geo@herald.com (George Matesky)
      
      */
-    open var managingEditor: String?
+    public var managingEditor: String?
     
     /**
      
@@ -112,7 +112,7 @@ open class RSSFeed {
      Example: betty@herald.com (Betty Guernsey)
      
      */
-    open var webMaster: String?
+    public var webMaster: String?
     
     /**
      
@@ -126,7 +126,7 @@ open class RSSFeed {
      Example: Sat, 07 Sep 2002 00:00:01 GMT
      
      */
-    open var pubDate: Date?
+    public var pubDate: Date?
     
     /**
      
@@ -135,7 +135,7 @@ open class RSSFeed {
      Example: Sat, 07 Sep 2002 09:42:31 GMT
      
      */
-    open var lastBuildDate: Date?
+    public var lastBuildDate: Date?
     
     /**
      
@@ -145,7 +145,7 @@ open class RSSFeed {
      Example: Newspapers
      
      */
-    open var categories: [RSSFeedCategory]?
+    public var categories: [RSSFeedCategory]?
     
     /**
      
@@ -154,7 +154,7 @@ open class RSSFeed {
      Example: MightyInHouse Content System v2.3
      
      */
-    open var generator: String?
+    public var generator: String?
     
     /**
      
@@ -166,7 +166,7 @@ open class RSSFeed {
      Example: http://blogs.law.harvard.edu/tech/rss
      
      */
-    open var docs: String?
+    public var docs: String?
     
     /**
      
@@ -195,14 +195,14 @@ open class RSSFeed {
      http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
      
      */
-    open var cloud: RSSFeedCloud?
+    public var cloud: RSSFeedCloud?
 
     /**
      
      The PICS rating for the channel.
      
      */
-    open var rating: String?
+    public var rating: String?
     
     /**
      
@@ -219,7 +219,7 @@ open class RSSFeed {
      as Gnutella.
      
      */
-    open var ttl: Int?
+    public var ttl: Int?
     
     /**
      
@@ -247,7 +247,7 @@ open class RSSFeed {
      Maximum value for height is 400, default value is 31.
      
      */
-    open var image: RSSFeedImage?
+    public var image: RSSFeedImage?
     
     /**
      
@@ -269,7 +269,7 @@ open class RSSFeed {
      feedback. Most aggregators ignore it.
      
      */
-    open var textInput: RSSFeedTextInput?
+    public var textInput: RSSFeedTextInput?
     
     /**
      
@@ -283,7 +283,7 @@ open class RSSFeed {
      The hour beginning at midnight is hour zero.
      
      */
-    open var skipHours: [RSSFeedSkipHour]?
+    public var skipHours: [RSSFeedSkipHour]?
         
     /**
      
@@ -295,7 +295,7 @@ open class RSSFeed {
      element.
      
      */
-    open var skipDays: [RSSFeedSkipDay]?
+    public var skipDays: [RSSFeedSkipDay]?
     
     /** 
      
@@ -309,7 +309,7 @@ open class RSSFeed {
      however at least one of title or description must be present.
      
      */
-    open var items: [RSSFeedItem]?
+    public var items: [RSSFeedItem]?
     
     
     // MARK: - Namespaces
@@ -322,7 +322,7 @@ open class RSSFeed {
      See https://tools.ietf.org/html/rfc5013
      
      */
-    open var dublinCore: DublinCoreNamespace?
+    public var dublinCore: DublinCoreNamespace?
     
     /**
      
@@ -336,14 +336,14 @@ open class RSSFeed {
      See http://web.resource.org/rss/1.0/modules/syndication/
      
      */
-    open var syndication: SyndicationNamespace?
+    public var syndication: SyndicationNamespace?
 
     /**
 
      iTunes Podcasting Tags are de facto standard for podcast syndication. For more information see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
      
      */
-    open var iTunes: ITunesNamespace?
+    public var iTunes: ITunesNamespace?
     
     
 }

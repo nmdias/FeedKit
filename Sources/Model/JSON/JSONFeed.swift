@@ -31,7 +31,7 @@ import Foundation
  See https://jsonfeed.org/version/1
  
  */
-open class JSONFeed {
+public class JSONFeed {
     
     /**
      
@@ -40,7 +40,7 @@ open class JSONFeed {
      JSON generators allow for ordering.
      
      */
-    open var version: String?
+    public var version: String?
     
     /**
      
@@ -48,7 +48,7 @@ open class JSONFeed {
      the name of the website (blog, for instance), though not necessarily.
      
      */
-    open var title: String?
+    public var title: String?
     
     /**
      
@@ -60,7 +60,7 @@ open class JSONFeed {
      or is shared only privately.
      
      */
-    open var homePageURL: String?
+    public var homePageURL: String?
     
     /**
      
@@ -69,7 +69,7 @@ open class JSONFeed {
      should be considered required for feeds on the public web.
      
      */
-    open var feedUrl: String?
+    public var feedUrl: String?
     
     /**
      
@@ -77,7 +77,7 @@ open class JSONFeed {
      is about. A feed reader may display this text.
      
      */
-    open var description: String?
+    public var description: String?
     
     /**
      
@@ -86,7 +86,7 @@ open class JSONFeed {
      readers.
      
      */
-    open var userComment: String?
+    public var userComment: String?
     
     /**
      
@@ -98,7 +98,7 @@ open class JSONFeed {
      infinite loops).
      
      */
-    open var nextUrl: String?
+    public var nextUrl: String?
     
     /**
      
@@ -109,7 +109,7 @@ open class JSONFeed {
      where appropriate, since it may be rendered on a non-white background.
      
      */
-    open var icon: String?
+    public var icon: String?
     
     /**
      
@@ -120,7 +120,7 @@ open class JSONFeed {
      rendered on a non-white background.
      
      */
-    open var favicon: String?
+    public var favicon: String?
     
     /**
      
@@ -129,7 +129,7 @@ open class JSONFeed {
      object, then at least one is required:
      
      */
-    open var author: JSONFeedAuthor?
+    public var author: JSONFeedAuthor?
     
     
     /**
@@ -141,7 +141,7 @@ open class JSONFeed {
      feed may continue to update.
      
      */
-    open var expired: Bool?
+    public var expired: Bool?
     
     /**
      
@@ -150,14 +150,14 @@ open class JSONFeed {
      object has a type and url, both of which are required.
      
      */
-    open var hubs: [JSONFeedHub]?
+    public var hubs: [JSONFeedHub]?
     
     /**
      
      The JSONFeed items
      
      */
-    open var items: [JSONFeedItem]?
+    public var items: [JSONFeedItem]?
     
     /**
      
@@ -168,7 +168,7 @@ open class JSONFeed {
      through a strongly typed model.
      
      */
-    open var extensions: [String: Any?]?
+    public var extensions: [String: Any?]?
     
 }
 

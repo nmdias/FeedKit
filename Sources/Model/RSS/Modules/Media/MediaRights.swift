@@ -29,14 +29,14 @@ import Foundation
  Optional element to specify the rights information of a media object.
  
  */
-open class MediaRights {
+public class MediaRights {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -45,7 +45,7 @@ open class MediaRights {
          Supported values are "userCreated" and "official".
          
          */
-        open var status: String?
+        public var status: String?
         
     }
     
@@ -54,7 +54,7 @@ open class MediaRights {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
 
     
 }

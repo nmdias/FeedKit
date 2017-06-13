@@ -30,14 +30,14 @@ import Foundation
  active or it has been blocked/deleted.
  
  */
-open class MediaStatus {
+public class MediaStatus {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -47,7 +47,7 @@ open class MediaStatus {
          deleted by the publisher.
          
          */
-        open var state: String?
+        public var state: String?
         
         /**
          
@@ -55,7 +55,7 @@ open class MediaStatus {
          be plain text or a URL.
          
          */
-        open var reason: String?
+        public var reason: String?
         
     }
     
@@ -64,7 +64,7 @@ open class MediaStatus {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
 }
 

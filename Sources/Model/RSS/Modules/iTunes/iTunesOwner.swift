@@ -34,14 +34,14 @@ import Foundation
  the podcast and is not displayed on the iTunes Store.
 
  */
-open class ITunesOwner {
+public class ITunesOwner {
 
     /**
 
      The email address of the owner.
      
      */
-    open var email: String?
+    public var email: String?
 
 
     /**
@@ -49,7 +49,7 @@ open class ITunesOwner {
      The name of the owner.
      
      */
-    open var name: String?
+    public var name: String?
     
 }
 

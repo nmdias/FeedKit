@@ -37,7 +37,7 @@ import Foundation
  described above.
  
  */
-open class AtomFeedEntryAuthor {
+public class AtomFeedEntryAuthor {
     
     /**
      
@@ -46,7 +46,7 @@ open class AtomFeedEntryAuthor {
      constructs MUST contain exactly one "atom:name" element.
      
      */
-    open var name: String?
+    public var name: String?
     
     /**
      
@@ -56,7 +56,7 @@ open class AtomFeedEntryAuthor {
      MUST conform to the "addr-spec" production in [RFC2822].
      
      */
-    open var email: String?
+    public var email: String?
     
     /**
      
@@ -66,7 +66,7 @@ open class AtomFeedEntryAuthor {
      construct MUST be an IRI reference [RFC3987].
      
      */
-    open var uri: String?
+    public var uri: String?
     
 }
 

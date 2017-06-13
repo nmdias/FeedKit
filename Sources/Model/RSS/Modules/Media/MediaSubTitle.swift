@@ -30,35 +30,35 @@ import Foundation
  content.
  
  */
-open class MediaSubTitle {
+public class MediaSubTitle {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          The type of the subtitle.
          
          */
-        open var type: String?
+        public var type: String?
         
         /**
          
          The subtitle language based on the RFC 3066.
          
          */
-        open var lang: String?
+        public var lang: String?
         
         /**
          
          The location of the subtitle.
          
          */
-        open var href: String?
+        public var href: String?
         
     }
     
@@ -67,7 +67,7 @@ open class MediaSubTitle {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
 }
 

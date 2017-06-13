@@ -31,35 +31,35 @@ import Foundation
  key-value pairs.
  
  */
-open class MediaEmbed {
+public class MediaEmbed {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          The location of the embeded media.
          
          */
-        open var url: String?
+        public var url: String?
         
         /**
          
          The width size for the embeded Media.
          
          */
-        open var width: Int?
+        public var width: Int?
         
         /**
          
          The height size for the embeded Media.
          
          */
-        open var height: Int?
+        public var height: Int?
         
     }
     
@@ -68,14 +68,14 @@ open class MediaEmbed {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
       Key-Value pairs with aditional parameters for the embeded Media.
      
      */
-    open var mediaParams: [MediaParam]?
+    public var mediaParams: [MediaParam]?
     
 }
 

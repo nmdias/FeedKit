@@ -31,14 +31,14 @@ import Foundation
  attribute.
  
  */
-open class MediaRating {
+public class MediaRating {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -46,7 +46,7 @@ open class MediaRating {
          If this attribute is not included, the default scheme is urn:simple (adult | nonadult).
          
          */
-        open var scheme: String?
+        public var scheme: String?
         
     }
     
@@ -55,14 +55,14 @@ open class MediaRating {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

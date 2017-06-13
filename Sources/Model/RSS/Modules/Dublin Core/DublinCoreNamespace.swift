@@ -32,14 +32,14 @@ import Foundation
  See https://tools.ietf.org/html/rfc5013
  
 */
-open class DublinCoreNamespace {
+public class DublinCoreNamespace {
     
     /** 
      
      A name given to the resource 
      
      */
-    open var dcTitle: String?
+    public var dcTitle: String?
     
     /** 
      
@@ -49,7 +49,7 @@ open class DublinCoreNamespace {
      Typically, the name of a Creator should be used to indicate the entity.
      
      */
-    open var dcCreator: String?
+    public var dcCreator: String?
     
     /** 
      
@@ -61,7 +61,7 @@ open class DublinCoreNamespace {
      use the Coverage element.
      
      */
-    open var dcSubject: String?
+    public var dcSubject: String?
     
     /** 
      
@@ -72,7 +72,7 @@ open class DublinCoreNamespace {
      resource.
      
      */
-    open var dcDescription: String?
+    public var dcDescription: String?
     
     /** 
      
@@ -82,7 +82,7 @@ open class DublinCoreNamespace {
      Typically, the name of a Publisher should be used to indicate the entity.
      
      */
-    open var dcPublisher: String?
+    public var dcPublisher: String?
     
     /** 
      
@@ -93,7 +93,7 @@ open class DublinCoreNamespace {
      Typically, the name of a Contributor should be used to indicate the entity.
      
      */
-    open var dcContributor: String?
+    public var dcContributor: String?
     
     /** 
      
@@ -105,7 +105,7 @@ open class DublinCoreNamespace {
      as the W3CDTF profile of ISO 8601 [W3CDTF].
      
      */
-    open var dcDate: Date?
+    public var dcDate: Date?
     
     /** 
      
@@ -116,7 +116,7 @@ open class DublinCoreNamespace {
      medium, or dimensions of the resource, use the Format element.
      
      */
-    open var dcType: String?
+    public var dcType: String?
     
     /** 
      
@@ -127,7 +127,7 @@ open class DublinCoreNamespace {
      Media Types [MIME].
      
      */
-    open var dcFormat: String?
+    public var dcFormat: String?
     
     /** 
      
@@ -137,7 +137,7 @@ open class DublinCoreNamespace {
      conforming to a formal identification system.
      
      */
-    open var dcIdentifier: String?
+    public var dcIdentifier: String?
     
     /** 
      
@@ -148,7 +148,7 @@ open class DublinCoreNamespace {
      by means of a string conforming to a formal identification system.
      
      */
-    open var dcSource: String?
+    public var dcSource: String?
     
     /** 
      
@@ -158,7 +158,7 @@ open class DublinCoreNamespace {
      RFC 4646 [RFC4646].
      
      */
-    open var dcLanguage: String?
+    public var dcLanguage: String?
     
     /** 
      
@@ -168,7 +168,7 @@ open class DublinCoreNamespace {
      a string conforming to a formal identification system.
      
      */
-    open var dcRelation: String?
+    public var dcRelation: String?
     
     /** 
      
@@ -186,7 +186,7 @@ open class DublinCoreNamespace {
      coordinates or date ranges.
      
      */
-    open var dcCoverage: String?
+    public var dcCoverage: String?
     
     /**
      
@@ -197,7 +197,7 @@ open class DublinCoreNamespace {
      rights.
      
      */
-    open var dcRights: String?
+    public var dcRights: String?
     
 }
 

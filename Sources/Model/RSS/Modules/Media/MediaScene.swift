@@ -34,35 +34,35 @@ import Foundation
  start and end time of a particular scene in the media, respectively.
  
  */
-open class MediaScene {
+public class MediaScene {
     
     /**
      
      The scene's title.
      
      */
-    open var sceneTitle: String?
+    public var sceneTitle: String?
     
     /**
      
      The scene's description.
      
      */
-    open var sceneDescription: String?
+    public var sceneDescription: String?
     
     /**
      
      The scene's start time.
      
      */
-    open var sceneStartTime: TimeInterval?
+    public var sceneStartTime: TimeInterval?
     
     /**
      
      The scene's end time.
      
      */
-    open var sceneEndTime: TimeInterval?
+    public var sceneEndTime: TimeInterval?
     
 }
 

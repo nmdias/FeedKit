@@ -32,28 +32,28 @@ import Foundation
  one required attribute and three optional attributes.
  
  */
-open class MediaThumbnail {
+public class MediaThumbnail {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          Specifies the url of the thumbnail. It is a required attribute.
          
          */
-        open var url: String?
+        public var url: String?
         
         /**
          
          Specifies the height of the thumbnail. It is an optional attribute.
          
          */
-        open var width: String?
+        public var width: String?
         
         
         /**
@@ -61,7 +61,7 @@ open class MediaThumbnail {
          Specifies the width of the thumbnail. It is an optional attribute.
          
          */
-        open var height: String?
+        public var height: String?
         
         
         /**
@@ -72,7 +72,7 @@ open class MediaThumbnail {
          RTSP [RFC 2326 3.6 Normal Play Time]. It is an optional attribute.
          
          */
-        open var time: String?
+        public var time: String?
         
     }
     
@@ -81,14 +81,14 @@ open class MediaThumbnail {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

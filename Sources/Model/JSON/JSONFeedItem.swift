@@ -30,7 +30,7 @@ import Foundation
  associated with the item.
  
  */
-open class JSONFeedItem {
+public class JSONFeedItem {
     
     /**
      
@@ -42,7 +42,7 @@ open class JSONFeedItem {
      identifiers.
      
      */
-    open var id: String?
+    public var id: String?
     
     /**
      
@@ -51,7 +51,7 @@ open class JSONFeedItem {
      regardless.
      
      */
-    open var url: String?
+    public var url: String?
     
     /**
      
@@ -60,7 +60,7 @@ open class JSONFeedItem {
      then external_url links to the thing you’re talking about.
      
      */
-    open var externalUrl: String?
+    public var externalUrl: String?
     
     /**
      
@@ -68,7 +68,7 @@ open class JSONFeedItem {
      titles.
      
      */
-    open var title: String?
+    public var title: String?
 
     /**
      
@@ -80,7 +80,7 @@ open class JSONFeedItem {
      even have to be the same for each item in a feed.)
      
      */
-    open var contentText: String?
+    public var contentText: String?
     
     /**
      
@@ -92,7 +92,7 @@ open class JSONFeedItem {
      even have to be the same for each item in a feed.)
      
      */
-    open var contentHtml: String?
+    public var contentHtml: String?
     
     
     /**
@@ -102,7 +102,7 @@ open class JSONFeedItem {
      would display all of content_html or content_text.
      
      */
-    open var summary: String?
+    public var summary: String?
     
     /**
      
@@ -112,7 +112,7 @@ open class JSONFeedItem {
      preview (probably resized as a thumbnail and placed in a timeline).
      
      */
-    open var image: String?
+    public var image: String?
     
     /**
      
@@ -123,7 +123,7 @@ open class JSONFeedItem {
      the top of the detail view, possibly with the title overlaid.
      
      */
-    open var bannerImage: String?
+    public var bannerImage: String?
     
     /**
      
@@ -131,14 +131,14 @@ open class JSONFeedItem {
      (Example: 2010-02-07T14:04:00-05:00.)
      
      */
-    open var datePublished: Date?
+    public var datePublished: Date?
     
     /**
      
      (optional, string) specifies the modification date in RFC 3339 format.
      
      */
-    open var dateModified: Date?
+    public var dateModified: Date?
     
     /**
      
@@ -147,7 +147,7 @@ open class JSONFeedItem {
      author of the item.
      
      */
-    open var author: JSONFeedAuthor?
+    public var author: JSONFeedAuthor?
     
     /**
      
@@ -157,14 +157,14 @@ open class JSONFeedItem {
      formats call these categories.
      
      */
-    open var tags: [String]?
+    public var tags: [String]?
     
     /**
      
      (optional, array) lists related resources.
      
      */
-    open var attachments: [JSONFeedAttachment]?
+    public var attachments: [JSONFeedAttachment]?
     
     /**
      
@@ -175,7 +175,7 @@ open class JSONFeedItem {
      through a strongly typed model.
      
      */
-    open var extensions: [String: Any?]?
+    public var extensions: [String: Any?]?
     
 }
 

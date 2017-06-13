@@ -51,42 +51,42 @@ import Foundation
  http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
  
  */
-open class RSSFeedCloud {
+public class RSSFeedCloud {
     
     /**
      
      The attributes of the `<channel>`'s `<cloud>` element
      
     */
-    open class Attributes {
+    public class Attributes {
         
         /** 
          
          The domain to register notification to.
          
          */
-        open var domain: String?
+        public var domain: String?
         
         /** 
          
          The port to connect to. 
          
          */
-        open var port: Int?
+        public var port: Int?
         
         /** 
          
          The path to the RPC service. e.g. "/RPC2" 
          
          */
-        open var path: String?
+        public var path: String?
         
         /** 
          
          The procedure to call. e.g. "myCloud.rssPleaseNotify" 
          
          */
-        open var registerProcedure: String?
+        public var registerProcedure: String?
         
         /** 
          
@@ -96,7 +96,7 @@ open class RSSFeedCloud {
          element. 
          
          */
-        open var protocolSpecification: String?
+        public var protocolSpecification: String?
         
     }
     
@@ -105,7 +105,7 @@ open class RSSFeedCloud {
      The element's attributes 
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
 }
 

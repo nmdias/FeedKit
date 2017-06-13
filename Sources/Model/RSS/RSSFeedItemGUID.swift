@@ -54,14 +54,14 @@ import Foundation
  particular.
  
  */
-open class RSSFeedItemGUID {
+public class RSSFeedItemGUID {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /** 
          
@@ -77,7 +77,7 @@ open class RSSFeedItemGUID {
          particular.
          
          */
-        open var isPermaLink: Bool?
+        public var isPermaLink: Bool?
         
     }
     
@@ -86,14 +86,14 @@ open class RSSFeedItemGUID {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

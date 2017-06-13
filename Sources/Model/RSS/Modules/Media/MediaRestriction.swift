@@ -38,14 +38,14 @@ import Foundation
  strict requirements for its exclusion).
  
  */
-open class MediaRestriction {
+public class MediaRestriction {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -59,7 +59,7 @@ open class MediaRestriction {
          the media should not be syndicated.
          
          */
-        open var relationship: String?
+        public var relationship: String?
         
         /**
          
@@ -68,7 +68,7 @@ open class MediaRestriction {
          be excluded when using one of the literal values "all" or "none".
          
          */
-        open var type: String?
+        public var type: String?
         
     }
     
@@ -77,14 +77,14 @@ open class MediaRestriction {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

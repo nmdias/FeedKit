@@ -31,14 +31,14 @@ import Foundation
  meaning to the content (if any) of this element.
  
  */
-open class AtomFeedEntryCategory {
+public class AtomFeedEntryCategory {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -47,7 +47,7 @@ open class AtomFeedEntryCategory {
          "term" attribute.
          
          */
-        open var term: String?
+        public var term: String?
         
         /**
          
@@ -55,7 +55,7 @@ open class AtomFeedEntryCategory {
          scheme.  Category elements MAY have a "scheme" attribute.
          
          */
-        open var scheme: String?
+        public var scheme: String?
         
         /**
          
@@ -66,7 +66,7 @@ open class AtomFeedEntryCategory {
          markup.  Category elements MAY have a "label" attribute.
          
          */
-        open var label: String?
+        public var label: String?
         
     }
     
@@ -75,7 +75,7 @@ open class AtomFeedEntryCategory {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
 }
 

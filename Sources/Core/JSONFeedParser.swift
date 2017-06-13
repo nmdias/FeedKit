@@ -24,7 +24,7 @@
 
 import Foundation
 
-open class JSONFeedParser: FeedParserProtocol {
+class JSONFeedParser: FeedParserProtocol {
     
     let data: Data
     

@@ -30,14 +30,14 @@ import Foundation
  length. It has one optional attribute.
  
  */
-open class MediaDescription {
+public class MediaDescription {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -45,7 +45,7 @@ open class MediaDescription {
          Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
          
          */
-        open var type: String?
+        public var type: String?
         
     }
     
@@ -54,14 +54,14 @@ open class MediaDescription {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

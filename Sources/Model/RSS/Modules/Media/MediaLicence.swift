@@ -30,28 +30,28 @@ import Foundation
  content.
  
  */
-open class MediaLicence {
+public class MediaLicence {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          The licence type.
          
          */
-        open var type: String?
+        public var type: String?
         
         /**
          
          The location of the licence.
          
          */
-        open var href: String?
+        public var href: String?
         
     }
     
@@ -60,14 +60,14 @@ open class MediaLicence {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

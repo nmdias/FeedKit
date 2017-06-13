@@ -30,14 +30,14 @@ import Foundation
  content, and its particular contents. It has two optional attributes.
  
  */
-open class MediaCategory {
+public class MediaCategory {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -46,7 +46,7 @@ open class MediaCategory {
          is "http://search.yahoo.com/mrss/category_schema".
          
          */
-        open var scheme: String?
+        public var scheme: String?
         
         /**
          
@@ -54,7 +54,7 @@ open class MediaCategory {
          applications. It is an optional attribute.
          
          */
-        open var label: String?
+        public var label: String?
         
     }
     
@@ -63,14 +63,14 @@ open class MediaCategory {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

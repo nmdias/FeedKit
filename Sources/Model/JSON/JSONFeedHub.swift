@@ -31,21 +31,21 @@ import Foundation
  are required.
  
  */
-open class JSONFeedHub {
+public class JSONFeedHub {
     
     /**
      
      The protocol used to talk with the hub, such as “rssCloud” or “WebSub.”
      
      */
-    open var type: String?
+    public var type: String?
     
     /**
      
      The hub's url.
      
      */
-    open var url: String?
+    public var url: String?
     
 }
 

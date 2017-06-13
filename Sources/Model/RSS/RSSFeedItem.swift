@@ -36,7 +36,7 @@ import Foundation
  however at least one of title or description must be present.
  
  */
-open class RSSFeedItem {
+public class RSSFeedItem {
     
     /**
      
@@ -45,7 +45,7 @@ open class RSSFeedItem {
      Example: Venice Film Festival Tries to Quit Sinking
      
      */
-    open var title: String?
+    public var title: String?
     
     /**
      
@@ -54,7 +54,7 @@ open class RSSFeedItem {
      Example: http://nytimes.com/2004/12/07FEST.html
      
      */
-    open var link: String?
+    public var link: String?
     
     /**
      
@@ -65,7 +65,7 @@ open class RSSFeedItem {
      Cinema was being staged.
      
      */
-    open var description: String?
+    public var description: String?
     
     /**
      
@@ -85,7 +85,7 @@ open class RSSFeedItem {
      <author>lawyer@boyer.net (Lawyer Boyer)</author>
      
      */
-    open var author: String?
+    public var author: String?
     
     /**
      
@@ -110,7 +110,7 @@ open class RSSFeedItem {
      same domain.
      
      */
-    open var categories: [RSSFeedItemCategory]?
+    public var categories: [RSSFeedItemCategory]?
     
     /**
      
@@ -128,7 +128,7 @@ open class RSSFeedItem {
      http://cyber.law.harvard.edu/rss/weblogComments.html
      
      */
-    open var comments: String?
+    public var comments: String?
     
     /**
      
@@ -146,7 +146,7 @@ open class RSSFeedItem {
      length="12216320" type="audio/mpeg" />
      
      */
-    open var enclosure: RSSFeedItemEnclosure?
+    public var enclosure: RSSFeedItemEnclosure?
     
     /**
      
@@ -178,7 +178,7 @@ open class RSSFeedItem {
      particular.
      
      */
-    open var guid: RSSFeedItemGUID?
+    public var guid: RSSFeedItemGUID?
     
     /**
      
@@ -193,7 +193,7 @@ open class RSSFeedItem {
      that date.
      
      */
-    open var pubDate: Date?
+    public var pubDate: Date?
     
     /**
      
@@ -213,7 +213,7 @@ open class RSSFeedItem {
      an item from an aggregator to a weblog authoring tool.
      
      */
-    open var source: RSSFeedItemSource?
+    public var source: RSSFeedItemSource?
     
     
     // MARK: - Namespaces
@@ -227,7 +227,7 @@ open class RSSFeedItem {
      See https://tools.ietf.org/html/rfc5013
      
      */
-    open var dublinCore: DublinCoreNamespace?
+    public var dublinCore: DublinCoreNamespace?
     
     /**
      
@@ -236,7 +236,7 @@ open class RSSFeedItem {
      See http://web.resource.org/rss/1.0/modules/content/
      
      */
-    open var content: ContentNamespace?
+    public var content: ContentNamespace?
 
     /**
 
@@ -245,7 +245,7 @@ open class RSSFeedItem {
      see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
 
      */
-    open var iTunes: ITunesNamespace?
+    public var iTunes: ITunesNamespace?
     
     /**
      
@@ -253,7 +253,7 @@ open class RSSFeedItem {
      capabilities of RSS 2.0.
      
      */
-    open var media: MediaNamespace?
+    public var media: MediaNamespace?
 }
 
 // MARK: - Equatable

@@ -60,7 +60,7 @@ import Foundation
  
  */
 
-open class ITunesSubCategory {
+public class ITunesSubCategory {
     
     
     /**
@@ -68,14 +68,14 @@ open class ITunesSubCategory {
      The attributes of the element
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          The primary iTunes Category.
          
          */
-        open var text: String?
+        public var text: String?
         
     }
     
@@ -84,7 +84,7 @@ open class ITunesSubCategory {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     
 }

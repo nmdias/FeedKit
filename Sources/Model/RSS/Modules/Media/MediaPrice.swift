@@ -33,14 +33,14 @@ import Foundation
  is not free.
  
  */
-open class MediaPrice {
+public class MediaPrice {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -48,14 +48,14 @@ open class MediaPrice {
          nothing is specified, then the media is free.
          
          */
-        open var type: String?
+        public var type: String?
         
         /**
          
          The price of the media object. This is an optional attribute.
          
          */
-        open var price: Double?
+        public var price: Double?
         
         /**
          
@@ -63,14 +63,14 @@ open class MediaPrice {
          to package or subscription information. This is an optional attribute.
          
          */
-        open var info: String?
+        public var info: String?
         
         /**
          
          Use [ISO 4217] for currency codes. This is an optional attribute.
          
          */
-        open var currency: String?
+        public var currency: String?
         
     }
     
@@ -79,14 +79,14 @@ open class MediaPrice {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

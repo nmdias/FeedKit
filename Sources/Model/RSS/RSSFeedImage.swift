@@ -50,14 +50,14 @@ import Foundation
  Maximum value for height is 400, default value is 31.
  
  */
-open class RSSFeedImage {
+public class RSSFeedImage {
     
     /** 
      
      The URL of a GIF, JPEG or PNG image that represents the channel. 
      
      */
-    open var url: String?
+    public var url: String?
     
     /** 
      
@@ -65,7 +65,7 @@ open class RSSFeedImage {
      tag when the channel is rendered in HTML. 
      
      */
-    open var title: String?
+    public var title: String?
     
     /** 
      
@@ -74,7 +74,7 @@ open class RSSFeedImage {
      have the same value as the channel's `<title>` and `<link>`.
      
      */
-    open var link: String?
+    public var link: String?
     
     /** 
      
@@ -82,7 +82,7 @@ open class RSSFeedImage {
      Maximum value for width is 144, default value is 88. 
      
      */
-    open var width: Int?
+    public var width: Int?
     
     /** 
      
@@ -90,7 +90,7 @@ open class RSSFeedImage {
      Maximum value for height is 400, default value is 31.
      
      */
-    open var height: Int?
+    public var height: Int?
     
     /** 
      
@@ -98,7 +98,7 @@ open class RSSFeedImage {
      around the image in the HTML rendering.
      
      */
-    open var description: String?
+    public var description: String?
     
 }
 

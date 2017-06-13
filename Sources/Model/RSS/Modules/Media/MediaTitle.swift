@@ -29,14 +29,14 @@ import Foundation
  The title of the particular media object. It has one optional attribute.
  
  */
-open class MediaTitle {
+public class MediaTitle {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -44,7 +44,7 @@ open class MediaTitle {
          Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
          
          */
-        open var type: String?
+        public var type: String?
         
     }
     
@@ -53,14 +53,14 @@ open class MediaTitle {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

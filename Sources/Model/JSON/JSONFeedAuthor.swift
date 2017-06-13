@@ -31,14 +31,14 @@ import Foundation
  least one is required:
  
  */
-open class JSONFeedAuthor {
+public class JSONFeedAuthor {
     
     /**
      
      (optional, string) is the author’s name.
      
      */
-    open var name: String?
+    public var name: String?
     
     /**
      
@@ -48,7 +48,7 @@ open class JSONFeedAuthor {
      could be a mailto: link, though we suspect that will be rare.
      
      */
-    open var url: String?
+    public var url: String?
     
     /**
      
@@ -58,7 +58,7 @@ open class JSONFeedAuthor {
      background.
      
      */
-    open var avatar: String?
+    public var avatar: String?
 
 }
 

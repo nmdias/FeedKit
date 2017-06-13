@@ -29,14 +29,14 @@ import Foundation
  Describes optional attatchments of a JSON Feed item.
  
  */
-open class JSONFeedAttachment {
+public class JSONFeedAttachment {
     
     /**
      
      (required, string) specifies the location of the attachment.
      
      */
-    open var url: String?
+    public var url: String?
     
     /**
      
@@ -44,7 +44,7 @@ open class JSONFeedAttachment {
      “audio/mpeg.”
      
      */
-    open var mimeType: String?
+    public var mimeType: String?
     
     /**
      
@@ -55,14 +55,14 @@ open class JSONFeedAttachment {
      recording in different formats.
      
      */
-    open var title: String?
+    public var title: String?
     
     /**
      
      (optional, number) specifies how large the file is.
      
      */
-    open var sizeInBytes: Int?
+    public var sizeInBytes: Int?
     
     /**
      
@@ -70,7 +70,7 @@ open class JSONFeedAttachment {
      played at normal speed.
      
      */
-    open var durationInSeconds: TimeInterval?
+    public var durationInSeconds: TimeInterval?
     
 }
 

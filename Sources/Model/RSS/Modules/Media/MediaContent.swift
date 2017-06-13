@@ -34,14 +34,14 @@ import Foundation
  media. It contains 14 attributes, most of which are optional.
  
  */
-open class MediaContent {
+public class MediaContent {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -49,7 +49,7 @@ open class MediaContent {
          a <media:player> element must be specified.
          
          */
-        open var url: String?
+        public var url: String?
         
         /**
          
@@ -57,14 +57,14 @@ open class MediaContent {
          attribute.
          
          */
-        open var fileSize: Int?
+        public var fileSize: Int?
         
         /**
          
          The standard MIME type of the object. It is an optional attribute.
          
          */
-        open var type: String?
+        public var type: String?
         
         /**
          
@@ -75,7 +75,7 @@ open class MediaContent {
          object type. It is an optional attribute.
          
          */
-        open var medium: String?
+        public var medium: String?
         
         /**
          
@@ -84,7 +84,7 @@ open class MediaContent {
          <media:group>. It is an optional attribute.
          
          */
-        open var isDefault: Bool?
+        public var isDefault: Bool?
         
         /**
          
@@ -93,14 +93,14 @@ open class MediaContent {
          Default value is "full". It is an optional attribute.
          
          */
-        open var expression: String?
+        public var expression: String?
         
         /**
          
         The kilobits per second rate of media. It is an optional attribute.
          
          */
-        open var bitrate: Int?
+        public var bitrate: Int?
         
         /**
          
@@ -108,7 +108,7 @@ open class MediaContent {
          optional attribute.
          
          */
-        open var framerate: Double?
+        public var framerate: Double?
         
         /**
          
@@ -117,7 +117,7 @@ open class MediaContent {
          It is an optional attribute.
          
          */
-        open var samplingrate: Double?
+        public var samplingrate: Double?
         
         /**
          
@@ -125,7 +125,7 @@ open class MediaContent {
          optional attribute.
          
          */
-        open var channels: Int?
+        public var channels: Int?
         
         /**
          
@@ -133,21 +133,21 @@ open class MediaContent {
          optional attribute.
          
          */
-        open var duration: Int?
+        public var duration: Int?
         
         /**
          
          The height of the media object. It is an optional attribute.
          
          */
-        open var height: Int?
+        public var height: Int?
         
         /**
          
          The width of the media object. It is an optional attribute.
          
          */
-        open var width: Int?
+        public var width: Int?
         
         /**
          
@@ -158,7 +158,7 @@ open class MediaContent {
          attribute.
          
          */
-        open var lang: String?
+        public var lang: String?
         
     }
     
@@ -167,7 +167,7 @@ open class MediaContent {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
 }
 

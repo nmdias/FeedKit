@@ -31,21 +31,21 @@ import Foundation
  to geoRSS.
  
  */
-open class MediaLocation {
+public class MediaLocation {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          Description of the place whose location is being specified.
          
          */
-        open var description: String?
+        public var description: String?
         
         /**
          
@@ -53,7 +53,7 @@ open class MediaLocation {
          media object.
          
          */
-        open var start: TimeInterval?
+        public var start: TimeInterval?
         
         /**
          
@@ -61,7 +61,7 @@ open class MediaLocation {
          object.
          
          */
-        open var end: TimeInterval?
+        public var end: TimeInterval?
         
     }
     
@@ -70,21 +70,21 @@ open class MediaLocation {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The geoRSS's location latitude.
      
      */
-    open var latitude: Double?
+    public var latitude: Double?
     
     /**
      
      The geoRSS's location longitude.
      
      */
-    open var longitude: Double?
+    public var longitude: Double?
     
 }
 

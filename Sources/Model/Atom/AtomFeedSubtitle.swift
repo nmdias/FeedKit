@@ -30,14 +30,14 @@ import Foundation
  readable description or subtitle for a feed.
  
  */
-open class AtomFeedSubtitle {
+public class AtomFeedSubtitle {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -47,7 +47,7 @@ open class AtomFeedSubtitle {
          present with a value of "text".
          
          */
-        open var type: String?
+        public var type: String?
         
     }
     
@@ -56,14 +56,14 @@ open class AtomFeedSubtitle {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

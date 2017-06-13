@@ -35,7 +35,7 @@ import Foundation
  such as TV and video clips, movies, images and audio.
  
  */
-open class MediaNamespace {
+public class MediaNamespace {
     
     /**
      
@@ -46,7 +46,7 @@ open class MediaNamespace {
      only be used for this purpose.
      
      */
-    open var mediaGroup: MediaGroup?
+    public var mediaGroup: MediaGroup?
     
     /**
      
@@ -58,7 +58,7 @@ open class MediaNamespace {
      media. It contains 14 attributes, most of which are optional.
      
      */
-    open var mediaContents: [MediaContent]?
+    public var mediaContents: [MediaContent]?
     
     /**
      
@@ -67,14 +67,14 @@ open class MediaNamespace {
      optional attribute.
      
      */
-    open var mediaRating: MediaRating?
+    public var mediaRating: MediaRating?
     
     /**
      
      The title of the particular media object. It has one optional attribute.
      
      */
-    open var mediaTitle: MediaTitle?
+    public var mediaTitle: MediaTitle?
     
     /**
      
@@ -82,7 +82,7 @@ open class MediaNamespace {
      length. It has one optional attribute.
      
      */
-    open var mediaDescription: MediaDescription?
+    public var mediaDescription: MediaDescription?
     
     /**
      
@@ -90,7 +90,7 @@ open class MediaNamespace {
      maximum of 10 words. The keywords and phrases should be comma-delimited.
      
      */
-    open var mediaKeywords: [String]?
+    public var mediaKeywords: [String]?
     
     /**
      
@@ -100,7 +100,7 @@ open class MediaNamespace {
      one required attribute and three optional attributes.
      
      */
-    open var mediaThumbnails: [MediaThumbnail]?
+    public var mediaThumbnails: [MediaThumbnail]?
     
     /**
      
@@ -108,7 +108,7 @@ open class MediaNamespace {
      content, and its particular contents. It has two optional attributes.
      
      */
-    open var mediaCategory: MediaCategory?
+    public var mediaCategory: MediaCategory?
     
     /**
      
@@ -116,7 +116,7 @@ open class MediaNamespace {
      long as each instance is a different algo. It has one optional attribute.
      
      */
-    open var mediaHash: MediaHash?
+    public var mediaHash: MediaHash?
     
     /**
      
@@ -126,7 +126,7 @@ open class MediaNamespace {
      and two optional attributes.
      
      */
-    open var mediaPlayer: MediaPlayer?
+    public var mediaPlayer: MediaPlayer?
     
     /**
      
@@ -137,14 +137,14 @@ open class MediaNamespace {
      optional attributes.
      
      */
-    open var mediaCredits: [MediaCredit]?
+    public var mediaCredits: [MediaCredit]?
     
     /**
      
      Copyright information for the media object. It has one optional attribute.
      
      */
-    open var mediaCopyright: MediaCopyright?
+    public var mediaCopyright: MediaCopyright?
     
     /**
      
@@ -156,7 +156,7 @@ open class MediaNamespace {
      four optional attributes.
      
      */
-    open var mediaText: MediaText?
+    public var mediaText: MediaText?
     
     /**
      
@@ -172,7 +172,7 @@ open class MediaNamespace {
      strict requirements for its exclusion).
      
      */
-    open var mediaRestriction: MediaRestriction?
+    public var mediaRestriction: MediaRestriction?
     
     /**
      
@@ -181,14 +181,14 @@ open class MediaNamespace {
      count, ratings and tags.
      
      */
-    open var mediaCommunity: MediaCommunity?
+    public var mediaCommunity: MediaCommunity?
     
     /**
      
      Allows inclusion of all the comments a media object has received.
      
      */
-    open var mediaComments: [String]?
+    public var mediaComments: [String]?
     
     /**
      
@@ -197,7 +197,7 @@ open class MediaNamespace {
      key-value pairs.
      
      */
-    open var mediaEmbed: MediaEmbed?
+    public var mediaEmbed: MediaEmbed?
     
     /**
      
@@ -205,14 +205,14 @@ open class MediaNamespace {
      received.
      
      */
-    open var mediaResponses: [String]?
+    public var mediaResponses: [String]?
     
     /**
      
      Allows inclusion of all the URLs pointing to a media object.
      
      */
-    open var mediaBackLinks: [String]?
+    public var mediaBackLinks: [String]?
     
     /**
      
@@ -220,7 +220,7 @@ open class MediaNamespace {
      active or it has been blocked/deleted.
      
      */
-    open var mediaStatus: MediaStatus?
+    public var mediaStatus: MediaStatus?
     
     /**
      
@@ -231,7 +231,7 @@ open class MediaNamespace {
      is not free.
      
      */
-    open var mediaPrices: [MediaPrice]?
+    public var mediaPrices: [MediaPrice]?
     
     /**
      
@@ -239,7 +239,7 @@ open class MediaNamespace {
      content.
      
      */
-    open var mediaLicense: MediaLicence?
+    public var mediaLicense: MediaLicence?
     
     /**
      
@@ -247,14 +247,14 @@ open class MediaNamespace {
      content.
      
      */
-    open var mediaSubTitle: MediaSubTitle?
+    public var mediaSubTitle: MediaSubTitle?
     
     /**
      
      Optional element for P2P link.
      
      */
-    open var mediaPeerLink: MediaPeerLink?
+    public var mediaPeerLink: MediaPeerLink?
     
     /**
      
@@ -263,14 +263,14 @@ open class MediaNamespace {
      to geoRSS.
      
      */
-    open var mediaLocation: MediaLocation?
+    public var mediaLocation: MediaLocation?
     
     /**
      
      Optional element to specify the rights information of a media object.
      
      */
-    open var mediaRights: MediaRights?
+    public var mediaRights: MediaRights?
     
     /**
      
@@ -282,7 +282,7 @@ open class MediaNamespace {
      start and end time of a particular scene in the media, respectively.
      
      */
-    open var mediaScenes: [MediaScene]?
+    public var mediaScenes: [MediaScene]?
     
     
 }

@@ -33,7 +33,7 @@ import Foundation
  only be used for this purpose.
  
  */
-open class MediaGroup {
+public class MediaGroup {
     
     /**
      
@@ -45,7 +45,7 @@ open class MediaGroup {
      media. It contains 14 attributes, most of which are optional.
      
      */
-    open var mediaContents: [MediaContent]?
+    public var mediaContents: [MediaContent]?
     
     /**
      
@@ -56,7 +56,7 @@ open class MediaGroup {
      optional attributes.
      
      */
-    open var mediaCredits: [MediaCredit]?
+    public var mediaCredits: [MediaCredit]?
     
     /**
      
@@ -64,7 +64,7 @@ open class MediaGroup {
      content, and its particular contents. It has two optional attributes.
      
      */
-    open var mediaCategory: MediaCategory?
+    public var mediaCategory: MediaCategory?
     
     /**
      
@@ -73,7 +73,7 @@ open class MediaGroup {
      optional attribute.
      
      */
-    open var mediaRating: MediaRating?
+    public var mediaRating: MediaRating?
     
 }
 

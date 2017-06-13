@@ -29,14 +29,14 @@ import Foundation
  Copyright information for the media object. It has one optional attribute.
  
  */
-open class MediaCopyright {
+public class MediaCopyright {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -46,7 +46,7 @@ open class MediaCopyright {
          attribute.
          
          */
-        open var url: String?
+        public var url: String?
         
     }
     
@@ -55,14 +55,14 @@ open class MediaCopyright {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

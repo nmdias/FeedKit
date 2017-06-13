@@ -29,28 +29,28 @@ import Foundation
  Optional element for P2P link.
  
  */
-open class MediaPeerLink {
+public class MediaPeerLink {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          The peer link's type.
          
          */
-        open var type: String?
+        public var type: String?
         
         /**
          
          The location of the peer link provider.
          
          */
-        open var href: String?
+        public var href: String?
         
     }
     
@@ -59,14 +59,14 @@ open class MediaPeerLink {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

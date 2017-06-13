@@ -33,7 +33,7 @@ import Foundation
  Atom Entry Document.
  
  */
-open class AtomFeedEntry {
+public class AtomFeedEntry {
     
     /**
      
@@ -41,7 +41,7 @@ open class AtomFeedEntry {
      readable title for an entry or feed.
      
      */
-    open var title: String?
+    public var title: String?
     
     /**
      
@@ -55,7 +55,7 @@ open class AtomFeedEntry {
      is a useful summary when there is none.
      
      */
-    open var summary: AtomFeedEntrySummary?
+    public var summary: AtomFeedEntrySummary?
     
     /**
      
@@ -70,7 +70,7 @@ open class AtomFeedEntry {
      described above.
      
      */
-    open var authors: [AtomFeedEntryAuthor]?
+    public var authors: [AtomFeedEntryAuthor]?
     
     /**
      
@@ -78,7 +78,7 @@ open class AtomFeedEntry {
      person or other entity who contributed to the entry or feed.
      
      */
-    open var contributors: [AtomFeedEntryContributor]?
+    public var contributors: [AtomFeedEntryContributor]?
     
     /**
      
@@ -87,7 +87,7 @@ open class AtomFeedEntry {
      (if any) of this element.
      
      */
-    open var links: [AtomFeedEntryLink]?
+    public var links: [AtomFeedEntryLink]?
     
     /**
      
@@ -99,7 +99,7 @@ open class AtomFeedEntry {
      Publishers MAY change the value of this element over time.
      
      */
-    open var updated: Date?
+    public var updated: Date?
     
     /**
      
@@ -108,7 +108,7 @@ open class AtomFeedEntry {
      meaning to the content (if any) of this element.
      
      */
-    open var categories: [AtomFeedEntryCategory]?
+    public var categories: [AtomFeedEntryCategory]?
     
     /**
      
@@ -152,7 +152,7 @@ open class AtomFeedEntry {
      normalized, e.g., by using NFC or NFKC.
      
      */
-    open var id: String?
+    public var id: String?
     
     /**
      
@@ -160,7 +160,7 @@ open class AtomFeedEntry {
      the entry.  The content of atom:content is Language-Sensitive.
      
      */
-    open var content: AtomFeedEntryContent?
+    public var content: AtomFeedEntryContent?
     
     /**
      
@@ -172,7 +172,7 @@ open class AtomFeedEntry {
      creation or first availability of the resource.
      
      */
-    open var published: Date?
+    public var published: Date?
     
     /**
      
@@ -195,7 +195,7 @@ open class AtomFeedEntry {
      in the atom:source element.
      
      */
-    open var source: AtomFeedEntrySource?
+    public var source: AtomFeedEntrySource?
     
     /**
      
@@ -210,7 +210,7 @@ open class AtomFeedEntry {
      present, is considered to apply to the entry.
      
      */
-    open var rights: String?
+    public var rights: String?
     
 }
 

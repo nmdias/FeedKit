@@ -36,14 +36,14 @@ import Foundation
  is a useful summary when there is none.
  
  */
-open class AtomFeedEntrySummary {
+public class AtomFeedEntrySummary {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -53,7 +53,7 @@ open class AtomFeedEntrySummary {
          present with a value of "text".
          
          */
-        open var type: String?
+        public var type: String?
         
     }
     
@@ -62,14 +62,14 @@ open class AtomFeedEntrySummary {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

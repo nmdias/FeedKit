@@ -31,7 +31,7 @@ import Foundation
  count, ratings and tags.
  
  */
-open class MediaCommunity {
+public class MediaCommunity {
     
     /**
      
@@ -39,7 +39,7 @@ open class MediaCommunity {
      Valid attributes are average, count, min and max.
      
      */
-    open var mediaStarRating: MediaStarRating?
+    public var mediaStarRating: MediaStarRating?
     
     /**
      
@@ -47,7 +47,7 @@ open class MediaCommunity {
      view count and the favorite count. Valid attributes are views and favorites.
      
      */
-    open var mediaStatistics: MediaStatistics?
+    public var mediaStatistics: MediaStatistics?
     
     
     /**
@@ -59,7 +59,7 @@ open class MediaCommunity {
      one way to decide weight of a particular tag. Default weight is 1.
      
      */
-    open var mediaTags: [MediaTag]?
+    public var mediaTags: [MediaTag]?
     
 }
 

@@ -44,35 +44,35 @@ import Foundation
  feedback. Most aggregators ignore it.
  
  */
-open class RSSFeedTextInput {
+public class RSSFeedTextInput {
     
     /** 
      
      The label of the Submit button in the text input area. 
      
      */
-    open var title: String?
+    public var title: String?
     
     /** 
      
      Explains the text input area. 
      
      */
-    open var description: String?
+    public var description: String?
     
     /** 
      
      The name of the text object in the text input area. 
      
      */
-    open var name: String?
+    public var name: String?
     
     /** 
      
      The URL of the CGI script that processes text input requests. 
      
      */
-    open var link: String?
+    public var link: String?
     
 }
 

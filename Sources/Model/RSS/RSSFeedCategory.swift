@@ -30,14 +30,14 @@ import Foundation
  belongs.
  
 */
-open class RSSFeedCategory {
+public class RSSFeedCategory {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -45,7 +45,7 @@ open class RSSFeedCategory {
          attribute of `<category>`. e.g. "http://www.fool.com/cusips"
          
          */
-        open var domain: String?
+        public var domain: String?
         
     }
     
@@ -54,14 +54,14 @@ open class RSSFeedCategory {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

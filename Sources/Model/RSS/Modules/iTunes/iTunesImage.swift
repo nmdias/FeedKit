@@ -53,7 +53,7 @@ import Foundation
  are different from the standard RSS image tag specifications.
  
  */
-open class ITunesImage {
+public class ITunesImage {
     
     
     /**
@@ -61,14 +61,14 @@ open class ITunesImage {
      The attributes of the element
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          The image's url.
          
          */
-        open var href: String?
+        public var href: String?
         
     }
     
@@ -77,7 +77,7 @@ open class ITunesImage {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     
 }

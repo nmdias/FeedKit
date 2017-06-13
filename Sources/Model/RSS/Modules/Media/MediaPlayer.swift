@@ -32,21 +32,21 @@ import Foundation
  and two optional attributes.
  
  */
-open class MediaPlayer {
+public class MediaPlayer {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          The URL of the player console that plays the media. It is a required attribute.
          
          */
-        open var url: String?
+        public var url: String?
         
         
         /**
@@ -55,7 +55,7 @@ open class MediaPlayer {
          an optional attribute.
          
          */
-        open var width: Int?
+        public var width: Int?
         
         /**
          
@@ -63,7 +63,7 @@ open class MediaPlayer {
          optional attribute.
          
          */
-        open var height: Int?
+        public var height: Int?
         
     }
     
@@ -72,14 +72,14 @@ open class MediaPlayer {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

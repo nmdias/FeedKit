@@ -33,14 +33,14 @@ import Foundation
  optional attributes.
  
  */
-open class MediaCredit {
+public class MediaCredit {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -48,7 +48,7 @@ open class MediaCredit {
          optional attribute.
          
          */
-        open var role: String?
+        public var role: String?
         
         
         /**
@@ -60,7 +60,7 @@ open class MediaCredit {
          roles supported under urn:yvs scheme are ( uploader | owner ).
          
          */
-        open var scheme: String?
+        public var scheme: String?
         
     }
     
@@ -69,14 +69,14 @@ open class MediaCredit {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

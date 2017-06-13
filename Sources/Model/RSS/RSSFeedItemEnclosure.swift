@@ -40,14 +40,14 @@ import Foundation
  length="12216320" type="audio/mpeg" />
  
  */
-open class RSSFeedItemEnclosure {
+public class RSSFeedItemEnclosure {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /** 
          
@@ -56,7 +56,7 @@ open class RSSFeedItemEnclosure {
          Example: http://www.scripting.com/mp3s/weatherReportSuite.mp3
          
          */
-        open var url: String?
+        public var url: String?
         
         /** 
          
@@ -65,7 +65,7 @@ open class RSSFeedItemEnclosure {
          Example: 12216320
          
          */
-        open var length: Int64?
+        public var length: Int64?
         
         /** 
          
@@ -74,7 +74,7 @@ open class RSSFeedItemEnclosure {
          Example: audio/mpeg
          
          */
-        open var type: String?
+        public var type: String?
         
     }
     
@@ -83,7 +83,7 @@ open class RSSFeedItemEnclosure {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
 }
 

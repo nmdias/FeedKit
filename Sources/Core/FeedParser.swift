@@ -30,7 +30,7 @@ import Foundation
  `XMLParser`.
  
  */
-open class FeedParser {
+public class FeedParser {
     
     /**
      
@@ -93,7 +93,7 @@ open class FeedParser {
      Starts parsing the feed.
      
      */
-    open func parse() -> Result {
+    public func parse() -> Result {
         return self.parser.parse()
     }
     
@@ -111,7 +111,7 @@ open class FeedParser {
      - parameter result: The parse result
      
      */
-    open func parseAsync(queue: DispatchQueue = DispatchQueue.main, result: @escaping (Result) -> Void) {
+    public func parseAsync(queue: DispatchQueue = DispatchQueue.main, result: @escaping (Result) -> Void) {
         queue.async {
             result(self.parse())
         }
@@ -122,7 +122,7 @@ open class FeedParser {
      Stops parsing XML feeds.
      
      */
-    open func abortParsing() {
+    public func abortParsing() {
         
         if let xmlFeedParser = self.parser as? XMLFeedParser {
             xmlFeedParser.xmlParser.abortParsing()

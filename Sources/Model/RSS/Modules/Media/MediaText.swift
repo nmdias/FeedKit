@@ -34,14 +34,14 @@ import Foundation
  four optional attributes.
  
  */
-open class MediaText {
+public class MediaText {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -50,7 +50,7 @@ open class MediaText {
          It is an optional attribute.
          
          */
-        open var type: String?
+        public var type: String?
         
         /**
          
@@ -60,7 +60,7 @@ open class MediaText {
          Edition). It is an optional attribute.
          
          */
-        open var lang: String?
+        public var lang: String?
         
         /**
          
@@ -70,7 +70,7 @@ open class MediaText {
          <media:thumbnail>). It is an optional attribute.
          
          */
-        open var start: String?
+        public var start: String?
         
         /**
          
@@ -80,7 +80,7 @@ open class MediaText {
          <media:text> element.
          
          */
-        open var end: String?
+        public var end: String?
         
     }
     
@@ -89,14 +89,14 @@ open class MediaText {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

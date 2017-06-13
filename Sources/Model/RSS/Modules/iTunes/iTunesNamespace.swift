@@ -31,7 +31,7 @@ import Foundation
 
  */
 
-open class ITunesNamespace {
+public class ITunesNamespace {
 
     /**
 
@@ -42,7 +42,7 @@ open class ITunesNamespace {
      <managingEditor> tag.
 
      */
-    open var iTunesAuthor: String?
+    public var iTunesAuthor: String?
 
     /**
 
@@ -59,7 +59,7 @@ open class ITunesNamespace {
      the iTunes Store. Specifying any value other than Yes has no effect.
 
      */
-    open var iTunesBlock: String?
+    public var iTunesBlock: String?
 
     /**
 
@@ -96,7 +96,7 @@ open class ITunesNamespace {
      </itunes:category>
 
      */
-    open var iTunesCategories: [ITunesCategory]?
+    public var iTunesCategories: [ITunesCategory]?
 
     /**
 
@@ -127,7 +127,7 @@ open class ITunesNamespace {
      are different from the standard RSS image tag specifications.
 
      */
-    open var iTunesImage: ITunesImage?
+    public var iTunesImage: ITunesImage?
 
     /**
 
@@ -150,7 +150,7 @@ open class ITunesNamespace {
      ignores the numbers farthest to the right.
      
      */
-    open var iTunesDuration: TimeInterval?
+    public var iTunesDuration: TimeInterval?
 
     /** 
  
@@ -169,7 +169,7 @@ open class ITunesNamespace {
      iTunes Store territories.
 
      */
-    open var iTunesExplicit: String?
+    public var iTunesExplicit: String?
 
     /**
 
@@ -182,7 +182,7 @@ open class ITunesNamespace {
      appears.
      
      */
-    open var isClosedCaptioned: String?
+    public var isClosedCaptioned: String?
 
     /**
 
@@ -195,7 +195,7 @@ open class ITunesNamespace {
      values are present in multiple episodes, the iTunes Store uses <pubDate>.
      
      */
-    open var iTunesOrder: Int?
+    public var iTunesOrder: Int?
 
     /** 
  
@@ -206,7 +206,7 @@ open class ITunesNamespace {
      Note: If you specify a value other than Yes, nothing happens.
 
      */
-    open var iTunesComplete: String?
+    public var iTunesComplete: String?
 
     /** 
  
@@ -219,7 +219,7 @@ open class ITunesNamespace {
      xisting subscribers. For more information, see Update your RSS feed URL.
 
     */
-    open var iTunesNewFeedURL: String?
+    public var iTunesNewFeedURL: String?
 
     /** 
  
@@ -231,7 +231,7 @@ open class ITunesNamespace {
      about the podcast and is not displayed on the iTunes Store.
 
      */
-    open var iTunesOwner: ITunesOwner?
+    public var iTunesOwner: ITunesOwner?
 
     /**
 
@@ -240,7 +240,7 @@ open class ITunesNamespace {
      that is only a few words long.
      
      */
-    open var iTunesSubtitle: String?
+    public var iTunesSubtitle: String?
 
     /**
 
@@ -252,7 +252,7 @@ open class ITunesNamespace {
      in the <description> tag.
      
      */ 
-    open var iTunesSummary: String?
+    public var iTunesSummary: String?
 
     /**
  
@@ -268,7 +268,7 @@ open class ITunesNamespace {
      This tag is applicable to the Item element only.
 
      */
-    open var iTunesKeywords: String?
+    public var iTunesKeywords: String?
 }
 
 // MARK: - Equatable

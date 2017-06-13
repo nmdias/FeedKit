@@ -33,21 +33,21 @@ import Foundation
  decide weight of a particular tag. Default weight is 1.
  
  */
-open class MediaTag {
+public class MediaTag {
     
     /**
      
      The tag name.
      
      */
-    open var tag: String?
+    public var tag: String?
     
     /**
      
      The tag weight. Default to 1 if not specified.
      
      */
-    open var weight: Int? = 1
+    public var weight: Int? = 1
     
 }
 

@@ -29,19 +29,19 @@ import Foundation
  Key-Value pairs with aditional parameters for the embeded Media.
  
  */
-open class MediaParam {
+public class MediaParam {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          */
-        open var name: String?
+        public var name: String?
         
     }
     
@@ -50,14 +50,14 @@ open class MediaParam {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

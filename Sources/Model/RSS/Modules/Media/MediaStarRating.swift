@@ -30,42 +30,42 @@ import Foundation
  Valid attributes are average, count, min and max.
  
  */
-open class MediaStarRating {
+public class MediaStarRating {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
          The star rating's average.
          
          */
-        open var average: Double?
+        public var average: Double?
         
         /**
          
          The star rating's total count.
          
          */
-        open var count: Int?
+        public var count: Int?
         
         /**
          
          The star rating's minimum value.
          
          */
-        open var min: Int?
+        public var min: Int?
         
         /**
          
          The star rating's maximum value.
          
          */
-        open var max: Int?
+        public var max: Int?
         
     }
     
@@ -74,7 +74,7 @@ open class MediaStarRating {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
 }
 

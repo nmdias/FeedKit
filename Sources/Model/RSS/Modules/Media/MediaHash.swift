@@ -30,14 +30,14 @@ import Foundation
  long as each instance is a different algo. It has one optional attribute.
  
  */
-open class MediaHash {
+public class MediaHash {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         /**
          
@@ -45,7 +45,7 @@ open class MediaHash {
          each instance is a different algo. It has one optional attribute.
          
          */
-        open var algo: String?
+        public var algo: String?
         
     }
     
@@ -54,14 +54,14 @@ open class MediaHash {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
     /**
      
      The element's value
      
      */
-    open var value: String?
+    public var value: String?
     
 }
 

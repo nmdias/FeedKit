@@ -31,7 +31,7 @@ import Foundation
  See http://web.resource.org/rss/1.0/modules/content/
  
 */
-open class ContentNamespace {
+public class ContentNamespace {
     
     /**
      
@@ -43,7 +43,7 @@ open class ContentNamespace {
      </content:encoded>
      
      */
-    open var contentEncoded: String?
+    public var contentEncoded: String?
     
 }
 

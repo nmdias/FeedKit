@@ -30,23 +30,23 @@ import Foundation
  view count and the favorite count. Valid attributes are views and favorites.
  
  */
-open class MediaStatistics {
+public class MediaStatistics {
     
     /**
      
      The element's attributes
      
      */
-    open class Attributes {
+    public class Attributes {
         
         
         /**
          */
-        open var views: Int?
+        public var views: Int?
         
         /**
          */
-        open var favorites: Int?
+        public var favorites: Int?
         
     }
     
@@ -55,7 +55,7 @@ open class MediaStatistics {
      The element's attributes
      
      */
-    open var attributes: Attributes?
+    public var attributes: Attributes?
     
 }
 
