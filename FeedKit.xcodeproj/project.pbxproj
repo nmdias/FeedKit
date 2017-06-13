@@ -101,40 +101,12 @@
 		A053F4E51D0EF9C800B4203D /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E31D0EF9C800B4203D /* DateSpec.swift */; };
 		A053F4E61D0EF9C800B4203D /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E31D0EF9C800B4203D /* DateSpec.swift */; };
 		A053F4E71D0EF9C800B4203D /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E31D0EF9C800B4203D /* DateSpec.swift */; };
-		A053F4E91D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */; };
-		A053F4EA1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */; };
-		A053F4EB1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */; };
-		A053F4EC1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */; };
-		A060D72B1D0353B200F0DACE /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060D72A1D0353B200F0DACE /* XMLFeedType.swift */; };
-		A060D72C1D0353B200F0DACE /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060D72A1D0353B200F0DACE /* XMLFeedType.swift */; };
-		A060D72D1D0353B200F0DACE /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060D72A1D0353B200F0DACE /* XMLFeedType.swift */; };
-		A060D72E1D0353B200F0DACE /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060D72A1D0353B200F0DACE /* XMLFeedType.swift */; };
 		A062F9CB1EDE0F6D007FB589 /* MediaNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062F9CA1EDE0F6D007FB589 /* MediaNamespace.swift */; };
 		A062F9CD1EDE1351007FB589 /* MediaContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062F9CC1EDE1351007FB589 /* MediaContent.swift */; };
-		A06B2D5F1EEE93730092E084 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B2D5E1EEE93730092E084 /* JSONFeedParser.swift */; };
-		A06B2D601EEE93730092E084 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B2D5E1EEE93730092E084 /* JSONFeedParser.swift */; };
-		A06B2D611EEE93730092E084 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B2D5E1EEE93730092E084 /* JSONFeedParser.swift */; };
-		A06B2D621EEE93730092E084 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B2D5E1EEE93730092E084 /* JSONFeedParser.swift */; };
-		A06B2D641EEE93B60092E084 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B2D631EEE93B60092E084 /* FeedParserProtocol.swift */; };
-		A06B2D651EEE93B60092E084 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B2D631EEE93B60092E084 /* FeedParserProtocol.swift */; };
-		A06B2D661EEE93B60092E084 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B2D631EEE93B60092E084 /* FeedParserProtocol.swift */; };
-		A06B2D671EEE93B60092E084 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B2D631EEE93B60092E084 /* FeedParserProtocol.swift */; };
 		A07E1E541EE07A77000E46EE /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07E1E531EE07A77000E46EE /* MediaPlayer.swift */; };
 		A07E1E551EE07A77000E46EE /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07E1E531EE07A77000E46EE /* MediaPlayer.swift */; };
 		A07E1E561EE07A77000E46EE /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07E1E531EE07A77000E46EE /* MediaPlayer.swift */; };
 		A07E1E571EE07A77000E46EE /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07E1E531EE07A77000E46EE /* MediaPlayer.swift */; };
-		A07F3C151CFE136900C3AF80 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDA1CFE136900C3AF80 /* FeedParser.swift */; };
-		A07F3C161CFE136900C3AF80 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDA1CFE136900C3AF80 /* FeedParser.swift */; };
-		A07F3C171CFE136900C3AF80 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDA1CFE136900C3AF80 /* FeedParser.swift */; };
-		A07F3C181CFE136900C3AF80 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDA1CFE136900C3AF80 /* FeedParser.swift */; };
-		A07F3C191CFE136900C3AF80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDB1CFE136900C3AF80 /* Result.swift */; };
-		A07F3C1A1CFE136900C3AF80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDB1CFE136900C3AF80 /* Result.swift */; };
-		A07F3C1B1CFE136900C3AF80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDB1CFE136900C3AF80 /* Result.swift */; };
-		A07F3C1C1CFE136900C3AF80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDB1CFE136900C3AF80 /* Result.swift */; };
-		A07F3C1D1CFE136900C3AF80 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + bool.swift */; };
-		A07F3C1E1CFE136900C3AF80 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + bool.swift */; };
-		A07F3C1F1CFE136900C3AF80 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + bool.swift */; };
-		A07F3C201CFE136900C3AF80 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BDD1CFE136900C3AF80 /* String + bool.swift */; };
 		A07F3C211CFE136900C3AF80 /* AtomFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BE01CFE136900C3AF80 /* AtomFeed.swift */; };
 		A07F3C221CFE136900C3AF80 /* AtomFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BE01CFE136900C3AF80 /* AtomFeed.swift */; };
 		A07F3C231CFE136900C3AF80 /* AtomFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F3BE01CFE136900C3AF80 /* AtomFeed.swift */; };
@@ -353,14 +325,54 @@
 		A09C85031CE9AE2300D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */; };
 		A09C85121CE9AE4F00D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DE81CE86C3800C52142 /* FeedKit.framework */; };
 		A09C85211CE9AE6A00D20CAB /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4DFA1CE86CA200C52142 /* FeedKit.framework */; };
-		A0AA54701D02C07C000A2264 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* XMLFeedParser.swift */; };
-		A0AA54711D02C07C000A2264 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* XMLFeedParser.swift */; };
-		A0AA54721D02C07C000A2264 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* XMLFeedParser.swift */; };
-		A0AA54731D02C07C000A2264 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA546F1D02C07C000A2264 /* XMLFeedParser.swift */; };
-		A0AA54741D02C095000A2264 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
-		A0AA54751D02C096000A2264 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
-		A0AA54761D02C096000A2264 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
-		A0C161F51D0219D500FC5C06 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C161F41D0219D500FC5C06 /* ParserError.swift */; };
+		A0A65E591EF0A9FE00A63A84 /* FeedDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E511EF0A9FE00A63A84 /* FeedDataType.swift */; };
+		A0A65E5A1EF0A9FE00A63A84 /* FeedDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E511EF0A9FE00A63A84 /* FeedDataType.swift */; };
+		A0A65E5B1EF0A9FE00A63A84 /* FeedDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E511EF0A9FE00A63A84 /* FeedDataType.swift */; };
+		A0A65E5C1EF0A9FE00A63A84 /* FeedDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E511EF0A9FE00A63A84 /* FeedDataType.swift */; };
+		A0A65E5D1EF0A9FE00A63A84 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E521EF0A9FE00A63A84 /* FeedParser.swift */; };
+		A0A65E5E1EF0A9FE00A63A84 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E521EF0A9FE00A63A84 /* FeedParser.swift */; };
+		A0A65E5F1EF0A9FE00A63A84 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E521EF0A9FE00A63A84 /* FeedParser.swift */; };
+		A0A65E601EF0A9FE00A63A84 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E521EF0A9FE00A63A84 /* FeedParser.swift */; };
+		A0A65E611EF0A9FE00A63A84 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E531EF0A9FE00A63A84 /* FeedParserProtocol.swift */; };
+		A0A65E621EF0A9FE00A63A84 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E531EF0A9FE00A63A84 /* FeedParserProtocol.swift */; };
+		A0A65E631EF0A9FE00A63A84 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E531EF0A9FE00A63A84 /* FeedParserProtocol.swift */; };
+		A0A65E641EF0A9FE00A63A84 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E531EF0A9FE00A63A84 /* FeedParserProtocol.swift */; };
+		A0A65E651EF0A9FE00A63A84 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E541EF0A9FE00A63A84 /* JSONFeedParser.swift */; };
+		A0A65E661EF0A9FE00A63A84 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E541EF0A9FE00A63A84 /* JSONFeedParser.swift */; };
+		A0A65E671EF0A9FE00A63A84 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E541EF0A9FE00A63A84 /* JSONFeedParser.swift */; };
+		A0A65E681EF0A9FE00A63A84 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E541EF0A9FE00A63A84 /* JSONFeedParser.swift */; };
+		A0A65E691EF0A9FE00A63A84 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E551EF0A9FE00A63A84 /* ParserError.swift */; };
+		A0A65E6A1EF0A9FE00A63A84 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E551EF0A9FE00A63A84 /* ParserError.swift */; };
+		A0A65E6B1EF0A9FE00A63A84 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E551EF0A9FE00A63A84 /* ParserError.swift */; };
+		A0A65E6C1EF0A9FE00A63A84 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E551EF0A9FE00A63A84 /* ParserError.swift */; };
+		A0A65E6D1EF0A9FE00A63A84 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E561EF0A9FE00A63A84 /* Result.swift */; };
+		A0A65E6E1EF0A9FE00A63A84 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E561EF0A9FE00A63A84 /* Result.swift */; };
+		A0A65E6F1EF0A9FE00A63A84 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E561EF0A9FE00A63A84 /* Result.swift */; };
+		A0A65E701EF0A9FE00A63A84 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E561EF0A9FE00A63A84 /* Result.swift */; };
+		A0A65E711EF0A9FE00A63A84 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E571EF0A9FE00A63A84 /* XMLFeedParser.swift */; };
+		A0A65E721EF0A9FE00A63A84 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E571EF0A9FE00A63A84 /* XMLFeedParser.swift */; };
+		A0A65E731EF0A9FE00A63A84 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E571EF0A9FE00A63A84 /* XMLFeedParser.swift */; };
+		A0A65E741EF0A9FE00A63A84 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E571EF0A9FE00A63A84 /* XMLFeedParser.swift */; };
+		A0A65E751EF0A9FE00A63A84 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E581EF0A9FE00A63A84 /* XMLFeedType.swift */; };
+		A0A65E761EF0A9FE00A63A84 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E581EF0A9FE00A63A84 /* XMLFeedType.swift */; };
+		A0A65E771EF0A9FE00A63A84 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E581EF0A9FE00A63A84 /* XMLFeedType.swift */; };
+		A0A65E781EF0A9FE00A63A84 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E581EF0A9FE00A63A84 /* XMLFeedType.swift */; };
+		A0A65E941EF0AB9C00A63A84 /* Array + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E901EF0AB9C00A63A84 /* Array + Equatable.swift */; };
+		A0A65E951EF0AB9C00A63A84 /* Array + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E901EF0AB9C00A63A84 /* Array + Equatable.swift */; };
+		A0A65E961EF0AB9C00A63A84 /* Array + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E901EF0AB9C00A63A84 /* Array + Equatable.swift */; };
+		A0A65E971EF0AB9C00A63A84 /* Array + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E901EF0AB9C00A63A84 /* Array + Equatable.swift */; };
+		A0A65E981EF0AB9C00A63A84 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E911EF0AB9C00A63A84 /* String + bool.swift */; };
+		A0A65E991EF0AB9C00A63A84 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E911EF0AB9C00A63A84 /* String + bool.swift */; };
+		A0A65E9A1EF0AB9C00A63A84 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E911EF0AB9C00A63A84 /* String + bool.swift */; };
+		A0A65E9B1EF0AB9C00A63A84 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E911EF0AB9C00A63A84 /* String + bool.swift */; };
+		A0A65EA01EF0AB9C00A63A84 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E931EF0AB9C00A63A84 /* String + toDuration.swift */; };
+		A0A65EA11EF0AB9C00A63A84 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E931EF0AB9C00A63A84 /* String + toDuration.swift */; };
+		A0A65EA21EF0AB9C00A63A84 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E931EF0AB9C00A63A84 /* String + toDuration.swift */; };
+		A0A65EA31EF0AB9C00A63A84 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65E931EF0AB9C00A63A84 /* String + toDuration.swift */; };
+		A0A65EB21EF0ACB500A63A84 /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65EB11EF0ACB500A63A84 /* String + dateFromSpec.swift */; };
+		A0A65EB31EF0ACB500A63A84 /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65EB11EF0ACB500A63A84 /* String + dateFromSpec.swift */; };
+		A0A65EB41EF0ACB500A63A84 /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65EB11EF0ACB500A63A84 /* String + dateFromSpec.swift */; };
+		A0A65EB51EF0ACB500A63A84 /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A65EB11EF0ACB500A63A84 /* String + dateFromSpec.swift */; };
 		A0CBFBB71EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */; };
 		A0CBFBB81EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */; };
 		A0CBFBB91EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */; };
@@ -389,14 +401,6 @@
 		A0E834C71EEDE1B800BD3383 /* JSONFeedAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834C51EEDE1B800BD3383 /* JSONFeedAttachment.swift */; };
 		A0E834C81EEDE1B800BD3383 /* JSONFeedAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834C51EEDE1B800BD3383 /* JSONFeedAttachment.swift */; };
 		A0E834C91EEDE1B800BD3383 /* JSONFeedAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834C51EEDE1B800BD3383 /* JSONFeedAttachment.swift */; };
-		A0E834D11EEE03C500BD3383 /* FeedDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834D01EEE03C500BD3383 /* FeedDataType.swift */; };
-		A0E834D21EEE03C500BD3383 /* FeedDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834D01EEE03C500BD3383 /* FeedDataType.swift */; };
-		A0E834D31EEE03C500BD3383 /* FeedDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834D01EEE03C500BD3383 /* FeedDataType.swift */; };
-		A0E834D41EEE03C500BD3383 /* FeedDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E834D01EEE03C500BD3383 /* FeedDataType.swift */; };
-		A0EB53311EEB521E00D13AE5 /* EquatableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */; };
-		A0EB53321EEB521E00D13AE5 /* EquatableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */; };
-		A0EB53331EEB521E00D13AE5 /* EquatableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */; };
-		A0EB53341EEB521E00D13AE5 /* EquatableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB61CE869AE00C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB51CE869AE00C52142 /* Assets.xcassets */; };
 		A0EF4DB91CE869AE00C52142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB71CE869AE00C52142 /* LaunchScreen.storyboard */; };
@@ -458,10 +462,6 @@
 		B533B1F61E3945BE0094B758 /* iTunesCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EA1E3945AE0094B758 /* iTunesCategory.swift */; };
 		B533B1F71E3945BE0094B758 /* iTunesNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EB1E3945AE0094B758 /* iTunesNamespace.swift */; };
 		B533B1F81E3945BE0094B758 /* iTunesOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */; };
-		B5993FF81E40AEB700949FB6 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFACA1E3AAC1C003751CA /* String + toDuration.swift */; };
-		B5993FF91E40AEB800949FB6 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFACA1E3AAC1C003751CA /* String + toDuration.swift */; };
-		B5993FFA1E40AEB800949FB6 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFACA1E3AAC1C003751CA /* String + toDuration.swift */; };
-		B5AAFACB1E3AAC1C003751CA /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AAFACA1E3AAC1C003751CA /* String + toDuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -575,16 +575,9 @@
 		A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = RFC822DateFormatter.swift; path = Sources/Dates/RFC822DateFormatter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = RFC3339DateFormatter.swift; path = Sources/Dates/RFC3339DateFormatter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A053F4E31D0EF9C800B4203D /* DateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = DateSpec.swift; path = Sources/Dates/DateSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "String + dateFromSpec.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		A060D72A1D0353B200F0DACE /* XMLFeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = XMLFeedType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A062F9CA1EDE0F6D007FB589 /* MediaNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaNamespace.swift; path = Media/MediaNamespace.swift; sourceTree = "<group>"; };
 		A062F9CC1EDE1351007FB589 /* MediaContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaContent.swift; path = Media/MediaContent.swift; sourceTree = "<group>"; };
-		A06B2D5E1EEE93730092E084 /* JSONFeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFeedParser.swift; sourceTree = "<group>"; };
-		A06B2D631EEE93B60092E084 /* FeedParserProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParserProtocol.swift; sourceTree = "<group>"; };
 		A07E1E531EE07A77000E46EE /* MediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaPlayer.swift; path = Media/MediaPlayer.swift; sourceTree = "<group>"; };
-		A07F3BDA1CFE136900C3AF80 /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FeedParser.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		A07F3BDB1CFE136900C3AF80 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Result.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		A07F3BDD1CFE136900C3AF80 /* String + bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "String + bool.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A07F3BE01CFE136900C3AF80 /* AtomFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AtomFeed.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A07F3BE11CFE136900C3AF80 /* AtomFeedAuthor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AtomFeedAuthor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A07F3BE21CFE136900C3AF80 /* AtomFeedCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AtomFeedCategory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -650,8 +643,18 @@
 		A09C84FE1CE9AE2300D20CAB /* FeedKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C850D1CE9AE4F00D20CAB /* FeedKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C851C1CE9AE6A00D20CAB /* FeedKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0AA546F1D02C07C000A2264 /* XMLFeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = XMLFeedParser.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		A0C161F41D0219D500FC5C06 /* ParserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ParserError.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A0A65E511EF0A9FE00A63A84 /* FeedDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDataType.swift; sourceTree = "<group>"; };
+		A0A65E521EF0A9FE00A63A84 /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
+		A0A65E531EF0A9FE00A63A84 /* FeedParserProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParserProtocol.swift; sourceTree = "<group>"; };
+		A0A65E541EF0A9FE00A63A84 /* JSONFeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFeedParser.swift; sourceTree = "<group>"; };
+		A0A65E551EF0A9FE00A63A84 /* ParserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
+		A0A65E561EF0A9FE00A63A84 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		A0A65E571EF0A9FE00A63A84 /* XMLFeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLFeedParser.swift; sourceTree = "<group>"; };
+		A0A65E581EF0A9FE00A63A84 /* XMLFeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLFeedType.swift; sourceTree = "<group>"; };
+		A0A65E901EF0AB9C00A63A84 /* Array + Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array + Equatable.swift"; sourceTree = "<group>"; };
+		A0A65E911EF0AB9C00A63A84 /* String + bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + bool.swift"; sourceTree = "<group>"; };
+		A0A65E931EF0AB9C00A63A84 /* String + toDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + toDuration.swift"; sourceTree = "<group>"; };
+		A0A65EB11EF0ACB500A63A84 /* String + dateFromSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String + dateFromSpec.swift"; path = "Sources/Dates/String + dateFromSpec.swift"; sourceTree = "<group>"; };
 		A0CBFBB61EEF3C0E001FC07A /* iTunesSubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iTunesSubCategory.swift; path = RSS/Modules/iTunes/iTunesSubCategory.swift; sourceTree = "<group>"; };
 		A0CBFBBB1EEF3DBF001FC07A /* iTunesImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = iTunesImage.swift; path = RSS/Modules/iTunes/iTunesImage.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0E834B11EEDD86100BD3383 /* JSONFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFeed.swift; path = JSON/JSONFeed.swift; sourceTree = "<group>"; };
@@ -659,8 +662,6 @@
 		A0E834BB1EEDDD2900BD3383 /* JSONFeedHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFeedHub.swift; path = JSON/JSONFeedHub.swift; sourceTree = "<group>"; };
 		A0E834C01EEDDDD600BD3383 /* JSONFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFeedItem.swift; path = JSON/JSONFeedItem.swift; sourceTree = "<group>"; };
 		A0E834C51EEDE1B800BD3383 /* JSONFeedAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFeedAttachment.swift; path = JSON/JSONFeedAttachment.swift; sourceTree = "<group>"; };
-		A0E834D01EEE03C500BD3383 /* FeedDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FeedDataType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EquatableArray.swift; path = Sources/Global/EquatableArray.swift; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* FeedKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -693,7 +694,6 @@
 		B533B1EA1E3945AE0094B758 /* iTunesCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = iTunesCategory.swift; path = RSS/Modules/iTunes/iTunesCategory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B533B1EB1E3945AE0094B758 /* iTunesNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = iTunesNamespace.swift; path = RSS/Modules/iTunes/iTunesNamespace.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B533B1EC1E3945AE0094B758 /* iTunesOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iTunesOwner.swift; path = RSS/Modules/iTunes/iTunesOwner.swift; sourceTree = "<group>"; };
-		B5AAFACA1E3AAC1C003751CA /* String + toDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + toDuration.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -780,9 +780,10 @@
 			isa = PBXGroup;
 			children = (
 				A053F4E31D0EF9C800B4203D /* DateSpec.swift */,
+				A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */,
 				A053F4D91D0EF97200B4203D /* RFC822DateFormatter.swift */,
 				A053F4DE1D0EF99B00B4203D /* RFC3339DateFormatter.swift */,
-				A00BEBD41D0F3E1200F8AEFA /* ISO8601DateFormatter.swift */,
+				A0A65EB11EF0ACB500A63A84 /* String + dateFromSpec.swift */,
 			);
 			name = Dates;
 			sourceTree = "<group>";
@@ -838,33 +839,6 @@
 				A08DF4F21EE4A15A00ED367D /* MediaGroup.swift */,
 			);
 			name = Media;
-			sourceTree = "<group>";
-		};
-		A07F3BD91CFE136900C3AF80 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				A0E834D01EEE03C500BD3383 /* FeedDataType.swift */,
-				A07F3BDA1CFE136900C3AF80 /* FeedParser.swift */,
-				A06B2D631EEE93B60092E084 /* FeedParserProtocol.swift */,
-				A0AA546F1D02C07C000A2264 /* XMLFeedParser.swift */,
-				A060D72A1D0353B200F0DACE /* XMLFeedType.swift */,
-				A06B2D5E1EEE93730092E084 /* JSONFeedParser.swift */,
-				A0C161F41D0219D500FC5C06 /* ParserError.swift */,
-				A07F3BDB1CFE136900C3AF80 /* Result.swift */,
-			);
-			name = Core;
-			path = Sources/Core;
-			sourceTree = "<group>";
-		};
-		A07F3BDC1CFE136900C3AF80 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A07F3BDD1CFE136900C3AF80 /* String + bool.swift */,
-				A053F4E81D0EF9ED00B4203D /* String + dateFromSpec.swift */,
-				B5AAFACA1E3AAC1C003751CA /* String + toDuration.swift */,
-			);
-			name = Extensions;
-			path = Sources/Extensions;
 			sourceTree = "<group>";
 		};
 		A07F3BDE1CFE136900C3AF80 /* Model */ = {
@@ -1003,6 +977,33 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		A0A65E501EF0A9FE00A63A84 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				A0A65E511EF0A9FE00A63A84 /* FeedDataType.swift */,
+				A0A65E521EF0A9FE00A63A84 /* FeedParser.swift */,
+				A0A65E531EF0A9FE00A63A84 /* FeedParserProtocol.swift */,
+				A0A65E541EF0A9FE00A63A84 /* JSONFeedParser.swift */,
+				A0A65E551EF0A9FE00A63A84 /* ParserError.swift */,
+				A0A65E561EF0A9FE00A63A84 /* Result.swift */,
+				A0A65E571EF0A9FE00A63A84 /* XMLFeedParser.swift */,
+				A0A65E581EF0A9FE00A63A84 /* XMLFeedType.swift */,
+			);
+			name = Parser;
+			path = Sources/Parser;
+			sourceTree = "<group>";
+		};
+		A0A65E8F1EF0AB9C00A63A84 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A0A65E901EF0AB9C00A63A84 /* Array + Equatable.swift */,
+				A0A65E911EF0AB9C00A63A84 /* String + bool.swift */,
+				A0A65E931EF0AB9C00A63A84 /* String + toDuration.swift */,
+			);
+			name = Extensions;
+			path = Sources/Extensions;
+			sourceTree = "<group>";
+		};
 		A0D20C2C1CEAFACB00B4509D /* xml */ = {
 			isa = PBXGroup;
 			children = (
@@ -1036,14 +1037,6 @@
 				A09AFB6A1EEFE0200076ACC7 /* feed.json */,
 			);
 			name = json;
-			sourceTree = "<group>";
-		};
-		A0EB532F1EEB51FC00D13AE5 /* Global */ = {
-			isa = PBXGroup;
-			children = (
-				A0EB53301EEB521E00D13AE5 /* EquatableArray.swift */,
-			);
-			name = Global;
 			sourceTree = "<group>";
 		};
 		A0EF4D931CE867DF00C52142 = {
@@ -1115,11 +1108,10 @@
 		A0EF4E1A1CE86F4800C52142 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A0EB532F1EEB51FC00D13AE5 /* Global */,
-				A03402711D0C16D7005900CD /* Dates */,
-				A07F3BD91CFE136900C3AF80 /* Core */,
-				A07F3BDC1CFE136900C3AF80 /* Extensions */,
+				A0A65E501EF0A9FE00A63A84 /* Parser */,
 				A07F3BDE1CFE136900C3AF80 /* Model */,
+				A03402711D0C16D7005900CD /* Dates */,
+				A0A65E8F1EF0AB9C00A63A84 /* Extensions */,
 				A0EF4E1B1CE86F6100C52142 /* FeedKit.h */,
 				A0EF4E1F1CE86F6E00C52142 /* Info-iOS.plist */,
 				A0EF4E201CE86F6E00C52142 /* Info-macOS.plist */,
@@ -1553,31 +1545,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07F3C201CFE136900C3AF80 /* String + bool.swift in Sources */,
+				A0A65E641EF0A9FE00A63A84 /* FeedParserProtocol.swift in Sources */,
 				A0FF62841D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */,
-				A07F3C1C1CFE136900C3AF80 /* Result.swift in Sources */,
 				A0E834C91EEDE1B800BD3383 /* JSONFeedAttachment.swift in Sources */,
 				A0E834B51EEDD86100BD3383 /* JSONFeed.swift in Sources */,
+				A0A65E9B1EF0AB9C00A63A84 /* String + bool.swift in Sources */,
 				A07F3CD41CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A042AF721EE32FB7004C2F63 /* MediaLicence.swift in Sources */,
 				A0F6953E1EE2202600F34408 /* MediaPeerLink.swift in Sources */,
 				A07F3C5C1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
 				A02534441EDED732008C3D70 /* MediaDescription.swift in Sources */,
-				A06B2D621EEE93730092E084 /* JSONFeedParser.swift in Sources */,
+				A0A65E601EF0A9FE00A63A84 /* FeedParser.swift in Sources */,
 				A08DF4F61EE4A15A00ED367D /* MediaGroup.swift in Sources */,
 				A042AF861EE337FD004C2F63 /* MediaScene.swift in Sources */,
 				A07F3C301CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C441CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
 				A07F3C501CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
-				A060D72E1D0353B200F0DACE /* XMLFeedType.swift in Sources */,
 				A042AF631EE326CB004C2F63 /* MediaStatus.swift in Sources */,
-				A0EB53341EEB521E00D13AE5 /* EquatableArray.swift in Sources */,
 				A0E834BA1EEDDAD700BD3383 /* JSONFeedAuthor.swift in Sources */,
+				A0A65E6C1EF0A9FE00A63A84 /* ParserError.swift in Sources */,
+				A0A65E5C1EF0A9FE00A63A84 /* FeedDataType.swift in Sources */,
 				A07F3C3C1CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C741CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
 				A07F3C581CFE136900C3AF80 /* AtomFeedLink.swift in Sources */,
 				A07F3CB01CFE136900C3AF80 /* RSSFeedCloud.swift in Sources */,
-				A06B2D671EEE93B60092E084 /* FeedParserProtocol.swift in Sources */,
+				A0A65E781EF0A9FE00A63A84 /* XMLFeedType.swift in Sources */,
+				A0A65EA31EF0AB9C00A63A84 /* String + toDuration.swift in Sources */,
 				A0F6954D1EE2CD3600F34408 /* MediaStatistics.swift in Sources */,
 				A07F3C381CFE136900C3AF80 /* AtomFeedEntryAuthor.swift in Sources */,
 				A07F3CBC1CFE136900C3AF80 /* RSSFeedItemCategory.swift in Sources */,
@@ -1586,20 +1579,20 @@
 				A0F695571EE2D3FD00F34408 /* MediaEmbed.swift in Sources */,
 				A07F3CCC1CFE136900C3AF80 /* RSSFeedSkipDay.swift in Sources */,
 				A07F3CA81CFE136900C3AF80 /* RSSFeed.swift in Sources */,
+				A0A65E701EF0A9FE00A63A84 /* Result.swift in Sources */,
 				A07F3CB81CFE136900C3AF80 /* RSSFeedItem.swift in Sources */,
 				A03B7E751EE15D9F008E247B /* MediaRestriction.swift in Sources */,
-				A053F4EC1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
 				A0CBFBBA1EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */,
-				A0E834D41EEE03C500BD3383 /* FeedDataType.swift in Sources */,
 				A07F3CC01CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
+				A0A65E681EF0A9FE00A63A84 /* JSONFeedParser.swift in Sources */,
 				A07E1E571EE07A77000E46EE /* MediaPlayer.swift in Sources */,
 				A02534491EDEDABF008C3D70 /* MediaThumbnail.swift in Sources */,
+				A0A65EB51EF0ACB500A63A84 /* String + dateFromSpec.swift in Sources */,
 				A0E834C41EEDDDD600BD3383 /* JSONFeedItem.swift in Sources */,
 				A07F3C241CFE136900C3AF80 /* AtomFeed.swift in Sources */,
 				A042AF6D1EE32E88004C2F63 /* MediaSubTitle.swift in Sources */,
 				B533B1F61E3945BE0094B758 /* iTunesCategory.swift in Sources */,
 				A02534531EDEDF3D008C3D70 /* MediaHash.swift in Sources */,
-				A07F3C181CFE136900C3AF80 /* FeedParser.swift in Sources */,
 				A0F695431EE2CA4200F34408 /* MediaCommunity.swift in Sources */,
 				A07F3C481CFE136900C3AF80 /* AtomFeedEntryLink.swift in Sources */,
 				B533B1F81E3945BE0094B758 /* iTunesOwner.swift in Sources */,
@@ -1624,19 +1617,18 @@
 				A07F3C2C1CFE136900C3AF80 /* AtomFeedCategory.swift in Sources */,
 				A03B7E701EE15C33008E247B /* MediaText.swift in Sources */,
 				A02534341EDEC4C1008C3D70 /* MediaRating.swift in Sources */,
-				B5993FFA1E40AEB800949FB6 /* String + toDuration.swift in Sources */,
 				A07F3C9C1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
 				A0CBFBBF1EEF3DBF001FC07A /* iTunesImage.swift in Sources */,
 				A07F3C281CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
-				A0AA54761D02C096000A2264 /* ParserError.swift in Sources */,
 				B533B1F71E3945BE0094B758 /* iTunesNamespace.swift in Sources */,
 				A0F6955C1EE2D65600F34408 /* MediaParam.swift in Sources */,
 				A025344E1EDEDDBD008C3D70 /* MediaCategory.swift in Sources */,
+				A0A65E741EF0A9FE00A63A84 /* XMLFeedParser.swift in Sources */,
 				A07F3C641CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A053F4DD1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
-				A0AA54731D02C07C000A2264 /* XMLFeedParser.swift in Sources */,
 				A07F3C841CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB41CFE136900C3AF80 /* RSSFeedImage.swift in Sources */,
+				A0A65E971EF0AB9C00A63A84 /* Array + Equatable.swift in Sources */,
 				A0F695481EE2CBA000F34408 /* MediaStarRating.swift in Sources */,
 				A07F3CD81CFE136900C3AF80 /* RSSPath.swift in Sources */,
 				A07F3C541CFE136900C3AF80 /* AtomFeedGenerator.swift in Sources */,
@@ -1738,31 +1730,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07F3C1E1CFE136900C3AF80 /* String + bool.swift in Sources */,
+				A0A65E621EF0A9FE00A63A84 /* FeedParserProtocol.swift in Sources */,
 				A0FF62861D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */,
-				A07F3C1A1CFE136900C3AF80 /* Result.swift in Sources */,
 				A0E834C71EEDE1B800BD3383 /* JSONFeedAttachment.swift in Sources */,
 				A0E834B31EEDD86100BD3383 /* JSONFeed.swift in Sources */,
+				A0A65E991EF0AB9C00A63A84 /* String + bool.swift in Sources */,
 				A07F3CD21CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A042AF701EE32FB7004C2F63 /* MediaLicence.swift in Sources */,
 				A0F6953C1EE2202600F34408 /* MediaPeerLink.swift in Sources */,
 				A07F3C5A1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
 				A02534421EDED732008C3D70 /* MediaDescription.swift in Sources */,
-				A06B2D601EEE93730092E084 /* JSONFeedParser.swift in Sources */,
+				A0A65E5E1EF0A9FE00A63A84 /* FeedParser.swift in Sources */,
 				A08DF4F41EE4A15A00ED367D /* MediaGroup.swift in Sources */,
 				A042AF841EE337FD004C2F63 /* MediaScene.swift in Sources */,
 				A07F3C2E1CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C421CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
 				A07F3C4E1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
-				A060D72C1D0353B200F0DACE /* XMLFeedType.swift in Sources */,
 				A042AF611EE326CB004C2F63 /* MediaStatus.swift in Sources */,
-				A0EB53321EEB521E00D13AE5 /* EquatableArray.swift in Sources */,
 				A0E834B81EEDDAD700BD3383 /* JSONFeedAuthor.swift in Sources */,
+				A0A65E6A1EF0A9FE00A63A84 /* ParserError.swift in Sources */,
+				A0A65E5A1EF0A9FE00A63A84 /* FeedDataType.swift in Sources */,
 				A07F3C3A1CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C721CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
 				A07F3C561CFE136900C3AF80 /* AtomFeedLink.swift in Sources */,
 				A07F3CAE1CFE136900C3AF80 /* RSSFeedCloud.swift in Sources */,
-				A06B2D651EEE93B60092E084 /* FeedParserProtocol.swift in Sources */,
+				A0A65E761EF0A9FE00A63A84 /* XMLFeedType.swift in Sources */,
+				A0A65EA11EF0AB9C00A63A84 /* String + toDuration.swift in Sources */,
 				A0F6954B1EE2CD3600F34408 /* MediaStatistics.swift in Sources */,
 				A07F3C361CFE136900C3AF80 /* AtomFeedEntryAuthor.swift in Sources */,
 				A07F3CBA1CFE136900C3AF80 /* RSSFeedItemCategory.swift in Sources */,
@@ -1771,20 +1764,20 @@
 				A0F695551EE2D3FD00F34408 /* MediaEmbed.swift in Sources */,
 				A07F3CCA1CFE136900C3AF80 /* RSSFeedSkipDay.swift in Sources */,
 				A07F3CA61CFE136900C3AF80 /* RSSFeed.swift in Sources */,
+				A0A65E6E1EF0A9FE00A63A84 /* Result.swift in Sources */,
 				A07F3CB61CFE136900C3AF80 /* RSSFeedItem.swift in Sources */,
 				A03B7E731EE15D9F008E247B /* MediaRestriction.swift in Sources */,
-				A053F4EA1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
 				A0CBFBB81EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */,
-				A0E834D21EEE03C500BD3383 /* FeedDataType.swift in Sources */,
 				A07F3CBE1CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
+				A0A65E661EF0A9FE00A63A84 /* JSONFeedParser.swift in Sources */,
 				A07E1E551EE07A77000E46EE /* MediaPlayer.swift in Sources */,
 				A02534471EDEDABF008C3D70 /* MediaThumbnail.swift in Sources */,
+				A0A65EB31EF0ACB500A63A84 /* String + dateFromSpec.swift in Sources */,
 				A0E834C21EEDDDD600BD3383 /* JSONFeedItem.swift in Sources */,
 				A07F3C221CFE136900C3AF80 /* AtomFeed.swift in Sources */,
 				A042AF6B1EE32E88004C2F63 /* MediaSubTitle.swift in Sources */,
 				B533B1F01E3945BD0094B758 /* iTunesCategory.swift in Sources */,
 				A02534511EDEDF3D008C3D70 /* MediaHash.swift in Sources */,
-				A07F3C161CFE136900C3AF80 /* FeedParser.swift in Sources */,
 				A0F695411EE2CA4200F34408 /* MediaCommunity.swift in Sources */,
 				A07F3C461CFE136900C3AF80 /* AtomFeedEntryLink.swift in Sources */,
 				B533B1F21E3945BD0094B758 /* iTunesOwner.swift in Sources */,
@@ -1809,19 +1802,18 @@
 				A07F3C2A1CFE136900C3AF80 /* AtomFeedCategory.swift in Sources */,
 				A03B7E6E1EE15C33008E247B /* MediaText.swift in Sources */,
 				A02534321EDEC4C1008C3D70 /* MediaRating.swift in Sources */,
-				B5993FF81E40AEB700949FB6 /* String + toDuration.swift in Sources */,
 				A07F3C9A1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
 				A0CBFBBD1EEF3DBF001FC07A /* iTunesImage.swift in Sources */,
 				A07F3C261CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
-				A0AA54741D02C095000A2264 /* ParserError.swift in Sources */,
 				B533B1F11E3945BD0094B758 /* iTunesNamespace.swift in Sources */,
 				A0F6955A1EE2D65600F34408 /* MediaParam.swift in Sources */,
 				A025344C1EDEDDBD008C3D70 /* MediaCategory.swift in Sources */,
+				A0A65E721EF0A9FE00A63A84 /* XMLFeedParser.swift in Sources */,
 				A07F3C621CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A053F4DB1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
-				A0AA54711D02C07C000A2264 /* XMLFeedParser.swift in Sources */,
 				A07F3C821CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB21CFE136900C3AF80 /* RSSFeedImage.swift in Sources */,
+				A0A65E951EF0AB9C00A63A84 /* Array + Equatable.swift in Sources */,
 				A0F695461EE2CBA000F34408 /* MediaStarRating.swift in Sources */,
 				A07F3CD61CFE136900C3AF80 /* RSSPath.swift in Sources */,
 				A07F3C521CFE136900C3AF80 /* AtomFeedGenerator.swift in Sources */,
@@ -1836,31 +1828,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07F3C1F1CFE136900C3AF80 /* String + bool.swift in Sources */,
+				A0A65E631EF0A9FE00A63A84 /* FeedParserProtocol.swift in Sources */,
 				A0FF62851D0F52930082EA0A /* ISO8601DateFormatter.swift in Sources */,
-				A07F3C1B1CFE136900C3AF80 /* Result.swift in Sources */,
 				A0E834C81EEDE1B800BD3383 /* JSONFeedAttachment.swift in Sources */,
 				A0E834B41EEDD86100BD3383 /* JSONFeed.swift in Sources */,
+				A0A65E9A1EF0AB9C00A63A84 /* String + bool.swift in Sources */,
 				A07F3CD31CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A042AF711EE32FB7004C2F63 /* MediaLicence.swift in Sources */,
 				A0F6953D1EE2202600F34408 /* MediaPeerLink.swift in Sources */,
 				A07F3C5B1CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
 				A02534431EDED732008C3D70 /* MediaDescription.swift in Sources */,
-				A06B2D611EEE93730092E084 /* JSONFeedParser.swift in Sources */,
+				A0A65E5F1EF0A9FE00A63A84 /* FeedParser.swift in Sources */,
 				A08DF4F51EE4A15A00ED367D /* MediaGroup.swift in Sources */,
 				A042AF851EE337FD004C2F63 /* MediaScene.swift in Sources */,
 				A07F3C2F1CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A07F3C431CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
 				A07F3C4F1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
-				A060D72D1D0353B200F0DACE /* XMLFeedType.swift in Sources */,
 				A042AF621EE326CB004C2F63 /* MediaStatus.swift in Sources */,
-				A0EB53331EEB521E00D13AE5 /* EquatableArray.swift in Sources */,
 				A0E834B91EEDDAD700BD3383 /* JSONFeedAuthor.swift in Sources */,
+				A0A65E6B1EF0A9FE00A63A84 /* ParserError.swift in Sources */,
+				A0A65E5B1EF0A9FE00A63A84 /* FeedDataType.swift in Sources */,
 				A07F3C3B1CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A07F3C731CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
 				A07F3C571CFE136900C3AF80 /* AtomFeedLink.swift in Sources */,
 				A07F3CAF1CFE136900C3AF80 /* RSSFeedCloud.swift in Sources */,
-				A06B2D661EEE93B60092E084 /* FeedParserProtocol.swift in Sources */,
+				A0A65E771EF0A9FE00A63A84 /* XMLFeedType.swift in Sources */,
+				A0A65EA21EF0AB9C00A63A84 /* String + toDuration.swift in Sources */,
 				A0F6954C1EE2CD3600F34408 /* MediaStatistics.swift in Sources */,
 				A07F3C371CFE136900C3AF80 /* AtomFeedEntryAuthor.swift in Sources */,
 				A07F3CBB1CFE136900C3AF80 /* RSSFeedItemCategory.swift in Sources */,
@@ -1869,20 +1862,20 @@
 				A0F695561EE2D3FD00F34408 /* MediaEmbed.swift in Sources */,
 				A07F3CCB1CFE136900C3AF80 /* RSSFeedSkipDay.swift in Sources */,
 				A07F3CA71CFE136900C3AF80 /* RSSFeed.swift in Sources */,
+				A0A65E6F1EF0A9FE00A63A84 /* Result.swift in Sources */,
 				A07F3CB71CFE136900C3AF80 /* RSSFeedItem.swift in Sources */,
 				A03B7E741EE15D9F008E247B /* MediaRestriction.swift in Sources */,
-				A053F4EB1D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
 				A0CBFBB91EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */,
-				A0E834D31EEE03C500BD3383 /* FeedDataType.swift in Sources */,
 				A07F3CBF1CFE136900C3AF80 /* RSSFeedItemEnclosure.swift in Sources */,
+				A0A65E671EF0A9FE00A63A84 /* JSONFeedParser.swift in Sources */,
 				A07E1E561EE07A77000E46EE /* MediaPlayer.swift in Sources */,
 				A02534481EDEDABF008C3D70 /* MediaThumbnail.swift in Sources */,
+				A0A65EB41EF0ACB500A63A84 /* String + dateFromSpec.swift in Sources */,
 				A0E834C31EEDDDD600BD3383 /* JSONFeedItem.swift in Sources */,
 				A07F3C231CFE136900C3AF80 /* AtomFeed.swift in Sources */,
 				A042AF6C1EE32E88004C2F63 /* MediaSubTitle.swift in Sources */,
 				B533B1F31E3945BD0094B758 /* iTunesCategory.swift in Sources */,
 				A02534521EDEDF3D008C3D70 /* MediaHash.swift in Sources */,
-				A07F3C171CFE136900C3AF80 /* FeedParser.swift in Sources */,
 				A0F695421EE2CA4200F34408 /* MediaCommunity.swift in Sources */,
 				A07F3C471CFE136900C3AF80 /* AtomFeedEntryLink.swift in Sources */,
 				B533B1F51E3945BD0094B758 /* iTunesOwner.swift in Sources */,
@@ -1907,19 +1900,18 @@
 				A07F3C2B1CFE136900C3AF80 /* AtomFeedCategory.swift in Sources */,
 				A03B7E6F1EE15C33008E247B /* MediaText.swift in Sources */,
 				A02534331EDEC4C1008C3D70 /* MediaRating.swift in Sources */,
-				B5993FF91E40AEB800949FB6 /* String + toDuration.swift in Sources */,
 				A07F3C9B1CFE136900C3AF80 /* SyndicationNamespace.swift in Sources */,
 				A0CBFBBE1EEF3DBF001FC07A /* iTunesImage.swift in Sources */,
 				A07F3C271CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
-				A0AA54751D02C096000A2264 /* ParserError.swift in Sources */,
 				B533B1F41E3945BD0094B758 /* iTunesNamespace.swift in Sources */,
 				A0F6955B1EE2D65600F34408 /* MediaParam.swift in Sources */,
 				A025344D1EDEDDBD008C3D70 /* MediaCategory.swift in Sources */,
+				A0A65E731EF0A9FE00A63A84 /* XMLFeedParser.swift in Sources */,
 				A07F3C631CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A053F4DC1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
-				A0AA54721D02C07C000A2264 /* XMLFeedParser.swift in Sources */,
 				A07F3C831CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
 				A07F3CB31CFE136900C3AF80 /* RSSFeedImage.swift in Sources */,
+				A0A65E961EF0AB9C00A63A84 /* Array + Equatable.swift in Sources */,
 				A0F695471EE2CBA000F34408 /* MediaStarRating.swift in Sources */,
 				A07F3CD71CFE136900C3AF80 /* RSSPath.swift in Sources */,
 				A07F3C531CFE136900C3AF80 /* AtomFeedGenerator.swift in Sources */,
@@ -1934,33 +1926,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07F3C1D1CFE136900C3AF80 /* String + bool.swift in Sources */,
-				A07F3C191CFE136900C3AF80 /* Result.swift in Sources */,
+				A0A65E611EF0A9FE00A63A84 /* FeedParserProtocol.swift in Sources */,
 				A07F3CD11CFE136900C3AF80 /* RSSFeedTextInput.swift in Sources */,
 				A0E834C61EEDE1B800BD3383 /* JSONFeedAttachment.swift in Sources */,
 				A0E834B21EEDD86100BD3383 /* JSONFeed.swift in Sources */,
+				A0A65E981EF0AB9C00A63A84 /* String + bool.swift in Sources */,
 				A07F3C591CFE136900C3AF80 /* AtomFeedSubtitle.swift in Sources */,
 				A042AF6F1EE32FB7004C2F63 /* MediaLicence.swift in Sources */,
 				A0F6953B1EE2202600F34408 /* MediaPeerLink.swift in Sources */,
 				A07F3C2D1CFE136900C3AF80 /* AtomFeedContributor.swift in Sources */,
 				A02534411EDED732008C3D70 /* MediaDescription.swift in Sources */,
-				A06B2D5F1EEE93730092E084 /* JSONFeedParser.swift in Sources */,
+				A0A65E5D1EF0A9FE00A63A84 /* FeedParser.swift in Sources */,
 				A08DF4F31EE4A15A00ED367D /* MediaGroup.swift in Sources */,
 				A042AF831EE337FD004C2F63 /* MediaScene.swift in Sources */,
 				A07F3C411CFE136900C3AF80 /* AtomFeedEntryContributor.swift in Sources */,
 				A07F3C4D1CFE136900C3AF80 /* AtomFeedEntrySummary.swift in Sources */,
-				A060D72B1D0353B200F0DACE /* XMLFeedType.swift in Sources */,
 				A07F3C391CFE136900C3AF80 /* AtomFeedEntryCategory.swift in Sources */,
 				A042AF601EE326CB004C2F63 /* MediaStatus.swift in Sources */,
-				A0EB53311EEB521E00D13AE5 /* EquatableArray.swift in Sources */,
 				A0E834B71EEDDAD700BD3383 /* JSONFeedAuthor.swift in Sources */,
-				A0AA54701D02C07C000A2264 /* XMLFeedParser.swift in Sources */,
-				A0C161F51D0219D500FC5C06 /* ParserError.swift in Sources */,
+				A0A65E691EF0A9FE00A63A84 /* ParserError.swift in Sources */,
+				A0A65E591EF0A9FE00A63A84 /* FeedDataType.swift in Sources */,
 				A07F3C711CFE136900C3AF80 /* RSSFeed + Characters Mapper.swift in Sources */,
 				A07F3C551CFE136900C3AF80 /* AtomFeedLink.swift in Sources */,
-				A06B2D641EEE93B60092E084 /* FeedParserProtocol.swift in Sources */,
 				A0F6954A1EE2CD3600F34408 /* MediaStatistics.swift in Sources */,
 				A07F3CAD1CFE136900C3AF80 /* RSSFeedCloud.swift in Sources */,
+				A0A65E751EF0A9FE00A63A84 /* XMLFeedType.swift in Sources */,
+				A0A65EA01EF0AB9C00A63A84 /* String + toDuration.swift in Sources */,
 				A07F3C351CFE136900C3AF80 /* AtomFeedEntryAuthor.swift in Sources */,
 				A07F3CB91CFE136900C3AF80 /* RSSFeedItemCategory.swift in Sources */,
 				A07F3CCD1CFE136900C3AF80 /* RSSFeedSkipHour.swift in Sources */,
@@ -1969,15 +1960,15 @@
 				A02534311EDEC4C1008C3D70 /* MediaRating.swift in Sources */,
 				A07F3C891CFE136900C3AF80 /* DublinCoreNamespace.swift in Sources */,
 				A03B7E721EE15D9F008E247B /* MediaRestriction.swift in Sources */,
+				A0A65E6D1EF0A9FE00A63A84 /* Result.swift in Sources */,
 				A07F3CC91CFE136900C3AF80 /* RSSFeedSkipDay.swift in Sources */,
 				A0CBFBB71EEF3C0E001FC07A /* iTunesSubCategory.swift in Sources */,
-				A0E834D11EEE03C500BD3383 /* FeedDataType.swift in Sources */,
-				A053F4E91D0EF9ED00B4203D /* String + dateFromSpec.swift in Sources */,
 				A07E1E541EE07A77000E46EE /* MediaPlayer.swift in Sources */,
 				A02534461EDEDABF008C3D70 /* MediaThumbnail.swift in Sources */,
+				A0A65E651EF0A9FE00A63A84 /* JSONFeedParser.swift in Sources */,
 				A0E834C11EEDDDD600BD3383 /* JSONFeedItem.swift in Sources */,
-				B5AAFACB1E3AAC1C003751CA /* String + toDuration.swift in Sources */,
 				A042AF6A1EE32E88004C2F63 /* MediaSubTitle.swift in Sources */,
+				A0A65EB21EF0ACB500A63A84 /* String + dateFromSpec.swift in Sources */,
 				A07F3CA51CFE136900C3AF80 /* RSSFeed.swift in Sources */,
 				A02534501EDEDF3D008C3D70 /* MediaHash.swift in Sources */,
 				A07F3CB51CFE136900C3AF80 /* RSSFeedItem.swift in Sources */,
@@ -1986,7 +1977,6 @@
 				B533B1ED1E3945AE0094B758 /* iTunesCategory.swift in Sources */,
 				A07F3C211CFE136900C3AF80 /* AtomFeed.swift in Sources */,
 				A042AF651EE32AE6004C2F63 /* MediaPrice.swift in Sources */,
-				A07F3C151CFE136900C3AF80 /* FeedParser.swift in Sources */,
 				A03B7E681EE1565D008E247B /* MediaCopyright.swift in Sources */,
 				A03B7E631EE1555D008E247B /* MediaCredit.swift in Sources */,
 				A025343C1EDEC70F008C3D70 /* MediaTitle.swift in Sources */,
@@ -2014,10 +2004,12 @@
 				A0F695591EE2D65600F34408 /* MediaParam.swift in Sources */,
 				A025344B1EDEDDBD008C3D70 /* MediaCategory.swift in Sources */,
 				B533B1EE1E3945AE0094B758 /* iTunesNamespace.swift in Sources */,
+				A0A65E711EF0A9FE00A63A84 /* XMLFeedParser.swift in Sources */,
 				A07F3C251CFE136900C3AF80 /* AtomFeedAuthor.swift in Sources */,
 				A053F4DA1D0EF97200B4203D /* RFC822DateFormatter.swift in Sources */,
 				A07F3C611CFE136900C3AF80 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A07F3C811CFE136900C3AF80 /* ContentNamespace.swift in Sources */,
+				A0A65E941EF0AB9C00A63A84 /* Array + Equatable.swift in Sources */,
 				A0F695451EE2CBA000F34408 /* MediaStarRating.swift in Sources */,
 				A07F3CB11CFE136900C3AF80 /* RSSFeedImage.swift in Sources */,
 				A07F3CD51CFE136900C3AF80 /* RSSPath.swift in Sources */,

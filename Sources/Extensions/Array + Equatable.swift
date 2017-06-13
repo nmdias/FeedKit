@@ -1,5 +1,5 @@
 //
-//  EquatableArray.swift
+//  Array + Equatable.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //
@@ -24,7 +24,7 @@
 
 import Foundation
 
-func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
+public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
     switch (lhs,rhs) {
     case (.some(let lhs), .some(let rhs)):
         return lhs == rhs
