@@ -1,5 +1,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "FeedKit"
+    name: "FeedKit",
+    dependencies : [],
+    exclude: ["Tests"]
 )
