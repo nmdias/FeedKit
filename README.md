@@ -101,15 +101,17 @@ case let .failure(error):   break
 ```
 
 ### Model Preview
-
-#### RSS
-
+Safely bind a feed of your choosing:
 ```swift
 guard let feed = result.rssFeed, result.isSuccess else {
     print(result.error)
     return
 }
+```
+Then go through it's properties. The RSS, Atom and JSON Feed Models are rather extensive. These are just a preview.
+#### RSS
 
+```swift
 print(feed.title)
 print(feed.description)
 print(feed.image)
@@ -129,11 +131,6 @@ print(item?.pubDate)
 #### Atom
 
 ```swift
-guard let feed = result.atomFeed, result.isSuccess else {
-    print(result.error)
-    return
-}
-
 print(feed.title)
 print(feed.subtitle)
 print(feed.logo)
@@ -148,7 +145,26 @@ print(entry?.updated)
 // ...
 ```
 
+#### JSON
+
+```swift
+print(feed.title)
+print(feed.description)
+print(feed.icon)
+print(feed.expired)
+// ...
+
+let item = feed.items?.first
+
+print(item?.title)
+print(item?.summary)
+print(item?.datePublished)
+// ...
+```
+
 > Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and description
+
+Installation >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/INSTALL.md) <<
 
 ## License
 
