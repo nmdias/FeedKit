@@ -46,7 +46,14 @@ let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss"
 FeedKit will do asynchronous parsing on the main queue by default. You can safely update your UI from within the result closure.
 ```swift
 FeedParser(URL: feedURL)?.parseAsync { result in
-    // Do your thing
+    
+    switch result {
+    case let .atom(feed):       break
+    case let .rss(feed):        break
+    case let .json(feed):       break
+    case let .failure(error):   break
+    }
+
 }
 ```     
 
@@ -57,14 +64,14 @@ FeedParser(URL: feedURL)?.parseAsync(queue: myQueue, result: { (result) in
 })
 ```
 
-Alternatively, you can also call `parse` synchronously.
+Alternatively, you can also parse `synchronously`.
 ```swift
-let result = FeedParser(URL: feedURL)?.parse()
+FeedParser(URL: feedURL)?.parse()
 ```
 
 #### Initializers
 
-> An aditional initializer can also be found for `Data` objects.
+> An aditional initializer can be found for `Data` objects.
 ```swift
 FeedParser(data: data)
 ```
@@ -79,25 +86,11 @@ result.jsonFeed     // JSON Feed Model
 
 
 #### Parsing Success
-You can also check if a Feed was successfully parsed or not.
+You can check if a Feed was `successfully` parsed or not.
 ```swift
 result.isSuccess    // If parsing was a success
 result.isFailure    // If parsing failed
 result.error        // An error, if any
-```
-
-### Handling Multiple Feeds
-Multiple `Feed Types` and `Error` handling can be acomplished using a parse `Result` like this:
-
-```swift
-switch result {
-
-case let .atom(feed):       break
-case let .rss(feed):        break
-case let .json(feed):       break
-case let .failure(error):   break
-
-}
 ```
 
 ### Model Preview
@@ -112,17 +105,48 @@ Then go through it's properties. The RSS, Atom and JSON Feed Models are rather e
 #### RSS
 
 ```swift
-print(feed.title)
-print(feed.description)
-print(feed.image)
-print(feed.pubDate)
+feed.title
+feed.link
+feed.description
+feed.language
+feed.copyright
+feed.managingEditor
+feed.webMaster
+feed.pubDate
+feed.lastBuildDate
+feed.categories
+feed.generator
+feed.docs
+feed.cloud
+feed.rating
+feed.ttl
+feed.image
+feed.textInput
+feed.skipHours
+feed.skipDays
+//...
+feed.dublinCore
+feed.syndication
+feed.iTunes
 // ...
 
 let item = feed.items?.first
 
-print(item?.title)
-print(item?.description)
-print(item?.pubDate)
+item?.title
+item?.link
+item?.description
+item?.author
+item?.categories
+item?.comments
+item?.enclosure
+item?.guid
+item?.pubDate
+item?.source
+//...
+item?.dublinCore
+item?.content
+item?.iTunes
+item?.media
 // ...
 ```
 
@@ -131,17 +155,33 @@ print(item?.pubDate)
 #### Atom
 
 ```swift
-print(feed.title)
-print(feed.subtitle)
-print(feed.logo)
-print(feed.updated)
+feed.title
+feed.subtitle
+feed.links
+feed.updated
+feed.authors
+feed.contributors
+feed.id
+feed.generator
+feed.icon
+feed.logo
+feed.rights
 // ...
 
 let entry = feed.entries?.first
 
-print(entry?.title)
-print(entry?.summary)
-print(entry?.updated)
+entry?.title
+entry?.summary
+entry?.authors
+entry?.contributors
+entry?.links
+entry?.updated
+entry?.categories
+entry?.id
+entry?.content
+entry?.published
+entry?.source
+entry?.rights
 // ...
 ```
 
@@ -150,17 +190,39 @@ print(entry?.updated)
 #### JSON
 
 ```swift
-print(feed.title)
-print(feed.description)
-print(feed.icon)
-print(feed.expired)
+feed.version
+feed.title
+feed.homePageURL
+feed.feedUrl
+feed.description
+feed.userComment
+feed.nextUrl
+feed.icon
+feed.favicon
+feed.author
+feed.expired
+feed.hubs
+feed.extensions
 // ...
 
 let item = feed.items?.first
 
-print(item?.title)
-print(item?.summary)
-print(item?.datePublished)
+item?.id
+item?.url
+item?.externalUrl
+item?.title
+item?.contentText
+item?.contentHtml
+item?.summary
+item?.image
+item?.bannerImage
+item?.datePublished
+item?.dateModified
+item?.author
+item?.url
+item?.tags
+item?.attachments
+item?.extensions
 // ...
 ```
 
