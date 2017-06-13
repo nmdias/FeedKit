@@ -145,6 +145,8 @@ print(entry?.updated)
 // ...
 ```
 
+> Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and description
+
 #### JSON
 
 ```swift
