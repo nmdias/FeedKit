@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  This allows the permissible audience to be declared. If this element is not 

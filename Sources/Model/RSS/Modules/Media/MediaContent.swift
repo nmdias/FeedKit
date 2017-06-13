@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  <media:content> is a sub-element of either <item> or <media:group>.

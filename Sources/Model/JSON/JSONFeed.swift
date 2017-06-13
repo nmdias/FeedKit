@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /***
  
  The JSON Feed format is a pragmatic syndication format, like RSS and Atom, 

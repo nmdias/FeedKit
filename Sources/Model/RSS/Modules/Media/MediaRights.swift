@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  Optional element to specify the rights information of a media object.

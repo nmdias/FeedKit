@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  The actual engine behind the `FeedKit` framework. `Parser` handles

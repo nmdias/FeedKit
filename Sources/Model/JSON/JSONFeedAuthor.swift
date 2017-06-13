@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  (optional, object) specifies the feed author. The author object has several 

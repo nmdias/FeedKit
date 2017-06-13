@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  Media RSS is a new RSS module that supplements the <enclosure> 

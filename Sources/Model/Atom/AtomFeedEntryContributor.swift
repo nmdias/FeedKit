@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  The "atom:contributor" element is a Person construct that indicates a

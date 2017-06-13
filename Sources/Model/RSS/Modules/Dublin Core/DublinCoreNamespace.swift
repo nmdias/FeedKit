@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  The Dublin Core Metadata Element Set is a standard for cross-domain

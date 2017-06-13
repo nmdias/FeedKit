@@ -22,9 +22,13 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
-    The category of `<channel>`. Identifies a category or tag to which the feed 
+ 
+ The category of `<channel>`. Identifies a category or tag to which the feed 
  belongs.
+ 
 */
 open class RSSFeedCategory {
     

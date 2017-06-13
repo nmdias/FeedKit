@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  This element contains user-generated tags separated by commas in the decreasing 

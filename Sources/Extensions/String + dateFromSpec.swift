@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 extension String {
     
     /**

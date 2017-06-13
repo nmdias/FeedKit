@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
     switch (lhs,rhs) {
     case (.some(let lhs), .some(let rhs)):

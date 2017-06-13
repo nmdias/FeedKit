@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  This is the hash of the binary media file. It can appear multiple times as

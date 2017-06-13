@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  Describes the individual path for each XML DOM element of an Atom feed

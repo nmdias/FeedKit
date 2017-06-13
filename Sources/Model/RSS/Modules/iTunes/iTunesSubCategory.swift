@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  Users can browse podcast subject categories in the iTunes Store by choosing

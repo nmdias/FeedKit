@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  Provides syndication hints to aggregators and others picking up this RDF Site 

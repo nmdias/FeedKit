@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  The <media:group> element is a sub-element of <item>. It allows grouping

@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 open class JSONFeedParser: FeedParserProtocol {
     
     let data: Data

@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  Used to provide the result of a parsed feed, whether the parsing was

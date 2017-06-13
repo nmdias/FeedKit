@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+import Foundation
+
 /**
  
  Describes an endpoints that can be used to subscribe to real-time notifications 
