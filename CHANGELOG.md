@@ -1,5 +1,26 @@
 # Change Log
 
+## [6.1.0](https://github.com/nmdias/FeedParser/releases/tag/6.1.0)
+### Added
+- Linux Support
+- FeedKit.paw
+
+### Fixed
+- Support for Swift Package Manager
+- Reverted removal of Foundation imports
+- Fixed 'Error' is not convertible to 'NSError' on Linux
+- Fixed use of undeclared type 'DispatchQueue' when build in Linux
+
+### Updated
+- Access control modifiers
+- Improved Documentation
+
+## [6.0.2](https://github.com/nmdias/FeedParser/releases/tag/6.0.2)
+### Added
+- Cocoadocs styles yml
+### Updated
+- Documentation
+
 ## [6.0.1](https://github.com/nmdias/FeedParser/releases/tag/6.0.1)
 ### Updated
 - Excluded tests from the SPM
