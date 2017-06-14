@@ -95,7 +95,7 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
      */
     func parse() -> Result {
         
-        self.xmlParser.parse()
+        let _ = self.xmlParser.parse()
         
         if let error = parsingError {
             return Result.failure(error)
