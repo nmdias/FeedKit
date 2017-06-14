@@ -49,7 +49,7 @@ class JSONFeedParser: FeedParserProtocol {
             return Result.json(jsonFeed)
             
         } catch {
-            return Result.failure(error as NSError)
+            return Result.failure(NSError(domain: error.localizedDescription, code: -1))
         }
         
     }

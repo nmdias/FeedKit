@@ -218,7 +218,7 @@ extension XMLFeedParser {
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-        self.parsingError = parseError as NSError
+        self.parsingError = NSError(domain: parseError.localizedDescription, code: -1)
     }
     
 }
