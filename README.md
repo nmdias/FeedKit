@@ -5,9 +5,7 @@ An RSS, Atom and JSON Feed parser written in Swift
 [![build status](https://travis-ci.org/nmdias/FeedKit.svg)](https://travis-ci.org/nmdias/FeedKit)
 [![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedKit)
-[![cocoapods compatible](https://img.shields.io/cocoapods/v/FeedKit.svg)](https://img.shields.io/cocoapods/v/FeedKit.svg)
-[![language](https://img.shields.io/badge/swift-v3.0-orange.svg)](https://swift.org)
-[![documentation](https://img.shields.io/cocoapods/metrics/doc-percent/FeedKit.svg)](http://cocoadocs.org/docsets/FeedKit/)
+[![language](https://img.shields.io/badge/spm-compatible-orange.svg)](https://swift.org)
 
 ## Features
 
