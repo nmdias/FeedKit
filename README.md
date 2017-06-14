@@ -3,9 +3,12 @@
 An RSS, Atom and JSON Feed parser written in Swift
 
 [![build status](https://travis-ci.org/nmdias/FeedKit.svg)](https://travis-ci.org/nmdias/FeedKit)
-[![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedKit)
-[![language](https://img.shields.io/badge/spm-compatible-orange.svg)](https://swift.org)
+[![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
+[![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
+[![docs](https://img.shields.io/badge/docs-99%-green.svg)](http://cocoadocs.org/docsets/FeedKit)
+[![release](https://img.shields.io/badge/release-6.1.0-green.svg)](https://github.com/nmdias/FeedKit/releases)
+
 
 ## Features
 
@@ -26,11 +29,12 @@ An RSS, Atom and JSON Feed parser written in Swift
 
 ## Requirements
 
+![xcode](https://img.shields.io/badge/xcode-8.0%2b-lightgrey.svg)
 ![ios](https://img.shields.io/badge/ios-8.0%2b-lightgrey.svg)
 ![tvos](https://img.shields.io/badge/tvos-9.0%2b-lightgrey.svg)
 ![watchos](https://img.shields.io/badge/watchos-2.0%2b-lightgrey.svg)
 ![mac os](https://img.shields.io/badge/mac%20os-10.9%2b-lightgrey.svg)
-![xcode](https://img.shields.io/badge/xcode-8.0%2b-lightgrey.svg)
+![mac os](https://img.shields.io/badge/ubuntu-16.04+-lightgrey.svg)
 
 Installation >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/INSTALL.md) <<
 
