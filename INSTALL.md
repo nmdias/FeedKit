@@ -2,7 +2,16 @@
 # FeedKit
 
 An RSS, Atom and JSON Feed parser written in Swift
+
+Usage >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/README.md) <<
+
 ## Installation
+- [CocoaPods](#cocoapods)
+- [Carthage](#carthage)
+- [Swift Package Manager](#swift-package-manager)
+- [Manually](#manually)
+
+# 
 
 ### CocoaPods
 
@@ -57,6 +66,33 @@ Build the framework:
 $ carthage update
 ```
 Then, drag the built `FeedKit.framework` into your Xcode project.
+
+### Swift Package Manager
+
+"The [Swift Package Manager](https://swift.org/package-manager/) is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies."
+
+To integrate `FeedKit` into your project, specify it in your `Package.swift` file:
+
+```swift
+let package = Package(
+    name: "MyApp",
+    dependencies: [
+        .Package(url: "https://github.com/nmdias/FeedKit.git", majorVersion: 6)
+    ]
+)
+```
+
+Then run:
+
+```bash
+$ swift build
+```
+
+Or, alternatively:
+
+```bash
+$ swift package generate-xcodeproj
+```
 
 ### Manually
 
