@@ -8,11 +8,11 @@ An RSS, Atom and JSON Feed parser written in Swift
 [![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
 [![release](https://img.shields.io/badge/release-6.1.0-orange.svg)](https://github.com/nmdias/FeedKit/releases)
 
-
 ## Features
 
-- [x] [Atom Syndication Format](https://tools.ietf.org/html/rfc4287)
-- [x] [RSS2](http://cyber.law.harvard.edu/rss/rss.html) 
+- [x] [Atom](https://tools.ietf.org/html/rfc4287)
+- [x] [RSS2](http://cyber.law.harvard.edu/rss/rss.html)
+- [x] [JSON](https://jsonfeed.org/version/1)  
 - [x] Namespaces
     - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
     - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
