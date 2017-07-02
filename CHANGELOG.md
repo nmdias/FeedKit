@@ -1,5 +1,9 @@
 # Change Log
 
+## [6.1.1](https://github.com/nmdias/FeedParser/releases/tag/6.1.1)
+### Fixed
+- Removed non utf-8 characters from test files
+
 ## [6.1.0](https://github.com/nmdias/FeedParser/releases/tag/6.1.0)
 ### Added
 - Linux Support
