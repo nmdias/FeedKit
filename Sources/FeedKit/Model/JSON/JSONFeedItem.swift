@@ -46,8 +46,8 @@ public class JSONFeedItem {
     
     /**
      
-     (optional, string) is the URL of the resource described by the item. It’s 
-     the permalink. This may be the same as the id — but should be present 
+     (optional, string) is the URL of the resource described by the item. It's 
+     the permalink. This may be the same as the id - but should be present 
      regardless.
      
      */
@@ -56,8 +56,8 @@ public class JSONFeedItem {
     /**
      
      (very optional, string) is the URL of a page elsewhere. This is especially
-     useful for linkblogs. If url links to where you’re talking about a thing,
-     then external_url links to the thing you’re talking about.
+     useful for linkblogs. If url links to where you're talking about a thing,
+     then external_url links to the thing you're talking about.
      
      */
     public var externalUrl: String?
@@ -72,11 +72,11 @@ public class JSONFeedItem {
 
     /**
      
-     content_html and content_text are each optional strings — but one or both 
+     content_html and content_text are each optional strings - but one or both 
      must be present. This is the HTML or plain text of the item. Important: 
      the only place HTML is allowed in this format is in content_html. A 
      Twitter-like service might use content_text, while a blog might use 
-     content_html. Use whichever makes sense for your resource. (It doesn’t 
+     content_html. Use whichever makes sense for your resource. (It doesn't 
      even have to be the same for each item in a feed.)
      
      */
@@ -84,11 +84,11 @@ public class JSONFeedItem {
     
     /**
      
-     content_html and content_text are each optional strings — but one or both
+     content_html and content_text are each optional strings - but one or both
      must be present. This is the HTML or plain text of the item. Important:
      the only place HTML is allowed in this format is in content_html. A
      Twitter-like service might use content_text, while a blog might use
-     content_html. Use whichever makes sense for your resource. (It doesn’t
+     content_html. Use whichever makes sense for your resource. (It doesn't
      even have to be the same for each item in a feed.)
      
      */
@@ -107,7 +107,7 @@ public class JSONFeedItem {
     /**
      
      (optional, string) is the URL of the main image for the item. This image
-     may also appear in the content_html — if so, it’s a hint to the feed reader
+     may also appear in the content_html - if so, it's a hint to the feed reader
      that this is the main, featured image. Feed readers may use the image as a
      preview (probably resized as a thumbnail and placed in a timeline).
      
@@ -118,7 +118,7 @@ public class JSONFeedItem {
      
      (optional, string) is the URL of an image to use as a banner. Some blogging
      systems (such as Medium) display a different banner image chosen to go with
-     each post, but that image wouldn’t otherwise appear in the content_html. 
+     each post, but that image wouldn't otherwise appear in the content_html. 
      A feed reader with a detail view may choose to show this banner image at 
      the top of the detail view, possibly with the title overlaid.
      

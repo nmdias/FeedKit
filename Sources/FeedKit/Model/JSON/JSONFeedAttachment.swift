@@ -41,7 +41,7 @@ public class JSONFeedAttachment {
     /**
      
      (required, string) specifies the type of the attachment, such as 
-     “audio/mpeg.”
+     "audio/mpeg."
      
      */
     public var mimeType: String?

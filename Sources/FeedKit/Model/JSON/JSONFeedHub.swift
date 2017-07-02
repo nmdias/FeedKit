@@ -35,7 +35,7 @@ public class JSONFeedHub {
     
     /**
      
-     The protocol used to talk with the hub, such as “rssCloud” or “WebSub.”
+     The protocol used to talk with the hub, such as "rssCloud" or "WebSub."
      
      */
     public var type: String?
