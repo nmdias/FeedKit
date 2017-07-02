@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'FeedKit'
-  s.version = '6.1.0'
+  s.version = '6.1.1'
   s.license = 'MIT'
   s.summary = 'An RSS, Atom and JSON Feed parser written in Swift'
   s.homepage = 'https://github.com/nmdias/FeedKit'
