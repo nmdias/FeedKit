@@ -89,6 +89,17 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
     fileprivate var currentXMLDOMPath: URL = URL(string: "/")!
     
     /**
+
+     Some feed content can be XML itself, this flag allows for the accumulation
+     of those values instead of discarding that data. This is Listing 6 on
+     https://www.xml.com/pub/a/2005/12/07/handling-atom-text-and-content-constructs.html
+
+     */
+    fileprivate var parsingInnerXMLTag: String? = nil
+    fileprivate var parsingInnerXMLNamespaceFound = false
+    fileprivate var innerXMLContentsAccumulator = ""
+
+    /**
      
      Starts parsing the feed.
      
@@ -158,10 +169,26 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
 extension XMLFeedParser {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        
-        // Update the current path along the XML's DOM elements by appending the new component with `elementName`
-        self.currentXMLDOMPath = self.currentXMLDOMPath.appendingPathComponent(elementName)
-        
+        if attributeDict.index(forKey: "type") != nil {
+            if attributeDict["type"] == "xhtml" {
+                self.parsingInnerXMLTag = elementName
+                self.currentXMLDOMPath = self.currentXMLDOMPath.appendingPathComponent(elementName)
+            }
+        }
+        if elementName == "div" && attributeDict.index(forKey: "xmlns") != nil {
+            if self.parsingInnerXMLTag != nil {
+                self.parsingInnerXMLNamespaceFound = true
+                return
+            }
+        }
+
+        if self.parsingInnerXMLTag != nil && self.parsingInnerXMLTag != elementName {
+            self.innerXMLContentsAccumulator.append("<\(elementName)>")
+        } else if self.parsingInnerXMLTag != elementName {
+            // Update the current path along the XML's DOM elements by appending the new component with `elementName`
+            self.currentXMLDOMPath = self.currentXMLDOMPath.appendingPathComponent(elementName)
+        }
+
         // Get the feed type from the element, if it hasn't been done yet
         guard let feedType = self.feedType else {
             self.feedType = XMLFeedType(rawValue: elementName)
@@ -195,9 +222,22 @@ extension XMLFeedParser {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        
-        // Update the current path along the XML's DOM elements by deleting last component
-        self.currentXMLDOMPath = self.currentXMLDOMPath.deletingLastPathComponent()
+        if elementName == self.parsingInnerXMLTag {
+            if self.parsingInnerXMLNamespaceFound {
+                let endIndex = innerXMLContentsAccumulator.index(innerXMLContentsAccumulator.endIndex, offsetBy: -6)
+                innerXMLContentsAccumulator = innerXMLContentsAccumulator.substring(to: endIndex)
+                self.parsingInnerXMLNamespaceFound = false
+            }
+            self.parsingInnerXMLTag = nil
+            self.mapCharacters(self.innerXMLContentsAccumulator)
+            self.innerXMLContentsAccumulator = ""
+        }
+        if self.parsingInnerXMLTag != nil {
+            self.innerXMLContentsAccumulator.append("</\(elementName)>")
+        } else {
+            // Update the current path along the XML's DOM elements by deleting last component
+            self.currentXMLDOMPath = self.currentXMLDOMPath.deletingLastPathComponent()
+        }
         
     }
     
@@ -212,9 +252,13 @@ extension XMLFeedParser {
         self.mapCharacters(string)
         
     }
-    
+
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        self.mapCharacters(string)
+        if self.parsingInnerXMLTag != nil {
+            self.innerXMLContentsAccumulator.append(string.trimmingCharacters(in: .whitespacesAndNewlines))
+        } else {
+            self.mapCharacters(string)
+        }
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
