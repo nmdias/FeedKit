@@ -34,7 +34,8 @@ class RFC822DateFormatter: DateFormatter {
     
     let dateFormats = [
         "EEE, d MMM yyyy HH:mm:ss zzz",
-        "EEE, d MMM yyyy HH:mm zzz"
+        "EEE, d MMM yyyy HH:mm zzz",
+        "d MMM yyyy HH:mm:ss Z"
     ]
     
     override init() {
