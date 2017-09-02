@@ -117,7 +117,7 @@ public class ITunesNamespace {
      Verify the web server hosting your artwork allows HTTP head requests
      The <itunes:image> tag is also supported at the <item> (episode) level. 
      For best results, Apple recommends embedding the same artwork within the 
-     metadata for that episode’s media file prior to uploading to your host 
+     metadata for that episode's media file prior to uploading to your host
      server; using Garageband or another content-creation tool to edit your
      media file if needed.
 
