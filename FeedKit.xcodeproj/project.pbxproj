@@ -68,9 +68,9 @@
 		A09AFB821EEFE0270076ACC7 /* iTunesPodcasting.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB721EEFE0270076ACC7 /* iTunesPodcasting.xml */; };
 		A09AFB831EEFE0270076ACC7 /* iTunesPodcasting.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB721EEFE0270076ACC7 /* iTunesPodcasting.xml */; };
 		A09AFB841EEFE0270076ACC7 /* iTunesPodcasting.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB721EEFE0270076ACC7 /* iTunesPodcasting.xml */; };
-		A09AFB851EEFE0270076ACC7 /* Media.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB731EEFE0270076ACC7 /* Media.xml */; };
-		A09AFB861EEFE0270076ACC7 /* Media.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB731EEFE0270076ACC7 /* Media.xml */; };
-		A09AFB871EEFE0270076ACC7 /* Media.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB731EEFE0270076ACC7 /* Media.xml */; };
+		A09AFB851EEFE0270076ACC7 /* RSSMedia.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB731EEFE0270076ACC7 /* RSSMedia.xml */; };
+		A09AFB861EEFE0270076ACC7 /* RSSMedia.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB731EEFE0270076ACC7 /* RSSMedia.xml */; };
+		A09AFB871EEFE0270076ACC7 /* RSSMedia.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB731EEFE0270076ACC7 /* RSSMedia.xml */; };
 		A09AFB881EEFE0270076ACC7 /* RSS2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB741EEFE0270076ACC7 /* RSS2.xml */; };
 		A09AFB891EEFE0270076ACC7 /* RSS2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB741EEFE0270076ACC7 /* RSS2.xml */; };
 		A09AFB8A1EEFE0270076ACC7 /* RSS2.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB741EEFE0270076ACC7 /* RSS2.xml */; };
@@ -444,6 +444,9 @@
 		A0DE1F271EF1BC9600E944D6 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1DBD1EF1BC9600E944D6 /* XMLFeedType.swift */; };
 		A0DE1F281EF1BC9600E944D6 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1DBD1EF1BC9600E944D6 /* XMLFeedType.swift */; };
 		A0DE1F291EF1BC9600E944D6 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1DBD1EF1BC9600E944D6 /* XMLFeedType.swift */; };
+		A0E0E20B1F5B17D2004F0FEF /* AtomMedia.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0E0E20A1F5B17D2004F0FEF /* AtomMedia.xml */; };
+		A0E0E20C1F5B17D2004F0FEF /* AtomMedia.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0E0E20A1F5B17D2004F0FEF /* AtomMedia.xml */; };
+		A0E0E20D1F5B17D2004F0FEF /* AtomMedia.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0E0E20A1F5B17D2004F0FEF /* AtomMedia.xml */; };
 		A0EF4DAF1CE869AE00C52142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */; };
 		A0EF4DB61CE869AE00C52142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB51CE869AE00C52142 /* Assets.xcassets */; };
 		A0EF4DB91CE869AE00C52142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0EF4DB71CE869AE00C52142 /* LaunchScreen.storyboard */; };
@@ -575,7 +578,7 @@
 		A09AFB701EEFE0270076ACC7 /* DC.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = DC.xml; path = xml/DC.xml; sourceTree = "<group>"; };
 		A09AFB711EEFE0270076ACC7 /* FeedNotFound.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = FeedNotFound.xml; path = xml/FeedNotFound.xml; sourceTree = "<group>"; };
 		A09AFB721EEFE0270076ACC7 /* iTunesPodcasting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = iTunesPodcasting.xml; path = xml/iTunesPodcasting.xml; sourceTree = "<group>"; };
-		A09AFB731EEFE0270076ACC7 /* Media.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Media.xml; path = xml/Media.xml; sourceTree = "<group>"; };
+		A09AFB731EEFE0270076ACC7 /* RSSMedia.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RSSMedia.xml; path = xml/RSSMedia.xml; sourceTree = "<group>"; };
 		A09AFB741EEFE0270076ACC7 /* RSS2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RSS2.xml; path = xml/RSS2.xml; sourceTree = "<group>"; };
 		A09AFB751EEFE0270076ACC7 /* Syndication.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Syndication.xml; path = xml/Syndication.xml; sourceTree = "<group>"; };
 		A09C84FE1CE9AE2300D20CAB /* FeedKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -672,6 +675,7 @@
 		A0DE1DBB1EF1BC9600E944D6 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A0DE1DBC1EF1BC9600E944D6 /* XMLFeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLFeedParser.swift; sourceTree = "<group>"; };
 		A0DE1DBD1EF1BC9600E944D6 /* XMLFeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLFeedType.swift; sourceTree = "<group>"; };
+		A0E0E20A1F5B17D2004F0FEF /* AtomMedia.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AtomMedia.xml; path = xml/AtomMedia.xml; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* FeedKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0EF4DB51CE869AE00C52142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -826,7 +830,8 @@
 				A09AFB701EEFE0270076ACC7 /* DC.xml */,
 				A09AFB711EEFE0270076ACC7 /* FeedNotFound.xml */,
 				A09AFB721EEFE0270076ACC7 /* iTunesPodcasting.xml */,
-				A09AFB731EEFE0270076ACC7 /* Media.xml */,
+				A0E0E20A1F5B17D2004F0FEF /* AtomMedia.xml */,
+				A09AFB731EEFE0270076ACC7 /* RSSMedia.xml */,
 				A09AFB741EEFE0270076ACC7 /* RSS2.xml */,
 				A09AFB751EEFE0270076ACC7 /* Syndication.xml */,
 			);
@@ -1446,13 +1451,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09AFB851EEFE0270076ACC7 /* Media.xml in Resources */,
+				A09AFB851EEFE0270076ACC7 /* RSSMedia.xml in Resources */,
 				A09AFB881EEFE0270076ACC7 /* RSS2.xml in Resources */,
 				A09AFB7C1EEFE0270076ACC7 /* DC.xml in Resources */,
 				A09AFB791EEFE0270076ACC7 /* Content.xml in Resources */,
 				A09AFB761EEFE0270076ACC7 /* Atom.xml in Resources */,
 				A09AFB821EEFE0270076ACC7 /* iTunesPodcasting.xml in Resources */,
 				A09AFB8B1EEFE0270076ACC7 /* Syndication.xml in Resources */,
+				A0E0E20B1F5B17D2004F0FEF /* AtomMedia.xml in Resources */,
 				A09AFB7F1EEFE0270076ACC7 /* FeedNotFound.xml in Resources */,
 				A09AFB6B1EEFE0200076ACC7 /* feed.json in Resources */,
 			);
@@ -1462,13 +1468,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09AFB861EEFE0270076ACC7 /* Media.xml in Resources */,
+				A09AFB861EEFE0270076ACC7 /* RSSMedia.xml in Resources */,
 				A09AFB891EEFE0270076ACC7 /* RSS2.xml in Resources */,
 				A09AFB7D1EEFE0270076ACC7 /* DC.xml in Resources */,
 				A09AFB7A1EEFE0270076ACC7 /* Content.xml in Resources */,
 				A09AFB771EEFE0270076ACC7 /* Atom.xml in Resources */,
 				A09AFB831EEFE0270076ACC7 /* iTunesPodcasting.xml in Resources */,
 				A09AFB8C1EEFE0270076ACC7 /* Syndication.xml in Resources */,
+				A0E0E20C1F5B17D2004F0FEF /* AtomMedia.xml in Resources */,
 				A09AFB801EEFE0270076ACC7 /* FeedNotFound.xml in Resources */,
 				A09AFB6C1EEFE0200076ACC7 /* feed.json in Resources */,
 			);
@@ -1478,13 +1485,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09AFB871EEFE0270076ACC7 /* Media.xml in Resources */,
+				A09AFB871EEFE0270076ACC7 /* RSSMedia.xml in Resources */,
 				A09AFB8A1EEFE0270076ACC7 /* RSS2.xml in Resources */,
 				A09AFB7E1EEFE0270076ACC7 /* DC.xml in Resources */,
 				A09AFB7B1EEFE0270076ACC7 /* Content.xml in Resources */,
 				A09AFB781EEFE0270076ACC7 /* Atom.xml in Resources */,
 				A09AFB841EEFE0270076ACC7 /* iTunesPodcasting.xml in Resources */,
 				A09AFB8D1EEFE0270076ACC7 /* Syndication.xml in Resources */,
+				A0E0E20D1F5B17D2004F0FEF /* AtomMedia.xml in Resources */,
 				A09AFB811EEFE0270076ACC7 /* FeedNotFound.xml in Resources */,
 				A09AFB6D1EEFE0200076ACC7 /* feed.json in Resources */,
 			);

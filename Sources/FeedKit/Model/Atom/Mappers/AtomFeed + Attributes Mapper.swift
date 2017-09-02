@@ -141,6 +141,213 @@ extension AtomFeed {
                 self.entries?.last?.source = AtomFeedEntrySource()
             }
 
+            // MARK: Media
+            
+        case
+        .feedEntryMediaThumbnail,
+        .feedEntryMediaContent,
+        .feedEntryMediaCommunity,
+        .feedEntryMediaCommunityMediaStarRating,
+        .feedEntryMediaCommunityMediaStatistics,
+        .feedEntryMediaCommunityMediaTags,
+        .feedEntryMediaComments,
+        .feedEntryMediaCommentsMediaComment,
+        .feedEntryMediaEmbed,
+        .feedEntryMediaEmbedMediaParam,
+        .feedEntryMediaResponses,
+        .feedEntryMediaResponsesMediaResponse,
+        .feedEntryMediaBackLinks,
+        .feedEntryMediaBackLinksBackLink,
+        .feedEntryMediaStatus,
+        .feedEntryMediaPrice,
+        .feedEntryMediaLicense,
+        .feedEntryMediaSubTitle,
+        .feedEntryMediaPeerLink,
+        .feedEntryMediaLocation,
+        .feedEntryMediaLocationPosition,
+        .feedEntryMediaRestriction,
+        .feedEntryMediaScenes,
+        .feedEntryMediaScenesMediaScene,
+        .feedEntryMediaGroup,
+        .feedEntryMediaGroupMediaCategory,
+        .feedEntryMediaGroupMediaCredit,
+        .feedEntryMediaGroupMediaRating,
+        .feedEntryMediaGroupMediaContent:
+            
+            if  self.entries?.last?.media == nil {
+                self.entries?.last?.media = MediaNamespace()
+            }
+            
+            switch path {
+                
+            case .feedEntryMediaThumbnail:
+                
+                if  self.entries?.last?.media?.mediaThumbnails == nil {
+                    self.entries?.last?.media?.mediaThumbnails = []
+                }
+                
+                self.entries?.last?.media?.mediaThumbnails?.append(MediaThumbnail(attributes: attributeDict))
+                
+            case .feedEntryMediaContent:
+                
+                if  self.entries?.last?.media?.mediaContents == nil {
+                    self.entries?.last?.media?.mediaContents = []
+                }
+                
+                self.entries?.last?.media?.mediaContents?.append(MediaContent(attributes: attributeDict))
+                
+            case .feedEntryMediaCommunity:
+                
+                if  self.entries?.last?.media?.mediaCommunity == nil {
+                    self.entries?.last?.media?.mediaCommunity = MediaCommunity()
+                }
+                
+            case .feedEntryMediaCommunityMediaStarRating:
+                
+                if  self.entries?.last?.media?.mediaCommunity?.mediaStarRating == nil {
+                    self.entries?.last?.media?.mediaCommunity?.mediaStarRating = MediaStarRating(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaCommunityMediaStatistics:
+                
+                if  self.entries?.last?.media?.mediaCommunity?.mediaStatistics == nil {
+                    self.entries?.last?.media?.mediaCommunity?.mediaStatistics = MediaStatistics(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaCommunityMediaTags:
+                
+                if  self.entries?.last?.media?.mediaCommunity?.mediaTags == nil {
+                    self.entries?.last?.media?.mediaCommunity?.mediaTags = []
+                }
+                
+            case .feedEntryMediaComments:
+                
+                if  self.entries?.last?.media?.mediaComments == nil {
+                    self.entries?.last?.media?.mediaComments = []
+                }
+                
+            case .feedEntryMediaEmbed:
+                
+                if  self.entries?.last?.media?.mediaEmbed == nil {
+                    self.entries?.last?.media?.mediaEmbed = MediaEmbed(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaEmbedMediaParam:
+                
+                if  self.entries?.last?.media?.mediaEmbed?.mediaParams == nil {
+                    self.entries?.last?.media?.mediaEmbed?.mediaParams = []
+                }
+                
+                self.entries?.last?.media?.mediaEmbed?.mediaParams?.append(MediaParam(attributes: attributeDict))
+                
+            case .feedEntryMediaResponses:
+                
+                if  self.entries?.last?.media?.mediaResponses == nil {
+                    self.entries?.last?.media?.mediaResponses = []
+                }
+                
+            case .feedEntryMediaBackLinks:
+                
+                if  self.entries?.last?.media?.mediaBackLinks == nil {
+                    self.entries?.last?.media?.mediaBackLinks = []
+                }
+                
+            case .feedEntryMediaStatus:
+                
+                if  self.entries?.last?.media?.mediaStatus == nil {
+                    self.entries?.last?.media?.mediaStatus = MediaStatus(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaPrice:
+                
+                if  self.entries?.last?.media?.mediaPrices == nil {
+                    self.entries?.last?.media?.mediaPrices = []
+                }
+                
+                self.entries?.last?.media?.mediaPrices?.append(MediaPrice(attributes: attributeDict))
+                
+            case .feedEntryMediaLicense:
+                
+                if  self.entries?.last?.media?.mediaLicense == nil {
+                    self.entries?.last?.media?.mediaLicense = MediaLicence(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaSubTitle:
+                
+                if  self.entries?.last?.media?.mediaSubTitle == nil {
+                    self.entries?.last?.media?.mediaSubTitle = MediaSubTitle(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaPeerLink:
+                
+                if  self.entries?.last?.media?.mediaPeerLink == nil {
+                    self.entries?.last?.media?.mediaPeerLink = MediaPeerLink(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaLocation:
+                
+                if  self.entries?.last?.media?.mediaLocation == nil {
+                    self.entries?.last?.media?.mediaLocation = MediaLocation(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaRestriction:
+                
+                if  self.entries?.last?.media?.mediaRestriction == nil {
+                    self.entries?.last?.media?.mediaRestriction = MediaRestriction(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaScenes:
+                
+                if  self.entries?.last?.media?.mediaScenes == nil {
+                    self.entries?.last?.media?.mediaScenes = []
+                }
+                
+            case .feedEntryMediaScenesMediaScene:
+                
+                if  self.entries?.last?.media?.mediaScenes == nil {
+                    self.entries?.last?.media?.mediaScenes = []
+                }
+                
+                self.entries?.last?.media?.mediaScenes?.append(MediaScene())
+                
+            case .feedEntryMediaGroup:
+                
+                if  self.entries?.last?.media?.mediaGroup == nil {
+                    self.entries?.last?.media?.mediaGroup = MediaGroup()
+                }
+                
+            case .feedEntryMediaGroupMediaCategory:
+                
+                if  self.entries?.last?.media?.mediaGroup?.mediaCategory == nil {
+                    self.entries?.last?.media?.mediaGroup?.mediaCategory = MediaCategory(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaGroupMediaCredit:
+                
+                if  self.entries?.last?.media?.mediaGroup?.mediaCredits == nil {
+                    self.entries?.last?.media?.mediaGroup?.mediaCredits = []
+                }
+                
+                self.entries?.last?.media?.mediaGroup?.mediaCredits?.append(MediaCredit(attributes: attributeDict))
+                
+            case .feedEntryMediaGroupMediaRating:
+                
+                if  self.entries?.last?.media?.mediaGroup?.mediaRating == nil {
+                    self.entries?.last?.media?.mediaGroup?.mediaRating = MediaRating(attributes: attributeDict)
+                }
+                
+            case .feedEntryMediaGroupMediaContent:
+                
+                if  self.entries?.last?.media?.mediaGroup?.mediaContents == nil {
+                    self.entries?.last?.media?.mediaGroup?.mediaContents = []
+                }
+                
+                self.entries?.last?.media?.mediaGroup?.mediaContents?.append(MediaContent(attributes: attributeDict))
+            
+            default: break
+                
+            }
+            
         default: break
             
         }

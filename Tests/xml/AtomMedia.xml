@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title type="text">dive into mark</title>
+    <subtitle type="html">A &lt;em&gt;lot&lt;/em&gt; of effort went into making this effortless</subtitle>
+    <updated>2005-07-31T12:29:29Z</updated>
+    <id>tag:example.org,2003:3</id>
+    <link rel="alternate" type="text/html" hreflang="en" href="http://example.org/" title="Human-readable information about the link" length="1234" />
+    <link rel="self" type="application/atom+xml" hreflang="pt" href="http://example.org/feed.atom" title="Information about the link is Human-readable" length="5678" />
+    <rights>Copyright (c) 2003, Mark Pilgrim</rights>
+    <logo>http://www.example.uk/logo.png</logo>
+    <generator uri="http://www.example.com/" version="1.0">Example Toolkit</generator>
+    <category term="music" />
+    <category term="video" />
+    <author>
+        <name>Pilgrim Mark</name>
+        <uri>http://example.org/</uri>
+        <email>1234@example.com</email>
+    </author>
+    <author>
+        <name>Mark the Pilgrim</name>
+        <uri>http://example.org/</uri>
+        <email>5678@example.com</email>
+    </author>
+    <contributor>
+        <name>Jane Doe</name>
+        <uri>http://example.org/</uri>
+        <email>9101@example.com</email>
+    </contributor>
+    <contributor>
+        <name>John Doe</name>
+        <uri>http://example.org/</uri>
+        <email>2345@example.com</email>
+    </contributor>
+    <entry>
+        <media:thumbnail url="http://www.foo.com/keyframe1.jpg" width="75" height="50" time="12:05:01.123" />
+        <media:thumbnail url="http://www.foo.com/keyframe2.jpg" width="640" height="480" time="12:05:01.123" />
+        <media:group>
+            <media:content url="http://www.foo.com/song64kbps.mp3" fileSize="1000" bitrate="64" type="audio/mpeg" isDefault="true" expression="full" />
+            <media:content url="http://www.foo.com/song.wav" fileSize="16000" type="audio/x-wav" expression="full" />
+            <media:credit role="producer" scheme="urn:ebu">entity name</media:credit>
+            <media:credit role="owner" scheme="urn:yvs">copyright holder of the entity</media:credit>
+            <media:category scheme="http://dmoz.org" label="Ace Ventura - Pet Detective">music/artist name/album/song</media:category>
+            <media:rating scheme="urn:mpaa">nonadult</media:rating>
+        </media:group>
+        <media:content
+            url="http://www.foo.com/video.mov"
+            fileSize="12216320"
+            type="video/quicktime"
+            medium="video"
+            isDefault="true"
+            expression="full"
+            bitrate="128"
+            framerate="25"
+            samplingrate="44.1"
+            channels="2"
+            duration="185"
+            height="300"
+            width="200"
+            lang="en">
+        </media:content>
+        <media:content
+            url="http://www.foo.com/movie.mov"
+            fileSize="12216320"
+            type="video/quicktime"
+            expression="full">
+            <media:player url="http://www.foo.com/player?id=1111" height="200" width="400" />
+            <media:hash algo="md5">dfdec888b72151965a34b4b59031290a</media:hash>
+            <media:credit role="producer">producer's name</media:credit>
+            <media:credit role="artist">artist's name</media:credit>
+            <media:category scheme="http://blah.com/scheme">
+                music/artistname/album/song
+            </media:category>
+            <media:text type="plain">
+                Oh, say, can you see, by the dawn's early light
+            </media:text>
+            <media:rating>nonadult</media:rating>
+            <dcterms:valid>
+                start=2002-10-13T09:00+01:00;
+                end=2002-10-17T17:00+01:00;
+                scheme=W3C-DTF
+            </dcterms:valid>
+        </media:content>
+        <media:community>
+            <media:starRating average="3.5" count="20" min="1" max="10" />
+            <media:statistics views="5" favorites="5" />
+            <media:tags>news: 5, abc:3, reuters</media:tags>
+        </media:community>
+        <media:comments>
+            <media:comment>comment1</media:comment>
+            <media:comment>comment2</media:comment>
+        </media:comments>
+        <media:embed url="http://www.foo.com/player.swf" width="512" height="323">
+            <media:param name="type">application/x-shockwave-flash</media:param>
+            <media:param name="width">512</media:param>
+            <media:param name="height">323</media:param>
+            <media:param name="allowFullScreen">true</media:param>
+            <media:param name="flashVars">id=12345&amp;vid=678912i&amp;lang=en-us&amp;intl=us&amp;thumbUrl=http://www.foo.com/thumbnail.jpg</media:param>
+        </media:embed>
+        <media:responses>
+            <media:response>http://www.response1.com</media:response>
+            <media:response>http://www.response2.com</media:response>
+        </media:responses>
+        <media:backLinks>
+            <media:backLink>http://www.backlink1.com</media:backLink>
+            <media:backLink>http://www.backlink2.com</media:backLink>
+        </media:backLinks>
+        <media:status state="blocked" reason="http://www.reasonforblocking.com" />
+        <media:price type="rent" price="19.99" currency="EUR" info="http://www.dummy.jp/package_info.html" />
+        <media:license type="text/html" href="http://www.licensehost.com/license">Sample license for a video</media:license>
+        <media:subTitle type="application/smil" lang="en-us" href="http://www.foo.org/subtitle.smil" />
+        <media:peerLink type="application/x-bittorrent" href="http://www.foo.org/sampleFile.torrent" />
+        <media:location description="My house" start="00:01" end="01:00">
+            <georss:where>
+                <gml:Point>
+                    <gml:pos>35.669998 139.770004</gml:pos>
+                </gml:Point>
+            </georss:where>
+        </media:location>
+        <media:restriction relationship="allow" type="country">au us</media:restriction>
+        <media:scenes>
+            <media:scene>
+                <sceneTitle>sceneTitle1</sceneTitle>
+                <sceneDescription>sceneDesc1</sceneDescription>
+                <sceneStartTime>00:15</sceneStartTime>
+                <sceneEndTime>00:45</sceneEndTime>
+            </media:scene>
+        </media:scenes>
+    </entry>
+</feed>
