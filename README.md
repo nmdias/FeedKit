@@ -32,7 +32,7 @@ An RSS, Atom and JSON Feed parser written in Swift
 ![ios](https://img.shields.io/badge/ios-8.0%2b-lightgrey.svg)
 ![tvos](https://img.shields.io/badge/tvos-9.0%2b-lightgrey.svg)
 ![watchos](https://img.shields.io/badge/watchos-2.0%2b-lightgrey.svg)
-![mac os](https://img.shields.io/badge/mac%20os-10.9%2b-lightgrey.svg)
+![mac os](https://img.shields.io/badge/mac%20os-10.10%2b-lightgrey.svg)
 ![mac os](https://img.shields.io/badge/ubuntu-16.04+-lightgrey.svg)
 
 Installation >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/INSTALL.md) <<
