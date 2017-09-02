@@ -115,7 +115,7 @@ class AtomTests: BaseTestCase {
         
         // Feed Entries
         XCTAssertNotNil(feed?.entries)
-        XCTAssertEqual(feed?.entries?.count, 1)
+        XCTAssertEqual(feed?.entries?.count, 2)
         
         XCTAssertEqual(feed?.entries?.first?.title, "Atom draft-07 snapshot")
         XCTAssertEqual(feed?.entries?.first?.id, "tag:example.org,2003:3.2397")
@@ -167,6 +167,8 @@ class AtomTests: BaseTestCase {
         XCTAssertNotNil(feed?.entries?.first?.content?.attributes)
         XCTAssertEqual(feed?.entries?.first?.content?.attributes?.type, "xhtml")
         XCTAssertEqual(feed?.entries?.first?.content?.attributes?.src, "http://www.example.org/")
+        
+        XCTAssertEqual(feed?.entries?.last?.content?.value, "<div><p><strong>Contents Presented as XHTML</strong>But could be inside an ATOM feed.</p></div>")
         
         
     }

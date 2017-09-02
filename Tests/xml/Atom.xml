@@ -58,4 +58,26 @@
         </contributor>
         <content src="http://www.example.org/" type="xhtml" xml:lang="en" xml:base="http://diveintomark.org/">&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;i&gt;[Update: The Atom draft is finished.]&lt;/i&gt;&lt;/p&gt;&lt;/div&gt;</content>
     </entry>
+    <entry>
+        <title>Atom draft-07 snapshot</title>
+        <summary type="text">An overview of Atom 1.0</summary>
+        <link rel="alternate" hreflang="en" type="text/html" href="http://example.org/2005/04/02/atom" title="Human-readable information about the link" length="1234" />
+        <link rel="enclosure" type="audio/mpeg" hreflang="pt" length="1337" title="Information about the link is Human-readable" href="http://example.org/audio/ph34r_my_podcast.mp3" />
+        <id>tag:example.org,2003:3.2397</id>
+        <updated>2005-07-31T12:29:29Z</updated>
+        <published>2003-12-13T08:29:29-04:00</published>
+        <category term="music" />
+        <author>
+            <name>Jim Meedor</name>
+            <uri>http://jimmeh.org/</uri>
+            <email>fake@jimmeh.com</email>
+        </author>
+        <content type="xhtml" xml:lang="">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <div><p><strong>Contents Presented as XHTML</strong>
+                    But could be inside an ATOM feed.</p>
+                </div>
+            </div>
+        </content>
+    </entry>
 </feed>
