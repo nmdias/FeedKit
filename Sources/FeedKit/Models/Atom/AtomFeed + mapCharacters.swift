@@ -1,5 +1,5 @@
 //
-//  AtomFeed + Characters Mapper.swift
+//  AtomFeed + mapCharacters.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //
@@ -31,7 +31,7 @@ extension AtomFeed {
     /// - Parameters:
     ///   - string: The string to map to the model.
     ///   - path: The path of feed's element.
-    func map(characters string: String, forPath path: AtomPath) {
+    func map(_ string: String, for path: AtomPath) {
         switch path {
         case .feedTitle:                                       self.title                                                        = self.title?.appending(string) ?? string
         case .feedSubtitle:                                    self.subtitle?.value                                              = self.subtitle?.value?.appending(string) ?? string

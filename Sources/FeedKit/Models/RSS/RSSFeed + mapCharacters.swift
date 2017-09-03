@@ -1,5 +1,5 @@
 //
-//  RSSFeed + Characters Mapper.swift
+//  RSSFeed + mapCharacters.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //
@@ -31,7 +31,7 @@ extension RSSFeed {
     /// - Parameters:
     ///   - string: The string to map to the model.
     ///   - path: The path of feed's element.
-    func map(string: String, forPath path: RSSPath) {
+    func map(_ string: String, for path: RSSPath) {
         
         switch path {
         case .rssChannelTitle:                                      self.title                                                      = self.title?.appending(string) ?? string

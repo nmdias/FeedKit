@@ -84,18 +84,18 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
     /// mappers based on the `currentXMLDOMPath`.
     ///
     /// - Parameter string: The characters to map.
-    fileprivate func mapCharacters(_ string: String) {
+    fileprivate func map(_ string: String) {
         guard let feedType = self.feedType else { return }
         
         switch feedType {
         case .atom:
             if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-                self.atomFeed?.map(characters: string, forPath: path)
+                self.atomFeed?.map(string, for: path)
             }
             
         case .rss1, .rss2:
             if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-                self.rssFeed?.map(string: string, forPath: path)
+                self.rssFeed?.map(string, for: path)
             }
             
         }
@@ -131,7 +131,7 @@ extension XMLFeedParser {
                 self.atomFeed = AtomFeed()
             }
             if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-                self.atomFeed?.map(attributes: attributeDict, forPath: path)
+                self.atomFeed?.map(attributeDict, for: path)
             }
             
         case .rss1, .rss2:
@@ -139,7 +139,7 @@ extension XMLFeedParser {
                 self.rssFeed = RSSFeed()
             }
             if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-                self.rssFeed?.map(attributes: attributeDict, forPath: path)
+                self.rssFeed?.map(attributeDict, for: path)
             }
             
         }
@@ -163,11 +163,11 @@ extension XMLFeedParser {
             self.parsingError = ParserError.feedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString).value
             return
         }
-        self.mapCharacters(string)
+        self.map(string)
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        self.mapCharacters(string)
+        self.map(string)
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {

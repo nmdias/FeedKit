@@ -1,5 +1,5 @@
 //
-//  AtomFeed + Attributes Mapper.swift
+//  AtomFeed + mapAttributes.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //
@@ -30,16 +30,16 @@ extension AtomFeed {
     /// to the `AtomFeed` model
     ///
     /// - Parameters:
-    ///   - attributeDict: The attribute dictionary to map to the model.
+    ///   - attributes: The attribute dictionary to map to the model.
     ///   - path: The path of feed's element.
-    func map(attributes attributeDict: [String : String], forPath path: AtomPath) {
+    func map(_ attributes: [String : String], for path: AtomPath) {
         
         switch path {
             
         case .feedSubtitle:
             
             if  self.subtitle == nil {
-                self.subtitle = AtomFeedSubtitle(attributes: attributeDict)
+                self.subtitle = AtomFeedSubtitle(attributes: attributes)
             }
             
         case .feedLink:
@@ -48,7 +48,7 @@ extension AtomFeed {
                 self.links = []
             }
             
-            self.links?.append(AtomFeedLink(attributes: attributeDict))
+            self.links?.append(AtomFeedLink(attributes: attributes))
                         
         case .feedCategory:
             
@@ -56,7 +56,7 @@ extension AtomFeed {
                 self.categories = []
             }
             
-            self.categories?.append(AtomFeedCategory(attributes: attributeDict))
+            self.categories?.append(AtomFeedCategory(attributes: attributes))
             
         case .feedAuthor:
             
@@ -77,7 +77,7 @@ extension AtomFeed {
         case .feedGenerator:
             
             if  self.generator == nil {
-                self.generator = AtomFeedGenerator(attributes: attributeDict)
+                self.generator = AtomFeedGenerator(attributes: attributes)
             }
 
         case .feedEntry:
@@ -91,7 +91,7 @@ extension AtomFeed {
         case .feedEntrySummary:
             
             if  self.entries?.last?.summary == nil {
-                self.entries?.last?.summary = AtomFeedEntrySummary(attributes: attributeDict)
+                self.entries?.last?.summary = AtomFeedEntrySummary(attributes: attributes)
             }
             
         case .feedEntryAuthor:
@@ -116,7 +116,7 @@ extension AtomFeed {
                 self.entries?.last?.links = []
             }
             
-            self.entries?.last?.links?.append(AtomFeedEntryLink(attributes: attributeDict))
+            self.entries?.last?.links?.append(AtomFeedEntryLink(attributes: attributes))
             
         case .feedEntryCategory:
             
@@ -124,12 +124,12 @@ extension AtomFeed {
                 self.entries?.last?.categories = []
             }
             
-            self.entries?.last?.categories?.append(AtomFeedEntryCategory(attributes: attributeDict))
+            self.entries?.last?.categories?.append(AtomFeedEntryCategory(attributes: attributes))
             
         case .feedEntryContent:
             
             if  self.entries?.last?.content == nil {
-                self.entries?.last?.content = AtomFeedEntryContent(attributes: attributeDict)
+                self.entries?.last?.content = AtomFeedEntryContent(attributes: attributes)
             }
             
         case .feedEntrySource:
@@ -183,7 +183,7 @@ extension AtomFeed {
                     self.entries?.last?.media?.mediaThumbnails = []
                 }
                 
-                self.entries?.last?.media?.mediaThumbnails?.append(MediaThumbnail(attributes: attributeDict))
+                self.entries?.last?.media?.mediaThumbnails?.append(MediaThumbnail(attributes: attributes))
                 
             case .feedEntryMediaContent:
                 
@@ -191,7 +191,7 @@ extension AtomFeed {
                     self.entries?.last?.media?.mediaContents = []
                 }
                 
-                self.entries?.last?.media?.mediaContents?.append(MediaContent(attributes: attributeDict))
+                self.entries?.last?.media?.mediaContents?.append(MediaContent(attributes: attributes))
                 
             case .feedEntryMediaCommunity:
                 
@@ -202,13 +202,13 @@ extension AtomFeed {
             case .feedEntryMediaCommunityMediaStarRating:
                 
                 if  self.entries?.last?.media?.mediaCommunity?.mediaStarRating == nil {
-                    self.entries?.last?.media?.mediaCommunity?.mediaStarRating = MediaStarRating(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaCommunity?.mediaStarRating = MediaStarRating(attributes: attributes)
                 }
                 
             case .feedEntryMediaCommunityMediaStatistics:
                 
                 if  self.entries?.last?.media?.mediaCommunity?.mediaStatistics == nil {
-                    self.entries?.last?.media?.mediaCommunity?.mediaStatistics = MediaStatistics(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaCommunity?.mediaStatistics = MediaStatistics(attributes: attributes)
                 }
                 
             case .feedEntryMediaCommunityMediaTags:
@@ -226,7 +226,7 @@ extension AtomFeed {
             case .feedEntryMediaEmbed:
                 
                 if  self.entries?.last?.media?.mediaEmbed == nil {
-                    self.entries?.last?.media?.mediaEmbed = MediaEmbed(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaEmbed = MediaEmbed(attributes: attributes)
                 }
                 
             case .feedEntryMediaEmbedMediaParam:
@@ -235,7 +235,7 @@ extension AtomFeed {
                     self.entries?.last?.media?.mediaEmbed?.mediaParams = []
                 }
                 
-                self.entries?.last?.media?.mediaEmbed?.mediaParams?.append(MediaParam(attributes: attributeDict))
+                self.entries?.last?.media?.mediaEmbed?.mediaParams?.append(MediaParam(attributes: attributes))
                 
             case .feedEntryMediaResponses:
                 
@@ -252,7 +252,7 @@ extension AtomFeed {
             case .feedEntryMediaStatus:
                 
                 if  self.entries?.last?.media?.mediaStatus == nil {
-                    self.entries?.last?.media?.mediaStatus = MediaStatus(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaStatus = MediaStatus(attributes: attributes)
                 }
                 
             case .feedEntryMediaPrice:
@@ -261,36 +261,36 @@ extension AtomFeed {
                     self.entries?.last?.media?.mediaPrices = []
                 }
                 
-                self.entries?.last?.media?.mediaPrices?.append(MediaPrice(attributes: attributeDict))
+                self.entries?.last?.media?.mediaPrices?.append(MediaPrice(attributes: attributes))
                 
             case .feedEntryMediaLicense:
                 
                 if  self.entries?.last?.media?.mediaLicense == nil {
-                    self.entries?.last?.media?.mediaLicense = MediaLicence(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaLicense = MediaLicence(attributes: attributes)
                 }
                 
             case .feedEntryMediaSubTitle:
                 
                 if  self.entries?.last?.media?.mediaSubTitle == nil {
-                    self.entries?.last?.media?.mediaSubTitle = MediaSubTitle(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaSubTitle = MediaSubTitle(attributes: attributes)
                 }
                 
             case .feedEntryMediaPeerLink:
                 
                 if  self.entries?.last?.media?.mediaPeerLink == nil {
-                    self.entries?.last?.media?.mediaPeerLink = MediaPeerLink(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaPeerLink = MediaPeerLink(attributes: attributes)
                 }
                 
             case .feedEntryMediaLocation:
                 
                 if  self.entries?.last?.media?.mediaLocation == nil {
-                    self.entries?.last?.media?.mediaLocation = MediaLocation(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaLocation = MediaLocation(attributes: attributes)
                 }
                 
             case .feedEntryMediaRestriction:
                 
                 if  self.entries?.last?.media?.mediaRestriction == nil {
-                    self.entries?.last?.media?.mediaRestriction = MediaRestriction(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaRestriction = MediaRestriction(attributes: attributes)
                 }
                 
             case .feedEntryMediaScenes:
@@ -316,7 +316,7 @@ extension AtomFeed {
             case .feedEntryMediaGroupMediaCategory:
                 
                 if  self.entries?.last?.media?.mediaGroup?.mediaCategory == nil {
-                    self.entries?.last?.media?.mediaGroup?.mediaCategory = MediaCategory(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaGroup?.mediaCategory = MediaCategory(attributes: attributes)
                 }
                 
             case .feedEntryMediaGroupMediaCredit:
@@ -325,12 +325,12 @@ extension AtomFeed {
                     self.entries?.last?.media?.mediaGroup?.mediaCredits = []
                 }
                 
-                self.entries?.last?.media?.mediaGroup?.mediaCredits?.append(MediaCredit(attributes: attributeDict))
+                self.entries?.last?.media?.mediaGroup?.mediaCredits?.append(MediaCredit(attributes: attributes))
                 
             case .feedEntryMediaGroupMediaRating:
                 
                 if  self.entries?.last?.media?.mediaGroup?.mediaRating == nil {
-                    self.entries?.last?.media?.mediaGroup?.mediaRating = MediaRating(attributes: attributeDict)
+                    self.entries?.last?.media?.mediaGroup?.mediaRating = MediaRating(attributes: attributes)
                 }
                 
             case .feedEntryMediaGroupMediaContent:
@@ -339,7 +339,7 @@ extension AtomFeed {
                     self.entries?.last?.media?.mediaGroup?.mediaContents = []
                 }
                 
-                self.entries?.last?.media?.mediaGroup?.mediaContents?.append(MediaContent(attributes: attributeDict))
+                self.entries?.last?.media?.mediaGroup?.mediaContents?.append(MediaContent(attributes: attributes))
             
             default: break
                 
