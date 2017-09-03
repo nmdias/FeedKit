@@ -98,7 +98,7 @@ extension RSSFeedItemGUID.Attributes {
         
         self.init()
         
-        self.isPermaLink = attributeDict["isPermaLink"]?.bool
+        self.isPermaLink = attributeDict["isPermaLink"]?.toBool()
         
     }
     

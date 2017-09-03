@@ -128,7 +128,7 @@ extension MediaContent.Attributes {
         self.fileSize = Int(attributeDict["fileSize"] ?? "")
         self.type = attributeDict["type"]
         self.medium = attributeDict["medium"]
-        self.isDefault = attributeDict["isDefault"]?.bool
+        self.isDefault = attributeDict["isDefault"]?.toBool()
         self.expression = attributeDict["expression"]
         self.bitrate = Int(attributeDict["bitrate"] ?? "")
         self.framerate = Double(attributeDict["framerate"] ?? "")
