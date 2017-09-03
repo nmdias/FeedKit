@@ -24,6 +24,12 @@
 
 import Foundation
 
+/// Optional arrays equatable
+///
+/// - Parameters:
+///   - lhs: The left-hand side
+///   - rhs: The right-hand side
+/// - Returns: A boolean value
 public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
     switch (lhs,rhs) {
     case (.some(let lhs), .some(let rhs)):
