@@ -1,4 +1,17 @@
 # Change Log
+## [6.1.1](https://github.com/nmdias/FeedParser/releases/tag/6.1.2)
+### Fixed
+- parseAsync now  defaults to the global queue and correctly bring the result back to the main thread
+  - [Fixed](https://github.com/nmdias/FeedKit/pull/35) by [dkcas11](https://github.com/dkcas11) 
+- Missing pubDate data after parsing RSS feed
+  - [Reported](https://github.com/nmdias/FeedKit/issues/31) by [jamesokelly](https://github.com/jamesokelly) 
+- Media namespace not available on AtomFeed
+  - [Reported](https://github.com/nmdias/FeedKit/issues/34) by [valeriomazzeo](https://github.com/valeriomazzeo) 
+
+### Updated
+- Documentation Style
+- Normalized internal method signatures
+- Rearranged folders structure
 
 ## [6.1.1](https://github.com/nmdias/FeedParser/releases/tag/6.1.1)
 ### Fixed
