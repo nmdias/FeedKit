@@ -135,8 +135,8 @@ extension JSONFeedItem {
         self.summary        = dictionary["summary"] as? String
         self.image          = dictionary["image"] as? String
         self.bannerImage    = dictionary["banner_image"] as? String
-        self.datePublished  = (dictionary["date_published"] as? String)?.dateFromSpec(.rfc3999)
-        self.dateModified   = (dictionary["date_modified"] as? String)?.dateFromSpec(.rfc3999)
+        self.datePublished  = (dictionary["date_published"] as? String)?.toDate(from: .rfc3999)
+        self.dateModified   = (dictionary["date_modified"] as? String)?.toDate(from: .rfc3999)
         self.tags           = dictionary["tags"] as? [String]
         
         if let authorDictionary = dictionary["author"] as? [String: Any] {
