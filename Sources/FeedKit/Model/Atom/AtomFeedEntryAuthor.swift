@@ -24,48 +24,32 @@
 
 import Foundation
 
-/**
- 
- The "atom:author" element is a Person construct that indicates the
- author of the entry or feed.
- 
- If an atom:entry element does not contain atom:author elements, then
- the atom:author elements of the contained atom:source element are
- considered to apply.  In an Atom Feed Document, the atom:author
- elements of the containing atom:feed element are considered to apply
- to the entry if there are no atom:author elements in the locations
- described above.
- 
- */
+/// The "atom:author" element is a Person construct that indicates the
+/// author of the entry or feed.
+/// 
+/// If an atom:entry element does not contain atom:author elements, then
+/// the atom:author elements of the contained atom:source element are
+/// considered to apply.  In an Atom Feed Document, the atom:author
+/// elements of the containing atom:feed element are considered to apply
+/// to the entry if there are no atom:author elements in the locations
+/// described above.
 public class AtomFeedEntryAuthor {
-    
-    /**
      
-     The "atom:name" element's content conveys a human-readable name for
-     the person.  The content of atom:name is Language-Sensitive.  Person
-     constructs MUST contain exactly one "atom:name" element.
-     
-     */
+    /// The "atom:name" element's content conveys a human-readable name for
+    /// the person.  The content of atom:name is Language-Sensitive.  Person
+    /// constructs MUST contain exactly one "atom:name" element.
     public var name: String?
     
-    /**
-     
-     The "atom:email" element's content conveys an e-mail address
-     associated with the person.  Person constructs MAY contain an
-     atom:email element, but MUST NOT contain more than one.  Its content
-     MUST conform to the "addr-spec" production in [RFC2822].
-     
-     */
+    /// The "atom:email" element's content conveys an e-mail address
+    /// associated with the person.  Person constructs MAY contain an
+    /// atom:email element, but MUST NOT contain more than one.  Its content
+    /// MUST conform to the "addr-spec" production in [RFC2822].
     public var email: String?
     
-    /**
-     
-     The "atom:uri" element's content conveys an IRI associated with the
-     person.  Person constructs MAY contain an atom:uri element, but MUST
-     NOT contain more than one.  The content of atom:uri in a Person
-     construct MUST be an IRI reference [RFC3987].
-     
-     */
+    /// The "atom:uri" element's content conveys an IRI associated with the
+    /// person.  Person constructs MAY contain an atom:uri element, but MUST
+    /// NOT contain more than one.  The content of atom:uri in a Person
+    /// construct MUST be an IRI reference [RFC3987].
     public var uri: String?
     
 }

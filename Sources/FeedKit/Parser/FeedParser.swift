@@ -25,112 +25,63 @@
 import Foundation
 import Dispatch
 
-/**
- 
- An RSS and Atom feed parser. `FeedParser` uses `Foundation`'s
- `XMLParser`.
- 
- */
+/// An RSS and Atom feed parser. `FeedParser` uses `Foundation`'s `XMLParser`.
 public class FeedParser {
     
-    /**
-     
-     The actual engine behind the `FeedKit` framework. `Parser` handles
-     the parsing of RSS and Atom feeds.
-     
-     */
+    /// A FeedParser handler provider.
     let parser: FeedParserProtocol
-    
-    
-    
-    /**
-     
-     Initializes the parser with the XML contents encapsulated in a given data 
-     object.
-     
-     - parameter data: An `Data` object containing XML markup.
-     
-     - returns: An instance of the `FeedParser`.
-     
-     */
+   
+    /// Initializes the parser with the xml or json contents encapsulated in a 
+    /// given data object.
+    ///
+    /// - Parameter data: An instance of `FeedParser`.
     public init?(data: Data) {
-        
         guard let feedDataType = FeedDataType(data: data) else { return nil }
-        
         switch feedDataType {
-        case .json:
-            self.parser = JSONFeedParser(data: data)
-        case .xml:
-            self.parser = XMLFeedParser(data: data)
+        case .json: self.parser = JSONFeedParser(data: data)
+        case .xml:  self.parser = XMLFeedParser(data: data)
         }
-        
     }
     
-    
-    
-    /**
-     
-     Initializes the parser with the XML content referenced by the given URL.
-     
-     - parameter URL: An URL object specifying a URL
-     
-     - returns: An instance of the feed parser.
-     
-     */
+    /// Initializes the parser with the XML content referenced by the given URL.
+    ///
+    /// - Parameter URL: An instance of `FeedParser`.
     public convenience init?(URL: URL) {
-        
         guard let data = try? Data(contentsOf: URL) else {
             return nil
         }
-        
         self.init(data: data)
-        
     }
     
-    
-    
-    /**
-     
-     Starts parsing the feed.
-     
-     */
+    /// Starts parsing the feed.
+    ///
+    /// - Returns: The parsed `Result`.
     public func parse() -> Result {
         return self.parser.parse()
     }
     
-    /**
-     
-	Starts parsing the feed asynchronously. Parsing runs by default on the global queue.
-	So it is safe to run any UI code on the result closure.
-	
-	If you're unsure, don't provide the `queue` parameter.
-	
-	- parameter queue: The queue on which the completion handler is dispatched.
-	- parameter result: The parse result
-	
-	*/
-	public func parseAsync(queue: DispatchQueue = DispatchQueue.global(), result: @escaping (Result) -> Void) {
-		queue.async {
-			let parsedResult = self.parse()
-			DispatchQueue.main.async {
-				result(parsedResult)
-			}
-		}
-	}
-    
-    /**
-     
-     Stops parsing XML feeds.
-     
-     */
-    public func abortParsing() {
-        
-        if let xmlFeedParser = self.parser as? XMLFeedParser {
-            xmlFeedParser.xmlParser.abortParsing()
+    /// Starts parsing the feed asynchronously. Parsing runs by default on the 
+    /// global queue. So it is safe to run any UI code on the result closure.
+	///
+	/// - Parameters:
+	///   - queue: The queue on which the completion handler is dispatched.
+	///   - result: Tjhe parsed `Result`.
+    public func parseAsync(
+        queue: DispatchQueue = DispatchQueue.global(),
+        result: @escaping (Result) -> Void)
+    {
+        queue.async {
+            let parsedResult = self.parse()
+            DispatchQueue.main.async {
+                result(parsedResult)
+            }
         }
-        
+    }
+    
+    /// Stops parsing XML feeds.
+    public func abortParsing() {
+        guard let xmlFeedParser = self.parser as? XMLFeedParser else { return }
+        xmlFeedParser.xmlParser.abortParsing()
     }
     
 }
-
-

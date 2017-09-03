@@ -24,70 +24,36 @@
 
 import Foundation
 
-/**
- 
- Allows particular images to be used as representative images for the
- media object. If multiple thumbnails are included, and time coding is not
- at play, it is assumed that the images are in order of importance. It has
- one required attribute and three optional attributes.
- 
- */
+/// Allows particular images to be used as representative images for the
+/// media object. If multiple thumbnails are included, and time coding is not
+/// at play, it is assumed that the images are in order of importance. It has
+/// one required attribute and three optional attributes.
 public class MediaThumbnail {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         Specifies the url of the thumbnail. It is a required attribute.
-         
-         */
+        /// Specifies the url of the thumbnail. It is a required attribute.
         public var url: String?
         
-        /**
-         
-         Specifies the height of the thumbnail. It is an optional attribute.
-         
-         */
+        /// Specifies the height of the thumbnail. It is an optional attribute.
         public var width: String?
         
-        
-        /**
-         
-         Specifies the width of the thumbnail. It is an optional attribute.
-         
-         */
+        /// Specifies the width of the thumbnail. It is an optional attribute.
         public var height: String?
-        
-        
-        /**
- 
-         Specifies the time offset in relation to the media object. Typically this 
-         is used when creating multiple keyframes within a single video. The format
-         for this attribute should be in the DSM-CC's Normal Play Time (NTP) as used in 
-         RTSP [RFC 2326 3.6 Normal Play Time]. It is an optional attribute.
-         
-         */
+
+        /// Specifies the time offset in relation to the media object. Typically this 
+        /// is used when creating multiple keyframes within a single video. The format
+        /// for this attribute should be in the DSM-CC's Normal Play Time (NTP) as used in 
+        /// RTSP [RFC 2326 3.6 Normal Play Time]. It is an optional attribute.
         public var time: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

@@ -24,6 +24,10 @@
 
 import Foundation
 
+/// The actual engine behind the `FeedKit` framework. `JSONFeedParser` handles
+/// the parsing of JSON Feeds.
+///
+/// See: https://jsonfeed.org/version/1
 class JSONFeedParser: FeedParserProtocol {
     
     let data: Data

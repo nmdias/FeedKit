@@ -24,42 +24,22 @@
 
 import Foundation
 
-/**
- 
- The title of the particular media object. It has one optional attribute.
- 
- */
+/// The title of the particular media object. It has one optional attribute.
 public class MediaTitle {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         Specifies the type of text embedded. Possible values are either "plain" or "html". 
-         Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
-         
-         */
+        /// Specifies the type of text embedded. Possible values are either "plain" or "html". 
+        /// Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
         public var type: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

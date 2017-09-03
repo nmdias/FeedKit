@@ -24,73 +24,51 @@
 
 import Foundation
 
-/**
-
- Users can browse podcast subject categories in the iTunes Store by choosing 
- a category from the Podcasts pop-up menu in the navigation bar. Use the 
- <itunes:category> tag to specify the browsing category for your podcast.
-
- You can also define a subcategory if one is available within your category. 
- Although you can specify more than one category and subcategory in your 
- feed, the iTunes Store only recognizes the first category and subcategory. 
- For a complete list of categories and subcategories, see Podcasts Connect 
- categories.
-
- Note: When specifying categories and subcategories, be sure to properly 
- escape ampersands:
-
- Single category:
- <itunes:category text="Music" />
- 
- Category with ampersand:
- <itunes:category text="TV &amp; Film" />
- 
- Category with subcategory:
- <itunes:category text="Society &amp; Culture">
-    <itunes:category text="History" />
- </itunes:category>
- 
- Multiple categories:
- <itunes:category text="Society &amp; Culture">
-    <itunes:category text="History" />
- </itunes:category>
- <itunes:category text="Technology">
-    <itunes:category text="Gadgets" />
- </itunes:category>
-
- */
+/// Users can browse podcast subject categories in the iTunes Store by choosing 
+/// a category from the Podcasts pop-up menu in the navigation bar. Use the 
+/// <itunes:category> tag to specify the browsing category for your podcast.
+///
+/// You can also define a subcategory if one is available within your category. 
+/// Although you can specify more than one category and subcategory in your 
+/// feed, the iTunes Store only recognizes the first category and subcategory. 
+/// For a complete list of categories and subcategories, see Podcasts Connect 
+/// categories.
+///
+/// Note: When specifying categories and subcategories, be sure to properly 
+/// escape ampersands:
+///
+/// Single category:
+/// <itunes:category text="Music" />
+/// 
+/// Category with ampersand:
+/// <itunes:category text="TV &amp; Film" />
+/// 
+/// Category with subcategory:
+/// <itunes:category text="Society &amp; Culture">
+///    <itunes:category text="History" />
+/// </itunes:category>
+/// 
+/// Multiple categories:
+/// <itunes:category text="Society &amp; Culture">
+///    <itunes:category text="History" />
+/// </itunes:category>
+/// <itunes:category text="Technology">
+///    <itunes:category text="Gadgets" />
+/// </itunes:category>
 public class ITunesCategory {
 
-    
-    /**
-     
-     The attributes of the element
-     
-     */
+    /// The attributes of the element.
     public class Attributes {
         
-        /**
-         
-         The primary iTunes Category.
-         
-         */
+        /// The primary iTunes Category.
         public var text: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-
-    /**
-     
-     The iTunes SubCategory.
-     
-     */
+    /// The iTunes SubCategory.
     public var subcategory: ITunesSubCategory?
     
 }

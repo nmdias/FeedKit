@@ -24,40 +24,24 @@
 
 import Foundation
 
-/**
- 
- (optional, object) specifies the feed author. The author object has several 
- members. These are all optional - but if you provide an author object, then at 
- least one is required:
- 
- */
+/// (optional, object) specifies the feed author. The author object has several 
+/// members. These are all optional - but if you provide an author object, then at 
+/// least one is required:
 public class JSONFeedAuthor {
     
-    /**
-     
-     (optional, string) is the author's name.
-     
-     */
+    /// (optional, string) is the author's name.
     public var name: String?
     
-    /**
-     
-     (optional, string) is the URL of a site owned by the author. It could be a 
-     blog, micro-blog, Twitter account, and so on. Ideally the linked-to page 
-     provides a way to contact the author, but that's not required. The URL 
-     could be a mailto: link, though we suspect that will be rare.
-     
-     */
+    /// (optional, string) is the URL of a site owned by the author. It could be a 
+    /// blog, micro-blog, Twitter account, and so on. Ideally the linked-to page 
+    /// provides a way to contact the author, but that's not required. The URL 
+    /// could be a mailto: link, though we suspect that will be rare.
     public var url: String?
     
-    /**
-     
-     (optional, string) is the URL for an image for the author. As with icon, 
-     it should be square and relatively large - such as 512 x 512 - and should 
-     use transparency where appropriate, since it may be rendered on a non-white 
-     background.
-     
-     */
+    /// (optional, string) is the URL for an image for the author. As with icon, 
+    /// it should be square and relatively large - such as 512 x 512 - and should 
+    /// use transparency where appropriate, since it may be rendered on a non-white 
+    /// background.
     public var avatar: String?
 
 }

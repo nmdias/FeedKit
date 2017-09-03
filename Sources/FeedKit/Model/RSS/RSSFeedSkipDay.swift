@@ -23,82 +23,39 @@
 //
 
 import Foundation
-
-/**
  
- A hint for aggregators telling them which days they can skip.
- 
- An XML element that contains up to seven <day> sub-elements whose value
- is Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
- Aggregators may not read the channel during days listed in the skipDays
- element.
- 
- */
+/// A hint for aggregators telling them which days they can skip.
+/// 
+/// An XML element that contains up to seven <day> sub-elements whose value
+/// is Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
+/// Aggregators may not read the channel during days listed in the skipDays
+/// element.
+///
+/// - monday: Aggregator hint to skip parsing on `Monday`.
+/// - tuesday: Aggregator hint to skip parsing on `Tuesday`.
+/// - wednesday: Aggregator hint to skip parsing on `Wednesday`.
+/// - thursday: Aggregator hint to skip parsing on `Thursday`.
+/// - friday: Aggregator hint to skip parsing on `Friday`.
+/// - saturday: Aggregator hint to skip parsing on `Saturday`.
+/// - sunday: Aggregator hint to skip parsing on `Sunday`.
 public enum RSSFeedSkipDay: String {
-    
-    /**
-     
-     Aggregator hint to skip parsing on `Monday`
-     
-     */
     case monday = "monday"
-    
-    /**
-     
-     Aggregator hint to skip parsing on `Tuesday`
-     
-     */
     case tuesday = "tuesday"
-    
-    /**
-     
-     Aggregator hint to skip parsing on `Wednesday`
-     
-     */
     case wednesday = "wednesday"
-    
-    /**
-     
-     Aggregator hint to skip parsing on `Thursday`
-     
-     */
     case thursday = "thursday"
-    
-    /**
-     
-     Aggregator hint to skip parsing on `Friday`
-     
-     */
     case friday = "friday"
-    
-    /**
-     
-     Aggregator hint to skip parsing on `Saturday`
-     
-     */
     case saturday = "saturday"
-    
-    /**
-     
-     Aggregator hint to skip parsing on `Sunday`
-     
-     */
     case sunday = "sunday"
-
 }
 
 extension RSSFeedSkipDay {
     
-    /**
-     
-     Lowercase the incoming `rawValue` string to try and match the 
-     `RSSFeedSkipDay`'s `rawValue`
-     
-    */
+    /// Lowercase the incoming `rawValue` string to try and match the
+    /// `RSSFeedSkipDay`'s `rawValue`
+    ///
+    /// - Parameter rawValue: The raw value
     public init?(rawValue: String) {
-        
         switch rawValue.lowercased() {
-            
         case "monday":     self = .monday
         case "tuesday":    self = .tuesday
         case "wednesday":  self = .wednesday
@@ -106,11 +63,8 @@ extension RSSFeedSkipDay {
         case "friday":     self = .friday
         case "saturday":   self = .saturday
         case "sunday":     self = .sunday
-            
         default: return nil
-            
         }
-        
     }
     
 }

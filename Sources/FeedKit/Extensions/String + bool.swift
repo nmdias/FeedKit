@@ -26,27 +26,14 @@ import Foundation
 
 extension String {
 
-    /**
-     
-     Convert a string representation of a logical value to it's `Bool` 
-     equivalent
-     
-     */
+    /// Convert a string representation of a logical value to it's `Bool`.
+    /// equivalent
     var bool: Bool? {
-        
         switch self {
-            
-        case "True", "true", "Yes", "yes", "1":
-            return true
-            
-        case "False", "false", "No", "no", "0":
-            return false
-            
-        default:
-            return nil
-            
+        case "True", "true", "Yes", "yes", "1": return true
+        case "False", "false", "No", "no", "0": return false
+        default: return nil
         }
-        
     }
     
 }

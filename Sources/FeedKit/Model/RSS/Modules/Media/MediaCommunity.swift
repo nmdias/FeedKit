@@ -24,41 +24,24 @@
 
 import Foundation
 
-/**
- 
- This element stands for the community related content. This allows
- inclusion of the user perception about a media object in the form of view
- count, ratings and tags.
- 
- */
+/// This element stands for the community related content. This allows
+/// inclusion of the user perception about a media object in the form of view
+/// count, ratings and tags.
 public class MediaCommunity {
     
-    /**
-     
-     This element specifies the rating-related information about a media object.
-     Valid attributes are average, count, min and max.
-     
-     */
+    /// This element specifies the rating-related information about a media object.
+    /// Valid attributes are average, count, min and max.
     public var mediaStarRating: MediaStarRating?
     
-    /**
-     
-     This element specifies various statistics about a media object like the 
-     view count and the favorite count. Valid attributes are views and favorites.
-     
-     */
+    /// This element specifies various statistics about a media object like the 
+    /// view count and the favorite count. Valid attributes are views and favorites.
     public var mediaStatistics: MediaStatistics?
     
-    
-    /**
-     
-     This element contains user-generated tags separated by commas in the 
-     decreasing order of each tag's weight. Each tag can be assigned an integer 
-     weight in tag_name:weight format. It's up to the provider to choose the way
-     weight is determined for a tag; for example, number of occurences can be 
-     one way to decide weight of a particular tag. Default weight is 1.
-     
-     */
+    /// This element contains user-generated tags separated by commas in the 
+    /// decreasing order of each tag's weight. Each tag can be assigned an integer 
+    /// weight in tag_name:weight format. It's up to the provider to choose the way
+    /// weight is determined for a tag; for example, number of occurences can be 
+    /// one way to decide weight of a particular tag. Default weight is 1.
     public var mediaTags: [MediaTag]?
     
 }

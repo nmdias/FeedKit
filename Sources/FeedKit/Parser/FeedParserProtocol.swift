@@ -24,11 +24,7 @@
 
 import Foundation
 
-/**
- 
- The protocol for Parsing handlers
- 
- */
+/// The protocol for Parsing handlers.
 protocol FeedParserProtocol {
     init(data: Data)
     func parse() -> Result

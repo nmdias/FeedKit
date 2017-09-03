@@ -1,5 +1,5 @@
 //
-//  String + dateWithSpec.swift
+//  String + dateFromSpec.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //
@@ -26,16 +26,11 @@ import Foundation
 
 extension String {
     
-    /**
-     
-     Attempts to convert the textual representation of a date with 
-     the specified `DateSpec` to an `Date` object
-     
-     - paramater spec: The `DateSpec` to interpert the string
-     
-     - returns: A `Date` object, or nil if the conversion failed
-     
-     */
+    /// Attempts to convert the textual representation of a date with
+    /// the specified `DateSpec` to an `Date` object.
+    ///
+    /// - Parameter spec: The `DateSpec` to interpert the string.
+    /// - Returns: A `Date` object, or nil if the conversion failed.
     func dateFromSpec(_ spec: DateSpec) -> Date? {
         switch spec {
         case .rfc822:   return RFC822DateFormatter().date(from: self)

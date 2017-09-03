@@ -24,49 +24,25 @@
 
 import Foundation
 
-/**
- 
- Optional link to specify the machine-readable license associated with the
- content.
- 
- */
+/// Optional link to specify the machine-readable license associated with the
+/// content.
 public class MediaSubTitle {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The type of the subtitle.
-         
-         */
+        /// The type of the subtitle.
         public var type: String?
         
-        /**
-         
-         The subtitle language based on the RFC 3066.
-         
-         */
+        /// The subtitle language based on the RFC 3066.
         public var lang: String?
         
-        /**
-         
-         The location of the subtitle.
-         
-         */
+        /// The location of the subtitle.
         public var href: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
 }

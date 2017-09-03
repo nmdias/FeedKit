@@ -24,39 +24,21 @@
 
 import Foundation
 
-/**
- 
- Key-Value pairs with aditional parameters for the embeded Media.
- 
- */
+/// Key-Value pairs with aditional parameters for the embeded Media.
 public class MediaParam {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         */
+        /// The parameter's key name.
         public var name: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

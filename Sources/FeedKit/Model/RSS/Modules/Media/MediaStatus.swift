@@ -24,46 +24,26 @@
 
 import Foundation
 
-/**
- 
- Optional tag to specify the status of a media object -- whether it's still
- active or it has been blocked/deleted.
- 
- */
+/// Optional tag to specify the status of a media object -- whether it's still
+/// active or it has been blocked/deleted.
 public class MediaStatus {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         State can have values "active", "blocked" or "deleted". "active" means 
-         a media object is active in the system, "blocked" means a media object 
-         is blocked by the publisher, "deleted" means a media object has been 
-         deleted by the publisher.
-         
-         */
+        /// State can have values "active", "blocked" or "deleted". "active" means 
+        /// a media object is active in the system, "blocked" means a media object 
+        /// is blocked by the publisher, "deleted" means a media object has been 
+        /// deleted by the publisher.
         public var state: String?
         
-        /**
-         
-         A reason explaining why a media object has been blocked/deleted. It can 
-         be plain text or a URL.
-         
-         */
+        /// A reason explaining why a media object has been blocked/deleted. It can 
+        /// be plain text or a URL.
         public var reason: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
 }

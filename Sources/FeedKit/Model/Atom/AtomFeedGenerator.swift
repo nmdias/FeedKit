@@ -24,66 +24,42 @@
 
 import Foundation
 
-/**
- 
- The "atom:generator" element's content identifies the agent used to
- generate a feed, for debugging and other purposes.
- 
- The content of this element, when present, MUST be a string that is a
- human-readable name for the generating agent.  Entities such as
- "&amp;" and "&lt;" represent their corresponding characters ("&" and
- "<" respectively), not markup.
- 
- The atom:generator element MAY have a "uri" attribute whose value
- MUST be an IRI reference [RFC3987].  When dereferenced, the resulting
- URI (mapped from an IRI, if necessary) SHOULD produce a
- representation that is relevant to that agent.
- 
- The atom:generator element MAY have a "version" attribute that
- indicates the version of the generating agent.
- 
- */
+/// The "atom:generator" element's content identifies the agent used to
+/// generate a feed, for debugging and other purposes.
+/// 
+/// The content of this element, when present, MUST be a string that is a
+/// human-readable name for the generating agent.  Entities such as
+/// "&amp;" and "&lt;" represent their corresponding characters ("&" and
+/// "<" respectively), not markup.
+/// 
+/// The atom:generator element MAY have a "uri" attribute whose value
+/// MUST be an IRI reference [RFC3987].  When dereferenced, the resulting
+/// URI (mapped from an IRI, if necessary) SHOULD produce a
+/// representation that is relevant to that agent.
+/// 
+/// The atom:generator element MAY have a "version" attribute that
+/// indicates the version of the generating agent.
 public class AtomFeedGenerator {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The atom:generator element MAY have a "uri" attribute whose value
-         MUST be an IRI reference [RFC3987].  When dereferenced, the resulting
-         URI (mapped from an IRI, if necessary) SHOULD produce a
-         representation that is relevant to that agent.
-         
-         */
+        /// The atom:generator element MAY have a "uri" attribute whose value
+        /// MUST be an IRI reference [RFC3987].  When dereferenced, the resulting
+        /// URI (mapped from an IRI, if necessary) SHOULD produce a
+        /// representation that is relevant to that agent.
         public var uri: String?
         
-        /**
-         
-         The atom:generator element MAY have a "version" attribute that
-         indicates the version of the generating agent.
-         
-         */
+        /// The atom:generator element MAY have a "version" attribute that
+        /// indicates the version of the generating agent.
         public var version: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

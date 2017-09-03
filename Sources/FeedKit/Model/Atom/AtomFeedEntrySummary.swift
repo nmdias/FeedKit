@@ -24,51 +24,31 @@
 
 import Foundation
 
-/**
- 
- The "atom:summary" element is a Text construct that conveys a short
- summary, abstract, or excerpt of an entry.
- 
- atomSummary = element atom:summary { atomTextConstruct }
- 
- It is not advisable for the atom:summary element to duplicate
- atom:title or atom:content because Atom Processors might assume there
- is a useful summary when there is none.
- 
- */
+/// The "atom:summary" element is a Text construct that conveys a short
+/// summary, abstract, or excerpt of an enactry.
+/// 
+/// atomSummary = element atom:summary { atomTextConstruct }
+/// 
+/// It is not advisable for the atom:summary element to duplicate
+/// atom:title or atom:content because Atom Processors might assume there
+/// is a useful summary when there is none.
 public class AtomFeedEntrySummary {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         Text constructs MAY have a "type" attribute.  When present, the value
-         MUST be one of "text", "html", or "xhtml".  If the "type" attribute
-         is not provided, Atom Processors MUST behave as though it were
-         present with a value of "text".
-         
-         */
+        /// Text constructs MAY have a "type" attribute.  When present, the value
+        /// MUST be one of "text", "html", or "xhtml".  If the "type" attribute
+        /// is not provided, Atom Processors MUST behave as though it were
+        /// present with a value of "text".
         public var type: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

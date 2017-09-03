@@ -24,36 +24,20 @@
 
 import Foundation
 
-/**
- 
- Optional element to specify the rights information of a media object.
- 
- */
+/// Optional element to specify the rights information of a media object.
 public class MediaRights {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         Is the status of the media object saying whether a media object has 
-         been created by the publisher or they have rights to circulate it. 
-         Supported values are "userCreated" and "official".
-         
-         */
+        /// Is the status of the media object saying whether a media object has 
+        /// been created by the publisher or they have rights to circulate it. 
+        /// Supported values are "userCreated" and "official".
         public var status: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
 
     

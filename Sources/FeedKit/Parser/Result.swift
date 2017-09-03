@@ -24,125 +24,69 @@
 
 import Foundation
 
-/**
- 
- Used to provide the result of a parsed feed, whether the parsing was
- successfull or encountered an error.
- 
- */
+/// Used to provide the result of a parsed feed, whether the parsing was
+/// successfull or encountered an error.
+///
+/// - atom: The parsed `AtomFeed` model.
+/// - rss: The parsed `RSSFeed` model.
+/// - json: The parsed `JSONFeed` model.
+/// - failure: The failure `NSError` generated from parsing errors.
 public enum Result {
     
-    /**
-     
-     The `AtomFeed` model with a parsed Atom feed
-     
-     */
     case atom(AtomFeed)
-    
-    /**
-     
-     The `RSSFeed` model with a parsed RSS feed
-     
-     */
     case rss(RSSFeed)
-    
-    /**
-     
-     The `JSONFeed` model with a parsed JSON feed
-     
-     */
     case json(JSONFeed)
-    
-    /**
-     
-     The failure `NSError` generator from parsing errors
-     
-     */
     case failure(NSError)
     
-    /**
-     
-     Returns `true` if the result is a success, `false` otherwise.
-     
-     */
+    /// Returns `true` if the result is a success, `false` otherwise.
     public var isSuccess: Bool {
-        
         switch self {
         case .atom:     return true
         case .rss:      return true
         case .json:     return true
         case .failure:  return false
         }
-        
     }
     
-    /**
-     
-     Returns `true` if the result is a failure, `false` otherwise.
-     
-     */
+    /// Returns `true` if the result is a failure, `false` otherwise.
     public var isFailure: Bool {
-        
         return !isSuccess
-        
     }
     
-    /**
-     
-     Returns the parsed rss feed value if the result is a success, `nil`
-     otherwise.
-     
-     */
+    /// Returns the parsed rss feed value if the result is a success, `nil`
+    /// otherwise.
     public var rssFeed: RSSFeed? {
-        
         switch self {
         case .rss(let value): return value
         default: return nil
         }
-        
     }
     
-    /**
-     
-     Returns the parsed atom feed if the result is a success, `nil` otherwise.
-     
-     */
+    /// Returns the parsed atom feed if the result is a success, `nil` 
+    /// otherwise.
     public var atomFeed: AtomFeed? {
-        
         switch self {
         case .atom(let value): return value
         default: return nil
         }
-        
     }
     
-    /**
-     
-     Returns the parsed json feed if the result is a success, `nil` otherwise.
-     
-     */
+    /// Returns the parsed json feed if the result is a success, `nil` 
+    /// otherwise.
     public var jsonFeed: JSONFeed? {
-        
         switch self {
         case .json(let value): return value
         default: return nil
         }
-        
     }
     
-    /**
-     
-     Returns the associated error value if the result is a failure, `nil`
-     otherwise.
-     
-     */
+    /// Returns the associated error value if the result is a failure, `nil`
+    /// otherwise.
     public var error: NSError? {
-        
         switch self {
         case .failure(let error): return error
         default: return nil
         }
-        
     }
     
 }

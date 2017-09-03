@@ -24,78 +24,46 @@
 
 import Foundation
 
-/**
- 
- Allows the inclusion of a text transcript, closed captioning or lyrics of
- the media content. Many of these elements are permitted to provide a time
- series of text. In such cases, it is encouraged, but not required, that the
- elements be grouped by language and appear in time sequence order based on
- the start time. Elements can have overlapping start and end times. It has
- four optional attributes.
- 
- */
+/// Allows the inclusion of a text transcript, closed captioning or lyrics of
+/// the media content. Many of these elements are permitted to provide a time
+/// series of text. In such cases, it is encouraged, but not required, that the
+/// elements be grouped by language and appear in time sequence order based on
+/// the start time. Elements can have overlapping start and end times. It has
+/// four optional attributes.
 public class MediaText {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         Specifies the type of text embedded. Possible values are either "plain"
-         or "html". Default value is "plain". All HTML must be entity-encoded. 
-         It is an optional attribute.
-         
-         */
+        /// Specifies the type of text embedded. Possible values are either "plain"
+        /// or "html". Default value is "plain". All HTML must be entity-encoded. 
+        /// It is an optional attribute.
         public var type: String?
         
-        /**
-         
-         The primary language encapsulated in the media object. Language codes 
-         possible are detailed in RFC 3066. This attribute is used similar to 
-         the xml:lang attribute detailed in the XML 1.0 Specification (Third 
-         Edition). It is an optional attribute.
-         
-         */
+        /// The primary language encapsulated in the media object. Language codes 
+        /// possible are detailed in RFC 3066. This attribute is used similar to 
+        /// the xml:lang attribute detailed in the XML 1.0 Specification (Third 
+        /// Edition). It is an optional attribute.
         public var lang: String?
         
-        /**
-         
-         Specifies the start time offset that the text starts being relevant to 
-         the media object. An example of this would be for closed captioning. 
-         It uses the NTP time code format (see: the time attribute used in 
-         <media:thumbnail>). It is an optional attribute.
-         
-         */
+        /// Specifies the start time offset that the text starts being relevant to 
+        /// the media object. An example of this would be for closed captioning. 
+        /// It uses the NTP time code format (see: the time attribute used in 
+        /// <media:thumbnail>). It is an optional attribute.
         public var start: String?
         
-        /**
-         
-         Specifies the end time that the text is relevant. If this attribute is 
-         not provided, and a start time is used, it is expected that the end 
-         time is either the end of the clip or the start of the next 
-         <media:text> element.
-         
-         */
+        /// Specifies the end time that the text is relevant. If this attribute is 
+        /// not provided, and a start time is used, it is expected that the end 
+        /// time is either the end of the clip or the start of the next 
+        /// <media:text> element.
         public var end: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

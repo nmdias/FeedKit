@@ -24,65 +24,41 @@
 
 import Foundation
 
-/**
- 
- The "atom:content" element either contains or links to the content of
- the entry.  The content of atom:content is Language-Sensitive.
- 
- */
+/// The "atom:content" element either contains or links to the content of
+/// the entry.  The content of atom:content is Language-Sensitive.
 public class AtomFeedEntryContent {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         On the atom:content element, the value of the "type" attribute MAY be
-         one of "text", "html", or "xhtml".  Failing that, it MUST conform to
-         the syntax of a MIME media type, but MUST NOT be a composite type
-         (see Section 4.2.6 of [MIMEREG]).  If neither the type attribute nor
-         the src attribute is provided, Atom Processors MUST behave as though
-         the type attribute were present with a value of "text".
-         
-         */
+        /// On the atom:content element, the value of the "type" attribute MAY be
+        /// one of "text", "html", or "xhtml".  Failing that, it MUST conform to
+        /// the syntax of a MIME media type, but MUST NOT be a composite type
+        /// (see Section 4.2.6 of [MIMEREG]).  If neither the type attribute nor
+        /// the src attribute is provided, Atom Processors MUST behave as though
+        /// the type attribute were present with a value of "text".
         public var type: String?
         
-        /**
-         
-         The atom:content MAY have a "src" attribute, whose value MUST be an IRI
-         reference [RFC3987].  If the "src" attribute is present, atom:content
-         MUST be empty.  Atom Processors MAY use the IRI to retrieve the
-         content and MAY choose to ignore remote content or to present it in a
-         different manner than local content.
-         
-         If the "src" attribute is present, the "type" attribute SHOULD be
-         provided and MUST be a MIME media type [MIMEREG], rather than "text",
-         "html", or "xhtml".  The value is advisory; that is to say, when the
-         corresponding URI (mapped from an IRI, if necessary) is dereferenced,
-         if the server providing that content also provides a media type, the
-         server-provided media type is authoritative.
-         
-         */
+        /// The atom:content MAY have a "src" attribute, whose value MUST be an IRI
+        /// reference [RFC3987].  If the "src" attribute is present, atom:content
+        /// MUST be empty.  Atom Processors MAY use the IRI to retrieve the
+        /// content and MAY choose to ignore remote content or to present it in a
+        /// different manner than local content.
+        /// 
+        /// If the "src" attribute is present, the "type" attribute SHOULD be
+        /// provided and MUST be a MIME media type [MIMEREG], rather than "text",
+        /// "html", or "xhtml".  The value is advisory; that is to say, when the
+        /// corresponding URI (mapped from an IRI, if necessary) is dereferenced,
+        /// if the server providing that content also provides a media type, the
+        /// server-provided media type is authoritative.
         public var src: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

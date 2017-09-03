@@ -24,13 +24,9 @@
 
 import Foundation
 
-/**
- 
- Describes the individual path for each XML DOM element of an RSS feed
- 
- See http://web.resource.org/rss/1.0/modules/content/
- 
- */
+/// Describes the individual path for each XML DOM element of an RSS feed
+/// 
+/// See http://web.resource.org/rss/1.0/modules/content/
 enum RSSPath: String {
     
     case rss                                                    = "/rss"

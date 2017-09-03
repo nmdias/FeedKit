@@ -24,65 +24,41 @@
 
 import Foundation
 
-/**
- 
- Describes a media object that is attached to the item.
- 
- <enclosure> is an optional sub-element of <item>.
- 
- It has three required attributes. url says where the enclosure is located,
- length says how big it is in bytes, and type says what its type is, a
- standard MIME type.
- 
- The url must be an http url.
- 
- <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" 
- length="12216320" type="audio/mpeg" />
- 
- */
+/// Describes a media object that is attached to the item.
+/// 
+/// <enclosure> is an optional sub-element of <item>.
+/// 
+/// It has three required attributes. url says where the enclosure is located,
+/// length says how big it is in bytes, and type says what its type is, a
+/// standard MIME type.
+/// 
+/// The url must be an http url.
+/// 
+/// <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3" 
+/// length="12216320" type="audio/mpeg" />
 public class RSSFeedItemEnclosure {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /** 
-         
-         Where the enclosure is located.
-         
-         Example: http://www.scripting.com/mp3s/weatherReportSuite.mp3
-         
-         */
+        /// Where the enclosure is located.
+        /// 
+        /// Example: http://www.scripting.com/mp3s/weatherReportSuite.mp3
         public var url: String?
         
-        /** 
-         
-         How big the media object is in bytes.
-         
-         Example: 12216320
-         
-         */
+        /// How big the media object is in bytes.
+        /// 
+        /// Example: 12216320
         public var length: Int64?
         
-        /** 
-         
-         Standard MIME type.
-         
-         Example: audio/mpeg
-         
-         */
+        /// Standard MIME type.
+        /// 
+        /// Example: audio/mpeg
         public var type: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
 }

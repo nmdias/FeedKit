@@ -24,25 +24,16 @@
 
 import Foundation
 
-/**
- 
- A module for the actual content of websites, in multiple formats.
- 
- See http://web.resource.org/rss/1.0/modules/content/
- 
-*/
+/// A module for the actual content of websites, in multiple formats. 
+/// See http://web.resource.org/rss/1.0/modules/content/
 public class ContentNamespace {
     
-    /**
-     
-     An element whose contents are the entity-encoded or CDATA-escaped version
-     of the content of the item. 
-     
-     Example: 
-     <content:encoded><![CDATA[<p>What a <em>beautiful</em> day!</p>]]>
-     </content:encoded>
-     
-     */
+    /// An element whose contents are the entity-encoded or CDATA-escaped version
+    /// of the content of the item. 
+    /// 
+    /// Example: 
+    /// <content:encoded><![CDATA[<p>What a <em>beautiful</em> day!</p>]]>
+    /// </content:encoded>
     public var contentEncoded: String?
     
 }

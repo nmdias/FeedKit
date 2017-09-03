@@ -24,49 +24,25 @@
 
 import Foundation
 
-/**
- 
- Optional link to specify the machine-readable license associated with the
- content.
- 
- */
+/// Optional link to specify the machine-readable license associated with the
+/// content.
 public class MediaLicence {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The licence type.
-         
-         */
+        /// The licence type.
         public var type: String?
         
-        /**
-         
-         The location of the licence.
-         
-         */
+        /// The location of the licence.
         public var href: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

@@ -24,62 +24,42 @@
 
 import Foundation
 
-/**
- 
- Includes the item in one or more categories.
- 
- <category> is an optional sub-element of <item>.
- 
- It has one optional attribute, domain, a string that identifies a
- categorization taxonomy.
- 
- The value of the element is a forward-slash-separated string that
- identifies a hierarchic location in the indicated taxonomy. Processors
- may establish conventions for the interpretation of categories.
- 
- Two examples are provided below:
- 
- <category>Grateful Dead</category>
- <category domain="http://www.fool.com/cusips">MSFT</category>
- 
- You may include as many category elements as you need to, for different
- domains, and to have an item cross-referenced in different parts of the
- same domain.
- 
- */
+/// Includes the item in one or more categories.
+/// 
+/// <category> is an optional sub-element of <item>.
+/// 
+/// It has one optional attribute, domain, a string that identifies a
+/// categorization taxonomy.
+/// 
+/// The value of the element is a forward-slash-separated string that
+/// identifies a hierarchic location in the indicated taxonomy. Processors
+/// may establish conventions for the interpretation of categories.
+/// 
+/// Two examples are provided below:
+/// 
+/// <category>Grateful Dead</category>
+/// <category domain="http://www.fool.com/cusips">MSFT</category>
+/// 
+/// You may include as many category elements as you need to, for different
+/// domains, and to have an item cross-referenced in different parts of the
+/// same domain.
 public class RSSFeedItemCategory {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /** 
-         
-         A string that identifies a categorization taxonomy. It's an optional 
-         attribute of `<category>`.
-         
-         Example: http://www.fool.com/cusips
-         
-         */
+        /// A string that identifies a categorization taxonomy. It's an optional 
+        /// attribute of `<category>`.
+        /// 
+        /// Example: http://www.fool.com/cusips
         public var domain: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

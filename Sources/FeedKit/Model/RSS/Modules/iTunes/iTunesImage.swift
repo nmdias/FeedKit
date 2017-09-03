@@ -24,61 +24,43 @@
 
 import Foundation
 
-/**
- 
- Specify your podcast artwork using the <a href> attribute in the
- <itunes:image> tag. If you do not specify the <itunes:image> tag, the
- iTunes Store uses the content specified in the RSS feed image tag and Apple
- does not consider your podcast for feature placement on the iTunes Store or
- Podcasts.
- 
- Depending on their device, subscribers see your podcast artwork in varying
- sizes. Therefore, make sure your design is effective at both its original
- size and at thumbnail size. Apple recommends including a title, brand, or
- source name as part of your podcast artwork. For examples of podcast
- artwork, see the Top Podcasts. To avoid technical issues when you update
- your podcast artwork, be sure to:
- 
- Change the artwork file name and URL at the same time
- Verify the web server hosting your artwork allows HTTP head requests
- The <itunes:image> tag is also supported at the <item> (episode) level.
- For best results, Apple recommends embedding the same artwork within the
- metadata for that episode's media file prior to uploading to your host
- server; using Garageband or another content-creation tool to edit your
- media file if needed.
- 
- Note: Artwork must be a minimum size of 1400 x 1400 pixels and a maximum
- size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate
- file extensions (.jpg, .png), and in the RGB colorspace. These requirements
- are different from the standard RSS image tag specifications.
- 
- */
+/// Specify your podcast artwork using the <a href> attribute in the
+/// <itunes:image> tag. If you do not specify the <itunes:image> tag, the
+/// iTunes Store uses the content specified in the RSS feed image tag and Apple
+/// does not consider your podcast for feature placement on the iTunes Store or
+/// Podcasts.
+/// 
+/// Depending on their device, subscribers see your podcast artwork in varying
+/// sizes. Therefore, make sure your design is effective at both its original
+/// size and at thumbnail size. Apple recommends including a title, brand, or
+/// source name as part of your podcast artwork. For examples of podcast
+/// artwork, see the Top Podcasts. To avoid technical issues when you update
+/// your podcast artwork, be sure to:
+/// 
+/// Change the artwork file name and URL at the same time
+/// Verify the web server hosting your artwork allows HTTP head requests
+/// The <itunes:image> tag is also supported at the <item> (episode) level.
+/// For best results, Apple recommends embedding the same artwork within the
+/// metadata for that episode's media file prior to uploading to your host
+/// server; using Garageband or another content-creation tool to edit your
+/// media file if needed.
+/// 
+/// Note: Artwork must be a minimum size of 1400 x 1400 pixels and a maximum
+/// size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate
+/// file extensions (.jpg, .png), and in the RGB colorspace. These requirements
+/// are different from the standard RSS image tag specifications.
 public class ITunesImage {
     
-    
-    /**
-     
-     The attributes of the element
-     
-     */
+    /// The attributes of the element.
     public class Attributes {
         
-        /**
-         
-         The image's url.
-         
-         */
+        /// The image's url.
         public var href: String?
         
     }
-    
-    /**
-     
-     The element's attributes
-     
-     */
+
+    /// The element's attributes.
     public var attributes: Attributes?
-    
     
 }
 

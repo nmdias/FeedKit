@@ -24,56 +24,28 @@
 
 import Foundation
 
-/**
- 
- This element specifies the rating-related information about a media object.
- Valid attributes are average, count, min and max.
- 
- */
+/// This element specifies the rating-related information about a media object.
+/// Valid attributes are average, count, min and max.
 public class MediaStarRating {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The star rating's average.
-         
-         */
+        /// The star rating's average.
         public var average: Double?
         
-        /**
-         
-         The star rating's total count.
-         
-         */
+        /// The star rating's total count.
         public var count: Int?
         
-        /**
-         
-         The star rating's minimum value.
-         
-         */
+        /// The star rating's minimum value.
         public var min: Int?
         
-        /**
-         
-         The star rating's maximum value.
-         
-         */
+        /// The star rating's maximum value.
         public var max: Int?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
 }

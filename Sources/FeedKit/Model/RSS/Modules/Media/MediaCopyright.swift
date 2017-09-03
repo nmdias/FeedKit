@@ -24,44 +24,24 @@
 
 import Foundation
 
-/**
- 
- Copyright information for the media object. It has one optional attribute.
- 
- */
+/// Copyright information for the media object. It has one optional attribute.
 public class MediaCopyright {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The URL for a terms of use page or additional copyright information. 
-         If the media is operating under a Creative Commons license, the 
-         Creative Commons module should be used instead. It is an optional 
-         attribute.
-         
-         */
+        /// The URL for a terms of use page or additional copyright information. 
+        /// If the media is operating under a Creative Commons license, the 
+        /// Creative Commons module should be used instead. It is an optional 
+        /// attribute.
         public var url: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

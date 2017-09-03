@@ -24,60 +24,31 @@
 
 import Foundation
 
-/**
- 
- Error types with `NSError` codes and user info providers
- 
- */
+
+/// Error types with `NSError` codes and user info providers
+///
+/// - feedNotFound: Couldn't parse any known feed.
+/// - feedCDATABlockEncodingError: Unable to convert the bytes in `CDATABlock` 
+///   to Unicode characters using the UTF-8 encoding.
+/// - internalError: An internal error from which the user cannot recover.
 public enum ParserError {
     
-    /**
-     
-     Couldn't parse any known feed
-     
-     */
     case feedNotFound
-    
-    /**
-     
-     Unable to convert the bytes in `CDATABlock` to Unicode characters using
-     the UTF-8 encoding
-     
-     */
     case feedCDATABlockEncodingError(path: String)
-    
-    /**
-     
-     An internal error from which the user cannot recover.
-     
-     */
-
     case internalError(reason: String)
     
-    /**
-     
-     The error's code for the specified case.
-     
-     */
+    /// An error's code for the specified case.
     var code: Int {
-        
         switch self {
         case .feedNotFound: return -1000
         case .feedCDATABlockEncodingError: return -10001
         case .internalError(_): return -90000
         }
-        
     }
     
-    /**
-     
-     The error's userInfo dictionary for the specified case.
-     
-     */
+    /// The error's userInfo dictionary for the specified case.
     var userInfo: [String: String] {
-        
         switch self {
-            
         case .feedNotFound:
             return [
                 NSLocalizedDescriptionKey: "Feed not found",
@@ -103,11 +74,7 @@ public enum ParserError {
         
     }
     
-    /**
-     
-     The `NSError` from the specified case
-     
-     */
+    /// The `NSError` from the specified case.
     var value: NSError {
         return NSError(domain:"com.feedkit.error", code: self.code, userInfo: self.userInfo)
     }

@@ -24,68 +24,36 @@
 
 import Foundation
 
-/**
- 
- Optional tag to include pricing information about a media object. If this
- tag is not present, the media object is supposed to be free. One media
- object can have multiple instances of this tag for including different
- pricing structures. The presence of this tag would mean that media object
- is not free.
- 
- */
+/// Optional tag to include pricing information about a media object. If this
+/// tag is not present, the media object is supposed to be free. One media
+/// object can have multiple instances of this tag for including different
+/// pricing structures. The presence of this tag would mean that media object
+/// is not free.
 public class MediaPrice {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         Valid values are "rent", "purchase", "package" or "subscription". If 
-         nothing is specified, then the media is free.
-         
-         */
+        /// Valid values are "rent", "purchase", "package" or "subscription". If 
+        /// nothing is specified, then the media is free.
         public var type: String?
         
-        /**
-         
-         The price of the media object. This is an optional attribute.
-         
-         */
+        /// The price of the media object. This is an optional attribute.
         public var price: Double?
         
-        /**
-         
-         If the type is "package" or "subscription", then info is a URL pointing
-         to package or subscription information. This is an optional attribute.
-         
-         */
+        /// If the type is "package" or "subscription", then info is a URL pointing
+        /// to package or subscription information. This is an optional attribute.
         public var info: String?
         
-        /**
-         
-         Use [ISO 4217] for currency codes. This is an optional attribute.
-         
-         */
+        /// Use [ISO 4217] for currency codes. This is an optional attribute.
         public var currency: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

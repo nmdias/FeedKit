@@ -24,58 +24,33 @@
 
 import Foundation
 
-/**
- 
- Notable entity and the contribution to the creation of the media object.
- Current entities can include people, companies, locations, etc. Specific
- entities can have multiple roles, and several entities can have the same
- role. These should appear as distinct <media:credit> elements. It has two
- optional attributes.
- 
- */
+/// Notable entity and the contribution to the creation of the media object.
+/// Current entities can include people, companies, locations, etc. Specific
+/// entities can have multiple roles, and several entities can have the same
+/// role. These should appear as distinct <media:credit> elements. It has two
+/// optional attributes.
 public class MediaCredit {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         Specifies the role the entity played. Must be lowercase. It is an 
-         optional attribute.
-         
-         */
+        /// Specifies the role the entity played. Must be lowercase. It is an 
+        /// optional attribute.
         public var role: String?
         
-        
-        /**
-         
-         The URI that identifies the role scheme. It is an optional attribute 
-         and possible values for this attribute are ( urn:ebu | urn:yvs ) . The 
-         default scheme is "urn:ebu". The list of roles supported under urn:ebu 
-         scheme can be found at European Broadcasting Union Role Codes. The 
-         roles supported under urn:yvs scheme are ( uploader | owner ).
-         
-         */
+        /// The URI that identifies the role scheme. It is an optional attribute 
+        /// and possible values for this attribute are ( urn:ebu | urn:yvs ) . The 
+        /// default scheme is "urn:ebu". The list of roles supported under urn:ebu 
+        /// scheme can be found at European Broadcasting Union Role Codes. The 
+        /// roles supported under urn:yvs scheme are ( uploader | owner ).
         public var scheme: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

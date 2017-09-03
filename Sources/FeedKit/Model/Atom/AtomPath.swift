@@ -24,13 +24,9 @@
 
 import Foundation
 
-/**
- 
- Describes the individual path for each XML DOM element of an Atom feed
- 
- See https://tools.ietf.org/html/rfc4287
- 
- */
+/// Describes the individual path for each XML DOM element of an Atom feed.
+///
+/// See https://tools.ietf.org/html/rfc4287
 enum AtomPath: String {
     
     case feed                                              = "/feed"

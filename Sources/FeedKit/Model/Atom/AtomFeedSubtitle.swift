@@ -24,45 +24,25 @@
 
 import Foundation
 
-/**
- 
- The "atom:subtitle" element is a Text construct that conveys a human-
- readable description or subtitle for a feed.
- 
- */
+/// The "atom:subtitle" element is a Text construct that conveys a human-
+/// readable description or subtitle for a feed.
 public class AtomFeedSubtitle {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         Text constructs MAY have a "type" attribute.  When present, the value
-         MUST be one of "text", "html", or "xhtml".  If the "type" attribute
-         is not provided, Atom Processors MUST behave as though it were
-         present with a value of "text".
-         
-         */
+        /// Text constructs MAY have a "type" attribute.  When present, the value
+        /// MUST be one of "text", "html", or "xhtml".  If the "type" attribute
+        /// is not provided, Atom Processors MUST behave as though it were
+        /// present with a value of "text".
         public var type: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

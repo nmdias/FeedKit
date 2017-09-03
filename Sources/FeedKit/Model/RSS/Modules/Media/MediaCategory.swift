@@ -24,52 +24,28 @@
 
 import Foundation
 
-/**
- 
- Allows a taxonomy to be set that gives an indication of the type of media
- content, and its particular contents. It has two optional attributes.
- 
- */
+/// Allows a taxonomy to be set that gives an indication of the type of media
+/// content, and its particular contents. It has two optional attributes.
 public class MediaCategory {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The URI that identifies the categorization scheme. It is an optional 
-         attribute. If this attribute is not included, the default scheme
-         is "http://search.yahoo.com/mrss/category_schema".
-         
-         */
+        /// The URI that identifies the categorization scheme. It is an optional 
+        /// attribute. If this attribute is not included, the default scheme
+        /// is "http://search.yahoo.com/mrss/category_schema".
         public var scheme: String?
         
-        /**
-         
-         The human readable label that can be displayed in end user 
-         applications. It is an optional attribute.
-         
-         */
+        /// The human readable label that can be displayed in end user 
+        /// applications. It is an optional attribute.
         public var label: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

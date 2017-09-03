@@ -24,57 +24,33 @@
 
 import Foundation
 
-/**
- 
- The "atom:category" element conveys information about a category
- associated with an entry or feed.  This specification assigns no
- meaning to the content (if any) of this element.
- 
- */
+/// The "atom:category" element conveys information about a category
+/// associated with an entry or feed.  This specification assigns no
+/// meaning to the content (if any) of this element.
 public class AtomFeedEntryCategory {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes
     public class Attributes {
         
-        /**
-         
-         The "term" attribute is a string that identifies the category to
-         which the entry or feed belongs.  Category elements MUST have a
-         "term" attribute.
-         
-         */
+        /// The "term" attribute is a string that identifies the category to
+        /// which the entry or feed belongs.  Category elements MUST have a
+        /// "term" attribute.
         public var term: String?
         
-        /**
-         
-         The "scheme" attribute is an IRI that identifies a categorization
-         scheme.  Category elements MAY have a "scheme" attribute.
-         
-         */
+        /// The "scheme" attribute is an IRI that identifies a categorization
+        /// scheme.  Category elements MAY have a "scheme" attribute.
         public var scheme: String?
         
-        /**
-         
-         The "label" attribute provides a human-readable label for display in
-         end-user applications.  The content of the "label" attribute is
-         Language-Sensitive.  Entities such as "&amp;" and "&lt;" represent
-         their corresponding characters ("&" and "<", respectively), not
-         markup.  Category elements MAY have a "label" attribute.
-         
-         */
+        /// The "label" attribute provides a human-readable label for display in
+        /// end-user applications.  The content of the "label" attribute is
+        /// Language-Sensitive.  Entities such as "&amp;" and "&lt;" represent
+        /// their corresponding characters ("&" and "<", respectively), not
+        /// markup.  Category elements MAY have a "label" attribute.
         public var label: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
 }

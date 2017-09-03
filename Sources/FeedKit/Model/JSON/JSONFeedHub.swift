@@ -24,27 +24,15 @@
 
 import Foundation
 
-/**
- 
- Describes an endpoints that can be used to subscribe to real-time notifications 
- from the publisher of this feed. Each object has a type and url, both of which
- are required.
- 
- */
+/// Describes an endpoints that can be used to subscribe to real-time notifications 
+/// from the publisher of this feed. Each object has a type and url, both of which
+/// are required.
 public class JSONFeedHub {
     
-    /**
-     
-     The protocol used to talk with the hub, such as "rssCloud" or "WebSub."
-     
-     */
+    /// The protocol used to talk with the hub, such as "rssCloud" or "WebSub."
     public var type: String?
     
-    /**
-     
-     The hub's url.
-     
-     */
+    /// The hub's url.
     public var url: String?
     
 }

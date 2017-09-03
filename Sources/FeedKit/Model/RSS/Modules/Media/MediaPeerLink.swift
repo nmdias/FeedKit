@@ -24,48 +24,24 @@
 
 import Foundation
 
-/**
- 
- Optional element for P2P link.
- 
- */
+/// Optional element for P2P link.
 public class MediaPeerLink {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The peer link's type.
-         
-         */
+        /// The peer link's type.
         public var type: String?
         
-        /**
-         
-         The location of the peer link provider.
-         
-         */
+        /// The location of the peer link provider.
         public var href: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

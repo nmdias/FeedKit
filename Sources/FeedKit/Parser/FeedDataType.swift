@@ -24,11 +24,10 @@
 
 import Foundation
 
-/**
- 
- Types of data to determine how to parse a feed.
- 
- */
+/// Types of data to determine how to parse a feed.
+///
+/// - xml: XML Data Type.
+/// - json: JSON Data Type.
 enum FeedDataType: String {
     case xml
     case json
@@ -36,6 +35,9 @@ enum FeedDataType: String {
 
 extension FeedDataType {
     
+    /// A `FeedDataType` from the specified `Data` object
+    ///
+    /// - Parameter data: The `Data` object.
     init?(data: Data) {
         guard let string = String(data: data, encoding: .utf8) else { return nil }
         guard let char = string.trimmingCharacters(in: .whitespacesAndNewlines).characters.first else { return nil }

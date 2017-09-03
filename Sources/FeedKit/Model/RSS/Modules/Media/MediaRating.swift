@@ -24,44 +24,24 @@
 
 import Foundation
 
-/**
- 
- This allows the permissible audience to be declared. If this element is not 
- included, it assumes that no restrictions are necessary. It has one optional 
- attribute.
- 
- */
+/// This allows the permissible audience to be declared. If this element is not 
+/// included, it assumes that no restrictions are necessary. It has one optional 
+/// attribute.
 public class MediaRating {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The URI that identifies the rating scheme. It is an optional attribute. 
-         If this attribute is not included, the default scheme is urn:simple (adult | nonadult).
-         
-         */
+        /// The URI that identifies the rating scheme. It is an optional attribute. 
+        /// If this attribute is not included, the default scheme is urn:simple (adult | nonadult).
         public var scheme: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

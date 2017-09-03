@@ -24,12 +24,8 @@
 
 import Foundation
 
-/**
-
- Converts date and time textual representations within the RFC822
- date specification into `Date` objects
- 
- */
+/// Converts date and time textual representations within the RFC822
+/// date specification into `Date` objects
 class RFC822DateFormatter: DateFormatter {
     
     let dateFormats = [

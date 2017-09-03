@@ -24,12 +24,8 @@
 
 import Foundation
 
-/**
- 
- Converts date and time textual representations within the ISO8601
- date specification into `Date` objects
- 
- */
+/// Converts date and time textual representations within the ISO8601
+/// date specification into `Date` objects
 class ISO8601DateFormatter: DateFormatter {
     
     let dateFormats = [

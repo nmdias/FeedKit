@@ -24,44 +24,24 @@
 
 import Foundation
 
-/**
- 
- Optional element to specify various scenes within a media object. It can
- have multiple child <media:scene> elements, where each <media:scene>
- element contains information about a particular scene. <media:scene> has
- the optional sub-elements <sceneTitle>, <sceneDescription>,
- <sceneStartTime> and <sceneEndTime>, which contains title, description,
- start and end time of a particular scene in the media, respectively.
- 
- */
+/// Optional element to specify various scenes within a media object. It can
+/// have multiple child <media:scene> elements, where each <media:scene>
+/// element contains information about a particular scene. <media:scene> has
+/// the optional sub-elements <sceneTitle>, <sceneDescription>,
+/// <sceneStartTime> and <sceneEndTime>, which contains title, description,
+/// start and end time of a particular scene in the media, respectively.
 public class MediaScene {
     
-    /**
-     
-     The scene's title.
-     
-     */
+    /// The scene's title.
     public var sceneTitle: String?
     
-    /**
-     
-     The scene's description.
-     
-     */
+    /// The scene's description.
     public var sceneDescription: String?
     
-    /**
-     
-     The scene's start time.
-     
-     */
+    /// The scene's start time.
     public var sceneStartTime: TimeInterval?
     
-    /**
-     
-     The scene's end time.
-     
-     */
+    /// The scene's end time.
     public var sceneEndTime: TimeInterval?
     
 }

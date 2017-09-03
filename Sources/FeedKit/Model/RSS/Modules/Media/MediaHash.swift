@@ -24,43 +24,23 @@
 
 import Foundation
 
-/**
- 
- This is the hash of the binary media file. It can appear multiple times as
- long as each instance is a different algo. It has one optional attribute.
- 
- */
+/// This is the hash of the binary media file. It can appear multiple times as
+/// long as each instance is a different algo. It has one optional attribute.
 public class MediaHash {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         This is the hash of the binary media file. It can appear multiple times as long as 
-         each instance is a different algo. It has one optional attribute.
-         
-         */
+        /// This is the hash of the binary media file. It can appear multiple times as long as 
+        /// each instance is a different algo. It has one optional attribute.
         public var algo: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

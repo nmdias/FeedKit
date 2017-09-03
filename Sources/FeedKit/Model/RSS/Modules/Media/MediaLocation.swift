@@ -24,66 +24,34 @@
 
 import Foundation
 
-/**
- 
- Optional element to specify geographical information about various
- locations captured in the content of a media object. The format conforms
- to geoRSS.
- 
- */
+/// Optional element to specify geographical information about various
+/// locations captured in the content of a media object. The format conforms
+/// to geoRSS.
 public class MediaLocation {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         Description of the place whose location is being specified.
-         
-         */
+        /// Description of the place whose location is being specified.
         public var description: String?
         
-        /**
-         
-         Time at which the reference to a particular location starts in the 
-         media object.
-         
-         */
+        /// Time at which the reference to a particular location starts in the 
+        /// media object.
         public var start: TimeInterval?
         
-        /**
-         
-         Time at which the reference to a particular location ends in the media 
-         object.
-         
-         */
+        /// Time at which the reference to a particular location ends in the media 
+        /// object.
         public var end: TimeInterval?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The geoRSS's location latitude.
-     
-     */
+    /// The geoRSS's location latitude.
     public var latitude: Double?
     
-    /**
-     
-     The geoRSS's location longitude.
-     
-     */
+    /// The geoRSS's location longitude.
     public var longitude: Double?
     
 }

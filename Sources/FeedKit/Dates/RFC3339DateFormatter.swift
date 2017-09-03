@@ -24,12 +24,8 @@
 
 import Foundation
 
-/**
- 
- Converts date and time textual representations within the RFC3339
- date specification into `Date` objects
- 
- */
+/// Converts date and time textual representations within the RFC3339
+/// date specification into `Date` objects
 class RFC3339DateFormatter: DateFormatter {
     
     let dateFormats = [

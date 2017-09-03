@@ -24,52 +24,28 @@
 
 import Foundation
 
-/**
- 
- Describes optional attatchments of a JSON Feed item.
- 
- */
+/// Describes optional attatchments of a JSON Feed item.
 public class JSONFeedAttachment {
     
-    /**
-     
-     (required, string) specifies the location of the attachment.
-     
-     */
+    /// (required, string) specifies the location of the attachment.
     public var url: String?
     
-    /**
-     
-     (required, string) specifies the type of the attachment, such as 
-     "audio/mpeg."
-     
-     */
+    /// (required, string) specifies the type of the attachment, such as 
+    /// "audio/mpeg."
     public var mimeType: String?
     
-    /**
-     
-     (optional, string) is a name for the attachment. Important: if there are 
-     multiple attachments, and two or more have the exact same title (when title 
-     is present), then they are considered as alternate representations of the 
-     same thing. In this way a podcaster, for instance, might provide an audio 
-     recording in different formats.
-     
-     */
+    /// (optional, string) is a name for the attachment. Important: if there are 
+    /// multiple attachments, and two or more have the exact same title (when title 
+    /// is present), then they are considered as alternate representations of the 
+    /// same thing. In this way a podcaster, for instance, might provide an audio 
+    /// recording in different formats.
     public var title: String?
     
-    /**
-     
-     (optional, number) specifies how large the file is.
-     
-     */
+    /// (optional, number) specifies how large the file is.
     public var sizeInBytes: Int?
     
-    /**
-     
-     (optional, number) specifies how long it takes to listen to or watch, when 
-     played at normal speed.
-     
-     */
+    /// (optional, number) specifies how long it takes to listen to or watch, when 
+    /// played at normal speed.
     public var durationInSeconds: TimeInterval?
     
 }

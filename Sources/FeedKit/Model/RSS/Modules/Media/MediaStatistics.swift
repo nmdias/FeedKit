@@ -24,37 +24,22 @@
 
 import Foundation
 
-/**
- 
- This element specifies various statistics about a media object like the
- view count and the favorite count. Valid attributes are views and favorites.
- 
- */
+/// This element specifies various statistics about a media object like the
+/// view count and the favorite count. Valid attributes are views and favorites.
 public class MediaStatistics {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        
-        /**
-         */
+        /// The number of views.
         public var views: Int?
-        
-        /**
-         */
+
+        /// The number fo favorites.
         public var favorites: Int?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
 }

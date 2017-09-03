@@ -24,79 +24,46 @@
 
 import Foundation
 
-/**
- 
- Describes the period over which the channel format is updated. Acceptable
- values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is
- assumed.
- 
- */
+/// Describes the period over which the channel format is updated. Acceptable
+/// values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is
+/// assumed.
+///
+/// - hourly: Every hour, the channel is updated the number of times specified
+/// by `syUpdateFrequency`
+///
+/// - daily: Every day, the channel is updated the number of times specified
+/// by `syUpdateFrequency`
+///
+/// - weekly: Every week, the channel is updated the number of times specified
+/// by `syUpdateFrequency`
+///
+/// - monthly: Every month, the channel is updated the number of times specified
+/// by `syUpdateFrequency`
+///
+/// - yearly: Every year, the channel is updated the number of times specified
 public enum SyndicationUpdatePeriod: String {
-
-    /** 
-     
-     Every hour, the channel is updated the number of times specified 
-     by `syUpdateFrequency`
-     
-     */
     case hourly = "hourly"
-    
-    /** 
-     
-     Every day, the channel is updated the number of times specified 
-     by `syUpdateFrequency`
-     
-     */
     case daily = "daily"
-    
-    /** 
-     
-     Every week, the channel is updated the number of times specified 
-     by `syUpdateFrequency`
-     
-     */
     case weekly = "weekly"
-    
-    /** 
-     
-     Every month, the channel is updated the number of times specified 
-     by `syUpdateFrequency`
-     
-     */
     case monthly = "monthly"
-    
-    /** 
-     
-     Every year, the channel is updated the number of times specified 
-     by `syUpdateFrequency
-     
-     */
     case yearly = "yearly"
-    
 }
 
 extension SyndicationUpdatePeriod {
     
-    /**
-     
-     Lowercase the incoming `rawValue` string to try and match the
-     `SyUpdatePeriod`'s `rawValue`
-     
-     */
+    /// Lowercase the incoming `rawValue` string to try and match the
+    /// `SyUpdatePeriod`'s `rawValue`
+    ///
+    /// - Parameter rawValue: The raw value.
     public init?(rawValue: String) {
-        
         switch rawValue.lowercased() {
-            
         case "hourly":  self = .hourly
         case "daily":   self = .daily
         case "weekly":  self = .weekly
         case "monthly": self = .monthly
         case "yearly":  self = .yearly
-            
         default: return nil
-            
         }
-        
     }
     
 }

@@ -24,43 +24,23 @@
 
 import Foundation
 
-/**
- 
- The category of `<channel>`. Identifies a category or tag to which the feed 
- belongs.
- 
-*/
+/// The category of `<channel>`. Identifies a category or tag to which the feed 
+/// belongs.
 public class RSSFeedCategory {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         A string that identifies a categorization taxonomy. It's an optional 
-         attribute of `<category>`. e.g. "http://www.fool.com/cusips"
-         
-         */
+        /// A string that identifies a categorization taxonomy. It's an optional 
+        /// attribute of `<category>`. e.g. "http://www.fool.com/cusips"
         public var domain: String?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

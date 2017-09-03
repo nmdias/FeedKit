@@ -26,15 +26,10 @@ import Foundation
 
 extension String {
 
-    /**
-     
-     Convert the string representation of a time duration to a Time Interval
-     
-     - return A TimeInterval
-     
-     */
+    /// Convert the string representation of a time duration to a Time Interval.
+    ///
+    /// - Returns: A TimeInterval.
     func toDuration() -> TimeInterval? {
-        
         let comps = self.components(separatedBy: ":")
 
         guard

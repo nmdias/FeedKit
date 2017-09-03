@@ -24,61 +24,32 @@
 
 import Foundation
 
-/**
- 
- Allows the media object to be accessed through a web browser media player
- console. This element is required only if a direct media url attribute is
- not specified in the <media:content> element. It has one required attribute
- and two optional attributes.
- 
- */
+/// Allows the media object to be accessed through a web browser media player
+/// console. This element is required only if a direct media url attribute is
+/// not specified in the <media:content> element. It has one required attribute
+/// and two optional attributes.
 public class MediaPlayer {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The URL of the player console that plays the media. It is a required attribute.
-         
-         */
+        /// The URL of the player console that plays the media. It is a required attribute.
         public var url: String?
         
-        
-        /**
-         
-         The width of the browser window that the URL should be opened in. It is 
-         an optional attribute.
-         
-         */
+        /// The width of the browser window that the URL should be opened in. It is 
+        /// an optional attribute.
         public var width: Int?
         
-        /**
-         
-         The height of the browser window that the URL should be opened in. It is an 
-         optional attribute.
-         
-         */
+        /// The height of the browser window that the URL should be opened in. It is an 
+        /// optional attribute.
         public var height: Int?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-     The element's value
-     
-     */
+    /// The element's value.
     public var value: String?
     
 }

@@ -24,57 +24,29 @@
 
 import Foundation
 
-/**
- 
- Sometimes player-specific embed code is needed for a player to play any
- video. <media:embed> allows inclusion of such information in the form of
- key-value pairs.
- 
- */
+/// Sometimes player-specific embed code is needed for a player to play any
+/// video. <media:embed> allows inclusion of such information in the form of
+/// key-value pairs.
 public class MediaEmbed {
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public class Attributes {
         
-        /**
-         
-         The location of the embeded media.
-         
-         */
+        /// The location of the embeded media.
         public var url: String?
         
-        /**
-         
-         The width size for the embeded Media.
-         
-         */
+        /// The width size for the embeded Media.
         public var width: Int?
         
-        /**
-         
-         The height size for the embeded Media.
-         
-         */
+        /// The height size for the embeded Media.
         public var height: Int?
         
     }
     
-    /**
-     
-     The element's attributes
-     
-     */
+    /// The element's attributes.
     public var attributes: Attributes?
     
-    /**
-     
-      Key-Value pairs with aditional parameters for the embeded Media.
-     
-     */
+    /// Key-Value pairs with aditional parameters for the embeded Media.
     public var mediaParams: [MediaParam]?
     
 }

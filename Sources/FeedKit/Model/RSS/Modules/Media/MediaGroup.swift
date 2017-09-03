@@ -24,55 +24,35 @@
 
 import Foundation
 
-/**
- 
- The <media:group> element is a sub-element of <item>. It allows grouping
- of <media:content> elements that are effectively the same content,
- yet different representations. For instance: the same song recorded
- in both the WAV and MP3 format. It's an optional element that must
- only be used for this purpose.
- 
- */
+/// The <media:group> element is a sub-element of <item>. It allows grouping
+/// of <media:content> elements that are effectively the same content,
+/// yet different representations. For instance: the same song recorded
+/// in both the WAV and MP3 format. It's an optional element that must
+/// only be used for this purpose.
 public class MediaGroup {
     
-    /**
-     
-     <media:content> is a sub-element of either <item> or <media:group>.
-     Media objects that are not the same content should not be included
-     in the same <media:group> element. The sequence of these items implies
-     the order of presentation. While many of the attributes appear to be
-     audio/video specific, this element can be used to publish any type of
-     media. It contains 14 attributes, most of which are optional.
-     
-     */
+    /// <media:content> is a sub-element of either <item> or <media:group>.
+    /// Media objects that are not the same content should not be included
+    /// in the same <media:group> element. The sequence of these items implies
+    /// the order of presentation. While many of the attributes appear to be
+    /// audio/video specific, this element can be used to publish any type of
+    /// media. It contains 14 attributes, most of which are optional.
     public var mediaContents: [MediaContent]?
     
-    /**
-     
-     Notable entity and the contribution to the creation of the media object.
-     Current entities can include people, companies, locations, etc. Specific
-     entities can have multiple roles, and several entities can have the same
-     role. These should appear as distinct <media:credit> elements. It has two
-     optional attributes.
-     
-     */
+    /// Notable entity and the contribution to the creation of the media object.
+    /// Current entities can include people, companies, locations, etc. Specific
+    /// entities can have multiple roles, and several entities can have the same
+    /// role. These should appear as distinct <media:credit> elements. It has two
+    /// optional attributes.
     public var mediaCredits: [MediaCredit]?
     
-    /**
-     
-     Allows a taxonomy to be set that gives an indication of the type of media
-     content, and its particular contents. It has two optional attributes.
-     
-     */
+    /// Allows a taxonomy to be set that gives an indication of the type of media
+    /// content, and its particular contents. It has two optional attributes.
     public var mediaCategory: MediaCategory?
     
-    /**
-     
-     This allows the permissible audience to be declared. If this element is not
-     included, it assumes that no restrictions are necessary. It has one
-     optional attribute.
-     
-     */
+    /// This allows the permissible audience to be declared. If this element is not
+    /// included, it assumes that no restrictions are necessary. It has one
+    /// optional attribute.
     public var mediaRating: MediaRating?
     
 }
