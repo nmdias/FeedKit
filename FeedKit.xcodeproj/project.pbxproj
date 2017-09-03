@@ -14,6 +14,7 @@
 		A039780D1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */; };
 		A03978101CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780E1CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift */; };
 		A03978111CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039780F1CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift */; };
+		A08E8BF91F5BF83700279F1B /* String + toDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08E8BF81F5BF83700279F1B /* String + toDate.swift */; };
 		A09AFB3A1EEFDFF40076ACC7 /* AtomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09AFB2E1EEFDFF40076ACC7 /* AtomTests.swift */; };
 		A09AFB3B1EEFDFF40076ACC7 /* AtomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09AFB2E1EEFDFF40076ACC7 /* AtomTests.swift */; };
 		A09AFB3C1EEFDFF40076ACC7 /* AtomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09AFB2E1EEFDFF40076ACC7 /* AtomTests.swift */; };
@@ -96,18 +97,14 @@
 		A0DE1DCB1EF1BC9600E944D6 /* RFC822DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D581EF1BC9600E944D6 /* RFC822DateFormatter.swift */; };
 		A0DE1DCC1EF1BC9600E944D6 /* RFC822DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D581EF1BC9600E944D6 /* RFC822DateFormatter.swift */; };
 		A0DE1DCD1EF1BC9600E944D6 /* RFC822DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D581EF1BC9600E944D6 /* RFC822DateFormatter.swift */; };
-		A0DE1DCE1EF1BC9600E944D6 /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D591EF1BC9600E944D6 /* String + dateFromSpec.swift */; };
-		A0DE1DCF1EF1BC9600E944D6 /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D591EF1BC9600E944D6 /* String + dateFromSpec.swift */; };
-		A0DE1DD01EF1BC9600E944D6 /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D591EF1BC9600E944D6 /* String + dateFromSpec.swift */; };
-		A0DE1DD11EF1BC9600E944D6 /* String + dateFromSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D591EF1BC9600E944D6 /* String + dateFromSpec.swift */; };
 		A0DE1DD21EF1BC9600E944D6 /* Array + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5B1EF1BC9600E944D6 /* Array + Equatable.swift */; };
 		A0DE1DD31EF1BC9600E944D6 /* Array + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5B1EF1BC9600E944D6 /* Array + Equatable.swift */; };
 		A0DE1DD41EF1BC9600E944D6 /* Array + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5B1EF1BC9600E944D6 /* Array + Equatable.swift */; };
 		A0DE1DD51EF1BC9600E944D6 /* Array + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5B1EF1BC9600E944D6 /* Array + Equatable.swift */; };
-		A0DE1DD61EF1BC9600E944D6 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5C1EF1BC9600E944D6 /* String + bool.swift */; };
-		A0DE1DD71EF1BC9600E944D6 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5C1EF1BC9600E944D6 /* String + bool.swift */; };
-		A0DE1DD81EF1BC9600E944D6 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5C1EF1BC9600E944D6 /* String + bool.swift */; };
-		A0DE1DD91EF1BC9600E944D6 /* String + bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5C1EF1BC9600E944D6 /* String + bool.swift */; };
+		A0DE1DD61EF1BC9600E944D6 /* String + toBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5C1EF1BC9600E944D6 /* String + toBool.swift */; };
+		A0DE1DD71EF1BC9600E944D6 /* String + toBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5C1EF1BC9600E944D6 /* String + toBool.swift */; };
+		A0DE1DD81EF1BC9600E944D6 /* String + toBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5C1EF1BC9600E944D6 /* String + toBool.swift */; };
+		A0DE1DD91EF1BC9600E944D6 /* String + toBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5C1EF1BC9600E944D6 /* String + toBool.swift */; };
 		A0DE1DDA1EF1BC9600E944D6 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5D1EF1BC9600E944D6 /* String + toDuration.swift */; };
 		A0DE1DDB1EF1BC9600E944D6 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5D1EF1BC9600E944D6 /* String + toDuration.swift */; };
 		A0DE1DDC1EF1BC9600E944D6 /* String + toDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1D5D1EF1BC9600E944D6 /* String + toDuration.swift */; };
@@ -556,6 +553,7 @@
 		A039780C1CE8B13F0042A1C4 /* FeedDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = FeedDetailTableViewController.swift; path = "View Controllers/FeedDetailTableViewController.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A039780E1CE8B1E10042A1C4 /* FeedTableViewController + ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = "FeedTableViewController + ReusableCell.swift"; path = "Extensions/FeedTableViewController + ReusableCell.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A039780F1CE8B1E10042A1C4 /* FeedTableViewController + TableViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = "FeedTableViewController + TableViewLayout.swift"; path = "Extensions/FeedTableViewController + TableViewLayout.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A08E8BF81F5BF83700279F1B /* String + toDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + toDate.swift"; sourceTree = "<group>"; };
 		A09AFB2E1EEFDFF40076ACC7 /* AtomTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomTests.swift; sourceTree = "<group>"; };
 		A09AFB2F1EEFDFF40076ACC7 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		A09AFB301EEFDFF40076ACC7 /* ContentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTests.swift; sourceTree = "<group>"; };
@@ -587,9 +585,8 @@
 		A0DE1D561EF1BC9600E944D6 /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISO8601DateFormatter.swift; sourceTree = "<group>"; };
 		A0DE1D571EF1BC9600E944D6 /* RFC3339DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC3339DateFormatter.swift; sourceTree = "<group>"; };
 		A0DE1D581EF1BC9600E944D6 /* RFC822DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC822DateFormatter.swift; sourceTree = "<group>"; };
-		A0DE1D591EF1BC9600E944D6 /* String + dateFromSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + dateFromSpec.swift"; sourceTree = "<group>"; };
 		A0DE1D5B1EF1BC9600E944D6 /* Array + Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array + Equatable.swift"; sourceTree = "<group>"; };
-		A0DE1D5C1EF1BC9600E944D6 /* String + bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + bool.swift"; sourceTree = "<group>"; };
+		A0DE1D5C1EF1BC9600E944D6 /* String + toBool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + toBool.swift"; sourceTree = "<group>"; };
 		A0DE1D5D1EF1BC9600E944D6 /* String + toDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + toDuration.swift"; sourceTree = "<group>"; };
 		A0DE1D601EF1BC9600E944D6 /* AtomFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomFeed.swift; sourceTree = "<group>"; };
 		A0DE1D611EF1BC9600E944D6 /* AtomFeedAuthor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomFeedAuthor.swift; sourceTree = "<group>"; };
@@ -842,7 +839,6 @@
 				A0DE1D561EF1BC9600E944D6 /* ISO8601DateFormatter.swift */,
 				A0DE1D571EF1BC9600E944D6 /* RFC3339DateFormatter.swift */,
 				A0DE1D581EF1BC9600E944D6 /* RFC822DateFormatter.swift */,
-				A0DE1D591EF1BC9600E944D6 /* String + dateFromSpec.swift */,
 			);
 			name = Dates;
 			path = Sources/FeedKit/Dates;
@@ -852,7 +848,8 @@
 			isa = PBXGroup;
 			children = (
 				A0DE1D5B1EF1BC9600E944D6 /* Array + Equatable.swift */,
-				A0DE1D5C1EF1BC9600E944D6 /* String + bool.swift */,
+				A0DE1D5C1EF1BC9600E944D6 /* String + toBool.swift */,
+				A08E8BF81F5BF83700279F1B /* String + toDate.swift */,
 				A0DE1D5D1EF1BC9600E944D6 /* String + toDuration.swift */,
 			);
 			name = Extensions;
@@ -1556,7 +1553,6 @@
 				A0DE1DC11EF1BC9600E944D6 /* DateSpec.swift in Sources */,
 				A0DE1E211EF1BC9600E944D6 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A0DE1E9D1EF1BC9600E944D6 /* MediaPrice.swift in Sources */,
-				A0DE1DD11EF1BC9600E944D6 /* String + dateFromSpec.swift in Sources */,
 				A0DE1F111EF1BC9600E944D6 /* FeedParser.swift in Sources */,
 				A0DE1E551EF1BC9600E944D6 /* iTunesNamespace.swift in Sources */,
 				A0DE1E8D1EF1BC9600E944D6 /* MediaNamespace.swift in Sources */,
@@ -1579,7 +1575,7 @@
 				A0DE1EED1EF1BC9600E944D6 /* RSSFeedItemCategory.swift in Sources */,
 				A0DE1EB91EF1BC9600E944D6 /* MediaStatus.swift in Sources */,
 				A0DE1EAD1EF1BC9600E944D6 /* MediaScene.swift in Sources */,
-				A0DE1DD91EF1BC9600E944D6 /* String + bool.swift in Sources */,
+				A0DE1DD91EF1BC9600E944D6 /* String + toBool.swift in Sources */,
 				A0DE1E051EF1BC9600E944D6 /* AtomFeedEntryLink.swift in Sources */,
 				A0DE1F211EF1BC9600E944D6 /* Result.swift in Sources */,
 				A0DE1EA51EF1BC9600E944D6 /* MediaRestriction.swift in Sources */,
@@ -1741,7 +1737,6 @@
 				A0DE1DBF1EF1BC9600E944D6 /* DateSpec.swift in Sources */,
 				A0DE1E1F1EF1BC9600E944D6 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A0DE1E9B1EF1BC9600E944D6 /* MediaPrice.swift in Sources */,
-				A0DE1DCF1EF1BC9600E944D6 /* String + dateFromSpec.swift in Sources */,
 				A0DE1F0F1EF1BC9600E944D6 /* FeedParser.swift in Sources */,
 				A0DE1E531EF1BC9600E944D6 /* iTunesNamespace.swift in Sources */,
 				A0DE1E8B1EF1BC9600E944D6 /* MediaNamespace.swift in Sources */,
@@ -1764,7 +1759,7 @@
 				A0DE1EEB1EF1BC9600E944D6 /* RSSFeedItemCategory.swift in Sources */,
 				A0DE1EB71EF1BC9600E944D6 /* MediaStatus.swift in Sources */,
 				A0DE1EAB1EF1BC9600E944D6 /* MediaScene.swift in Sources */,
-				A0DE1DD71EF1BC9600E944D6 /* String + bool.swift in Sources */,
+				A0DE1DD71EF1BC9600E944D6 /* String + toBool.swift in Sources */,
 				A0DE1E031EF1BC9600E944D6 /* AtomFeedEntryLink.swift in Sources */,
 				A0DE1F1F1EF1BC9600E944D6 /* Result.swift in Sources */,
 				A0DE1EA31EF1BC9600E944D6 /* MediaRestriction.swift in Sources */,
@@ -1839,7 +1834,6 @@
 				A0DE1DC01EF1BC9600E944D6 /* DateSpec.swift in Sources */,
 				A0DE1E201EF1BC9600E944D6 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A0DE1E9C1EF1BC9600E944D6 /* MediaPrice.swift in Sources */,
-				A0DE1DD01EF1BC9600E944D6 /* String + dateFromSpec.swift in Sources */,
 				A0DE1F101EF1BC9600E944D6 /* FeedParser.swift in Sources */,
 				A0DE1E541EF1BC9600E944D6 /* iTunesNamespace.swift in Sources */,
 				A0DE1E8C1EF1BC9600E944D6 /* MediaNamespace.swift in Sources */,
@@ -1862,7 +1856,7 @@
 				A0DE1EEC1EF1BC9600E944D6 /* RSSFeedItemCategory.swift in Sources */,
 				A0DE1EB81EF1BC9600E944D6 /* MediaStatus.swift in Sources */,
 				A0DE1EAC1EF1BC9600E944D6 /* MediaScene.swift in Sources */,
-				A0DE1DD81EF1BC9600E944D6 /* String + bool.swift in Sources */,
+				A0DE1DD81EF1BC9600E944D6 /* String + toBool.swift in Sources */,
 				A0DE1E041EF1BC9600E944D6 /* AtomFeedEntryLink.swift in Sources */,
 				A0DE1F201EF1BC9600E944D6 /* Result.swift in Sources */,
 				A0DE1EA41EF1BC9600E944D6 /* MediaRestriction.swift in Sources */,
@@ -1937,7 +1931,6 @@
 				A0DE1DBE1EF1BC9600E944D6 /* DateSpec.swift in Sources */,
 				A0DE1E1E1EF1BC9600E944D6 /* AtomFeed + Attributes Mapper.swift in Sources */,
 				A0DE1E9A1EF1BC9600E944D6 /* MediaPrice.swift in Sources */,
-				A0DE1DCE1EF1BC9600E944D6 /* String + dateFromSpec.swift in Sources */,
 				A0DE1F0E1EF1BC9600E944D6 /* FeedParser.swift in Sources */,
 				A0DE1E521EF1BC9600E944D6 /* iTunesNamespace.swift in Sources */,
 				A0DE1E8A1EF1BC9600E944D6 /* MediaNamespace.swift in Sources */,
@@ -1951,6 +1944,7 @@
 				A0DE1F0A1EF1BC9600E944D6 /* FeedDataType.swift in Sources */,
 				A0DE1EFA1EF1BC9600E944D6 /* RSSFeedSkipDay.swift in Sources */,
 				A0DE1EE21EF1BC9600E944D6 /* RSSFeedImage.swift in Sources */,
+				A08E8BF91F5BF83700279F1B /* String + toDate.swift in Sources */,
 				A0DE1ECE1EF1BC9600E944D6 /* SyndicationNamespace.swift in Sources */,
 				A0DE1E2A1EF1BC9600E944D6 /* JSONFeedAttachment.swift in Sources */,
 				A0DE1F261EF1BC9600E944D6 /* XMLFeedType.swift in Sources */,
@@ -1960,7 +1954,7 @@
 				A0DE1EEA1EF1BC9600E944D6 /* RSSFeedItemCategory.swift in Sources */,
 				A0DE1EB61EF1BC9600E944D6 /* MediaStatus.swift in Sources */,
 				A0DE1EAA1EF1BC9600E944D6 /* MediaScene.swift in Sources */,
-				A0DE1DD61EF1BC9600E944D6 /* String + bool.swift in Sources */,
+				A0DE1DD61EF1BC9600E944D6 /* String + toBool.swift in Sources */,
 				A0DE1E021EF1BC9600E944D6 /* AtomFeedEntryLink.swift in Sources */,
 				A0DE1F1E1EF1BC9600E944D6 /* Result.swift in Sources */,
 				A0DE1EA21EF1BC9600E944D6 /* MediaRestriction.swift in Sources */,
