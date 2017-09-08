@@ -31,14 +31,22 @@ class FeedTableViewController: UITableViewController {
     
     var feed: RSSFeed?
     
+    let parser = FeedParser(URL: feedURL)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Feed"
         
-        FeedParser(URL: feedURL)!.parseAsync { (result) in
-            self.feed = result.rssFeed
-            self.tableView.reloadData()
+        // Parse asynchronously, not to block the UI.
+        parser.parseAsync { [weak self] (result) in
+            self?.feed = result.rssFeed
+            
+            // Then back to the Main thread to update the UI.
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+            
         }
         
     }
