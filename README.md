@@ -44,45 +44,43 @@ Build a URL pointing to an RSS, Atom or JSON Feed.
 let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
 ```
 
-FeedKit will do asynchronous parsing on the main queue by default. You can safely update your UI from within the result closure.
+Get an instance of `FeedParser`
 ```swift
-FeedParser(URL: feedURL)?.parseAsync { result in
-    
-    switch result {
-    case let .atom(feed):       break
-    case let .rss(feed):        break
-    case let .json(feed):       break
-    case let .failure(error):   break
-    }
+let parser = FeedParser(URL: feedURL) // or FeedParser(data: data)
+```
 
+Then call `parse` or `parseAsync` to start parsing the feed...
+
+> FeedParser will do asynchronous parsing. A **common scenario** in UI environments would be parsing a feed asynchronously from a **user initiated action**, such as the touch of a button:
+
+```swift
+// Parse asynchronously, not to block the UI.
+parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
+    // Do your thing, then back to the Main thread
+    DispatchQueue.main.async {
+        // ..and update the UI
+    }
 }
 ```     
 
-If a different queue is specified, you are responsible to manually bring the result closure to whichever queue is apropriate. Usually `DispatchQueue.main.async`. If you're unsure, don't provide the `queue` parameter.
+Remember, you are responsible to manually bring the result closure to whichever queue is apropriate. Usually `DispatchQueue.main.async` for UI apps.
+
+Alternatively, you can also parse synchronously.
+
 ```swift
-FeedParser(URL: feedURL)?.parseAsync(queue: myQueue, result: { (result) in 
-    // Do your thing
-})
+let result = parser.parse()
 ```
 
-Alternatively, you can also parse `synchronously`.
-```swift
-FeedParser(URL: feedURL)?.parse()
-```
+## Result
 
-#### Initializers
-
-> An aditional initializer can be found for `Data` objects.
+Whichever the case, if parsing succeeds you should now have a `Strongly Typed Model` of an `RSS`, `Atom` or `JSON Feed`.
 ```swift
-FeedParser(data: data)
-```
-
-#### Feed Models
-FeedKit provides `strongly typed` models for `RSS`, `Atom` and `JSON Feed` formats.    
-```swift
-result.rssFeed      // Really Simple Syndication Feed Model
-result.atomFeed     // Atom Syndication Format Feed Model
-result.jsonFeed     // JSON Feed Model
+switch result {
+case let .atom(feed):       // Really Simple Syndication Feed Model
+case let .rss(feed):        // Atom Syndication Format Feed Model
+case let .json(feed):       // JSON Feed Model
+case let .failure(error):   
+}
 ```
 
 
@@ -94,7 +92,7 @@ result.isFailure    // If parsing failed
 result.error        // An error, if any
 ```
 
-### Model Preview
+## Model Preview
 Safely bind a feed of your choosing:
 ```swift
 guard let feed = result.rssFeed, result.isSuccess else {
@@ -102,7 +100,10 @@ guard let feed = result.rssFeed, result.isSuccess else {
     return
 }
 ```
-Then go through it's properties. The RSS, Atom and JSON Feed Models are rather extensive. These are just a preview.
+Then go through it's properties:
+
+> The RSS and Atom feed Models are rather extensive throughout the supported namespaces in FeedKit. These are just a preview.
+
 #### RSS
 
 ```swift
@@ -151,7 +152,7 @@ item?.media
 // ...
 ```
 
-> Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and description
+> Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and descriptions
 
 #### Atom
 
@@ -186,7 +187,7 @@ entry?.rights
 // ...
 ```
 
-> Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and description
+> Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and descriptions
 
 #### JSON
 
@@ -227,7 +228,7 @@ item?.extensions
 // ...
 ```
 
-> Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and description
+> Refer to the [`documentation`](http://cocoadocs.org/docsets/FeedKit) for the complete model properties and descriptions
 
 ## License
 
