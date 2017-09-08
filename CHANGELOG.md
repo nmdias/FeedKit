@@ -1,5 +1,11 @@
 # Change Log
-## [6.1.1](https://github.com/nmdias/FeedParser/releases/tag/6.1.2)
+## [6.1.3](https://github.com/nmdias/FeedParser/releases/tag/6.1.2)
+### Fixed
+- `parseAsync` no longer assumes that the user wants the result closure back to the Main queue.
+### Updated
+- Documentation
+
+## [6.1.2](https://github.com/nmdias/FeedParser/releases/tag/6.1.2)
 ### Fixed
 - parseAsync now  defaults to the global queue and correctly bring the result back to the main thread
   - [Fixed](https://github.com/nmdias/FeedKit/pull/35) by [dkcas11](https://github.com/dkcas11) 
