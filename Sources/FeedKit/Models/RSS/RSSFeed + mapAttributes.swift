@@ -456,5 +456,77 @@ extension RSSFeed {
         
     }
     
+    /// Maps the attributes of the specified dictionary for a given `RSSPath`
+    /// to the `RSSFeed` model,
+    ///
+    /// - Parameters:
+    ///   - attributes: The attribute dictionary to map to the model.
+    ///   - path: The path of feed's element.
+    func map(_ attributes: [String : String], for path: RDFPath) {
+    
+        switch path {
+        
+        case .rdfItem:
+            if  self.items == nil {
+                self.items = []
+            }
+            
+            self.items?.append(RSSFeedItem())
+            
+        case
+        .rdfChannelSyndicationUpdateBase,
+        .rdfChannelSyndicationUpdatePeriod,
+        .rdfChannelSyndicationUpdateFrequency:
+            
+            if  self.syndication == nil {
+                self.syndication = SyndicationNamespace()
+            }
+            
+        case
+        .rdfChannelDublinCoreTitle,
+        .rdfChannelDublinCoreCreator,
+        .rdfChannelDublinCoreSubject,
+        .rdfChannelDublinCoreDescription,
+        .rdfChannelDublinCorePublisher,
+        .rdfChannelDublinCoreContributor,
+        .rdfChannelDublinCoreDate,
+        .rdfChannelDublinCoreType,
+        .rdfChannelDublinCoreFormat,
+        .rdfChannelDublinCoreIdentifier,
+        .rdfChannelDublinCoreSource,
+        .rdfChannelDublinCoreLanguage,
+        .rdfChannelDublinCoreRelation,
+        .rdfChannelDublinCoreCoverage,
+        .rdfChannelDublinCoreRights:
+            
+            if  self.dublinCore == nil {
+                self.dublinCore = DublinCoreNamespace()
+            }
+            
+        case
+        .rdfItemDublinCoreTitle,
+        .rdfItemDublinCoreCreator,
+        .rdfItemDublinCoreSubject,
+        .rdfItemDublinCoreDescription,
+        .rdfItemDublinCorePublisher,
+        .rdfItemDublinCoreContributor,
+        .rdfItemDublinCoreDate,
+        .rdfItemDublinCoreType,
+        .rdfItemDublinCoreFormat,
+        .rdfItemDublinCoreIdentifier,
+        .rdfItemDublinCoreSource,
+        .rdfItemDublinCoreLanguage,
+        .rdfItemDublinCoreRelation,
+        .rdfItemDublinCoreCoverage,
+        .rdfItemDublinCoreRights:
+            
+            if  self.items?.last?.dublinCore == nil {
+                self.items?.last?.dublinCore = DublinCoreNamespace()
+            }
+            
+        default: break
+        }
+        
+    }
     
 }

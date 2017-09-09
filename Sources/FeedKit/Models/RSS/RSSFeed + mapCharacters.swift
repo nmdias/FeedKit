@@ -149,4 +149,57 @@ extension RSSFeed {
         
     }
     
+    /// Maps the characters in the specified string to the `RSSFeed` model.
+    ///
+    /// - Parameters:
+    ///   - string: The string to map to the model.
+    ///   - path: The path of feed's element.
+    func map(_ string: String, for path: RDFPath) {
+        
+        switch path {
+        case .rdfChannelTitle:                                      self.title                                                      = self.title?.appending(string) ?? string
+        case .rdfChannelLink:                                       self.link                                                       = self.link?.appending(string) ?? string
+        case .rdfChannelDescription:                                self.description                                                = self.description?.appending(string) ?? string
+        case .rdfChannelImage:                                      self.image?.url                                                 = self.image?.url?.appending(string) ?? string
+        case .rdfItemTitle:                                         self.items?.last?.title                                         = self.items?.last?.title?.appending(string) ?? string
+        case .rdfItemLink:                                          self.items?.last?.link                                          = self.items?.last?.link?.appending(string) ?? string
+        case .rdfItemDescription:                                   self.items?.last?.description                                   = self.items?.last?.description?.appending(string) ?? string
+        case .rdfChannelSyndicationUpdatePeriod:                    self.syndication?.syUpdatePeriod                                = SyndicationUpdatePeriod(rawValue: string)
+        case .rdfChannelSyndicationUpdateFrequency:                 self.syndication?.syUpdateFrequency                             = Int(string)
+        case .rdfChannelSyndicationUpdateBase:                      self.syndication?.syUpdateBase                                  = string.toDate(from: .iso8601)
+        case .rdfChannelDublinCoreTitle:                            self.dublinCore?.dcTitle                                        = self.dublinCore?.dcTitle?.appending(string) ?? string
+        case .rdfChannelDublinCoreCreator:                          self.dublinCore?.dcCreator                                      = self.dublinCore?.dcCreator?.appending(string) ?? string
+        case .rdfChannelDublinCoreSubject:                          self.dublinCore?.dcSubject                                      = self.dublinCore?.dcSubject?.appending(string) ?? string
+        case .rdfChannelDublinCoreDescription:                      self.dublinCore?.dcDescription                                  = self.dublinCore?.dcDescription?.appending(string) ?? string
+        case .rdfChannelDublinCorePublisher:                        self.dublinCore?.dcPublisher                                    = self.dublinCore?.dcPublisher?.appending(string) ?? string
+        case .rdfChannelDublinCoreContributor:                      self.dublinCore?.dcContributor                                  = self.dublinCore?.dcContributor?.appending(string) ?? string
+        case .rdfChannelDublinCoreDate:                             self.dublinCore?.dcDate                                         = string.toDate(from: .iso8601)
+        case .rdfChannelDublinCoreType:                             self.dublinCore?.dcType                                         = self.dublinCore?.dcType?.appending(string) ?? string
+        case .rdfChannelDublinCoreFormat:                           self.dublinCore?.dcFormat                                       = self.dublinCore?.dcFormat?.appending(string) ?? string
+        case .rdfChannelDublinCoreIdentifier:                       self.dublinCore?.dcIdentifier                                   = self.dublinCore?.dcIdentifier?.appending(string) ?? string
+        case .rdfChannelDublinCoreSource:                           self.dublinCore?.dcSource                                       = self.dublinCore?.dcSource?.appending(string) ?? string
+        case .rdfChannelDublinCoreLanguage:                         self.dublinCore?.dcLanguage                                     = self.dublinCore?.dcLanguage?.appending(string) ?? string
+        case .rdfChannelDublinCoreRelation:                         self.dublinCore?.dcRelation                                     = self.dublinCore?.dcRelation?.appending(string) ?? string
+        case .rdfChannelDublinCoreCoverage:                         self.dublinCore?.dcCoverage                                     = self.dublinCore?.dcCoverage?.appending(string) ?? string
+        case .rdfChannelDublinCoreRights:                           self.dublinCore?.dcRights                                       = self.dublinCore?.dcRights?.appending(string) ?? string
+        case .rdfItemDublinCoreTitle:                               self.items?.last?.dublinCore?.dcTitle                           = self.items?.last?.dublinCore?.dcTitle?.appending(string) ?? string
+        case .rdfItemDublinCoreCreator:                             self.items?.last?.dublinCore?.dcCreator                         = self.items?.last?.dublinCore?.dcCreator?.appending(string) ?? string
+        case .rdfItemDublinCoreSubject:                             self.items?.last?.dublinCore?.dcSubject                         = self.items?.last?.dublinCore?.dcSubject?.appending(string) ?? string
+        case .rdfItemDublinCoreDescription:                         self.items?.last?.dublinCore?.dcDescription                     = self.items?.last?.dublinCore?.dcDescription?.appending(string) ?? string
+        case .rdfItemDublinCorePublisher:                           self.items?.last?.dublinCore?.dcPublisher                       = self.items?.last?.dublinCore?.dcPublisher?.appending(string) ?? string
+        case .rdfItemDublinCoreContributor:                         self.items?.last?.dublinCore?.dcContributor                     = self.items?.last?.dublinCore?.dcContributor?.appending(string) ?? string
+        case .rdfItemDublinCoreDate:                                self.items?.last?.dublinCore?.dcDate                            = string.toDate(from: .iso8601)
+        case .rdfItemDublinCoreType:                                self.items?.last?.dublinCore?.dcType                            = self.items?.last?.dublinCore?.dcType?.appending(string) ?? string
+        case .rdfItemDublinCoreFormat:                              self.items?.last?.dublinCore?.dcFormat                          = self.items?.last?.dublinCore?.dcFormat?.appending(string) ?? string
+        case .rdfItemDublinCoreIdentifier:                          self.items?.last?.dublinCore?.dcIdentifier                      = self.items?.last?.dublinCore?.dcIdentifier?.appending(string) ?? string
+        case .rdfItemDublinCoreSource:                              self.items?.last?.dublinCore?.dcSource                          = self.items?.last?.dublinCore?.dcSource?.appending(string) ?? string
+        case .rdfItemDublinCoreLanguage:                            self.items?.last?.dublinCore?.dcLanguage                        = self.items?.last?.dublinCore?.dcLanguage?.appending(string) ?? string
+        case .rdfItemDublinCoreRelation:                            self.items?.last?.dublinCore?.dcRelation                        = self.items?.last?.dublinCore?.dcRelation?.appending(string) ?? string
+        case .rdfItemDublinCoreCoverage:                            self.items?.last?.dublinCore?.dcCoverage                        = self.items?.last?.dublinCore?.dcCoverage?.appending(string) ?? string
+        case .rdfItemDublinCoreRights:                              self.items?.last?.dublinCore?.dcRights                          = self.items?.last?.dublinCore?.dcRights?.appending(string) ?? string
+        default: break
+        }
+        
+    }
+    
 }

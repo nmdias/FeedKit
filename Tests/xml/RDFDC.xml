@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+    <channel rdf:about="http://www.xml.com/xml/news.rss">
+        <dc:title>title</dc:title>
+        <dc:creator>creator</dc:creator>
+        <dc:subject>subject</dc:subject>
+        <dc:description>description</dc:description>
+        <dc:publisher>publisher</dc:publisher>
+        <dc:contributor>contributor</dc:contributor>
+        <dc:date>2000-01-01T12:00+00:00</dc:date>
+        <dc:type>type</dc:type>
+        <dc:format>format</dc:format>
+        <dc:identifier>identifier</dc:identifier>
+        <dc:source>source</dc:source>
+        <dc:language>language</dc:language>
+        <dc:relation>relation</dc:relation>
+        <dc:coverage>coverage</dc:coverage>
+        <dc:rights>rights</dc:rights>
+    </channel>
+    <item rdf:about="http://xml.com/pub/2000/08/09/rdfdb/index.html">
+        <dc:title>title</dc:title>
+        <dc:creator>creator</dc:creator>
+        <dc:subject>subject</dc:subject>
+        <dc:description>description</dc:description>
+        <dc:publisher>publisher</dc:publisher>
+        <dc:contributor>contributor</dc:contributor>
+        <dc:date>2000-01-01T12:00+00:00</dc:date>
+        <dc:type>type</dc:type>
+        <dc:format>format</dc:format>
+        <dc:identifier>identifier</dc:identifier>
+        <dc:source>source</dc:source>
+        <dc:language>language</dc:language>
+        <dc:relation>relation</dc:relation>
+        <dc:coverage>coverage</dc:coverage>
+        <dc:rights>rights</dc:rights>
+    </item>
+</rdf:RDF>

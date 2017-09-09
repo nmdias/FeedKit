@@ -27,10 +27,10 @@ import Foundation
 /// Types of feed. The `rawValue` matches the top-level XML element of a feed.
 ///
 /// - atom: The `Atom Syndication Format feed type.
-/// - rss1: The Really Simple Syndication feed type version 0.9.
-/// - rss2: The Really Simple Syndication feed type version 2.0.
+/// - rdf: The Really Simple Syndication feed type version 0.90.
+/// - rss: The Really Simple Syndication feed type version 2.0.
 enum XMLFeedType: String {
     case atom = "feed"
-    case rss1 = "rdf:RDF"
-    case rss2 = "rss"
+    case rdf = "rdf:RDF"
+    case rss = "rss"
 }

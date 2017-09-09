@@ -75,7 +75,7 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
         
         switch feedType {
         case .atom: return Result.atom(self.atomFeed!)
-        case .rss1, .rss2: return Result.rss(self.rssFeed!)
+        case .rdf, .rss: return Result.rss(self.rssFeed!)
         }
         
     }
@@ -93,7 +93,12 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
                 self.atomFeed?.map(string, for: path)
             }
             
-        case .rss1, .rss2:
+        case .rdf:
+            if let path = RDFPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.rssFeed?.map(string, for: path)
+            }
+            
+        case .rss:
             if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.rssFeed?.map(string, for: path)
             }
@@ -134,7 +139,15 @@ extension XMLFeedParser {
                 self.atomFeed?.map(attributeDict, for: path)
             }
             
-        case .rss1, .rss2:
+        case .rdf:
+            if  self.rssFeed == nil {
+                self.rssFeed = RSSFeed()
+            }
+            if let path = RDFPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.rssFeed?.map(attributeDict, for: path)
+            }
+            
+        case .rss:
             if  self.rssFeed == nil {
                 self.rssFeed = RSSFeed()
             }

@@ -363,9 +363,9 @@
 		A09AFB791EEFE0270076ACC7 /* Content.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB6F1EEFE0270076ACC7 /* Content.xml */; };
 		A09AFB7A1EEFE0270076ACC7 /* Content.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB6F1EEFE0270076ACC7 /* Content.xml */; };
 		A09AFB7B1EEFE0270076ACC7 /* Content.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB6F1EEFE0270076ACC7 /* Content.xml */; };
-		A09AFB7C1EEFE0270076ACC7 /* DC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB701EEFE0270076ACC7 /* DC.xml */; };
-		A09AFB7D1EEFE0270076ACC7 /* DC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB701EEFE0270076ACC7 /* DC.xml */; };
-		A09AFB7E1EEFE0270076ACC7 /* DC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB701EEFE0270076ACC7 /* DC.xml */; };
+		A09AFB7C1EEFE0270076ACC7 /* RSSDC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB701EEFE0270076ACC7 /* RSSDC.xml */; };
+		A09AFB7D1EEFE0270076ACC7 /* RSSDC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB701EEFE0270076ACC7 /* RSSDC.xml */; };
+		A09AFB7E1EEFE0270076ACC7 /* RSSDC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB701EEFE0270076ACC7 /* RSSDC.xml */; };
 		A09AFB7F1EEFE0270076ACC7 /* FeedNotFound.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB711EEFE0270076ACC7 /* FeedNotFound.xml */; };
 		A09AFB801EEFE0270076ACC7 /* FeedNotFound.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB711EEFE0270076ACC7 /* FeedNotFound.xml */; };
 		A09AFB811EEFE0270076ACC7 /* FeedNotFound.xml in Resources */ = {isa = PBXBuildFile; fileRef = A09AFB711EEFE0270076ACC7 /* FeedNotFound.xml */; };
@@ -465,6 +465,19 @@
 		A0EF4E1C1CE86F6100C52142 /* FeedKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4E1D1CE86F6100C52142 /* FeedKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0EF4E1E1CE86F6100C52142 /* FeedKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EF4E1B1CE86F6100C52142 /* FeedKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0F79FB41F640D72007CFC08 /* RDFPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FB31F640D72007CFC08 /* RDFPath.swift */; };
+		A0F79FB51F640D72007CFC08 /* RDFPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FB31F640D72007CFC08 /* RDFPath.swift */; };
+		A0F79FB61F640D72007CFC08 /* RDFPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FB31F640D72007CFC08 /* RDFPath.swift */; };
+		A0F79FB71F640D72007CFC08 /* RDFPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FB31F640D72007CFC08 /* RDFPath.swift */; };
+		A0F79FB91F642AC5007CFC08 /* RDF.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0F79FB81F642AC5007CFC08 /* RDF.xml */; };
+		A0F79FBA1F642AC5007CFC08 /* RDF.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0F79FB81F642AC5007CFC08 /* RDF.xml */; };
+		A0F79FBB1F642AC5007CFC08 /* RDF.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0F79FB81F642AC5007CFC08 /* RDF.xml */; };
+		A0F79FBD1F642AE2007CFC08 /* RDFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */; };
+		A0F79FBE1F642AE2007CFC08 /* RDFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */; };
+		A0F79FBF1F642AE2007CFC08 /* RDFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */; };
+		A0F79FC11F642DFB007CFC08 /* RDFDC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0F79FC01F642DFB007CFC08 /* RDFDC.xml */; };
+		A0F79FC21F642DFB007CFC08 /* RDFDC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0F79FC01F642DFB007CFC08 /* RDFDC.xml */; };
+		A0F79FC31F642DFB007CFC08 /* RDFDC.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0F79FC01F642DFB007CFC08 /* RDFDC.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -650,7 +663,7 @@
 		A09AFB6A1EEFE0200076ACC7 /* feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = feed.json; path = json/feed.json; sourceTree = "<group>"; };
 		A09AFB6E1EEFE0270076ACC7 /* Atom.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Atom.xml; path = xml/Atom.xml; sourceTree = "<group>"; };
 		A09AFB6F1EEFE0270076ACC7 /* Content.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Content.xml; path = xml/Content.xml; sourceTree = "<group>"; };
-		A09AFB701EEFE0270076ACC7 /* DC.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = DC.xml; path = xml/DC.xml; sourceTree = "<group>"; };
+		A09AFB701EEFE0270076ACC7 /* RSSDC.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RSSDC.xml; path = xml/RSSDC.xml; sourceTree = "<group>"; };
 		A09AFB711EEFE0270076ACC7 /* FeedNotFound.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = FeedNotFound.xml; path = xml/FeedNotFound.xml; sourceTree = "<group>"; };
 		A09AFB721EEFE0270076ACC7 /* iTunesPodcasting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = iTunesPodcasting.xml; path = xml/iTunesPodcasting.xml; sourceTree = "<group>"; };
 		A09AFB731EEFE0270076ACC7 /* RSSMedia.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RSSMedia.xml; path = xml/RSSMedia.xml; sourceTree = "<group>"; };
@@ -695,6 +708,10 @@
 		A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4E1B1CE86F6100C52142 /* FeedKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = FeedKit.h; path = Sources/FeedKit.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A0EF4E1F1CE86F6E00C52142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
+		A0F79FB31F640D72007CFC08 /* RDFPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDFPath.swift; sourceTree = "<group>"; };
+		A0F79FB81F642AC5007CFC08 /* RDF.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RDF.xml; path = xml/RDF.xml; sourceTree = "<group>"; };
+		A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDFTests.swift; sourceTree = "<group>"; };
+		A0F79FC01F642DFB007CFC08 /* RDFDC.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RDFDC.xml; path = xml/RDFDC.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -946,6 +963,7 @@
 				A08E8D1F1F5BFD4200279F1B /* RSSFeedSkipHour.swift */,
 				A08E8D201F5BFD4200279F1B /* RSSFeedTextInput.swift */,
 				A08E8D211F5BFD4200279F1B /* RSSPath.swift */,
+				A0F79FB31F640D72007CFC08 /* RDFPath.swift */,
 			);
 			path = RSS;
 			sourceTree = "<group>";
@@ -953,6 +971,8 @@
 		A09C85271CE9B0C300D20CAB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A0E834CA1EEDEF0300BD3383 /* json */,
+				A0D20C2C1CEAFACB00B4509D /* xml */,
 				A09AFB2E1EEFDFF40076ACC7 /* AtomTests.swift */,
 				A09AFB2F1EEFDFF40076ACC7 /* BaseTestCase.swift */,
 				A09AFB301EEFDFF40076ACC7 /* ContentTests.swift */,
@@ -963,13 +983,12 @@
 				A09AFB351EEFDFF40076ACC7 /* JSONTests.swift */,
 				A09AFB361EEFDFF40076ACC7 /* MediaTests.swift */,
 				A09AFB371EEFDFF40076ACC7 /* ParserErrorTests.swift */,
+				A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */,
 				A09AFB381EEFDFF40076ACC7 /* RSS2Tests.swift */,
 				A09AFB391EEFDFF40076ACC7 /* SyndicationTests.swift */,
 				A09AFB5E1EEFE0060076ACC7 /* Info-iOS.plist */,
 				A09AFB5F1EEFE0060076ACC7 /* Info-macOS.plist */,
 				A09AFB601EEFE0060076ACC7 /* Info-tvOS.plist */,
-				A0E834CA1EEDEF0300BD3383 /* json */,
-				A0D20C2C1CEAFACB00B4509D /* xml */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -977,9 +996,11 @@
 		A0D20C2C1CEAFACB00B4509D /* xml */ = {
 			isa = PBXGroup;
 			children = (
+				A0F79FB81F642AC5007CFC08 /* RDF.xml */,
 				A09AFB6E1EEFE0270076ACC7 /* Atom.xml */,
 				A09AFB6F1EEFE0270076ACC7 /* Content.xml */,
-				A09AFB701EEFE0270076ACC7 /* DC.xml */,
+				A0F79FC01F642DFB007CFC08 /* RDFDC.xml */,
+				A09AFB701EEFE0270076ACC7 /* RSSDC.xml */,
 				A09AFB711EEFE0270076ACC7 /* FeedNotFound.xml */,
 				A09AFB721EEFE0270076ACC7 /* iTunesPodcasting.xml */,
 				A0E0E20A1F5B17D2004F0FEF /* AtomMedia.xml */,
@@ -1429,9 +1450,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F79FB91F642AC5007CFC08 /* RDF.xml in Resources */,
 				A09AFB851EEFE0270076ACC7 /* RSSMedia.xml in Resources */,
 				A09AFB881EEFE0270076ACC7 /* RSS2.xml in Resources */,
-				A09AFB7C1EEFE0270076ACC7 /* DC.xml in Resources */,
+				A0F79FC11F642DFB007CFC08 /* RDFDC.xml in Resources */,
+				A09AFB7C1EEFE0270076ACC7 /* RSSDC.xml in Resources */,
 				A09AFB791EEFE0270076ACC7 /* Content.xml in Resources */,
 				A09AFB761EEFE0270076ACC7 /* Atom.xml in Resources */,
 				A09AFB821EEFE0270076ACC7 /* iTunesPodcasting.xml in Resources */,
@@ -1446,9 +1469,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F79FBA1F642AC5007CFC08 /* RDF.xml in Resources */,
 				A09AFB861EEFE0270076ACC7 /* RSSMedia.xml in Resources */,
 				A09AFB891EEFE0270076ACC7 /* RSS2.xml in Resources */,
-				A09AFB7D1EEFE0270076ACC7 /* DC.xml in Resources */,
+				A0F79FC21F642DFB007CFC08 /* RDFDC.xml in Resources */,
+				A09AFB7D1EEFE0270076ACC7 /* RSSDC.xml in Resources */,
 				A09AFB7A1EEFE0270076ACC7 /* Content.xml in Resources */,
 				A09AFB771EEFE0270076ACC7 /* Atom.xml in Resources */,
 				A09AFB831EEFE0270076ACC7 /* iTunesPodcasting.xml in Resources */,
@@ -1463,9 +1488,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F79FBB1F642AC5007CFC08 /* RDF.xml in Resources */,
 				A09AFB871EEFE0270076ACC7 /* RSSMedia.xml in Resources */,
 				A09AFB8A1EEFE0270076ACC7 /* RSS2.xml in Resources */,
-				A09AFB7E1EEFE0270076ACC7 /* DC.xml in Resources */,
+				A0F79FC31F642DFB007CFC08 /* RDFDC.xml in Resources */,
+				A09AFB7E1EEFE0270076ACC7 /* RSSDC.xml in Resources */,
 				A09AFB7B1EEFE0270076ACC7 /* Content.xml in Resources */,
 				A09AFB781EEFE0270076ACC7 /* Atom.xml in Resources */,
 				A09AFB841EEFE0270076ACC7 /* iTunesPodcasting.xml in Resources */,
@@ -1616,6 +1643,7 @@
 				A08E8DBD1F5BFD4200279F1B /* MediaHash.swift in Sources */,
 				A0DE1F251EF1BC9600E944D6 /* XMLFeedParser.swift in Sources */,
 				A08E8DB91F5BFD4200279F1B /* MediaGroup.swift in Sources */,
+				A0F79FB71F640D72007CFC08 /* RDFPath.swift in Sources */,
 				A08E8DE51F5BFD4200279F1B /* MediaRights.swift in Sources */,
 				A08E8DC11F5BFD4200279F1B /* MediaLicence.swift in Sources */,
 				A08E8D711F5BFD4200279F1B /* JSONFeedAttachment.swift in Sources */,
@@ -1634,6 +1662,7 @@
 				A09AFB581EEFDFF40076ACC7 /* RSS2Tests.swift in Sources */,
 				A09AFB551EEFDFF40076ACC7 /* ParserErrorTests.swift in Sources */,
 				A09AFB521EEFDFF40076ACC7 /* MediaTests.swift in Sources */,
+				A0F79FBD1F642AE2007CFC08 /* RDFTests.swift in Sources */,
 				A09AFB3A1EEFDFF40076ACC7 /* AtomTests.swift in Sources */,
 				A09AFB401EEFDFF40076ACC7 /* ContentTests.swift in Sources */,
 				A09AFB491EEFDFF40076ACC7 /* DurationTests.swift in Sources */,
@@ -1653,6 +1682,7 @@
 				A09AFB591EEFDFF40076ACC7 /* RSS2Tests.swift in Sources */,
 				A09AFB561EEFDFF40076ACC7 /* ParserErrorTests.swift in Sources */,
 				A09AFB531EEFDFF40076ACC7 /* MediaTests.swift in Sources */,
+				A0F79FBE1F642AE2007CFC08 /* RDFTests.swift in Sources */,
 				A09AFB3B1EEFDFF40076ACC7 /* AtomTests.swift in Sources */,
 				A09AFB411EEFDFF40076ACC7 /* ContentTests.swift in Sources */,
 				A09AFB4A1EEFDFF40076ACC7 /* DurationTests.swift in Sources */,
@@ -1672,6 +1702,7 @@
 				A09AFB5A1EEFDFF40076ACC7 /* RSS2Tests.swift in Sources */,
 				A09AFB571EEFDFF40076ACC7 /* ParserErrorTests.swift in Sources */,
 				A09AFB541EEFDFF40076ACC7 /* MediaTests.swift in Sources */,
+				A0F79FBF1F642AE2007CFC08 /* RDFTests.swift in Sources */,
 				A09AFB3C1EEFDFF40076ACC7 /* AtomTests.swift in Sources */,
 				A09AFB421EEFDFF40076ACC7 /* ContentTests.swift in Sources */,
 				A09AFB4B1EEFDFF40076ACC7 /* DurationTests.swift in Sources */,
@@ -1801,6 +1832,7 @@
 				A08E8DBB1F5BFD4200279F1B /* MediaHash.swift in Sources */,
 				A0DE1F231EF1BC9600E944D6 /* XMLFeedParser.swift in Sources */,
 				A08E8DB71F5BFD4200279F1B /* MediaGroup.swift in Sources */,
+				A0F79FB51F640D72007CFC08 /* RDFPath.swift in Sources */,
 				A08E8DE31F5BFD4200279F1B /* MediaRights.swift in Sources */,
 				A08E8DBF1F5BFD4200279F1B /* MediaLicence.swift in Sources */,
 				A08E8D6F1F5BFD4200279F1B /* JSONFeedAttachment.swift in Sources */,
@@ -1899,6 +1931,7 @@
 				A08E8DBC1F5BFD4200279F1B /* MediaHash.swift in Sources */,
 				A0DE1F241EF1BC9600E944D6 /* XMLFeedParser.swift in Sources */,
 				A08E8DB81F5BFD4200279F1B /* MediaGroup.swift in Sources */,
+				A0F79FB61F640D72007CFC08 /* RDFPath.swift in Sources */,
 				A08E8DE41F5BFD4200279F1B /* MediaRights.swift in Sources */,
 				A08E8DC01F5BFD4200279F1B /* MediaLicence.swift in Sources */,
 				A08E8D701F5BFD4200279F1B /* JSONFeedAttachment.swift in Sources */,
@@ -1997,6 +2030,7 @@
 				A08E8E0A1F5BFD4200279F1B /* SyndicationNamespace.swift in Sources */,
 				A0DE1DC21EF1BC9600E944D6 /* ISO8601DateFormatter.swift in Sources */,
 				A08E8D821F5BFD4200279F1B /* DublinCoreNamespace.swift in Sources */,
+				A0F79FB41F640D72007CFC08 /* RDFPath.swift in Sources */,
 				A08E8D861F5BFD4200279F1B /* iTunesCategory.swift in Sources */,
 				A0DE1DC61EF1BC9600E944D6 /* RFC3339DateFormatter.swift in Sources */,
 				A0DE1DDA1EF1BC9600E944D6 /* String + toDuration.swift in Sources */,
