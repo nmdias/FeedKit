@@ -1,6 +1,4 @@
-# FeedKit
-
-An RSS, Atom and JSON Feed parser written in Swift
+![FeedKit](/FeedKit.png?raw=true)
 
 [![build status](https://travis-ci.org/nmdias/FeedKit.svg)](https://travis-ci.org/nmdias/FeedKit)
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedKit)
@@ -10,7 +8,7 @@ An RSS, Atom and JSON Feed parser written in Swift
 ## Features
 
 - [x] [Atom](https://tools.ietf.org/html/rfc4287)
-- [x] [RSS 0.90](http://www.rssboard.org/rss-0-9-0), [0.91](http://www.rssboard.org/rss-0-9-1), [2.00](http://cyber.law.harvard.edu/rss/rss.html)
+- [x] RSS [0.90](http://www.rssboard.org/rss-0-9-0), [0.91](http://www.rssboard.org/rss-0-9-1), [1.00](http://web.resource.org/rss/1.0/spec), [2.00](http://cyber.law.harvard.edu/rss/rss.html)
 - [x] [JSON](https://jsonfeed.org/version/1)  
 - [x] Namespaces
     - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
@@ -18,10 +16,6 @@ An RSS, Atom and JSON Feed parser written in Swift
     - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
     - [x] [Media RSS](http://www.rssboard.org/media-rss)
     - [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
-- [x] Dates Support
-    - [x] [RFC822](https://www.ietf.org/rfc/rfc0822.txt)
-    - [x] [RFC3999](https://www.ietf.org/rfc/rfc3339.txt)
-    - [x] [ISO8601](http://www.w3.org/TR/NOTE-datetime)
 - [x] [Documentation](http://cocoadocs.org/docsets/FeedKit)
 - [x] Unit Test Coverage
 
