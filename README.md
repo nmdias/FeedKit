@@ -10,7 +10,7 @@ An RSS, Atom and JSON Feed parser written in Swift
 ## Features
 
 - [x] [Atom](https://tools.ietf.org/html/rfc4287)
-- [x] [RSS2](http://cyber.law.harvard.edu/rss/rss.html)
+- [x] [RSS 0.90](http://www.rssboard.org/rss-0-9-0), [0.91](http://www.rssboard.org/rss-0-9-1), [2.00](http://cyber.law.harvard.edu/rss/rss.html)
 - [x] [JSON](https://jsonfeed.org/version/1)  
 - [x] Namespaces
     - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
@@ -50,7 +50,7 @@ let parser = FeedParser(URL: feedURL) // or FeedParser(data: data)
 
 Then call `parse` or `parseAsync` to start parsing the feed...
 
-> FeedParser will do asynchronous parsing. A **common scenario** in UI environments would be parsing a feed asynchronously from a **user initiated action**, such as the touch of a button:
+> A **common scenario** in UI environments would be parsing a feed **asynchronously** from a user initiated action, such as the touch of a button. e.g.
 
 ```swift
 // Parse asynchronously, not to block the UI.
@@ -62,7 +62,7 @@ parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) i
 }
 ```     
 
-Remember, you are responsible to manually bring the result closure to whichever queue is apropriate. Usually `DispatchQueue.main.async` for UI apps.
+Remember, you are responsible to manually bring the result closure to whichever queue is apropriate. Usually to the Main thread, for UI apps, by calling `DispatchQueue.main.async` .
 
 Alternatively, you can also parse synchronously.
 
@@ -70,7 +70,7 @@ Alternatively, you can also parse synchronously.
 let result = parser.parse()
 ```
 
-## Result
+## Parse Result
 
 Whichever the case, if parsing succeeds you should now have a `Strongly Typed Model` of an `RSS`, `Atom` or `JSON Feed`.
 ```swift
@@ -83,7 +83,7 @@ case let .failure(error):
 ```
 
 
-#### Parsing Success
+#### Parse Success
 You can check if a Feed was `successfully` parsed or not.
 ```swift
 result.isSuccess    // If parsing was a success
@@ -93,6 +93,7 @@ result.error        // An error, if any
 
 ## Model Preview
 Safely bind a feed of your choosing:
+> You may find the example bellow useful, if you're dealing with only a single type of feed.
 ```swift
 guard let feed = result.rssFeed, result.isSuccess else {
     print(result.error)
@@ -101,7 +102,7 @@ guard let feed = result.rssFeed, result.isSuccess else {
 ```
 Then go through it's properties:
 
-> The RSS and Atom feed Models are rather extensive throughout the supported namespaces in FeedKit. These are just a preview.
+> The RSS and Atom feed Models are rather extensive throughout the supported namespaces. These are just a preview of what's available.
 
 #### RSS
 
