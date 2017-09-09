@@ -1,4 +1,8 @@
 # Change Log
+## [6.2.0](https://github.com/nmdias/FeedParser/releases/tag/6.1.2)
+### Added
+- Support for the RSS 0.90 specification
+
 ## [6.1.3](https://github.com/nmdias/FeedParser/releases/tag/6.1.2)
 ### Fixed
 - `parseAsync` no longer assumes that the user wants the result closure back to the Main queue.
