@@ -1,4 +1,8 @@
 # Change Log
+## [7.0.0](https://github.com/nmdias/FeedParser/releases/tag/7.0.0)
+### Added
+- Support for Swift 4 and Xcode 9
+
 ## [6.2.0](https://github.com/nmdias/FeedParser/releases/tag/6.1.2)
 ### Added
 - Support for the RSS 0.90 specification
