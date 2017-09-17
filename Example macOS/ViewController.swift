@@ -50,7 +50,7 @@ class ViewController: NSViewController {
         let selectedRow = self.feedItemsTableView.selectedRow
         if selectedRow > -1 {
             let item = self.feed!.items![selectedRow]
-            self.textView.string = item.description
+            self.textView.string = item.description!
         }
     }
     
@@ -62,7 +62,7 @@ extension ViewController: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        guard let cell = tableView.make(withIdentifier: "Cell", owner: nil) as? NSTableCellView else {
+        guard let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "Cell"), owner: nil) as? NSTableCellView else {
             return nil
         }
         

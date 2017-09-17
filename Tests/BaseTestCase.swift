@@ -29,7 +29,7 @@ class BaseTestCase: XCTestCase {
     let timeout: TimeInterval = 10.0
     
     func fileURL(_ name: String, type: String) -> URL {
-        let bundle = Bundle(for: type(of: self))
+        let bundle = Bundle(for: Swift.type(of: self))
         let filePath = bundle.path(forResource: name, ofType: type)!
         return URL(fileURLWithPath: filePath)
     }

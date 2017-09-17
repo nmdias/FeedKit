@@ -23,6 +23,7 @@
 //
 
 import UIKit
+import FeedKit
 
 class ViewController: UIViewController {
 
