@@ -70,8 +70,8 @@ let result = parser.parse()
 Whichever the case, if parsing succeeds you should now have a `Strongly Typed Model` of an `RSS`, `Atom` or `JSON Feed`.
 ```swift
 switch result {
-case let .atom(feed):       // Really Simple Syndication Feed Model
-case let .rss(feed):        // Atom Syndication Format Feed Model
+case let .atom(feed):       // Atom Syndication Format Feed Model
+case let .rss(feed):        // Really Simple Syndication Feed Model
 case let .json(feed):       // JSON Feed Model
 case let .failure(error):   
 }
