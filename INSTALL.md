@@ -102,6 +102,9 @@ Drag `FeedKit.xcodeproj` into your Xcode project.
  
 Click on the `+` button under the "Embedded Binaries" section of your app's target and select the `FeedKit.framework` that matches the desired platform.
 
+## Credits
+Similarities to [Alamofire](https://github.com/Alamofire/Alamofire)'s impecable setup instructions are not a coincidence 😃
+
 ## License
 
 FeedKit is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedKit/blob/master/LICENSE) for details.
