@@ -25,7 +25,7 @@ env:
     - DESTINATION="arch=x86_64"                     SCHEME="$FRAMEWORK_SCHEME_MACOS"   RUN_TESTS="YES" BUILD_EXAMPLE="YES" EXAMPLE_SCHEME="$EXAMPLE_SCHEME_MACOS" POD_LINT="NO"
 
 before_install:
-  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
+  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
   
 script:
   - set -o pipefail
