@@ -40,7 +40,7 @@ extension FeedDataType {
     /// - Parameter data: The `Data` object.
     init?(data: Data) {
         guard let string = String(data: data, encoding: .utf8) else { return nil }
-        guard let char = string.trimmingCharacters(in: .whitespacesAndNewlines).characters.first else { return nil }
+        guard let char = string.trimmingCharacters(in: .whitespacesAndNewlines).first else { return nil }
         switch char {
         case "<": self = .xml
         case "{": self = .json
