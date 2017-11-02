@@ -1,4 +1,8 @@
 # Change Log
+## [7.0.1](https://github.com/nmdias/FeedParser/releases/tag/7.0.1)
+### Fixed
+- Fixed 'characters' is deprecated for Swift 4.0.2 #41
+
 ## [7.0.0](https://github.com/nmdias/FeedParser/releases/tag/7.0.0)
 ### Added
 - Support for Swift 4 and Xcode 9
