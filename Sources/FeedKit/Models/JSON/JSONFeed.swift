@@ -135,7 +135,7 @@ extension JSONFeed {
         self.expired        = dictionary["expired"] as? Bool
         
         if let items = dictionary["items"] as? [[String: Any?]] {
-            self.items = items.flatMap({ (item) -> JSONFeedItem? in
+            self.items = items.compactMap({ (item) -> JSONFeedItem? in
                 return JSONFeedItem(dictionary: item)
             })
         }
@@ -145,12 +145,12 @@ extension JSONFeed {
         }
         
         if let hubs = dictionary["hubs"] as? [[String: Any?]] {
-            self.hubs = hubs.flatMap({ (hub) -> JSONFeedHub? in
+            self.hubs = hubs.compactMap({ (hub) -> JSONFeedHub? in
                 return JSONFeedHub(dictionary: hub)
             })
         }
         
-        let privateExtensionKeys = dictionary.keys.flatMap { (key) -> String? in
+        let privateExtensionKeys = dictionary.keys.compactMap { (key) -> String? in
             return key.hasPrefix("_") ? key : nil
         }
         
