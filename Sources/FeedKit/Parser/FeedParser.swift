@@ -34,7 +34,7 @@ public class FeedParser {
     /// Initializes the parser with the xml or json contents encapsulated in a 
     /// given data object.
     ///
-    /// - Parameter data: An instance of `FeedParser`.
+    /// - Parameter data: XML or JSON data
     public init?(data: Data) {
         guard let feedDataType = FeedDataType(data: data) else { return nil }
         switch feedDataType {
@@ -43,9 +43,17 @@ public class FeedParser {
         }
     }
     
-    /// Initializes the parser with the XML content referenced by the given URL.
+    /// Initializes the parser with the XML contents encapsulated in a
+    /// given InputStream.
     ///
-    /// - Parameter URL: An instance of `FeedParser`.
+    /// - Parameter xmlStream: An InputStream that yields XML data.
+    public init(xmlStream: InputStream) {
+        self.parser = XMLFeedParser(stream: xmlStream)
+    }
+
+    /// Initializes the parser with the JSON or XML content referenced by the given URL.
+    ///
+    /// - Parameter URL: URL whose contents are read to produce the feed data
     public convenience init?(URL: URL) {
         guard let data = try? Data(contentsOf: URL) else {
             return nil

@@ -51,6 +51,15 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
         super.init()
         self.xmlParser.delegate = self
     }
+    
+    /// An XML Feed Parser, for rss and atom feeds.
+    ///
+    /// - Parameter stream: An `InputStream` object containing an XML feed.
+    init(stream: InputStream) {
+        self.xmlParser = XMLParser(stream: stream)
+        super.init()
+        self.xmlParser.delegate = self
+    }
 
     /// The current path along the XML's DOM elements. Path components are
     /// updated to reflect the current XML element being parsed.
