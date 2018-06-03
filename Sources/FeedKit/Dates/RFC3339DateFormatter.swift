@@ -45,6 +45,7 @@ class RFC3339DateFormatter: DateFormatter {
     }
     
     override func date(from string: String) -> Date? {
+        let string = string.trimmingCharacters(in: .whitespacesAndNewlines)
         for dateFormat in self.dateFormats {
             self.dateFormat = dateFormat
             if let date = super.date(from: string) {
