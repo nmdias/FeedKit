@@ -36,10 +36,12 @@ public class FeedParser {
     ///
     /// - Parameter data: An instance of `FeedParser`.
     public init?(data: Data) {
-        guard let feedDataType = FeedDataType(data: data) else { return nil }
+        guard let decoded = data.toUtf8() else { return nil }
+
+        guard let feedDataType = FeedDataType(data: decoded) else { return nil }
         switch feedDataType {
-        case .json: self.parser = JSONFeedParser(data: data)
-        case .xml:  self.parser = XMLFeedParser(data: data)
+        case .json: self.parser = JSONFeedParser(data: decoded)
+        case .xml:  self.parser = XMLFeedParser(data: decoded)
         }
     }
     
