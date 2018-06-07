@@ -132,7 +132,7 @@ class DateTests: BaseTestCase {
         ]
         
         // When
-        let dates = dateStrings.flatMap { (dateString) -> Date? in
+        let dates = dateStrings.compactMap { (dateString) -> Date? in
             return dateString.toDate(from: spec)
         }
         
@@ -161,7 +161,7 @@ class DateTests: BaseTestCase {
         ]
         
         // When
-        let dates = dateStrings.flatMap { (dateString) -> Date? in
+        let dates = dateStrings.compactMap { (dateString) -> Date? in
             return dateString.toDate(from: spec)
         }
         

@@ -1,5 +1,5 @@
 //
-//  String + toDate.swift
+//  String + toUtf8.swift
 //
 //  Copyright (c) 2017 Nuno Manuel Dias
 //
@@ -24,29 +24,15 @@
 
 import Foundation
 
-extension String {
-    
-    /// Attempts to convert the textual representation of a date with
-    /// the specified `DateSpec` to a `Date` object.
-    ///
-    /// - Parameter spec: The `DateSpec` to interpert the string.
-    /// - Returns: A `Date` object, or nil if the conversion failed.
-    func toDate(from spec: DateSpec) -> Date? {
-        switch spec {
-        case .rfc822:   return RFC822DateFormatter().date(from: self)
-        case .rfc3999:  return RFC3339DateFormatter().date(from: self)
-        case .iso8601:  return ISO8601DateFormatter().date(from: self)
-        }
-    }
-    
-    /// Attempts to convert the textual representation of a date to a
-    /// `Date` object according to several common schemes.
-    ///
-    /// - Returns: A `Date` object, or nil if the conversion failed.
-    func toPermissiveDate() -> Date? {
-        return RFC822DateFormatter().date(from: self) ??
-            (RFC3339DateFormatter().date(from: self) ??
-            ISO8601DateFormatter().date(from: self))
+extension Data {
+
+    /// Detect encoding and convert data to UTF-8
+    func toUtf8() -> Data? {
+        var convertedString: NSString?
+        let encoding = NSString.stringEncoding(for: self, encodingOptions: nil, convertedString: &convertedString, usedLossyConversion: nil)
+        
+        guard let str = NSString(data: self, encoding: encoding) as String? else { return nil }
+        return str.data(using: .utf8)
     }
     
 }

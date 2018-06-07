@@ -144,12 +144,12 @@ extension JSONFeedItem {
         }
         
         if let attachments = dictionary["attachments"] as? [[String: Any?]] {
-            self.attachments = attachments.flatMap({ (attachment) -> JSONFeedAttachment? in
+            self.attachments = attachments.compactMap({ (attachment) -> JSONFeedAttachment? in
                 return JSONFeedAttachment(dictionary: attachment)
             })
         }
         
-        let privateExtensionKeys = dictionary.keys.flatMap { (key) -> String? in
+        let privateExtensionKeys = dictionary.keys.compactMap { (key) -> String? in
             return key.hasPrefix("_") ? key : nil
         }
         

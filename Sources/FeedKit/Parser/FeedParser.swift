@@ -34,18 +34,28 @@ public class FeedParser {
     /// Initializes the parser with the xml or json contents encapsulated in a 
     /// given data object.
     ///
-    /// - Parameter data: An instance of `FeedParser`.
+    /// - Parameter data: XML or JSON data
     public init?(data: Data) {
-        guard let feedDataType = FeedDataType(data: data) else { return nil }
+        guard let decoded = data.toUtf8() else { return nil }
+
+        guard let feedDataType = FeedDataType(data: decoded) else { return nil }
         switch feedDataType {
-        case .json: self.parser = JSONFeedParser(data: data)
-        case .xml:  self.parser = XMLFeedParser(data: data)
+        case .json: self.parser = JSONFeedParser(data: decoded)
+        case .xml:  self.parser = XMLFeedParser(data: decoded)
         }
     }
     
-    /// Initializes the parser with the XML content referenced by the given URL.
+    /// Initializes the parser with the XML contents encapsulated in a
+    /// given InputStream.
     ///
-    /// - Parameter URL: An instance of `FeedParser`.
+    /// - Parameter xmlStream: An InputStream that yields XML data.
+    public init(xmlStream: InputStream) {
+        self.parser = XMLFeedParser(stream: xmlStream)
+    }
+
+    /// Initializes the parser with the JSON or XML content referenced by the given URL.
+    ///
+    /// - Parameter URL: URL whose contents are read to produce the feed data
     public convenience init?(URL: URL) {
         guard let data = try? Data(contentsOf: URL) else {
             return nil

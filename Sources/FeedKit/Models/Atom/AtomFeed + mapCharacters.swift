@@ -35,7 +35,7 @@ extension AtomFeed {
         switch path {
         case .feedTitle:                                       self.title                                                        = self.title?.appending(string) ?? string
         case .feedSubtitle:                                    self.subtitle?.value                                              = self.subtitle?.value?.appending(string) ?? string
-        case .feedUpdated:                                     self.updated                                                      = string.toDate(from: .rfc3999)
+        case .feedUpdated:                                     self.updated                                                      = string.toPermissiveDate()
         case .feedAuthorName:                                  self.authors?.last?.name                                          = self.authors?.last?.name?.appending(string) ?? string
         case .feedAuthorEmail:                                 self.authors?.last?.email                                         = self.authors?.last?.email?.appending(string) ?? string
         case .feedAuthorUri:                                   self.authors?.last?.uri                                           = self.authors?.last?.uri?.appending(string) ?? string
@@ -49,13 +49,13 @@ extension AtomFeed {
         case .feedRights:                                      self.rights                                                       = self.rights?.appending(string) ?? string
         case .feedEntryTitle:                                  self.entries?.last?.title                                         = self.entries?.last?.title?.appending(string) ?? string
         case .feedEntrySummary:                                self.entries?.last?.summary?.value                                = self.entries?.last?.summary?.value?.appending(string) ?? string
-        case .feedEntryUpdated:                                self.entries?.last?.updated                                       = string.toDate(from: .rfc3999)
+        case .feedEntryUpdated:                                self.entries?.last?.updated                                       = string.toPermissiveDate()
         case .feedEntryID:                                     self.entries?.last?.id                                            = self.entries?.last?.id?.appending(string) ?? string
         case .feedEntryContent:                                self.entries?.last?.content?.value                                = self.entries?.last?.content?.value?.appending(string) ?? string
-        case .feedEntryPublished:                              self.entries?.last?.published                                     = string.toDate(from: .rfc3999)
+        case .feedEntryPublished:                              self.entries?.last?.published                                     = string.toPermissiveDate()
         case .feedEntrySourceID:                               self.entries?.last?.source?.id                                    = self.entries?.last?.source?.id?.appending(string) ?? string
         case .feedEntrySourceTitle:                            self.entries?.last?.source?.title                                 = self.entries?.last?.source?.title?.appending(string) ?? string
-        case .feedEntrySourceUpdated:                          self.entries?.last?.source?.updated                               = string.toDate(from: .rfc3999)
+        case .feedEntrySourceUpdated:                          self.entries?.last?.source?.updated                               = string.toPermissiveDate()
         case .feedEntryRights:                                 self.entries?.last?.rights                                        = self.entries?.last?.rights?.appending(string) ?? string
         case .feedEntryAuthorName:                             self.entries?.last?.authors?.last?.name                           = self.entries?.last?.authors?.last?.name?.appending(string) ?? string
         case .feedEntryAuthorEmail:                            self.entries?.last?.authors?.last?.email                          = self.entries?.last?.authors?.last?.email?.appending(string) ?? string
