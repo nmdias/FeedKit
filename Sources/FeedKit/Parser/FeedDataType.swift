@@ -33,19 +33,39 @@ enum FeedDataType: String {
     case json
 }
 
+fileprivate let inspectionPrefixLength = 200
+
 extension FeedDataType {
     
     /// A `FeedDataType` from the specified `Data` object
     ///
     /// - Parameter data: The `Data` object.
     init?(data: Data) {
-        guard let string = String(data: data, encoding: .utf8) else { return nil }
-        guard let char = string.trimmingCharacters(in: .whitespacesAndNewlines).first else { return nil }
-        switch char {
-        case "<": self = .xml
-        case "{": self = .json
-        default: return nil
+        // As a practical matter, the dispositive characters will be found near
+        // the start of the buffer. It's expensive to convert the entire buffer to
+        // a string because the conversion is not lazy. So inspect only a prefix
+        // of the buffer.
+        let string = String(decoding: data.prefix(inspectionPrefixLength), as: UTF8.self)
+        let dispositiveCharacters = CharacterSet.alphanumerics
+            .union(CharacterSet.punctuationCharacters)
+            .union(CharacterSet.symbols)
+        for scalar in string.unicodeScalars {
+            if !dispositiveCharacters.contains(scalar) { // Skip whitespace, BOM marker if present
+                continue
+            }
+            let char = Character(scalar)
+            switch char {
+                case "<":
+                    self = .xml
+                    return
+                case "{":
+                    self = .json
+                    return
+                default:
+                    return nil
+            }
         }
+        return nil
     }
     
 }
