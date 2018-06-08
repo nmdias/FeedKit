@@ -1,4 +1,23 @@
 # Change Log
+## [7.1.1](https://github.com/nmdias/FeedParser/releases/tag/7.1.1)
+### Updated
+- Parse all RSS and ATOM dates permissively
+  - [#56](https://github.com/nmdias/FeedKit/pull/56) by [GarthSnyder](https://github.com/GarthSnyder)
+- Reattempt parsing of RFC822 dates without day prefix
+  - [#55](https://github.com/nmdias/FeedKit/pull/55) by [GarthSnyder](https://github.com/GarthSnyder)
+- Strip leading and trailing whitespace before parsing dates
+  - [#54](https://github.com/nmdias/FeedKit/pull/54) by [GarthSnyder](https://github.com/GarthSnyder)
+- Terminate XML parsing as soon as a complete feed is received
+  - [#53](https://github.com/nmdias/FeedKit/pull/53) by [GarthSnyder](https://github.com/GarthSnyder)
+- Allow parsing from an InputStream containing XML
+  - [#52](https://github.com/nmdias/FeedKit/pull/52) by [GarthSnyder](https://github.com/GarthSnyder)
+- Faster and more robust feed type determination
+  - [#51](https://github.com/nmdias/FeedKit/pull/51) by [GarthSnyder](https://github.com/GarthSnyder)
+
+### Fixed
+- Detect existing data encoding and convert to UTF-8 before parsing
+  - [#43](https://github.com/nmdias/FeedKit/pull/43) by [CD1212](https://github.com/CD1212)  
+
 ## [7.1.0](https://github.com/nmdias/FeedParser/releases/tag/7.1.0)
 ### Added
 - Support for Xcode 9.3 w/Swift 4.1
