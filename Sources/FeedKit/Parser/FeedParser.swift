@@ -57,7 +57,11 @@ public class FeedParser {
     ///
     /// - Parameter URL: URL whose contents are read to produce the feed data
     public convenience init?(URL: URL) {
-        guard let data = try? Data(contentsOf: URL) else {
+        // The `Data(contentsOf:)` initializer doesn't handle the `feed` URI scheme. As such,
+        // it's sanitized first, in case it's in fact a `feed` scheme.
+        let sanitizedSchemeUrl = URL.replacing(scheme: "feed", with: "http")
+        
+        guard let data = try? Data(contentsOf: sanitizedSchemeUrl) else {
             return nil
         }
         self.init(data: data)
