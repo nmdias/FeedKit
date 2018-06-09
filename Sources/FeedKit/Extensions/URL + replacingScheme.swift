@@ -1,5 +1,5 @@
 //
-//  URL + toHttp.swift
+//  URL + replacingScheme.swift
 //
 //  Copyright (c) 2016 - 2018 Nuno Manuel Dias
 //
