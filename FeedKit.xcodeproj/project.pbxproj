@@ -55,10 +55,6 @@
 		A0C788BF20CC5606005C2F6F /* FeedUriSchemeSanitizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788BE20CC5606005C2F6F /* FeedUriSchemeSanitizerTests.swift */; };
 		A0C788C020CC5606005C2F6F /* FeedUriSchemeSanitizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788BE20CC5606005C2F6F /* FeedUriSchemeSanitizerTests.swift */; };
 		A0C788C120CC5606005C2F6F /* FeedUriSchemeSanitizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788BE20CC5606005C2F6F /* FeedUriSchemeSanitizerTests.swift */; };
-		A0C788C320CC6108005C2F6F /* String + replacingFirstOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788C220CC6108005C2F6F /* String + replacingFirstOccurrence.swift */; };
-		A0C788C420CC6108005C2F6F /* String + replacingFirstOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788C220CC6108005C2F6F /* String + replacingFirstOccurrence.swift */; };
-		A0C788C520CC6108005C2F6F /* String + replacingFirstOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788C220CC6108005C2F6F /* String + replacingFirstOccurrence.swift */; };
-		A0C788C620CC6108005C2F6F /* String + replacingFirstOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788C220CC6108005C2F6F /* String + replacingFirstOccurrence.swift */; };
 		A0C788C820CC6332005C2F6F /* URL + replacingScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788C720CC6332005C2F6F /* URL + replacingScheme.swift */; };
 		A0C788C920CC6332005C2F6F /* URL + replacingScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788C720CC6332005C2F6F /* URL + replacingScheme.swift */; };
 		A0C788CA20CC6332005C2F6F /* URL + replacingScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C788C720CC6332005C2F6F /* URL + replacingScheme.swift */; };
@@ -594,7 +590,6 @@
 		A09C850D1CE9AE4F00D20CAB /* FeedKit tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09C851C1CE9AE6A00D20CAB /* FeedKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FeedKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C788BE20CC5606005C2F6F /* FeedUriSchemeSanitizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUriSchemeSanitizerTests.swift; sourceTree = "<group>"; };
-		A0C788C220CC6108005C2F6F /* String + replacingFirstOccurrence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + replacingFirstOccurrence.swift"; sourceTree = "<group>"; };
 		A0C788C720CC6332005C2F6F /* URL + replacingScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + replacingScheme.swift"; sourceTree = "<group>"; };
 		A0EF4DAC1CE869AD00C52142 /* FeedKit Example iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FeedKit Example iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF4DAE1CE869AD00C52142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -937,7 +932,6 @@
 				A0F6B7C81F6E6E9600220625 /* String + toBool.swift */,
 				A0F6B7C91F6E6E9600220625 /* String + toDate.swift */,
 				A0F6B7CA1F6E6E9600220625 /* String + toDuration.swift */,
-				A0C788C220CC6108005C2F6F /* String + replacingFirstOccurrence.swift */,
 				A0C788C720CC6332005C2F6F /* URL + replacingScheme.swift */,
 			);
 			path = Extensions;
@@ -1664,7 +1658,6 @@
 				A0F6B86E1F6E6EB800220625 /* SyndicationNamespace.swift in Sources */,
 				A0F6B8571F6E6EB800220625 /* MediaDescription.swift in Sources */,
 				A0F6B8351F6E6EB800220625 /* AtomFeed + mapCharacters.swift in Sources */,
-				A0C788C620CC6108005C2F6F /* String + replacingFirstOccurrence.swift in Sources */,
 				A0F6B84A1F6E6EB800220625 /* JSONFeedItem.swift in Sources */,
 				A0F6B8661F6E6EB800220625 /* MediaStarRating.swift in Sources */,
 				A0F6B86D1F6E6EB800220625 /* MediaTitle.swift in Sources */,
@@ -1859,7 +1852,6 @@
 				A0F6B9261F6E6EBB00220625 /* SyndicationNamespace.swift in Sources */,
 				A0F6B90F1F6E6EBB00220625 /* MediaDescription.swift in Sources */,
 				A0F6B8ED1F6E6EBA00220625 /* AtomFeed + mapCharacters.swift in Sources */,
-				A0C788C420CC6108005C2F6F /* String + replacingFirstOccurrence.swift in Sources */,
 				A0F6B9021F6E6EBB00220625 /* JSONFeedItem.swift in Sources */,
 				A0F6B91E1F6E6EBB00220625 /* MediaStarRating.swift in Sources */,
 				A0F6B9251F6E6EBB00220625 /* MediaTitle.swift in Sources */,
@@ -1961,7 +1953,6 @@
 				A0F6B8CA1F6E6EBA00220625 /* SyndicationNamespace.swift in Sources */,
 				A0F6B8B31F6E6EBA00220625 /* MediaDescription.swift in Sources */,
 				A0F6B8911F6E6EBA00220625 /* AtomFeed + mapCharacters.swift in Sources */,
-				A0C788C520CC6108005C2F6F /* String + replacingFirstOccurrence.swift in Sources */,
 				A0F6B8A61F6E6EBA00220625 /* JSONFeedItem.swift in Sources */,
 				A0F6B8C21F6E6EBA00220625 /* MediaStarRating.swift in Sources */,
 				A0F6B8C91F6E6EBA00220625 /* MediaTitle.swift in Sources */,
@@ -2063,7 +2054,6 @@
 				A0F6B9821F6E6EBB00220625 /* SyndicationNamespace.swift in Sources */,
 				A0F6B96B1F6E6EBB00220625 /* MediaDescription.swift in Sources */,
 				A0F6B9491F6E6EBB00220625 /* AtomFeed + mapCharacters.swift in Sources */,
-				A0C788C320CC6108005C2F6F /* String + replacingFirstOccurrence.swift in Sources */,
 				A0F6B95E1F6E6EBB00220625 /* JSONFeedItem.swift in Sources */,
 				A0F6B97A1F6E6EBB00220625 /* MediaStarRating.swift in Sources */,
 				A0F6B9811F6E6EBB00220625 /* MediaTitle.swift in Sources */,
