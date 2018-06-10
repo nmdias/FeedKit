@@ -34,11 +34,13 @@ extension URL {
     func replacing<Target, Replacement>(
         scheme target: Target,
         with replacement: Replacement)
-        -> URL where Target : StringProtocol, Replacement : StringProtocol
+        -> URL? where Target : StringProtocol, Replacement : StringProtocol
     {
-        let isTargetScheme = scheme?.caseInsensitiveCompare(target) == ComparisonResult.orderedSame
-         if isTargetScheme, let scheme = scheme {
-            return URL(string: absoluteString.replacingFirstOccurrence(of: "\(scheme)://", with: "\(replacement)://", options: .caseInsensitive))!
+        var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)
+        let isTargetScheme = urlComponents?.scheme?.caseInsensitiveCompare(target) == ComparisonResult.orderedSame
+        if isTargetScheme {
+            urlComponents?.scheme = "\(replacement)"
+            return urlComponents?.url
         }
         return self
     }

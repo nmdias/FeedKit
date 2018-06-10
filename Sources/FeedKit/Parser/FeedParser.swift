@@ -66,7 +66,9 @@ public class FeedParser {
         if let url = url {
             // The `Data(contentsOf:)` initializer doesn't handle the `feed` URI scheme. As such,
             // it's sanitized first, in case it's in fact a `feed` scheme.
-            let sanitizedSchemeUrl = url.replacing(scheme: "feed", with: "http")
+            guard let sanitizedSchemeUrl = url.replacing(scheme: "feed", with: "http") else {
+                return Result.failure(ParserError.internalError(reason: "Failed url sanitizing.").value)
+            }
 
             do {
                 data = try Data(contentsOf: sanitizedSchemeUrl)
