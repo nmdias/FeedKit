@@ -1,4 +1,14 @@
 # Change Log
+## [8.0.0](https://github.com/nmdias/FeedParser/releases/tag/8.0.0)
+### Updated
+- FeedParser initializers no longer failable
+
+### Fixed
+- Null parser for feed:// protocol
+  - [#50](https://github.com/nmdias/FeedKit/pull/50) reported by [revolter](https://github.com/revolter)  
+- Fixed unexpected upfront fetching of data for url causing UI hang
+  - [#45](https://github.com/nmdias/FeedKit/pull/45) reported by [bhlvoong](https://github.com/bhlvoong)  
+
 ## [7.1.1](https://github.com/nmdias/FeedParser/releases/tag/7.1.1)
 ### Updated
 - Parse all RSS and ATOM dates permissively
