@@ -35,7 +35,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'FeedKit', '~> 6.0'
+  pod 'FeedKit', '~> 8.0'
 end
 ```
 
@@ -58,7 +58,7 @@ $ brew install carthage
 To integrate FeedKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "nmdias/FeedKit" ~> 6.0
+github "nmdias/FeedKit" ~> 8.0
 ```
 Build the framework:
 
