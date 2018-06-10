@@ -31,7 +31,7 @@ class DublinCoreTests: BaseTestCase {
         
         // Given
         let URL = fileURL("RSSDC", type: "xml")
-        let parser = FeedParser(URL: URL)!
+        let parser = FeedParser(URL: URL)
         
         // When
         let feed = parser.parse().rssFeed
@@ -82,7 +82,7 @@ class DublinCoreTests: BaseTestCase {
             // Given
             let expectation = self.expectation(description: "Dublin Core Parsing Performance")
             let URL = self.fileURL("RSSDC", type: "xml")
-            let parser = FeedParser(URL: URL)!
+            let parser = FeedParser(URL: URL)
             
             // When
             parser.parseAsync{ (result) in
@@ -102,7 +102,7 @@ class DublinCoreTests: BaseTestCase {
         
         // Given
         let URL = fileURL("RDFDC", type: "xml")
-        let parser = FeedParser(URL: URL)!
+        let parser = FeedParser(URL: URL)
         
         // When
         let feed = parser.parse().rssFeed
@@ -153,7 +153,7 @@ class DublinCoreTests: BaseTestCase {
             // Given
             let expectation = self.expectation(description: "Dublin Core Parsing Performance")
             let URL = self.fileURL("RDFDC", type: "xml")
-            let parser = FeedParser(URL: URL)!
+            let parser = FeedParser(URL: URL)
             
             // When
             parser.parseAsync{ (result) in

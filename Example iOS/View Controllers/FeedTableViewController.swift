@@ -31,7 +31,7 @@ class FeedTableViewController: UITableViewController {
     
     var feed: RSSFeed?
     
-    let parser = FeedParser(URL: feedURL)!
+    let parser = FeedParser(URL: feedURL)
     
     override func viewDidLoad() {
         super.viewDidLoad()

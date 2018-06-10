@@ -31,7 +31,7 @@ class MediaTests: BaseTestCase {
         
         // Given
         let URL = fileURL("RSSMedia", type: "xml")
-        let parser = FeedParser(URL: URL)!
+        let parser = FeedParser(URL: URL)
         
         // When
         let media = parser.parse().rssFeed?.items?.first?.media
@@ -221,7 +221,7 @@ class MediaTests: BaseTestCase {
             // Given
             let expectation = self.expectation(description: "RSS Media Parsing Performance")
             let URL = self.fileURL("RSSMedia", type: "xml")
-            let parser = FeedParser(URL: URL)!
+            let parser = FeedParser(URL: URL)
             
             // When
             parser.parseAsync { (result) in
@@ -241,7 +241,7 @@ class MediaTests: BaseTestCase {
         
         // Given
         let URL = fileURL("AtomMedia", type: "xml")
-        let parser = FeedParser(URL: URL)!
+        let parser = FeedParser(URL: URL)
         
         // When
         let media = parser.parse().atomFeed?.entries?.first?.media
@@ -431,7 +431,7 @@ class MediaTests: BaseTestCase {
             // Given
             let expectation = self.expectation(description: "Atom Media Parsing Performance")
             let URL = self.fileURL("AtomMedia", type: "xml")
-            let parser = FeedParser(URL: URL)!
+            let parser = FeedParser(URL: URL)
             
             // When
             parser.parseAsync { (result) in

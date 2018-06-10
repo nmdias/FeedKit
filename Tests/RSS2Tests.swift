@@ -31,7 +31,7 @@ class RSS2Tests: BaseTestCase {
         
         // Given
         let URL = fileURL("RSS2", type: "xml")
-        let parser = FeedParser(URL: URL)!
+        let parser = FeedParser(URL: URL)
         
         // When
         let feed = parser.parse().rssFeed
@@ -105,7 +105,7 @@ class RSS2Tests: BaseTestCase {
         
         // Given
         let URL = fileURL("RSS2", type: "xml")
-        let parser = FeedParser(URL: URL)!
+        let parser = FeedParser(URL: URL)
         
         // When
         let feed = parser.parse().rssFeed
@@ -196,7 +196,7 @@ class RSS2Tests: BaseTestCase {
             // Given
             let expectation = self.expectation(description: "RSS2 Parsing Performance")
             let URL = self.fileURL("RSS2", type: "xml")
-            let parser = FeedParser(URL: URL)!
+            let parser = FeedParser(URL: URL)
             
             // When
             parser.parseAsync { (result) in

@@ -31,7 +31,7 @@ class JSONTests: BaseTestCase {
         
         // Given
         let URL = fileURL("feed", type: "json")
-        let parser = FeedParser(URL: URL)!
+        let parser = FeedParser(URL: URL)
         
         // When
         let feed = parser.parse().jsonFeed
@@ -103,7 +103,7 @@ class JSONTests: BaseTestCase {
         
         // Given
         let URL = fileURL("feed", type: "json")
-        let parser = FeedParser(URL: URL)!
+        let parser = FeedParser(URL: URL)
         
         // When
         let _feedExtension = parser.parse().jsonFeed?.extensions
@@ -128,7 +128,7 @@ class JSONTests: BaseTestCase {
         
         // Given
         let URL = fileURL("feed", type: "json")
-        let parser = FeedParser(URL: URL)!
+        let parser = FeedParser(URL: URL)
         
         // When
         let _itemExtension = parser.parse().jsonFeed?.items?.first?.extensions
