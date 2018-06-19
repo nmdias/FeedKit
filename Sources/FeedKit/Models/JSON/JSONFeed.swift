@@ -115,7 +115,7 @@ public class JSONFeed {
 
 extension JSONFeed {
     
-    convenience init?(dictionary: [String : Any?]) {
+    public convenience init?(dictionary: [String : Any?]) {
         
         if dictionary.isEmpty {
             return nil
