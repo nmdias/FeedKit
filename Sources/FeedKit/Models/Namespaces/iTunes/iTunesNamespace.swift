@@ -208,6 +208,33 @@ public class ITunesNamespace {
     /// separated by spaces.
     /// This tag is applicable to the Item element only.
     public var iTunesKeywords: String?
+
+    /// Use the <itunes:type> tag to indicate how you intend for episodes to be
+    /// presented. You can specify the following values:
+    ///
+    /// episodic | serial. If you specify episodic it means you intend for
+    /// episodes to be presented newest-to-oldest. This is the default behavior
+    /// in the iTunes Store if the tag is excluded. If you specify serial it
+    /// means you intend for episodes to be presented oldest-to-newest.
+    public var iTunesType: String?
+
+    /// Use the <itunes:episodeType> tag to indicate what type of show item the
+    /// entry is. You can specify the following values:
+    ///
+    /// full | trailer | bonus. If you specify full, it means this is the full
+    /// content of a show. Trailer means this is a preview of the show. Bonus
+    /// means it is extra content for a show.
+    public var iTunesEpisodeType: String?
+
+    /// Use the <itunes:season> tag to indicate which season the item is part of.
+    ///
+    /// Note: The iTunes Store & Apple Podcasts does not show the season number
+    /// until a feed contains at least two seasons.
+    public var iTunesSeason: Int?
+
+    /// Use the <itunes:episode> tag in conjunction with the <itunes:season> tag
+    /// to indicate the order an episode should be presented within a season.
+    public var iTunesEpisode: Int?
 }
 
 // MARK: - Equatable
@@ -229,7 +256,11 @@ extension ITunesNamespace: Equatable {
             lhs.iTunesOwner == rhs.iTunesOwner &&
             lhs.iTunesSubtitle == rhs.iTunesSubtitle &&
             lhs.iTunesSummary == rhs.iTunesSummary &&
-            lhs.iTunesKeywords == rhs.iTunesKeywords
+            lhs.iTunesKeywords == rhs.iTunesKeywords &&
+            lhs.iTunesType == rhs.iTunesType &&
+            lhs.iTunesEpisodeType == rhs.iTunesEpisodeType &&
+            lhs.iTunesSeason == rhs.iTunesSeason &&
+            lhs.iTunesEpisode == rhs.iTunesEpisode
     }
     
 }

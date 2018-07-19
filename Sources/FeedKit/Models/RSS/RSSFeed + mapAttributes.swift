@@ -180,7 +180,8 @@ extension RSSFeed {
         .rssChannelItunesOwnerEmail,
         .rssChannelItunesSubtitle,
         .rssChannelItunesSummary,
-        .rssChannelItunesKeywords:
+        .rssChannelItunesKeywords,
+        .rssChannelItunesType:
 
             if  self.iTunes == nil {
                 self.iTunes = ITunesNamespace()

@@ -34,6 +34,7 @@
         <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/dancarlin/history" />
         <feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="dancarlin/history" />
         <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
+        <itunes:type>episodic</itunes:type>
         <item>
             <title>Show 58 - Kings of Kings III</title>
             <guid>http://traffic.libsyn.com/dancarlinhh/dchha58_Kings_of_Kings_III.mp3</guid>
@@ -51,6 +52,9 @@
             <enclosure url="http://traffic.libsyn.com/dancarlinhh/dchha58_Kings_of_Kings_III.mp3" length="288811644" type="audio/mpeg" />
             <itunes:duration>05:00:30</itunes:duration>
             <itunes:keywords>Persia, Achaemenid, Xerxes, Darius, Artaxerxes, Greek, Macedonian, ancient history, military, Philip, Alexander, Spartan, Athens, Herodotus, Leonidas, podcast, Plataea, Issus, Salamis, Gaugamela</itunes:keywords>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:season>3</itunes:season>
+            <itunes:episode>2</itunes:episode>
         </item>
         <item>
             <title>Show 57 - Kings of Kings II</title>

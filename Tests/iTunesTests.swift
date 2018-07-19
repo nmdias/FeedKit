@@ -52,6 +52,7 @@ class iTunesTests: BaseTestCase {
         XCTAssertEqual(feed?.iTunes?.iTunesSubtitle, "This isn't academic history (and Carlin isn't a historian) but the podcast's unique blend of high drama, masterful narration and Twilight Zone-style twists has entertained millions of listeners.")
         XCTAssertEqual(feed?.iTunes?.iTunesSummary, "In \"Hardcore History\" journalist and broadcaster Dan Carlin takes his \"Martian\", unorthodox way of thinking and applies it to the past. Was Alexander the Great as bad a person as Adolf Hitler? What would Apaches with modern weapons be like? Will our modern civilization ever fall like civilizations from past eras? This isn't academic history (and Carlin isn't a historian) but the podcast's unique blend of high drama, masterful narration and Twilight Zone-style twists has entertained millions of listeners.")
         XCTAssertEqual(feed?.iTunes?.iTunesKeywords, "History, Military, War, Ancient, Archaeology, Classics, Carlin")
+        XCTAssertEqual(feed?.iTunes?.iTunesType, "episodic")
 
     }
 
@@ -77,7 +78,10 @@ class iTunesTests: BaseTestCase {
         XCTAssertEqual(feed?.items?.first?.iTunes?.iTunesSubtitle, "If this were a movie, the events and cameos would be too numerous and star-studded to mention. It includes Xerxes, Spartans, Immortals, Alexander the Great, scythed chariots, and several of the greatest battles in history.")
         XCTAssertEqual(feed?.items?.first?.iTunes?.iTunesSummary, "If this were a movie, the events and cameos would be too numerous and star-studded to mention. It includes Xerxes, Spartans, Immortals, Alexander the Great, scythed chariots, and several of the greatest battles in history.")
         XCTAssertEqual(feed?.items?.first?.iTunes?.iTunesKeywords, "Persia, Achaemenid, Xerxes, Darius, Artaxerxes, Greek, Macedonian, ancient history, military, Philip, Alexander, Spartan, Athens, Herodotus, Leonidas, podcast, Plataea, Issus, Salamis, Gaugamela")
-        
+        XCTAssertEqual(feed?.items?.first?.iTunes?.iTunesEpisodeType, "full")
+        XCTAssertEqual(feed?.items?.first?.iTunes?.iTunesSeason, 3)
+        XCTAssertEqual(feed?.items?.first?.iTunes?.iTunesEpisode, 2)
+
     }
     
     
