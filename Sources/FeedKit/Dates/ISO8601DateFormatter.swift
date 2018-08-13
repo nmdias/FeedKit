@@ -29,10 +29,10 @@ import Foundation
 class ISO8601DateFormatter: DateFormatter {
     
     let dateFormats = [
-        "yyyy-mm-dd'T'hh:mm",
-        "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
         "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ",
-        "yyyy-MM-dd'T'HH:mmSSZZZZZ"
+        "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
+        "yyyy-MM-dd'T'HH:mmSSZZZZZ",
+        "yyyy-MM-dd'T'HH:mm"
         ]
     
     override init() {
