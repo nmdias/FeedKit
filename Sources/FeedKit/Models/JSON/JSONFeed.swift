@@ -27,7 +27,7 @@ import Foundation
 /// The JSON Feed format is a pragmatic syndication format, like RSS and Atom, 
 /// but with one big difference: it's JSON instead of XML.
 /// See https://jsonfeed.org/version/1
-public class JSONFeed {
+public struct JSONFeed {
     
     /// (required, string) is the URL of the version of the format the feed
     /// uses. This should appear at the very top, though we recognize that not all
@@ -102,89 +102,64 @@ public class JSONFeed {
     /// The JSONFeed items.
     public var items: [JSONFeedItem]?
     
-    /// Publisher's custom objects.
-    /// 
-    /// If you find the need to use these extensions please do so as a temporary
-    /// solution and open an issue on github so that direct support can be added
-    /// through a strongly typed model.
-    public var extensions: [String: Any?]?
-    
-}
-
-// MARK: - Initializers
-
-extension JSONFeed {
-    
-    public convenience init?(dictionary: [String : Any?]) {
-        
-        if dictionary.isEmpty {
-            return nil
-        }
-        
-        self.init()
-        
-        self.version        = dictionary["version"] as? String
-        self.title          = dictionary["title"] as? String
-        self.userComment    = dictionary["user_comment"] as? String
-        self.homePageURL    = dictionary["home_page_url"] as? String
-        self.description    = dictionary["description"] as? String
-        self.feedUrl        = dictionary["feed_url"] as? String
-        self.nextUrl        = dictionary["next_url"] as? String
-        self.icon           = dictionary["icon"] as? String
-        self.favicon        = dictionary["favicon"] as? String
-        self.expired        = dictionary["expired"] as? Bool
-        
-        if let items = dictionary["items"] as? [[String: Any?]] {
-            self.items = items.compactMap({ (item) -> JSONFeedItem? in
-                return JSONFeedItem(dictionary: item)
-            })
-        }
-        
-        if let authorDictionary = dictionary["author"] as? [String: Any] {
-            self.author = JSONFeedAuthor(dictionary: authorDictionary)
-        }
-        
-        if let hubs = dictionary["hubs"] as? [[String: Any?]] {
-            self.hubs = hubs.compactMap({ (hub) -> JSONFeedHub? in
-                return JSONFeedHub(dictionary: hub)
-            })
-        }
-        
-        let privateExtensionKeys = dictionary.keys.compactMap { (key) -> String? in
-            return key.hasPrefix("_") ? key : nil
-        }
-        
-        if !privateExtensionKeys.isEmpty {
-            extensions = [:]
-            privateExtensionKeys.forEach { (key) in
-                extensions?[key] = dictionary[key]
-            }
-        }
-        
-    }
-    
 }
 
 // MARK: - Equatable
 
-extension JSONFeed: Equatable {
+extension JSONFeed: Equatable {}
+
+// MARK: - Codable
+
+extension JSONFeed: Codable {
     
-    public static func ==(lhs: JSONFeed, rhs: JSONFeed) -> Bool {
-        return
-            lhs.title == rhs.title &&
-            lhs.version == rhs.version &&
-            lhs.title == rhs.title &&
-            lhs.userComment == rhs.userComment &&
-            lhs.homePageURL == rhs.homePageURL &&
-            lhs.description == rhs.description &&
-            lhs.feedUrl == rhs.feedUrl &&
-            lhs.nextUrl == rhs.nextUrl &&
-            lhs.icon == rhs.icon &&
-            lhs.favicon == rhs.favicon &&
-            lhs.expired == rhs.expired &&
-            lhs.items == rhs.items &&
-            lhs.author == rhs.author &&
-            lhs.hubs == rhs.hubs
+    enum CodingKeys: String, CodingKey {
+        case version
+        case title
+        case user_comment
+        case home_page_url
+        case description
+        case feed_url
+        case next_url
+        case icon
+        case favicon
+        case expired
+        case author
+        case hubs
+        case items
     }
     
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(version, forKey: .version)
+        try container.encode(title, forKey: .title)
+        try container.encode(userComment, forKey: .user_comment)
+        try container.encode(homePageURL, forKey: .home_page_url)
+        try container.encode(description, forKey: .description)
+        try container.encode(feedUrl, forKey: .feed_url)
+        try container.encode(nextUrl, forKey: .next_url)
+        try container.encode(icon, forKey: .icon)
+        try container.encode(favicon, forKey: .favicon)
+        try container.encode(expired, forKey: .expired)
+        try container.encode(author, forKey: .expired)
+        try container.encode(hubs, forKey: .hubs)
+        try container.encode(items, forKey: .items)
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        version = try values.decodeIfPresent(String.self, forKey: .version)
+        title = try values.decodeIfPresent(String.self, forKey: .title)
+        userComment = try values.decodeIfPresent(String.self, forKey: .user_comment)
+        homePageURL = try values.decodeIfPresent(String.self, forKey: .home_page_url)
+        description = try values.decodeIfPresent(String.self, forKey: .description)
+        feedUrl = try values.decodeIfPresent(String.self, forKey: .feed_url)
+        nextUrl = try values.decodeIfPresent(String.self, forKey: .next_url)
+        icon = try values.decodeIfPresent(String.self, forKey: .icon)
+        favicon = try values.decodeIfPresent(String.self, forKey: .favicon)
+        expired = try values.decodeIfPresent(Bool.self, forKey: .expired)
+        author = try values.decodeIfPresent(JSONFeedAuthor.self, forKey: .author)
+        hubs = try values.decodeIfPresent([JSONFeedHub].self, forKey: .hubs)
+        items = try values.decodeIfPresent([JSONFeedItem].self, forKey: .items)
+    }
+
 }

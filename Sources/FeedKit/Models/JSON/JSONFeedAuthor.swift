@@ -27,7 +27,7 @@ import Foundation
 /// (optional, object) specifies the feed author. The author object has several 
 /// members. These are all optional - but if you provide an author object, then at 
 /// least one is required:
-public class JSONFeedAuthor {
+public struct JSONFeedAuthor {
     
     /// (optional, string) is the author's name.
     public var name: String?
@@ -46,35 +46,32 @@ public class JSONFeedAuthor {
 
 }
 
-// MARK: - Initializers
-
-extension JSONFeedAuthor {
-    
-    convenience init?(dictionary: [String : Any?]) {
-        
-        if dictionary.isEmpty {
-            return nil
-        }
-        
-        self.init()
-        
-        self.name = dictionary["name"] as? String
-        self.url = dictionary["url"] as? String
-        self.avatar = dictionary["avatar"] as? String
-        
-    }
-    
-}
-
 // MARK: - Equatable
 
-extension JSONFeedAuthor: Equatable {
+extension JSONFeedAuthor: Equatable {}
+
+// MARK: - Codable
+
+extension JSONFeedAuthor: Codable {
     
-    public static func ==(lhs: JSONFeedAuthor, rhs: JSONFeedAuthor) -> Bool {
-        return
-            lhs.name == rhs.name &&
-            lhs.url == rhs.url &&
-            lhs.avatar == rhs.avatar
+    enum CodingKeys: String, CodingKey {
+        case name
+        case url
+        case avatar
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(url, forKey: .url)
+        try container.encode(avatar, forKey: .avatar)
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name = try values.decode(String.self, forKey: .name)
+        url = try values.decodeIfPresent(String.self, forKey: .url)
+        avatar = try values.decodeIfPresent(String.self, forKey: .avatar)
     }
     
 }

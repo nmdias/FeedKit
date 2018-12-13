@@ -25,7 +25,7 @@
 import Foundation
 
 /// Describes optional attatchments of a JSON Feed item.
-public class JSONFeedAttachment {
+public struct JSONFeedAttachment {
     
     /// (required, string) specifies the location of the attachment.
     public var url: String?
@@ -50,39 +50,38 @@ public class JSONFeedAttachment {
     
 }
 
-// MARK: - Initializers
-
-extension JSONFeedAttachment {
-    
-    convenience init?(dictionary: [String : Any?]) {
-        
-        if dictionary.isEmpty {
-            return nil
-        }
-        
-        self.init()
-        
-        self.title              = dictionary["title"] as? String
-        self.url                = dictionary["url"] as? String
-        self.mimeType           = dictionary["mime_type"] as? String
-        self.sizeInBytes        = dictionary["size_in_bytes"] as? Int
-        self.durationInSeconds  = dictionary["duration_in_seconds"] as? TimeInterval
-        
-    }
-    
-}
-
 // MARK: - Equatable
 
-extension JSONFeedAttachment: Equatable {
+extension JSONFeedAttachment: Equatable {}
+
+// MARK: - Codable
+
+extension JSONFeedAttachment: Codable {
     
-    public static func ==(lhs: JSONFeedAttachment, rhs: JSONFeedAttachment) -> Bool {
-        return
-            lhs.title == rhs.title &&
-            lhs.url == rhs.url &&
-            lhs.mimeType == rhs.mimeType &&
-            lhs.sizeInBytes == rhs.sizeInBytes &&
-            lhs.durationInSeconds == rhs.durationInSeconds
+    enum CodingKeys: String, CodingKey {
+        case title
+        case url
+        case mime_type
+        case size_in_bytes
+        case duration_in_seconds
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(title, forKey: .title)
+        try container.encode(url, forKey: .url)
+        try container.encode(mimeType, forKey: .mime_type)
+        try container.encode(sizeInBytes, forKey: .size_in_bytes)
+        try container.encode(durationInSeconds, forKey: .duration_in_seconds)
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        title = try values.decodeIfPresent(String.self, forKey: .title)
+        url = try values.decodeIfPresent(String.self, forKey: .url)
+        mimeType = try values.decodeIfPresent(String.self, forKey: .mime_type)
+        sizeInBytes = try values.decodeIfPresent(Int.self, forKey: .size_in_bytes)
+        durationInSeconds = try values.decodeIfPresent(TimeInterval.self, forKey: .duration_in_seconds)
     }
     
 }

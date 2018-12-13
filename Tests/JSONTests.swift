@@ -32,122 +32,96 @@ class JSONTests: BaseTestCase {
         // Given
         let URL = fileURL("feed", type: "json")
         let parser = FeedParser(URL: URL)
+        var jsonFeed = JSONFeed()
+        
+        jsonFeed.version = "https://jsonfeed.org/version/1"
+        jsonFeed.title = "Title"
+        jsonFeed.userComment = "User comment"
+        jsonFeed.homePageURL = "https://example.org/"
+        jsonFeed.description = "Description"
+        jsonFeed.feedUrl = "https://example.org/feed.json?p=1"
+        jsonFeed.nextUrl = "https://example.org/feed.json?p=2"
+        jsonFeed.icon = "https://example.org/icon.jpg"
+        jsonFeed.favicon = "https://example.org/favicon.ico"
+        jsonFeed.expired = false
+        jsonFeed.author = JSONFeedAuthor(
+            name: "Brent Simmons",
+            url: "http://example.org/",
+            avatar: "https://example.org/avatar.png"
+        )
+        jsonFeed.hubs = [
+            JSONFeedHub(
+                type: "Type 1",
+                url: "http://example1.org/"
+            ),
+            JSONFeedHub(
+                type: "Type 2",
+                url: "http://example2.org/"
+            )
+        ]
+        jsonFeed.items = [
+            JSONFeedItem(
+                id: "http://therecord.co/chris-parrish",
+                url: "http://therecord.co/chris-parrish",
+                externalUrl: "http://external.com/example",
+                title: "Special #1 - Chris Parrish",
+                contentText: "Chris has worked at Adobe and as a founder of Rogue Sheep, which won an Apple Design Award for Postage. Chris's new company is Aged & Distilled with Guy English - which shipped Napkin, a Mac app for visual collaboration. Chris is also the co-host of The Record. He lives on Bainbridge Island, a quick ferry ride from Seattle.",
+                contentHtml: "Chris has worked at <a href=\"http://adobe.com/\">Adobe</a> and as a founder of Rogue Sheep, which won an Apple Design Award for Postage. Chris's new company is Aged & Distilled with Guy English - which shipped <a href=\"http://aged-and-distilled.com/napkin/\">Napkin</a>, a Mac app for visual collaboration. Chris is also the co-host of The Record. He lives on <a href=\"http://www.ci.bainbridge-isl.wa.us/\">Bainbridge Island</a>, a quick ferry ride from Seattle.",
+                summary: "Brent interviews Chris Parrish, co-host of The Record and one-half of Aged & Distilled.",
+                image: "https://example.org/image.jpg",
+                bannerImage: "https://example.org/banner.jpg",
+                datePublished: RFC3339DateFormatter().date(from: "2014-05-09T12:04:00-07:00"),
+                dateModified: RFC3339DateFormatter().date(from: "2014-05-09T14:04:00-07:00"),
+                author: JSONFeedAuthor(
+                    name: "Brent Simmons",
+                    url: "http://example.org/",
+                    avatar: "https://example.org/avatar.png"
+                ),
+                tags: [
+                    "tag1",
+                    "tag2"
+                ],
+                attachments: [
+                    JSONFeedAttachment(
+                        url: "http://therecord.co/downloads/The-Record-sp1e1-ChrisParrish-128.m4a",
+                        mimeType: "audio/x-m4a",
+                        title: "128Kb's version",
+                        sizeInBytes: 63207998,
+                        durationInSeconds: 6629
+                    ),
+                    JSONFeedAttachment(
+                        url: "http://therecord.co/downloads/The-Record-sp1e1-ChrisParrish-256.m4a",
+                        mimeType: "audio/x-m4a",
+                        title: "256Kb's version",
+                        sizeInBytes: 89970236,
+                        durationInSeconds: 6629
+                    )
+                ]
+            ),
+            JSONFeedItem(
+                id: "1",
+                url: "https://example.org/initial-post",
+                externalUrl: nil,
+                title: nil,
+                contentText: nil,
+                contentHtml: "<p>Hello, world!</p>",
+                summary: nil,
+                image: nil,
+                bannerImage: nil,
+                datePublished: nil,
+                dateModified: nil,
+                author: nil,
+                tags: nil,
+                attachments: nil
+            )
+        ]
         
         // When
-        let feed = parser.parse().jsonFeed
+        let parsedJsonFeed = parser.parse().jsonFeed
         
         // Then
-        XCTAssertNotNil(feed)
-        XCTAssertEqual(feed?.version, "https://jsonfeed.org/version/1")
-        XCTAssertEqual(feed?.title, "Title")
-        XCTAssertEqual(feed?.userComment, "User comment")
-        XCTAssertEqual(feed?.homePageURL, "https://example.org/")
-        XCTAssertEqual(feed?.description, "Description")
-        XCTAssertEqual(feed?.feedUrl, "https://example.org/feed.json?p=1")
-        XCTAssertEqual(feed?.nextUrl, "https://example.org/feed.json?p=2")
-        XCTAssertEqual(feed?.icon, "https://example.org/icon.jpg")
-        XCTAssertEqual(feed?.favicon, "https://example.org/favicon.ico")
-        XCTAssertEqual(feed?.expired, false)
-        
-        XCTAssertNotNil(feed?.author)
-        XCTAssertEqual(feed?.author?.name, "Brent Simmons")
-        XCTAssertEqual(feed?.author?.url, "http://example.org/")
-        XCTAssertEqual(feed?.author?.avatar, "https://example.org/avatar.png")
-        
-        XCTAssertNotNil(feed?.hubs)
-        XCTAssertEqual(feed?.hubs?.first?.type, "Type 1")
-        XCTAssertEqual(feed?.hubs?.first?.url, "http://example1.org/")
-        XCTAssertEqual(feed?.hubs?.last?.type, "Type 2")
-        XCTAssertEqual(feed?.hubs?.last?.url, "http://example2.org/")
-        
-        XCTAssertNotNil(feed?.items)
-        XCTAssertEqual(feed?.items?.first?.id, "http://therecord.co/chris-parrish")
-        XCTAssertEqual(feed?.items?.first?.title, "Special #1 - Chris Parrish")
-        XCTAssertEqual(feed?.items?.first?.url, "http://therecord.co/chris-parrish")
-        XCTAssertEqual(feed?.items?.first?.externalUrl, "http://external.com/example")
-        XCTAssertEqual(feed?.items?.first?.contentText, "Chris has worked at Adobe and as a founder of Rogue Sheep, which won an Apple Design Award for Postage. Chris's new company is Aged & Distilled with Guy English - which shipped Napkin, a Mac app for visual collaboration. Chris is also the co-host of The Record. He lives on Bainbridge Island, a quick ferry ride from Seattle.")
-        XCTAssertEqual(feed?.items?.first?.contentHtml, "Chris has worked at <a href=\"http://adobe.com/\">Adobe</a> and as a founder of Rogue Sheep, which won an Apple Design Award for Postage. Chris's new company is Aged & Distilled with Guy English - which shipped <a href=\"http://aged-and-distilled.com/napkin/\">Napkin</a>, a Mac app for visual collaboration. Chris is also the co-host of The Record. He lives on <a href=\"http://www.ci.bainbridge-isl.wa.us/\">Bainbridge Island</a>, a quick ferry ride from Seattle.")
-        XCTAssertEqual(feed?.items?.first?.summary, "Brent interviews Chris Parrish, co-host of The Record and one-half of Aged & Distilled.")
-        XCTAssertEqual(feed?.items?.first?.image, "https://example.org/image.jpg")
-        XCTAssertEqual(feed?.items?.first?.bannerImage, "https://example.org/banner.jpg")
-        XCTAssertNotNil(feed?.items?.first?.datePublished)
-        XCTAssertNotNil(feed?.items?.first?.dateModified)
-        
-        XCTAssertNotNil(feed?.items?.first?.author)
-        XCTAssertEqual(feed?.items?.first?.author?.name, "Brent Simmons")
-        XCTAssertEqual(feed?.items?.first?.author?.url, "http://example.org/")
-        XCTAssertEqual(feed?.items?.first?.author?.avatar, "https://example.org/avatar.png")
-        
-        XCTAssertNotNil(feed?.items?.first?.tags)
-        XCTAssertEqual(feed?.items?.first?.tags?.first, "tag1")
-        XCTAssertEqual(feed?.items?.first?.tags?.last, "tag2")
-        
-        XCTAssertNotNil(feed?.items?.first?.attachments)
-        XCTAssertEqual(feed?.items?.first?.attachments?.first?.title, "128Kb's version")
-        XCTAssertEqual(feed?.items?.first?.attachments?.first?.url, "http://therecord.co/downloads/The-Record-sp1e1-ChrisParrish-128.m4a")
-        XCTAssertEqual(feed?.items?.first?.attachments?.first?.mimeType, "audio/x-m4a")
-        XCTAssertEqual(feed?.items?.first?.attachments?.first?.sizeInBytes, Int(63207998))
-        XCTAssertEqual(feed?.items?.first?.attachments?.first?.durationInSeconds, TimeInterval(6629))
-        XCTAssertEqual(feed?.items?.first?.attachments?.last?.title, "256Kb's version")
-        XCTAssertEqual(feed?.items?.first?.attachments?.last?.url, "http://therecord.co/downloads/The-Record-sp1e1-ChrisParrish-256.m4a")
-        XCTAssertEqual(feed?.items?.first?.attachments?.last?.mimeType, "audio/x-m4a")
-        XCTAssertEqual(feed?.items?.first?.attachments?.last?.sizeInBytes, Int(89970236))
-        XCTAssertEqual(feed?.items?.first?.attachments?.last?.durationInSeconds, TimeInterval(6629))
-        
-        XCTAssertEqual(feed?.items?.last?.id, "1")
-        XCTAssertEqual(feed?.items?.last?.contentHtml, "<p>Hello, world!</p>")
-        XCTAssertEqual(feed?.items?.last?.url, "https://example.org/initial-post")
-    }
-    
-    func testJSONFeedExtensions() {
-        
-        // Given
-        let URL = fileURL("feed", type: "json")
-        let parser = FeedParser(URL: URL)
-        
-        // When
-        let _feedExtension = parser.parse().jsonFeed?.extensions
-        
-        // Then
-        XCTAssertNotNil(_feedExtension)
-        
-        guard let _blueShedFeedExtension = _feedExtension?["_blue_shed"] as? [String: Any] else {
-            XCTFail("_blue_shed feed extension nil")
-            return
-        }
-        
-        XCTAssertEqual(_blueShedFeedExtension["about"] as? String, "https://blueshed-podcasts.com/json-feed-extension-docs")
-        XCTAssertEqual(_blueShedFeedExtension["explicit"] as? Bool, false)
-        XCTAssertEqual(_blueShedFeedExtension["copyright"] as? String, "1948 by George Orwell")
-        XCTAssertEqual(_blueShedFeedExtension["owner"] as? String, "Big Brother and the Holding Company")
-        XCTAssertEqual(_blueShedFeedExtension["subtitle"] as? String, "All shouting, all the time. Double. Plus. Good.")
+        XCTAssertEqual(parsedJsonFeed, jsonFeed)
         
     }
-    
-    func testJSONFeedItemExtensions() {
-        
-        // Given
-        let URL = fileURL("feed", type: "json")
-        let parser = FeedParser(URL: URL)
-        
-        // When
-        let _itemExtension = parser.parse().jsonFeed?.items?.first?.extensions
-        
-        // Then
-        XCTAssertNotNil(_itemExtension)
-        
-        guard let _blueShedItemExtension = _itemExtension?["_blue_shed"] as? [String: Any] else {
-            XCTFail("_blue_shed item extension nil")
-            return
-        }
-        
-        XCTAssertEqual(_blueShedItemExtension["about"] as? String, "https://blueshed-podcasts.com/json-feed-extension-docs")
-        XCTAssertEqual(_blueShedItemExtension["explicit"] as? Bool, false)
-        XCTAssertEqual(_blueShedItemExtension["copyright"] as? String, "1948 by George Orwell")
-        XCTAssertEqual(_blueShedItemExtension["owner"] as? String, "Big Brother and the Holding Company")
-        XCTAssertEqual(_blueShedItemExtension["subtitle"] as? String, "All shouting, all the time. Double. Plus. Good.")
-        
-    }
-    
     
 }

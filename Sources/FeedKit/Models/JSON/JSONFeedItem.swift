@@ -26,7 +26,7 @@ import Foundation
 
 /// An individual item of a JSON Feed, acting as a container for metadata and data 
 /// associated with the item.
-public class JSONFeedItem {
+public struct JSONFeedItem {
     
     /// (required, string) is unique for that item for that feed over time. If an 
     /// item is ever updated, the id should be unchanged. New items should never 
@@ -105,85 +105,67 @@ public class JSONFeedItem {
     /// (optional, array) lists related resources.
     public var attachments: [JSONFeedAttachment]?
     
-    /// Publisher's custom objects. 
-    /// 
-    /// If you find the need to use these extensions please do so as a temporary
-    /// solution and open an issue on github so that direct support can be added
-    /// through a strongly typed model.
-    public var extensions: [String: Any?]?
-    
-}
-
-// MARK: - Initializers
-
-extension JSONFeedItem {
-    
-    convenience init?(dictionary: [String : Any?]) {
-        
-        if dictionary.isEmpty {
-            return nil
-        }
-        
-        self.init()
-        
-        self.id             = dictionary["id"] as? String
-        self.title          = dictionary["title"] as? String
-        self.url            = dictionary["url"] as? String
-        self.externalUrl    = dictionary["external_url"] as? String
-        self.contentText    = dictionary["content_text"] as? String
-        self.contentHtml    = dictionary["content_html"] as? String
-        self.summary        = dictionary["summary"] as? String
-        self.image          = dictionary["image"] as? String
-        self.bannerImage    = dictionary["banner_image"] as? String
-        self.datePublished  = (dictionary["date_published"] as? String)?.toDate(from: .rfc3999)
-        self.dateModified   = (dictionary["date_modified"] as? String)?.toDate(from: .rfc3999)
-        self.tags           = dictionary["tags"] as? [String]
-        
-        if let authorDictionary = dictionary["author"] as? [String: Any] {
-            self.author = JSONFeedAuthor(dictionary: authorDictionary)
-        }
-        
-        if let attachments = dictionary["attachments"] as? [[String: Any?]] {
-            self.attachments = attachments.compactMap({ (attachment) -> JSONFeedAttachment? in
-                return JSONFeedAttachment(dictionary: attachment)
-            })
-        }
-        
-        let privateExtensionKeys = dictionary.keys.compactMap { (key) -> String? in
-            return key.hasPrefix("_") ? key : nil
-        }
-        
-        if !privateExtensionKeys.isEmpty {
-            extensions = [:]
-            privateExtensionKeys.forEach { (key) in
-                extensions?[key] = dictionary[key]
-            }
-        }
-        
-    }
-    
 }
 
 // MARK: - Equatable
 
-extension JSONFeedItem: Equatable {
+extension JSONFeedItem: Equatable {}
+
+// MARK: - Codable
+
+extension JSONFeedItem: Codable {
     
-    public static func ==(lhs: JSONFeedItem, rhs: JSONFeedItem) -> Bool {
-        return
-            lhs.id == rhs.id &&
-            lhs.title == rhs.title &&
-            lhs.url == rhs.url &&
-            lhs.externalUrl == rhs.externalUrl &&
-            lhs.contentText == rhs.contentText &&
-            lhs.contentHtml == rhs.contentHtml &&
-            lhs.summary == rhs.summary &&
-            lhs.image == rhs.image &&
-            lhs.bannerImage == rhs.bannerImage &&
-            lhs.datePublished == rhs.datePublished &&
-            lhs.dateModified == rhs.dateModified &&
-            lhs.tags == rhs.tags &&
-            lhs.author == rhs.author &&
-            lhs.attachments == rhs.attachments
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case url
+        case external_url
+        case content_text
+        case content_html
+        case summary
+        case image
+        case banner_image
+        case date_published
+        case date_modified
+        case tags
+        case author
+        case attachments
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(title, forKey: .title)
+        try container.encode(url, forKey: .url)
+        try container.encode(externalUrl, forKey: .external_url)
+        try container.encode(contentText, forKey: .content_text)
+        try container.encode(contentHtml, forKey: .content_html)
+        try container.encode(summary, forKey: .summary)
+        try container.encode(image, forKey: .image)
+        try container.encode(bannerImage, forKey: .banner_image)
+        try container.encode(datePublished, forKey: .date_published)
+        try container.encode(dateModified, forKey: .date_modified)
+        try container.encode(tags, forKey: .tags)
+        try container.encode(author, forKey: .author)
+        try container.encode(attachments, forKey: .attachments)
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(String.self, forKey: .id)
+        title = try values.decodeIfPresent(String.self, forKey: .title)
+        url = try values.decodeIfPresent(String.self, forKey: .url)
+        externalUrl = try values.decodeIfPresent(String.self, forKey: .external_url)
+        contentText = try values.decodeIfPresent(String.self, forKey: .content_text)
+        contentHtml = try values.decodeIfPresent(String.self, forKey: .content_html)
+        summary = try values.decodeIfPresent(String.self, forKey: .summary)
+        image = try values.decodeIfPresent(String.self, forKey: .image)
+        bannerImage = try values.decodeIfPresent(String.self, forKey: .banner_image)
+        datePublished = try values.decodeIfPresent(Date.self, forKey: .date_published)
+        dateModified = try values.decodeIfPresent(Date.self, forKey: .date_modified)
+        tags = try values.decodeIfPresent([String].self, forKey: .tags)
+        author = try values.decodeIfPresent(JSONFeedAuthor.self, forKey: .author)
+        attachments = try values.decodeIfPresent([JSONFeedAttachment].self, forKey: .attachments)
     }
     
 }
