@@ -47,7 +47,7 @@ class RSS2Tests: BaseTestCase {
         XCTAssertEqual(feed?.managingEditor, "john.appleseed.editor@iris.news (John Appleseed)")
         XCTAssertEqual(feed?.webMaster, "john.appleseed.master@iris.news (John Appleseed)")
         XCTAssertNotNil(feed?.pubDate)
-        XCTAssertNotNil(feed?.lastBuildDate)
+        XCTAssertNotNil(feed?.lastBuildDate)author
         
         XCTAssertNotNil(feed?.categories)
         XCTAssertEqual(feed?.categories?.count, 2)
@@ -119,7 +119,8 @@ class RSS2Tests: BaseTestCase {
         XCTAssertEqual(feed?.items?.first?.title, "Seventh Heaven! Ryan Hurls Another No Hitter")
         XCTAssertEqual(feed?.items?.first?.link, "http://dallas.example.com/1991/05/02/nolan.htm")
         XCTAssertEqual(feed?.items?.first?.author, "jbb@dallas.example.com (Joe Bob Briggs)")
-        
+        XCTAssertEqual(feed?.items?.first?.creator, "Joe Bob Briggs")
+
         XCTAssertNotNil(feed?.items?.first?.categories)
         XCTAssertEqual(feed?.items?.first?.categories?.count, 2)
         
@@ -154,7 +155,8 @@ class RSS2Tests: BaseTestCase {
         XCTAssertEqual(feed?.items?.last?.title, "Seventh Heaven! Ryan Hurls Another No Hitter")
         XCTAssertEqual(feed?.items?.last?.link, "http://dallas.example.com/1991/05/02/nolan.htm")
         XCTAssertEqual(feed?.items?.last?.author, "jbb@dallas.example.com (Joe Bob Briggs)")
-        
+        XCTAssertEqual(feed?.items?.last?.creator, "Joe Bob Briggs")
+
         XCTAssertNotNil(feed?.items?.last?.categories)
         XCTAssertEqual(feed?.items?.last?.categories?.count, 2)
         

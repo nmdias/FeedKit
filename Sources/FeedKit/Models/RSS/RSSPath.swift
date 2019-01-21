@@ -67,6 +67,7 @@ enum RSSPath: String {
     case rssChannelItemLink                                     = "/rss/channel/item/link"
     case rssChannelItemDescription                              = "/rss/channel/item/description"
     case rssChannelItemAuthor                                   = "/rss/channel/item/author"
+    case rssChannelItemCreator                                  = "/rss/channel/item/creator"
     case rssChannelItemCategory                                 = "/rss/channel/item/category"
     case rssChannelItemComments                                 = "/rss/channel/item/comments"
     case rssChannelItemEnclosure                                = "/rss/channel/item/enclosure"

@@ -70,6 +70,7 @@ extension RSSFeed {
         case .rssChannelItemLink:                                   self.items?.last?.link                                          = self.items?.last?.link?.appending(string) ?? string
         case .rssChannelItemDescription:                            self.items?.last?.description                                   = self.items?.last?.description?.appending(string) ?? string
         case .rssChannelItemAuthor:                                 self.items?.last?.author                                        = self.items?.last?.author?.appending(string) ?? string
+        case .rssChannelItemCreator:                                 self.items?.last?.creator                                        = self.items?.last?.creator?.appending(string) ?? string
         case .rssChannelItemCategory:                               self.items?.last?.categories?.last?.value                       = self.items?.last?.categories?.last?.value?.appending(string) ?? string
         case .rssChannelItemComments:                               self.items?.last?.comments                                      = self.items?.last?.comments?.appending(string) ?? string
         case .rssChannelItemGUID:                                   self.items?.last?.guid?.value                                   = self.items?.last?.guid?.value?.appending(string) ?? string

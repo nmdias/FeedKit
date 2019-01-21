@@ -67,6 +67,22 @@ public class RSSFeedItem {
     /// <author>lawyer@boyer.net (Lawyer Boyer)</author>
     public var author: String?
     
+    /// Name of the creator of the item.
+    ///
+    /// Example: Lawyer Boyer
+    ///
+    /// <creator> is an optional sub-element of <item>.
+    ///
+    /// It's the name of the creator of the item. For newspapers and
+    /// magazines syndicating via RSS, the creator is the person who wrote the
+    /// article that the <item> describes. For collaborative weblogs, the creator
+    /// of the item might be different from the managing editor or webmaster.
+    /// For a weblog authored by a single individual it would make sense to omit
+    /// the <creator> element.
+    ///
+    /// <creator>Lawyer Boyer</creator>
+    public var creator: String?
+    
     /// Includes the item in one or more categories.
     /// 
     /// <category> is an optional sub-element of <item>.
@@ -201,6 +217,7 @@ extension RSSFeedItem: Equatable {
     public static func ==(lhs: RSSFeedItem, rhs: RSSFeedItem) -> Bool {
         return
             lhs.author == rhs.author &&
+            lhs.creator == rhs.creator &&
             lhs.categories == rhs.categories &&
             lhs.comments == rhs.comments &&
             lhs.content == rhs.content &&
