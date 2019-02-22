@@ -135,6 +135,8 @@ public class DublinCoreNamespace {
     /// rights.
     public var dcRights: String?
     
+    public init() { }
+    
 }
 
 // MARK: - Equatable

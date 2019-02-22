@@ -44,6 +44,8 @@ public class MediaCommunity {
     /// one way to decide weight of a particular tag. Default weight is 1.
     public var mediaTags: [MediaTag]?
     
+    public init() { }
+
 }
 
 // MARK: - Equatable

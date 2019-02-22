@@ -45,6 +45,8 @@ public class MediaSubTitle {
     /// The element's attributes.
     public var attributes: Attributes?
     
+    public init() { }
+
 }
 
 // MARK: - Initializers

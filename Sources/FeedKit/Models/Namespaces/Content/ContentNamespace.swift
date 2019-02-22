@@ -36,6 +36,8 @@ public class ContentNamespace {
     /// </content:encoded>
     public var contentEncoded: String?
     
+    public init() { }
+    
 }
 
 // MARK: - Equatable

@@ -37,6 +37,8 @@ public class MediaTag {
     /// The tag weight. Default to 1 if not specified.
     public var weight: Int? = 1
     
+    public init() { }
+
 }
 
 // MARK: - Initializers

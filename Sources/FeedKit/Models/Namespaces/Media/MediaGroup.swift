@@ -55,6 +55,8 @@ public class MediaGroup {
     /// optional attribute.
     public var mediaRating: MediaRating?
     
+    public init() { }
+
 }
 
 // MARK: - Equatable

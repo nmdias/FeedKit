@@ -52,6 +52,8 @@ public class AtomFeedAuthor {
     /// construct MUST be an IRI reference [RFC3987].
     public var uri: String?
     
+    public init() { }
+    
 }
 
 // MARK: - Equatable

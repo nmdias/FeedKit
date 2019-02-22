@@ -43,6 +43,8 @@ public class RSSFeedCategory {
     /// The element's value.
     public var value: String?
     
+    public init() { }
+    
 }
 
 // MARK: - Initializers

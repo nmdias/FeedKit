@@ -56,7 +56,9 @@ public class AtomFeedEntrySource {
     /// the publisher considers significant.  Therefore, not all
     /// modifications necessarily result in a changed atom:updated value.
     public var updated: Date?
-
+    
+    public init() { }
+    
 }
 
 // MARK: - Equatable

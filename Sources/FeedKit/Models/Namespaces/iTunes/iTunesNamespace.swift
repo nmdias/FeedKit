@@ -235,6 +235,9 @@ public class ITunesNamespace {
     /// Use the <itunes:episode> tag in conjunction with the <itunes:season> tag
     /// to indicate the order an episode should be presented within a season.
     public var iTunesEpisode: Int?
+    
+    public init() { }
+
 }
 
 // MARK: - Equatable

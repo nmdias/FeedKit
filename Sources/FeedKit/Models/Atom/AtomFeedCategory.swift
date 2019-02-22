@@ -53,6 +53,8 @@ public class AtomFeedCategory {
     /// The element's attributes.
     public var attributes: Attributes?
     
+    public init() { }
+    
 }
 
 // MARK: - Initializers

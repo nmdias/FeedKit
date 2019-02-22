@@ -44,6 +44,8 @@ public class MediaScene {
     /// The scene's end time.
     public var sceneEndTime: TimeInterval?
     
+    public init() { }
+
 }
 
 // MARK: - Equatable

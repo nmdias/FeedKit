@@ -54,6 +54,8 @@ public class MediaLocation {
     /// The geoRSS's location longitude.
     public var longitude: Double?
     
+    public init() { }
+
 }
 
 // MARK: - Initializers

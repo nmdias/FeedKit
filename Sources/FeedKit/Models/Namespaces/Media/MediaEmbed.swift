@@ -49,6 +49,8 @@ public class MediaEmbed {
     /// Key-Value pairs with aditional parameters for the embeded Media.
     public var mediaParams: [MediaParam]?
     
+    public init() { }
+
 }
 
 // MARK: - Initializers

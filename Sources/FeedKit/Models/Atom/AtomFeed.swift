@@ -162,6 +162,8 @@ open class AtomFeed {
     /// Atom Entry Document.
     public var entries: [AtomFeedEntry]?
     
+    public init() { }
+    
 }
 
 // MARK: - Equatable

@@ -72,6 +72,8 @@ public class RSSFeedImage {
     /// around the image in the HTML rendering.
     public var description: String?
     
+    public init() { }
+    
 }
 
 // MARK: - Equatable

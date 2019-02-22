@@ -164,6 +164,8 @@ public class AtomFeedEntry {
     /// capabilities of RSS 2.0.
     public var media: MediaNamespace?
     
+    public init() { }
+    
 }
 
 // MARK: - Equatable

@@ -38,6 +38,8 @@ public class ITunesOwner {
     /// The name of the owner.
     public var name: String?
     
+    public init() { }
+
 }
 
 // MARK: - Equatable

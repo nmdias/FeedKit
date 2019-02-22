@@ -54,6 +54,8 @@ public class RSSFeedTextInput {
     /// The URL of the CGI script that processes text input requests.
     public var link: String?
     
+    public init() { }
+    
 }
 
 // MARK: - Equatable

@@ -172,7 +172,8 @@ public class MediaNamespace {
     /// start and end time of a particular scene in the media, respectively.
     public var mediaScenes: [MediaScene]?
     
-    
+    public init() { }
+
 }
 
 // MARK: - Equatable

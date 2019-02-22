@@ -250,6 +250,7 @@ public class RSSFeed {
     /// See https://help.apple.com/itc/podcasts_connect/#/itcb54353390
     public var iTunes: ITunesNamespace?
     
+    public init() { }
     
 }
 
