@@ -153,6 +153,10 @@ enum RSSPath: String {
     
     case rssChannelItemMediaThumbnail                           = "/rss/channel/item/media:thumbnail"
     case rssChannelItemMediaContent                             = "/rss/channel/item/media:content"
+    case rssChannelItemMediaContentTitle                        = "/rss/channel/item/media:content/media:title"
+    case rssChannelItemMediaContentDescription                  = "/rss/channel/item/media:content/media:description"
+    case rssChannelItemMediaContentPlayer                       = "/rss/channel/item/media:content/media:player"
+    case rssChannelItemMediaContentThumbnail                    = "/rss/channel/item/media:content/media:thumbnail"
     case rssChannelItemMediaCommunity                           = "/rss/channel/item/media:community"
     case rssChannelItemMediaCommunityMediaStarRating            = "/rss/channel/item/media:community/media:starRating"
     case rssChannelItemMediaCommunityMediaStatistics            = "/rss/channel/item/media:community/media:statistics"

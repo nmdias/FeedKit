@@ -135,6 +135,10 @@ extension RSSFeed {
         case .rssChannelItemMediaThumbnail:                         self.items?.last?.media?.mediaThumbnails?.last?.value           = self.items?.last?.media?.mediaThumbnails?.last?.value?.appending(string) ?? string
         case .rssChannelItemMediaLicense:                           self.items?.last?.media?.mediaLicense?.value                    = self.items?.last?.media?.mediaLicense?.value?.appending(string) ?? string
         case .rssChannelItemMediaRestriction:                       self.items?.last?.media?.mediaRestriction?.value                = self.items?.last?.media?.mediaRestriction?.value?.appending(string) ?? string
+        case .rssChannelItemMediaContentTitle:                      self.items?.last?.media?.mediaContents?.last?.mediaTitle?.value             = self.items?.last?.media?.mediaContents?.last?.mediaTitle?.value?.appending(string) ?? string
+        case .rssChannelItemMediaContentDescription:                self.items?.last?.media?.mediaContents?.last?.mediaDescription?.value       = self.items?.last?.media?.mediaDescription?.value?.appending(string) ?? string
+        case .rssChannelItemMediaContentPlayer:                     self.items?.last?.media?.mediaContents?.last?.mediaPlayer?.value            = self.items?.last?.media?.mediaContents?.last?.mediaPlayer?.value?.appending(string) ?? string
+        case .rssChannelItemMediaContentThumbnail:                  self.items?.last?.media?.mediaContents?.last?.mediaThumbnails?.last?.value  = self.items?.last?.media?.mediaContents?.last?.mediaThumbnails?.last?.value?.appending(string) ?? string
         case .rssChannelItemMediaCommunityMediaTags:                self.items?.last?.media?.mediaCommunity?.mediaTags              = MediaTag.tagsFrom(string: string)
         case .rssChannelItemMediaCommentsMediaComment:              self.items?.last?.media?.mediaComments?.append(string)
         case .rssChannelItemMediaEmbedMediaParam:                   self.items?.last?.media?.mediaEmbed?.mediaParams?.last?.value   = self.items?.last?.media?.mediaEmbed?.mediaParams?.last?.value?.appending(string) ?? string

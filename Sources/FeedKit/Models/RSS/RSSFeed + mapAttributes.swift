@@ -246,6 +246,10 @@ extension RSSFeed {
         case
         .rssChannelItemMediaThumbnail,
         .rssChannelItemMediaContent,
+        .rssChannelItemMediaContentTitle,
+        .rssChannelItemMediaContentDescription,
+        .rssChannelItemMediaContentPlayer,
+        .rssChannelItemMediaContentThumbnail,
         .rssChannelItemMediaCommunity,
         .rssChannelItemMediaCommunityMediaStarRating,
         .rssChannelItemMediaCommunityMediaStatistics,
@@ -295,6 +299,32 @@ extension RSSFeed {
                 }
                 
                 self.items?.last?.media?.mediaContents?.append(MediaContent(attributes: attributes))
+                
+            case .rssChannelItemMediaContentTitle:
+                
+                if  self.items?.last?.media?.mediaContents?.last?.mediaTitle == nil {
+                    self.items?.last?.media?.mediaContents?.last?.mediaTitle = MediaTitle(attributes: attributes)
+                }
+                
+            case .rssChannelItemMediaContentDescription:
+                
+                if  self.items?.last?.media?.mediaContents?.last?.mediaDescription == nil {
+                    self.items?.last?.media?.mediaContents?.last?.mediaDescription = MediaDescription(attributes: attributes)
+                }
+                
+            case .rssChannelItemMediaContentPlayer:
+                
+                if  self.items?.last?.media?.mediaContents?.last?.mediaPlayer == nil {
+                    self.items?.last?.media?.mediaContents?.last?.mediaPlayer = MediaPlayer(attributes: attributes)
+                }
+                
+            case .rssChannelItemMediaContentThumbnail:
+                
+                if  self.items?.last?.media?.mediaContents?.last?.mediaThumbnails == nil {
+                    self.items?.last?.media?.mediaContents?.last?.mediaThumbnails = []
+                }
+                
+                self.items?.last?.media?.mediaContents?.last?.mediaThumbnails?.append(MediaThumbnail(attributes: attributes))
                 
             case .rssChannelItemMediaCommunity:
                 

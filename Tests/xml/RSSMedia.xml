@@ -36,6 +36,9 @@
                 fileSize="12216320"
                 type="video/quicktime"
                 expression="full">
+                <media:title type="plain">The Judy's -- The Moo Song</media:title>
+                <media:description type="plain">This was some really bizarre band I listened to as a young lad.</media:description>
+                <media:thumbnail url="http://www.foo.com/keyframe.jpg" width="75" height="50" time="12:05:01.123" />
                 <media:player url="http://www.foo.com/player?id=1111" height="200" width="400" />
                 <media:hash algo="md5">dfdec888b72151965a34b4b59031290a</media:hash>
                 <media:credit role="producer">producer's name</media:credit>
