@@ -1,4 +1,28 @@
 # Change Log
+## [8.0.1](https://github.com/nmdias/FeedParser/releases/tag/8.0.1)
+### Added
+- Support for Swift 4.2
+- Added public initializers to the RSS and Atom Feed Models
+- Added support for the `media:title`, `media:description`, `media:player` and `media:thumbnails` xml elements within the `media:content` element in the Media namespace Models
+  - [#66](https://github.com/nmdias/FeedKit/issues/66) reported by [sglushchenko](https://github.com/sglushchenko)
+- Added support for the `itunes:type`, `ìtunes:episodeType`, `itunes:season`, and `itunes:episode` elements
+  - [#61](https://github.com/nmdias/FeedKit/pull/61) by [Lauri Koli](https://github.com/lauri-koli-vincit)
+- Added public initializers to the JSON Feed Model
+  - [#58](https://github.com/nmdias/FeedKit/pull/58) by [George Cox](https://github.com/gcox)
+
+### Updated
+- FeedParser initializers no longer failable
+- Adopted Codable conformance for mapping JSON feeds
+- Removed verbose output pod lib lint in travis
+
+### Fixed
+- Update Package.swift to support Swift 4.2
+  - [#80](https://github.com/nmdias/FeedKit/pull/80) by [Wilson Gramer](https://github.com/Wilsonator5000)  
+- Correct line endings and file permissions
+  - [#77](https://github.com/nmdias/FeedKit/pull/77) by [Eiot](https://github.com/Eitot)  
+- Fixed date formatter strings
+  - [#64](https://github.com/nmdias/FeedKit/pull/64) by [P W](https://github.com/hactar)
+
 ## [8.0.0](https://github.com/nmdias/FeedParser/releases/tag/8.0.0)
 ### Updated
 - FeedParser initializers no longer failable
