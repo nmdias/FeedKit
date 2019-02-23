@@ -1,5 +1,5 @@
 # Change Log
-## [8.0.1](https://github.com/nmdias/FeedParser/releases/tag/8.0.1)
+## [8.1.0](https://github.com/nmdias/FeedParser/releases/tag/8.1.0)
 ### Added
 - Support for Swift 4.2
 - Added public initializers to the RSS and Atom Feed Models
