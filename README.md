@@ -4,7 +4,7 @@
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedKit)
 [![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
 [![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
-[![swift](https://img.shields.io/badge/swift-4.1-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
+[![swift](https://img.shields.io/badge/swift-4.2-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
 
 ## Features
 
@@ -22,7 +22,7 @@
 
 ## Requirements
 
-![xcode](https://img.shields.io/badge/xcode-9.3%2b-lightgrey.svg)
+![xcode](https://img.shields.io/badge/xcode-10.1%2b-lightgrey.svg)
 ![ios](https://img.shields.io/badge/ios-8.0%2b-lightgrey.svg)
 ![tvos](https://img.shields.io/badge/tvos-9.0%2b-lightgrey.svg)
 ![watchos](https://img.shields.io/badge/watchos-2.0%2b-lightgrey.svg)
