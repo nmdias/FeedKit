@@ -6,9 +6,9 @@
 - Added support for the `media:title`, `media:description`, `media:player` and `media:thumbnails` xml elements within the `media:content` element in the Media namespace Models
   - [#66](https://github.com/nmdias/FeedKit/issues/66) reported by [sglushchenko](https://github.com/sglushchenko)
 - Added support for the `itunes:type`, `ìtunes:episodeType`, `itunes:season`, and `itunes:episode` elements
-  - [#61](https://github.com/nmdias/FeedKit/pull/61) by [Lauri Koli](https://github.com/lauri-koli-vincit)
+  - [#61](https://github.com/nmdias/FeedKit/pull/61) by [George Cox](https://github.com/gcox)
 - Added public initializers to the JSON Feed Model
-  - [#58](https://github.com/nmdias/FeedKit/pull/58) by [George Cox](https://github.com/gcox)
+  - [#58](https://github.com/nmdias/FeedKit/pull/58) by [Lauri Koli](https://github.com/lauri-koli-vincit)
 
 ### Updated
 - FeedParser initializers no longer failable
