@@ -78,21 +78,14 @@ public class FeedParser {
         }
         
         if let data = data {
-            guard let decoded = data.toUtf8() else {
-                return Result.failure(ParserError.internalError(reason: "Failed conversion to utf8 encoding.").value)
-            }
-            
-            guard let feedDataType = FeedDataType(data: decoded) else {
+            guard let feedDataType = FeedDataType(data: data) else {
                 return Result.failure(ParserError.feedNotFound.value)
             }
-            
             switch feedDataType {
-            case .json: parser = JSONFeedParser(data: decoded)
-            case .xml:  parser = XMLFeedParser(data: decoded)
+            case .json: parser = JSONFeedParser(data: data)
+            case .xml:  parser = XMLFeedParser(data: data)
             }
-            
             return parser!.parse()
-            
         }
         
         if let xmlStream = xmlStream {
