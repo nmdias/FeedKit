@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		83E6935A1FB3B3AE009A91C4 /* Data + toUtf8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E693591FB3B3AD009A91C4 /* Data + toUtf8.swift */; };
-		83E6935B1FB3B3B5009A91C4 /* Data + toUtf8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E693591FB3B3AD009A91C4 /* Data + toUtf8.swift */; };
-		83E6935C1FB3B3B5009A91C4 /* Data + toUtf8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E693591FB3B3AD009A91C4 /* Data + toUtf8.swift */; };
-		83E6935D1FB3B3B6009A91C4 /* Data + toUtf8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E693591FB3B3AD009A91C4 /* Data + toUtf8.swift */; };
 		A01F67A01D1692B20038910F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F679C1D16922D0038910F /* ViewController.swift */; };
 		A01F67A11D16931A0038910F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01F67991D1691510038910F /* Main.storyboard */; };
 		A081C41921C14B04001BC29C /* Date + codingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A081C41821C14B04001BC29C /* Date + codingStrategy.swift */; };
@@ -573,7 +569,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		83E693591FB3B3AD009A91C4 /* Data + toUtf8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data + toUtf8.swift"; sourceTree = "<group>"; };
 		A01F679A1D1691510038910F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A01F679C1D16922D0038910F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0370EB91CEF9D5A009583A3 /* FeedKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -933,7 +928,6 @@
 			isa = PBXGroup;
 			children = (
 				A081C41821C14B04001BC29C /* Date + codingStrategy.swift */,
-				83E693591FB3B3AD009A91C4 /* Data + toUtf8.swift */,
 				A0F6B7C71F6E6E9600220625 /* Array + Equatable.swift */,
 				A0F6B7C81F6E6E9600220625 /* String + toBool.swift */,
 				A0F6B7C91F6E6E9600220625 /* String + toDate.swift */,
@@ -1576,7 +1570,6 @@
 				A0F6B8561F6E6EB800220625 /* MediaCredit.swift in Sources */,
 				A0F6B8511F6E6EB800220625 /* iTunesSubCategory.swift in Sources */,
 				A0F6B8301F6E6EB800220625 /* Array + Equatable.swift in Sources */,
-				83E6935D1FB3B3B6009A91C4 /* Data + toUtf8.swift in Sources */,
 				A0F6B83E1F6E6EB800220625 /* AtomFeedEntryContributor.swift in Sources */,
 				A0F6B8591F6E6EB800220625 /* MediaGroup.swift in Sources */,
 				A0F6B85C1F6E6EB800220625 /* MediaLocation.swift in Sources */,
@@ -1771,7 +1764,6 @@
 				A0F6B90E1F6E6EBB00220625 /* MediaCredit.swift in Sources */,
 				A0F6B9091F6E6EBB00220625 /* iTunesSubCategory.swift in Sources */,
 				A0F6B8E81F6E6EBA00220625 /* Array + Equatable.swift in Sources */,
-				83E6935B1FB3B3B5009A91C4 /* Data + toUtf8.swift in Sources */,
 				A0F6B8F61F6E6EBB00220625 /* AtomFeedEntryContributor.swift in Sources */,
 				A0F6B9111F6E6EBB00220625 /* MediaGroup.swift in Sources */,
 				A0F6B9141F6E6EBB00220625 /* MediaLocation.swift in Sources */,
@@ -1873,7 +1865,6 @@
 				A0F6B8B21F6E6EBA00220625 /* MediaCredit.swift in Sources */,
 				A0F6B8AD1F6E6EBA00220625 /* iTunesSubCategory.swift in Sources */,
 				A0F6B88C1F6E6EBA00220625 /* Array + Equatable.swift in Sources */,
-				83E6935C1FB3B3B5009A91C4 /* Data + toUtf8.swift in Sources */,
 				A0F6B89A1F6E6EBA00220625 /* AtomFeedEntryContributor.swift in Sources */,
 				A0F6B8B51F6E6EBA00220625 /* MediaGroup.swift in Sources */,
 				A0F6B8B81F6E6EBA00220625 /* MediaLocation.swift in Sources */,
@@ -1975,7 +1966,6 @@
 				A0F6B96A1F6E6EBB00220625 /* MediaCredit.swift in Sources */,
 				A0F6B9651F6E6EBB00220625 /* iTunesSubCategory.swift in Sources */,
 				A0F6B9441F6E6EBB00220625 /* Array + Equatable.swift in Sources */,
-				83E6935A1FB3B3AE009A91C4 /* Data + toUtf8.swift in Sources */,
 				A0F6B9521F6E6EBB00220625 /* AtomFeedEntryContributor.swift in Sources */,
 				A0F6B96D1F6E6EBB00220625 /* MediaGroup.swift in Sources */,
 				A0F6B9701F6E6EBB00220625 /* MediaLocation.swift in Sources */,
