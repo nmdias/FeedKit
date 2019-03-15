@@ -1,4 +1,9 @@
 # Change Log
+## [8.1.1](https://github.com/nmdias/FeedParser/releases/tag/8.1.1)
+### Fixed
+- Avoid reencoding all incoming data to UTF-8
+  - [#83](https://github.com/nmdias/FeedKit/pull/83) by [GarthSnyder](https://github.com/GarthSnyder)
+
 ## [8.1.0](https://github.com/nmdias/FeedParser/releases/tag/8.1.0)
 ### Added
 - Support for Swift 4.2
