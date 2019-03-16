@@ -485,6 +485,12 @@
 		A0F79FBD1F642AE2007CFC08 /* RDFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */; };
 		A0F79FBE1F642AE2007CFC08 /* RDFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */; };
 		A0F79FBF1F642AE2007CFC08 /* RDFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */; };
+		BB394B79223B362300366193 /* Ampersand.xml in Resources */ = {isa = PBXBuildFile; fileRef = BB394B77223B35D700366193 /* Ampersand.xml */; };
+		BB394B7A223B362400366193 /* Ampersand.xml in Resources */ = {isa = PBXBuildFile; fileRef = BB394B77223B35D700366193 /* Ampersand.xml */; };
+		BB394B7B223B362400366193 /* Ampersand.xml in Resources */ = {isa = PBXBuildFile; fileRef = BB394B77223B35D700366193 /* Ampersand.xml */; };
+		BB394B7D223B368C00366193 /* AmpersandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB394B7C223B368C00366193 /* AmpersandTests.swift */; };
+		BB394B7E223B368C00366193 /* AmpersandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB394B7C223B368C00366193 /* AmpersandTests.swift */; };
+		BB394B7F223B368C00366193 /* AmpersandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB394B7C223B368C00366193 /* AmpersandTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -720,6 +726,8 @@
 		A0F6B9BD1F6E6FC700220625 /* FeedDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailTableViewController.swift; sourceTree = "<group>"; };
 		A0F6B9BE1F6E6FC700220625 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDFTests.swift; sourceTree = "<group>"; };
+		BB394B77223B35D700366193 /* Ampersand.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ampersand.xml; sourceTree = "<group>"; };
+		BB394B7C223B368C00366193 /* AmpersandTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmpersandTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -820,6 +828,7 @@
 				A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */,
 				A09AFB381EEFDFF40076ACC7 /* RSS2Tests.swift */,
 				A09AFB391EEFDFF40076ACC7 /* SyndicationTests.swift */,
+				BB394B7C223B368C00366193 /* AmpersandTests.swift */,
 				A0C788BE20CC5606005C2F6F /* FeedUriSchemeSanitizerTests.swift */,
 				A09AFB5E1EEFE0060076ACC7 /* Info.plist */,
 			);
@@ -1118,6 +1127,7 @@
 		A0F6B9AD1F6E6FA700220625 /* xml */ = {
 			isa = PBXGroup;
 			children = (
+				BB394B77223B35D700366193 /* Ampersand.xml */,
 				A0F6B9AE1F6E6FA700220625 /* Atom.xml */,
 				A0F6B9AF1F6E6FA700220625 /* AtomMedia.xml */,
 				A0F6B9B01F6E6FA700220625 /* Content.xml */,
@@ -1425,6 +1435,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1466,6 +1477,7 @@
 				A0F6B9D81F6E713F00220625 /* FeedNotFound.xml in Resources */,
 				A0F6B9D91F6E713F00220625 /* iTunesPodcasting.xml in Resources */,
 				A0F6B9DE1F6E713F00220625 /* RSSMedia.xml in Resources */,
+				BB394B79223B362300366193 /* Ampersand.xml in Resources */,
 				A0F6B9D71F6E713F00220625 /* Content.xml in Resources */,
 				A0F6B9D51F6E713F00220625 /* Atom.xml in Resources */,
 				A0F6B9E01F6E714400220625 /* feed.json in Resources */,
@@ -1485,6 +1497,7 @@
 				A0F6B9CD1F6E713F00220625 /* FeedNotFound.xml in Resources */,
 				A0F6B9CE1F6E713F00220625 /* iTunesPodcasting.xml in Resources */,
 				A0F6B9D31F6E713F00220625 /* RSSMedia.xml in Resources */,
+				BB394B7A223B362400366193 /* Ampersand.xml in Resources */,
 				A0F6B9CC1F6E713F00220625 /* Content.xml in Resources */,
 				A0F6B9CA1F6E713F00220625 /* Atom.xml in Resources */,
 				A0F6B9E11F6E714400220625 /* feed.json in Resources */,
@@ -1504,6 +1517,7 @@
 				A0F6B9C21F6E713E00220625 /* FeedNotFound.xml in Resources */,
 				A0F6B9C31F6E713E00220625 /* iTunesPodcasting.xml in Resources */,
 				A0F6B9C81F6E713F00220625 /* RSSMedia.xml in Resources */,
+				BB394B7B223B362400366193 /* Ampersand.xml in Resources */,
 				A0F6B9C11F6E713E00220625 /* Content.xml in Resources */,
 				A0F6B9BF1F6E713E00220625 /* Atom.xml in Resources */,
 				A0F6B9E21F6E714400220625 /* feed.json in Resources */,
@@ -1669,6 +1683,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A09AFB3D1EEFDFF40076ACC7 /* BaseTestCase.swift in Sources */,
+				BB394B7D223B368C00366193 /* AmpersandTests.swift in Sources */,
 				A09AFB5B1EEFDFF40076ACC7 /* SyndicationTests.swift in Sources */,
 				A09AFB581EEFDFF40076ACC7 /* RSS2Tests.swift in Sources */,
 				A09AFB551EEFDFF40076ACC7 /* ParserErrorTests.swift in Sources */,
@@ -1690,6 +1705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A09AFB3E1EEFDFF40076ACC7 /* BaseTestCase.swift in Sources */,
+				BB394B7E223B368C00366193 /* AmpersandTests.swift in Sources */,
 				A09AFB5C1EEFDFF40076ACC7 /* SyndicationTests.swift in Sources */,
 				A09AFB591EEFDFF40076ACC7 /* RSS2Tests.swift in Sources */,
 				A09AFB561EEFDFF40076ACC7 /* ParserErrorTests.swift in Sources */,
@@ -1711,6 +1727,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A09AFB3F1EEFDFF40076ACC7 /* BaseTestCase.swift in Sources */,
+				BB394B7F223B368C00366193 /* AmpersandTests.swift in Sources */,
 				A09AFB5D1EEFDFF40076ACC7 /* SyndicationTests.swift in Sources */,
 				A09AFB5A1EEFDFF40076ACC7 /* RSS2Tests.swift in Sources */,
 				A09AFB571EEFDFF40076ACC7 /* ParserErrorTests.swift in Sources */,
