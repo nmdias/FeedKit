@@ -1422,7 +1422,7 @@
 			};
 			buildConfigurationList = A0EF4D971CE867DF00C52142 /* Build configuration list for PBXProject "FeedKit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
