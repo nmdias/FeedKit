@@ -23,6 +23,9 @@
 //
 
 import Foundation
+#if canImport(FoundationXML)
+import FoundationXML
+#endif
 
 /// The actual engine behind the `FeedKit` framework. `XMLFeedParser` handles
 /// the parsing of RSS and Atom feeds. It is an `XMLParserDelegate` of
