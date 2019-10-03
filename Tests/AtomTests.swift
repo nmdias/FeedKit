@@ -115,7 +115,7 @@ class AtomTests: BaseTestCase {
         
         // Feed Entries
         XCTAssertNotNil(feed?.entries)
-        XCTAssertEqual(feed?.entries?.count, 1)
+        XCTAssertEqual(feed?.entries?.count, 2)
         
         XCTAssertEqual(feed?.entries?.first?.title, "Atom draft-07 snapshot")
         XCTAssertEqual(feed?.entries?.first?.id, "tag:example.org,2003:3.2397")

@@ -58,4 +58,17 @@
         </contributor>
         <content src="http://www.example.org/" type="xhtml" xml:lang="en" xml:base="http://diveintomark.org/">&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;i&gt;[Update: The Atom draft is finished.]&lt;/i&gt;&lt;/p&gt;&lt;/div&gt;</content>
     </entry>
+    <entry>
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>
+                    <strong>Some markings</strong>
+                    <a href="http://www.example.org/">Example</a>
+                </p>
+                <div class="blockquote">
+                    <p>On a quote...</p>
+                </div>
+            </div>
+        </summary>
+    </entry>
 </feed>
