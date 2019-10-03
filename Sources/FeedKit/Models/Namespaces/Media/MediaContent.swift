@@ -55,6 +55,10 @@ public class MediaContent {
     /// maximum of 10 words. The keywords and phrases should be comma-delimited.
     public var mediaKeywords: [String]?
     
+    /// Allows a taxonomy to be set that gives an indication of the type of media
+    /// content, and its particular contents. It has two optional attributes.
+    public var mediaCategory: MediaCategory?
+    
     /// The element's attributes.
     public class Attributes {
         

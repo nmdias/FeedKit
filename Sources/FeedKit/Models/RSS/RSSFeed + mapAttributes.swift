@@ -250,6 +250,7 @@ extension RSSFeed {
         .rssChannelItemMediaContentDescription,
         .rssChannelItemMediaContentPlayer,
         .rssChannelItemMediaContentThumbnail,
+        .rssChannelItemMediaContentCategory,
         .rssChannelItemMediaCommunity,
         .rssChannelItemMediaCommunityMediaStarRating,
         .rssChannelItemMediaCommunityMediaStatistics,
@@ -310,6 +311,12 @@ extension RSSFeed {
                 
                 if  self.items?.last?.media?.mediaContents?.last?.mediaDescription == nil {
                     self.items?.last?.media?.mediaContents?.last?.mediaDescription = MediaDescription(attributes: attributes)
+                }
+                
+            case .rssChannelItemMediaContentCategory:
+                
+                if  self.items?.last?.media?.mediaContents?.last?.mediaCategory == nil {
+                    self.items?.last?.media?.mediaContents?.last?.mediaCategory = MediaCategory(attributes: attributes)
                 }
                 
             case .rssChannelItemMediaContentPlayer:

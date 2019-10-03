@@ -223,6 +223,15 @@ class MediaTests: BaseTestCase {
         XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaDescription?.attributes?.type, "plain")
         XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaDescription?.value, "This was some really bizarre band I listened to as a young lad.")
         
+        XCTAssertNotNil(lastMedia?.mediaContents?.last?.mediaDescription)
+        XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaDescription?.attributes?.type, "plain")
+        XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaDescription?.value, "This was some really bizarre band I listened to as a young lad.")
+        
+        XCTAssertNotNil(lastMedia?.mediaContents?.last?.mediaCategory)
+        XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaCategory?.attributes?.scheme, "http://blah.com/scheme")
+        XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaCategory?.attributes?.label, "blah")
+        XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaCategory?.value, "music/artistname/album/song")
+        
         XCTAssertNotNil(lastMedia?.mediaContents?.last?.mediaThumbnails?.first)
         XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaThumbnails?.first?.attributes?.url, "http://www.foo.com/keyframe.jpg")
         XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaThumbnails?.first?.attributes?.width, "75")

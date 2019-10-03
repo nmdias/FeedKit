@@ -43,9 +43,7 @@
                 <media:hash algo="md5">dfdec888b72151965a34b4b59031290a</media:hash>
                 <media:credit role="producer">producer's name</media:credit>
                 <media:credit role="artist">artist's name</media:credit>
-                <media:category scheme="http://blah.com/scheme">
-                    music/artistname/album/song
-                </media:category>
+                <media:category scheme="http://blah.com/scheme" label="blah">music/artistname/album/song</media:category>
                 <media:text type="plain">
                     Oh, say, can you see, by the dawn's early light
                 </media:text>

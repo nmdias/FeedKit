@@ -150,6 +150,8 @@ extension RSSFeed {
                 self.items?.last?.media?.mediaContents?.last?.mediaKeywords?.append(contentsOf: keywords)
             }
             
+        case .rssChannelItemMediaContentCategory:
+            self.items?.last?.media?.mediaContents?.last?.mediaCategory?.value          = self.items?.last?.media?.mediaContents?.last?.mediaCategory?.value?.appending(string) ?? string
         case .rssChannelItemMediaContentDescription:                self.items?.last?.media?.mediaContents?.last?.mediaDescription?.value       = self.items?.last?.media?.mediaDescription?.value?.appending(string) ?? string
         case .rssChannelItemMediaContentPlayer:                     self.items?.last?.media?.mediaContents?.last?.mediaPlayer?.value            = self.items?.last?.media?.mediaContents?.last?.mediaPlayer?.value?.appending(string) ?? string
         case .rssChannelItemMediaContentThumbnail:                  self.items?.last?.media?.mediaContents?.last?.mediaThumbnails?.last?.value  = self.items?.last?.media?.mediaContents?.last?.mediaThumbnails?.last?.value?.appending(string) ?? string
