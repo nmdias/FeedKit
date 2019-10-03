@@ -136,6 +136,20 @@ extension RSSFeed {
         case .rssChannelItemMediaLicense:                           self.items?.last?.media?.mediaLicense?.value                    = self.items?.last?.media?.mediaLicense?.value?.appending(string) ?? string
         case .rssChannelItemMediaRestriction:                       self.items?.last?.media?.mediaRestriction?.value                = self.items?.last?.media?.mediaRestriction?.value?.appending(string) ?? string
         case .rssChannelItemMediaContentTitle:                      self.items?.last?.media?.mediaContents?.last?.mediaTitle?.value             = self.items?.last?.media?.mediaContents?.last?.mediaTitle?.value?.appending(string) ?? string
+        case .rssChannelItemMediaContentKeywords:
+            if !string.isEmpty {
+                let keywords = string
+                    .components(separatedBy: ",")
+                    .map { (string) -> String in
+                        return string.trimmingCharacters(in: .whitespacesAndNewlines)
+                    }
+                
+                if  self.items?.last?.media?.mediaContents?.last?.mediaKeywords == nil {
+                    self.items?.last?.media?.mediaContents?.last?.mediaKeywords = []
+                }
+                self.items?.last?.media?.mediaContents?.last?.mediaKeywords?.append(contentsOf: keywords)
+            }
+            
         case .rssChannelItemMediaContentDescription:                self.items?.last?.media?.mediaContents?.last?.mediaDescription?.value       = self.items?.last?.media?.mediaDescription?.value?.appending(string) ?? string
         case .rssChannelItemMediaContentPlayer:                     self.items?.last?.media?.mediaContents?.last?.mediaPlayer?.value            = self.items?.last?.media?.mediaContents?.last?.mediaPlayer?.value?.appending(string) ?? string
         case .rssChannelItemMediaContentThumbnail:                  self.items?.last?.media?.mediaContents?.last?.mediaThumbnails?.last?.value  = self.items?.last?.media?.mediaContents?.last?.mediaThumbnails?.last?.value?.appending(string) ?? string

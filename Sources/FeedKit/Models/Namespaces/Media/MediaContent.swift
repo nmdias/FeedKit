@@ -51,6 +51,9 @@ public class MediaContent {
     /// one required attribute and three optional attributes.
     public var mediaThumbnails: [MediaThumbnail]?
     
+    /// Highly relevant keywords describing the media object with typically a
+    /// maximum of 10 words. The keywords and phrases should be comma-delimited.
+    public var mediaKeywords: [String]?
     
     /// The element's attributes.
     public class Attributes {

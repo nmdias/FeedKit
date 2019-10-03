@@ -234,6 +234,9 @@ class MediaTests: BaseTestCase {
         XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaPlayer?.attributes?.height, 200)
         XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaPlayer?.attributes?.width, 400)
         
+        XCTAssertNotNil(lastMedia?.mediaContents?.last?.mediaKeywords)
+        XCTAssertEqual(lastMedia?.mediaContents?.last?.mediaKeywords?.joined(separator: ", "), "kitty, cat, big dog, yarn, fluffy")
+        
     }
     
     func testRSSMediaParsingPerformance() {
