@@ -38,9 +38,33 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let result = FeedParser(URL: feedURL).parse()
-        self.feed = result.rssFeed
-        self.feedItemsTableView.reloadData()
+        let parser = FeedParser(URL: feedURL)
+
+        // Parse asynchronously, not to block the UI.
+        parser.parseAsync { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let feed):
+                // Grab the parsed feed directly as an optional rss, atom or json feed object
+                self.feed = feed.rssFeed
+                
+                // Or alternatively...
+                //
+                // switch feed {
+                // case .rss(let feed): break
+                // case .atom(let feed): break
+                // case .json(let feed): break
+                // }
+                
+                // Then back to the Main thread to update the UI.
+                DispatchQueue.main.async {
+                    self.feedItemsTableView.reloadData()
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
         
     }
 
