@@ -157,7 +157,7 @@
 		A0F6B8821F6E6EB800220625 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8241F6E6E9600220625 /* FeedParserProtocol.swift */; };
 		A0F6B8831F6E6EB800220625 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8251F6E6E9600220625 /* JSONFeedParser.swift */; };
 		A0F6B8841F6E6EB800220625 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8261F6E6E9600220625 /* ParserError.swift */; };
-		A0F6B8851F6E6EB800220625 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8271F6E6E9600220625 /* Result.swift */; };
+		A0F6B8851F6E6EB800220625 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8271F6E6E9600220625 /* Feed.swift */; };
 		A0F6B8861F6E6EB800220625 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8281F6E6E9600220625 /* XMLFeedParser.swift */; };
 		A0F6B8871F6E6EB800220625 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8291F6E6E9600220625 /* XMLFeedType.swift */; };
 		A0F6B8881F6E6EBA00220625 /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B7C21F6E6E9600220625 /* DateSpec.swift */; };
@@ -249,7 +249,7 @@
 		A0F6B8DE1F6E6EBA00220625 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8241F6E6E9600220625 /* FeedParserProtocol.swift */; };
 		A0F6B8DF1F6E6EBA00220625 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8251F6E6E9600220625 /* JSONFeedParser.swift */; };
 		A0F6B8E01F6E6EBA00220625 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8261F6E6E9600220625 /* ParserError.swift */; };
-		A0F6B8E11F6E6EBA00220625 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8271F6E6E9600220625 /* Result.swift */; };
+		A0F6B8E11F6E6EBA00220625 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8271F6E6E9600220625 /* Feed.swift */; };
 		A0F6B8E21F6E6EBA00220625 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8281F6E6E9600220625 /* XMLFeedParser.swift */; };
 		A0F6B8E31F6E6EBA00220625 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8291F6E6E9600220625 /* XMLFeedType.swift */; };
 		A0F6B8E41F6E6EBA00220625 /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B7C21F6E6E9600220625 /* DateSpec.swift */; };
@@ -341,7 +341,7 @@
 		A0F6B93A1F6E6EBB00220625 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8241F6E6E9600220625 /* FeedParserProtocol.swift */; };
 		A0F6B93B1F6E6EBB00220625 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8251F6E6E9600220625 /* JSONFeedParser.swift */; };
 		A0F6B93C1F6E6EBB00220625 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8261F6E6E9600220625 /* ParserError.swift */; };
-		A0F6B93D1F6E6EBB00220625 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8271F6E6E9600220625 /* Result.swift */; };
+		A0F6B93D1F6E6EBB00220625 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8271F6E6E9600220625 /* Feed.swift */; };
 		A0F6B93E1F6E6EBB00220625 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8281F6E6E9600220625 /* XMLFeedParser.swift */; };
 		A0F6B93F1F6E6EBB00220625 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8291F6E6E9600220625 /* XMLFeedType.swift */; };
 		A0F6B9401F6E6EBB00220625 /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B7C21F6E6E9600220625 /* DateSpec.swift */; };
@@ -433,7 +433,7 @@
 		A0F6B9961F6E6EBB00220625 /* FeedParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8241F6E6E9600220625 /* FeedParserProtocol.swift */; };
 		A0F6B9971F6E6EBB00220625 /* JSONFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8251F6E6E9600220625 /* JSONFeedParser.swift */; };
 		A0F6B9981F6E6EBB00220625 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8261F6E6E9600220625 /* ParserError.swift */; };
-		A0F6B9991F6E6EBB00220625 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8271F6E6E9600220625 /* Result.swift */; };
+		A0F6B9991F6E6EBB00220625 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8271F6E6E9600220625 /* Feed.swift */; };
 		A0F6B99A1F6E6EBB00220625 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8281F6E6E9600220625 /* XMLFeedParser.swift */; };
 		A0F6B99B1F6E6EBB00220625 /* XMLFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6B8291F6E6E9600220625 /* XMLFeedType.swift */; };
 		A0F6B99C1F6E6F7900220625 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF4E0C1CE86D1E00C52142 /* FeedKit.framework */; };
@@ -698,7 +698,7 @@
 		A0F6B8241F6E6E9600220625 /* FeedParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedParserProtocol.swift; sourceTree = "<group>"; };
 		A0F6B8251F6E6E9600220625 /* JSONFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFeedParser.swift; sourceTree = "<group>"; };
 		A0F6B8261F6E6E9600220625 /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
-		A0F6B8271F6E6E9600220625 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		A0F6B8271F6E6E9600220625 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		A0F6B8281F6E6E9600220625 /* XMLFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLFeedParser.swift; sourceTree = "<group>"; };
 		A0F6B8291F6E6E9600220625 /* XMLFeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLFeedType.swift; sourceTree = "<group>"; };
 		A0F6B82A1F6E6E9600220625 /* FeedKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedKit.h; sourceTree = "<group>"; };
@@ -1100,7 +1100,7 @@
 				A0F6B8241F6E6E9600220625 /* FeedParserProtocol.swift */,
 				A0F6B8251F6E6E9600220625 /* JSONFeedParser.swift */,
 				A0F6B8261F6E6E9600220625 /* ParserError.swift */,
-				A0F6B8271F6E6E9600220625 /* Result.swift */,
+				A0F6B8271F6E6E9600220625 /* Feed.swift */,
 				A0F6B8281F6E6E9600220625 /* XMLFeedParser.swift */,
 				A0F6B8291F6E6E9600220625 /* XMLFeedType.swift */,
 			);
@@ -1604,7 +1604,7 @@
 				A0F6B8551F6E6EB800220625 /* MediaCopyright.swift in Sources */,
 				A0F6B85E1F6E6EB800220625 /* MediaParam.swift in Sources */,
 				A0F6B87C1F6E6EB800220625 /* RSSFeedSkipDay.swift in Sources */,
-				A0F6B8851F6E6EB800220625 /* Result.swift in Sources */,
+				A0F6B8851F6E6EB800220625 /* Feed.swift in Sources */,
 				A0F6B85B1F6E6EB800220625 /* MediaLicence.swift in Sources */,
 				A0F6B8771F6E6EB800220625 /* RSSFeedItem.swift in Sources */,
 				A0F6B8691F6E6EB800220625 /* MediaSubTitle.swift in Sources */,
@@ -1798,7 +1798,7 @@
 				A0F6B90D1F6E6EBB00220625 /* MediaCopyright.swift in Sources */,
 				A0F6B9161F6E6EBB00220625 /* MediaParam.swift in Sources */,
 				A0F6B9341F6E6EBB00220625 /* RSSFeedSkipDay.swift in Sources */,
-				A0F6B93D1F6E6EBB00220625 /* Result.swift in Sources */,
+				A0F6B93D1F6E6EBB00220625 /* Feed.swift in Sources */,
 				A0F6B9131F6E6EBB00220625 /* MediaLicence.swift in Sources */,
 				A0F6B92F1F6E6EBB00220625 /* RSSFeedItem.swift in Sources */,
 				A0F6B9211F6E6EBB00220625 /* MediaSubTitle.swift in Sources */,
@@ -1899,7 +1899,7 @@
 				A0F6B8B11F6E6EBA00220625 /* MediaCopyright.swift in Sources */,
 				A0F6B8BA1F6E6EBA00220625 /* MediaParam.swift in Sources */,
 				A0F6B8D81F6E6EBA00220625 /* RSSFeedSkipDay.swift in Sources */,
-				A0F6B8E11F6E6EBA00220625 /* Result.swift in Sources */,
+				A0F6B8E11F6E6EBA00220625 /* Feed.swift in Sources */,
 				A0F6B8B71F6E6EBA00220625 /* MediaLicence.swift in Sources */,
 				A0F6B8D31F6E6EBA00220625 /* RSSFeedItem.swift in Sources */,
 				A0F6B8C51F6E6EBA00220625 /* MediaSubTitle.swift in Sources */,
@@ -2000,7 +2000,7 @@
 				A0F6B9691F6E6EBB00220625 /* MediaCopyright.swift in Sources */,
 				A0F6B9721F6E6EBB00220625 /* MediaParam.swift in Sources */,
 				A0F6B9901F6E6EBB00220625 /* RSSFeedSkipDay.swift in Sources */,
-				A0F6B9991F6E6EBB00220625 /* Result.swift in Sources */,
+				A0F6B9991F6E6EBB00220625 /* Feed.swift in Sources */,
 				A0F6B96F1F6E6EBB00220625 /* MediaLicence.swift in Sources */,
 				A0F6B98B1F6E6EBB00220625 /* RSSFeedItem.swift in Sources */,
 				A0F6B97D1F6E6EBB00220625 /* MediaSubTitle.swift in Sources */,

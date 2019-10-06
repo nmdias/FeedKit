@@ -33,13 +33,20 @@ class ContentTests: BaseTestCase {
         let URL = fileURL("Content", type: "xml")
         let parser = FeedParser(URL: URL)
         
-        // When
-        let feed = parser.parse().rssFeed
+        do {
+            // When
+            let feed = try parser.parse().get().rssFeed
+
+            // Then
+            XCTAssertNotNil(feed)
+            XCTAssertNotNil(feed?.items?.last?.content)
+            XCTAssertEqual(feed?.items?.last?.content?.contentEncoded, "<p>What a <em>beautiful</em> day!</p>")
+            
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
         
-        // Then
-        XCTAssertNotNil(feed)
-        XCTAssertNotNil(feed?.items?.last?.content)
-        XCTAssertEqual(feed?.items?.last?.content?.contentEncoded, "<p>What a <em>beautiful</em> day!</p>")
+        
         
     }
     

@@ -1,5 +1,5 @@
 //
-//  ParserErrorTests.swift
+//  Feed.swift
 //
 //  Copyright (c) 2016 - 2018 Nuno Manuel Dias
 //
@@ -22,26 +22,40 @@
 //  SOFTWARE.
 //
 
-import XCTest
-@testable import FeedKit
+import Foundation
 
-class ParserErrorTests: BaseTestCase {
+public enum Feed {
+    case atom(AtomFeed)
+    case rss(RSSFeed)
+    case json(JSONFeed)
+}
+
+// MARK: - Convenience properties
+
+extension Feed {
     
-    func testParserResult() {
-        
-        // Given
-        let URL = fileURL("FeedNotFound", type: "xml")
-        let parser = FeedParser(URL: URL)
-        
-        // When
-        let result = parser.parse()
-        
-        // Then
-        switch result {
-        case .failure(let error): XCTAssertEqual(error.code, ParserError.feedNotFound.code)
-        case .success(_): XCTFail("Unexpected feed found")
+    public var rssFeed: RSSFeed? {
+        switch self {
+        case .rss(let rssFeed): return rssFeed
+        case .atom(_): return nil
+        case .json(_): return nil
         }
-        
     }
-    
+
+    public var atomFeed: AtomFeed? {
+        switch self {
+        case .rss(_): return nil
+        case .atom(let atomFeed): return atomFeed
+        case .json(_): return nil
+        }
+    }
+
+    public var jsonFeed: JSONFeed? {
+        switch self {
+        case .rss(_): return nil
+        case .atom(_): return nil
+        case .json(let jsonFeed): return jsonFeed
+        }
+    }
+
 }

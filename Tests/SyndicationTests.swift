@@ -32,15 +32,20 @@ class SyndicationTests: BaseTestCase {
         // Given
         let URL = fileURL("Syndication", type: "xml")
         let parser = FeedParser(URL: URL)
-        
-        // When
-        let feed = parser.parse().rssFeed
-        
-        // Then
-        XCTAssertNotNil(feed)
-        XCTAssertEqual(feed?.syndication?.syUpdatePeriod , SyndicationUpdatePeriod.hourly)
-        XCTAssertEqual(feed?.syndication?.syUpdateFrequency , Int(2))
-        XCTAssertNotNil(feed?.syndication?.syUpdateBase)
+
+        do {
+            // When
+            let feed = try parser.parse().get().rssFeed
+            
+            // Then
+            XCTAssertNotNil(feed)
+            XCTAssertEqual(feed?.syndication?.syUpdatePeriod , SyndicationUpdatePeriod.hourly)
+            XCTAssertEqual(feed?.syndication?.syUpdateFrequency , Int(2))
+            XCTAssertNotNil(feed?.syndication?.syUpdateBase)
+            
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
         
     }
     

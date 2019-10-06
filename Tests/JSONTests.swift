@@ -116,11 +116,18 @@ class JSONTests: BaseTestCase {
             )
         ]
         
-        // When
-        let parsedJsonFeed = parser.parse().jsonFeed
+        do {
+            // When
+            let parsedJsonFeed = try parser.parse().get().jsonFeed
+
+            // Then
+            XCTAssertEqual(parsedJsonFeed, jsonFeed)
+            
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
         
-        // Then
-        XCTAssertEqual(parsedJsonFeed, jsonFeed)
+
         
     }
     

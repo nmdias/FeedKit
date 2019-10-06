@@ -36,14 +36,14 @@ class JSONFeedParser: FeedParserProtocol {
         self.data = data
     }
     
-    func parse() -> Result {
+    func parse() -> Result<Feed, ParserError> {
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .formatted(RFC3339DateFormatter())
             let decoded = try decoder.decode(JSONFeed.self, from: data)
-            return Result.json(decoded)
+            return .success(.json(decoded))
         } catch {
-            return Result.failure(NSError(domain: error.localizedDescription, code: -1))
+            return .failure(.internalError(reason: error.localizedDescription))
         }
         
     }

@@ -71,24 +71,24 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
     fileprivate var currentXMLDOMPath: URL = URL(string: "/")!
     
     /// A parsing error, if any.
-    var parsingError: NSError?
+    var parsingError: Error?
     var parseComplete = false
     
     /// Starts parsing the feed.
-    func parse() -> Result {
+    func parse() -> Result<Feed, ParserError> {
         let _ = self.xmlParser.parse()
         
         if let error = parsingError {
-            return Result.failure(error)
+            return .failure(.internalError(reason: error.localizedDescription))
         }
         
-        guard let feedType = self.feedType else {
-            return Result.failure(ParserError.feedNotFound.value)
+        guard let feedType = feedType else {
+            return .failure(.feedNotFound)
         }
         
         switch feedType {
-        case .atom: return Result.atom(self.atomFeed!)
-        case .rdf, .rss: return Result.rss(self.rssFeed!)
+        case .atom: return .success(.atom(atomFeed!))
+        case .rdf, .rss: return .success(.rss(rssFeed!)) // .rss(self.rssFeed!)
         }
         
     }
@@ -186,11 +186,10 @@ extension XMLFeedParser {
         }
     }
     
-    func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data)
-    {
+    func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
         guard let string = String(data: CDATABlock, encoding: .utf8) else {
             self.xmlParser.abortParsing()
-            self.parsingError = ParserError.feedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString).value
+            self.parsingError = ParserError.feedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString)
             return
         }
         self.map(string)
@@ -205,8 +204,7 @@ extension XMLFeedParser {
         // real-world feeds contain junk such as "[]" after the XML segment;
         // just ignore this stuff.
         guard !parseComplete, parsingError == nil else { return }
-        self.parsingError = NSError(domain: parseError.localizedDescription, code: -1,
-            userInfo: ["CurrentPath": currentXMLDOMPath.absoluteString])
+        self.parsingError = parseError
     }
     
 }

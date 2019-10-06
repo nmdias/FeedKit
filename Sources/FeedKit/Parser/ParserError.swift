@@ -32,10 +32,53 @@ import Foundation
 ///   to Unicode characters using the UTF-8 encoding.
 /// - internalError: An internal error from which the user cannot recover.
 public enum ParserError {
-    
     case feedNotFound
     case feedCDATABlockEncodingError(path: String)
     case internalError(reason: String)
+}
+
+// MARK: - Error Descriptors
+
+extension ParserError: LocalizedError {
+    
+    public var errorDescription: String? {
+        switch self {
+        case .feedNotFound:
+            return "Feed not found"
+        case .feedCDATABlockEncodingError(_):
+            return "`CDATAblock` encoding error"
+        case .internalError(let reason):
+            return "Internal unresolved error: \(reason)"
+        }
+    }
+    
+    public var failureReason: String? {
+        switch self {
+        case .feedNotFound:
+            return "Couldn't parse any known feed"
+        case .feedCDATABlockEncodingError(let path):
+            return "Unable to convert the bytes in `CDATABlock` to Unicode characters using the UTF-8 encoding at current path: \(path)"
+        case .internalError(let reason):
+            return "Unable to recover from an internal unresolved error: \(reason)"
+        }
+    }
+    
+    public var recoverySuggestion: String? {
+        switch self {
+        case .feedNotFound:
+            return "Provide a valid Atom/RSS/JSON feed "
+        case .feedCDATABlockEncodingError(_):
+            return "Make sure the encoding provided in a `CDATABlock` is encoded as UTF-8"
+        case .internalError(_):
+            return "If you're seeing this error you probably should open an issue on github"
+        }
+    }
+    
+}
+
+// MARK: - NSError
+
+extension ParserError {
     
     /// An error's code for the specified case.
     var code: Int {
@@ -48,35 +91,16 @@ public enum ParserError {
     
     /// The error's userInfo dictionary for the specified case.
     var userInfo: [String: String] {
-        switch self {
-        case .feedNotFound:
-            return [
-                NSLocalizedDescriptionKey: "Feed not found",
-                NSLocalizedFailureReasonErrorKey: "Couldn't parse any known feed",
-                NSLocalizedRecoverySuggestionErrorKey: "Provide a valid Atom/RSS/JSON feed "
-            ]
-            
-        case .feedCDATABlockEncodingError(let path):
-            return [
-                NSLocalizedDescriptionKey: "`CDATAblock` encoding error",
-                NSLocalizedFailureReasonErrorKey: "Unable to convert the bytes in `CDATABlock` to Unicode characters using the UTF-8 encoding at current path: \(path)",
-                NSLocalizedRecoverySuggestionErrorKey: "Make sure the encoding provided in a `CDATABlock` is encoded as UTF-8"
-            ]
-        
-        case .internalError(let reason):
-            return [
-                NSLocalizedDescriptionKey: "Internal unresolved error: \(reason)",
-                NSLocalizedFailureReasonErrorKey: "Unable to recover from an internal unresolved error: \(reason)",
-                NSLocalizedRecoverySuggestionErrorKey: "If you're seeing this error you probably should open an issue on github"
-            ]
-            
-        }
-        
+        [
+            NSLocalizedDescriptionKey: errorDescription ?? "",
+            NSLocalizedFailureReasonErrorKey: failureReason ?? "",
+            NSLocalizedRecoverySuggestionErrorKey: recoverySuggestion ?? ""
+        ]
     }
     
     /// The `NSError` from the specified case.
-    var value: NSError {
-        return NSError(domain:"com.feedkit.error", code: self.code, userInfo: self.userInfo)
+    var domain: String {
+        "com.feedkit.error"
     }
     
 }

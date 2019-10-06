@@ -33,11 +33,18 @@ class FeedUriSchemeSanitizerTests: XCTestCase {
         let feedURL = URL(string: "feed://images.apple.com/main/rss/hotnews/hotnews.rss")!
         let parser = FeedParser(URL: feedURL)
         
-        // When
-        let feed = parser.parse().rssFeed
+        do {
+            // When
+            let feed = try parser.parse().get().rssFeed
+
+            // Then
+            XCTAssertNotNil(feed)
+            
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
         
-        // Then
-        XCTAssertNotNil(feed)
+
         
     }
     
