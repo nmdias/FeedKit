@@ -87,8 +87,16 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
         }
         
         switch feedType {
-        case .atom: return .success(.atom(atomFeed!))
-        case .rdf, .rss: return .success(.rss(rssFeed!)) // .rss(self.rssFeed!)
+        case .atom:
+            guard let atomFeed = atomFeed else {
+                return .failure(.internalError(reason: "Unable to initialize atom feed model"))
+            }
+            return .success(.atom(atomFeed))
+        case .rdf, .rss:
+            guard let rssFeed = rssFeed else {
+                return .failure(.internalError(reason: "Unable to initialize rss feed model"))
+            }
+            return .success(.rss(rssFeed))
         }
         
     }
