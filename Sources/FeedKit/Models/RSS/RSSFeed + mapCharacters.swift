@@ -73,7 +73,11 @@ extension RSSFeed {
         case .rssChannelItemCategory:                               self.items?.last?.categories?.last?.value                       = self.items?.last?.categories?.last?.value?.appending(string) ?? string
         case .rssChannelItemComments:                               self.items?.last?.comments                                      = self.items?.last?.comments?.appending(string) ?? string
         case .rssChannelItemGUID:                                   self.items?.last?.guid?.value                                   = self.items?.last?.guid?.value?.appending(string) ?? string
-        case .rssChannelItemPubDate:                                self.items?.last?.pubDate                                       = string.toPermissiveDate()
+        case .rssChannelItemPubDate:
+            let string = string.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !string.isEmpty {
+                self.items?.last?.pubDate = string.toPermissiveDate()
+            }
         case .rssChannelItemSource:                                 self.items?.last?.source?.value                                 = self.items?.last?.source?.value?.appending(string) ?? string
         case .rssChannelItemContentEncoded:                         self.items?.last?.content?.contentEncoded                       = self.items?.last?.content?.contentEncoded?.appending(string) ?? string
         case .rssChannelSyndicationUpdatePeriod:                    self.syndication?.syUpdatePeriod                                = SyndicationUpdatePeriod(rawValue: string)
