@@ -31,11 +31,11 @@ To integrate `FeedKit` into your Xcode project, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'FeedKit', '~> 8.0'
+  pod 'FeedKit', '~> 9.0'
 end
 ```
 
@@ -58,7 +58,7 @@ $ brew install carthage
 To integrate FeedKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "nmdias/FeedKit" ~> 8.0
+github "nmdias/FeedKit" ~> 9.0
 ```
 Build the framework:
 
@@ -77,7 +77,7 @@ To integrate `FeedKit` into your project, specify it in your `Package.swift` fil
 let package = Package(
     name: "MyApp",
     dependencies: [
-        .Package(url: "https://github.com/nmdias/FeedKit.git", majorVersion: 6)
+        .Package(url: "https://github.com/nmdias/FeedKit.git", majorVersion: 9)
     ]
 )
 ```
