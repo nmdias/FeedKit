@@ -26,7 +26,7 @@ import Foundation
 
 extension FeedTableViewController {
     enum TableViewLayout {
-        case title, link, description, items
+        case title, link, description, date, items
         init?(indexPath: IndexPath) {
             switch indexPath.section {
             case 0:
@@ -34,6 +34,7 @@ extension FeedTableViewController {
                 case 0: self = .title
                 case 1: self = .link
                 case 2: self = .description
+                case 3: self = .date
                 default: return nil
                 }
             case 1: self = .items

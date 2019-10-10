@@ -78,7 +78,7 @@ extension FeedTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 3
+        case 0: return 4
         case 1: return self.rssFeed?.items?.count ?? 0
         default: fatalError()
         }
@@ -91,6 +91,7 @@ extension FeedTableViewController {
         case .title:        cell.textLabel?.text = self.rssFeed?.title ?? "[no title]"
         case .link:         cell.textLabel?.text = self.rssFeed?.link ?? "[no link]"
         case .description:  cell.textLabel?.text = self.rssFeed?.description ?? "[no description]"
+        case .date:         cell.textLabel?.text = self.rssFeed?.lastBuildDate?.description ?? "[no date]"
         case .items:        cell.textLabel?.text = self.rssFeed?.items?[indexPath.row].title ?? "[no title]"
         }
         return cell
@@ -108,6 +109,7 @@ extension FeedTableViewController {
         case .title:        self.showDetailViewControllerWithText(self.rssFeed?.title ?? "[no title]")
         case .link:         self.showDetailViewControllerWithText(self.rssFeed?.link ?? "[no link]")
         case .description:  self.showDetailViewControllerWithText(self.rssFeed?.description ?? "[no link]")
+        case .date:         self.showDetailViewControllerWithText(self.rssFeed?.lastBuildDate?.description ?? "[no date]")
         case .items:        self.showDetailViewControllerWithText(self.rssFeed?.items?[indexPath.row].description ?? "[no description]")
         }
     }
