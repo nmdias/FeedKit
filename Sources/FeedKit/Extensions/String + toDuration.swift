@@ -30,7 +30,9 @@ extension String {
     ///
     /// - Returns: A TimeInterval.
     func toDuration() -> TimeInterval? {
-        let comps = self.components(separatedBy: ":")
+        let comps = self
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .components(separatedBy: ":")
 
         guard
             !comps.contains(where: { Int($0) == nil }),
