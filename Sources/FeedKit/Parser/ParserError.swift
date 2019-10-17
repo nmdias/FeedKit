@@ -98,9 +98,14 @@ extension ParserError {
         ]
     }
     
-    /// The `NSError` from the specified case.
+    /// The error's domain for the specified case.
     var domain: String {
         "com.feedkit.error"
+    }
+
+    /// The `NSError` from the specified case.
+    public var value: NSError {
+        return NSError(domain: domain, code: code, userInfo: userInfo)
     }
     
 }
