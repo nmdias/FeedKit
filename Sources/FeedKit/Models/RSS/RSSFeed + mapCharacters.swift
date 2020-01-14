@@ -220,6 +220,7 @@ extension RSSFeed {
         case .rdfItemDublinCoreRelation:                            self.items?.last?.dublinCore?.dcRelation                        = self.items?.last?.dublinCore?.dcRelation?.appending(string) ?? string
         case .rdfItemDublinCoreCoverage:                            self.items?.last?.dublinCore?.dcCoverage                        = self.items?.last?.dublinCore?.dcCoverage?.appending(string) ?? string
         case .rdfItemDublinCoreRights:                              self.items?.last?.dublinCore?.dcRights                          = self.items?.last?.dublinCore?.dcRights?.appending(string) ?? string
+        case .rdfItemContentEncoded:                                self.items?.last?.content?.contentEncoded                       = self.items?.last?.content?.contentEncoded?.appending(string) ?? string
         default: break
         }
         
