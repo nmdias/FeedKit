@@ -48,9 +48,9 @@ extension RSSFeed {
         case .rssChannelDocs:                                       self.docs                                                       = self.docs?.appending(string) ?? string
         case .rssChannelRating:                                     self.rating                                                     = self.rating?.appending(string) ?? string
         case .rssChannelTTL:                                        self.ttl                                                        = Int(string)
-        case .rssChannelImageURL:                                   self.image?.url                                                 = self.image?.url?.appending(string) ?? string
+        case .rssChannelImageURL:                                   self.image?.url                                                 = string
         case .rssChannelImageTitle:                                 self.image?.title                                               = self.image?.title?.appending(string) ?? string
-        case .rssChannelImageLink:                                  self.image?.link                                                = self.image?.link?.appending(string) ?? string
+        case .rssChannelImageLink:                                  self.image?.link                                                = string
         case .rssChannelImageWidth:                                 self.image?.width                                               = Int(string)
         case .rssChannelImageHeight:                                self.image?.height                                              = Int(string)
         case .rssChannelImageDescription:                           self.image?.description                                         = self.image?.description?.appending(string) ?? string
