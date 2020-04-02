@@ -49,9 +49,9 @@ class FeedTableViewController: UITableViewController {
                 // Or alternatively...
                 //
                 // switch feed {
-                // case .rss(let feed): break
-                // case .atom(let feed): break
-                // case .json(let feed): break
+                // case let .rss(feed): break
+                // case let .atom(feed): break
+                // case let .json(feed): break
                 // }
                 
                 // Then back to the Main thread to update the UI.

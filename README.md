@@ -78,9 +78,9 @@ case .success(let feed):
     
     // Or alternatively...
     switch feed {
-    case .atom(feed):       // Atom Syndication Format Feed Model
-    case .rss(feed):        // Really Simple Syndication Feed Model
-    case .json(feed):       // JSON Feed Model
+    case let .atom(feed):       // Atom Syndication Format Feed Model
+    case let .rss(feed):        // Really Simple Syndication Feed Model
+    case let .json(feed):       // JSON Feed Model
     }
     
 case .failure(let error):
