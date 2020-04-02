@@ -1385,7 +1385,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1140;
 				TargetAttributes = {
 					A0370EB81CEF9D5A009583A3 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1393,7 +1393,7 @@
 					};
 					A09C84FD1CE9AE2300D20CAB = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = "";
+						LastSwiftMigration = 1140;
 					};
 					A09C850C1CE9AE4F00D20CAB = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1435,7 +1435,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -2307,7 +2306,7 @@
 				PRODUCT_NAME = "FeedKit iOS Tests";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
@@ -2353,7 +2352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-iOS-Tests";
 				PRODUCT_NAME = "FeedKit iOS Tests";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -2558,6 +2557,7 @@
 		A0AA54801D02EACF000A2264 /* Release Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -3002,7 +3002,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.feedkit.FeedKit-iOS-Tests";
 				PRODUCT_NAME = "FeedKit iOS Tests";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -3104,6 +3104,7 @@
 		A0EF4D981CE867DF00C52142 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -3139,6 +3140,7 @@
 		A0EF4D991CE867DF00C52142 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
