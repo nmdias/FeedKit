@@ -569,6 +569,11 @@ extension RSSFeed {
                 self.items?.last?.dublinCore = DublinCoreNamespace()
             }
             
+        case .rdfItemContentEncoded:
+            if  self.items?.last?.content == nil {
+                self.items?.last?.content = ContentNamespace()
+            }
+            
         default: break
         }
         

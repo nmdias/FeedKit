@@ -86,4 +86,6 @@ enum RDFPath: String {
     case rdfItemDublinCoreCoverage                      = "/rdf:RDF/item/dc:coverage"
     case rdfItemDublinCoreRights                        = "/rdf:RDF/item/dc:rights"
     
+    // Content
+    case rdfItemContentEncoded                          = "/rdf:RDF/item/content:encoded"
 }
