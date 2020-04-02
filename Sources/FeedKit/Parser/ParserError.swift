@@ -91,7 +91,7 @@ extension ParserError {
     
     /// The error's userInfo dictionary for the specified case.
     var userInfo: [String: String] {
-        [
+        return [
             NSLocalizedDescriptionKey: errorDescription ?? "",
             NSLocalizedFailureReasonErrorKey: failureReason ?? "",
             NSLocalizedRecoverySuggestionErrorKey: recoverySuggestion ?? ""
@@ -100,7 +100,7 @@ extension ParserError {
     
     /// The `NSError` from the specified case.
     var domain: String {
-        "com.feedkit.error"
+        return "com.feedkit.error"
     }
     
 }
