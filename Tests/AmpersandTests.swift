@@ -35,10 +35,10 @@ class AmpersandTests: BaseTestCase {
     func testUnquotedAmpersands() {
         if let document = document {
             let parser = FeedParser(data: document)
-            let feed = parser.parse().rssFeed
+            let feed = try? parser.parse().get().rssFeed
             // Currently will fail because XMLParser strictly enforces the prohibition
             // against unquoted ampersands. Ideally, parsing would be more tolerant.
-            XCTAssertNil(feed)
+            XCTAssertNil(feed ?? nil)
         } else {
             XCTFail("Missing unquoted ampersand XML test document")
         }
@@ -47,8 +47,8 @@ class AmpersandTests: BaseTestCase {
     func testQuotedAmpersands() {
         if let document = document, let groomed = document.groomXML() {
             let parser = FeedParser(data: groomed)
-            let feed = parser.parse().rssFeed
-            XCTAssertNotNil(feed)
+            let feed = try? parser.parse().get().rssFeed
+            XCTAssertNotNil(feed ?? nil)
         }
     }
 
