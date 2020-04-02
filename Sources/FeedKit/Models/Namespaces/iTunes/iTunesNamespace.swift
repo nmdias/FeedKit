@@ -184,6 +184,11 @@ public class ITunesNamespace {
     /// about the podcast and is not displayed on the iTunes Store.
     public var iTunesOwner: ITunesOwner?
 
+    /// The content you specify in the <itunes:subtitle> tag appears in the
+    /// Description column on the iTunes Store. For best results, choose a subtitle
+    /// that is only a few words long.
+    public var iTunesTitle: String?
+    
     /// The content you specify in the <itunes:subtitle> tag appears in the 
     /// Description column on the iTunes Store. For best results, choose a subtitle 
     /// that is only a few words long.

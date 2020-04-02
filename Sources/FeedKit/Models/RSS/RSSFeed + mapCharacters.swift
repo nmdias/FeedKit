@@ -120,6 +120,7 @@ extension RSSFeed {
         case .rssChannelItunesNewFeedURL:                           self.iTunes?.iTunesNewFeedURL                                   = self.iTunes?.iTunesNewFeedURL?.appending(string) ?? string
         case .rssChannelItunesOwnerName:                            self.iTunes?.iTunesOwner?.name                                  = self.iTunes?.iTunesOwner?.name?.appending(string) ?? string
         case .rssChannelItunesOwnerEmail:                           self.iTunes?.iTunesOwner?.email                                 = self.iTunes?.iTunesOwner?.email?.appending(string) ?? string
+        case .rssChannelItunesTitle:                                self.iTunes?.iTunesTitle                                        = self.iTunes?.iTunesTitle?.appending(string) ?? string
         case .rssChannelItunesSubtitle:                             self.iTunes?.iTunesSubtitle                                     = self.iTunes?.iTunesSubtitle?.appending(string) ?? string
         case .rssChannelItunesSummary:                              self.iTunes?.iTunesSummary                                      = self.iTunes?.iTunesSummary?.appending(string) ?? string
         case .rssChannelItunesKeywords:                             self.iTunes?.iTunesKeywords                                     = self.iTunes?.iTunesKeywords?.appending(string) ?? string

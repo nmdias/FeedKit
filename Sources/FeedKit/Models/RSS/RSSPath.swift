@@ -130,6 +130,7 @@ enum RSSPath: String {
     case rssChannelItunesOwner                                  = "/rss/channel/itunes:owner"
     case rssChannelItunesOwnerEmail                             = "/rss/channel/itunes:owner/itunes:email"
     case rssChannelItunesOwnerName                              = "/rss/channel/itunes:owner/itunes:name"
+    case rssChannelItunesTitle                                  = "/rss/channel/itunes:title"
     case rssChannelItunesSubtitle                               = "/rss/channel/itunes:subtitle"
     case rssChannelItunesSummary                                = "/rss/channel/itunes:summary"
     case rssChannelItunesKeywords                               = "/rss/channel/itunes:keywords"
