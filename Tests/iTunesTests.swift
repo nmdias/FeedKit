@@ -76,6 +76,7 @@ class iTunesTests: BaseTestCase {
 
             // Then
             XCTAssertNotNil(feed?.items?.first?.iTunes)
+            XCTAssertEqual(feed?.items?.first?.iTunes?.iTunesTitle, "Dan Carlin's Hardcore History")
             XCTAssertEqual(feed?.items?.first?.iTunes?.iTunesAuthor, "Dan Carlin")
             XCTAssertEqual(feed?.items?.first?.iTunes?.iTunesBlock, "No")
             XCTAssertEqual(feed?.items?.first?.iTunes?.isClosedCaptioned, "Yes")
