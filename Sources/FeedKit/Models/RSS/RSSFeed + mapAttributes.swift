@@ -223,6 +223,7 @@ extension RSSFeed {
         .rssChannelItemItunesExplicit,
         .rssChannelItemItunesIsClosedCaptioned,
         .rssChannelItemItunesOrder,
+        .rssChannelItemItunesTitle,
         .rssChannelItemItunesSubtitle,
         .rssChannelItemItunesSummary,
         .rssChannelItemItunesKeywords:
