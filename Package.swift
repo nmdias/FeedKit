@@ -15,6 +15,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "FeedKit", dependencies: []),
+        .testTarget(name: "Tests", dependencies: ["FeedKit"], path: "Tests")
     ],
     swiftLanguageVersions: [
         .v5
