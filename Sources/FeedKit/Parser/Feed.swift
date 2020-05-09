@@ -24,7 +24,7 @@
 
 import Foundation
 
-public enum Feed {
+public enum Feed: Equatable {
     case atom(AtomFeed)
     case rss(RSSFeed)
     case json(JSONFeed)
@@ -35,27 +35,18 @@ public enum Feed {
 extension Feed {
     
     public var rssFeed: RSSFeed? {
-        switch self {
-        case .rss(let rssFeed): return rssFeed
-        case .atom(_): return nil
-        case .json(_): return nil
-        }
+        guard case let .rss(feed) = self else { return nil }
+        return feed
     }
 
     public var atomFeed: AtomFeed? {
-        switch self {
-        case .rss(_): return nil
-        case .atom(let atomFeed): return atomFeed
-        case .json(_): return nil
-        }
+        guard case let .atom(feed) = self else { return nil }
+        return feed
     }
 
     public var jsonFeed: JSONFeed? {
-        switch self {
-        case .rss(_): return nil
-        case .atom(_): return nil
-        case .json(let jsonFeed): return jsonFeed
-        }
+        guard case let .json(feed) = self else { return nil }
+        return feed
     }
 
 }

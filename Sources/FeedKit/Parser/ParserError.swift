@@ -31,7 +31,7 @@ import Foundation
 /// - feedCDATABlockEncodingError: Unable to convert the bytes in `CDATABlock` 
 ///   to Unicode characters using the UTF-8 encoding.
 /// - internalError: An internal error from which the user cannot recover.
-public enum ParserError {
+public enum ParserError: Equatable {
     case feedNotFound
     case feedCDATABlockEncodingError(path: String)
     case internalError(reason: String)
