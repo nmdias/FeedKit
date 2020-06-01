@@ -70,6 +70,13 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
     /// `<title>` element.
     fileprivate var currentXMLDOMPath: URL = URL(string: "/")!
     
+    /**
+     If ATOM content type is "xhtml", this library will parse the content as empty
+     use this method to prevent that
+     */
+    fileprivate lazy var insideContent = false
+    fileprivate lazy var innerContentAccumulator = ""
+    
     /// A parsing error, if any.
     var parsingError: Error?
     var parseComplete = false
@@ -142,6 +149,18 @@ extension XMLFeedParser {
         attributes attributeDict: [String : String])
     {
         
+        // if element is not content, but current is content, treat it as content inner tag
+        if self.currentXMLDOMPath.lastPathComponent == "content", elementName != "content" {
+            insideContent = true
+        }
+        
+        if insideContent {
+            let attrStr = attributeDict.map {
+                "\($0.key)=\"\($0.value)\""
+            }.joined(separator: " ")
+            innerContentAccumulator.append("<\(elementName) \(attrStr)>")
+        }
+        
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`.
         self.currentXMLDOMPath = self.currentXMLDOMPath.appendingPathComponent(elementName)
         
@@ -186,6 +205,16 @@ extension XMLFeedParser {
         namespaceURI: String?,
         qualifiedName qName: String?)
     {
+        if elementName == "content" {
+            let all = innerContentAccumulator
+            insideContent = false
+            self.atomFeed?.entries?.last?.content?.value = all
+            innerContentAccumulator = ""
+            
+        } else if insideContent {
+            innerContentAccumulator.append("</\(elementName)>")
+        }
+        
         // Update the current path along the XML's DOM elements by deleting last component.
         self.currentXMLDOMPath = self.currentXMLDOMPath.deletingLastPathComponent()
         if currentXMLDOMPath.absoluteString == "/" {
@@ -204,6 +233,9 @@ extension XMLFeedParser {
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
+        if insideContent {
+            innerContentAccumulator.append(string)
+        }
         self.map(string)
     }
     
