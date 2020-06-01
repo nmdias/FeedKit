@@ -212,6 +212,7 @@ extension XMLFeedParser {
             self.atomFeed?.entries?.last?.content?.value = all
             innerContentAccumulator = ""
         } else if insideContent {
+            // just append innner content
             innerContentAccumulator.append("</\(elementName)>")
         }
         
