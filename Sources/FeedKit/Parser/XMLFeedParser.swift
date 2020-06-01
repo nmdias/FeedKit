@@ -205,6 +205,7 @@ extension XMLFeedParser {
         namespaceURI: String?,
         qualifiedName qName: String?)
     {
+        
         if elementName == "content" {
             // content end
             let all = innerContentAccumulator
