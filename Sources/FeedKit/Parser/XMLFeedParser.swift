@@ -206,11 +206,11 @@ extension XMLFeedParser {
         qualifiedName qName: String?)
     {
         if elementName == "content" {
+            // content end
             let all = innerContentAccumulator
             insideContent = false
             self.atomFeed?.entries?.last?.content?.value = all
             innerContentAccumulator = ""
-            
         } else if insideContent {
             innerContentAccumulator.append("</\(elementName)>")
         }
