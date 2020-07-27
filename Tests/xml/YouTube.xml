@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCmJi5RdDLgzvkl3Ly0DRMlQ"/>
+ <id>yt:channel:UCmJi5RdDLgzvkl3Ly0DRMlQ</id>
+ <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+ <title>Paul Hudson</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ"/>
+ <author>
+  <name>Paul Hudson</name>
+  <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+ </author>
+ <published>2014-02-09T23:37:23+00:00</published>
+ <entry>
+  <id>yt:video:QZb5c42Sdq8</id>
+  <yt:videoId>QZb5c42Sdq8</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to create a date picker and read values from it – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=QZb5c42Sdq8"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T10:33:21+00:00</published>
+  <updated>2020-07-04T10:33:23+00:00</updated>
+  <media:group>
+   <media:title>How to create a date picker and read values from it – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/QZb5c42Sdq8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/QZb5c42Sdq8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI’s DatePicker view is analogous to UIDatePicker, and comes with a variety options for controlling how it looks and works. Like all controls that store values, it does need to be bound to some sort of state in your app. 
+
+From iOS 14 onwards, you can use the new GraphicalDatePickerStyle() to get a more advanced date picker, that shows a calendar plus space to enter a precise time</media:description>
+   <media:community>
+    <media:starRating count="72" average="4.94" min="1" max="5"/>
+    <media:statistics views="1486"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:pIxr5pAFJyc</id>
+  <yt:videoId>pIxr5pAFJyc</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to hide and reveal content using DisclosureGroup – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=pIxr5pAFJyc"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T10:29:50+00:00</published>
+  <updated>2020-07-04T10:29:52+00:00</updated>
+  <media:group>
+   <media:title>How to hide and reveal content using DisclosureGroup – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/pIxr5pAFJyc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/pIxr5pAFJyc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI has a dedicated DisclosureGroup view that presents a disclosure indicator and content inside. This can be bound to some sort of Boolean property that determines whether the content is currently visible or not, but then you can place lots of views inside there to display when unfolded.</media:description>
+   <media:community>
+    <media:starRating count="73" average="4.95" min="1" max="5"/>
+    <media:statistics views="1359"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:G0qor4QumfA</id>
+  <yt:videoId>G0qor4QumfA</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to create expanding lists – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=G0qor4QumfA"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T10:24:24+00:00</published>
+  <updated>2020-07-04T10:24:26+00:00</updated>
+  <media:group>
+   <media:title>How to create expanding lists – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/G0qor4QumfA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/G0qor4QumfA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI’s List has an enhanced initializer that lets us create expanding sections with child elements – they will be rendered with tappable arrows that open out to reveal children when tapped.</media:description>
+   <media:community>
+    <media:starRating count="72" average="4.94" min="1" max="5"/>
+    <media:statistics views="1425"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:pHIsK8VzizU</id>
+  <yt:videoId>pHIsK8VzizU</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to create multi-line editable text with TextEditor – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=pHIsK8VzizU"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T10:18:28+00:00</published>
+  <updated>2020-07-04T10:18:30+00:00</updated>
+  <media:group>
+   <media:title>How to create multi-line editable text with TextEditor – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/pHIsK8VzizU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/pHIsK8VzizU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI has a TextEditor view for handling multi-line, scrolling text. You can set the font, change the colors as needed, and even adjust line spacing and how many lines can be created.</media:description>
+   <media:community>
+    <media:starRating count="21" average="5.00" min="1" max="5"/>
+    <media:statistics views="541"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:TVe6D7RHcgs</id>
+  <yt:videoId>TVe6D7RHcgs</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to add a sidebar for iPadOS – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=TVe6D7RHcgs"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T10:13:23+00:00</published>
+  <updated>2020-07-04T10:13:25+00:00</updated>
+  <media:group>
+   <media:title>How to add a sidebar for iPadOS – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/TVe6D7RHcgs?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/TVe6D7RHcgs/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In iPadOS it’s possible to show not only a regular split view controller, but also to add a sidebar that can be shown with a button tap.</media:description>
+   <media:community>
+    <media:starRating count="87" average="4.95" min="1" max="5"/>
+    <media:statistics views="1528"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Rt9-5Tm8vk4</id>
+  <yt:videoId>Rt9-5Tm8vk4</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to create a document-based app using FileDocument and DocumentGroup – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Rt9-5Tm8vk4"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T10:06:29+00:00</published>
+  <updated>2020-07-04T10:06:31+00:00</updated>
+  <media:group>
+   <media:title>How to create a document-based app using FileDocument and DocumentGroup – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/Rt9-5Tm8vk4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/Rt9-5Tm8vk4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI comes with support for document-based apps, which are apps that let users create, edit, and share documents such as text files. In SwiftUI we’re given two main types to work with: the FileDocument protocol to define what a document in our app looks like, and the DocumentGroup struct that gives us a default scene to let users create, open, and save documents.</media:description>
+   <media:community>
+    <media:starRating count="47" average="4.83" min="1" max="5"/>
+    <media:statistics views="967"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:x7fdvXdVd98</id>
+  <yt:videoId>x7fdvXdVd98</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to synchronize animations from one view to another with matchedGeometryEffect() – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=x7fdvXdVd98"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T10:00:46+00:00</published>
+  <updated>2020-07-04T10:00:48+00:00</updated>
+  <media:group>
+   <media:title>How to synchronize animations from one view to another with matchedGeometryEffect() – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/x7fdvXdVd98?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/x7fdvXdVd98/hqdefault.jpg" width="480" height="360"/>
+   <media:description>If you have the same view appearing in two different parts of your view hierarchy and want to animate between them – for example, going from a list view to a zoomed detail view – then you should use SwiftUI’s matchedGeometryEffect() modifier, which is a bit like Magic Move in Keynote.</media:description>
+   <media:community>
+    <media:starRating count="91" average="5.00" min="1" max="5"/>
+    <media:statistics views="1293"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:rChSFRIaAYo</id>
+  <yt:videoId>rChSFRIaAYo</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to make a scroll view move to a location using ScrollViewReader – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=rChSFRIaAYo"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T09:45:23+00:00</published>
+  <updated>2020-07-04T09:45:25+00:00</updated>
+  <media:group>
+   <media:title>How to make a scroll view move to a location using ScrollViewReader – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/rChSFRIaAYo?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/rChSFRIaAYo/hqdefault.jpg" width="480" height="360"/>
+   <media:description>If you want to programmatically make SwiftUI’s ScrollView move to a specific location, you should embed a ScrollViewReader inside it. This provides a scrollTo() method that can move to any view inside the parent scrollview, just by providing its anchor.</media:description>
+   <media:community>
+    <media:starRating count="34" average="5.00" min="1" max="5"/>
+    <media:statistics views="596"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:SdIWZzl9h-w</id>
+  <yt:videoId>SdIWZzl9h-w</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to present a full screen modal view using fullScreenCover() – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=SdIWZzl9h-w"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T09:40:52+00:00</published>
+  <updated>2020-07-04T09:40:54+00:00</updated>
+  <media:group>
+   <media:title>How to present a full screen modal view using fullScreenCover() – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/SdIWZzl9h-w?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/SdIWZzl9h-w/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI’s fullScreenCover() modifier gives us a presentation style for times when you want to cover as much of the screen as possible, and in code it works almost identically to regular sheets.</media:description>
+   <media:community>
+    <media:starRating count="44" average="4.91" min="1" max="5"/>
+    <media:statistics views="937"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:8hfgErg7ybQ</id>
+  <yt:videoId>8hfgErg7ybQ</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to format dates inside text views – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=8hfgErg7ybQ"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T09:36:03+00:00</published>
+  <updated>2020-07-04T09:36:05+00:00</updated>
+  <media:group>
+   <media:title>How to format dates inside text views – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/8hfgErg7ybQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/8hfgErg7ybQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI’s text views come with two specific date formatters to make dates look better on screen: one to handle single dates, and one to handle date ranges.</media:description>
+   <media:community>
+    <media:starRating count="32" average="5.00" min="1" max="5"/>
+    <media:statistics views="542"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:ODxizhqW9aY</id>
+  <yt:videoId>ODxizhqW9aY</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to recommend another app using appStoreOverlay() – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=ODxizhqW9aY"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T09:32:49+00:00</published>
+  <updated>2020-07-04T09:32:50+00:00</updated>
+  <media:group>
+   <media:title>How to recommend another app using appStoreOverlay() – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/ODxizhqW9aY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/ODxizhqW9aY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI gives us a dedicated modifier that can recommend other apps on the App Store, which is a great way to cross-sell to users – “if you liked this, you’ll also like that”, and so on.
+
+This modifier needs some state to watch that will determine whether the App Store overlay is active or not, along with an SKOverlay.AppConfiguration that determines which app to recommend.</media:description>
+   <media:community>
+    <media:starRating count="11" average="5.00" min="1" max="5"/>
+    <media:statistics views="270"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:iDseNgvdTpA</id>
+  <yt:videoId>iDseNgvdTpA</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>How to export files using ExportFilesAction – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=iDseNgvdTpA"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T09:22:32+00:00</published>
+  <updated>2020-07-04T09:22:33+00:00</updated>
+  <media:group>
+   <media:title>How to export files using ExportFilesAction – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/iDseNgvdTpA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/iDseNgvdTpA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI has an exportFiles environment key that lets us export files from our app to anywhere the user wants – any folder in iCloud, or on their local device.</media:description>
+   <media:community>
+    <media:starRating count="25" average="5.00" min="1" max="5"/>
+    <media:statistics views="504"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Tkqd7cCrMf0</id>
+  <yt:videoId>Tkqd7cCrMf0</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>What is the @AppStorage property wrapper? – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Tkqd7cCrMf0"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T09:16:55+00:00</published>
+  <updated>2020-07-04T09:16:56+00:00</updated>
+  <media:group>
+   <media:title>What is the @AppStorage property wrapper? – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/Tkqd7cCrMf0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/Tkqd7cCrMf0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI has a dedicated property wrapper for reading values from UserDefaults, which will automatically reinvoke your view’s body property when the value changes. That is, this wrapper effectively watches a key in UserDefaults, and will refresh your UI if that key changes.</media:description>
+   <media:community>
+    <media:starRating count="33" average="5.00" min="1" max="5"/>
+    <media:statistics views="686"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:8DlkDj7Re3M</id>
+  <yt:videoId>8DlkDj7Re3M</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>What is the @ScaledMetric property wrapper? – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=8DlkDj7Re3M"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T09:14:02+00:00</published>
+  <updated>2020-07-04T09:14:03+00:00</updated>
+  <media:group>
+   <media:title>What is the @ScaledMetric property wrapper? – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/8DlkDj7Re3M?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/8DlkDj7Re3M/hqdefault.jpg" width="480" height="360"/>
+   <media:description>SwiftUI gives us the @ScaledMetric property wrapper to define numbers that should scale automatically according to the user’s Dynamic Type settings.</media:description>
+   <media:community>
+    <media:starRating count="24" average="5.00" min="1" max="5"/>
+    <media:statistics views="421"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:RHL_sjbf6DQ</id>
+  <yt:videoId>RHL_sjbf6DQ</yt:videoId>
+  <yt:channelId>UCmJi5RdDLgzvkl3Ly0DRMlQ</yt:channelId>
+  <title>What is the @SceneStorage property wrapper? – SwiftUI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=RHL_sjbf6DQ"/>
+  <author>
+   <name>Paul Hudson</name>
+   <uri>https://www.youtube.com/channel/UCmJi5RdDLgzvkl3Ly0DRMlQ</uri>
+  </author>
+  <published>2020-07-04T09:02:42+00:00</published>
+  <updated>2020-07-04T09:02:44+00:00</updated>
+  <media:group>
+   <media:title>What is the @SceneStorage property wrapper? – SwiftUI</media:title>
+   <media:content url="https://www.youtube.com/v/RHL_sjbf6DQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/RHL_sjbf6DQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>If you want to save unique data for each of your screens, you should use SwiftUI’s @SceneStorage property wrapper. This works a bit like @AppStorage in that you provide it with a name to save things plus a default value, but rather than working with UserDefaults it instead gets used for state restoration – and it even works great with the kinds of complex multi-scene set ups we see so often in iPadOS.</media:description>
+   <media:community>
+    <media:starRating count="26" average="5.00" min="1" max="5"/>
+    <media:statistics views="645"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

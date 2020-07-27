@@ -54,6 +54,8 @@ public class MediaGroup {
     /// included, it assumes that no restrictions are necessary. It has one
     /// optional attribute.
     public var mediaRating: MediaRating?
+  
+    public var mediaDescription: MediaDescription?
     
     public init() { }
 

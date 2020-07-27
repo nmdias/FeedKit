@@ -169,7 +169,8 @@ extension AtomFeed {
         .feedEntryMediaGroupMediaCategory,
         .feedEntryMediaGroupMediaCredit,
         .feedEntryMediaGroupMediaRating,
-        .feedEntryMediaGroupMediaContent:
+        .feedEntryMediaGroupMediaContent,
+          .feedEntryMediaGroupMediaDescription:
             
             if  self.entries?.last?.media == nil {
                 self.entries?.last?.media = MediaNamespace()
@@ -340,6 +341,13 @@ extension AtomFeed {
                 }
                 
                 self.entries?.last?.media?.mediaGroup?.mediaContents?.append(MediaContent(attributes: attributes))
+              
+              
+          case .feedEntryMediaGroupMediaDescription:
+              
+            if  self.entries?.last?.media?.mediaGroup?.mediaDescription == nil {
+                  self.entries?.last?.media?.mediaGroup?.mediaDescription = MediaDescription(attributes: attributes)
+              }
             
             default: break
                 
