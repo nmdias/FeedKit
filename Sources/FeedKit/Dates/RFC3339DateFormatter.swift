@@ -32,7 +32,8 @@ class RFC3339DateFormatter: DateFormatter {
         "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
         "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ",
         "yyyy-MM-dd'T'HH:mm:ss-SS:ZZ",
-        "yyyy-MM-dd'T'HH:mm:ss"
+        "yyyy-MM-dd'T'HH:mm:ss",
+        "yyyy-MM-dd",
     ]
     
     override init() {
