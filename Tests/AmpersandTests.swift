@@ -28,7 +28,7 @@ class AmpersandTests: BaseTestCase {
     var document: Data?
     
     override func setUp() {
-        let url = fileURL("Ampersand", type: "xml")
+        let url = fileURL("xml/Ampersand", type: "xml")
         document = try? Data(contentsOf: url)
     }
     

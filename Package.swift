@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -15,9 +15,6 @@ let package = Package(
     ],
     targets: [
         .target(name: "FeedKit", dependencies: []),
-        .testTarget(name: "Tests", dependencies: ["FeedKit"], path: "Tests")
-    ],
-    swiftLanguageVersions: [
-        .v5
+        .testTarget(name: "Tests", dependencies: ["FeedKit"], path: "Tests", resources: [.copy("json"), .copy("xml")])
     ]
 )

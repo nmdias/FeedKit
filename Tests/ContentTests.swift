@@ -30,7 +30,7 @@ class ContentTests: BaseTestCase {
     func testContent() {
         
         // Given
-        let URL = fileURL("Content", type: "xml")
+        let URL = fileURL("xml/Content", type: "xml")
         let parser = FeedParser(URL: URL)
         
         do {
@@ -56,7 +56,7 @@ class ContentTests: BaseTestCase {
             
             // Given
             let expectation = self.expectation(description: "Content Parsing Performance")
-            let URL = self.fileURL("Content", type: "xml")
+            let URL = self.fileURL("xml/Content", type: "xml")
             let parser = FeedParser(URL: URL)
             
             // When

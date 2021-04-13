@@ -30,7 +30,7 @@ class JSONTests: BaseTestCase {
     func testJSONFeed() {
         
         // Given
-        let URL = fileURL("feed", type: "json")
+        let URL = fileURL("json/feed", type: "json")
         let parser = FeedParser(URL: URL)
         var jsonFeed = JSONFeed()
         
