@@ -72,7 +72,7 @@ extension AtomFeed {
         case .feedEntryMediaGroupMediaCredit:                  self.entries?.last?.media?.mediaGroup?.mediaCredits?.last?.value  = self.entries?.last?.media?.mediaGroup?.mediaCredits?.last?.value?.appending(string) ?? string
         case .feedEntryMediaGroupMediaCategory:                self.entries?.last?.media?.mediaGroup?.mediaCategory?.value       = self.entries?.last?.media?.mediaGroup?.mediaCategory?.value?.appending(string) ?? string
         case .feedEntryMediaGroupMediaRating:                  self.entries?.last?.media?.mediaGroup?.mediaRating?.value         = self.entries?.last?.media?.mediaGroup?.mediaRating?.value?.appending(string) ?? string
-        case .feedEntryMediaGroupMediaDescription:             self.entries?.last?.media?.mediaGroup?.mediaDescription?.value         = self.entries?.last?.media?.mediaGroup?.mediaDescription?.value?.appending(string) ?? string
+        case .feedEntryMediaGroupMediaDescription:             self.entries?.last?.media?.mediaGroup?.mediaDescription?.value    = self.entries?.last?.media?.mediaGroup?.mediaDescription?.value?.appending(string) ?? string
         case .feedEntryMediaResponsesMediaResponse:            self.entries?.last?.media?.mediaResponses?.append(string)
         case .feedEntryMediaBackLinksBackLink:                 self.entries?.last?.media?.mediaBackLinks?.append(string)
         case .feedEntryMediaLocationPosition:                  self.entries?.last?.media?.mediaLocation?.mapFrom(latLng: string)
