@@ -24,7 +24,7 @@
 
 import Foundation
 
-/// Key-Value pairs with aditional parameters for the embeded Media.
+/// Key-Value pairs with additional parameters for the embedded Media.
 public class MediaParam {
     
     /// The element's attributes.
