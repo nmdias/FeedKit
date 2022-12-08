@@ -30,8 +30,10 @@ class BaseTestCase: XCTestCase {
     
     func fileURL(_ name: String, type: String) -> URL {
         let bundle = Bundle(for: Swift.type(of: self))
-        let filePath = bundle.path(forResource: name, ofType: type)!
-        return URL(fileURLWithPath: filePath)
+        if let filePath = bundle.path(forResource: name, ofType: type) {
+          return URL(fileURLWithPath: filePath)
+        }
+        return URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent(type).appendingPathComponent(name).appendingPathExtension(type)
     }
     
 }
