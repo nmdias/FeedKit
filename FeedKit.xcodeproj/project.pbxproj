@@ -487,6 +487,16 @@
 		BB394B7D223B368C00366193 /* AmpersandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB394B7C223B368C00366193 /* AmpersandTests.swift */; };
 		BB394B7E223B368C00366193 /* AmpersandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB394B7C223B368C00366193 /* AmpersandTests.swift */; };
 		BB394B7F223B368C00366193 /* AmpersandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB394B7C223B368C00366193 /* AmpersandTests.swift */; };
+		EA0743542A3DF3A600E78F98 /* AtomNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0743532A3DF3A600E78F98 /* AtomNamespace.swift */; };
+		EA0743552A3DF7B900E78F98 /* AtomNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0743532A3DF3A600E78F98 /* AtomNamespace.swift */; };
+		EA0743562A3DF7B900E78F98 /* AtomNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0743532A3DF3A600E78F98 /* AtomNamespace.swift */; };
+		EA0743572A3DF7BA00E78F98 /* AtomNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0743532A3DF3A600E78F98 /* AtomNamespace.swift */; };
+		EA0743592A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml in Resources */ = {isa = PBXBuildFile; fileRef = EA0743582A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml */; };
+		EA07435A2A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml in Resources */ = {isa = PBXBuildFile; fileRef = EA0743582A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml */; };
+		EA07435B2A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml in Resources */ = {isa = PBXBuildFile; fileRef = EA0743582A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml */; };
+		EA07435D2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA07435C2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift */; };
+		EA07435E2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA07435C2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift */; };
+		EA07435F2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA07435C2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -723,6 +733,9 @@
 		A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDFTests.swift; sourceTree = "<group>"; };
 		BB394B77223B35D700366193 /* Ampersand.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ampersand.xml; sourceTree = "<group>"; };
 		BB394B7C223B368C00366193 /* AmpersandTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmpersandTests.swift; sourceTree = "<group>"; };
+		EA0743532A3DF3A600E78F98 /* AtomNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomNamespace.swift; sourceTree = "<group>"; };
+		EA0743582A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WebSubRSSFeedDiscovery.xml; sourceTree = "<group>"; };
+		EA07435C2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedDiscoveryTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -825,6 +838,7 @@
 				A09AFB391EEFDFF40076ACC7 /* SyndicationTests.swift */,
 				BB394B7C223B368C00366193 /* AmpersandTests.swift */,
 				A0C788BE20CC5606005C2F6F /* FeedUriSchemeSanitizerTests.swift */,
+				EA07435C2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift */,
 				A09AFB5E1EEFE0060076ACC7 /* Info.plist */,
 			);
 			path = Tests;
@@ -991,6 +1005,7 @@
 		A0F6B7E51F6E6E9600220625 /* Namespaces */ = {
 			isa = PBXGroup;
 			children = (
+				EA0743522A3DF39400E78F98 /* Atom */,
 				A0F6B7E61F6E6E9600220625 /* Content */,
 				A0F6B7E81F6E6E9600220625 /* Dublin Core */,
 				A0F6B7EA1F6E6E9600220625 /* iTunes */,
@@ -1121,6 +1136,7 @@
 		A0F6B9AD1F6E6FA700220625 /* xml */ = {
 			isa = PBXGroup;
 			children = (
+				EA0743582A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml */,
 				BB394B77223B35D700366193 /* Ampersand.xml */,
 				A0F6B9AE1F6E6FA700220625 /* Atom.xml */,
 				A0F6B9AF1F6E6FA700220625 /* AtomMedia.xml */,
@@ -1153,6 +1169,14 @@
 				A0F6B9BE1F6E6FC700220625 /* FeedTableViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EA0743522A3DF39400E78F98 /* Atom */ = {
+			isa = PBXGroup;
+			children = (
+				EA0743532A3DF3A600E78F98 /* AtomNamespace.swift */,
+			);
+			path = Atom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1473,6 +1497,7 @@
 				A0F6B9D81F6E713F00220625 /* FeedNotFound.xml in Resources */,
 				A0F6B9D91F6E713F00220625 /* iTunesPodcasting.xml in Resources */,
 				A0F6B9DE1F6E713F00220625 /* RSSMedia.xml in Resources */,
+				EA0743592A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml in Resources */,
 				BB394B79223B362300366193 /* Ampersand.xml in Resources */,
 				A0F6B9D71F6E713F00220625 /* Content.xml in Resources */,
 				A0F6B9D51F6E713F00220625 /* Atom.xml in Resources */,
@@ -1493,6 +1518,7 @@
 				A0F6B9CD1F6E713F00220625 /* FeedNotFound.xml in Resources */,
 				A0F6B9CE1F6E713F00220625 /* iTunesPodcasting.xml in Resources */,
 				A0F6B9D31F6E713F00220625 /* RSSMedia.xml in Resources */,
+				EA07435A2A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml in Resources */,
 				BB394B7A223B362400366193 /* Ampersand.xml in Resources */,
 				A0F6B9CC1F6E713F00220625 /* Content.xml in Resources */,
 				A0F6B9CA1F6E713F00220625 /* Atom.xml in Resources */,
@@ -1513,6 +1539,7 @@
 				A0F6B9C21F6E713E00220625 /* FeedNotFound.xml in Resources */,
 				A0F6B9C31F6E713E00220625 /* iTunesPodcasting.xml in Resources */,
 				A0F6B9C81F6E713F00220625 /* RSSMedia.xml in Resources */,
+				EA07435B2A3DF86B00E78F98 /* WebSubRSSFeedDiscovery.xml in Resources */,
 				BB394B7B223B362400366193 /* Ampersand.xml in Resources */,
 				A0F6B9C11F6E713E00220625 /* Content.xml in Resources */,
 				A0F6B9BF1F6E713E00220625 /* Atom.xml in Resources */,
@@ -1593,6 +1620,7 @@
 				A0F6B8531F6E6EB800220625 /* MediaCommunity.swift in Sources */,
 				A0F6B8731F6E6EB800220625 /* RSSFeed.swift in Sources */,
 				A0F6B86F1F6E6EB800220625 /* SyndicationUpdatePeriod.swift in Sources */,
+				EA0743572A3DF7BA00E78F98 /* AtomNamespace.swift in Sources */,
 				A0F6B87B1F6E6EB800220625 /* RSSFeedItemSource.swift in Sources */,
 				A0F6B8321F6E6EB800220625 /* String + toDate.swift in Sources */,
 				A0F6B8861F6E6EB800220625 /* XMLFeedParser.swift in Sources */,
@@ -1686,6 +1714,7 @@
 				A0F79FBD1F642AE2007CFC08 /* RDFTests.swift in Sources */,
 				A09AFB3A1EEFDFF40076ACC7 /* AtomTests.swift in Sources */,
 				A09AFB401EEFDFF40076ACC7 /* ContentTests.swift in Sources */,
+				EA07435D2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift in Sources */,
 				A09AFB491EEFDFF40076ACC7 /* DurationTests.swift in Sources */,
 				A09AFB431EEFDFF40076ACC7 /* DateTests.swift in Sources */,
 				A09AFB461EEFDFF40076ACC7 /* DublinCoreTests.swift in Sources */,
@@ -1708,6 +1737,7 @@
 				A0F79FBE1F642AE2007CFC08 /* RDFTests.swift in Sources */,
 				A09AFB3B1EEFDFF40076ACC7 /* AtomTests.swift in Sources */,
 				A09AFB411EEFDFF40076ACC7 /* ContentTests.swift in Sources */,
+				EA07435E2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift in Sources */,
 				A09AFB4A1EEFDFF40076ACC7 /* DurationTests.swift in Sources */,
 				A09AFB441EEFDFF40076ACC7 /* DateTests.swift in Sources */,
 				A09AFB471EEFDFF40076ACC7 /* DublinCoreTests.swift in Sources */,
@@ -1730,6 +1760,7 @@
 				A0F79FBF1F642AE2007CFC08 /* RDFTests.swift in Sources */,
 				A09AFB3C1EEFDFF40076ACC7 /* AtomTests.swift in Sources */,
 				A09AFB421EEFDFF40076ACC7 /* ContentTests.swift in Sources */,
+				EA07435F2A3DF8A800E78F98 /* RSSFeedDiscoveryTest.swift in Sources */,
 				A09AFB4B1EEFDFF40076ACC7 /* DurationTests.swift in Sources */,
 				A09AFB451EEFDFF40076ACC7 /* DateTests.swift in Sources */,
 				A09AFB481EEFDFF40076ACC7 /* DublinCoreTests.swift in Sources */,
@@ -1789,6 +1820,7 @@
 				A0F6B90B1F6E6EBB00220625 /* MediaCommunity.swift in Sources */,
 				A0F6B92B1F6E6EBB00220625 /* RSSFeed.swift in Sources */,
 				A0F6B9271F6E6EBB00220625 /* SyndicationUpdatePeriod.swift in Sources */,
+				EA0743552A3DF7B900E78F98 /* AtomNamespace.swift in Sources */,
 				A0F6B9331F6E6EBB00220625 /* RSSFeedItemSource.swift in Sources */,
 				A0F6B8EA1F6E6EBA00220625 /* String + toDate.swift in Sources */,
 				A0F6B93E1F6E6EBB00220625 /* XMLFeedParser.swift in Sources */,
@@ -1889,6 +1921,7 @@
 				A0F6B8AF1F6E6EBA00220625 /* MediaCommunity.swift in Sources */,
 				A0F6B8CF1F6E6EBA00220625 /* RSSFeed.swift in Sources */,
 				A0F6B8CB1F6E6EBA00220625 /* SyndicationUpdatePeriod.swift in Sources */,
+				EA0743562A3DF7B900E78F98 /* AtomNamespace.swift in Sources */,
 				A0F6B8D71F6E6EBA00220625 /* RSSFeedItemSource.swift in Sources */,
 				A0F6B88E1F6E6EBA00220625 /* String + toDate.swift in Sources */,
 				A0F6B8E21F6E6EBA00220625 /* XMLFeedParser.swift in Sources */,
@@ -1989,6 +2022,7 @@
 				A0F6B9671F6E6EBB00220625 /* MediaCommunity.swift in Sources */,
 				A0F6B9871F6E6EBB00220625 /* RSSFeed.swift in Sources */,
 				A0F6B9831F6E6EBB00220625 /* SyndicationUpdatePeriod.swift in Sources */,
+				EA0743542A3DF3A600E78F98 /* AtomNamespace.swift in Sources */,
 				A0F6B98F1F6E6EBB00220625 /* RSSFeedItemSource.swift in Sources */,
 				A0F6B9461F6E6EBB00220625 /* String + toDate.swift in Sources */,
 				A0F6B99A1F6E6EBB00220625 /* XMLFeedParser.swift in Sources */,
