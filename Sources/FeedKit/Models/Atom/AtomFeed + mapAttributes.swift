@@ -345,6 +345,16 @@ extension AtomFeed {
                 
             }
             
+            // MARK: YouTube
+            
+        case
+        .feedEntryYouTubeChannelID,
+        .feedEntryYouTubeVideoID:
+            
+            if self.entries?.last?.yt == nil {
+                self.entries?.last?.yt = YouTubeNamespace()
+            }
+            
         default: break
             
         }
