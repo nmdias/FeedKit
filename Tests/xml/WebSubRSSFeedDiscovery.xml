@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="https://websub.rocks/assets/rss.xsl" ?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  >
+<channel>
+  <title>WebSub Rocks! RSS Feed Discovery</title>
+  <atom:link href="https://websub.rocks/blog/103/lkK5Yax5utH3Ve5OUNQi" rel="self" type="application/rss+xml" />
+  <atom:link href="https://websub.rocks/blog/103/lkK5Yax5utH3Ve5OUNQi/hub" rel="hub" />
+  <link>https://websub.rocks/blog/103/lkK5Yax5utH3Ve5OUNQi</link>
+  <publishUrl>https://websub.rocks/subscriber/103/lkK5Yax5utH3Ve5OUNQi/publish</publishUrl>
+  <lastBuildDate>Sat, 17 Jun 2023 13:53:20 +0000</lastBuildDate>
+  <language>en-US</language>
+  
+  <description>This RSS feed has a stylesheet that will make it look like the websub.rocks site. If you are seeing this message, your browser doesn't support XSLT. To add a new post to this feed, follow this link https://websub.rocks/subscriber/103/lkK5Yax5utH3Ve5OUNQi/publish</description>
+
+  
+    <item>
+      <title></title>
+      <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://websub.rocks/blog/103/lkK5Yax5utH3Ve5OUNQi#quote-0</guid>
+      <description><![CDATA[]]></description>
+      <link>https://websub.rocks/blog/103/lkK5Yax5utH3Ve5OUNQi#quote-0</link>
+      <author></author>
+    </item>
+    
+  
+    <item>
+      <title></title>
+      <pubDate>Sat, 17 Jun 2023 13:53:20 +0000</pubDate>
+      <guid isPermaLink="true">https://websub.rocks/blog/103/lkK5Yax5utH3Ve5OUNQi#quote-1</guid>
+      <description><![CDATA[Simply put, you believer that things or people make you unhappy, but this is not accurate. You make yourself unhappy.]]></description>
+      <link>https://websub.rocks/blog/103/lkK5Yax5utH3Ve5OUNQi#quote-1</link>
+      <author>Wayne Dyer</author>
+    </item>
+    
+  
+    <item>
+      <title></title>
+      <pubDate>Sat, 17 Jun 2023 13:53:20 +0000</pubDate>
+      <guid isPermaLink="true">https://websub.rocks/blog/103/lkK5Yax5utH3Ve5OUNQi#quote-2</guid>
+      <description><![CDATA[Being angry never solves anything.]]></description>
+      <link>https://websub.rocks/blog/103/lkK5Yax5utH3Ve5OUNQi#quote-2</link>
+      <author>Catherine Pulsifer</author>
+    </item>
+    
+  </channel>
+</rss>

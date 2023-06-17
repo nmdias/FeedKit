@@ -492,6 +492,26 @@ extension RSSFeed {
             default: break
                 
             }
+            
+        case .rssChannelAtomLink:
+            
+            if self.atom == nil {
+                self.atom = AtomNamespace()
+            }
+            
+            switch path {
+                
+            case .rssChannelAtomLink:
+                
+                if self.atom?.links == nil {
+                    self.atom?.links = []
+                }
+                
+                self.atom?.links?.append(AtomFeedLink(attributes: attributes))
+                
+            default: break
+                
+            }
 
             
         default: break
