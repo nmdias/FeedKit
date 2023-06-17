@@ -265,6 +265,7 @@ extension RSSFeed: Equatable {
     
     public static func ==(lhs: RSSFeed, rhs: RSSFeed) -> Bool {
         return
+            lhs.atom == rhs.atom &&
             lhs.categories == rhs.categories &&
             lhs.cloud == rhs.cloud &&
             lhs.copyright == rhs.copyright &&
