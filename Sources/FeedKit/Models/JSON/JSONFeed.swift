@@ -101,7 +101,21 @@ public struct JSONFeed {
     
     /// The JSONFeed items.
     public var items: [JSONFeedItem]?
-    
+
+    public init(version: String? = nil, title: String? = nil, homePageURL: String? = nil, feedUrl: String? = nil, description: String? = nil, userComment: String? = nil, nextUrl: String? = nil, icon: String? = nil, favicon: String? = nil) {
+        self.version = version
+        self.title = title
+        self.homePageURL = homePageURL
+        self.feedUrl = feedUrl
+        self.description = description
+        self.userComment = userComment
+        self.nextUrl = nextUrl
+        self.icon = icon
+        self.favicon = favicon
+    }
+
+
+
 }
 
 // MARK: - Equatable

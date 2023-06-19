@@ -104,6 +104,23 @@ public struct JSONFeedItem {
     
     /// (optional, array) lists related resources.
     public var attachments: [JSONFeedAttachment]?
+
+    public init(id: String? = nil, url: String? = nil, externalUrl: String? = nil, title: String? = nil, contentText: String? = nil, contentHtml: String? = nil, summary: String? = nil, image: String? = nil, bannerImage: String? = nil, datePublished: Date? = nil, dateModified: Date? = nil, author: JSONFeedAuthor? = nil, tags: [String]? = nil, attachments: [JSONFeedAttachment]? = nil) {
+        self.id = id
+        self.url = url
+        self.externalUrl = externalUrl
+        self.title = title
+        self.contentText = contentText
+        self.contentHtml = contentHtml
+        self.summary = summary
+        self.image = image
+        self.bannerImage = bannerImage
+        self.datePublished = datePublished
+        self.dateModified = dateModified
+        self.author = author
+        self.tags = tags
+        self.attachments = attachments
+    }
     
 }
 
