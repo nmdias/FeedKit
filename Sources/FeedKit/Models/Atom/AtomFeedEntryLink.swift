@@ -36,6 +36,9 @@ public class AtomFeedEntryLink {
         /// have an href attribute, whose value MUST be a IRI reference
         /// [RFC3987].
         public var href: String?
+
+        public init() {
+        }
         
         /// The atom:link elements MAY have a "rel" attribute that indicates the link
         /// relation type.  If the "rel" attribute is not present, the link
@@ -132,7 +135,7 @@ public class AtomFeedEntryLink {
 
 extension AtomFeedEntryLink {
     
-    convenience init(attributes attributeDict: [String : String]) {
+    public convenience init(attributes attributeDict: [String : String]) {
         self.init()
         self.attributes = AtomFeedEntryLink.Attributes(attributes: attributeDict)
     }
@@ -141,7 +144,7 @@ extension AtomFeedEntryLink {
 
 extension AtomFeedEntryLink.Attributes {
     
-    convenience init?(attributes attributeDict: [String : String]) {
+    public convenience init?(attributes attributeDict: [String : String]) {
         
         if attributeDict.isEmpty {
             return nil
