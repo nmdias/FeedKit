@@ -1,4 +1,10 @@
 # Change Log
+## [8.2.0]
+### Updated
+- Changed parser.parseAsync() to use async/await
+- Raised minimum targets to macOS 10.15, iOS 13, tvOS 12, watchOS 4
+  - by [alexandrereol](https://github.com/alexandrereol)
+  
 ## [8.1.1](https://github.com/nmdias/FeedParser/releases/tag/8.1.1)
 ### Fixed
 - Avoid reencoding all incoming data to UTF-8

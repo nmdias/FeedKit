@@ -39,8 +39,8 @@ class FeedTableViewController: UITableViewController {
         self.title = "Feed"
         
         // Parse asynchronously, not to block the UI.
-        parser.parseAsync { [weak self] (result) in
-            guard let self = self else { return }
+        Task {
+            let result = await parser.parseAsync
             switch result {
             case .success(let feed):
                 // Grab the parsed feed directly as an optional rss, atom or json feed object
@@ -55,7 +55,7 @@ class FeedTableViewController: UITableViewController {
                 // }
                 
                 // Then back to the Main thread to update the UI.
-                DispatchQueue.main.async {
+                await MainActor.run {
                     self.tableView.reloadData()
                 }
                 

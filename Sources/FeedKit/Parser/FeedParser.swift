@@ -100,26 +100,10 @@ public class FeedParser {
         
     }
     
-    /// Starts parsing the feed asynchronously. Parsing runs by default on the
-    /// global queue. You are responsible to manually bring the result closure
-    /// to whichever queue is apropriate, if any.
-    ///
-    /// Usually to the Main queue if UI Updates are needed.
-    ///
-    ///     DispatchQueue.main.async {
-    ///         // UI Updates
-    ///     }
-    ///
-    /// - Parameters:
-    ///   - queue: The queue on which the completion handler is dispatched.
-    ///   - result: The parsed `Result`.
-    public func parseAsync(
-        queue: DispatchQueue = DispatchQueue.global(),
-        result: @escaping (Result<Feed, ParserError>) -> Void)
-    {
-        queue.async {
-            result(self.parse())
-        }
+    /// Starts parsing the feed asynchronously using async/await
+    /// - Returns: The parsed `Result`.
+    public func parseAsync() async -> Result<Feed, ParserError> {
+        return self.parse()
     }
     
     /// Stops parsing XML feeds.
