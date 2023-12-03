@@ -49,9 +49,10 @@ Then call `parse` or `parseAsync` to start parsing the feed...
 
 ```swift
 // Parse asynchronously, not to block the UI.
-parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
+Task {
     // Do your thing, then back to the Main thread
-    DispatchQueue.main.async {
+    let result = await parser.parseAsync()
+    await MainActor.run {
         // ..and update the UI
     }
 }

@@ -59,11 +59,10 @@ class SyndicationTests: BaseTestCase {
             let parser = FeedParser(URL: URL)
             
             // When
-            parser.parseAsync { (result) in
-                
+            Task {
+                _ = await parser.parseAsync()
                 // Then
                 expectation.fulfill()
-                
             }
 
             self.waitForExpectations(timeout: self.timeout, handler: nil)
