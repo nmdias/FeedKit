@@ -158,7 +158,6 @@ extension JSONFeedItem: Codable {
             let idInt = try values.decode(Int.self, forKey: .id)
             id = String(describing: idInt)
         }
-        id = try values.decodeIfPresent(String.self, forKey: .id)
         title = try values.decodeIfPresent(String.self, forKey: .title)
         url = try values.decodeIfPresent(String.self, forKey: .url)
         externalUrl = try values.decodeIfPresent(String.self, forKey: .external_url)
