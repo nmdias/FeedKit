@@ -25,27 +25,24 @@
 import XCTest
 @testable import FeedKit
 
-class FeedUriSchemeSanitizerTests: XCTestCase {
+class FeedUriSchemeTests: XCTestCase {
     
-    func testFeedUriSchemeSanitizer() {
-        
+    func testFeedUriScheme() {
         // Given
         let feedURL = URL(string: "feed://images.apple.com/main/rss/hotnews/hotnews.rss")!
         let parser = FeedParser(URL: feedURL)
         
-        do {
-            // When
-            let feed = try parser.parse().get().rssFeed
-
-            // Then
-            XCTAssertNotNil(feed)
-            
-        } catch {
-            XCTFail(error.localizedDescription)
+        // When
+        Task {
+            do {
+                let feed = try await parser.parseAsync().get().rssFeed
+                
+                // Then
+                XCTAssertNotNil(feed)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
         }
-        
-
-        
     }
     
 }

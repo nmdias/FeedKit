@@ -37,7 +37,7 @@ public class FeedParser {
     
     /// A FeedParser handler provider.
     var parser: FeedParserProtocol?
-   
+    
     /// Initializes the parser with the JSON or XML content referenced by the given URL.
     ///
     /// - Parameter URL: URL whose contents are read to produce the feed data
@@ -45,7 +45,7 @@ public class FeedParser {
         self.url = URL
     }
     
-    /// Initializes the parser with the xml or json contents encapsulated in a 
+    /// Initializes the parser with the xml or json contents encapsulated in a
     /// given data object.
     ///
     /// - Parameter data: XML or JSON data
@@ -65,16 +65,9 @@ public class FeedParser {
     ///
     /// - Returns: The parsed `Result`.
     public func parse() -> Result<Feed, ParserError> {
-        
-        if let url = url {
-            // The `Data(contentsOf:)` initializer doesn't handle the `feed` URI scheme. As such,
-            // it's sanitized first, in case it's in fact a `feed` scheme.
-            guard let sanitizedSchemeUrl = url.replacing(scheme: "feed", with: "http") else {
-                return .failure(.internalError(reason: "Failed url sanitizing."))
-            }
-
+        if data == nil, let url = url, url.isFileURL {
             do {
-                data = try Data(contentsOf: sanitizedSchemeUrl)
+                data = try Data(contentsOf: url)
             } catch {
                 return .failure(.internalError(reason: error.localizedDescription))
             }
@@ -100,32 +93,31 @@ public class FeedParser {
         
     }
     
-    /// Starts parsing the feed asynchronously. Parsing runs by default on the
-    /// global queue. You are responsible to manually bring the result closure
-    /// to whichever queue is apropriate, if any.
+    /// Starts parsing the feed asynchronously.
+    /// Required when parsing remote URLs.
     ///
-    /// Usually to the Main queue if UI Updates are needed.
-    ///
-    ///     DispatchQueue.main.async {
-    ///         // UI Updates
-    ///     }
-    ///
-    /// - Parameters:
-    ///   - queue: The queue on which the completion handler is dispatched.
-    ///   - result: The parsed `Result`.
-    public func parseAsync(
-        queue: DispatchQueue = DispatchQueue.global(),
-        result: @escaping (Result<Feed, ParserError>) -> Void)
-    {
-        queue.async {
-            result(self.parse())
+    /// - Returns: The parsed `Result`.
+    public func parseAsync() async -> Result<Feed, ParserError> {
+        if let url = url {
+            guard let (data, response) = try? await URLSession.shared.data(from: url),
+                  let httpResponse = response as? HTTPURLResponse
+            else {
+                return .failure(.internalError(reason: "Server request error"))
+            }
+            
+            if httpResponse.statusCode == 200 {
+                self.data = data
+            } else {
+                return .failure(.internalError(reason: "Invalid response:"+httpResponse.description))
+            }
         }
+        
+        return self.parse()
     }
-    
+
     /// Stops parsing XML feeds.
     public func abortParsing() {
         guard let xmlFeedParser = parser as? XMLFeedParser else { return }
         xmlFeedParser.xmlParser.abortParsing()
     }
-    
 }

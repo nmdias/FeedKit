@@ -38,7 +38,7 @@ class MediaTests: BaseTestCase {
             let rssFeed = try parser.parse().get().rssFeed
             let firstMedia = rssFeed?.items?.first?.media
             let lastMedia = rssFeed?.items?.last?.media
-
+            
             // Then
             XCTAssertNotNil(firstMedia)
             XCTAssertNotNil(firstMedia?.mediaThumbnails)
@@ -262,7 +262,8 @@ class MediaTests: BaseTestCase {
             let parser = FeedParser(URL: URL)
             
             // When
-            parser.parseAsync { (result) in
+            Task {
+                _ = await parser.parseAsync()
                 
                 // Then
                 expectation.fulfill()
@@ -284,7 +285,7 @@ class MediaTests: BaseTestCase {
         do {
             // When
             let media = try parser.parse().get().atomFeed?.entries?.first?.media
-
+            
             // Then
             XCTAssertNotNil(media)
             XCTAssertNotNil(media?.mediaThumbnails)
@@ -464,9 +465,6 @@ class MediaTests: BaseTestCase {
         } catch {
             XCTFail(error.localizedDescription)
         }
-        
-        
-        
     }
     
     func testAtomMediaParsingPerformance() {
@@ -479,17 +477,14 @@ class MediaTests: BaseTestCase {
             let parser = FeedParser(URL: URL)
             
             // When
-            parser.parseAsync { (result) in
+            Task {
+                _ = await parser.parseAsync()
                 
                 // Then
                 expectation.fulfill()
-                
             }
             
             self.waitForExpectations(timeout: self.timeout, handler: nil)
-            
         }
-        
     }
-    
 }
