@@ -30,21 +30,20 @@ import FoundationNetworking
 
 /// An RSS and Atom feed parser. `FeedParser` uses `Foundation`'s `XMLParser`.
 public class FeedParser {
-    
     private var data: Data?
     private var url: URL?
     private var xmlStream: InputStream?
-    
+
     /// A FeedParser handler provider.
     var parser: FeedParserProtocol?
-    
+
     /// Initializes the parser with the JSON or XML content referenced by the given URL.
     ///
     /// - Parameter URL: URL whose contents are read to produce the feed data
     public init(URL: URL) {
         self.url = URL
     }
-    
+
     /// Initializes the parser with the xml or json contents encapsulated in a
     /// given data object.
     ///
@@ -52,7 +51,7 @@ public class FeedParser {
     public init(data: Data) {
         self.data = data
     }
-    
+
     /// Initializes the parser with the XML contents encapsulated in a
     /// given InputStream.
     ///
@@ -60,7 +59,7 @@ public class FeedParser {
     public init(xmlStream: InputStream) {
         self.xmlStream = xmlStream
     }
-    
+
     /// Starts parsing the feed.
     ///
     /// - Returns: The parsed `Result`.
@@ -72,7 +71,7 @@ public class FeedParser {
                 return .failure(.internalError(reason: error.localizedDescription))
             }
         }
-        
+
         if let data = data {
             guard let feedDataType = FeedDataType(data: data) else {
                 return .failure(.feedNotFound)
@@ -83,35 +82,32 @@ public class FeedParser {
             }
             return parser!.parse()
         }
-        
+
         if let xmlStream = xmlStream {
             parser = XMLFeedParser(stream: xmlStream)
             return parser!.parse()
         }
-        
+
         return .failure(.internalError(reason: "Fatal error. Unable to parse from the initialized state."))
-        
     }
-    
+
     /// Starts parsing the feed asynchronously.
     /// Required when parsing remote URLs.
     ///
     /// - Returns: The parsed `Result`.
-    public func parseAsync() async -> Result<Feed, ParserError> {
+    public func parseAsync() async throws -> Result<Feed, ParserError> {
         if let url = url {
-            guard let (data, response) = try? await URLSession.shared.data(from: url),
-                  let httpResponse = response as? HTTPURLResponse
-            else {
-                return .failure(.internalError(reason: "Server request error"))
-            }
-            
-            if httpResponse.statusCode == 200 {
-                self.data = data
-            } else {
-                return .failure(.internalError(reason: "Invalid response:"+httpResponse.description))
+            let (data, response) = try await URLSession.shared.data(from: url)
+
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 200 {
+                    self.data = data
+                } else {
+                    return .failure(.internalError(reason: "Unexpected HTTP Response: "+httpResponse.description))
+                }
             }
         }
-        
+
         return self.parse()
     }
 
