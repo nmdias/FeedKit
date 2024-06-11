@@ -1,4 +1,10 @@
 # Change Log
+## [8.2.0](https://github.com/armartinez/FeedParser/releases/tag/8.2.0)
+### Updated
+- Updated parseAsync() to use URLSession for remote URLs.
+- Raised minimum targets to macOS 12, iOS 15, tvOS 12, watchOS 4
+- Implemented async/await for asychronous operations
+
 ## [8.1.1](https://github.com/nmdias/FeedParser/releases/tag/8.1.1)
 ### Fixed
 - Avoid reencoding all incoming data to UTF-8
