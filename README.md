@@ -1,10 +1,6 @@
-![FeedKit](/FeedKit.png?raw=true)
+# Swift Feeds
 
-[![build status](https://travis-ci.org/nmdias/FeedKit.svg)](https://travis-ci.org/nmdias/FeedKit)
-[![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedKit)
-[![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
-[![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
-[![swift](https://img.shields.io/badge/swift-5.0-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
+Swift Feeds is fork of FeedKit focused on supporting later versions of Apple's devices.
 
 ## Features
 
@@ -17,19 +13,15 @@
     - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
     - [x] [Media RSS](http://www.rssboard.org/media-rss)
     - [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
-- [x] [Documentation](http://cocoadocs.org/docsets/FeedKit)
 - [x] Unit Test Coverage
 
 ## Requirements
 
-![xcode](https://img.shields.io/badge/xcode-11-lightgrey.svg)
-![ios](https://img.shields.io/badge/ios-10-lightgrey.svg)
-![tvos](https://img.shields.io/badge/tvos-10-lightgrey.svg)
-![watchos](https://img.shields.io/badge/watchos-3-lightgrey.svg)
+![xcode](https://img.shields.io/badge/xcode-12-lightgrey.svg)
+![ios](https://img.shields.io/badge/ios-15-lightgrey.svg)
+![tvos](https://img.shields.io/badge/tvos-12-lightgrey.svg)
+![watchos](https://img.shields.io/badge/watchos-4-lightgrey.svg)
 ![mac os](https://img.shields.io/badge/mac%20os-10.12-lightgrey.svg)
-![mac os](https://img.shields.io/badge/ubuntu-16.04-lightgrey.svg)
-
-Installation >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/INSTALL.md) <<
 
 ## Usage
 
@@ -67,7 +59,7 @@ let result = parser.parse()
 
 ## Parse Result
 
-FeedKit adopts Swift 5 Result type, as `Result<Feed, ParserError>`, and as such, if parsing succeeds you should now have a `Strongly Typed Model` of an `RSS`, `Atom` or `JSON Feed`, within the `Feed` enum:
+Swift Feeds adopts Swift 5 Result type, as `Result<Feed, ParserError>`, and as such, if parsing succeeds you should now have a `Strongly Typed Model` of an `RSS`, `Atom` or `JSON Feed`, within the `Feed` enum:
 
 ```swift
 switch result {
@@ -214,7 +206,4 @@ item?.extensions
 
 ## License
 
-FeedKit is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedKit/blob/master/LICENSE) for details.
-
-
-
+Swift Feeds is released under the MIT license. See [LICENSE](https://github.com/armartinez/swift-feeds/blob/master/LICENSE) for details.

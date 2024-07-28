@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "FeedKit",
+    name: "swift-feeds",
     platforms: [
         .macOS(.v12),
         .iOS(.v15),
@@ -11,11 +11,21 @@ let package = Package(
         .watchOS(.v4)
     ],
     products: [
-        .library(name: "FeedKit", targets: ["FeedKit"]),
+        .library(
+            name: "Feeds",
+            targets: ["Feeds"]
+        ),
     ],
     targets: [
-        .target(name: "FeedKit", dependencies: []),
-        .testTarget(name: "Tests", dependencies: ["FeedKit"], path: "Tests")
+        .target(
+            name: "Feeds",
+            dependencies: []
+        ),
+        .testTarget(
+            name: "FeedsTests",
+            dependencies: ["Feeds"],
+            resources: [.process("json"), .process("xml")]
+        )
     ],
     swiftLanguageVersions: [
         .v5
