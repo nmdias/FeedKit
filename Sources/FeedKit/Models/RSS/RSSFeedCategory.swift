@@ -1,7 +1,7 @@
 //
-//  Optional + Wrapped.swift
+//  RSSFeedCategory.swift
 //
-//  Copyright (c) 2016 - 2024 Nuno Dias
+//  Copyright (c) 2016 - 2024 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,24 +24,30 @@
 
 import Foundation
 
-/// An extension on `Optional` where the `Wrapped` type conforms to
-/// `RangeReplaceableCollection`. Provides a convenient way to append an
-/// element to an optional collection, initializing the collection if
-/// it is currently `nil`.
-extension Optional where Wrapped: RangeReplaceableCollection {
-  /// Appends a new element to the collection, initializing the collection
-  /// if it is `nil`.
-  ///
-  /// - Parameter value: The element to append to the collection.
-  ///
-  /// If the optional collection is `nil`, it creates a new instance of the
-  /// collection containing the element. If the collection is already
-  /// initialized, it appends the element to the existing collection.
-  mutating func append(_ value: Wrapped.Element) {
-    if self == nil {
-      self = [value] as? Wrapped
-    } else {
-      self?.append(value)
+/// The category of `<channel>`. Identifies a category or tag to which the feed
+/// belongs.
+public struct RSSFeedCategory: Codable {
+  /// The element's text.
+  public var text: String?
+
+  /// The element's attributes.
+  public struct Attributes: Codable {
+    /// A string that identifies a categorization taxonomy. It's an optional
+    /// attribute of `<category>`. e.g. "http://www.fool.com/cusips"
+    public var domain: String?
+
+    public init(domain: String? = nil) {
+      self.domain = domain
     }
+  }
+
+  /// The element's attributes.
+  public var attributes: Attributes?
+
+  public init(
+    text: String? = nil,
+    attributes: Attributes? = nil) {
+    self.text = text
+    self.attributes = attributes
   }
 }
