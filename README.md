@@ -1,22 +1,20 @@
 ![FeedKit](/FeedKit.png?raw=true)
 
-[![build status](https://travis-ci.org/nmdias/FeedKit.svg)](https://travis-ci.org/nmdias/FeedKit)
-[![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedKit)
-[![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
-[![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
-[![swift](https://img.shields.io/badge/swift-5.0-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/nmdias/FeedKit)
+
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/nmdias/FeedKit)
 
 ## Features
 
 - [x] [Atom](https://tools.ietf.org/html/rfc4287)
 - [x] RSS [0.90](http://www.rssboard.org/rss-0-9-0), [0.91](http://www.rssboard.org/rss-0-9-1), [1.00](http://web.resource.org/rss/1.0/spec), [2.00](http://cyber.law.harvard.edu/rss/rss.html)
-- [x] [JSON](https://jsonfeed.org/version/1)  
+- [x] [JSON](https://jsonfeed.org/version/1)
 - [x] Namespaces
-    - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
-    - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
-    - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
-    - [x] [Media RSS](http://www.rssboard.org/media-rss)
-    - [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
+  - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
+  - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
+  - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
+  - [x] [Media RSS](http://www.rssboard.org/media-rss)
+  - [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
 - [x] [Documentation](http://cocoadocs.org/docsets/FeedKit)
 - [x] Unit Test Coverage
 
@@ -34,11 +32,13 @@ Installation >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/I
 ## Usage
 
 Build a URL pointing to an RSS, Atom or JSON Feed.
+
 ```swift
 let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
 ```
 
 Get an instance of `FeedParser`
+
 ```swift
 let parser = FeedParser(URL: feedURL) // or FeedParser(data: data) or FeedParser(xmlStream: stream)
 ```
@@ -55,7 +55,7 @@ parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) i
         // ..and update the UI
     }
 }
-```     
+```
 
 Remember, you are responsible to manually bring the result closure to whichever queue is apropriate. Usually to the Main thread, for UI apps, by calling `DispatchQueue.main.async` .
 
@@ -72,17 +72,17 @@ FeedKit adopts Swift 5 Result type, as `Result<Feed, ParserError>`, and as such,
 ```swift
 switch result {
 case .success(let feed):
-    
+
     // Grab the parsed feed directly as an optional rss, atom or json feed object
     feed.rssFeed
-    
+
     // Or alternatively...
     switch feed {
     case let .atom(feed):       // Atom Syndication Format Feed Model
     case let .rss(feed):        // Really Simple Syndication Feed Model
     case let .json(feed):       // JSON Feed Model
     }
-    
+
 case .failure(let error):
     print(error)
 }
@@ -215,6 +215,3 @@ item?.extensions
 ## License
 
 FeedKit is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedKit/blob/master/LICENSE) for details.
-
-
-
