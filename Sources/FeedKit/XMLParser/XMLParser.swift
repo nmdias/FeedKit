@@ -24,7 +24,7 @@
 
 import Foundation
 
-/// Represents an XML document containing a root node.
+/// Represents an XML document containing a root element.
 class XMLDocument: Equatable {
   /// The root element of the document.
   var root: XMLElement?
@@ -123,17 +123,17 @@ class XMLParser: NSObject {
     return .success(XMLDocument(root: root))
   }
 
-  /// Maps character data to the current node's value.
+  /// Maps character data to the current element's value.
   /// - Parameter string: The character data found in the XML.
   func map(_ string: String) {
-    // Get the working node
-    guard let node = stack.last else { return }
+    // Get the working element
+    guard let element = stack.last else { return }
     let trim = string.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !trim.isEmpty else { return }
-    if let value = node.text {
-      node.text = value + trim
+    if let value = element.text {
+      element.text = value + trim
     } else {
-      node.text = trim
+      element.text = trim
     }
   }
 }
@@ -178,11 +178,11 @@ extension XMLParser: XMLParserDelegate {
     didEndElement elementName: String,
     namespaceURI: String?,
     qualifiedName qName: String?) {
-    guard stack.count > 1, let node = stack.popLast() else {
+    guard stack.count > 1, let element = stack.popLast() else {
       isComplete = true
       return
     }
-    stack.last?.children.append(node)
+    stack.last?.children.append(element)
   }
 
   func parserDidEndDocument(
