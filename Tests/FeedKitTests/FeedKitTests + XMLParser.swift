@@ -31,7 +31,7 @@ extension FeedKitTests {
     // Given
     let data = data(resource: "XML", withExtension: "xml")
     
-    let parser = FeedKit.XMLParser(data: data)
+    let parser = XMLParser(data: data)
 
     let expected = XMLDocument(
       root: .init(
