@@ -120,7 +120,7 @@ class XMLParser: NSObject {
 
     // If parsing completes successfully,
     // returns the a document wrapped in a success result.
-    return .success(XMLDocument(root: root))
+    return .success(.init(root: root))
   }
 
   /// Maps character data to the current element's value.
