@@ -57,6 +57,7 @@ extension XMLKitTests {
                 name: "item",
                 attributes: [
                   "id": "1",
+                  "value": "01"
                 ],
                 children: [
                   .init(
@@ -71,7 +72,10 @@ extension XMLKitTests {
               ),
               .init(
                 name: "item",
-                attributes: ["id": "2"],
+                attributes: [
+                  "id": "2",
+                  "value": "02"
+                ],
                 children: [
                   .init(
                     name: "name",
