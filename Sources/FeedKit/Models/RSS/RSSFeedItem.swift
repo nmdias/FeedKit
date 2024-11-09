@@ -1,7 +1,7 @@
 //
 //  RSSFeedItem.swift
 //
-//  Copyright (c) 2016 - 2024 Nuno Manuel Dias
+//  Copyright (c) 2016 - 2024 Nuno Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -170,27 +170,6 @@ public struct RSSFeedItem: Codable {
   /// an item from an aggregator to a weblog authoring tool.
   public var source: RSSFeedSource?
 
-  // MARK: - Namespaces
-
-  /// The Dublin Core Metadata Element Set is a standard for cross-domain
-  /// resource description.
-  ///
-  /// See https://tools.ietf.org/html/rfc5013
-  public var dublinCore: DublinCore?
-
-  /// A module for the actual content of websites, in multiple formats.
-  ///
-  /// See http://web.resource.org/rss/1.0/modules/content/
-  public var content: Content?
-
-  /// iTunes Podcasting Tags are de facto standard for podcast syndication.
-  /// see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
-  public var iTunes: ITunes?
-
-  /// Media RSS is a new RSS module that supplements the <enclosure>
-  /// capabilities of RSS 2.0.
-  public var media: Media?
-
   public init(
     title: String? = nil,
     link: String? = nil,
@@ -201,11 +180,7 @@ public struct RSSFeedItem: Codable {
     enclosure: RSSFeedEnclosure? = nil,
     guid: RSSFeedGUID? = nil,
     pubDate: Date? = nil,
-    source: RSSFeedSource? = nil,
-    dublinCore: DublinCore? = nil,
-    content: Content? = nil,
-    iTunes: ITunes? = nil,
-    media: Media? = nil) {
+    source: RSSFeedSource? = nil) {
     self.title = title
     self.link = link
     self.description = description
@@ -216,9 +191,5 @@ public struct RSSFeedItem: Codable {
     self.guid = guid
     self.pubDate = pubDate
     self.source = source
-    self.dublinCore = dublinCore
-    self.content = content
-    self.iTunes = iTunes
-    self.media = media
   }
 }

@@ -1,7 +1,7 @@
 //
 //  RSSFeed.swift
 //
-//  Copyright (c) 2016 - 2024 Nuno Manuel Dias
+//  Copyright (c) 2016 - 2024 Nuno Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -226,28 +226,6 @@ public struct RSSFeed: Codable {
   /// however at least one of title or description must be present.
   public var items: [RSSFeedItem]?
 
-  // MARK: - Namespaces
-
-  /// The Dublin Core Metadata Element Set is a standard for cross-domain
-  /// resource description.
-  ///
-  /// See https://tools.ietf.org/html/rfc5013
-  public var dublinCore: DublinCore?
-
-  /// Provides syndication hints to aggregators and others picking up this RDF Site
-  /// Summary (RSS) feed regarding how often it is updated. For example, if you
-  /// updated your file twice an hour, updatePeriod would be "hourly" and
-  /// updateFrequency would be "2". The syndication module borrows from Ian Davis's
-  /// Open Content Syndication (OCS) directory format. It supercedes the RSS 0.91
-  /// skipDay and skipHour elements.
-  ///
-  /// See http://web.resource.org/rss/1.0/modules/syndication/
-  public var syndication: Syndication?
-
-  /// iTunes Podcasting Tags are de facto standard for podcast syndication.
-  /// See https://help.apple.com/itc/podcasts_connect/#/itcb54353390
-  public var iTunes: ITunes?
-
   public init(
     title: String? = nil,
     link: String? = nil,
@@ -268,10 +246,7 @@ public struct RSSFeed: Codable {
     textInput: RSSFeedTextInput? = nil,
     skipHours: [Int]? = nil,
     skipDays: [RSSFeedSkipDay]? = nil,
-    items: [RSSFeedItem]? = nil,
-    dublinCore: DublinCore? = nil,
-    syndication: Syndication? = nil,
-    iTunes: ITunes? = nil) {
+    items: [RSSFeedItem]? = nil) {
     self.title = title
     self.link = link
     self.description = description
@@ -292,8 +267,5 @@ public struct RSSFeed: Codable {
     self.skipHours = skipHours
     self.skipDays = skipDays
     self.items = items
-    self.dublinCore = dublinCore
-    self.syndication = syndication
-    self.iTunes = iTunes
   }
 }
