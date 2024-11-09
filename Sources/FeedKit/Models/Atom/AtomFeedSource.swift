@@ -55,4 +55,13 @@ public struct AtomFeedSource: Codable {
   /// the publisher considers significant.  Therefore, not all
   /// modifications necessarily result in a changed atom:updated value.
   public var updated: Date?
+
+  public init(
+    id: String? = nil,
+    title: String? = nil,
+    updated: Date? = nil) {
+    self.id = id
+    self.title = title
+    self.updated = updated
+  }
 }

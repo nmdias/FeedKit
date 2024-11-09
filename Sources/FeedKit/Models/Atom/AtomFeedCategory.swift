@@ -45,8 +45,21 @@ public struct AtomFeedCategory: Codable {
     /// their corresponding characters ("&" and "<", respectively), not
     /// markup.  Category elements MAY have a "label" attribute.
     public var label: String?
+
+    public init(
+      term: String? = nil,
+      scheme: String? = nil,
+      label: String? = nil) {
+      self.term = term
+      self.scheme = scheme
+      self.label = label
+    }
   }
 
   /// The element's attributes.
   public var attributes: Attributes?
+
+  public init(attributes: Attributes? = nil) {
+    self.attributes = attributes
+  }
 }

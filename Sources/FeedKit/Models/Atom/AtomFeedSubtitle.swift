@@ -37,8 +37,19 @@ public struct AtomFeedSubtitle: Codable {
     /// is not provided, Atom Processors MUST behave as though it were
     /// present with a value of "text".
     public var type: String?
+
+    public init(type: String? = nil) {
+      self.type = type
+    }
   }
 
   /// The element's attributes.
   public var attributes: Attributes?
+
+  public init(
+    text: String? = nil,
+    attributes: Attributes? = nil) {
+    self.text = text
+    self.attributes = attributes
+  }
 }

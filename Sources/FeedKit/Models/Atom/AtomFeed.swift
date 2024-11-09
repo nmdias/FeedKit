@@ -160,4 +160,33 @@ public struct AtomFeed: Codable {
   /// appear as the document (i.e., top-level) element of a stand-alone
   /// Atom Entry Document.
   public var entries: [AtomFeedEntry]?
+
+  public init(
+    title: String? = nil,
+    subtitle: AtomFeedSubtitle? = nil,
+    links: [AtomFeedLink]? = nil,
+    updated: Date? = nil,
+    categories: [AtomFeedCategory]? = nil,
+    authors: [AtomFeedAuthor]? = nil,
+    contributors: [AtomFeedContributor]? = nil,
+    id: String? = nil,
+    generator: AtomFeedGenerator? = nil,
+    icon: String? = nil,
+    logo: String? = nil,
+    rights: String? = nil,
+    entries: [AtomFeedEntry]? = nil) {
+    self.title = title
+    self.subtitle = subtitle
+    self.links = links
+    self.updated = updated
+    self.categories = categories
+    self.authors = authors
+    self.contributors = contributors
+    self.id = id
+    self.generator = generator
+    self.icon = icon
+    self.logo = logo
+    self.rights = rights
+    self.entries = entries
+  }
 }

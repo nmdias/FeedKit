@@ -53,8 +53,22 @@ public struct AtomFeedContent: Codable {
     /// if the server providing that content also provides a media type, the
     /// server-provided media type is authoritative.
     public var src: String?
+
+    public init(
+      type: String? = nil,
+      src: String? = nil) {
+      self.type = type
+      self.src = src
+    }
   }
 
   /// The element's attributes.
   public var attributes: Attributes?
+
+  public init(
+    text: String? = nil,
+    attributes: AtomFeedContent.Attributes? = nil) {
+    self.text = text
+    self.attributes = attributes
+  }
 }

@@ -116,8 +116,27 @@ public struct AtomFeedLink: Codable {
     /// by the underlying protocol.  Link elements MAY have a length
     /// attribute.
     public var length: Int64?
+
+    public init(
+      href: String? = nil,
+      rel: String? = nil,
+      type: String? = nil,
+      hreflang: String? = nil,
+      title: String? = nil,
+      length: Int64? = nil) {
+      self.href = href
+      self.rel = rel
+      self.type = type
+      self.hreflang = hreflang
+      self.title = title
+      self.length = length
+    }
   }
 
   /// The element's attributes.
   public var attributes: Attributes?
+
+  public init(attributes: Attributes? = nil) {
+    self.attributes = attributes
+  }
 }

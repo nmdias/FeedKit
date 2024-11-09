@@ -54,8 +54,22 @@ public struct AtomFeedGenerator: Codable {
     /// The atom:generator element MAY have a "version" attribute that
     /// indicates the version of the generating agent.
     public var version: String?
+
+    public init(
+      uri: String? = nil,
+      version: String? = nil) {
+      self.uri = uri
+      self.version = version
+    }
   }
 
   /// The element's attributes.
   public var attributes: Attributes?
+
+  public init(
+    text: String? = nil,
+    attributes: Attributes? = nil) {
+    self.text = text
+    self.attributes = attributes
+  }
 }

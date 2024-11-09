@@ -158,4 +158,31 @@ public struct AtomFeedEntry: Codable {
   /// then the atom:rights element of the containing atom:feed element, if
   /// present, is considered to apply to the entry.
   public var rights: String?
+
+  public init(
+    title: String? = nil,
+    summary: AtomFeedSummary? = nil,
+    authors: [AtomFeedAuthor]? = nil,
+    contributors: [AtomFeedContributor]? = nil,
+    links: [AtomFeedLink]? = nil,
+    updated: Date? = nil,
+    categories: [AtomFeedCategory]? = nil,
+    id: String? = nil,
+    content: AtomFeedContent? = nil,
+    published: Date? = nil,
+    source: AtomFeedSource? = nil,
+    rights: String? = nil) {
+    self.title = title
+    self.summary = summary
+    self.authors = authors
+    self.contributors = contributors
+    self.links = links
+    self.updated = updated
+    self.categories = categories
+    self.id = id
+    self.content = content
+    self.published = published
+    self.source = source
+    self.rights = rights
+  }
 }

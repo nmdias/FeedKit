@@ -43,4 +43,13 @@ public struct AtomFeedContributor: Codable {
   /// NOT contain more than one.  The content of atom:uri in a Person
   /// construct MUST be an IRI reference [RFC3987].
   public var uri: String?
+
+  public init(
+    name: String? = nil,
+    email: String? = nil,
+    uri: String? = nil) {
+    self.name = name
+    self.email = email
+    self.uri = uri
+  }
 }
