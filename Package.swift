@@ -4,24 +4,38 @@
 import PackageDescription
 
 let package = Package(
-    name: "FeedKit",
-    products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "FeedKit",
-            targets: ["FeedKit"]),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "FeedKit"),
-        .testTarget(
-            name: "FeedKitTests",
-            dependencies: ["FeedKit"],
-            resources: [
-              .process("Resources/XML.xml"),
-            ]
-        ),
-    ]
+  name: "FeedKit",
+  products: [
+    .library(
+      name: "FeedKit",
+      targets: ["FeedKit"]
+    ),
+    .library(
+      name: "XMLKit",
+      targets: ["XMLKit"]
+    ),
+  ],
+  targets: [
+    .target(
+      name: "FeedKit",
+      dependencies: [
+        "XMLKit",
+      ]
+    ),
+    .target(
+      name: "XMLKit",
+      dependencies: []
+    ),
+    .testTarget(
+      name: "FeedKitTests",
+      dependencies: ["FeedKit"]
+    ),
+    .testTarget(
+      name: "XMLKitTests",
+      dependencies: ["XMLKit"],
+      resources: [
+        .process("Resources/XML.xml"),
+      ]
+    ),
+  ]
 )

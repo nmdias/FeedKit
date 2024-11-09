@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + XMLParser.swift
+//  XMLKitTests + XMLParser.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -22,10 +22,10 @@
 //  SOFTWARE.
 //
 
-@testable import FeedKit
+@testable import XMLKit
 import Testing
 
-extension FeedKitTests {
+extension XMLKitTests {
   @Test
   func xmlParser() {
     // Given

@@ -1,5 +1,5 @@
 //
-//  FeedKitTests.swift
+//  XMLKitTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -25,5 +25,19 @@
 import Foundation
 import Testing
 
-@Suite("FeedKit")
-struct FeedKitTests { }
+@Suite("XMLKit")
+struct XMLKitTests {
+  func data(
+    resource: String,
+    withExtension ext: String) -> Data {
+    guard let fileURL = Bundle.module.url(forResource: resource, withExtension: ext) else {
+      fatalError("Error: Could not find file \(resource).\(ext) in bundle.")
+    }
+    do {
+      let data = try Data(contentsOf: fileURL)
+      return data
+    } catch {
+      fatalError("Error: Failed to load data from \(fileURL): \(error)")
+    }
+  }
+}

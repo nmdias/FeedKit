@@ -1,5 +1,5 @@
 //
-//  FeedKitTests.swift
+//  XMLDocument.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -23,7 +23,21 @@
 //
 
 import Foundation
-import Testing
 
-@Suite("FeedKit")
-struct FeedKitTests { }
+/// Represents an XML document containing a root element.
+class XMLDocument: Equatable {
+  /// The root element of the document.
+  var root: XMLElement?
+
+  /// Initializes a new document with an optional root element.
+  /// - Parameter root: The root element of the document.
+  init(root: XMLElement?) {
+    self.root = root
+  }
+
+  // MARK: Equatable
+
+  static func == (lhs: XMLDocument, rhs: XMLDocument) -> Bool {
+    lhs.root == rhs.root
+  }
+}
