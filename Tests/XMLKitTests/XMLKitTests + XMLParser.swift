@@ -29,7 +29,7 @@ extension XMLKitTests {
   @Test
   func xmlParser() {
     // Given
-    let data = data(resource: "XML", withExtension: "xml")
+    let data = data(resource: "Sample", withExtension: "xml")
     
     let parser = XMLParser(data: data)
 

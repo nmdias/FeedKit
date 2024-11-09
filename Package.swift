@@ -34,7 +34,7 @@ let package = Package(
       name: "XMLKitTests",
       dependencies: ["XMLKit"],
       resources: [
-        .process("Resources/XML.xml"),
+        .process("Resources/Sample.xml"),
       ]
     ),
   ]
