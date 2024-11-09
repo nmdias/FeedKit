@@ -18,7 +18,10 @@ let package = Package(
             name: "FeedKit"),
         .testTarget(
             name: "FeedKitTests",
-            dependencies: ["FeedKit"]
+            dependencies: ["FeedKit"],
+            resources: [
+              .process("Resources/XML.xml"),
+            ]
         ),
     ]
 )

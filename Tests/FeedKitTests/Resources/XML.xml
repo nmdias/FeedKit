@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <metadata>
+    <title>Sample Document</title>
+    <description>This is a sample document.</description>
+  </metadata>
+  <data>
+    <item id="1">
+      <name>Item 1</name>
+      <description>This is a sample description for Item 1.</description>
+    </item>
+    <item id="2">
+      <name>Item 2</name>
+      <description>This is a sample description for Item 2.</description>
+    </item>
+  </data>
+</root>
