@@ -53,8 +53,8 @@ public struct MediaCategory: Codable {
   public var attributes: Attributes?
 
   public init(
-    attributes: Attributes? = nil,
-    text: String? = nil) {
+    text: String? = nil,
+    attributes: Attributes? = nil) {
     self.attributes = attributes
     self.text = text
   }
