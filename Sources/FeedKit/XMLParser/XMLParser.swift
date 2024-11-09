@@ -25,7 +25,7 @@
 import Foundation
 
 /// Represents an XML document containing a root node.
-class XMLDocument {
+class XMLDocument: Equatable {
   /// The root element of the document.
   var root: XMLElement?
 
@@ -34,10 +34,16 @@ class XMLDocument {
   init(root: XMLElement?) {
     self.root = root
   }
+
+  // MARK: Equatable
+
+  static func == (lhs: XMLDocument, rhs: XMLDocument) -> Bool {
+    lhs.root == rhs.root
+  }
 }
 
 /// Represents an element in the XML document.
-class XMLElement {
+class XMLElement: Equatable {
   /// The name of the element.
   var name: String
   /// The text of the element, if present.
@@ -52,13 +58,25 @@ class XMLElement {
   ///   - name: The name of the element.
   ///   - text: The text of the element, if any.
   ///   - attributes: Attributes for the element, if any.
+  ///   - children: Children for the element, if any.
   init(
     name: String,
     text: String? = nil,
-    attributes: [String: String]? = nil) {
+    attributes: [String: String]? = nil,
+    children: [XMLElement]? = nil) {
     self.name = name
     self.text = text
     self.attributes = attributes
+    self.children = children
+  }
+
+  // MARK: Equatable
+
+  static func == (lhs: XMLElement, rhs: XMLElement) -> Bool {
+    lhs.name == rhs.name &&
+      lhs.text == rhs.text &&
+      lhs.attributes == rhs.attributes &&
+      lhs.children == rhs.children
   }
 }
 
