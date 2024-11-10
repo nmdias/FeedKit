@@ -226,8 +226,11 @@ extension RSSFeed {
         .rssChannelItemItunesTitle,
         .rssChannelItemItunesSubtitle,
         .rssChannelItemItunesSummary,
-        .rssChannelItemItunesKeywords:
-            
+        .rssChannelItemItunesKeywords,
+        .rssChannelItemItunesSeason,
+        .rssChannelItemItunesEpisode,
+        .rssChannelItemItunesEpisodeType:
+
             if  self.items?.last?.iTunes == nil {
                 self.items?.last?.iTunes = ITunesNamespace()
             }
