@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCE_M8A5yxnLfW0KghEeajjw"/>
+ <id>yt:channel:</id>
+ <yt:channelId></yt:channelId>
+ <title>Apple</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw"/>
+ <author>
+  <name>Apple</name>
+  <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+ </author>
+ <published>2005-06-22T05:12:23+00:00</published>
+ <entry>
+  <id>yt:video:51QO4pavK3A</id>
+  <yt:videoId>51QO4pavK3A</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>The first-ever MacBook Air 15” | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=51QO4pavK3A"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-06-12T16:16:57+00:00</published>
+  <updated>2023-06-12T16:23:33+00:00</updated>
+  <media:group>
+   <media:title>The first-ever MacBook Air 15” | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/51QO4pavK3A?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/51QO4pavK3A/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Introducing the all-new MacBook Air with a 15-inch Liquid Retina display. Bigger than before, yet still impossibly light and thin.
+
+Supercharged by the M2 chip, the MacBook Air 15” has blazing fast performance, up to 18 hours of battery life (battery life varies by use), and 6 speakers that deliver immersive Spatial Audio. It also comes in 4 gorgeous colors - which one will you pick?
+
+Meet MacBook Air: https://apple.co/3P4JQpq
+
+Audio Descriptions: https://apple.co/3MW3tgr
+
+&quot;Dream Big&quot; by Rüü + Oliwa https://apple.co/RuuOliwa
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="8101" average="5.00" min="1" max="5"/>
+    <media:statistics views="3362970"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:j1HGOY32s2Y</id>
+  <yt:videoId>j1HGOY32s2Y</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>What Apple developers need to know | WWDC23 | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=j1HGOY32s2Y"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-06-05T22:10:31+00:00</published>
+  <updated>2023-06-08T20:56:03+00:00</updated>
+  <media:group>
+   <media:title>What Apple developers need to know | WWDC23 | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/j1HGOY32s2Y?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/j1HGOY32s2Y/hqdefault.jpg" width="480" height="360"/>
+   <media:description>There’s never been a better time to create for Apple platforms –– including iOS, iPadOS, macOS, tvOS, and all-new visionOS.
+
+At https://developer.apple.com, get insights from Apple engineers and designers with over 175 brand-new instructional video sessions covering the latest in hardware and software.
+
+All to help bring your ideas to over two billion Apple devices worldwide.
+
+WWDC23
+
+Watch the full WWDC23 keynote: https://apple.co/3OSsBaJ
+Watch the Platforms State of the Union: https://apple.co/3CdbGbb
+Audio Descriptions: https://apple.co/43InttY
+
+All-new Apple Developer Sessions
+
+Premiering June 6:
+
+What’s new in Swift with Ben: https://apple.co/3MQwrOW
+Meet watchOS 10 with Taylor: https://apple.co/3CdygjW
+Design and build apps for watchOS 10 with Jennifer and Matthew: https://apple.co/3oKlcj5
+Wind your way through advanced animations in SwiftUI with Tim: https://apple.co/43tqChp
+Bring your game to Mac: Make a game plan with Aiswariya: https://apple.co/3WPWjPq
+What’s new in Xcode 15 with Shilpa and Ryan: https://apple.co/3Nb0Fxt
+Create rich documentation with Swift-DocC with Ethan: https://apple.co/3N9BaMV
+Develop your first immersive app with Peter: https://apple.co/3WN5pfX
+Meet Reality Composer Pro with Eric: https://apple.co/3CcYAux
+Build spatial experiences with RealityKit with John: https://apple.co/3WN5yA1
+
+
+Premiering June 7:
+
+Build widgets for the Smart Stack on Apple Watch with Calvin: https://apple.co/43pdqdh
+Bring widgets to life with Luca: https://apple.co/3oStt4j
+Build programmatic UI with Xcode Previews with Kevin: https://apple.co/3CcK5qF
+
+
+Premiering June 9:
+
+Animate with springs with Jacob: https://apple.co/42paGvd
+
+
+New to coding?
+Get started with Swift Playgrounds: https://apple.co/43KArrc
+
+
+#AppleEvent #WWDC23 #AppleKeynote #iOS17 #AppleVisionPro
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found</media:description>
+   <media:community>
+    <media:starRating count="8223" average="5.00" min="1" max="5"/>
+    <media:statistics views="304130"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:rc46cO3spSE</id>
+  <yt:videoId>rc46cO3spSE</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>WWDC23: 17 big &amp; little things | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=rc46cO3spSE"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-06-05T19:40:53+00:00</published>
+  <updated>2023-06-14T16:35:34+00:00</updated>
+  <media:group>
+   <media:title>WWDC23: 17 big &amp; little things | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/rc46cO3spSE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/rc46cO3spSE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Here’s your guide to some of the big (and little) things announced on the first day of WWDC. Wait, what’s that? Apple’s annual Worldwide Developers Conference.
+
+Watch the full keynote here: https://apple.co/3OSsBaJ
+
+Audio Descriptions: https://apple.co/45OQndO
+
+“Adalam Va!” by Priya Ragu https://apple.co/PriyaRagu
+
+#AppleEvent #WWDC23 #AppleKeynote #iOS17 #AppleVisionPro 
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="48433" average="5.00" min="1" max="5"/>
+    <media:statistics views="1497075"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:0okuAwqTHs0</id>
+  <yt:videoId>0okuAwqTHs0</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>Introducing MacBook Air 15” | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=0okuAwqTHs0"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-06-05T19:20:40+00:00</published>
+  <updated>2023-06-12T07:27:39+00:00</updated>
+  <media:group>
+   <media:title>Introducing MacBook Air 15” | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/0okuAwqTHs0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/0okuAwqTHs0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>MacBook Air just got bigger. Now with a spacious 15-inch Liquid Retina display in a design that’s impossibly thin and light. And because it’s supercharged by M2, you get blazing-fast performance and up to 18 hours of battery life. Add to that six speakers with immersive Spatial Audio technology, a 1080p camera, and the seamless way it works with iPhone, and you get the 15-inch laptop we’ve all been waiting for. 
+
+Learn More: https://apple.co/43FvGPt
+
+Audio Descriptions: https://apple.co/3OWpizl
+
+“One Touch” by BAMBII https://apple.co/BAMBII
+
+#WWDC23 #AppleEvent #MacBookAir15inch
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="71066" average="5.00" min="1" max="5"/>
+    <media:statistics views="7682877"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:GYkq9Rgoj8E</id>
+  <yt:videoId>GYkq9Rgoj8E</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>WWDC 2023 — June 5 | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=GYkq9Rgoj8E"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-06-05T19:15:08+00:00</published>
+  <updated>2023-06-17T07:19:32+00:00</updated>
+  <media:group>
+   <media:title>WWDC 2023 — June 5 | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/GYkq9Rgoj8E?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/GYkq9Rgoj8E/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Watch the WWDC23 Apple Keynote announcing the latest Apple Vision Pro, MacBook Air 15&quot;, software, services, and operating systems.
+
+00:00:00 Introduction
+00:03:09 Mac 
+00:16:49 iOS 
+00:34:34 iPadOS 
+00:43:14 macOS 
+00:57:02 Audio &amp; Home 
+01:04:50 watchOS 
+01:20:48 Apple Vision Pro
+
+For more on the Apple Worldwide Developers Conference, click here: https://apple.co/3MU4PIM
+
+To watch the event interpreted in American Sign Language (ASL), please click here: https://apple.co/3WS5uir
+
+Audio Descriptions: https://apple.co/3qp5B90
+
+“Spirals” by Nick Leng https://apple.co/NickLeng-WWDC23
+“Rocky” by Still Woozy https://apple.co/StillWoozy-WWDC23
+“Dream Big” by Rüü + Oliwa https://apple.co/RuuOliwa-WWDC23
+“Miami” by Mau y Ricky https://apple.co/MauYRicky-WWDC23
+“Times Square (feat. Aidan)” by Jam City https://apple.co/JamCity-WWDC23
+“The Only One” by Phoenix https://apple.co/Phoenix-WWDC23
+“Starlifter: Fearless Pt. II” by Crown Lands  https://apple.co/CrownLands-WWDC23
+“BB’s Theme (Instrumental)” by Ludvig Forssell  https://apple.co/LudvigForssell-WWDC23
+“Frisco” by Little Dragon https://apple.co/LittleDragon-WWDC23
+“Weightless” by Arlo Parks https://apple.co/ArloParks-WWDC23
+“Echolalia” by Yves Tumor https://apple.co/YvesTumor-WWDC23
+“Rhythm Is Our Business” by Snapped Ankles  https://apple.co/SnappedAnkles-WWDC23
+“Can't Let You Go (feat. Little Jet)&quot; by LP Giobbi https://apple.co/LPGiobbi-WWDC23
+“DAYS GO BY (feat. Toro y Moi)” by SBTRKT https://apple.co/SBTRKT-WWDC23
+“Let's Live” by FKJ https://apple.co/FKJ-WWDC23
+“Away X5” by Yaeji https://apple.co/Yaeji-WWDC23
+“Lambent Rag” by Clark https://apple.co/Clark-WWDC23
+“Walk Thru Water (feat. St. Panther)” by Overmono https://apple.co/Overmono-WWDC23
+
+Want to keep enjoying the sounds of WWDC23? Check out the entire playlist on Apple Music. https://apple.co/WWDC23-Playlist
+
+#WWDC23 #AppleEvent #AppleVisionPro #MacBookAir15inch
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="341447" average="5.00" min="1" max="5"/>
+    <media:statistics views="13984872"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:TX9qSaGXFyg</id>
+  <yt:videoId>TX9qSaGXFyg</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>Introducing Apple Vision Pro</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=TX9qSaGXFyg"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-06-05T19:08:16+00:00</published>
+  <updated>2023-06-14T19:07:32+00:00</updated>
+  <media:group>
+   <media:title>Introducing Apple Vision Pro</media:title>
+   <media:content url="https://www.youtube.com/v/TX9qSaGXFyg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/TX9qSaGXFyg/hqdefault.jpg" width="480" height="360"/>
+   <media:description>The era of spatial computing is here, where digital content blends seamlessly with your physical space. So you can do the things you love in ways never before possible. This is Apple Vision Pro.
+
+Learn More: https://apple.co/43DmFHf
+
+Audio Descriptions: https://apple.co/441jo4j
+
+00:00 Introduction
+01:35 Photos and videos
+02:41 Entertainment
+03:38 Work
+04:21 FaceTime
+05:39 Design
+07:09 Technology
+08:45 Ending
+
+“Let's Live” by FKJ https://apple.co/FKJ
+&quot;Want Me Anyway&quot; by Aye June https://apple.co/AyeJune
+&quot;Transmit&quot; by Fyfe, Iskra Strings https://apple.co/FyfeIskraStrings
+&quot;New Horizon&quot; by Little Dragon
+&quot;A.I.&quot; by Hark Madley https://apple.co/HarkMadley
+&quot;Waves&quot; by StayLoose, Lucy Daydream https://apple.co/StaylooseLucyDaydream
+&quot;Free&quot; by Bakar https://apple.co/Bakar
+
+#AppleVisionPro #WWDC23 #AppleEvent
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Our more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="402684" average="5.00" min="1" max="5"/>
+    <media:statistics views="50908317"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4-7jSoINyq4</id>
+  <yt:videoId>4-7jSoINyq4</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>Privacy on iPhone | The Waiting Room | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=4-7jSoINyq4"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-05-24T14:00:24+00:00</published>
+  <updated>2023-06-14T10:38:43+00:00</updated>
+  <media:group>
+   <media:title>Privacy on iPhone | The Waiting Room | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/4-7jSoINyq4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4-7jSoINyq4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Worried your most personal data might get into the wrong hands? The Health app on iPhone helps you control who sees your health data—and who doesn’t. Because when it comes to your health, privacy matters. 
+
+See how to keep your health data private: https://apple.co/3BBqv7h
+Learn more about Privacy: https://apple.co/3Mh18fU
+
+Audio Descriptions: https://apple.co/41KMFhS
+
+“Knives Out!, Pt II (The Will)” by Nathan Johnson https://apple.co/3pWxS6M
+
+#Privacy #PrivacyOniPhone
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Our more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="16503" average="5.00" min="1" max="5"/>
+    <media:statistics views="9876292"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:0mqWw5UH1qg</id>
+  <yt:videoId>0mqWw5UH1qg</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>Final Cut Pro &amp; Logic Pro now on iPad | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=0mqWw5UH1qg"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-05-09T13:23:42+00:00</published>
+  <updated>2023-06-11T12:51:07+00:00</updated>
+  <media:group>
+   <media:title>Final Cut Pro &amp; Logic Pro now on iPad | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/0mqWw5UH1qg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/0mqWw5UH1qg/hqdefault.jpg" width="480" height="360"/>
+   <media:description>The power of a complete music studio and movie studio in your hands, wherever you are. Introducing Final Cut Pro and Logic Pro, built for iPad. Two new pro apps designed with the best features of iPad in mind: a Multi-Touch interface, the power of Apple silicon, and Apple Pencil. See these new apps in action in the hands of Take A Daytrip, Syd, BRTHR, and Ashley Xu.
+
+Learn more: 
+Final Cut Pro: https://apple.co/3HVvYct
+Logic Pro: https://apple.co/3NQHhX8
+
+Audio Descriptions: https://apple.co/42FWMp2
+
+Music composed by Take A Daytrip and Syd.
+
+#Apple #FinalCutPro #LogicPro #iPad #iPadPro
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="29648" average="5.00" min="1" max="5"/>
+    <media:statistics views="590782"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:L5wx0Takylc</id>
+  <yt:videoId>L5wx0Takylc</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>Wherever you are, Apple Arcade is open | Parking Lot | Apple Arcade</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=L5wx0Takylc"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-05-04T13:05:50+00:00</published>
+  <updated>2023-06-15T02:06:47+00:00</updated>
+  <media:group>
+   <media:title>Wherever you are, Apple Arcade is open | Parking Lot | Apple Arcade</media:title>
+   <media:content url="https://www.youtube.com/v/L5wx0Takylc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/L5wx0Takylc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>No matter the time, place, or situation, you’re just a tap away from the most fun place on your phone. Because wherever you are, Apple Arcade is open.
+
+Learn more about Apple Arcade: http://apple.co/AppleArcade
+
+Follow Apple Arcade on Twitter: https://twitter.com/AppleArcade
+
+Audio Descriptions: https://youtu.be/-XYQ2YN8zjA
+
+Let’s Play by Kullah https://apple.co/3AMwDJj 
+
+#Apple #AppleArcade
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Our more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="8621" average="5.00" min="1" max="5"/>
+    <media:statistics views="259474"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:fVW8-px4Ufw</id>
+  <yt:videoId>fVW8-px4Ufw</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>The new AirPods Pro | Quiet the noise | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=fVW8-px4Ufw"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-03-15T13:00:36+00:00</published>
+  <updated>2023-06-09T21:27:41+00:00</updated>
+  <media:group>
+   <media:title>The new AirPods Pro | Quiet the noise | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/fVW8-px4Ufw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/fVW8-px4Ufw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>The new AirPods Pro. Up to 2x more Active Noise Cancellation than the previous generation.
+
+Learn more: https://apple.co/3Lxom2E
+
+Audio Descriptions: https://apple.co/3MVm9P9
+
+Where Is My Mind? by Tkay Maidza https://apple.co/42q7YXR
+
+#AirPodsPro #AirPods #Apple
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Our more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="100225" average="5.00" min="1" max="5"/>
+    <media:statistics views="28073270"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:1S8L7t2tu0U</id>
+  <yt:videoId>1S8L7t2tu0U</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>iPhone 14 &amp; iPhone 14 Plus | Hello Yellow | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=1S8L7t2tu0U"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-03-14T14:55:42+00:00</published>
+  <updated>2023-06-13T10:00:33+00:00</updated>
+  <media:group>
+   <media:title>iPhone 14 &amp; iPhone 14 Plus | Hello Yellow | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/1S8L7t2tu0U?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/1S8L7t2tu0U/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Say hello yellow to iPhone 14 and iPhone 14 Plus.
+
+Two great sizes. Larger than life battery life. A new front camera with autofocus. A more advanced dual-camera system for better photos. Action mode for extra smooth videos. The lightning-fast A15 Bionic chip. And two groundbreaking new safety features, Crash Detection and Emergency SOS via satellite. Everything you love about iPhone. Now in yellow. 
+
+Learn more about iPhone 14 and iPhone 14 Plus: https://apple.co/3mrFyMj
+
+Audio Descriptions: https://apple.co/3Jkpuno
+
+“Le Banana Split&quot; by Lio https://apple.co/Le-Banana-Split
+
+#iPhone14 #iPhone #iPhone14Plus 
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="32067" average="5.00" min="1" max="5"/>
+    <media:statistics views="20330598"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:svpvEfQ1cp8</id>
+  <yt:videoId>svpvEfQ1cp8</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>Shot on iPhone 14 Pro | Making of Vishal Bhardwaj’s Fursat | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=svpvEfQ1cp8"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-02-04T10:40:49+00:00</published>
+  <updated>2023-06-12T07:06:17+00:00</updated>
+  <media:group>
+   <media:title>Shot on iPhone 14 Pro | Making of Vishal Bhardwaj’s Fursat | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/svpvEfQ1cp8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/svpvEfQ1cp8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Go behind the scenes with acclaimed filmmaker Vishal Bhardwaj and Director of Photography Swapnil Sonawane. See how iPhone 14 Pro helped craft the stunning visuals of &quot;Fursat&quot;, a fast-paced, multi-genre musical. 
+
+Listen to the album in Spatial Audio: https://apple.co/3JpUMLe
+
+Learn more about iPhone 14 Pro: https://apple.co/3jz5Jji
+
+Audio Descriptions: https://youtu.be/u4DHm2KyKYg
+
+#ShotoniPhone
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Our more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="19540" average="5.00" min="1" max="5"/>
+    <media:statistics views="889292"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:f1VEks-QQ4Y</id>
+  <yt:videoId>f1VEks-QQ4Y</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>Shot on iPhone 14 Pro | Fursat – A Vishal Bhardwaj film | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=f1VEks-QQ4Y"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-02-02T18:30:29+00:00</published>
+  <updated>2023-06-08T08:32:59+00:00</updated>
+  <media:group>
+   <media:title>Shot on iPhone 14 Pro | Fursat – A Vishal Bhardwaj film | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/f1VEks-QQ4Y?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/f1VEks-QQ4Y/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Shot on iPhone 14 Pro by director Vishal Bhardwaj, &quot;Fursat&quot; is a magical story about a man so obsessed with controlling the future that he risks losing what he holds most precious in the present.
+
+Cast: Ishaan, Wamiqa Gabbi
+
+Listen to the album in Spatial Audio: https://apple.co/3JpUMLe
+
+Learn more about iPhone 14 Pro: https://apple.co/3YmhLvc
+
+Audio Descriptions: https://youtu.be/57ZD6ds4wXg
+
+#ShotoniPhone
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Our more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="44537" average="5.00" min="1" max="5"/>
+    <media:statistics views="4322905"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:1HWUjMjaBJI</id>
+  <yt:videoId>1HWUjMjaBJI</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>Privacy on iPhone | A Day in the Life of an Average Person’s Data | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=1HWUjMjaBJI"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-01-24T16:00:01+00:00</published>
+  <updated>2023-06-07T22:55:10+00:00</updated>
+  <media:group>
+   <media:title>Privacy on iPhone | A Day in the Life of an Average Person’s Data | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/1HWUjMjaBJI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/1HWUjMjaBJI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>iPhone is designed with privacy built in. Follow Nick Mohammed through his “average” day to learn how data companies are trying to collect your personal information and how your iPhone can help protect you.
+
+Audio Descriptions: https://apple.co/3XXtD6M
+
+00:00 - Introduction
+00:53 - Mail Privacy Protection
+01:36 - Intelligent Tracking Prevention
+2:30 - App Tracking Transparency
+3:53 - Wallet &amp; Apple Pay
+4:54 - Ending
+
+Learn more at https://apple.co/3X62E8F
+
+Join a free session at your Apple Store to learn how to take control of your privacy on iPhone. Sign up now. https://apple.co/3jGKegl
+
+#Privacy #PrivacyOniPhone
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="23913" average="5.00" min="1" max="5"/>
+    <media:statistics views="20985234"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:oMf_i1YBuMk</id>
+  <yt:videoId>oMf_i1YBuMk</yt:videoId>
+  <yt:channelId>UCE_M8A5yxnLfW0KghEeajjw</yt:channelId>
+  <title>Introducing the all-new HomePod | Apple</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=oMf_i1YBuMk"/>
+  <author>
+   <name>Apple</name>
+   <uri>https://www.youtube.com/channel/UCE_M8A5yxnLfW0KghEeajjw</uri>
+  </author>
+  <published>2023-01-18T14:44:48+00:00</published>
+  <updated>2023-06-12T13:54:26+00:00</updated>
+  <media:group>
+   <media:title>Introducing the all-new HomePod | Apple</media:title>
+   <media:content url="https://www.youtube.com/v/oMf_i1YBuMk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/oMf_i1YBuMk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>A powerful, high-excursion woofer and beamforming tweeters create room-filling sound. HomePod senses its surroundings and automatically adapts audio for where it’s placed. Advanced computational audio, powered by Apple silicon, optimizes acoustic performance. Spatial Audio directs music with great precision, surrounding you in sound. It all comes together for the ultimate home audio experience. 
+
+HomePod also works seamlessly with all your Apple devices. It comes with Siri built in and works as a smart home hub to connect and control your home, privately and securely. Available in Midnight and White.
+
+Audio Descriptions: https://apple.co/3RdWx02
+
+“GMT (Jamie xx Remix)” by Oliver Sim and Jamie xx https://apple.co/GMT-Remix
+
+Learn more about HomePod: https://apple.co/3iPMmC7
+
+#Apple #HomePod
+
+Spatial Audio works with compatible content in supported apps.
+Music streaming services may require a subscription.
+Smart home functionality requires a HomeKit- or Matter-enabled accessory. Smart home accessories sold separately.
+
+Welcome to the official Apple YouTube channel. Here you’ll find news about product launches, tutorials, and other great content. Apple’s more than 160,000 employees are dedicated to making the best products on earth, and to leaving the world better than we found it.</media:description>
+   <media:community>
+    <media:starRating count="72231" average="5.00" min="1" max="5"/>
+    <media:statistics views="9639890"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

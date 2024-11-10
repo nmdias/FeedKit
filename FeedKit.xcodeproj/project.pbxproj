@@ -487,6 +487,16 @@
 		BB394B7D223B368C00366193 /* AmpersandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB394B7C223B368C00366193 /* AmpersandTests.swift */; };
 		BB394B7E223B368C00366193 /* AmpersandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB394B7C223B368C00366193 /* AmpersandTests.swift */; };
 		BB394B7F223B368C00366193 /* AmpersandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB394B7C223B368C00366193 /* AmpersandTests.swift */; };
+		EA4431E12A3E2B6C00C2C7F4 /* YouTubeNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4431E02A3E2B6C00C2C7F4 /* YouTubeNamespace.swift */; };
+		EA4431E22A3E2EE000C2C7F4 /* YouTubeNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4431E02A3E2B6C00C2C7F4 /* YouTubeNamespace.swift */; };
+		EA4431E32A3E2EE100C2C7F4 /* YouTubeNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4431E02A3E2B6C00C2C7F4 /* YouTubeNamespace.swift */; };
+		EA4431E42A3E2EE200C2C7F4 /* YouTubeNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4431E02A3E2B6C00C2C7F4 /* YouTubeNamespace.swift */; };
+		EA4431E62A3E32C000C2C7F4 /* YouTubeXMLFeed.xml in Resources */ = {isa = PBXBuildFile; fileRef = EA4431E52A3E32C000C2C7F4 /* YouTubeXMLFeed.xml */; };
+		EA4431E72A3E32C000C2C7F4 /* YouTubeXMLFeed.xml in Resources */ = {isa = PBXBuildFile; fileRef = EA4431E52A3E32C000C2C7F4 /* YouTubeXMLFeed.xml */; };
+		EA4431E82A3E32C000C2C7F4 /* YouTubeXMLFeed.xml in Resources */ = {isa = PBXBuildFile; fileRef = EA4431E52A3E32C000C2C7F4 /* YouTubeXMLFeed.xml */; };
+		EA4431EA2A3E333E00C2C7F4 /* YouTubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4431E92A3E333E00C2C7F4 /* YouTubeTests.swift */; };
+		EA4431EB2A3E333E00C2C7F4 /* YouTubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4431E92A3E333E00C2C7F4 /* YouTubeTests.swift */; };
+		EA4431EC2A3E333E00C2C7F4 /* YouTubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4431E92A3E333E00C2C7F4 /* YouTubeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -723,6 +733,9 @@
 		A0F79FBC1F642AE2007CFC08 /* RDFTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDFTests.swift; sourceTree = "<group>"; };
 		BB394B77223B35D700366193 /* Ampersand.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ampersand.xml; sourceTree = "<group>"; };
 		BB394B7C223B368C00366193 /* AmpersandTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmpersandTests.swift; sourceTree = "<group>"; };
+		EA4431E02A3E2B6C00C2C7F4 /* YouTubeNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeNamespace.swift; sourceTree = "<group>"; };
+		EA4431E52A3E32C000C2C7F4 /* YouTubeXMLFeed.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = YouTubeXMLFeed.xml; sourceTree = "<group>"; };
+		EA4431E92A3E333E00C2C7F4 /* YouTubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -817,6 +830,7 @@
 				A09AFB321EEFDFF40076ACC7 /* DublinCoreTests.swift */,
 				A09AFB331EEFDFF40076ACC7 /* DurationTests.swift */,
 				A09AFB341EEFDFF40076ACC7 /* iTunesTests.swift */,
+				EA4431E92A3E333E00C2C7F4 /* YouTubeTests.swift */,
 				A09AFB351EEFDFF40076ACC7 /* JSONTests.swift */,
 				A09AFB361EEFDFF40076ACC7 /* MediaTests.swift */,
 				A09AFB371EEFDFF40076ACC7 /* ParserErrorTests.swift */,
@@ -991,6 +1005,7 @@
 		A0F6B7E51F6E6E9600220625 /* Namespaces */ = {
 			isa = PBXGroup;
 			children = (
+				EA4431DF2A3E2B5E00C2C7F4 /* YouTube */,
 				A0F6B7E61F6E6E9600220625 /* Content */,
 				A0F6B7E81F6E6E9600220625 /* Dublin Core */,
 				A0F6B7EA1F6E6E9600220625 /* iTunes */,
@@ -1133,6 +1148,7 @@
 				A0F6B9B61F6E6FA700220625 /* RSSDC.xml */,
 				A0F6B9B71F6E6FA700220625 /* RSSMedia.xml */,
 				A0F6B9B81F6E6FA700220625 /* Syndication.xml */,
+				EA4431E52A3E32C000C2C7F4 /* YouTubeXMLFeed.xml */,
 			);
 			path = xml;
 			sourceTree = "<group>";
@@ -1153,6 +1169,14 @@
 				A0F6B9BE1F6E6FC700220625 /* FeedTableViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EA4431DF2A3E2B5E00C2C7F4 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				EA4431E02A3E2B6C00C2C7F4 /* YouTubeNamespace.swift */,
+			);
+			path = YouTube;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1479,6 +1503,7 @@
 				A0F6B9E01F6E714400220625 /* feed.json in Resources */,
 				A0F6B9D61F6E713F00220625 /* AtomMedia.xml in Resources */,
 				A0F6B9DD1F6E713F00220625 /* RSSDC.xml in Resources */,
+				EA4431E62A3E32C000C2C7F4 /* YouTubeXMLFeed.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1499,6 +1524,7 @@
 				A0F6B9E11F6E714400220625 /* feed.json in Resources */,
 				A0F6B9CB1F6E713F00220625 /* AtomMedia.xml in Resources */,
 				A0F6B9D21F6E713F00220625 /* RSSDC.xml in Resources */,
+				EA4431E72A3E32C000C2C7F4 /* YouTubeXMLFeed.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,6 +1545,7 @@
 				A0F6B9E21F6E714400220625 /* feed.json in Resources */,
 				A0F6B9C01F6E713E00220625 /* AtomMedia.xml in Resources */,
 				A0F6B9C71F6E713F00220625 /* RSSDC.xml in Resources */,
+				EA4431E82A3E32C000C2C7F4 /* YouTubeXMLFeed.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1640,6 +1667,7 @@
 				A0F6B8671F6E6EB800220625 /* MediaStatistics.swift in Sources */,
 				A0C788CB20CC6332005C2F6F /* URL + replacingScheme.swift in Sources */,
 				A0F6B87E1F6E6EB800220625 /* RSSFeedTextInput.swift in Sources */,
+				EA4431E42A3E2EE200C2C7F4 /* YouTubeNamespace.swift in Sources */,
 				A0F6B82E1F6E6EB800220625 /* RFC3339DateFormatter.swift in Sources */,
 				A0F6B8311F6E6EB800220625 /* String + toBool.swift in Sources */,
 				A0F6B8431F6E6EB800220625 /* AtomFeedLink.swift in Sources */,
@@ -1686,6 +1714,7 @@
 				A0F79FBD1F642AE2007CFC08 /* RDFTests.swift in Sources */,
 				A09AFB3A1EEFDFF40076ACC7 /* AtomTests.swift in Sources */,
 				A09AFB401EEFDFF40076ACC7 /* ContentTests.swift in Sources */,
+				EA4431EA2A3E333E00C2C7F4 /* YouTubeTests.swift in Sources */,
 				A09AFB491EEFDFF40076ACC7 /* DurationTests.swift in Sources */,
 				A09AFB431EEFDFF40076ACC7 /* DateTests.swift in Sources */,
 				A09AFB461EEFDFF40076ACC7 /* DublinCoreTests.swift in Sources */,
@@ -1708,6 +1737,7 @@
 				A0F79FBE1F642AE2007CFC08 /* RDFTests.swift in Sources */,
 				A09AFB3B1EEFDFF40076ACC7 /* AtomTests.swift in Sources */,
 				A09AFB411EEFDFF40076ACC7 /* ContentTests.swift in Sources */,
+				EA4431EB2A3E333E00C2C7F4 /* YouTubeTests.swift in Sources */,
 				A09AFB4A1EEFDFF40076ACC7 /* DurationTests.swift in Sources */,
 				A09AFB441EEFDFF40076ACC7 /* DateTests.swift in Sources */,
 				A09AFB471EEFDFF40076ACC7 /* DublinCoreTests.swift in Sources */,
@@ -1730,6 +1760,7 @@
 				A0F79FBF1F642AE2007CFC08 /* RDFTests.swift in Sources */,
 				A09AFB3C1EEFDFF40076ACC7 /* AtomTests.swift in Sources */,
 				A09AFB421EEFDFF40076ACC7 /* ContentTests.swift in Sources */,
+				EA4431EC2A3E333E00C2C7F4 /* YouTubeTests.swift in Sources */,
 				A09AFB4B1EEFDFF40076ACC7 /* DurationTests.swift in Sources */,
 				A09AFB451EEFDFF40076ACC7 /* DateTests.swift in Sources */,
 				A09AFB481EEFDFF40076ACC7 /* DublinCoreTests.swift in Sources */,
@@ -1836,6 +1867,7 @@
 				A0F6B91F1F6E6EBB00220625 /* MediaStatistics.swift in Sources */,
 				A0C788C920CC6332005C2F6F /* URL + replacingScheme.swift in Sources */,
 				A0F6B9361F6E6EBB00220625 /* RSSFeedTextInput.swift in Sources */,
+				EA4431E22A3E2EE000C2C7F4 /* YouTubeNamespace.swift in Sources */,
 				A0F6B8E61F6E6EBA00220625 /* RFC3339DateFormatter.swift in Sources */,
 				A0F6B8E91F6E6EBA00220625 /* String + toBool.swift in Sources */,
 				A0F6B8FB1F6E6EBB00220625 /* AtomFeedLink.swift in Sources */,
@@ -1936,6 +1968,7 @@
 				A0F6B8C31F6E6EBA00220625 /* MediaStatistics.swift in Sources */,
 				A0C788CA20CC6332005C2F6F /* URL + replacingScheme.swift in Sources */,
 				A0F6B8DA1F6E6EBA00220625 /* RSSFeedTextInput.swift in Sources */,
+				EA4431E32A3E2EE100C2C7F4 /* YouTubeNamespace.swift in Sources */,
 				A0F6B88A1F6E6EBA00220625 /* RFC3339DateFormatter.swift in Sources */,
 				A0F6B88D1F6E6EBA00220625 /* String + toBool.swift in Sources */,
 				A0F6B89F1F6E6EBA00220625 /* AtomFeedLink.swift in Sources */,
@@ -2036,6 +2069,7 @@
 				A0F6B97B1F6E6EBB00220625 /* MediaStatistics.swift in Sources */,
 				A0C788C820CC6332005C2F6F /* URL + replacingScheme.swift in Sources */,
 				A0F6B9921F6E6EBB00220625 /* RSSFeedTextInput.swift in Sources */,
+				EA4431E12A3E2B6C00C2C7F4 /* YouTubeNamespace.swift in Sources */,
 				A0F6B9421F6E6EBB00220625 /* RFC3339DateFormatter.swift in Sources */,
 				A0F6B9451F6E6EBB00220625 /* String + toBool.swift in Sources */,
 				A0F6B9571F6E6EBB00220625 /* AtomFeedLink.swift in Sources */,

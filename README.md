@@ -17,6 +17,7 @@
     - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
     - [x] [Media RSS](http://www.rssboard.org/media-rss)
     - [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
+    - [x] [YouTube](https://developers.google.com/youtube/v3/guides/push_notifications)
 - [x] [Documentation](http://cocoadocs.org/docsets/FeedKit)
 - [x] Unit Test Coverage
 

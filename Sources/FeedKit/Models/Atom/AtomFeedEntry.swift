@@ -164,6 +164,8 @@ public class AtomFeedEntry {
     /// capabilities of RSS 2.0.
     public var media: MediaNamespace?
     
+    public var yt: YouTubeNamespace?
+    
     public init() { }
     
 }
@@ -185,7 +187,8 @@ extension AtomFeedEntry: Equatable {
             lhs.content == rhs.content &&
             lhs.published == rhs.published &&
             lhs.source == rhs.source &&
-            lhs.rights == rhs.rights
+            lhs.rights == rhs.rights &&
+            lhs.yt == rhs.yt
     }
     
 }
