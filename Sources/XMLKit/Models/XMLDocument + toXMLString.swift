@@ -31,7 +31,7 @@ extension XMLDocument {
   /// - Returns: A string representation of the XML.
   func toXMLString(formatted: Bool = false) -> String {
     guard let root = root else { return "" }
-    
+
     // XML header
     let header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 
