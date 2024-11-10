@@ -17,7 +17,7 @@
     - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
     - [x] [Media RSS](http://www.rssboard.org/media-rss)
     - [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
-- [x] [Documentation](http://cocoadocs.org/docsets/FeedKit)
+- [x] Documentation: In Xcode, Option-click on any FeedKit type and it will immediately display documentation for that type.
 - [x] Unit Test Coverage
 
 ## Requirements
