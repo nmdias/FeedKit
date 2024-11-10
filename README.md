@@ -21,9 +21,9 @@
 
 Dependency managers
 
+[![spm compatible](https://img.shields.io/badge/spm-compatible-orange.svg)](https://github.com/Carthage/Carthage)
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/FeedKit)
 [![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
-[![spm compatible](https://img.shields.io/badge/spm-compatible-orange.svg)](https://github.com/Carthage/Carthage)
 
 Installation >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/INSTALL.md) <<
 
