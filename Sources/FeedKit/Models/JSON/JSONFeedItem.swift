@@ -152,7 +152,12 @@ extension JSONFeedItem: Codable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(String.self, forKey: .id)
+        do {
+            id = try values.decode(String.self, forKey: .id)
+        } catch DecodingError.typeMismatch {
+            let idInt = try values.decode(Int.self, forKey: .id)
+            id = String(describing: idInt)
+        }
         title = try values.decodeIfPresent(String.self, forKey: .title)
         url = try values.decodeIfPresent(String.self, forKey: .url)
         externalUrl = try values.decodeIfPresent(String.self, forKey: .external_url)
