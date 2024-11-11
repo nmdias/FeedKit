@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-  <metadata>
+  <header>
     <title>Sample Document</title>
     <description>This is a sample document.</description>
-  </metadata>
-  <data>
+  </header>
+  <content>
     <item id="1" value="01">
       <name>Item 1</name>
       <description>This is a sample description for Item 1.</description>
@@ -13,5 +13,5 @@
       <name>Item 2</name>
       <description>This is a sample description for Item 2.</description>
     </item>
-  </data>
+  </content>
 </root>

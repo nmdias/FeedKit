@@ -38,7 +38,7 @@ extension XMLKitTests {
         name: "root",
         children: [
           .init(
-            name: "metadata",
+            name: "header",
             children: [
               .init(
                 name: "title",
@@ -51,7 +51,7 @@ extension XMLKitTests {
             ]
           ),
           .init(
-            name: "data",
+            name: "content",
             children: [
               .init(
                 name: "item",
