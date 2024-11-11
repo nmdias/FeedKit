@@ -29,15 +29,18 @@ struct XMLDecoder: Decoder {
 
   var userInfo: [CodingUserInfoKey: Any]
 
-  func container<Key>(keyedBy type: Key.Type) throws -> KeyedDecodingContainer<Key> where Key: CodingKey {
+  func container<Key>(keyedBy type: Key.Type)
+  throws -> KeyedDecodingContainer<Key> where Key: CodingKey {
     fatalError()
   }
 
-  func unkeyedContainer() throws -> any UnkeyedDecodingContainer {
+  func unkeyedContainer()
+  throws -> any UnkeyedDecodingContainer {
     fatalError()
   }
 
-  func singleValueContainer() throws -> any SingleValueDecodingContainer {
+  func singleValueContainer()
+  throws -> any SingleValueDecodingContainer {
     fatalError()
   }
 }
@@ -54,11 +57,13 @@ extension XMLDecoder {
       fatalError()
     }
 
-    func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type, forKey key: Key) throws -> KeyedDecodingContainer<NestedKey> where NestedKey: CodingKey {
+    func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type, forKey key: Key)
+      throws -> KeyedDecodingContainer<NestedKey> where NestedKey: CodingKey {
       fatalError()
     }
 
-    func nestedUnkeyedContainer(forKey key: Key) throws -> any UnkeyedDecodingContainer {
+    func nestedUnkeyedContainer(forKey key: Key)
+      throws -> any UnkeyedDecodingContainer {
       fatalError()
     }
 
@@ -66,7 +71,8 @@ extension XMLDecoder {
       fatalError()
     }
 
-    func superDecoder(forKey key: Key) throws -> any Decoder {
+    func superDecoder(forKey key: Key)
+      throws -> any Decoder {
       fatalError()
     }
 
@@ -76,69 +82,84 @@ extension XMLDecoder {
       fatalError()
     }
 
-    func decode<T>(_ type: T.Type, forKey key: Key) throws -> T where T: Decodable {
+    func decode<T>(_ type: T.Type, forKey key: Key)
+      throws -> T where T: Decodable {
       fatalError()
     }
 
-    func decode(_ type: Bool.Type, forKey key: Key) throws -> Bool {
+    func decode(_ type: Bool.Type, forKey key: Key)
+      throws -> Bool {
       fatalError()
     }
 
-    func decode(_ type: String.Type, forKey key: Key) throws -> String {
+    func decode(_ type: String.Type, forKey key: Key)
+      throws -> String {
       fatalError()
     }
 
     // MARK: - Floating point
 
-    func decode(_ type: Double.Type, forKey key: Key) throws -> Double {
+    func decode(_ type: Double.Type, forKey key: Key)
+      throws -> Double {
       fatalError()
     }
 
-    func decode(_ type: Float.Type, forKey key: Key) throws -> Float {
+    func decode(_ type: Float.Type, forKey key: Key)
+      throws -> Float {
       fatalError()
     }
 
     // MARK: - Int
 
-    func decode(_ type: Int.Type, forKey key: Key) throws -> Int {
+    func decode(_ type: Int.Type, forKey key: Key)
+      throws -> Int {
       fatalError()
     }
 
-    func decode(_ type: Int8.Type, forKey key: Key) throws -> Int8 {
+    func decode(_ type: Int8.Type, forKey key: Key)
+      throws -> Int8 {
       fatalError()
     }
 
-    func decode(_ type: Int16.Type, forKey key: Key) throws -> Int16 {
+    func decode(_ type: Int16.Type, forKey key: Key)
+      throws -> Int16 {
       fatalError()
     }
 
-    func decode(_ type: Int32.Type, forKey key: Key) throws -> Int32 {
+    func decode(_ type: Int32.Type, forKey key: Key)
+      throws -> Int32 {
       fatalError()
     }
 
-    func decode(_ type: Int64.Type, forKey key: Key) throws -> Int64 {
+    func decode(_ type: Int64.Type, forKey key: Key)
+      throws -> Int64 {
       fatalError()
     }
 
     // MARK: - Unsigned Int
 
-    func decode(_ type: UInt.Type, forKey key: Key) throws -> UInt {
+    func decode(_ type: UInt.Type, forKey key: Key)
+      throws -> UInt {
       fatalError()
     }
 
-    func decode(_ type: UInt8.Type, forKey key: Key) throws -> UInt8 {
+    func decode(_ type: UInt8.Type, forKey key: Key)
+      throws -> UInt8 {
       fatalError()
     }
 
-    func decode(_ type: UInt16.Type, forKey key: Key) throws -> UInt16 {
+    func decode(_ type: UInt16.Type, forKey key: Key)
+      throws -> UInt16 {
       fatalError()
     }
 
-    func decode(_ type: UInt32.Type, forKey key: Key) throws -> UInt32 {
+    func decode(_ type: UInt32.Type, forKey key: Key)
+      throws -> UInt32 {
       fatalError()
     }
 
-    func decode(_ type: UInt64.Type, forKey key: Key) throws -> UInt64 {
+    func decode(_ type: UInt64.Type, forKey key: Key)
+      throws -> UInt64 {
       fatalError()
     }
   }
@@ -156,87 +177,106 @@ extension XMLDecoder {
 
     var currentIndex: Int
 
-    mutating func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type) throws -> KeyedDecodingContainer<NestedKey> where NestedKey: CodingKey {
+    mutating func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type)
+      throws -> KeyedDecodingContainer<NestedKey> where NestedKey: CodingKey {
       fatalError()
     }
 
-    mutating func nestedUnkeyedContainer() throws -> any UnkeyedDecodingContainer {
+    mutating func nestedUnkeyedContainer()
+      throws -> any UnkeyedDecodingContainer {
       fatalError()
     }
 
-    mutating func superDecoder() throws -> any Decoder {
+    mutating func superDecoder()
+      throws -> any Decoder {
       fatalError()
     }
 
     // MARK: - Decode
 
-    func decodeNil() throws -> Bool {
+    func decodeNil()
+      throws -> Bool {
       fatalError()
     }
 
-    func decode<T>(_ type: T.Type) throws -> T where T: Decodable {
+    func decode<T>(_ type: T.Type)
+      throws -> T where T: Decodable {
       fatalError()
     }
 
-    func decode(_ type: Bool.Type) throws -> Bool {
+    func decode(_ type: Bool.Type)
+      throws -> Bool {
       fatalError()
     }
 
-    func decode(_ type: String.Type) throws -> String {
+    func decode(_ type: String.Type)
+      throws -> String {
       fatalError()
     }
 
     // MARK: - Floating point
 
-    func decode(_ type: Double.Type) throws -> Double {
+    func decode(_ type: Double.Type)
+      throws -> Double {
       fatalError()
     }
 
-    func decode(_ type: Float.Type) throws -> Float {
+    func decode(_ type: Float.Type)
+      throws -> Float {
       fatalError()
     }
 
     // MARK: - Int
 
-    func decode(_ type: Int.Type) throws -> Int {
+    func decode(_ type: Int.Type)
+      throws -> Int {
       fatalError()
     }
 
-    func decode(_ type: Int8.Type) throws -> Int8 {
+    func decode(_ type: Int8.Type)
+      throws -> Int8 {
       fatalError()
     }
 
-    func decode(_ type: Int16.Type) throws -> Int16 {
+    func decode(_ type: Int16.Type)
+      throws -> Int16 {
       fatalError()
     }
 
-    func decode(_ type: Int32.Type) throws -> Int32 {
+    func decode(_ type: Int32.Type)
+      throws -> Int32 {
       fatalError()
     }
 
-    func decode(_ type: Int64.Type) throws -> Int64 {
+    func decode(_ type: Int64.Type)
+      throws -> Int64 {
       fatalError()
     }
 
     // MARK: - Unsigned Int
 
-    func decode(_ type: UInt.Type) throws -> UInt {
+    func decode(_ type: UInt.Type)
+      throws -> UInt {
       fatalError()
     }
 
-    func decode(_ type: UInt8.Type) throws -> UInt8 {
+    func decode(_ type: UInt8.Type)
+      throws -> UInt8 {
       fatalError()
     }
 
-    func decode(_ type: UInt16.Type) throws -> UInt16 {
+    func decode(_ type: UInt16.Type)
+      throws -> UInt16 {
       fatalError()
     }
 
-    func decode(_ type: UInt32.Type) throws -> UInt32 {
+    func decode(_ type: UInt32.Type)
+      throws -> UInt32 {
       fatalError()
     }
 
-    func decode(_ type: UInt64.Type) throws -> UInt64 {
+    func decode(_ type: UInt64.Type)
+      throws -> UInt64 {
       fatalError()
     }
   }
@@ -254,65 +294,79 @@ extension XMLDecoder {
       fatalError()
     }
 
-    func decode<T>(_ type: T.Type) throws -> T where T: Decodable {
+    func decode<T>(_ type: T.Type)
+      throws -> T where T: Decodable {
       fatalError()
     }
 
-    func decode(_ type: Bool.Type) throws -> Bool {
+    func decode(_ type: Bool.Type)
+      throws -> Bool {
       fatalError()
     }
 
     // MARK: - Floating point
 
-    func decode(_ type: Double.Type) throws -> Double {
+    func decode(_ type: Double.Type)
+      throws -> Double {
       fatalError()
     }
 
-    func decode(_ type: Float.Type) throws -> Float {
+    func decode(_ type: Float.Type)
+      throws -> Float {
       fatalError()
     }
 
     // MARK: - Int
 
-    func decode(_ type: Int.Type) throws -> Int {
+    func decode(_ type: Int.Type)
+      throws -> Int {
       fatalError()
     }
 
-    func decode(_ type: Int8.Type) throws -> Int8 {
+    func decode(_ type: Int8.Type)
+      throws -> Int8 {
       fatalError()
     }
 
-    func decode(_ type: Int16.Type) throws -> Int16 {
+    func decode(_ type: Int16.Type)
+      throws -> Int16 {
       fatalError()
     }
 
-    func decode(_ type: Int32.Type) throws -> Int32 {
+    func decode(_ type: Int32.Type)
+      throws -> Int32 {
       fatalError()
     }
 
-    func decode(_ type: Int64.Type) throws -> Int64 {
+    func decode(_ type: Int64.Type)
+      throws -> Int64 {
       fatalError()
     }
 
     // MARK: - Unsigned Int
 
-    func decode(_ type: UInt.Type) throws -> UInt {
+    func decode(_ type: UInt.Type)
+      throws -> UInt {
       fatalError()
     }
 
-    func decode(_ type: UInt8.Type) throws -> UInt8 {
+    func decode(_ type: UInt8.Type)
+      throws -> UInt8 {
       fatalError()
     }
 
-    func decode(_ type: UInt16.Type) throws -> UInt16 {
+    func decode(_ type: UInt16.Type)
+      throws -> UInt16 {
       fatalError()
     }
 
-    func decode(_ type: UInt32.Type) throws -> UInt32 {
+    func decode(_ type: UInt32.Type)
+      throws -> UInt32 {
       fatalError()
     }
 
-    func decode(_ type: UInt64.Type) throws -> UInt64 {
+    func decode(_ type: UInt64.Type)
+      throws -> UInt64 {
       fatalError()
     }
   }
