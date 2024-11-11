@@ -67,15 +67,16 @@ class XMLParser: NSObject {
     return .success(.init(root: root))
   }
 
-  /// Maps character data to the current element's value.
+  /// Maps character data by appending it to the current element's text variable.
+  /// `map(_ string:)` may be called multiple times for the same element.
   /// - Parameter string: The character data found in the XML.
   func map(_ string: String) {
     // Get the working element
     guard let element = stack.last else { return }
     let trim = string.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !trim.isEmpty else { return }
-    if let value = element.text {
-      element.text = value + trim
+    if let text = element.text {
+      element.text = text + trim
     } else {
       element.text = trim
     }
