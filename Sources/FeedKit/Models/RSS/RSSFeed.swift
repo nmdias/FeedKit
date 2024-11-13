@@ -250,6 +250,11 @@ public class RSSFeed {
     /// See https://help.apple.com/itc/podcasts_connect/#/itcb54353390
     public var iTunes: ITunesNamespace?
     
+    /// Atom namespace in an RSS feed helps WebSub subscribers discover the topic
+    /// and hub information.
+    /// See https://www.w3.org/TR/websub/#discovery
+    public var atom: AtomNamespace?
+    
     public init() { }
     
 }
@@ -260,6 +265,7 @@ extension RSSFeed: Equatable {
     
     public static func ==(lhs: RSSFeed, rhs: RSSFeed) -> Bool {
         return
+            lhs.atom == rhs.atom &&
             lhs.categories == rhs.categories &&
             lhs.cloud == rhs.cloud &&
             lhs.copyright == rhs.copyright &&
