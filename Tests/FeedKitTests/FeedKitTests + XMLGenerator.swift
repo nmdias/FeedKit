@@ -1,5 +1,5 @@
 //
-//  XMLKitTests + XMLParser.swift
+//  FeedKitTests + XMLGenerator.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -22,18 +22,16 @@
 //  SOFTWARE.
 //
 
-@testable import XMLKit
 import Testing
+@testable import FeedKit
 
-extension XMLKitTests {
+extension FeedKitTests {
   @Test
-  func xmlParser() {
+  func xmlGenerator() {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
-    
-    let parser = XMLParser(data: data)
-
-    let expected = XMLDocument(
+    let expected = String(decoding: data, as: Unicode.UTF8.self)
+    let document = XMLDocument(
       root: .init(
         name: "root",
         children: [
@@ -57,7 +55,7 @@ extension XMLKitTests {
                 name: "item",
                 attributes: [
                   "id": "1",
-                  "value": "01"
+                  "value": "01",
                 ],
                 children: [
                   .init(
@@ -74,7 +72,7 @@ extension XMLKitTests {
                 name: "item",
                 attributes: [
                   "id": "2",
-                  "value": "02"
+                  "value": "02",
                 ],
                 children: [
                   .init(
@@ -93,7 +91,7 @@ extension XMLKitTests {
       ))
 
     // When
-    let actual = try? parser.parse().get()
+    let actual = document.toXMLString(formatted: true)
 
     // Then
     #expect(expected == actual)

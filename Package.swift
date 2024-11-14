@@ -10,29 +10,14 @@ let package = Package(
       name: "FeedKit",
       targets: ["FeedKit"]
     ),
-    .library(
-      name: "XMLKit",
-      targets: ["XMLKit"]
-    ),
   ],
   targets: [
     .target(
-      name: "FeedKit",
-      dependencies: [
-        "XMLKit",
-      ]
-    ),
-    .target(
-      name: "XMLKit",
-      dependencies: []
+      name: "FeedKit"
     ),
     .testTarget(
       name: "FeedKitTests",
-      dependencies: ["FeedKit"]
-    ),
-    .testTarget(
-      name: "XMLKitTests",
-      dependencies: ["XMLKit"],
+      dependencies: ["FeedKit"],
       resources: [
         .process("Resources/Sample.xml"),
       ]
