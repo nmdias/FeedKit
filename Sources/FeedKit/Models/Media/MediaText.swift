@@ -30,12 +30,12 @@ import Foundation
 /// elements be grouped by language and appear in time sequence order based on
 /// the start time. Elements can have overlapping start and end times. It has
 /// four optional attributes.
-public struct MediaText: Codable {
+public struct MediaText: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// Specifies the type of text embedded. Possible values are either "plain"
     /// or "html". Default value is "plain". All HTML must be entity-encoded.
     /// It is an optional attribute.

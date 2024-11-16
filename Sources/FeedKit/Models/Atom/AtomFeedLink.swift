@@ -27,9 +27,9 @@ import Foundation
 /// The "atom:link" element defines a reference from an entry or feed to
 /// a Web resource.  This specification assigns no meaning to the content
 /// (if any) of this element.
-public struct AtomFeedLink: Codable {
+public struct AtomFeedLink: Codable, Equatable {
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The "href" attribute contains the link's IRI. atom:link elements MUST
     /// have an href attribute, whose value MUST be a IRI reference
     /// [RFC3987].

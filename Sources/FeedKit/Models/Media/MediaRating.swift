@@ -27,12 +27,12 @@ import Foundation
 /// This allows the permissible audience to be declared. If this element is not
 /// included, it assumes that no restrictions are necessary. It has one optional
 /// attribute.
-public struct MediaRating: Codable {
+public struct MediaRating: Codable, Equatable {
   /// The element's text.
   public var text: String?
   
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The URI that identifies the rating scheme. It is an optional attribute.
     /// If this attribute is not included, the default scheme is urn:simple (adult | nonadult).
     public var scheme: String?

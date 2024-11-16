@@ -27,7 +27,7 @@ import Foundation
 /// The JSON Feed format is a pragmatic syndication format, like RSS and Atom,
 /// but with one big difference: it's JSON instead of XML.
 /// See https://jsonfeed.org/version/1
-public struct JSONFeed: Codable {
+public struct JSONFeed: Codable, Equatable {
   /// (required, string) is the URL of the version of the format the feed
   /// uses. This should appear at the very top, though we recognize that not all
   /// JSON generators allow for ordering.

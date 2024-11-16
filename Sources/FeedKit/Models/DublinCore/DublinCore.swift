@@ -28,7 +28,7 @@ import Foundation
 /// resource description.
 ///
 /// See https://tools.ietf.org/html/rfc5013
-public struct DublinCore: Codable {
+public struct DublinCore: Codable, Equatable {
   /// A name given to the resource.
   public var title: String?
 

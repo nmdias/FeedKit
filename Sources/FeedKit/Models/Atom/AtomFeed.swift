@@ -31,7 +31,7 @@ import Foundation
 /// an Atom Feed Document, acting as a container for metadata and data
 /// associated with the feed.  Its element children consist of metadata
 /// elements followed by zero or more atom:entry child elements.
-public struct AtomFeed: Codable {
+public struct AtomFeed: Codable, Equatable {
   /// The "atom:title" element is a Text construct that conveys a human-
   /// readable title for an entry or feed.
   public var title: String?

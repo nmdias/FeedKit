@@ -27,9 +27,9 @@ import Foundation
 /// Sometimes player-specific embed code is needed for a player to play any
 /// video. <media:embed> allows inclusion of such information in the form of
 /// key-value pairs.
-public struct MediaEmbed: Codable {
+public struct MediaEmbed: Codable, Equatable {
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The location of the embeded media.
     public var url: String?
 

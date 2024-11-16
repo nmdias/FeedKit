@@ -26,9 +26,9 @@ import Foundation
 
 /// This element specifies the rating-related information about a media object.
 /// Valid attributes are average, count, min and max.
-public struct MediaStarRating: Codable {
+public struct MediaStarRating: Codable, Equatable {
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The star rating's average.
     public var average: Double?
 

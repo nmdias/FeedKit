@@ -26,9 +26,9 @@ import Foundation
 
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public struct MediaSubTitle: Codable {
+public struct MediaSubTitle: Codable, Equatable {
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The type of the subtitle.
     public var type: String?
 

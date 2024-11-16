@@ -29,12 +29,12 @@ import Foundation
 /// object can have multiple instances of this tag for including different
 /// pricing structures. The presence of this tag would mean that media object
 /// is not free.
-public struct MediaPrice: Codable {
+public struct MediaPrice: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// Valid values are "rent", "purchase", "package" or "subscription". If
     /// nothing is specified, then the media is free.
     public var type: String?

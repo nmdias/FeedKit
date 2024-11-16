@@ -41,7 +41,7 @@ import Foundation
 /// performing such aggregation SHOULD include at least the required
 /// feed-level Metadata elements (atom:id, atom:title, and atom:updated)
 /// in the atom:source element.
-public struct AtomFeedSource: Codable {
+public struct AtomFeedSource: Codable, Equatable {
   /// The "atom:id" element conveys a permanent, universally unique
   /// identifier for an entry or feed.
   public var id: String?

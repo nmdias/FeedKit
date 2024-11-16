@@ -39,12 +39,12 @@ import Foundation
 ///
 /// The atom:generator element MAY have a "version" attribute that
 /// indicates the version of the generating agent.
-public struct AtomFeedGenerator: Codable {
+public struct AtomFeedGenerator: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The atom:generator element MAY have a "uri" attribute whose value
     /// MUST be an IRI reference [RFC3987].  When dereferenced, the resulting
     /// URI (mapped from an IRI, if necessary) SHOULD produce a

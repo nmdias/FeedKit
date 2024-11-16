@@ -27,9 +27,9 @@ import Foundation
 /// The "atom:category" element conveys information about a category
 /// associated with an entry or feed.  This specification assigns no
 /// meaning to the content (if any) of this element.
-public struct AtomFeedCategory: Codable {
+public struct AtomFeedCategory: Codable, Equatable {
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The "term" attribute is a string that identifies the category to
     /// which the entry or feed belongs.  Category elements MUST have a
     /// "term" attribute.

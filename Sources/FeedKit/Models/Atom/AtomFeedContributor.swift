@@ -26,7 +26,7 @@ import Foundation
 
 /// The "atom:contributor" element is a Person construct that indicates a
 /// person or other entity who contributed to the entry or feed.
-public struct AtomFeedContributor: Codable {
+public struct AtomFeedContributor: Codable, Equatable {
   /// The "atom:name" element's content conveys a human-readable name for
   /// the person.  The content of atom:name is Language-Sensitive.  Person
   /// constructs MUST contain exactly one "atom:name" element.

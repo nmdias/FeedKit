@@ -28,12 +28,12 @@ import Foundation
 /// media object. If multiple thumbnails are included, and time coding is not
 /// at play, it is assumed that the images are in order of importance. It has
 /// one required attribute and three optional attributes.
-public struct MediaThumbnail: Codable {
+public struct MediaThumbnail: Codable, Equatable {
   /// The element's text.
   public var text: String?
   
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// Specifies the url of the thumbnail. It is a required attribute.
     public var url: String?
 

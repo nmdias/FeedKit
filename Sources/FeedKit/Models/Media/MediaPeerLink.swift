@@ -25,12 +25,12 @@
 import Foundation
 
 /// Optional element for P2P link.
-public struct MediaPeerLink: Codable {
+public struct MediaPeerLink: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The peer link's type.
     public var type: String?
 

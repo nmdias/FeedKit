@@ -26,12 +26,12 @@ import Foundation
 
 /// This is the hash of the binary media file. It can appear multiple times as
 /// long as each instance is a different algo. It has one optional attribute.
-public struct MediaHash: Codable {
+public struct MediaHash: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// This is the hash of the binary media file. It can appear multiple times as long as
     /// each instance is a different algo. It has one optional attribute.
     public var algo: String?

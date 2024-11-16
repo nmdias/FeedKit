@@ -29,7 +29,7 @@ import Foundation
 /// yet different representations. For instance: the same song recorded
 /// in both the WAV and MP3 format. It's an optional element that must
 /// only be used for this purpose.
-public struct MediaGroup: Codable {
+public struct MediaGroup: Codable, Equatable {
   /// <media:content> is a sub-element of either <item> or <media:group>.
   /// Media objects that are not the same content should not be included
   /// in the same <media:group> element. The sequence of these items implies

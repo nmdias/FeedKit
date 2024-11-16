@@ -26,12 +26,12 @@ import Foundation
 
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public struct MediaLicence: Codable {
+public struct MediaLicence: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The licence type.
     public var type: String?
 

@@ -32,7 +32,7 @@ import Foundation
 /// skipDay and skipHour elements.
 ///
 /// See http://web.resource.org/rss/1.0/modules/syndication/
-public struct Syndication: Codable {
+public struct Syndication: Codable, Equatable {
   /// Describes the period over which the channel format is updated. Acceptable
   /// values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is
   /// assumed.

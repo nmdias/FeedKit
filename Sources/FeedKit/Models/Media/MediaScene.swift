@@ -30,7 +30,7 @@ import Foundation
 /// the optional sub-elements <sceneTitle>, <sceneDescription>,
 /// <sceneStartTime> and <sceneEndTime>, which contains title, description,
 /// start and end time of a particular scene in the media, respectively.
-public struct MediaScene: Codable {
+public struct MediaScene: Codable, Equatable {
   /// The scene's title.
   public var title: String?
 

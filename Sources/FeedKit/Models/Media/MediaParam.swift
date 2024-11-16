@@ -25,12 +25,12 @@
 import Foundation
 
 /// Key-Value pairs with additional parameters for the embedded Media.
-public struct MediaParam: Codable {
+public struct MediaParam: Codable, Equatable {
   /// The element's text.
   public var text: String?
   
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The parameter's key name.
     public var name: String?
 

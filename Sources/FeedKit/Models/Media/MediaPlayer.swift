@@ -28,12 +28,12 @@ import Foundation
 /// console. This element is required only if a direct media url attribute is
 /// not specified in the <media:content> element. It has one required attribute
 /// and two optional attributes.
-public struct MediaPlayer: Codable {
+public struct MediaPlayer: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The URL of the player console that plays the media. It is a required attribute.
     public var url: String?
 

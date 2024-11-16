@@ -26,7 +26,7 @@ import Foundation
 
 /// An individual item of a JSON Feed, acting as a container for metadata and data
 /// associated with the item.
-public struct JSONFeedItem: Codable {
+public struct JSONFeedItem: Codable, Equatable {
   /// (required, string) is unique for that item for that feed over time. If an
   /// item is ever updated, the id should be unchanged. New items should never
   /// use a previously-used id. If an id is presented as a number or other type,

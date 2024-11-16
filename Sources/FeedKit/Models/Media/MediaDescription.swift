@@ -26,12 +26,12 @@ import Foundation
 
 /// Short description describing the media object typically a sentence in
 /// length. It has one optional attribute.
-public struct MediaDescription: Codable {
+public struct MediaDescription: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// Specifies the type of text embedded. Possible values are either "plain" or "html".
     /// Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
     public var type: String?

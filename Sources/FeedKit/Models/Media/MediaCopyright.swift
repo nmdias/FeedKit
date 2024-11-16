@@ -25,12 +25,12 @@
 import Foundation
 
 /// Copyright information for the media object. It has one optional attribute.
-public struct MediaCopyright: Codable {
+public struct MediaCopyright: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The URL for a terms of use page or additional copyright information.
     /// If the media is operating under a Creative Commons license, the
     /// Creative Commons module should be used instead. It is an optional

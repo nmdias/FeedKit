@@ -34,12 +34,12 @@ import Foundation
 /// literals are reserved: "all", "none". These literals can only be used once.
 /// This element has one required attribute and one optional attribute (with
 /// strict requirements for its exclusion).
-public struct MediaRestriction: Codable {
+public struct MediaRestriction: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// Indicates the type of relationship that the restriction represents
     /// (allow | deny). In the example above, the media object should only be
     /// syndicated in Australia and the United States. It is a required

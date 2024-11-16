@@ -55,9 +55,9 @@ import Foundation
 /// <itunes:category text="Technology">
 ///    <itunes:category text="Gadgets" />
 /// </itunes:category>
-public struct iTunesCategory: Codable {
+public struct iTunesCategory: Codable, Equatable {
   /// The attributes of the element.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The primary iTunes Category.
     public var text: String?
 
@@ -79,3 +79,4 @@ public struct iTunesCategory: Codable {
     self.subcategory = subcategory
   }
 }
+

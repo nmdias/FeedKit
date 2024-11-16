@@ -31,7 +31,7 @@ import Foundation
 /// provide additional metadata with the media. Media RSS enables
 /// content publishers and bloggers to syndicate multimedia content
 /// such as TV and video clips, movies, images and audio.
-public struct Media: Codable {
+public struct Media: Codable, Equatable {
   /// The <media:group> element is a sub-element of <item>. It allows grouping
   /// of <media:content> elements that are effectively the same content,
   /// yet different representations. For instance: the same song recorded

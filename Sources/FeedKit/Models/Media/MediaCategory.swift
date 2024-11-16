@@ -26,12 +26,12 @@ import Foundation
 
 /// Allows a taxonomy to be set that gives an indication of the type of media
 /// content, and its particular contents. It has two optional attributes.
-public struct MediaCategory: Codable {
+public struct MediaCategory: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The URI that identifies the categorization scheme. It is an optional
     /// attribute. If this attribute is not included, the default scheme
     /// is "http://search.yahoo.com/mrss/category_schema".

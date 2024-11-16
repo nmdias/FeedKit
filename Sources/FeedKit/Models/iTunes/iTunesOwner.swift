@@ -30,7 +30,7 @@ import Foundation
 ///
 /// The <itunes:owner> tag information is for administrative communication about
 /// the podcast and is not displayed on the iTunes Store.
-public struct iTunesOwner: Codable {
+public struct iTunesOwner: Codable, Equatable {
   /// The email address of the owner.
   public var email: String?
 

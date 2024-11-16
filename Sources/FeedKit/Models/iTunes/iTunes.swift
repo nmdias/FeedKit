@@ -26,7 +26,7 @@ import Foundation
 
 /// iTunes Podcasting Tags are de facto standard for podcast syndication. For more
 /// information see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
-public struct iTunes: Codable {
+public struct iTunes: Codable, Equatable {
   /// The content you specify in the <itunes:author> tag appears in the Artist
   /// column on the iTunes Store. If the tag is not present, the iTunes Store
   /// uses the contents of the <author> tag. If <itunes:author> is not present

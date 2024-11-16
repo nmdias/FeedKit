@@ -26,9 +26,9 @@ import Foundation
 
 /// Optional tag to specify the status of a media object -- whether it's still
 /// active or it has been blocked/deleted.
-public struct MediaStatus: Codable {
+public struct MediaStatus: Codable, Equatable {
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// State can have values "active", "blocked" or "deleted". "active" means
     /// a media object is active in the system, "blocked" means a media object
     /// is blocked by the publisher, "deleted" means a media object has been

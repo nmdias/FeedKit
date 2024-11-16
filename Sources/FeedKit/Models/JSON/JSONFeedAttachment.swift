@@ -25,7 +25,7 @@
 import Foundation
 
 /// Describes optional attatchments of a JSON Feed item.
-public struct JSONFeedAttachment: Codable {
+public struct JSONFeedAttachment: Codable, Equatable {
   /// (required, string) specifies the location of the attachment.
   public var url: String?
 

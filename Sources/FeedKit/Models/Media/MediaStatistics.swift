@@ -26,9 +26,9 @@ import Foundation
 
 /// This element specifies various statistics about a media object like the
 /// view count and the favorite count. Valid attributes are views and favorites.
-public struct MediaStatistics: Codable {
+public struct MediaStatistics: Codable, Equatable {
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The number of views.
     public var views: Int?
 

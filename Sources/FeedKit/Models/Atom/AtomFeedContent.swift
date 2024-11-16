@@ -26,12 +26,12 @@ import Foundation
 
 /// The "atom:content" element either contains or links to the content of
 /// the entry.  The content of atom:content is Language-Sensitive.
-public struct AtomFeedContent: Codable {
+public struct AtomFeedContent: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// On the atom:content element, the value of the "type" attribute MAY be
     /// one of "text", "html", or "xhtml".  Failing that, it MUST conform to
     /// the syntax of a MIME media type, but MUST NOT be a composite type

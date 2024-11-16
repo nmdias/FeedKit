@@ -29,12 +29,12 @@ import Foundation
 /// entities can have multiple roles, and several entities can have the same
 /// role. These should appear as distinct <media:credit> elements. It has two
 /// optional attributes.
-public struct MediaCredit: Codable {
+public struct MediaCredit: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// Specifies the role the entity played. Must be lowercase. It is an
     /// optional attribute.
     public var role: String?

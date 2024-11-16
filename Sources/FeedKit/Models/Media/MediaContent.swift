@@ -30,9 +30,9 @@ import Foundation
 /// the order of presentation. While many of the attributes appear to be
 /// audio/video specific, this element can be used to publish any type of
 /// media. It contains 14 attributes, most of which are optional.
-public struct MediaContent: Codable {
+public struct MediaContent: Codable, Equatable {
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// Should specify the direct URL to the media object. If not included,
     /// a <media:player> element must be specified.
     public var url: String?

@@ -29,7 +29,7 @@ import Foundation
 /// element can appear as a child of the atom:feed element, or it can
 /// appear as the document (i.e., top-level) element of a stand-alone
 /// Atom Entry Document.
-public struct AtomFeedEntry: Codable {
+public struct AtomFeedEntry: Codable, Equatable {
   /// The "atom:title" element is a Text construct that conveys a human-
   /// readable title for an entry or feed.
   public var title: String?

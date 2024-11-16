@@ -27,7 +27,7 @@ import Foundation
 /// (optional, object) specifies the feed author. The author object has several
 /// members. These are all optional - but if you provide an author object, then at
 /// least one is required:
-public struct JSONFeedAuthor: Codable {
+public struct JSONFeedAuthor: Codable, Equatable {
   /// (optional, string) is the author's name.
   public var name: String?
 
