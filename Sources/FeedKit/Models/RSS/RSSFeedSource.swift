@@ -38,12 +38,12 @@ import Foundation
 /// publicize the sources of news items. It can be used in the Post command
 /// of an aggregator. It should be generated automatically when forwarding
 /// an item from an aggregator to a weblog authoring tool.
-public struct RSSFeedSource: Codable {
+public struct RSSFeedSource: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// Required attribute of the `Source` element, which links to the
     /// XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
     public var url: String?

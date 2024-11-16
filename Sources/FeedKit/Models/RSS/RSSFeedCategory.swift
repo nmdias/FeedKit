@@ -26,12 +26,12 @@ import Foundation
 
 /// The category of `<channel>`. Identifies a category or tag to which the feed
 /// belongs.
-public struct RSSFeedCategory: Codable {
+public struct RSSFeedCategory: Codable, Equatable {
   /// The element's text.
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// A string that identifies a categorization taxonomy. It's an optional
     /// attribute of `<category>`. e.g. "http://www.fool.com/cusips"
     public var domain: String?

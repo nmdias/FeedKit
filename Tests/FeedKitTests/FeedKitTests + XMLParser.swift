@@ -22,8 +22,9 @@
 //  SOFTWARE.
 //
 
-import Testing
 @testable import FeedKit
+
+import Testing
 
 extension FeedKitTests {
   @Test
@@ -31,64 +32,7 @@ extension FeedKitTests {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
     let parser = XMLParser(data: data)
-    let expected = XMLDocument(
-      root: .init(
-        name: "root",
-        children: [
-          .init(
-            name: "header",
-            children: [
-              .init(
-                name: "title",
-                text: "Sample Document"
-              ),
-              .init(
-                name: "description",
-                text: "This is a sample document."
-              ),
-            ]
-          ),
-          .init(
-            name: "content",
-            children: [
-              .init(
-                name: "item",
-                attributes: [
-                  "id": "1",
-                  "value": "01"
-                ],
-                children: [
-                  .init(
-                    name: "name",
-                    text: "Item 1"
-                  ),
-                  .init(
-                    name: "description",
-                    text: "This is a sample description for Item 1."
-                  ),
-                ]
-              ),
-              .init(
-                name: "item",
-                attributes: [
-                  "id": "2",
-                  "value": "02"
-                ],
-                children: [
-                  .init(
-                    name: "name",
-                    text: "Item 2"
-                  ),
-                  .init(
-                    name: "description",
-                    text: "This is a sample description for Item 2."
-                  ),
-                ]
-              ),
-            ]
-          ),
-        ]
-      ))
+    let expected = Sample.xmlDocumentMock
 
     // When
     let actual = try? parser.parse().get()

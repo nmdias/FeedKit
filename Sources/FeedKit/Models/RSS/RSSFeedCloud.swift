@@ -47,9 +47,9 @@ import Foundation
 ///
 /// A full explanation of this element and the rssCloud interface is here:
 /// http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
-public struct RSSFeedCloud: Codable {
+public struct RSSFeedCloud: Codable, Equatable {
   /// The attributes of the `<channel>`'s `<cloud>` element.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// The domain to register notification to.
     public var domain: String?
 

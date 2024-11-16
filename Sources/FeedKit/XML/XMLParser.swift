@@ -36,7 +36,7 @@ class XMLParser: NSObject {
   ///   document.
   var stack: [XMLElement] = []
   /// A parsing error, if any.
-  var error: XMLParserError?
+  var error: XMLError?
   /// A boolean indicating whether the XML parsing process has completed.
   /// Set to `true` when parsing is finished; otherwise, `false`.
   var isComplete = false
@@ -51,7 +51,7 @@ class XMLParser: NSObject {
 
   /// Parses the XML data and returns a `Result` indicating success or failure.
   /// - Returns: A `Result` with the parsed document on success, or an error.
-  func parse() -> Result<XMLDocument, XMLParserError> {
+  func parse() -> Result<XMLDocument, XMLError> {
     // Starts the parsing process. If parsing fails or an error occurs,
     // returns a failure result with the existing error or an unknown error.
     guard
@@ -150,3 +150,4 @@ extension XMLParser: XMLParserDelegate {
     error = .unexpected(reason: parseError.localizedDescription)
   }
 }
+

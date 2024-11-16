@@ -1,5 +1,5 @@
 //
-//  XMLParserError.swift
+//  XMLError.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -37,7 +37,7 @@ import Foundation
 ///   specific cause.
 /// - unexpected: An unexpected error with an optional `reason` offering more
 ///   context, typically indicating an issue the user cannot resolve.
-public enum XMLParserError: Error {
+public enum XMLError: Error {
   case notFound
   case cdataDecoding(element: String)
   case invalidUrl
@@ -48,7 +48,7 @@ public enum XMLParserError: Error {
 
 // MARK: - LocalizedError
 
-extension XMLParserError: LocalizedError {
+extension XMLError: LocalizedError {
   public var errorDescription: String? {
     switch self {
     case .notFound:
@@ -103,7 +103,7 @@ extension XMLParserError: LocalizedError {
 
 // MARK: - CustomNSError
 
-extension XMLParserError: CustomNSError {
+extension XMLError: CustomNSError {
   /// An error's code for the specified case.
   public var errorCode: Int {
     switch self {
@@ -133,7 +133,7 @@ extension XMLParserError: CustomNSError {
   /// The `NSError` from the specified case.
   public var error: NSError {
     return NSError(
-      domain: XMLParserError.errorDomain,
+      domain: XMLError.errorDomain,
       code: errorCode,
       userInfo: errorUserInfo
     )

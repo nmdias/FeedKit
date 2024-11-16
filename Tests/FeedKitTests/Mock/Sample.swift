@@ -1,5 +1,5 @@
 //
-//  XMLDocument + toXMLString.swift
+//  Sample.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,21 +24,40 @@
 
 import Foundation
 
-extension XMLDocument {
-  /// Generates an XML string representation of the document.
-  /// - Parameter formatted: Whether to generate formatted XML (default is
-  ///   false for compact XML).
-  /// - Returns: A string representation of the XML.
-  func toXMLString(formatted: Bool = false) -> String {
-    guard let root = root else { return "" }
+struct Sample: Codable, Equatable {
+  struct Header: Codable, Equatable {
+    struct Keywords: Codable, Equatable {
+      let keyword: [String]
+    }
 
-    // XML header
-    let header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-
-    // Generate the XML body with or without formatting
-    let body = root.toXMLString(formatted: formatted, indentationLevel: 0)
-
-    // Combine header and body
-    return "\(header)\(formatted ? "\n" : "")\(body)"
+    let title: String
+    let description: String
+    let version: String
+    let keywords: Keywords
   }
+
+  struct Content: Codable, Equatable {
+    struct Item: Codable, Equatable {
+      struct Details: Codable, Equatable {
+        let detail: [String]
+      }
+
+      let id: String
+      let value: String
+      let name: String
+      let description: String
+      let details: Details
+    }
+
+    let item: [Item]
+  }
+
+  struct Footer: Codable, Equatable {
+    let notes: String
+    let created: String
+  }
+
+  let header: Header
+  let content: Content
+  let footer: Footer
 }

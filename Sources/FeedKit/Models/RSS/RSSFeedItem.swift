@@ -32,7 +32,7 @@ import Foundation
 /// http://cyber.law.harvard.edu/rss/encodingDescriptions.html), and
 /// the link and title may be omitted. All elements of an item are optional,
 /// however at least one of title or description must be present.
-public struct RSSFeedItem: Codable {
+public struct RSSFeedItem: Codable, Equatable {
   /// The title of the item.
   ///
   /// Example: Venice Film Festival Tries to Quit Sinking

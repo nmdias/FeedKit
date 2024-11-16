@@ -34,7 +34,7 @@ import Foundation
 ///
 /// Subordinate to the <rss> element is a single <channel> element, which
 /// contains information about the channel (metadata) and its contents.
-public struct RSSFeed: Codable {
+public struct RSSFeed: Codable, Equatable {
   /// The name of the channel. It's how people refer to your service. If
   /// you have an HTML website that contains the same information as your
   /// RSS file, the title of your channel should be the same as the title

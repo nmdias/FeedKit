@@ -9,7 +9,7 @@ let package = Package(
     .library(
       name: "FeedKit",
       targets: ["FeedKit"]
-    ),
+    )
   ],
   targets: [
     .target(

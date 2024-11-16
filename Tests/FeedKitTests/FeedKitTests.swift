@@ -22,6 +22,8 @@
 //  SOFTWARE.
 //
 
+@testable import FeedKit
+
 import Foundation
 import Testing
 

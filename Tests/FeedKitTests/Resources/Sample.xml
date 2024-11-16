@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root>
+<sample>
   <header>
     <title>Sample Document</title>
     <description>This is a sample document.</description>
+    <version>1.0</version>
+    <keywords>
+      <keyword>Generic</keyword>
+      <keyword>Placeholder</keyword>
+    </keywords>
   </header>
   <content>
     <item id="1" value="01">
       <name>Item 1</name>
       <description>This is a sample description for Item 1.</description>
+      <details>
+        <detail>Detail 1A</detail>
+        <detail>Detail 1B</detail>
+      </details>
     </item>
     <item id="2" value="02">
       <name>Item 2</name>
       <description>This is a sample description for Item 2.</description>
+      <details>
+        <detail>Detail 2A</detail>
+        <detail>Detail 2B</detail>
+      </details>
     </item>
   </content>
-</root>
+  <footer>
+    <notes>These are additional notes for the document.</notes>
+    <created>2024-11-16</created>
+  </footer>
+</sample>

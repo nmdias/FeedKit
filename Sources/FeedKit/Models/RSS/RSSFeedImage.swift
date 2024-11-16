@@ -46,7 +46,7 @@ import Foundation
 /// Maximum value for width is 144, default value is 88.
 ///
 /// Maximum value for height is 400, default value is 31.
-public struct RSSFeedImage: Codable {
+public struct RSSFeedImage: Codable, Equatable {
   /// The URL of a GIF, JPEG or PNG image that represents the channel.
   public var url: String?
 

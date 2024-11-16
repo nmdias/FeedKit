@@ -36,9 +36,9 @@ import Foundation
 ///
 /// <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3"
 /// length="12216320" type="audio/mpeg" />
-public struct RSSFeedEnclosure: Codable {
+public struct RSSFeedEnclosure: Codable, Equatable {
   /// The element's attributes.
-  public struct Attributes: Codable {
+  public struct Attributes: Codable, Equatable {
     /// Where the enclosure is located.
     ///
     /// Example: http://www.scripting.com/mp3s/weatherReportSuite.mp3
