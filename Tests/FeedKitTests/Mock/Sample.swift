@@ -42,8 +42,6 @@ struct Sample: Codable, Equatable {
         let detail: [String]
       }
 
-      let id: String
-      let value: String
       let name: String
       let description: String
       let details: Details

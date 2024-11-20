@@ -10,7 +10,7 @@
     </keywords>
   </header>
   <content>
-    <item id="1" value="01">
+    <item>
       <name>Item 1</name>
       <description>This is a sample description for Item 1.</description>
       <details>
@@ -18,7 +18,7 @@
         <detail>Detail 1B</detail>
       </details>
     </item>
-    <item id="2" value="02">
+    <item>
       <name>Item 2</name>
       <description>This is a sample description for Item 2.</description>
       <details>

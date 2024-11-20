@@ -34,7 +34,7 @@ class XMLParser: NSObject {
   ///   parent’s children, building a tree structure. After parsing completes,
   ///   only the root element remains in the stack, representing the entire XML
   ///   document.
-  var stack: [XMLElement] = []
+  var stack: XMLStack
   /// A parsing error, if any.
   var error: XMLError?
   /// A boolean indicating whether the XML parsing process has completed.
@@ -45,8 +45,10 @@ class XMLParser: NSObject {
   /// - Parameter data: The XML data to parse.
   init(data: Data) {
     parser = Foundation.XMLParser(data: data)
+    stack = XMLStack()
     super.init()
     parser.delegate = self
+
   }
 
   /// Parses the XML data and returns a `Result` indicating success or failure.
@@ -57,7 +59,7 @@ class XMLParser: NSObject {
     guard
       parser.parse(),
       error == nil,
-      let root = stack.popLast() else {
+      let root = stack.pop() else {
       let error = error ?? .unexpected(reason: "An unknown error occurred or the parsing operation aborted.")
       return .failure(error)
     }
@@ -72,7 +74,7 @@ class XMLParser: NSObject {
   /// - Parameter string: The character data found in the XML.
   func map(_ string: String) {
     // Get the working element
-    guard let element = stack.last else { return }
+    guard let element = stack.top() else { return }
     let trim = string.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !trim.isEmpty else { return }
     if let text = element.text {
@@ -93,9 +95,9 @@ extension XMLParser: XMLParserDelegate {
     qualifiedName qName: String?,
     attributes attributeDict: [String: String] = [:]) {
     if attributeDict.isEmpty {
-      stack.append(.init(name: elementName))
+      stack.push(.init(name: elementName))
     } else {
-      stack.append(.init(name: elementName, attributes: attributeDict))
+      stack.push(.init(name: elementName, attributes: attributeDict))
     }
   }
 
@@ -111,7 +113,7 @@ extension XMLParser: XMLParserDelegate {
     // Attempts to decode a CDATA block to a UTF-8 string.
     // If decoding fails, records a decoding error and aborts parsing.
     guard let string = String(data: CDATABlock, encoding: .utf8) else {
-      error = .cdataDecoding(element: stack.last?.name ?? "")
+      error = .cdataDecoding(element: stack.top()?.name ?? "")
       parser.abortParsing()
       return
     }
@@ -123,11 +125,11 @@ extension XMLParser: XMLParserDelegate {
     didEndElement elementName: String,
     namespaceURI: String?,
     qualifiedName qName: String?) {
-    guard stack.count > 1, let element = stack.popLast() else {
+    guard stack.count > 1, let element = stack.pop() else {
       isComplete = true
       return
     }
-    stack.last?.children.append(element)
+    stack.top()?.children.append(element)
   }
 
   func parserDidEndDocument(
@@ -150,4 +152,3 @@ extension XMLParser: XMLParserDelegate {
     error = .unexpected(reason: parseError.localizedDescription)
   }
 }
-

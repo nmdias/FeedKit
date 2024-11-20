@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + XMLParser.swift
+//  XMLCodingKey.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -22,22 +22,35 @@
 //  SOFTWARE.
 //
 
-@testable import FeedKit
+import Foundation
 
-import Testing
+/// A custom `CodingKey` implementation for encoding XML elements.
+struct XMLCodingKey: CodingKey {
+  /// The string value of the coding key.
+  var stringValue: String
+  /// The integer value of the coding key, or `nil` if not applicable.
+  var intValue: Int?
+  
+  /// Initializes a new coding key with a string value.
+  /// - Parameter stringValue: The string value for the key.
+  init?(stringValue: String) {
+    self.stringValue = stringValue
+    intValue = nil
+  }
 
-extension FeedKitTests {
-  @Test
-  func xmlParser() {
-    // Given
-    let data = data(resource: "Sample", withExtension: "xml")
-    let parser = XMLParser(data: data)
-    let expected = Sample.xmlDocumentMock
+  /// Initializes a new coding key with an integer value.
+  /// - Parameter intValue: The integer value for the key.
+  init?(intValue: Int) {
+    stringValue = "\(intValue)"
+    self.intValue = intValue
+  }
 
-    // When
-    let actual = try? parser.parse().get()
-
-    // Then
-    #expect(expected == actual)
+  /// Initializes a new coding key with both a string and an integer value.
+  /// - Parameters:
+  ///   - stringValue: The string value for the key.
+  ///   - intValue: The integer value for the key.
+  init(stringValue: String, intValue: Int?) {
+    self.stringValue = stringValue
+    self.intValue = intValue
   }
 }

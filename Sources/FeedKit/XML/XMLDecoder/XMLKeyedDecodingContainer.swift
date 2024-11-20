@@ -1,0 +1,138 @@
+//
+//  XMLKeyedDecodingContainer.swift
+//
+//  Copyright (c) 2016 - 2024 Nuno Dias
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//
+
+import Foundation
+
+class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol {
+  /// The XML decoder used for decoding the current element.
+  var decoder: XMLDecoder
+  /// The current XML element being decoded.
+  var element: XMLElement
+  /// The coding path of the current decoding process.
+  var codingPath: [CodingKey] { decoder.codingPath }
+  /// This property is expected to contain all keys present in the current
+  /// XML element. However, it is not yet utilized.
+  var allKeys: [Key] = []
+
+  /// Initializes a keyed decoding container for an XML element.
+  /// - Parameters:
+  ///   - decoder: The XML decoder used for decoding.
+  ///   - element: The XML element to decode.
+  init(decoder: XMLDecoder, element: XMLElement) {
+    self.decoder = decoder
+    self.element = element
+  }
+
+  func contains(_ key: Key) -> Bool {
+    element.child(for: key.stringValue) != nil
+  }
+
+  // MARK: -
+
+  func decodeNil(forKey key: Key) throws -> Bool {
+    // Get the child element matching the given key
+    guard let child = element.child(for: key.stringValue) else {
+      return true
+    }
+
+    // Avoids initialization if all variables are nil.
+    //
+    // Note: It's unclear if,
+    //
+    // 1. Initialization is needed when an element exists in the tree with no text
+    //    and its children also have no text, as attributes handling is not
+    //    yet implemented.
+    //
+    // 2. Initialization is needed when an element's text exists, but is empty.
+    //    For now, we also avoid any unnecessary initialization here.
+    if
+      (child.text == nil) &&
+      (child.text?.isEmpty ?? true) &&
+      (child.children?.isEmpty ?? true) {
+      return true
+    }
+
+    // If the element has some content (either text or children), it's not 'nil'
+    return false
+  }
+
+  // MARK: - Decode
+
+  func decode(_ type: Bool.Type, forKey key: Key) throws -> Bool { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: String.Type, forKey key: Key) throws -> String { try decoder.decode(element, as: type, for: key) }
+
+  // MARK: - Int
+
+  func decode(_ type: Int.Type, forKey key: Key) throws -> Int { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: Int8.Type, forKey key: Key) throws -> Int8 { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: Int16.Type, forKey key: Key) throws -> Int16 { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: Int32.Type, forKey key: Key) throws -> Int32 { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: Int64.Type, forKey key: Key) throws -> Int64 { try decoder.decode(element, as: type, for: key) }
+
+  // MARK: - Unsigned Int
+
+  func decode(_ type: UInt.Type, forKey key: Key) throws -> UInt { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: UInt8.Type, forKey key: Key) throws -> UInt8 { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: UInt16.Type, forKey key: Key) throws -> UInt16 { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: UInt32.Type, forKey key: Key) throws -> UInt32 { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: UInt64.Type, forKey key: Key) throws -> UInt64 { try decoder.decode(element, as: type, for: key) }
+
+  // MARK: - Floating point
+
+  func decode(_ type: Float.Type, forKey key: Key) throws -> Float { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: Double.Type, forKey key: Key) throws -> Double { try decoder.decode(element, as: type, for: key) }
+
+  // MARK: - Type
+
+  func decode<T>(_ type: T.Type, forKey key: Key) throws -> T where T: Decodable {
+    decoder.codingPath.append(key)
+    defer { self.decoder.codingPath.removeLast() }
+
+    guard let child = element.child(for: key.stringValue) else {
+      throw DecodingError.dataCorruptedError(
+        forKey: key, in: self,
+        debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)")
+    }
+
+    return try decoder.decode(element: child, as: T.self)
+  }
+
+  // MARK: -
+
+  func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type, forKey key: Key) throws -> KeyedDecodingContainer<NestedKey> where NestedKey: CodingKey {
+    fatalError()
+  }
+
+  func nestedUnkeyedContainer(forKey key: Key) throws -> any UnkeyedDecodingContainer {
+    fatalError()
+  }
+
+  func superDecoder() throws -> any Decoder {
+    fatalError()
+  }
+
+  func superDecoder(forKey key: Key) throws -> any Decoder {
+    fatalError()
+  }
+}

@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + XMLDecoder.swift
+//  FeedKitTests + XML.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -28,18 +28,57 @@ import Testing
 
 extension FeedKitTests {
   @Test
-  func xmlDecoder() {
+  func xmlParser() {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
     let parser = XMLParser(data: data)
-    let element = try! parser.parse().get().root!
-    let decoder = XMLDecoder(element: element)
-    let expected: Sample = .mock
+    let expected = Sample.xmlElementMock
 
     // When
-    let actual = try? Sample(from: decoder)
+    let actual = try? parser.parse().get().root
 
     // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func xmlString() {
+    // Given
+    let data = data(resource: "Sample", withExtension: "xml")
+    let expected = String(decoding: data, as: Unicode.UTF8.self)
+    let document = XMLDocument(root: Sample.xmlElementMock)
+
+    // When
+    let actual = document.toXMLString(formatted: true)
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func xmlDecoder() {
+    // Given
+    let decoder = XMLDecoder()
+    let element = Sample.xmlElementMock
+    let expected = Sample.mock
+
+    // When
+    let actual = try! decoder.decode(Sample.self, from: element)
+
+    print(actual as Any)
+    // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func xmlEncoder() {
+    // Given
+    let encoder = XMLEncoder()
+    let expected = Sample.xmlElementMock
+
+    // When
+    let actual = try! encoder.encode(value: Sample.mock)
+
     #expect(expected == actual)
   }
 }

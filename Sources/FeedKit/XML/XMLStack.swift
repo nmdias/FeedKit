@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + XMLGenerator.swift
+//  XMLStack.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -22,22 +22,38 @@
 //  SOFTWARE.
 //
 
-@testable import FeedKit
+import Foundation
 
-import Testing
+class XMLStack {
+  /// The internal storage for the `XMLElement` stack.
+  private var stack: [XMLElement] = []
 
-extension FeedKitTests {
-  @Test
-  func xmlGenerator() {
-    // Given
-    let data = data(resource: "Sample", withExtension: "xml")
-    let expected = String(decoding: data, as: Unicode.UTF8.self)
-    let document = Sample.xmlDocumentMock
+  /// Pushes an `XMLElement` onto the stack.
+  /// - Parameter element: The `XMLElement` to add to the stack.
+  func push(_ element: XMLElement) {
+    stack.append(element)
+  }
 
-    // When
-    let actual = document.toXMLString(formatted: true)
+  /// Removes and returns the top `XMLElement` from the stack.
+  /// - Returns: The top `XMLElement` if the stack is not empty, otherwise `nil`.
+  @discardableResult
+  func pop() -> XMLElement? {
+    stack.popLast()
+  }
 
-    // Then
-    #expect(expected == actual)
+  /// Returns the top `XMLElement` without removing it from the stack.
+  /// - Returns: The top `XMLElement` if the stack is not empty, otherwise `nil`.
+  func top() -> XMLElement? {
+    stack.last
+  }
+
+  /// Indicates whether the stack is empty.
+  var isEmpty: Bool {
+    stack.isEmpty
+  }
+
+  /// The number of `XMLElement` instances in the stack.
+  var count: Int {
+    stack.count
   }
 }

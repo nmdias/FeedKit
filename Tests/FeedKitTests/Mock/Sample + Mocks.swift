@@ -41,8 +41,6 @@ extension Sample {
       content: .init(
         item: [
           .init(
-            id: "1",
-            value: "01",
             name: "Item 1",
             description: "This is a sample description for Item 1.",
             details: .init(
@@ -53,8 +51,6 @@ extension Sample {
             )
           ),
           .init(
-            id: "2",
-            value: "02",
             name: "Item 2",
             description: "This is a sample description for Item 2.",
             details: .init(
@@ -75,121 +71,111 @@ extension Sample {
 }
 
 extension Sample {
-  static var xmlDocumentMock: XMLDocument {
+  static var xmlElementMock: XMLElement {
     .init(
-      root: .init(
-        name: "sample",
-        children: [
-          .init(
-            name: "header",
-            children: [
-              .init(
-                name: "title",
-                text: "Sample Document"
-              ),
-              .init(
-                name: "description",
-                text: "This is a sample document."
-              ),
-              .init(
-                name: "version",
-                text: "1.0"
-              ),
-              .init(
-                name: "keywords",
-                children: [
-                  .init(
-                    name: "keyword",
-                    text: "Generic"
-                  ),
-                  .init(
-                    name: "keyword",
-                    text: "Placeholder"
-                  ),
-                ]
-              ),
-            ]
-          ),
-          .init(
-            name: "content",
-            children: [
-              .init(
-                name: "item",
-                attributes: [
-                  "id": "1",
-                  "value": "01",
-                ],
-                children: [
-                  .init(
-                    name: "name",
-                    text: "Item 1"
-                  ),
-                  .init(
-                    name: "description",
-                    text: "This is a sample description for Item 1."
-                  ),
-                  .init(
-                    name: "details",
-                    children: [
-                      .init(
-                        name: "detail",
-                        text: "Detail 1A"
-                      ),
-                      .init(
-                        name: "detail",
-                        text: "Detail 1B"
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-              .init(
-                name: "item",
-                attributes: [
-                  "id": "2",
-                  "value": "02",
-                ],
-                children: [
-                  .init(
-                    name: "name",
-                    text: "Item 2"
-                  ),
-                  .init(
-                    name: "description",
-                    text: "This is a sample description for Item 2."
-                  ),
-                  .init(
-                    name: "details",
-                    children: [
-                      .init(
-                        name: "detail",
-                        text: "Detail 2A"
-                      ),
-                      .init(
-                        name: "detail",
-                        text: "Detail 2B"
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-            ]
-          ),
-          .init(
-            name: "footer",
-            children: [
-              .init(
-                name: "notes",
-                text: "These are additional notes for the document."
-              ),
-              .init(
-                name: "created",
-                text: "2024-11-16"
-              ),
-            ]
-          ),
-        ]
-      )
+      name: "sample",
+      children: [
+        .init(
+          name: "header",
+          children: [
+            .init(
+              name: "title",
+              text: "Sample Document"
+            ),
+            .init(
+              name: "description",
+              text: "This is a sample document."
+            ),
+            .init(
+              name: "version",
+              text: "1.0"
+            ),
+            .init(
+              name: "keywords",
+              children: [
+                .init(
+                  name: "keyword",
+                  text: "Generic"
+                ),
+                .init(
+                  name: "keyword",
+                  text: "Placeholder"
+                ),
+              ]
+            ),
+          ]
+        ),
+        .init(
+          name: "content",
+          children: [
+            .init(
+              name: "item",
+              children: [
+                .init(
+                  name: "name",
+                  text: "Item 1"
+                ),
+                .init(
+                  name: "description",
+                  text: "This is a sample description for Item 1."
+                ),
+                .init(
+                  name: "details",
+                  children: [
+                    .init(
+                      name: "detail",
+                      text: "Detail 1A"
+                    ),
+                    .init(
+                      name: "detail",
+                      text: "Detail 1B"
+                    ),
+                  ]
+                ),
+              ]
+            ),
+            .init(
+              name: "item",
+              children: [
+                .init(
+                  name: "name",
+                  text: "Item 2"
+                ),
+                .init(
+                  name: "description",
+                  text: "This is a sample description for Item 2."
+                ),
+                .init(
+                  name: "details",
+                  children: [
+                    .init(
+                      name: "detail",
+                      text: "Detail 2A"
+                    ),
+                    .init(
+                      name: "detail",
+                      text: "Detail 2B"
+                    ),
+                  ]
+                ),
+              ]
+            ),
+          ]
+        ),
+        .init(
+          name: "footer",
+          children: [
+            .init(
+              name: "notes",
+              text: "These are additional notes for the document."
+            ),
+            .init(
+              name: "created",
+              text: "2024-11-16"
+            ),
+          ]
+        ),
+      ]
     )
   }
 }

@@ -88,6 +88,10 @@ class XMLElement: Codable, Equatable {
     lhs.attributes == rhs.attributes &&
     lhs.children == rhs.children
   }
+  
+  func child(for name: String) -> XMLElement? {
+    children?.first(where: { $0.name == name })
+  }
 }
 
 // MARK: - XMLStringConvertible
