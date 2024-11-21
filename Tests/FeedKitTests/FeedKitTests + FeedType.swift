@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + XML.swift
+//  FeedKitTests + FeedType.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -28,7 +28,7 @@ import Testing
 
 extension FeedKitTests {
   @Test
-  func feedAtomType() {
+  func atomFeedType() {
     // Given
     let data = data(resource: "Atom", withExtension: "xml")
     let expected: FeedType = .atom
@@ -42,7 +42,7 @@ extension FeedKitTests {
   }
 
   @Test
-  func feedRSSType() {
+  func rssFeedType() {
     // Given
     let data = data(resource: "RSS", withExtension: "xml")
     let expected: FeedType = .rss
@@ -56,7 +56,7 @@ extension FeedKitTests {
   }
 
   @Test
-  func feedRDFType() {
+  func rdfFeedType() {
     // Given
     let data = data(resource: "RDF", withExtension: "xml")
     let expected: FeedType = .rdf
@@ -70,7 +70,7 @@ extension FeedKitTests {
   }
 
   @Test
-  func feedJsonType() {
+  func jsonFeedType() {
     // Given
     let data = data(resource: "feed", withExtension: "json")
     let expected: FeedType = .json
