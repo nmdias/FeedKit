@@ -28,15 +28,12 @@ import Foundation
 protocol FeedInitializable: Codable {
   /// Default initializer.
   init()
-
   /// Initializes from a URL pointing to an XML feed.
   /// Throws an error if the URL is invalid or the feed cannot be loaded.
   init(url: URL) throws
-
   /// Initializes from an XML string.
   /// Throws an error if the XML string cannot be parsed.
-  init(xmlString: String)
-
+  init(xmlString: String) throws
   /// Initializes from XML data.
   /// Throws an error if the XML data cannot be parsed.
   init(xmlData: Data) throws
@@ -44,19 +41,16 @@ protocol FeedInitializable: Codable {
 
 extension FeedInitializable {
   /// Default implementation for initializing from a URL.
-  /// This is a placeholder and should be overridden with actual logic.
   init(url: URL) throws {
     fatalError()
   }
 
   /// Default implementation for initializing from an XML string.
-  /// This is a placeholder and should be overridden with actual logic.
   init(xmlString: String) throws {
     fatalError()
   }
 
   /// Default implementation for initializing from XML data.
-  /// This is a placeholder and should be overridden with actual logic.
   init(xmlData: Data) throws {
     fatalError()
   }
