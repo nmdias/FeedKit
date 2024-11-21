@@ -60,9 +60,7 @@ class XMLEncoder: Encoder {
   /// Returns a keyed encoding container for encoding XML elements.
   /// - Parameter type: The type of the coding key.
   /// - Returns: A keyed encoding container.
-  func container<Key>(
-    keyedBy type: Key.Type
-  ) -> KeyedEncodingContainer<Key> where Key: CodingKey {
+  func container<Key>(keyedBy type: Key.Type) -> KeyedEncodingContainer<Key> where Key: CodingKey {
     let element = XMLElement(name: currentKey)
     stack.push(element)
     return KeyedEncodingContainer(XMLKeyedEncodingContainer(element: element, encoder: self))
