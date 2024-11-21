@@ -20,6 +20,10 @@ let package = Package(
       dependencies: ["FeedKit"],
       resources: [
         .process("Resources/Sample.xml"),
+        .process("Resources/Atom.xml"),
+        .process("Resources/RDF.xml"),
+        .process("Resources/RSS.xml"),
+        .process("Resources/json/feed.json"),
       ]
     ),
   ]
