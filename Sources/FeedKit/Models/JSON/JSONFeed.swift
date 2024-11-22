@@ -27,7 +27,7 @@ import Foundation
 /// The JSON Feed format is a pragmatic syndication format, like RSS and Atom,
 /// but with one big difference: it's JSON instead of XML.
 /// See https://jsonfeed.org/version/1
-public struct JSONFeed: Codable, Equatable {
+public struct JSONFeed {
   /// (required, string) is the URL of the version of the format the feed
   /// uses. This should appear at the very top, though we recognize that not all
   /// JSON generators allow for ordering.
@@ -128,5 +128,72 @@ public struct JSONFeed: Codable, Equatable {
     self.expired = expired
     self.hubs = hubs
     self.items = items
+  }
+}
+
+// MARK: - Equatable
+
+extension JSONFeed: Equatable {}
+
+// MARK: - Codable
+
+extension JSONFeed: Codable {
+  enum CodingKeys: String, CodingKey {
+    case version
+    case title
+    case user_comment
+    case home_page_url
+    case description
+    case feed_url
+    case next_url
+    case icon
+    case favicon
+    case expired
+    case author
+    case hubs
+    case items
+  }
+
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(version, forKey: .version)
+    try container.encode(title, forKey: .title)
+    try container.encode(userComment, forKey: .user_comment)
+    try container.encode(homePageURL, forKey: .home_page_url)
+    try container.encode(description, forKey: .description)
+    try container.encode(feedUrl, forKey: .feed_url)
+    try container.encode(nextUrl, forKey: .next_url)
+    try container.encode(icon, forKey: .icon)
+    try container.encode(favicon, forKey: .favicon)
+    try container.encode(expired, forKey: .expired)
+    try container.encode(author, forKey: .expired)
+    try container.encode(hubs, forKey: .hubs)
+    try container.encode(items, forKey: .items)
+  }
+
+  public init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    version = try values.decodeIfPresent(String.self, forKey: .version)
+    title = try values.decodeIfPresent(String.self, forKey: .title)
+    userComment = try values.decodeIfPresent(String.self, forKey: .user_comment)
+    homePageURL = try values.decodeIfPresent(String.self, forKey: .home_page_url)
+    description = try values.decodeIfPresent(String.self, forKey: .description)
+    feedUrl = try values.decodeIfPresent(String.self, forKey: .feed_url)
+    nextUrl = try values.decodeIfPresent(String.self, forKey: .next_url)
+    icon = try values.decodeIfPresent(String.self, forKey: .icon)
+    favicon = try values.decodeIfPresent(String.self, forKey: .favicon)
+    expired = try values.decodeIfPresent(Bool.self, forKey: .expired)
+    author = try values.decodeIfPresent(JSONFeedAuthor.self, forKey: .author)
+    hubs = try values.decodeIfPresent([JSONFeedHub].self, forKey: .hubs)
+    items = try values.decodeIfPresent([JSONFeedItem].self, forKey: .items)
+  }
+}
+
+extension JSONFeed: Feedable {
+  init(data: Data) throws {
+    let formatter = RFC3339DateFormatter()
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .formatted(formatter)
+    self = try decoder.decode(JSONFeed.self, from: data)
   }
 }

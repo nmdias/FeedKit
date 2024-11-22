@@ -25,7 +25,7 @@
 import Foundation
 
 /// Describes optional attatchments of a JSON Feed item.
-public struct JSONFeedAttachment: Codable, Equatable {
+public struct JSONFeedAttachment {
   /// (required, string) specifies the location of the attachment.
   public var url: String?
 
@@ -58,5 +58,39 @@ public struct JSONFeedAttachment: Codable, Equatable {
     self.title = title
     self.sizeInBytes = sizeInBytes
     self.durationInSeconds = durationInSeconds
+  }
+}
+
+// MARK: - Equatable
+
+extension JSONFeedAttachment: Equatable {}
+
+// MARK: - Codable
+
+extension JSONFeedAttachment: Codable {
+  enum CodingKeys: String, CodingKey {
+    case title
+    case url
+    case mime_type
+    case size_in_bytes
+    case duration_in_seconds
+  }
+
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(title, forKey: .title)
+    try container.encode(url, forKey: .url)
+    try container.encode(mimeType, forKey: .mime_type)
+    try container.encode(sizeInBytes, forKey: .size_in_bytes)
+    try container.encode(durationInSeconds, forKey: .duration_in_seconds)
+  }
+
+  public init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    title = try values.decodeIfPresent(String.self, forKey: .title)
+    url = try values.decodeIfPresent(String.self, forKey: .url)
+    mimeType = try values.decodeIfPresent(String.self, forKey: .mime_type)
+    sizeInBytes = try values.decodeIfPresent(Int.self, forKey: .size_in_bytes)
+    durationInSeconds = try values.decodeIfPresent(TimeInterval.self, forKey: .duration_in_seconds)
   }
 }

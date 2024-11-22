@@ -26,7 +26,7 @@ import Foundation
 
 /// An individual item of a JSON Feed, acting as a container for metadata and data
 /// associated with the item.
-public struct JSONFeedItem: Codable, Equatable {
+public struct JSONFeedItem {
   /// (required, string) is unique for that item for that feed over time. If an
   /// item is ever updated, the id should be unchanged. New items should never
   /// use a previously-used id. If an id is presented as a number or other type,
@@ -133,5 +133,71 @@ public struct JSONFeedItem: Codable, Equatable {
     self.author = author
     self.tags = tags
     self.attachments = attachments
+  }
+}
+
+// MARK: - Equatable
+
+extension JSONFeedItem: Equatable {}
+
+// MARK: - Codable
+
+extension JSONFeedItem: Codable {
+  enum CodingKeys: String, CodingKey {
+    case id
+    case title
+    case url
+    case external_url
+    case content_text
+    case content_html
+    case summary
+    case image
+    case banner_image
+    case date_published
+    case date_modified
+    case tags
+    case author
+    case attachments
+  }
+
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(id, forKey: .id)
+    try container.encode(title, forKey: .title)
+    try container.encode(url, forKey: .url)
+    try container.encode(externalUrl, forKey: .external_url)
+    try container.encode(contentText, forKey: .content_text)
+    try container.encode(contentHtml, forKey: .content_html)
+    try container.encode(summary, forKey: .summary)
+    try container.encode(image, forKey: .image)
+    try container.encode(bannerImage, forKey: .banner_image)
+    try container.encode(datePublished, forKey: .date_published)
+    try container.encode(dateModified, forKey: .date_modified)
+    try container.encode(tags, forKey: .tags)
+    try container.encode(author, forKey: .author)
+    try container.encode(attachments, forKey: .attachments)
+  }
+
+  public init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    do {
+      id = try values.decode(String.self, forKey: .id)
+    } catch DecodingError.typeMismatch {
+      let idInt = try values.decode(Int.self, forKey: .id)
+      id = String(describing: idInt)
+    }
+    title = try values.decodeIfPresent(String.self, forKey: .title)
+    url = try values.decodeIfPresent(String.self, forKey: .url)
+    externalUrl = try values.decodeIfPresent(String.self, forKey: .external_url)
+    contentText = try values.decodeIfPresent(String.self, forKey: .content_text)
+    contentHtml = try values.decodeIfPresent(String.self, forKey: .content_html)
+    summary = try values.decodeIfPresent(String.self, forKey: .summary)
+    image = try values.decodeIfPresent(String.self, forKey: .image)
+    bannerImage = try values.decodeIfPresent(String.self, forKey: .banner_image)
+    datePublished = try values.decodeIfPresent(Date.self, forKey: .date_published)
+    dateModified = try values.decodeIfPresent(Date.self, forKey: .date_modified)
+    tags = try values.decodeIfPresent([String].self, forKey: .tags)
+    author = try values.decodeIfPresent(JSONFeedAuthor.self, forKey: .author)
+    attachments = try values.decodeIfPresent([JSONFeedAttachment].self, forKey: .attachments)
   }
 }

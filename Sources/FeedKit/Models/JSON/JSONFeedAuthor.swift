@@ -27,7 +27,7 @@ import Foundation
 /// (optional, object) specifies the feed author. The author object has several
 /// members. These are all optional - but if you provide an author object, then at
 /// least one is required:
-public struct JSONFeedAuthor: Codable, Equatable {
+public struct JSONFeedAuthor {
   /// (optional, string) is the author's name.
   public var name: String?
 
@@ -50,5 +50,33 @@ public struct JSONFeedAuthor: Codable, Equatable {
     self.name = name
     self.url = url
     self.avatar = avatar
+  }
+}
+
+// MARK: - Equatable
+
+extension JSONFeedAuthor: Equatable {}
+
+// MARK: - Codable
+
+extension JSONFeedAuthor: Codable {
+  enum CodingKeys: String, CodingKey {
+    case name
+    case url
+    case avatar
+  }
+
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(name, forKey: .name)
+    try container.encode(url, forKey: .url)
+    try container.encode(avatar, forKey: .avatar)
+  }
+
+  public init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    name = try values.decode(String.self, forKey: .name)
+    url = try values.decodeIfPresent(String.self, forKey: .url)
+    avatar = try values.decodeIfPresent(String.self, forKey: .avatar)
   }
 }
