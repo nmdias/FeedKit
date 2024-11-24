@@ -109,7 +109,7 @@ class XMLDecoder: Decoder {
       // TODO: -
       return Date() as! T
     default:
-      stack.push(element)
+      stack.push(node)
       defer { stack.pop() }
       return try type.init(from: self)
     }
