@@ -88,10 +88,32 @@ class XMLNode: Codable, Equatable {
   // MARK: Equatable
 
   static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
-    lhs.type == rhs.type &&
-      lhs.name == rhs.name &&
-      lhs.text == rhs.text &&
-      lhs.children == rhs.children
+    if
+      lhs.type != rhs.type ||
+      lhs.name != rhs.name ||
+      lhs.text != rhs.text {
+      return false
+    }
+
+    let lhsChildren = lhs.children ?? []
+    let rhsChildren = rhs.children ?? []
+    if lhsChildren.count != rhsChildren.count {
+      return false
+    }
+
+    // Compare child nodes pairwise by their properties
+    // We avoid direct comparison of children to prevent recursion
+    // caused by the parent property, which creates circular references
+    for (lChild, rChild) in zip(lhsChildren, rhsChildren) {
+      if
+        lChild.name != rChild.name ||
+        lChild.type != rChild.type ||
+        lChild.text != rChild.text {
+        return false
+      }
+    }
+
+    return true
   }
 
   func child(for name: String) -> XMLNode? {
@@ -153,7 +175,7 @@ extension XMLNode: XMLStringConvertible {
 
       // Append children recursively, with increased
       // indentation level if formatted is true
-      for child in children.filter({ $0.type == .element}) {
+      for child in children.filter({ $0.type == .element }) {
         xml += child.toXMLString(
           formatted: formatted,
           indentationLevel: indentationLevel + 1
