@@ -47,7 +47,7 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
   /// - Parameter value: The value to encode, which must conform to
   ///   `LosslessStringConvertible`.
   func encodeValue<T: LosslessStringConvertible>(_ value: T) {
-    element.children.append(.init(name: encoder.currentKey, text: "\(value)"))
+    element.children.append(.init(type: .element, name: encoder.currentKey, text: "\(value)"))
     count += 1
   }
 

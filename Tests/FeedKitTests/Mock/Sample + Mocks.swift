@@ -41,8 +41,13 @@ extension Sample {
       content: .init(
         item: [
           .init(
+            attributes: .init(
+              id: 1,
+              value: "01"
+            ),
             name: "Item 1",
             description: "This is a sample description for Item 1.",
+            precision: 1.11,
             details: .init(
               detail: [
                 "Detail 1A",
@@ -51,8 +56,13 @@ extension Sample {
             )
           ),
           .init(
+            attributes: .init(
+              id: 2,
+              value: "02"
+            ),
             name: "Item 2",
             description: "This is a sample description for Item 2.",
+            precision: 2.22,
             details: .init(
               detail: [
                 "Detail 2A",
@@ -64,7 +74,8 @@ extension Sample {
       ),
       footer: .init(
         notes: "These are additional notes for the document.",
-        created: "2024-11-16"
+        created: "2024-11-16",
+        revision: 1
       )
     )
   }
@@ -112,12 +123,29 @@ extension Sample {
               name: "item",
               children: [
                 .init(
+                  name: "attributes",
+                  children: [
+                    .init(
+                      name: "id",
+                      text: "1"
+                    ),
+                    .init(
+                      name: "value",
+                      text: "01"
+                    ),
+                  ]
+                ),
+                .init(
                   name: "name",
                   text: "Item 1"
                 ),
                 .init(
                   name: "description",
                   text: "This is a sample description for Item 1."
+                ),
+                .init(
+                  name: "precision",
+                  text: "1.11"
                 ),
                 .init(
                   name: "details",
@@ -136,7 +164,24 @@ extension Sample {
             ),
             .init(
               name: "item",
+              attributes: [
+                "id": "2",
+                "value": "02",
+              ],
               children: [
+                .init(
+                  name: "attributes",
+                  children: [
+                    .init(
+                      name: "id",
+                      text: "2"
+                    ),
+                    .init(
+                      name: "value",
+                      text: "02"
+                    ),
+                  ]
+                ),
                 .init(
                   name: "name",
                   text: "Item 2"
@@ -144,6 +189,10 @@ extension Sample {
                 .init(
                   name: "description",
                   text: "This is a sample description for Item 2."
+                ),
+                .init(
+                  name: "precision",
+                  text: "2.22"
                 ),
                 .init(
                   name: "details",
@@ -172,6 +221,10 @@ extension Sample {
             .init(
               name: "created",
               text: "2024-11-16"
+            ),
+            .init(
+              name: "revision",
+              text: "1"
             ),
           ]
         ),

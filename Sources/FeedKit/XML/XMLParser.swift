@@ -48,7 +48,6 @@ class XMLParser: NSObject {
     stack = XMLStack()
     super.init()
     parser.delegate = self
-
   }
 
   /// Parses the XML data and returns a `Result` indicating success or failure.
@@ -94,10 +93,32 @@ extension XMLParser: XMLParserDelegate {
     namespaceURI: String?,
     qualifiedName qName: String?,
     attributes attributeDict: [String: String] = [:]) {
+    // If no attributes are present, create a single node with the element name.
     if attributeDict.isEmpty {
-      stack.push(.init(name: elementName))
+      stack.push(.init(
+        type: .element,
+        name: elementName
+      ))
     } else {
-      stack.push(.init(name: elementName, attributes: attributeDict))
+      // If attributes are found, treat them as child nodes of the element.
+      // Each attribute is added as a child node with its key and value.
+      stack.push(.init(
+        type: .element,
+        name: elementName,
+        children: [
+          .init(
+            type: .attribute,
+            name: "attributes",
+            children: attributeDict.map {
+              .init(
+                type: .attribute, 
+                name: $0,
+                text: $1
+              )
+            }
+          ),
+        ])
+      )
     }
   }
 

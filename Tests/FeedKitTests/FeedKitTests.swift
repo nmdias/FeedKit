@@ -62,7 +62,7 @@ struct FeedKitTests {
   func saveToDocuments<T: Codable>(expected: T, actual: T?) {
     save(expected, to: .documentDirectory, as: "expected.json")
 
-    if let actual = actual {
+    if let actual {
       save(actual, to: .documentDirectory, as: "actual.json")
     } else {
       print("Actual is nil, skipping file creation.")
@@ -87,8 +87,7 @@ struct FeedKitTests {
       let jsonData = try encoder.encode(object)
 
       // Get the directory path
-      if let directoryURL = FileManager.default.urls(for: directory,
-                                                     in: .userDomainMask).first {
+      if let directoryURL = FileManager.default.urls(for: directory, in: .userDomainMask).first {
         let fileURL = directoryURL.appendingPathComponent(fileName)
 
         // Delete the existing file if it exists

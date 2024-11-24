@@ -48,15 +48,15 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
   }
 
   func encode(_ value: Bool, forKey key: Key) throws {
-    element.children.append(.init(name: key.stringValue, text: value.description))
+    element.children.append(.init(type: .element, name: key.stringValue, text: value.description))
   }
 
   func encode(_ value: String, forKey key: Key) throws {
-    element.children.append(.init(name: key.stringValue, text: value))
+    element.children.append(.init(type: .element, name: key.stringValue, text: value))
   }
 
   func encode<T: LosslessStringConvertible>(_ value: T, for key: Key) {
-    element.children.append(.init(name: key.stringValue, text: "\(value)"))
+    element.children.append(.init(type: .element, name: key.stringValue, text: "\(value)"))
   }
 
   // MARK: - Int
@@ -84,6 +84,8 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
 
   func encode<T>(_ value: T, forKey key: Key) throws where T: Encodable {
     encoder.codingPath.append(key)
+    // TODO: - Handle attributes key
+    
     defer { self.encoder.codingPath.removeLast() }
     let childElement = try encoder.encode(value)
     if element !== childElement {

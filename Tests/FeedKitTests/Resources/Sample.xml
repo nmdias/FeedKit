@@ -10,17 +10,19 @@
     </keywords>
   </header>
   <content>
-    <item>
+    <item id="1" value="01">
       <name>Item 1</name>
       <description>This is a sample description for Item 1.</description>
+      <precision>1.11</precision>
       <details>
         <detail>Detail 1A</detail>
         <detail>Detail 1B</detail>
       </details>
     </item>
-    <item>
+    <item id="2" value="02">
       <name>Item 2</name>
       <description>This is a sample description for Item 2.</description>
+      <precision>2.22</precision>
       <details>
         <detail>Detail 2A</detail>
         <detail>Detail 2B</detail>
@@ -30,5 +32,6 @@
   <footer>
     <notes>These are additional notes for the document.</notes>
     <created>2024-11-16</created>
+    <revision>1</revision>
   </footer>
 </sample>

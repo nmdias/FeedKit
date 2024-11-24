@@ -24,6 +24,11 @@
 
 import Foundation
 
+enum XMLElementType: Equatable, Codable {
+  case element
+  case attribute
+}
+
 /// Represents an XML document containing a root element.
 class XMLDocument: Equatable {
   /// The root element of the document.
@@ -46,13 +51,12 @@ class XMLDocument: Equatable {
 class XMLElement: Codable, Equatable {
   /// The parent element of this element.
   weak var parent: XMLElement?
-
+  /// The type of the element.
+  var type: XMLElementType
   /// The name of the element.
   var name: String
   /// The text of the element, if present.
   var text: String?
-  /// The attributes associated with the element.
-  var attributes: [String: String]?
   /// The child elements of this element.
   var children: [XMLElement]? {
     didSet {
@@ -68,13 +72,14 @@ class XMLElement: Codable, Equatable {
   ///   - attributes: Attributes for the element, if any.
   ///   - children: Children for the element, if any.
   init(
+    type: XMLElementType = .element,
     name: String,
     text: String? = nil,
     attributes: [String: String]? = nil,
     children: [XMLElement]? = nil) {
+    self.type = type
     self.name = name
     self.text = text
-    self.attributes = attributes
     self.children = children
     // Set parent for each child
     self.children?.forEach { $0.parent = self }
@@ -83,12 +88,12 @@ class XMLElement: Codable, Equatable {
   // MARK: Equatable
 
   static func == (lhs: XMLElement, rhs: XMLElement) -> Bool {
-    lhs.name == rhs.name &&
-    lhs.text == rhs.text &&
-    lhs.attributes == rhs.attributes &&
-    lhs.children == rhs.children
+    lhs.type == rhs.type &&
+      lhs.name == rhs.name &&
+      lhs.text == rhs.text &&
+      lhs.children == rhs.children
   }
-  
+
   func child(for name: String) -> XMLElement? {
     children?.first(where: { $0.name == name })
   }
@@ -138,19 +143,17 @@ extension XMLElement: XMLStringConvertible {
     var xml = "\(indent)<\(name)"
 
     // Append attributes, if any
-    if let attributes = attributes?.sorted(by: { $0.key < $1.key }) {
-      for (key, value) in attributes {
-        xml += " \(key)=\"\(value)\""
-      }
+    for attribute in children?.filter({ $0.type == .attribute }) ?? [] {
+      xml += " \(attribute.name)=\"\(attribute.text ?? "")\""
     }
 
-    if let children = children, !children.isEmpty {
+    if let children, !children.isEmpty {
       // Close the opening tag
       xml += ">\(formatted ? "\n" : "")"
 
       // Append children recursively, with increased
       // indentation level if formatted is true
-      for child in children {
+      for child in children.filter({ $0.type == .element}) {
         xml += child.toXMLString(
           formatted: formatted,
           indentationLevel: indentationLevel + 1
@@ -159,7 +162,7 @@ extension XMLElement: XMLStringConvertible {
 
       // Add closing tag with indentation if formatted is true
       xml += "\(formatted ? indent : "")</\(name)>\(formatted ? "\n" : "")"
-    } else if let text = text {
+    } else if let text {
       // Element has text, close opening tag and add text
       xml += ">\(text)</\(name)>\(formatted ? "\n" : "")"
     } else {

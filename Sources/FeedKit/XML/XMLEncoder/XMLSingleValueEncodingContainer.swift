@@ -51,6 +51,7 @@ class XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
 
   func push<T: LosslessStringConvertible>(_ value: T) {
     encoder.stack.push(.init(
+      type: .element, 
       name: encoder.currentKey,
       text: "\(value)"
     ))

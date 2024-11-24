@@ -26,6 +26,8 @@ import Foundation
 
 /// A parser for processing feed data in XML or JSON formats.
 public struct FeedParser {
+  let parser: FeedKit.XMLParser
+
   /// Initializes the parser with the JSON or XML content from a URL.
   ///
   /// - Parameter stringUrl: The URL string whose contents are used as feed data.
@@ -44,7 +46,7 @@ public struct FeedParser {
   ///
   /// - Parameter data: The data object containing XML or JSON content.
   public init(data: Data) {
-    fatalError()
+    parser = FeedKit.XMLParser(data: data)
   }
 
   /// Parses a single feed from the given data.
@@ -52,6 +54,9 @@ public struct FeedParser {
   /// - Parameter data: The feed data to parse.
   /// - Returns: A `Result` containing the parsed `Feed` or an error.
   public func parse() throws -> Result<Feed, Error> {
-    fatalError()
+    // When
+    let some = try parser.parse().get().root!
+    let atomFeed = try XMLDecoder().decode(element: some, as: AtomFeed.self)
+    return .success(.atom(atomFeed))
   }
 }

@@ -106,7 +106,8 @@ class XMLDecoder: Decoder {
   func decode<T: Decodable>(element: XMLElement, as type: T.Type) throws -> T {
     switch T.self {
     case is Date.Type:
-      fatalError()
+      // TODO: -
+      return Date() as! T
     default:
       stack.push(element)
       defer { stack.pop() }
