@@ -162,6 +162,7 @@ extension XMLNode: XMLStringConvertible {
     formatted: Bool = false,
     indentationLevel: Int = 1) -> String {
     let indent = formatted ? String(repeating: "  ", count: indentationLevel) : ""
+
     var xml = "\(indent)<\(name)"
 
     // Append attributes, if any
@@ -169,13 +170,13 @@ extension XMLNode: XMLStringConvertible {
       xml += " \(attribute.name)=\"\(attribute.text ?? "")\""
     }
 
-    if let children, !children.isEmpty {
+    if let children = children?.filter({ $0.type == .element }), !children.isEmpty {
       // Close the opening tag
       xml += ">\(formatted ? "\n" : "")"
 
       // Append children recursively, with increased
       // indentation level if formatted is true
-      for child in children.filter({ $0.type == .element }) {
+      for child in children {
         xml += child.toXMLString(
           formatted: formatted,
           indentationLevel: indentationLevel + 1

@@ -51,6 +51,7 @@ extension FeedKitTests {
     // When
     let actual = document.toXMLString(formatted: true)
 
+    saveToDocuments(expected: expected, actual: actual)
     // Then
     #expect(expected == actual)
   }

@@ -123,17 +123,14 @@ extension Sample {
               name: "item",
               children: [
                 .init(
-                  name: "attributes",
-                  children: [
-                    .init(
-                      name: "id",
-                      text: "1"
-                    ),
-                    .init(
-                      name: "value",
-                      text: "01"
-                    ),
-                  ]
+                  type: .attribute,
+                  name: "id",
+                  text: "1"
+                ),
+                .init(
+                  type: .attribute,
+                  name: "value",
+                  text: "01"
                 ),
                 .init(
                   name: "name",
@@ -170,17 +167,14 @@ extension Sample {
               ],
               children: [
                 .init(
-                  name: "attributes",
-                  children: [
-                    .init(
-                      name: "id",
-                      text: "2"
-                    ),
-                    .init(
-                      name: "value",
-                      text: "02"
-                    ),
-                  ]
+                  type: .attribute,
+                  name: "id",
+                  text: "2"
+                ),
+                .init(
+                  type: .attribute,
+                  name: "value",
+                  text: "02"
                 ),
                 .init(
                   name: "name",
