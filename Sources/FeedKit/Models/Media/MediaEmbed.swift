@@ -27,7 +27,7 @@ import Foundation
 /// Sometimes player-specific embed code is needed for a player to play any
 /// video. <media:embed> allows inclusion of such information in the form of
 /// key-value pairs.
-public struct MediaEmbed: Codable, Equatable {
+public struct MediaEmbed {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// The location of the embeded media.
@@ -60,5 +60,32 @@ public struct MediaEmbed: Codable, Equatable {
     params: [MediaParam]? = nil) {
     self.attributes = attributes
     self.params = params
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaEmbed: Equatable {}
+
+// MARK: - Codable
+
+extension MediaEmbed: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+    case params
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaEmbed.CodingKeys> = try decoder.container(keyedBy: MediaEmbed.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(MediaEmbed.Attributes.self, forKey: MediaEmbed.CodingKeys.attributes)
+    params = try container.decodeIfPresent([MediaParam].self, forKey: MediaEmbed.CodingKeys.params)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaEmbed.CodingKeys> = encoder.container(keyedBy: MediaEmbed.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: MediaEmbed.CodingKeys.attributes)
+    try container.encodeIfPresent(params, forKey: MediaEmbed.CodingKeys.params)
   }
 }

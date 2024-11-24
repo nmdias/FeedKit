@@ -55,7 +55,7 @@ import Foundation
 /// <itunes:category text="Technology">
 ///    <itunes:category text="Gadgets" />
 /// </itunes:category>
-public struct iTunesCategory: Codable, Equatable {
+public struct iTunesCategory {
   /// The attributes of the element.
   public struct Attributes: Codable, Equatable {
     /// The primary iTunes Category.
@@ -80,3 +80,29 @@ public struct iTunesCategory: Codable, Equatable {
   }
 }
 
+// MARK: - Equatable
+
+extension iTunesCategory: Equatable {}
+
+// MARK: - Codable
+
+extension iTunesCategory: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+    case subcategory
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<iTunesCategory.CodingKeys> = try decoder.container(keyedBy: iTunesCategory.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(iTunesCategory.Attributes.self, forKey: iTunesCategory.CodingKeys.attributes)
+    subcategory = try container.decodeIfPresent(iTunesSubCategory.self, forKey: iTunesCategory.CodingKeys.subcategory)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<iTunesCategory.CodingKeys> = encoder.container(keyedBy: iTunesCategory.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: iTunesCategory.CodingKeys.attributes)
+    try container.encodeIfPresent(subcategory, forKey: iTunesCategory.CodingKeys.subcategory)
+  }
+}

@@ -26,7 +26,7 @@ import Foundation
 
 /// iTunes Podcasting Tags are de facto standard for podcast syndication. For more
 /// information see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
-public struct iTunes: Codable, Equatable {
+public struct iTunes {
   /// The content you specify in the <itunes:author> tag appears in the Artist
   /// column on the iTunes Store. If the tag is not present, the iTunes Store
   /// uses the contents of the <author> tag. If <itunes:author> is not present
@@ -279,5 +279,83 @@ public struct iTunes: Codable, Equatable {
     self.episodeType = episodeType
     self.season = season
     self.episode = episode
+  }
+}
+
+// MARK: - Equatable
+
+extension iTunes: Equatable {}
+
+// MARK: - Codable
+
+extension iTunes: Codable {
+  private enum CodingKeys: CodingKey {
+    case author
+    case block
+    case categories
+    case image
+    case duration
+    case explicit
+    case isClosedCaptioned
+    case order
+    case complete
+    case newFeedURL
+    case owner
+    case title
+    case subtitle
+    case summary
+    case keywords
+    case type
+    case episodeType
+    case season
+    case episode
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<iTunes.CodingKeys> = try decoder.container(keyedBy: iTunes.CodingKeys.self)
+
+    author = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.author)
+    block = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.block)
+    categories = try container.decodeIfPresent([iTunesCategory].self, forKey: iTunes.CodingKeys.categories)
+    image = try container.decodeIfPresent(iTunesImage.self, forKey: iTunes.CodingKeys.image)
+    duration = try container.decodeIfPresent(TimeInterval.self, forKey: iTunes.CodingKeys.duration)
+    explicit = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.explicit)
+    isClosedCaptioned = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.isClosedCaptioned)
+    order = try container.decodeIfPresent(Int.self, forKey: iTunes.CodingKeys.order)
+    complete = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.complete)
+    newFeedURL = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.newFeedURL)
+    owner = try container.decodeIfPresent(iTunesOwner.self, forKey: iTunes.CodingKeys.owner)
+    title = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.title)
+    subtitle = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.subtitle)
+    summary = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.summary)
+    keywords = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.keywords)
+    type = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.type)
+    episodeType = try container.decodeIfPresent(String.self, forKey: iTunes.CodingKeys.episodeType)
+    season = try container.decodeIfPresent(Int.self, forKey: iTunes.CodingKeys.season)
+    episode = try container.decodeIfPresent(Int.self, forKey: iTunes.CodingKeys.episode)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<iTunes.CodingKeys> = encoder.container(keyedBy: iTunes.CodingKeys.self)
+
+    try container.encodeIfPresent(author, forKey: iTunes.CodingKeys.author)
+    try container.encodeIfPresent(block, forKey: iTunes.CodingKeys.block)
+    try container.encodeIfPresent(categories, forKey: iTunes.CodingKeys.categories)
+    try container.encodeIfPresent(image, forKey: iTunes.CodingKeys.image)
+    try container.encodeIfPresent(duration, forKey: iTunes.CodingKeys.duration)
+    try container.encodeIfPresent(explicit, forKey: iTunes.CodingKeys.explicit)
+    try container.encodeIfPresent(isClosedCaptioned, forKey: iTunes.CodingKeys.isClosedCaptioned)
+    try container.encodeIfPresent(order, forKey: iTunes.CodingKeys.order)
+    try container.encodeIfPresent(complete, forKey: iTunes.CodingKeys.complete)
+    try container.encodeIfPresent(newFeedURL, forKey: iTunes.CodingKeys.newFeedURL)
+    try container.encodeIfPresent(owner, forKey: iTunes.CodingKeys.owner)
+    try container.encodeIfPresent(title, forKey: iTunes.CodingKeys.title)
+    try container.encodeIfPresent(subtitle, forKey: iTunes.CodingKeys.subtitle)
+    try container.encodeIfPresent(summary, forKey: iTunes.CodingKeys.summary)
+    try container.encodeIfPresent(keywords, forKey: iTunes.CodingKeys.keywords)
+    try container.encodeIfPresent(type, forKey: iTunes.CodingKeys.type)
+    try container.encodeIfPresent(episodeType, forKey: iTunes.CodingKeys.episodeType)
+    try container.encodeIfPresent(season, forKey: iTunes.CodingKeys.season)
+    try container.encodeIfPresent(episode, forKey: iTunes.CodingKeys.episode)
   }
 }

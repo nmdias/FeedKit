@@ -26,7 +26,7 @@ import Foundation
 
 /// Allows a taxonomy to be set that gives an indication of the type of media
 /// content, and its particular contents. It has two optional attributes.
-public struct MediaCategory: Codable, Equatable {
+public struct MediaCategory {
   /// The element's text.
   public var text: String?
 
@@ -57,5 +57,32 @@ public struct MediaCategory: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.attributes = attributes
     self.text = text
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaCategory: Equatable {}
+
+// MARK: - Codable
+
+extension MediaCategory: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaCategory.CodingKeys> = try decoder.container(keyedBy: MediaCategory.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaCategory.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaCategory.Attributes.self, forKey: MediaCategory.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaCategory.CodingKeys> = encoder.container(keyedBy: MediaCategory.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaCategory.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaCategory.CodingKeys.attributes)
   }
 }

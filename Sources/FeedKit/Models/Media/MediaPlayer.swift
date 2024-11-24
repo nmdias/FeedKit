@@ -28,7 +28,7 @@ import Foundation
 /// console. This element is required only if a direct media url attribute is
 /// not specified in the <media:content> element. It has one required attribute
 /// and two optional attributes.
-public struct MediaPlayer: Codable, Equatable {
+public struct MediaPlayer {
   /// The element's text.
   public var text: String?
 
@@ -60,5 +60,32 @@ public struct MediaPlayer: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaPlayer: Equatable {}
+
+// MARK: - Codable
+
+extension MediaPlayer: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaPlayer.CodingKeys> = try decoder.container(keyedBy: MediaPlayer.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaPlayer.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaPlayer.Attributes.self, forKey: MediaPlayer.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaPlayer.CodingKeys> = encoder.container(keyedBy: MediaPlayer.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaPlayer.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaPlayer.CodingKeys.attributes)
   }
 }

@@ -29,7 +29,7 @@ import Foundation
 /// element can appear as a child of the atom:feed element, or it can
 /// appear as the document (i.e., top-level) element of a stand-alone
 /// Atom Entry Document.
-public struct AtomFeedEntry: Codable, Equatable {
+public struct AtomFeedEntry {
   /// The "atom:title" element is a Text construct that conveys a human-
   /// readable title for an entry or feed.
   public var title: String?
@@ -184,5 +184,62 @@ public struct AtomFeedEntry: Codable, Equatable {
     self.published = published
     self.source = source
     self.rights = rights
+  }
+}
+
+// MARK: - Equatable
+
+extension AtomFeedEntry: Equatable {}
+
+// MARK: - Codable
+
+extension AtomFeedEntry: Codable {
+  private enum CodingKeys: CodingKey {
+    case title
+    case summary
+    case author
+    case contributor
+    case link
+    case updated
+    case category
+    case id
+    case content
+    case published
+    case source
+    case rights
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+
+    title = try container.decodeIfPresent(String.self, forKey: CodingKeys.title)
+    summary = try container.decodeIfPresent(AtomFeedSummary.self, forKey: CodingKeys.summary)
+    authors = try container.decodeIfPresent([AtomFeedAuthor].self, forKey: CodingKeys.author)
+    contributors = try container.decodeIfPresent([AtomFeedContributor].self, forKey: CodingKeys.contributor)
+    links = try container.decodeIfPresent([AtomFeedLink].self, forKey: CodingKeys.link)
+    updated = try container.decodeIfPresent(Date.self, forKey: CodingKeys.updated)
+    categories = try container.decodeIfPresent([AtomFeedCategory].self, forKey: CodingKeys.category)
+    id = try container.decodeIfPresent(String.self, forKey: CodingKeys.id)
+    content = try container.decodeIfPresent(AtomFeedContent.self, forKey: CodingKeys.content)
+    published = try container.decodeIfPresent(Date.self, forKey: CodingKeys.published)
+    source = try container.decodeIfPresent(AtomFeedSource.self, forKey: CodingKeys.source)
+    rights = try container.decodeIfPresent(String.self, forKey: CodingKeys.rights)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(title, forKey: CodingKeys.title)
+    try container.encodeIfPresent(summary, forKey: CodingKeys.summary)
+    try container.encodeIfPresent(authors, forKey: CodingKeys.author)
+    try container.encodeIfPresent(contributors, forKey: CodingKeys.contributor)
+    try container.encodeIfPresent(links, forKey: CodingKeys.link)
+    try container.encodeIfPresent(updated, forKey: CodingKeys.updated)
+    try container.encodeIfPresent(categories, forKey: CodingKeys.category)
+    try container.encodeIfPresent(id, forKey: CodingKeys.id)
+    try container.encodeIfPresent(content, forKey: CodingKeys.content)
+    try container.encodeIfPresent(published, forKey: CodingKeys.published)
+    try container.encodeIfPresent(source, forKey: CodingKeys.source)
+    try container.encodeIfPresent(rights, forKey: CodingKeys.rights)
   }
 }

@@ -50,7 +50,7 @@ import Foundation
 /// isPermaLink is optional, its default value is true. If its value is false,
 /// the guid may not be assumed to be a url, or a url to anything in
 /// particular.
-public struct RSSFeedGUID: Codable, Equatable {
+public struct RSSFeedGUID {
   /// The element's text.
   public var text: String?
 
@@ -81,5 +81,32 @@ public struct RSSFeedGUID: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension RSSFeedGUID: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeedGUID: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeedGUID.CodingKeys> = try decoder.container(keyedBy: RSSFeedGUID.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: RSSFeedGUID.CodingKeys.text)
+    attributes = try container.decodeIfPresent(RSSFeedGUID.Attributes.self, forKey: RSSFeedGUID.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeedGUID.CodingKeys> = encoder.container(keyedBy: RSSFeedGUID.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: RSSFeedGUID.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: RSSFeedGUID.CodingKeys.attributes)
   }
 }

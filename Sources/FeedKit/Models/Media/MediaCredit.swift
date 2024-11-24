@@ -29,7 +29,7 @@ import Foundation
 /// entities can have multiple roles, and several entities can have the same
 /// role. These should appear as distinct <media:credit> elements. It has two
 /// optional attributes.
-public struct MediaCredit: Codable, Equatable {
+public struct MediaCredit {
   /// The element's text.
   public var text: String?
 
@@ -62,5 +62,32 @@ public struct MediaCredit: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.attributes = attributes
     self.text = text
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaCredit: Equatable {}
+
+// MARK: - Codable
+
+extension MediaCredit: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaCredit.CodingKeys> = try decoder.container(keyedBy: MediaCredit.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaCredit.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaCredit.Attributes.self, forKey: MediaCredit.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaCredit.CodingKeys> = encoder.container(keyedBy: MediaCredit.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaCredit.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaCredit.CodingKeys.attributes)
   }
 }

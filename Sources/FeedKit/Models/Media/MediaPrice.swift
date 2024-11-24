@@ -29,7 +29,7 @@ import Foundation
 /// object can have multiple instances of this tag for including different
 /// pricing structures. The presence of this tag would mean that media object
 /// is not free.
-public struct MediaPrice: Codable, Equatable {
+public struct MediaPrice {
   /// The element's text.
   public var text: String?
 
@@ -69,5 +69,32 @@ public struct MediaPrice: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaPrice: Equatable {}
+
+// MARK: - Codable
+
+extension MediaPrice: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaPrice.CodingKeys> = try decoder.container(keyedBy: MediaPrice.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaPrice.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaPrice.Attributes.self, forKey: MediaPrice.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaPrice.CodingKeys> = encoder.container(keyedBy: MediaPrice.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaPrice.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaPrice.CodingKeys.attributes)
   }
 }

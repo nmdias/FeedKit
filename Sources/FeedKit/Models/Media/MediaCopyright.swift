@@ -25,7 +25,7 @@
 import Foundation
 
 /// Copyright information for the media object. It has one optional attribute.
-public struct MediaCopyright: Codable, Equatable {
+public struct MediaCopyright {
   /// The element's text.
   public var text: String?
 
@@ -50,5 +50,32 @@ public struct MediaCopyright: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.attributes = attributes
     self.text = text
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaCopyright: Equatable {}
+
+// MARK: - Codable
+
+extension MediaCopyright: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaCopyright.CodingKeys> = try decoder.container(keyedBy: MediaCopyright.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaCopyright.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaCopyright.Attributes.self, forKey: MediaCopyright.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaCopyright.CodingKeys> = encoder.container(keyedBy: MediaCopyright.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaCopyright.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaCopyright.CodingKeys.attributes)
   }
 }

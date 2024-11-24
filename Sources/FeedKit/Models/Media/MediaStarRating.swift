@@ -26,7 +26,7 @@ import Foundation
 
 /// This element specifies the rating-related information about a media object.
 /// Valid attributes are average, count, min and max.
-public struct MediaStarRating: Codable, Equatable {
+public struct MediaStarRating {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// The star rating's average.
@@ -58,5 +58,29 @@ public struct MediaStarRating: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaStarRating: Equatable {}
+
+// MARK: - Codable
+
+extension MediaStarRating: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaStarRating.CodingKeys> = try decoder.container(keyedBy: MediaStarRating.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(MediaStarRating.Attributes.self, forKey: MediaStarRating.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaStarRating.CodingKeys> = encoder.container(keyedBy: MediaStarRating.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: MediaStarRating.CodingKeys.attributes)
   }
 }

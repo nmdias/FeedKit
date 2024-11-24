@@ -38,7 +38,7 @@ import Foundation
 /// publicize the sources of news items. It can be used in the Post command
 /// of an aggregator. It should be generated automatically when forwarding
 /// an item from an aggregator to a weblog authoring tool.
-public struct RSSFeedSource: Codable, Equatable {
+public struct RSSFeedSource {
   /// The element's text.
   public var text: String?
 
@@ -61,5 +61,32 @@ public struct RSSFeedSource: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension RSSFeedSource: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeedSource: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeedSource.CodingKeys> = try decoder.container(keyedBy: RSSFeedSource.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: RSSFeedSource.CodingKeys.text)
+    attributes = try container.decodeIfPresent(RSSFeedSource.Attributes.self, forKey: RSSFeedSource.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeedSource.CodingKeys> = encoder.container(keyedBy: RSSFeedSource.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: RSSFeedSource.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: RSSFeedSource.CodingKeys.attributes)
   }
 }

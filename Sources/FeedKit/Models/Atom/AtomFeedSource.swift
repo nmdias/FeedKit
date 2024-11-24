@@ -41,7 +41,7 @@ import Foundation
 /// performing such aggregation SHOULD include at least the required
 /// feed-level Metadata elements (atom:id, atom:title, and atom:updated)
 /// in the atom:source element.
-public struct AtomFeedSource: Codable, Equatable {
+public struct AtomFeedSource {
   /// The "atom:id" element conveys a permanent, universally unique
   /// identifier for an entry or feed.
   public var id: String?
@@ -63,5 +63,35 @@ public struct AtomFeedSource: Codable, Equatable {
     self.id = id
     self.title = title
     self.updated = updated
+  }
+}
+
+// MARK: - Equatable
+
+extension AtomFeedSource: Equatable {}
+
+// MARK: - Codable
+
+extension AtomFeedSource: Codable {
+  private enum CodingKeys: CodingKey {
+    case id
+    case title
+    case updated
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+
+    id = try container.decodeIfPresent(String.self, forKey: CodingKeys.id)
+    title = try container.decodeIfPresent(String.self, forKey: CodingKeys.title)
+    updated = try container.decodeIfPresent(Date.self, forKey: CodingKeys.updated)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(id, forKey: CodingKeys.id)
+    try container.encodeIfPresent(title, forKey: CodingKeys.title)
+    try container.encodeIfPresent(updated, forKey: CodingKeys.updated)
   }
 }

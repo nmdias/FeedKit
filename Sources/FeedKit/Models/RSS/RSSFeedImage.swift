@@ -46,7 +46,7 @@ import Foundation
 /// Maximum value for width is 144, default value is 88.
 ///
 /// Maximum value for height is 400, default value is 31.
-public struct RSSFeedImage: Codable, Equatable {
+public struct RSSFeedImage {
   /// The URL of a GIF, JPEG or PNG image that represents the channel.
   public var url: String?
 
@@ -84,5 +84,44 @@ public struct RSSFeedImage: Codable, Equatable {
     self.width = width
     self.height = height
     self.description = description
+  }
+}
+
+// MARK: - Equatable
+
+extension RSSFeedImage: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeedImage: Codable {
+  private enum CodingKeys: CodingKey {
+    case url
+    case title
+    case link
+    case width
+    case height
+    case description
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeedImage.CodingKeys> = try decoder.container(keyedBy: RSSFeedImage.CodingKeys.self)
+
+    url = try container.decodeIfPresent(String.self, forKey: RSSFeedImage.CodingKeys.url)
+    title = try container.decodeIfPresent(String.self, forKey: RSSFeedImage.CodingKeys.title)
+    link = try container.decodeIfPresent(String.self, forKey: RSSFeedImage.CodingKeys.link)
+    width = try container.decodeIfPresent(Int.self, forKey: RSSFeedImage.CodingKeys.width)
+    height = try container.decodeIfPresent(Int.self, forKey: RSSFeedImage.CodingKeys.height)
+    description = try container.decodeIfPresent(String.self, forKey: RSSFeedImage.CodingKeys.description)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeedImage.CodingKeys> = encoder.container(keyedBy: RSSFeedImage.CodingKeys.self)
+
+    try container.encodeIfPresent(url, forKey: RSSFeedImage.CodingKeys.url)
+    try container.encodeIfPresent(title, forKey: RSSFeedImage.CodingKeys.title)
+    try container.encodeIfPresent(link, forKey: RSSFeedImage.CodingKeys.link)
+    try container.encodeIfPresent(width, forKey: RSSFeedImage.CodingKeys.width)
+    try container.encodeIfPresent(height, forKey: RSSFeedImage.CodingKeys.height)
+    try container.encodeIfPresent(description, forKey: RSSFeedImage.CodingKeys.description)
   }
 }

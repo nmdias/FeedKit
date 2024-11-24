@@ -25,7 +25,7 @@
 import Foundation
 
 /// Optional element to specify the rights information of a media object.
-public struct MediaRights: Codable, Equatable {
+public struct MediaRights {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// Is the status of the media object saying whether a media object has
@@ -43,5 +43,29 @@ public struct MediaRights: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaRights: Equatable {}
+
+// MARK: - Codable
+
+extension MediaRights: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaRights.CodingKeys> = try decoder.container(keyedBy: MediaRights.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(MediaRights.Attributes.self, forKey: MediaRights.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaRights.CodingKeys> = encoder.container(keyedBy: MediaRights.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: MediaRights.CodingKeys.attributes)
   }
 }

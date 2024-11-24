@@ -33,7 +33,7 @@ import Foundation
 /// elements of the containing atom:feed element are considered to apply
 /// to the entry if there are no atom:author elements in the locations
 /// described above.
-public struct AtomFeedAuthor: Codable, Equatable {
+public struct AtomFeedAuthor {
   /// The "atom:name" element's content conveys a human-readable name for
   /// the person.  The content of atom:name is Language-Sensitive.  Person
   /// constructs MUST contain exactly one "atom:name" element.
@@ -58,5 +58,35 @@ public struct AtomFeedAuthor: Codable, Equatable {
     self.name = name
     self.email = email
     self.uri = uri
+  }
+}
+
+// MARK: - Equatable
+
+extension AtomFeedAuthor: Equatable {}
+
+// MARK: - Codable
+
+extension AtomFeedAuthor: Codable {
+  private enum CodingKeys: CodingKey {
+    case name
+    case email
+    case uri
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+
+    name = try container.decodeIfPresent(String.self, forKey: CodingKeys.name)
+    email = try container.decodeIfPresent(String.self, forKey: CodingKeys.email)
+    uri = try container.decodeIfPresent(String.self, forKey: CodingKeys.uri)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(name, forKey: CodingKeys.name)
+    try container.encodeIfPresent(email, forKey: CodingKeys.email)
+    try container.encodeIfPresent(uri, forKey: CodingKeys.uri)
   }
 }

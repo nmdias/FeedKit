@@ -26,7 +26,7 @@ import Foundation
 
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public struct MediaLicence: Codable, Equatable {
+public struct MediaLicence {
   /// The element's text.
   public var text: String?
 
@@ -52,5 +52,32 @@ public struct MediaLicence: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaLicence: Equatable {}
+
+// MARK: - Codable
+
+extension MediaLicence: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaLicence.CodingKeys> = try decoder.container(keyedBy: MediaLicence.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaLicence.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaLicence.Attributes.self, forKey: MediaLicence.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaLicence.CodingKeys> = encoder.container(keyedBy: MediaLicence.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaLicence.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaLicence.CodingKeys.attributes)
   }
 }

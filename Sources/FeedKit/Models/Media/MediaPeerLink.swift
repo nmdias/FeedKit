@@ -25,7 +25,7 @@
 import Foundation
 
 /// Optional element for P2P link.
-public struct MediaPeerLink: Codable, Equatable {
+public struct MediaPeerLink {
   /// The element's text.
   public var text: String?
 
@@ -51,5 +51,32 @@ public struct MediaPeerLink: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaPeerLink: Equatable {}
+
+// MARK: - Codable
+
+extension MediaPeerLink: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaPeerLink.CodingKeys> = try decoder.container(keyedBy: MediaPeerLink.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaPeerLink.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaPeerLink.Attributes.self, forKey: MediaPeerLink.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaPeerLink.CodingKeys> = encoder.container(keyedBy: MediaPeerLink.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaPeerLink.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaPeerLink.CodingKeys.attributes)
   }
 }

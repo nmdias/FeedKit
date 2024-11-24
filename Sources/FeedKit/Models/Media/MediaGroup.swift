@@ -29,7 +29,7 @@ import Foundation
 /// yet different representations. For instance: the same song recorded
 /// in both the WAV and MP3 format. It's an optional element that must
 /// only be used for this purpose.
-public struct MediaGroup: Codable, Equatable {
+public struct MediaGroup {
   /// <media:content> is a sub-element of either <item> or <media:group>.
   /// Media objects that are not the same content should not be included
   /// in the same <media:group> element. The sequence of these items implies
@@ -63,5 +63,38 @@ public struct MediaGroup: Codable, Equatable {
     self.credits = credits
     self.category = category
     self.rating = rating
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaGroup: Equatable {}
+
+// MARK: - Codable
+
+extension MediaGroup: Codable {
+  private enum CodingKeys: CodingKey {
+    case contents
+    case credits
+    case category
+    case rating
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaGroup.CodingKeys> = try decoder.container(keyedBy: MediaGroup.CodingKeys.self)
+
+    contents = try container.decodeIfPresent([MediaContent].self, forKey: MediaGroup.CodingKeys.contents)
+    credits = try container.decodeIfPresent([MediaCredit].self, forKey: MediaGroup.CodingKeys.credits)
+    category = try container.decodeIfPresent(MediaCategory.self, forKey: MediaGroup.CodingKeys.category)
+    rating = try container.decodeIfPresent(MediaRating.self, forKey: MediaGroup.CodingKeys.rating)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaGroup.CodingKeys> = encoder.container(keyedBy: MediaGroup.CodingKeys.self)
+
+    try container.encodeIfPresent(contents, forKey: MediaGroup.CodingKeys.contents)
+    try container.encodeIfPresent(credits, forKey: MediaGroup.CodingKeys.credits)
+    try container.encodeIfPresent(category, forKey: MediaGroup.CodingKeys.category)
+    try container.encodeIfPresent(rating, forKey: MediaGroup.CodingKeys.rating)
   }
 }

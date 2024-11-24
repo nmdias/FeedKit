@@ -25,7 +25,7 @@
 import Foundation
 
 /// The title of the particular media object. It has one optional attribute.
-public struct MediaTitle: Codable, Equatable {
+public struct MediaTitle {
   /// The element's text.
   public var text: String?
 
@@ -48,5 +48,32 @@ public struct MediaTitle: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaTitle: Equatable {}
+
+// MARK: - Codable
+
+extension MediaTitle: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaTitle.CodingKeys> = try decoder.container(keyedBy: MediaTitle.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaTitle.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaTitle.Attributes.self, forKey: MediaTitle.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaTitle.CodingKeys> = encoder.container(keyedBy: MediaTitle.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaTitle.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaTitle.CodingKeys.attributes)
   }
 }

@@ -26,7 +26,7 @@ import Foundation
 
 /// This element specifies various statistics about a media object like the
 /// view count and the favorite count. Valid attributes are views and favorites.
-public struct MediaStatistics: Codable, Equatable {
+public struct MediaStatistics {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// The number of views.
@@ -48,5 +48,29 @@ public struct MediaStatistics: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaStatistics: Equatable {}
+
+// MARK: - Codable
+
+extension MediaStatistics: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaStatistics.CodingKeys> = try decoder.container(keyedBy: MediaStatistics.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(MediaStatistics.Attributes.self, forKey: MediaStatistics.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaStatistics.CodingKeys> = encoder.container(keyedBy: MediaStatistics.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: MediaStatistics.CodingKeys.attributes)
   }
 }

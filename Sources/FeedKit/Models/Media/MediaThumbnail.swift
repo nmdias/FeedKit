@@ -28,10 +28,10 @@ import Foundation
 /// media object. If multiple thumbnails are included, and time coding is not
 /// at play, it is assumed that the images are in order of importance. It has
 /// one required attribute and three optional attributes.
-public struct MediaThumbnail: Codable, Equatable {
+public struct MediaThumbnail {
   /// The element's text.
   public var text: String?
-  
+
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// Specifies the url of the thumbnail. It is a required attribute.
@@ -69,5 +69,32 @@ public struct MediaThumbnail: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaThumbnail: Equatable {}
+
+// MARK: - Codable
+
+extension MediaThumbnail: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaThumbnail.CodingKeys> = try decoder.container(keyedBy: MediaThumbnail.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaThumbnail.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaThumbnail.Attributes.self, forKey: MediaThumbnail.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaThumbnail.CodingKeys> = encoder.container(keyedBy: MediaThumbnail.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaThumbnail.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaThumbnail.CodingKeys.attributes)
   }
 }

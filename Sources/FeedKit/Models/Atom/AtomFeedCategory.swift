@@ -27,7 +27,7 @@ import Foundation
 /// The "atom:category" element conveys information about a category
 /// associated with an entry or feed.  This specification assigns no
 /// meaning to the content (if any) of this element.
-public struct AtomFeedCategory: Codable, Equatable {
+public struct AtomFeedCategory {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// The "term" attribute is a string that identifies the category to
@@ -61,5 +61,29 @@ public struct AtomFeedCategory: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension AtomFeedCategory: Equatable {}
+
+// MARK: - Codable
+
+extension AtomFeedCategory: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(AtomFeedCategory.Attributes.self, forKey: CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
   }
 }

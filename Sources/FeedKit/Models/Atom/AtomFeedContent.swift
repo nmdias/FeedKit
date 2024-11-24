@@ -26,7 +26,7 @@ import Foundation
 
 /// The "atom:content" element either contains or links to the content of
 /// the entry.  The content of atom:content is Language-Sensitive.
-public struct AtomFeedContent: Codable, Equatable {
+public struct AtomFeedContent {
   /// The element's text.
   public var text: String?
 
@@ -70,5 +70,32 @@ public struct AtomFeedContent: Codable, Equatable {
     attributes: AtomFeedContent.Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension AtomFeedContent: Equatable {}
+
+// MARK: - Codable
+
+extension AtomFeedContent: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: CodingKeys.text)
+    attributes = try container.decodeIfPresent(AtomFeedContent.Attributes.self, forKey: CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
   }
 }

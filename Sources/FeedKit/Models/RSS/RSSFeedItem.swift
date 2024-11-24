@@ -32,7 +32,7 @@ import Foundation
 /// http://cyber.law.harvard.edu/rss/encodingDescriptions.html), and
 /// the link and title may be omitted. All elements of an item are optional,
 /// however at least one of title or description must be present.
-public struct RSSFeedItem: Codable, Equatable {
+public struct RSSFeedItem {
   /// The title of the item.
   ///
   /// Example: Venice Film Festival Tries to Quit Sinking
@@ -191,5 +191,56 @@ public struct RSSFeedItem: Codable, Equatable {
     self.guid = guid
     self.pubDate = pubDate
     self.source = source
+  }
+}
+
+// MARK: - Equatable
+
+extension RSSFeedItem: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeedItem: Codable {
+  private enum CodingKeys: CodingKey {
+    case title
+    case link
+    case description
+    case author
+    case categories
+    case comments
+    case enclosure
+    case guid
+    case pubDate
+    case source
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeedItem.CodingKeys> = try decoder.container(keyedBy: RSSFeedItem.CodingKeys.self)
+
+    title = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.title)
+    link = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.link)
+    description = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.description)
+    author = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.author)
+    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: RSSFeedItem.CodingKeys.categories)
+    comments = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.comments)
+    enclosure = try container.decodeIfPresent(RSSFeedEnclosure.self, forKey: RSSFeedItem.CodingKeys.enclosure)
+    guid = try container.decodeIfPresent(RSSFeedGUID.self, forKey: RSSFeedItem.CodingKeys.guid)
+    pubDate = try container.decodeIfPresent(Date.self, forKey: RSSFeedItem.CodingKeys.pubDate)
+    source = try container.decodeIfPresent(RSSFeedSource.self, forKey: RSSFeedItem.CodingKeys.source)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeedItem.CodingKeys> = encoder.container(keyedBy: RSSFeedItem.CodingKeys.self)
+
+    try container.encodeIfPresent(title, forKey: RSSFeedItem.CodingKeys.title)
+    try container.encodeIfPresent(link, forKey: RSSFeedItem.CodingKeys.link)
+    try container.encodeIfPresent(description, forKey: RSSFeedItem.CodingKeys.description)
+    try container.encodeIfPresent(author, forKey: RSSFeedItem.CodingKeys.author)
+    try container.encodeIfPresent(categories, forKey: RSSFeedItem.CodingKeys.categories)
+    try container.encodeIfPresent(comments, forKey: RSSFeedItem.CodingKeys.comments)
+    try container.encodeIfPresent(enclosure, forKey: RSSFeedItem.CodingKeys.enclosure)
+    try container.encodeIfPresent(guid, forKey: RSSFeedItem.CodingKeys.guid)
+    try container.encodeIfPresent(pubDate, forKey: RSSFeedItem.CodingKeys.pubDate)
+    try container.encodeIfPresent(source, forKey: RSSFeedItem.CodingKeys.source)
   }
 }

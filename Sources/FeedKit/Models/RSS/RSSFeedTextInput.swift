@@ -40,7 +40,7 @@ import Foundation
 /// The purpose of the <textInput> element is something of a mystery. You can
 /// use it to specify a search engine box. Or to allow a reader to provide
 /// feedback. Most aggregators ignore it.
-public struct RSSFeedTextInput: Codable, Equatable {
+public struct RSSFeedTextInput {
   /// The label of the Submit button in the text input area.
   public var title: String?
 
@@ -62,5 +62,38 @@ public struct RSSFeedTextInput: Codable, Equatable {
     self.description = description
     self.name = name
     self.link = link
+  }
+}
+
+// MARK: - Equatable
+
+extension RSSFeedTextInput: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeedTextInput: Codable {
+  private enum CodingKeys: CodingKey {
+    case title
+    case description
+    case name
+    case link
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeedTextInput.CodingKeys> = try decoder.container(keyedBy: RSSFeedTextInput.CodingKeys.self)
+
+    title = try container.decodeIfPresent(String.self, forKey: RSSFeedTextInput.CodingKeys.title)
+    description = try container.decodeIfPresent(String.self, forKey: RSSFeedTextInput.CodingKeys.description)
+    name = try container.decodeIfPresent(String.self, forKey: RSSFeedTextInput.CodingKeys.name)
+    link = try container.decodeIfPresent(String.self, forKey: RSSFeedTextInput.CodingKeys.link)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeedTextInput.CodingKeys> = encoder.container(keyedBy: RSSFeedTextInput.CodingKeys.self)
+
+    try container.encodeIfPresent(title, forKey: RSSFeedTextInput.CodingKeys.title)
+    try container.encodeIfPresent(description, forKey: RSSFeedTextInput.CodingKeys.description)
+    try container.encodeIfPresent(name, forKey: RSSFeedTextInput.CodingKeys.name)
+    try container.encodeIfPresent(link, forKey: RSSFeedTextInput.CodingKeys.link)
   }
 }

@@ -41,7 +41,7 @@ import Foundation
 /// by `syUpdateFrequency`
 ///
 /// - yearly: Every year, the channel is updated the number of times specified
-public enum SyndicationUpdatePeriod: String, Codable, Equatable {
+public enum SyndicationUpdatePeriod: String {
   case hourly
   case daily
   case weekly
@@ -65,3 +65,11 @@ extension SyndicationUpdatePeriod {
     }
   }
 }
+
+// MARK: - Equatable
+
+extension SyndicationUpdatePeriod: Equatable {}
+
+// MARK: - Codable
+
+extension SyndicationUpdatePeriod: Codable {}

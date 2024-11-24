@@ -47,7 +47,7 @@ import Foundation
 ///
 /// A full explanation of this element and the rssCloud interface is here:
 /// http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
-public struct RSSFeedCloud: Codable, Equatable {
+public struct RSSFeedCloud {
   /// The attributes of the `<channel>`'s `<cloud>` element.
   public struct Attributes: Codable, Equatable {
     /// The domain to register notification to.
@@ -87,5 +87,29 @@ public struct RSSFeedCloud: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension RSSFeedCloud: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeedCloud: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeedCloud.CodingKeys> = try decoder.container(keyedBy: RSSFeedCloud.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(RSSFeedCloud.Attributes.self, forKey: RSSFeedCloud.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeedCloud.CodingKeys> = encoder.container(keyedBy: RSSFeedCloud.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: RSSFeedCloud.CodingKeys.attributes)
   }
 }

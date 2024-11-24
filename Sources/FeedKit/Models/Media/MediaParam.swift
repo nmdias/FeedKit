@@ -25,10 +25,10 @@
 import Foundation
 
 /// Key-Value pairs with additional parameters for the embedded Media.
-public struct MediaParam: Codable, Equatable {
+public struct MediaParam {
   /// The element's text.
   public var text: String?
-  
+
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// The parameter's key name.
@@ -47,5 +47,32 @@ public struct MediaParam: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaParam: Equatable {}
+
+// MARK: - Codable
+
+extension MediaParam: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaParam.CodingKeys> = try decoder.container(keyedBy: MediaParam.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaParam.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaParam.Attributes.self, forKey: MediaParam.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaParam.CodingKeys> = encoder.container(keyedBy: MediaParam.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaParam.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaParam.CodingKeys.attributes)
   }
 }

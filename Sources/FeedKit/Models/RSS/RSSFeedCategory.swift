@@ -26,7 +26,7 @@ import Foundation
 
 /// The category of `<channel>`. Identifies a category or tag to which the feed
 /// belongs.
-public struct RSSFeedCategory: Codable, Equatable {
+public struct RSSFeedCategory {
   /// The element's text.
   public var text: String?
 
@@ -49,5 +49,32 @@ public struct RSSFeedCategory: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension RSSFeedCategory: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeedCategory: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeedCategory.CodingKeys> = try decoder.container(keyedBy: RSSFeedCategory.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: RSSFeedCategory.CodingKeys.text)
+    attributes = try container.decodeIfPresent(RSSFeedCategory.Attributes.self, forKey: RSSFeedCategory.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeedCategory.CodingKeys> = encoder.container(keyedBy: RSSFeedCategory.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: RSSFeedCategory.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: RSSFeedCategory.CodingKeys.attributes)
   }
 }

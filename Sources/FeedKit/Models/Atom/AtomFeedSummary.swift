@@ -32,7 +32,7 @@ import Foundation
 /// It is not advisable for the atom:summary element to duplicate
 /// atom:title or atom:content because Atom Processors might assume there
 /// is a useful summary when there is none.
-public struct AtomFeedSummary: Codable, Equatable {
+public struct AtomFeedSummary {
   /// The element's text.
   public var text: String?
 
@@ -57,5 +57,32 @@ public struct AtomFeedSummary: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension AtomFeedSummary: Equatable {}
+
+// MARK: - Codable
+
+extension AtomFeedSummary: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: CodingKeys.text)
+    attributes = try container.decodeIfPresent(AtomFeedSummary.Attributes.self, forKey: CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
   }
 }

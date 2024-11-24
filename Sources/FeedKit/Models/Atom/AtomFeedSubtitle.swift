@@ -26,7 +26,7 @@ import Foundation
 
 /// The "atom:subtitle" element is a Text construct that conveys a human-
 /// readable description or subtitle for a feed.
-public struct AtomFeedSubtitle: Codable, Equatable {
+public struct AtomFeedSubtitle {
   /// The element's text.
   public var text: String?
 
@@ -41,6 +41,22 @@ public struct AtomFeedSubtitle: Codable, Equatable {
     public init(type: String? = nil) {
       self.type = type
     }
+
+    private enum CodingKeys: CodingKey {
+      case type
+    }
+
+    public init(from decoder: any Decoder) throws {
+      let container: KeyedDecodingContainer<AtomFeedSubtitle.Attributes.CodingKeys> = try decoder.container(keyedBy: AtomFeedSubtitle.Attributes.CodingKeys.self)
+
+      type = try container.decodeIfPresent(String.self, forKey: AtomFeedSubtitle.Attributes.CodingKeys.type)
+    }
+
+    public func encode(to encoder: any Encoder) throws {
+      var container: KeyedEncodingContainer<AtomFeedSubtitle.Attributes.CodingKeys> = encoder.container(keyedBy: AtomFeedSubtitle.Attributes.CodingKeys.self)
+
+      try container.encodeIfPresent(type, forKey: AtomFeedSubtitle.Attributes.CodingKeys.type)
+    }
   }
 
   /// The element's attributes.
@@ -51,5 +67,32 @@ public struct AtomFeedSubtitle: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension AtomFeedSubtitle: Equatable {}
+
+// MARK: - Codable
+
+extension AtomFeedSubtitle: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: CodingKeys.text)
+    attributes = try container.decodeIfPresent(AtomFeedSubtitle.Attributes.self, forKey: CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
   }
 }

@@ -27,7 +27,7 @@ import Foundation
 /// Optional element to specify geographical information about various
 /// locations captured in the content of a media object. The format conforms
 /// to geoRSS.
-public struct MediaLocation: Codable, Equatable {
+public struct MediaLocation {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// Description of the place whose location is being specified.
@@ -53,5 +53,29 @@ public struct MediaLocation: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaLocation: Equatable {}
+
+// MARK: - Codable
+
+extension MediaLocation: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaLocation.CodingKeys> = try decoder.container(keyedBy: MediaLocation.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(MediaLocation.Attributes.self, forKey: MediaLocation.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaLocation.CodingKeys> = encoder.container(keyedBy: MediaLocation.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: MediaLocation.CodingKeys.attributes)
   }
 }

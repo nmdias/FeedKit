@@ -30,7 +30,7 @@ import Foundation
 /// the order of presentation. While many of the attributes appear to be
 /// audio/video specific, this element can be used to publish any type of
 /// media. It contains 14 attributes, most of which are optional.
-public struct MediaContent: Codable, Equatable {
+public struct MediaContent {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// Should specify the direct URL to the media object. If not included,
@@ -171,5 +171,47 @@ public struct MediaContent: Codable, Equatable {
     self.keywords = keywords
     self.category = category
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaContent: Equatable {}
+
+// MARK: - Codable
+
+extension MediaContent: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+    case title
+    case description
+    case player
+    case thumbnails
+    case keywords
+    case category
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaContent.CodingKeys> = try decoder.container(keyedBy: MediaContent.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(MediaContent.Attributes.self, forKey: MediaContent.CodingKeys.attributes)
+    title = try container.decodeIfPresent(MediaTitle.self, forKey: MediaContent.CodingKeys.title)
+    description = try container.decodeIfPresent(MediaDescription.self, forKey: MediaContent.CodingKeys.description)
+    player = try container.decodeIfPresent(MediaPlayer.self, forKey: MediaContent.CodingKeys.player)
+    thumbnails = try container.decodeIfPresent([MediaThumbnail].self, forKey: MediaContent.CodingKeys.thumbnails)
+    keywords = try container.decodeIfPresent([String].self, forKey: MediaContent.CodingKeys.keywords)
+    category = try container.decodeIfPresent(MediaCategory.self, forKey: MediaContent.CodingKeys.category)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaContent.CodingKeys> = encoder.container(keyedBy: MediaContent.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: MediaContent.CodingKeys.attributes)
+    try container.encodeIfPresent(title, forKey: MediaContent.CodingKeys.title)
+    try container.encodeIfPresent(description, forKey: MediaContent.CodingKeys.description)
+    try container.encodeIfPresent(player, forKey: MediaContent.CodingKeys.player)
+    try container.encodeIfPresent(thumbnails, forKey: MediaContent.CodingKeys.thumbnails)
+    try container.encodeIfPresent(keywords, forKey: MediaContent.CodingKeys.keywords)
+    try container.encodeIfPresent(category, forKey: MediaContent.CodingKeys.category)
   }
 }

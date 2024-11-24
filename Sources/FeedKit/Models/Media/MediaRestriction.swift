@@ -34,7 +34,7 @@ import Foundation
 /// literals are reserved: "all", "none". These literals can only be used once.
 /// This element has one required attribute and one optional attribute (with
 /// strict requirements for its exclusion).
-public struct MediaRestriction: Codable, Equatable {
+public struct MediaRestriction {
   /// The element's text.
   public var text: String?
 
@@ -71,5 +71,32 @@ public struct MediaRestriction: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.attributes = attributes
     self.text = text
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaRestriction: Equatable {}
+
+// MARK: - Codable
+
+extension MediaRestriction: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaRestriction.CodingKeys> = try decoder.container(keyedBy: MediaRestriction.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaRestriction.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaRestriction.Attributes.self, forKey: MediaRestriction.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaRestriction.CodingKeys> = encoder.container(keyedBy: MediaRestriction.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaRestriction.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaRestriction.CodingKeys.attributes)
   }
 }

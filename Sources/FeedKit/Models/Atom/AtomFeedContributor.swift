@@ -26,7 +26,7 @@ import Foundation
 
 /// The "atom:contributor" element is a Person construct that indicates a
 /// person or other entity who contributed to the entry or feed.
-public struct AtomFeedContributor: Codable, Equatable {
+public struct AtomFeedContributor {
   /// The "atom:name" element's content conveys a human-readable name for
   /// the person.  The content of atom:name is Language-Sensitive.  Person
   /// constructs MUST contain exactly one "atom:name" element.
@@ -51,5 +51,35 @@ public struct AtomFeedContributor: Codable, Equatable {
     self.name = name
     self.email = email
     self.uri = uri
+  }
+}
+
+// MARK: - Equatable
+
+extension AtomFeedContributor: Equatable {}
+
+// MARK: - Codable
+
+extension AtomFeedContributor: Codable {
+  private enum CodingKeys: CodingKey {
+    case name
+    case email
+    case uri
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+
+    name = try container.decodeIfPresent(String.self, forKey: CodingKeys.name)
+    email = try container.decodeIfPresent(String.self, forKey: CodingKeys.email)
+    uri = try container.decodeIfPresent(String.self, forKey: CodingKeys.uri)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(name, forKey: CodingKeys.name)
+    try container.encodeIfPresent(email, forKey: CodingKeys.email)
+    try container.encodeIfPresent(uri, forKey: CodingKeys.uri)
   }
 }

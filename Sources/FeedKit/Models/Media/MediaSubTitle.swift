@@ -26,7 +26,7 @@ import Foundation
 
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public struct MediaSubTitle: Codable, Equatable {
+public struct MediaSubTitle {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// The type of the subtitle.
@@ -53,5 +53,29 @@ public struct MediaSubTitle: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaSubTitle: Equatable {}
+
+// MARK: - Codable
+
+extension MediaSubTitle: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaSubTitle.CodingKeys> = try decoder.container(keyedBy: MediaSubTitle.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(MediaSubTitle.Attributes.self, forKey: MediaSubTitle.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaSubTitle.CodingKeys> = encoder.container(keyedBy: MediaSubTitle.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: MediaSubTitle.CodingKeys.attributes)
   }
 }

@@ -29,7 +29,7 @@ import Foundation
 /// tag_name:weight format. It's up to the provider to choose the way weight is
 /// determined for a tag; for example, number of occurrences can be one way to
 /// decide weight of a particular tag. Default weight is 1.
-public struct MediaTag: Codable, Equatable {
+public struct MediaTag {
   /// The tag name.
   public var tag: String?
 
@@ -41,5 +41,32 @@ public struct MediaTag: Codable, Equatable {
     weight: Int? = 1) {
     self.tag = tag
     self.weight = weight
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaTag: Equatable {}
+
+// MARK: - Codable
+
+extension MediaTag: Codable {
+  private enum CodingKeys: CodingKey {
+    case tag
+    case weight
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaTag.CodingKeys> = try decoder.container(keyedBy: MediaTag.CodingKeys.self)
+
+    tag = try container.decodeIfPresent(String.self, forKey: MediaTag.CodingKeys.tag)
+    weight = try container.decodeIfPresent(Int.self, forKey: MediaTag.CodingKeys.weight)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaTag.CodingKeys> = encoder.container(keyedBy: MediaTag.CodingKeys.self)
+
+    try container.encodeIfPresent(tag, forKey: MediaTag.CodingKeys.tag)
+    try container.encodeIfPresent(weight, forKey: MediaTag.CodingKeys.weight)
   }
 }

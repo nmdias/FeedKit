@@ -30,7 +30,7 @@ import Foundation
 ///
 /// The <itunes:owner> tag information is for administrative communication about
 /// the podcast and is not displayed on the iTunes Store.
-public struct iTunesOwner: Codable, Equatable {
+public struct iTunesOwner {
   /// The email address of the owner.
   public var email: String?
 
@@ -42,5 +42,32 @@ public struct iTunesOwner: Codable, Equatable {
     name: String? = nil) {
     self.email = email
     self.name = name
+  }
+}
+
+// MARK: - Equatable
+
+extension iTunesOwner: Equatable {}
+
+// MARK: - Codable
+
+extension iTunesOwner: Codable {
+  private enum CodingKeys: CodingKey {
+    case email
+    case name
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<iTunesOwner.CodingKeys> = try decoder.container(keyedBy: iTunesOwner.CodingKeys.self)
+
+    email = try container.decodeIfPresent(String.self, forKey: iTunesOwner.CodingKeys.email)
+    name = try container.decodeIfPresent(String.self, forKey: iTunesOwner.CodingKeys.name)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<iTunesOwner.CodingKeys> = encoder.container(keyedBy: iTunesOwner.CodingKeys.self)
+
+    try container.encodeIfPresent(email, forKey: iTunesOwner.CodingKeys.email)
+    try container.encodeIfPresent(name, forKey: iTunesOwner.CodingKeys.name)
   }
 }

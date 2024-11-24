@@ -27,7 +27,7 @@ import Foundation
 /// This element stands for the community related content. This allows
 /// inclusion of the user perception about a media object in the form of view
 /// count, ratings and tags.
-public struct MediaCommunity: Codable, Equatable {
+public struct MediaCommunity {
   /// This element specifies the rating-related information about a media object.
   /// Valid attributes are average, count, min and max.
   public var starRating: MediaStarRating?
@@ -50,5 +50,35 @@ public struct MediaCommunity: Codable, Equatable {
     self.starRating = starRating
     self.statistics = statistics
     self.tags = tags
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaCommunity: Equatable {}
+
+// MARK: - Codable
+
+extension MediaCommunity: Codable {
+  private enum CodingKeys: CodingKey {
+    case starRating
+    case statistics
+    case tags
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaCommunity.CodingKeys> = try decoder.container(keyedBy: MediaCommunity.CodingKeys.self)
+
+    starRating = try container.decodeIfPresent(MediaStarRating.self, forKey: MediaCommunity.CodingKeys.starRating)
+    statistics = try container.decodeIfPresent(MediaStatistics.self, forKey: MediaCommunity.CodingKeys.statistics)
+    tags = try container.decodeIfPresent([MediaTag].self, forKey: MediaCommunity.CodingKeys.tags)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaCommunity.CodingKeys> = encoder.container(keyedBy: MediaCommunity.CodingKeys.self)
+
+    try container.encodeIfPresent(starRating, forKey: MediaCommunity.CodingKeys.starRating)
+    try container.encodeIfPresent(statistics, forKey: MediaCommunity.CodingKeys.statistics)
+    try container.encodeIfPresent(tags, forKey: MediaCommunity.CodingKeys.tags)
   }
 }

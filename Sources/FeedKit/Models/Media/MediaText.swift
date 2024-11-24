@@ -30,7 +30,7 @@ import Foundation
 /// elements be grouped by language and appear in time sequence order based on
 /// the start time. Elements can have overlapping start and end times. It has
 /// four optional attributes.
-public struct MediaText: Codable, Equatable {
+public struct MediaText {
   /// The element's text.
   public var text: String?
 
@@ -79,5 +79,32 @@ public struct MediaText: Codable, Equatable {
     attributes: Attributes? = nil) {
     self.text = text
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaText: Equatable {}
+
+// MARK: - Codable
+
+extension MediaText: Codable {
+  private enum CodingKeys: CodingKey {
+    case text
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaText.CodingKeys> = try decoder.container(keyedBy: MediaText.CodingKeys.self)
+
+    text = try container.decodeIfPresent(String.self, forKey: MediaText.CodingKeys.text)
+    attributes = try container.decodeIfPresent(MediaText.Attributes.self, forKey: MediaText.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaText.CodingKeys> = encoder.container(keyedBy: MediaText.CodingKeys.self)
+
+    try container.encodeIfPresent(text, forKey: MediaText.CodingKeys.text)
+    try container.encodeIfPresent(attributes, forKey: MediaText.CodingKeys.attributes)
   }
 }

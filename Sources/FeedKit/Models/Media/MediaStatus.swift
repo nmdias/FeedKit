@@ -26,7 +26,7 @@ import Foundation
 
 /// Optional tag to specify the status of a media object -- whether it's still
 /// active or it has been blocked/deleted.
-public struct MediaStatus: Codable, Equatable {
+public struct MediaStatus {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// State can have values "active", "blocked" or "deleted". "active" means
@@ -52,5 +52,29 @@ public struct MediaStatus: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension MediaStatus: Equatable {}
+
+// MARK: - Codable
+
+extension MediaStatus: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<MediaStatus.CodingKeys> = try decoder.container(keyedBy: MediaStatus.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(MediaStatus.Attributes.self, forKey: MediaStatus.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<MediaStatus.CodingKeys> = encoder.container(keyedBy: MediaStatus.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: MediaStatus.CodingKeys.attributes)
   }
 }

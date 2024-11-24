@@ -32,7 +32,7 @@ import Foundation
 /// skipDay and skipHour elements.
 ///
 /// See http://web.resource.org/rss/1.0/modules/syndication/
-public struct Syndication: Codable, Equatable {
+public struct Syndication {
   /// Describes the period over which the channel format is updated. Acceptable
   /// values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is
   /// assumed.
@@ -57,5 +57,35 @@ public struct Syndication: Codable, Equatable {
     self.updatePeriod = updatePeriod
     self.updateFrequency = updateFrequency
     self.updateBase = updateBase
+  }
+}
+
+// MARK: - Equatable
+
+extension Syndication: Equatable {}
+
+// MARK: - Codable
+
+extension Syndication: Codable {
+  private enum CodingKeys: CodingKey {
+    case updatePeriod
+    case updateFrequency
+    case updateBase
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<Syndication.CodingKeys> = try decoder.container(keyedBy: Syndication.CodingKeys.self)
+
+    updatePeriod = try container.decodeIfPresent(SyndicationUpdatePeriod.self, forKey: Syndication.CodingKeys.updatePeriod)
+    updateFrequency = try container.decodeIfPresent(Int.self, forKey: Syndication.CodingKeys.updateFrequency)
+    updateBase = try container.decodeIfPresent(Date.self, forKey: Syndication.CodingKeys.updateBase)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<Syndication.CodingKeys> = encoder.container(keyedBy: Syndication.CodingKeys.self)
+
+    try container.encodeIfPresent(updatePeriod, forKey: Syndication.CodingKeys.updatePeriod)
+    try container.encodeIfPresent(updateFrequency, forKey: Syndication.CodingKeys.updateFrequency)
+    try container.encodeIfPresent(updateBase, forKey: Syndication.CodingKeys.updateBase)
   }
 }

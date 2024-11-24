@@ -38,7 +38,7 @@ import Foundation
 /// - friday: Aggregator hint to skip parsing on `Friday`.
 /// - saturday: Aggregator hint to skip parsing on `Saturday`.
 /// - sunday: Aggregator hint to skip parsing on `Sunday`.
-public enum RSSFeedSkipDay: String, Codable, Equatable {
+public enum RSSFeedSkipDay: String {
   case monday
   case tuesday
   case wednesday
@@ -66,3 +66,11 @@ extension RSSFeedSkipDay {
     }
   }
 }
+
+// MARK: - Equatable
+
+extension RSSFeedSkipDay: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeedSkipDay: Codable {}

@@ -34,7 +34,7 @@ import Foundation
 ///
 /// Subordinate to the <rss> element is a single <channel> element, which
 /// contains information about the channel (metadata) and its contents.
-public struct RSSFeed: Codable, Equatable {
+public struct RSSFeed {
   /// The name of the channel. It's how people refer to your service. If
   /// you have an HTML website that contains the same information as your
   /// RSS file, the title of your channel should be the same as the title
@@ -267,5 +267,86 @@ public struct RSSFeed: Codable, Equatable {
     self.skipHours = skipHours
     self.skipDays = skipDays
     self.items = items
+  }
+}
+
+// MARK: - Equatable
+
+extension RSSFeed: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeed: Codable {
+  private enum CodingKeys: CodingKey {
+    case title
+    case link
+    case description
+    case language
+    case copyright
+    case managingEditor
+    case webMaster
+    case pubDate
+    case lastBuildDate
+    case categories
+    case generator
+    case docs
+    case cloud
+    case rating
+    case ttl
+    case image
+    case textInput
+    case skipHours
+    case skipDays
+    case items
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeed.CodingKeys> = try decoder.container(keyedBy: RSSFeed.CodingKeys.self)
+
+    title = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.title)
+    link = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.link)
+    description = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.description)
+    language = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.language)
+    copyright = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.copyright)
+    managingEditor = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.managingEditor)
+    webMaster = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.webMaster)
+    pubDate = try container.decodeIfPresent(Date.self, forKey: RSSFeed.CodingKeys.pubDate)
+    lastBuildDate = try container.decodeIfPresent(Date.self, forKey: RSSFeed.CodingKeys.lastBuildDate)
+    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: RSSFeed.CodingKeys.categories)
+    generator = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.generator)
+    docs = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.docs)
+    cloud = try container.decodeIfPresent(RSSFeedCloud.self, forKey: RSSFeed.CodingKeys.cloud)
+    rating = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.rating)
+    ttl = try container.decodeIfPresent(Int.self, forKey: RSSFeed.CodingKeys.ttl)
+    image = try container.decodeIfPresent(RSSFeedImage.self, forKey: RSSFeed.CodingKeys.image)
+    textInput = try container.decodeIfPresent(RSSFeedTextInput.self, forKey: RSSFeed.CodingKeys.textInput)
+    skipHours = try container.decodeIfPresent([Int].self, forKey: RSSFeed.CodingKeys.skipHours)
+    skipDays = try container.decodeIfPresent([RSSFeedSkipDay].self, forKey: RSSFeed.CodingKeys.skipDays)
+    items = try container.decodeIfPresent([RSSFeedItem].self, forKey: RSSFeed.CodingKeys.items)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeed.CodingKeys> = encoder.container(keyedBy: RSSFeed.CodingKeys.self)
+
+    try container.encodeIfPresent(title, forKey: RSSFeed.CodingKeys.title)
+    try container.encodeIfPresent(link, forKey: RSSFeed.CodingKeys.link)
+    try container.encodeIfPresent(description, forKey: RSSFeed.CodingKeys.description)
+    try container.encodeIfPresent(language, forKey: RSSFeed.CodingKeys.language)
+    try container.encodeIfPresent(copyright, forKey: RSSFeed.CodingKeys.copyright)
+    try container.encodeIfPresent(managingEditor, forKey: RSSFeed.CodingKeys.managingEditor)
+    try container.encodeIfPresent(webMaster, forKey: RSSFeed.CodingKeys.webMaster)
+    try container.encodeIfPresent(pubDate, forKey: RSSFeed.CodingKeys.pubDate)
+    try container.encodeIfPresent(lastBuildDate, forKey: RSSFeed.CodingKeys.lastBuildDate)
+    try container.encodeIfPresent(categories, forKey: RSSFeed.CodingKeys.categories)
+    try container.encodeIfPresent(generator, forKey: RSSFeed.CodingKeys.generator)
+    try container.encodeIfPresent(docs, forKey: RSSFeed.CodingKeys.docs)
+    try container.encodeIfPresent(cloud, forKey: RSSFeed.CodingKeys.cloud)
+    try container.encodeIfPresent(rating, forKey: RSSFeed.CodingKeys.rating)
+    try container.encodeIfPresent(ttl, forKey: RSSFeed.CodingKeys.ttl)
+    try container.encodeIfPresent(image, forKey: RSSFeed.CodingKeys.image)
+    try container.encodeIfPresent(textInput, forKey: RSSFeed.CodingKeys.textInput)
+    try container.encodeIfPresent(skipHours, forKey: RSSFeed.CodingKeys.skipHours)
+    try container.encodeIfPresent(skipDays, forKey: RSSFeed.CodingKeys.skipDays)
+    try container.encodeIfPresent(items, forKey: RSSFeed.CodingKeys.items)
   }
 }

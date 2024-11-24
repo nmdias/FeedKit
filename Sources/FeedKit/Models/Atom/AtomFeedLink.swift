@@ -27,7 +27,7 @@ import Foundation
 /// The "atom:link" element defines a reference from an entry or feed to
 /// a Web resource.  This specification assigns no meaning to the content
 /// (if any) of this element.
-public struct AtomFeedLink: Codable, Equatable {
+public struct AtomFeedLink {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// The "href" attribute contains the link's IRI. atom:link elements MUST
@@ -138,5 +138,29 @@ public struct AtomFeedLink: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension AtomFeedLink: Equatable {}
+
+// MARK: - Codable
+
+extension AtomFeedLink: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(AtomFeedLink.Attributes.self, forKey: CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
   }
 }

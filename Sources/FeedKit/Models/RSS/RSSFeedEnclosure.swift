@@ -36,7 +36,7 @@ import Foundation
 ///
 /// <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3"
 /// length="12216320" type="audio/mpeg" />
-public struct RSSFeedEnclosure: Codable, Equatable {
+public struct RSSFeedEnclosure {
   /// The element's attributes.
   public struct Attributes: Codable, Equatable {
     /// Where the enclosure is located.
@@ -69,5 +69,29 @@ public struct RSSFeedEnclosure: Codable, Equatable {
 
   public init(attributes: Attributes? = nil) {
     self.attributes = attributes
+  }
+}
+
+// MARK: - Equatable
+
+extension RSSFeedEnclosure: Equatable {}
+
+// MARK: - Codable
+
+extension RSSFeedEnclosure: Codable {
+  private enum CodingKeys: CodingKey {
+    case attributes
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeedEnclosure.CodingKeys> = try decoder.container(keyedBy: RSSFeedEnclosure.CodingKeys.self)
+
+    attributes = try container.decodeIfPresent(RSSFeedEnclosure.Attributes.self, forKey: RSSFeedEnclosure.CodingKeys.attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeedEnclosure.CodingKeys> = encoder.container(keyedBy: RSSFeedEnclosure.CodingKeys.self)
+
+    try container.encodeIfPresent(attributes, forKey: RSSFeedEnclosure.CodingKeys.attributes)
   }
 }

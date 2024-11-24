@@ -28,7 +28,7 @@ import Foundation
 /// resource description.
 ///
 /// See https://tools.ietf.org/html/rfc5013
-public struct DublinCore: Codable, Equatable {
+public struct DublinCore {
   /// A name given to the resource.
   public var title: String?
 
@@ -165,5 +165,71 @@ public struct DublinCore: Codable, Equatable {
     self.relation = relation
     self.coverage = coverage
     self.rights = rights
+  }
+}
+
+// MARK: - Equatable
+
+extension DublinCore: Equatable {}
+
+// MARK: - Codable
+
+extension DublinCore: Codable {
+  private enum CodingKeys: CodingKey {
+    case title
+    case creator
+    case subject
+    case description
+    case publisher
+    case contributor
+    case date
+    case type
+    case format
+    case identifier
+    case source
+    case language
+    case relation
+    case coverage
+    case rights
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<DublinCore.CodingKeys> = try decoder.container(keyedBy: DublinCore.CodingKeys.self)
+
+    title = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.title)
+    creator = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.creator)
+    subject = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.subject)
+    description = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.description)
+    publisher = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.publisher)
+    contributor = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.contributor)
+    date = try container.decodeIfPresent(Date.self, forKey: DublinCore.CodingKeys.date)
+    type = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.type)
+    format = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.format)
+    identifier = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.identifier)
+    source = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.source)
+    language = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.language)
+    relation = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.relation)
+    coverage = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.coverage)
+    rights = try container.decodeIfPresent(String.self, forKey: DublinCore.CodingKeys.rights)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<DublinCore.CodingKeys> = encoder.container(keyedBy: DublinCore.CodingKeys.self)
+
+    try container.encodeIfPresent(title, forKey: DublinCore.CodingKeys.title)
+    try container.encodeIfPresent(creator, forKey: DublinCore.CodingKeys.creator)
+    try container.encodeIfPresent(subject, forKey: DublinCore.CodingKeys.subject)
+    try container.encodeIfPresent(description, forKey: DublinCore.CodingKeys.description)
+    try container.encodeIfPresent(publisher, forKey: DublinCore.CodingKeys.publisher)
+    try container.encodeIfPresent(contributor, forKey: DublinCore.CodingKeys.contributor)
+    try container.encodeIfPresent(date, forKey: DublinCore.CodingKeys.date)
+    try container.encodeIfPresent(type, forKey: DublinCore.CodingKeys.type)
+    try container.encodeIfPresent(format, forKey: DublinCore.CodingKeys.format)
+    try container.encodeIfPresent(identifier, forKey: DublinCore.CodingKeys.identifier)
+    try container.encodeIfPresent(source, forKey: DublinCore.CodingKeys.source)
+    try container.encodeIfPresent(language, forKey: DublinCore.CodingKeys.language)
+    try container.encodeIfPresent(relation, forKey: DublinCore.CodingKeys.relation)
+    try container.encodeIfPresent(coverage, forKey: DublinCore.CodingKeys.coverage)
+    try container.encodeIfPresent(rights, forKey: DublinCore.CodingKeys.rights)
   }
 }
