@@ -163,11 +163,18 @@ extension XMLNode: XMLStringConvertible {
     indentationLevel: Int = 1) -> String {
     let indent = formatted ? String(repeating: "  ", count: indentationLevel) : ""
 
+    if name == "@attributes" {
+      return ""
+    }
+
     var xml = "\(indent)<\(name)"
 
-    // Append attributes, if any
-    for attribute in children?.filter({ $0.type == .attribute }) ?? [] {
-      xml += " \(attribute.name)=\"\(attribute.text ?? "")\""
+    // Look for a child with the name "@attributes"
+    if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
+      // If found, loop through its children and filter for attribute type
+      for attribute in attributesNode.children?.filter({ $0.type == .attribute }) ?? [] {
+        xml += " \(attribute.name)=\"\(attribute.text ?? "")\""
+      }
     }
 
     if let children = children?.filter({ $0.type == .element }), !children.isEmpty {

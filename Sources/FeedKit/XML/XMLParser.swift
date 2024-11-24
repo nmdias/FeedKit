@@ -107,8 +107,7 @@ extension XMLParser: XMLParserDelegate {
         name: elementName,
         children: [
           .init(
-            type: .attribute,
-            name: "attributes",
+            name: "@attributes",
             children: attributeDict.map {
               .init(
                 type: .attribute, 
