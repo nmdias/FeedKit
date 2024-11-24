@@ -25,19 +25,19 @@
 import Foundation
 
 class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol {
-  /// The encoder used for encoding XML elements.
+  /// The encoder used for encoding XML nodes.
   let encoder: XMLEncoder
-  /// The current XML element being encoded.
-  let element: XMLElement
+  /// The current XML node being encoded.
+  let node: XMLNode
   /// The coding path of the current encoding process.
   var codingPath: [any CodingKey] { encoder.codingPath }
 
-  /// Initializes an encoding container for an XML element.
+  /// Initializes an encoding container for an XML node.
   /// - Parameters:
-  ///   - element: The XML element to encode.
+  ///   - node: The XML node to encode.
   ///   - encoder: The XML encoder used for encoding.
-  init(element: XMLElement, encoder: XMLEncoder) {
-    self.element = element
+  init(node: XMLNode, encoder: XMLEncoder) {
+    self.node = node
     self.encoder = encoder
   }
 
@@ -48,15 +48,15 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
   }
 
   func encode(_ value: Bool, forKey key: Key) throws {
-    element.children.append(.init(type: .element, name: key.stringValue, text: value.description))
+    node.children.append(.init(type: .element, name: key.stringValue, text: value.description))
   }
 
   func encode(_ value: String, forKey key: Key) throws {
-    element.children.append(.init(type: .element, name: key.stringValue, text: value))
+    node.children.append(.init(type: .element, name: key.stringValue, text: value))
   }
 
   func encode<T: LosslessStringConvertible>(_ value: T, for key: Key) {
-    element.children.append(.init(type: .element, name: key.stringValue, text: "\(value)"))
+    node.children.append(.init(type: .element, name: key.stringValue, text: "\(value)"))
   }
 
   // MARK: - Int
@@ -87,9 +87,9 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
     // TODO: - Handle attributes key
     
     defer { self.encoder.codingPath.removeLast() }
-    let childElement = try encoder.encode(value)
-    if element !== childElement {
-      element.children.append(childElement)
+    let child = try encoder.encode(value)
+    if node !== child {
+      node.children.append(child)
     }
   }
 

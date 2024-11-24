@@ -25,25 +25,25 @@
 import Foundation
 
 class XMLStack {
-  /// The internal storage for the `XMLElement` stack.
-  private var stack: [XMLElement] = []
+  /// The internal storage for the `XMLNode` stack.
+  private var stack: [XMLNode] = []
 
-  /// Pushes an `XMLElement` onto the stack.
-  /// - Parameter element: The `XMLElement` to add to the stack.
-  func push(_ element: XMLElement) {
-    stack.append(element)
+  /// Pushes an `XMLNode` onto the stack.
+  /// - Parameter node: The `XMLNode` to add to the stack.
+  func push(_ node: XMLNode) {
+    stack.append(node)
   }
 
-  /// Removes and returns the top `XMLElement` from the stack.
-  /// - Returns: The top `XMLElement` if the stack is not empty, otherwise `nil`.
+  /// Removes and returns the top `XMLNode` from the stack.
+  /// - Returns: The top `XMLNode` if the stack is not empty, otherwise `nil`.
   @discardableResult
-  func pop() -> XMLElement? {
+  func pop() -> XMLNode? {
     stack.popLast()
   }
 
-  /// Returns the top `XMLElement` without removing it from the stack.
-  /// - Returns: The top `XMLElement` if the stack is not empty, otherwise `nil`.
-  func top() -> XMLElement? {
+  /// Returns the top `XMLNode` without removing it from the stack.
+  /// - Returns: The top `XMLNode` if the stack is not empty, otherwise `nil`.
+  func top() -> XMLNode? {
     stack.last
   }
 
@@ -52,7 +52,7 @@ class XMLStack {
     stack.isEmpty
   }
 
-  /// The number of `XMLElement` instances in the stack.
+  /// The number of `XMLNode` instances in the stack.
   var count: Int {
     stack.count
   }

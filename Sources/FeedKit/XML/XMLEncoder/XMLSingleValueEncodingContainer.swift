@@ -27,19 +27,19 @@ import Foundation
 class XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
   /// The XML encoder used for encoding.
   let encoder: XMLEncoder
-  /// The XML element being encoded.
-  let element: XMLElement
+  /// The XML node being encoded.
+  let node: XMLNode
   /// The coding path of the current encoding process.
   var codingPath: [any CodingKey]
 
-  /// Initializes a container for encoding values to an XML element.
+  /// Initializes a container for encoding values to an XML node.
   /// - Parameters:
   ///   - encoder: The XML encoder used for encoding.
-  ///   - element: The XML element to encode values to.
+  ///   - node: The XML node to encode values to.
   ///   - codingPath: The coding path representing the current encoding state.
-  init(encoder: XMLEncoder, element: XMLElement, codingPath: [any CodingKey]) {
+  init(encoder: XMLEncoder, node: XMLNode, codingPath: [any CodingKey]) {
     self.encoder = encoder
-    self.element = element
+    self.node = node
     self.codingPath = codingPath
   }
 

@@ -24,7 +24,7 @@
 
 import Foundation
 
-/// A custom `CodingKey` implementation for encoding XML elements.
+/// A custom `CodingKey` implementation for encoding XML nodes.
 struct XMLCodingKey: CodingKey {
   /// The string value of the coding key.
   var stringValue: String

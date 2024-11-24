@@ -25,35 +25,35 @@
 import Foundation
 
 class XMLUnkeyedDecodingContainer: UnkeyedDecodingContainer {
-  /// The XML decoder used for decoding the current element.
+  /// The XML decoder used for decoding the current node.
   var decoder: XMLDecoder
-  /// The XML elements being decoded.
-  var elements: [XMLElement]
-  /// The current XML element being decoded.
-  var element: XMLElement { elements[currentIndex] }
+  /// The XML nodes being decoded.
+  var nodes: [XMLNode]
+  /// The current XML node being decoded.
+  var node: XMLNode { nodes[currentIndex] }
   /// The coding path of the current decoding process.
   var codingPath: [CodingKey] { decoder.codingPath }
-  /// The number of elements in the container, or `nil` if unknown.
-  var count: Int? { elements.count }
+  /// The number of nodes in the container, or `nil` if unknown.
+  var count: Int? { nodes.count }
   /// A Boolean value indicating whether the container has reached the end.
   var isAtEnd: Bool { currentIndex >= count ?? 0 }
-  /// The current index in the container's elements.
+  /// The current index in the container's nodes.
   var currentIndex: Int = 0
 
   /// Initializes the container for decoding an unkeyed XML element.
   /// - Parameters:
   ///   - decoder: The XML decoder used for decoding.
   ///   - element: The XML element representing the unkeyed container.
-  init(decoder: XMLDecoder, element: XMLElement) {
+  init(decoder: XMLDecoder, node: XMLNode) {
     self.decoder = decoder
-    if let parent = element.parent {
+    if let parent = node.parent {
       decoder.stack.pop()
       decoder.stack.push(parent)
-      elements = parent.children?.filter {
+      nodes = parent.children?.filter {
         $0.name == decoder.codingPath.last!.stringValue
       } ?? []
     } else {
-      elements = []
+      nodes = []
     }
   }
 
@@ -67,28 +67,28 @@ class XMLUnkeyedDecodingContainer: UnkeyedDecodingContainer {
     fatalError()
   }
 
-  func decode(_ type: String.Type) throws -> String { try decoder.decode(element, as: type) }
+  func decode(_ type: String.Type) throws -> String { try decoder.decode(node, as: type) }
 
   // MARK: - Floating point
 
-  func decode(_ type: Float.Type) throws -> Float { try decoder.decode(element, as: type) }
-  func decode(_ type: Double.Type) throws -> Double { try decoder.decode(element, as: type) }
+  func decode(_ type: Float.Type) throws -> Float { try decoder.decode(node, as: type) }
+  func decode(_ type: Double.Type) throws -> Double { try decoder.decode(node, as: type) }
 
   // MARK: - Int
 
-  func decode(_ type: Int.Type) throws -> Int { try decoder.decode(element, as: type) }
-  func decode(_ type: Int8.Type) throws -> Int8 { try decoder.decode(element, as: type) }
-  func decode(_ type: Int16.Type) throws -> Int16 { try decoder.decode(element, as: type) }
-  func decode(_ type: Int32.Type) throws -> Int32 { try decoder.decode(element, as: type) }
-  func decode(_ type: Int64.Type) throws -> Int64 { try decoder.decode(element, as: type) }
+  func decode(_ type: Int.Type) throws -> Int { try decoder.decode(node, as: type) }
+  func decode(_ type: Int8.Type) throws -> Int8 { try decoder.decode(node, as: type) }
+  func decode(_ type: Int16.Type) throws -> Int16 { try decoder.decode(node, as: type) }
+  func decode(_ type: Int32.Type) throws -> Int32 { try decoder.decode(node, as: type) }
+  func decode(_ type: Int64.Type) throws -> Int64 { try decoder.decode(node, as: type) }
 
   // MARK: - Int
 
-  func decode(_ type: UInt.Type) throws -> UInt { try decoder.decode(element, as: type) }
-  func decode(_ type: UInt8.Type) throws -> UInt8 { try decoder.decode(element, as: type) }
-  func decode(_ type: UInt16.Type) throws -> UInt16 { try decoder.decode(element, as: type) }
-  func decode(_ type: UInt32.Type) throws -> UInt32 { try decoder.decode(element, as: type) }
-  func decode(_ type: UInt64.Type) throws -> UInt64 { try decoder.decode(element, as: type) }
+  func decode(_ type: UInt.Type) throws -> UInt { try decoder.decode(node, as: type) }
+  func decode(_ type: UInt8.Type) throws -> UInt8 { try decoder.decode(node, as: type) }
+  func decode(_ type: UInt16.Type) throws -> UInt16 { try decoder.decode(node, as: type) }
+  func decode(_ type: UInt32.Type) throws -> UInt32 { try decoder.decode(node, as: type) }
+  func decode(_ type: UInt64.Type) throws -> UInt64 { try decoder.decode(node, as: type) }
 
   // MARK: - Type
 
@@ -102,8 +102,8 @@ class XMLUnkeyedDecodingContainer: UnkeyedDecodingContainer {
     }
 
     // Get the current child element for decoding
-    let element = elements[currentIndex]
-    let value = try decoder.decode(element: element, as: type)
+    let node = nodes[currentIndex]
+    let value = try decoder.decode(node: node, as: type)
     // Advance the index for the next decode call
     currentIndex += 1
     return value

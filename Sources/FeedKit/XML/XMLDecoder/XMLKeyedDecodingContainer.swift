@@ -28,7 +28,7 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
   /// The XML decoder used for decoding the current element.
   var decoder: XMLDecoder
   /// The current XML element being decoded.
-  var element: XMLElement
+  var node: XMLNode
   /// The coding path of the current decoding process.
   var codingPath: [CodingKey] { decoder.codingPath }
   /// This property is expected to contain all keys present in the current
@@ -39,20 +39,20 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
   /// - Parameters:
   ///   - decoder: The XML decoder used for decoding.
   ///   - element: The XML element to decode.
-  init(decoder: XMLDecoder, element: XMLElement) {
+  init(decoder: XMLDecoder, node: XMLNode) {
     self.decoder = decoder
-    self.element = element
+    self.node = node
   }
 
   func contains(_ key: Key) -> Bool {
-    element.child(for: key.stringValue) != nil
+    node.child(for: key.stringValue) != nil
   }
 
   // MARK: -
 
   func decodeNil(forKey key: Key) throws -> Bool {
     // Get the child element matching the given key
-    guard let child = element.child(for: key.stringValue) else {
+    guard let child = node.child(for: key.stringValue) else {
       return true
     }
 
@@ -79,29 +79,29 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
 
   // MARK: - Decode
 
-  func decode(_ type: Bool.Type, forKey key: Key) throws -> Bool { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: String.Type, forKey key: Key) throws -> String { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: Bool.Type, forKey key: Key) throws -> Bool { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: String.Type, forKey key: Key) throws -> String { try decoder.decode(node, as: type, for: key) }
 
   // MARK: - Int
 
-  func decode(_ type: Int.Type, forKey key: Key) throws -> Int { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: Int8.Type, forKey key: Key) throws -> Int8 { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: Int16.Type, forKey key: Key) throws -> Int16 { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: Int32.Type, forKey key: Key) throws -> Int32 { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: Int64.Type, forKey key: Key) throws -> Int64 { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: Int.Type, forKey key: Key) throws -> Int { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: Int8.Type, forKey key: Key) throws -> Int8 { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: Int16.Type, forKey key: Key) throws -> Int16 { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: Int32.Type, forKey key: Key) throws -> Int32 { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: Int64.Type, forKey key: Key) throws -> Int64 { try decoder.decode(node, as: type, for: key) }
 
   // MARK: - Unsigned Int
 
-  func decode(_ type: UInt.Type, forKey key: Key) throws -> UInt { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: UInt8.Type, forKey key: Key) throws -> UInt8 { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: UInt16.Type, forKey key: Key) throws -> UInt16 { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: UInt32.Type, forKey key: Key) throws -> UInt32 { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: UInt64.Type, forKey key: Key) throws -> UInt64 { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: UInt.Type, forKey key: Key) throws -> UInt { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: UInt8.Type, forKey key: Key) throws -> UInt8 { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: UInt16.Type, forKey key: Key) throws -> UInt16 { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: UInt32.Type, forKey key: Key) throws -> UInt32 { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: UInt64.Type, forKey key: Key) throws -> UInt64 { try decoder.decode(node, as: type, for: key) }
 
   // MARK: - Floating point
 
-  func decode(_ type: Float.Type, forKey key: Key) throws -> Float { try decoder.decode(element, as: type, for: key) }
-  func decode(_ type: Double.Type, forKey key: Key) throws -> Double { try decoder.decode(element, as: type, for: key) }
+  func decode(_ type: Float.Type, forKey key: Key) throws -> Float { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: Double.Type, forKey key: Key) throws -> Double { try decoder.decode(node, as: type, for: key) }
 
   // MARK: - Type
 
@@ -109,13 +109,13 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     decoder.codingPath.append(key)
     defer { self.decoder.codingPath.removeLast() }
 
-    guard let child = element.child(for: key.stringValue) else {
+    guard let child = node.child(for: key.stringValue) else {
       throw DecodingError.dataCorruptedError(
         forKey: key, in: self,
         debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)")
     }
 
-    return try decoder.decode(element: child, as: T.self)
+    return try decoder.decode(node: child, as: T.self)
   }
 
   // MARK: -

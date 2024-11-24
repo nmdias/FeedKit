@@ -26,10 +26,10 @@ import Foundation
 
 /// A custom encoder for encoding XML data using a stack-based approach.
 class XMLEncoder: Encoder {
-  /// The stack used for managing XML elements during encoding.
+  /// The stack used for managing XML nodes during encoding.
   var stack: XMLStack = .init()
-  /// The current XML element being encoded, or `nil` if no element exists.
-  var element: XMLElement? { stack.top() }
+  /// The current XML node being encoded, or `nil` if no node exists.
+  var node: XMLNode? { stack.top() }
   /// The current key in the encoding path.
   var currentKey: String { return codingPath.last!.stringValue }
   /// The path of coding keys used to locate a value in the encoding process.
@@ -46,44 +46,44 @@ class XMLEncoder: Encoder {
     userInfo = [:]
   }
 
-  /// Encodes a value to an XML element.
+  /// Encodes a value to an XML node.
   /// - Parameter value: The value to encode.
-  /// - Returns: The encoded XML element.
+  /// - Returns: The encoded XML node.
   /// - Throws: An error if encoding fails.
-  func encode<T: Codable>(value: T) throws -> XMLElement {
+  func encode<T: Codable>(value: T) throws -> XMLNode {
     let key = XMLCodingKey(stringValue: "\(type(of: value))".lowercased(), intValue: nil)
     let encoder = XMLEncoder(codingPath: [key])
     try value.encode(to: encoder)
-    return encoder.element!
+    return encoder.node!
   }
 
-  /// Returns a keyed encoding container for encoding XML elements.
+  /// Returns a keyed encoding container for encoding XML nodes.
   /// - Parameter type: The type of the coding key.
   /// - Returns: A keyed encoding container.
   func container<Key>(keyedBy type: Key.Type) -> KeyedEncodingContainer<Key> where Key: CodingKey {
-    let element = XMLElement(type: .element, name: currentKey)
-    stack.push(element)
-    return KeyedEncodingContainer(XMLKeyedEncodingContainer(element: element, encoder: self))
+    let node = XMLNode(type: .element, name: currentKey)
+    stack.push(node)
+    return KeyedEncodingContainer(XMLKeyedEncodingContainer(node: node, encoder: self))
   }
 
-  /// Returns an unkeyed encoding container for encoding XML elements.
+  /// Returns an unkeyed encoding container for encoding XML nodes.
   /// - Returns: An unkeyed encoding container.
   func unkeyedContainer() -> any UnkeyedEncodingContainer {
-    stack.push(element!)
-    return XMLUnkeyedEncodingContainer(element: stack.top()!, encoder: self)
+    stack.push(node!)
+    return XMLUnkeyedEncodingContainer(node: stack.top()!, encoder: self)
   }
 
-  /// Returns a single-value encoding container for encoding a single XML element.
+  /// Returns a single-value encoding container for encoding a single XML node.
   /// - Returns: A single-value encoding container.
   func singleValueContainer() -> any SingleValueEncodingContainer {
-    XMLSingleValueEncodingContainer(encoder: self, element: stack.top()!, codingPath: codingPath)
+    XMLSingleValueEncodingContainer(encoder: self, node: stack.top()!, codingPath: codingPath)
   }
 
-  /// Encodes a value and returns the corresponding XML element.
+  /// Encodes a value and returns the corresponding XML node.
   /// - Parameter value: The value to encode.
-  /// - Returns: The encoded XML element.
+  /// - Returns: The encoded XML node.
   /// - Throws: An error if encoding fails.
-  func encode(_ value: Encodable) throws -> XMLElement {
+  func encode(_ value: Encodable) throws -> XMLNode {
     switch value {
     case is Date:
       return try encode(value as! Date)

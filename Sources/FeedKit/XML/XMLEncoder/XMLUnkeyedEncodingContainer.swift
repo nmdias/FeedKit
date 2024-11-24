@@ -27,27 +27,27 @@ import Foundation
 class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
   /// The XML encoder used for encoding values.
   let encoder: XMLEncoder
-  /// The XML element being encoded.
-  let element: XMLElement
+  /// The XML node being encoded.
+  let node: XMLNode
   /// The coding path of the current encoding process.
   var codingPath: [CodingKey] { encoder.codingPath }
-  /// The number of children (encoded values) in the current element.
+  /// The number of children (encoded values) in the current node.
   var count: Int = 0
 
-  /// Initializes a value encoding container for an XML element.
+  /// Initializes a value encoding container for an XML node.
   /// - Parameters:
-  ///   - element: The XML element to encode values to.
+  ///   - node: The XML node to encode values to.
   ///   - encoder: The XML encoder used for encoding.
-  init(element: XMLElement, encoder: XMLEncoder) {
-    self.element = element
+  init(node: XMLNode, encoder: XMLEncoder) {
+    self.node = node
     self.encoder = encoder
   }
 
-  /// Encodes a value and appends it as a child of the current element.
+  /// Encodes a value and appends it as a child of the current node.
   /// - Parameter value: The value to encode, which must conform to
   ///   `LosslessStringConvertible`.
   func encodeValue<T: LosslessStringConvertible>(_ value: T) {
-    element.children.append(.init(type: .element, name: encoder.currentKey, text: "\(value)"))
+    node.children.append(.init(type: .element, name: encoder.currentKey, text: "\(value)"))
     count += 1
   }
 
@@ -85,8 +85,8 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
     encoder.codingPath.append(XMLCodingKey(stringValue: encoder.currentKey, intValue: count))
     defer { self.encoder.codingPath.removeLast() }
     let child = try encoder.encode(value)
-    if element !== child {
-      element.children.append(child)
+    if node !== child {
+      node.children.append(child)
     }
     count += 1
   }

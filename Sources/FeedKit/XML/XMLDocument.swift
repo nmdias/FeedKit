@@ -24,19 +24,19 @@
 
 import Foundation
 
-enum XMLElementType: Equatable, Codable {
+enum XMLNodeType: Equatable, Codable {
   case element
   case attribute
 }
 
-/// Represents an XML document containing a root element.
+/// Represents an XML document containing a root node.
 class XMLDocument: Equatable {
-  /// The root element of the document.
-  var root: XMLElement?
+  /// The root node of the document.
+  var root: XMLNode?
 
-  /// Initializes a new document with an optional root element.
-  /// - Parameter root: The root element of the document.
-  init(root: XMLElement?) {
+  /// Initializes a new document with an optional root node.
+  /// - Parameter root: The root node of the document.
+  init(root: XMLNode?) {
     self.root = root
   }
 
@@ -47,36 +47,36 @@ class XMLDocument: Equatable {
   }
 }
 
-/// Represents an element in the XML document.
-class XMLElement: Codable, Equatable {
-  /// The parent element of this element.
-  weak var parent: XMLElement?
-  /// The type of the element.
-  var type: XMLElementType
-  /// The name of the element.
+/// Represents an node in the XML document.
+class XMLNode: Codable, Equatable {
+  /// The parent node of this node.
+  weak var parent: XMLNode?
+  /// The type of the node.
+  var type: XMLNodeType
+  /// The name of the node.
   var name: String
-  /// The text of the element, if present.
+  /// The text of the node, if present.
   var text: String?
-  /// The child elements of this element.
-  var children: [XMLElement]? {
+  /// The child nodes of this node.
+  var children: [XMLNode]? {
     didSet {
       // Update the parent reference for all children
       children?.forEach { $0.parent = self }
     }
   }
 
-  /// Initializes a new element.
+  /// Initializes a new node.
   /// - Parameters:
-  ///   - name: The name of the element.
-  ///   - text: The text of the element, if any.
-  ///   - attributes: Attributes for the element, if any.
-  ///   - children: Children for the element, if any.
+  ///   - name: The name of the node.
+  ///   - text: The text of the node, if any.
+  ///   - attributes: Attributes for the node, if any.
+  ///   - children: Children for the node, if any.
   init(
-    type: XMLElementType = .element,
+    type: XMLNodeType = .element,
     name: String,
     text: String? = nil,
     attributes: [String: String]? = nil,
-    children: [XMLElement]? = nil) {
+    children: [XMLNode]? = nil) {
     self.type = type
     self.name = name
     self.text = text
@@ -87,14 +87,14 @@ class XMLElement: Codable, Equatable {
 
   // MARK: Equatable
 
-  static func == (lhs: XMLElement, rhs: XMLElement) -> Bool {
+  static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
     lhs.type == rhs.type &&
       lhs.name == rhs.name &&
       lhs.text == rhs.text &&
       lhs.children == rhs.children
   }
 
-  func child(for name: String) -> XMLElement? {
+  func child(for name: String) -> XMLNode? {
     children?.first(where: { $0.name == name })
   }
 }
@@ -128,14 +128,14 @@ extension XMLDocument: XMLStringConvertible {
   }
 }
 
-// MARK: - XMLElement + XMLStringConvertible
+// MARK: - XMLNode + XMLStringConvertible
 
-extension XMLElement: XMLStringConvertible {
+extension XMLNode: XMLStringConvertible {
   /// Generates an XML string representation of the node and its children.
   /// - Parameter formatted: Whether to generate formatted XML (default is
   ///   false for compact XML).
   /// - Parameter indentationLevel: The current level of indentation.
-  /// - Returns: A string representation of the XML for the element.
+  /// - Returns: A string representation of the XML for the node.
   func toXMLString(
     formatted: Bool = false,
     indentationLevel: Int = 1) -> String {
@@ -166,7 +166,7 @@ extension XMLElement: XMLStringConvertible {
       // Element has text, close opening tag and add text
       xml += ">\(text)</\(name)>\(formatted ? "\n" : "")"
     } else {
-      // Self-closing tag for an empty element
+      // Self-closing tag for an empty node
       xml += " />\(formatted ? "\n" : "")"
     }
 

@@ -27,7 +27,7 @@ import Foundation
 class XMLParser: NSObject {
   /// The XML Parser.
   let parser: Foundation.XMLParser
-  /// A stack of `XMLElement` instances representing the current hierarchy
+  /// A stack of `XMLNode` instances representing the current hierarchy
   /// of XML elements during parsing.
   /// - New elements are pushed to the stack as they are encountered.
   /// - When an element ends, it is popped from the stack and added to its

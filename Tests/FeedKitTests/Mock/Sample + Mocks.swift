@@ -82,7 +82,7 @@ extension Sample {
 }
 
 extension Sample {
-  static var xmlElementMock: XMLElement {
+  static var xmlElementMock: XMLNode {
     .init(
       name: "sample",
       children: [

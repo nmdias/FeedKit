@@ -44,9 +44,9 @@ class XMLDecoder: Decoder {
   /// - Parameters:
   ///   - element: The root XML element to start decoding from.
   ///   - codingPath: The initial coding path, defaulting to an empty array.
-  init(element: XMLElement, codingPath: [CodingKey] = []) {
+  init(node: XMLNode, codingPath: [CodingKey] = []) {
     stack = XMLStack()
-    stack.push(element)
+    stack.push(node)
     self.codingPath = codingPath
     userInfo = [:]
   }
@@ -59,8 +59,8 @@ class XMLDecoder: Decoder {
   /// - throws: `DecodingError.dataCorrupted` if values requested from the payload
   ///   are corrupted, or if the given data is not valid XML.
   /// - throws: An error if any value throws an error during decoding.
-  func decode<T>(_ type: T.Type, from element: XMLElement) throws -> T where T: Decodable {
-    stack.push(element)
+  func decode<T>(_ type: T.Type, from node: XMLNode) throws -> T where T: Decodable {
+    stack.push(node)
     return try T(from: self)
   }
 
@@ -71,7 +71,7 @@ class XMLDecoder: Decoder {
   func container<Key>(keyedBy type: Key.Type) throws -> KeyedDecodingContainer<Key> where Key: CodingKey {
     KeyedDecodingContainer(XMLKeyedDecodingContainer<Key>(
       decoder: self,
-      element: stack.top()!
+      node: stack.top()!
     ))
   }
 
@@ -81,7 +81,7 @@ class XMLDecoder: Decoder {
   func unkeyedContainer() throws -> any UnkeyedDecodingContainer {
     XMLUnkeyedDecodingContainer(
       decoder: self,
-      element: stack.top()!
+      node: stack.top()!
     )
   }
 
@@ -91,19 +91,19 @@ class XMLDecoder: Decoder {
   func singleValueContainer() throws -> any SingleValueDecodingContainer {
     XMLSingleValueDecodingContainer(
       decoder: self,
-      element: stack.top()!
+      node: stack.top()!
     )
   }
 
   // MARK: -
 
-  /// Decodes an `XMLElement` into a `Decodable` type.
+  /// Decodes an `XMLNode` into a `Decodable` type.
   /// - Parameters:
   ///   - element: The XML element to decode.
   ///   - type: The type to decode the element as.
   /// - Returns: A decoded value of the specified type.
   /// - Throws: An error if decoding fails.
-  func decode<T: Decodable>(element: XMLElement, as type: T.Type) throws -> T {
+  func decode<T: Decodable>(node: XMLNode, as type: T.Type) throws -> T {
     switch T.self {
     case is Date.Type:
       // TODO: -
@@ -115,14 +115,14 @@ class XMLDecoder: Decoder {
     }
   }
 
-  /// Decodes an `XMLElement` into a `LosslessStringConvertible` type.
+  /// Decodes an `XMLNode` into a `LosslessStringConvertible` type.
   /// - Parameters:
   ///   - element: The XML element to decode.
   ///   - type: The type to decode the element as.
   /// - Returns: A decoded value of the specified type.
   /// - Throws: An error if the text is nil or conversion fails.
-  func decode<T: LosslessStringConvertible>(_ element: XMLElement, as type: T.Type) throws -> T {
-    guard let text = element.text, let value = T(text) else {
+  func decode<T: LosslessStringConvertible>(_ node: XMLNode, as type: T.Type) throws -> T {
+    guard let text = node.text, let value = T(text) else {
       throw DecodingError.valueNotFound(type, .init(
         codingPath: codingPath,
         debugDescription: "Expected text but found nil")
@@ -131,19 +131,19 @@ class XMLDecoder: Decoder {
     return value
   }
 
-  /// Decodes an `XMLElement` into a `LosslessStringConvertible` type.
+  /// Decodes an `XMLNode` into a `LosslessStringConvertible` type.
   ///
   /// - Parameters:
-  ///   - element: The `XMLElement` to decode.
+  ///   - element: The `XMLNode` to decode.
   ///   - type: The type to decode the element as. Must conform to
   ///     `LosslessStringConvertible`.
   ///   - key: The `CodingKey` identifying the element to decode.
   /// - Returns: A decoded value of the specified type.
   /// - Throws: A `DecodingError.dataCorrupted` error if the element's text is
   ///   missing or cannot be converted to the specified type.
-  func decode<T: LosslessStringConvertible, Key: CodingKey>(_ element: XMLElement, as type: T.Type, for key: Key) throws -> T {
+  func decode<T: LosslessStringConvertible, Key: CodingKey>(_ node: XMLNode, as type: T.Type, for key: Key) throws -> T {
     guard
-      let child = element.child(for: key.stringValue),
+      let child = node.child(for: key.stringValue),
       let text = child.text,
       let value = T(text) else {
       throw DecodingError.dataCorrupted(.init(
