@@ -72,7 +72,7 @@ struct Sample: Codable, Equatable {
 
 extension Sample.Content.Item: Codable {
   private enum CodingKeys: String, CodingKey {
-    case attributes
+    case attributes = "@attributes"
     case name
     case description
     case precision
