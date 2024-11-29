@@ -21,6 +21,7 @@ let package = Package(
       resources: [
         .process("Resources/Sample.xml"),
         .process("Resources/Atom.xml"),
+        .process("Resources/Atom + XHTML.xml"),
         .process("Resources/RDF.xml"),
         .process("Resources/RSS.xml"),
         .process("Resources/json/feed.json"),

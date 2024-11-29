@@ -57,6 +57,8 @@ class XMLNode: Codable, Equatable {
   var name: String
   /// The text of the node, if present.
   var text: String?
+  /// Is the `text` property xhtml
+  var isXhtml: Bool = false
   /// The child nodes of this node.
   var children: [XMLNode]? {
     didSet {
@@ -75,11 +77,13 @@ class XMLNode: Codable, Equatable {
     type: XMLNodeType = .element,
     name: String,
     text: String? = nil,
+    isXhtml: Bool = false,
     attributes: [String: String]? = nil,
     children: [XMLNode]? = nil) {
     self.type = type
     self.name = name
     self.text = text
+    self.isXhtml = isXhtml
     self.children = children
     // Set parent for each child
     self.children?.forEach { $0.parent = self }
@@ -91,7 +95,8 @@ class XMLNode: Codable, Equatable {
     if
       lhs.type != rhs.type ||
       lhs.name != rhs.name ||
-      lhs.text != rhs.text {
+      lhs.text != rhs.text ||
+      lhs.isXhtml != rhs.isXhtml {
       return false
     }
 
@@ -108,7 +113,8 @@ class XMLNode: Codable, Equatable {
       if
         lChild.name != rChild.name ||
         lChild.type != rChild.type ||
-        lChild.text != rChild.text {
+        lChild.text != rChild.text ||
+        lChild.isXhtml != rChild.isXhtml {
         return false
       }
     }
@@ -118,6 +124,10 @@ class XMLNode: Codable, Equatable {
 
   func child(for name: String) -> XMLNode? {
     children?.first(where: { $0.name == name })
+  }
+
+  func hasChild(for name: String) -> Bool {
+    children?.first(where: { $0.name == name }) != nil
   }
 }
 

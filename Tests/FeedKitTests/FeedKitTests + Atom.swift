@@ -37,28 +37,40 @@ extension FeedKitTests {
     // When
     let actual = try? parser.parse().get().atom
 
-    saveToDocuments(expected: expected, actual: actual)
-    
     // Then
     #expect(expected == actual)
   }
   
+  @Test
+  func atomXhtml() {
+    // Given
+    let data = data(resource: "Atom + XHTML", withExtension: "xml")
+    let parser = FeedParser(data: data)
+    let expected: AtomFeed = mockXhtml
+
+    // When
+    let actual = try? parser.parse().get().atom
+
+    // Then
+    #expect(expected == actual)
+  }
+
   @Test
   func atomXmlString() {
     // Given
     let data = data(resource: "Atom", withExtension: "xml")
     let expected = String(decoding: data, as: Unicode.UTF8.self)
     let encoder = XMLEncoder()
-    let root = try? encoder.encode(mock)
+    encoder.dateCodingStrategy = .formatter(RFC3339DateFormatter())
+    let root = try? encoder.encode(value: mock)
     let document = XMLDocument(root: root!)
-    
+
     // When
     let actual = document.toXMLString(formatted: true)
 
     // Then
     #expect(expected == actual)
   }
-  
 }
 
 extension FeedKitTests {
@@ -195,10 +207,21 @@ extension FeedKitTests {
               )
             ),
           ],
-          updated: nil,
+          updated: RFC3339DateFormatter().date(from: "2005-07-31T12:29:29Z"),
           categories: [
             .init(
-              attributes: nil
+              attributes: .init(
+                term: "music",
+                scheme: nil,
+                label: nil
+              )
+            ),
+            .init(
+              attributes: .init(
+                term: "video",
+                scheme: nil,
+                label: nil
+              )
             ),
           ],
           id: "tag:example.org,2003:3.2397",
@@ -209,14 +232,29 @@ extension FeedKitTests {
               src: "http://www.example.org/"
             )
           ),
-          published: nil,
-          source: .init(
-            id: nil,
-            title: nil,
-            updated: nil
-          ),
-          rights: ""
-        ),
+          published: RFC3339DateFormatter().date(from: "2003-12-13T08:29:29-04:00"),
+          source: nil,
+          rights: "Copyright (c) 2003, Mark Pilgrim"
+        )
+      ]
+    )
+  }
+}
+
+extension FeedKitTests {
+  private var mockXhtml: AtomFeed {
+    .init(
+      entries: [
+        .init(
+          summary: .init(
+            text: """
+<div xmlns="http://www.w3.org/1999/xhtml"><p><strong>Some markings</strong><a href="http://www.example.org/">Example</a></p><div class="blockquote"><p>On a quote...</p></div></div>
+""",
+            attributes: .init(
+              type: "xhtml"
+            )
+          )
+        )
       ]
     )
   }

@@ -37,7 +37,6 @@ extension FeedKitTests {
     // When
     let actual = try? JSONFeed(data: data)
 
-    saveToDocuments(expected: expected, actual: actual)
     // Then
     #expect(expected == actual)
   }

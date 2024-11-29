@@ -74,13 +74,8 @@ class XMLParser: NSObject {
   func map(_ string: String) {
     // Get the working element
     guard let element = stack.top() else { return }
-    let trim = string.trimmingCharacters(in: .whitespacesAndNewlines)
-    guard !trim.isEmpty else { return }
-    if let text = element.text {
-      element.text = text + trim
-    } else {
-      element.text = trim
-    }
+    guard !string.isEmpty else { return }
+    element.text = element.text?.appending(string) ?? string
   }
 }
 
@@ -93,24 +88,21 @@ extension XMLParser: XMLParserDelegate {
     namespaceURI: String?,
     qualifiedName qName: String?,
     attributes attributeDict: [String: String] = [:]) {
-    // If no attributes are present, create a single node with the element name.
-    if attributeDict.isEmpty {
-      stack.push(.init(
-        type: .element,
-        name: elementName
-      ))
-    } else {
-      // If attributes are found, treat them as child nodes of the element.
-      // Each attribute is added as a child node with its key and value.
+    // Check if the element contains XHTML. If so, avoid building a tree.
+    // Instead, we append a single node with the XHTML content and mark it as isXhtml.
+    let isXhtml = attributeDict["type"] == "xhtml"
+    if isXhtml {
+      // Entering an XHTML element; create a single node for it.
       stack.push(.init(
         type: .element,
         name: elementName,
+        isXhtml: isXhtml,
         children: [
           .init(
             name: "@attributes",
             children: attributeDict.map {
               .init(
-                type: .attribute, 
+                type: .attribute,
                 name: $0,
                 text: $1
               )
@@ -118,6 +110,42 @@ extension XMLParser: XMLParserDelegate {
           ),
         ])
       )
+    } else if let node = stack.top(), node.isXhtml {
+      // If inside an XHTML element, treat the current start element as plain text.
+      node.text = node.text?.appending("<\(elementName)") ?? node.text
+      // Append it's attributes
+      for (key, value) in attributeDict {
+        node.text! += " \(key)=\"\(value)\""
+      }
+      node.text = node.text?.appending(">") ?? node.text
+    } else {
+      // If it's not an XHTML element, and no attributes are present, create a
+      // node with the element name.
+      if attributeDict.isEmpty {
+        stack.push(.init(
+          type: .element,
+          name: elementName
+        ))
+      } else {
+        // If attributes are found, treat them as child nodes of the element.
+        // Each attribute is added as a child node with its key and value.
+        stack.push(.init(
+          type: .element,
+          name: elementName,
+          children: [
+            .init(
+              name: "@attributes",
+              children: attributeDict.map {
+                .init(
+                  type: .attribute,
+                  name: $0,
+                  text: $1
+                )
+              }
+            ),
+          ])
+        )
+      }
     }
   }
 
@@ -145,11 +173,25 @@ extension XMLParser: XMLParserDelegate {
     didEndElement elementName: String,
     namespaceURI: String?,
     qualifiedName qName: String?) {
-    guard stack.count > 1, let element = stack.pop() else {
+    guard let node = stack.top() else { return }
+
+    // If exiting an XHTML element, close it as plain text.
+    if node.isXhtml, node.name != elementName {
+      node.text = (node.text ?? "") + "</\(elementName)>"
+      return
+    }
+
+    // Sanitize the node's text by trimming whitespace and newlines.
+    // If the resulting text is empty, set it to nil.
+    node.text = node.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+    node.text = node.text?.isEmpty == true ? nil : node.text
+
+    guard stack.count > 1, let node = stack.pop() else {
       isComplete = true
       return
     }
-    stack.top()?.children.append(element)
+
+    stack.top()?.children.append(node)
   }
 
   func parserDidEndDocument(

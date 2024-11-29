@@ -46,45 +46,45 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
   /// Encodes a value and appends it as a child of the current node.
   /// - Parameter value: The value to encode, which must conform to
   ///   `LosslessStringConvertible`.
-  func encodeValue<T: LosslessStringConvertible>(_ value: T) {
-    node.children.append(.init(type: .element, name: encoder.currentKey, text: "\(value)"))
-    count += 1
+  func box<T: LosslessStringConvertible>(_ value: T) -> XMLNode {
+    .init(type: .element, name: encoder.currentKey, text: "\(value)")
   }
 
   // MARK: -
 
   func encodeNil() throws { }
 
-  func encode(_ value: Bool) throws { encodeValue(value) }
-  func encode(_ value: String) throws { encodeValue(value) }
+  func encode(_ value: Bool) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: String) throws { node.children?.append(box(value)); count += 1 }
 
   // MARK: - Int
 
-  func encode(_ value: Int) throws { encodeValue(value) }
-  func encode(_ value: Int8) throws { encodeValue(value) }
-  func encode(_ value: Int16) throws { encodeValue(value) }
-  func encode(_ value: Int32) throws { encodeValue(value) }
-  func encode(_ value: Int64) throws { encodeValue(value) }
+  func encode(_ value: Int) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: Int8) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: Int16) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: Int32) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: Int64) throws { node.children?.append(box(value)); count += 1 }
 
   // MARK: - Unsigned Int
 
-  func encode(_ value: UInt) throws { encodeValue(value) }
-  func encode(_ value: UInt8) throws { encodeValue(value) }
-  func encode(_ value: UInt16) throws { encodeValue(value) }
-  func encode(_ value: UInt32) throws { encodeValue(value) }
-  func encode(_ value: UInt64) throws { encodeValue(value) }
+  func encode(_ value: UInt) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: UInt8) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: UInt16) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: UInt32) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: UInt64) throws { node.children?.append(box(value)); count += 1 }
 
   // MARK: - Floating point
 
-  func encode(_ value: Float) throws { encodeValue(value) }
-  func encode(_ value: Double) throws { encodeValue(value) }
+  func encode(_ value: Float) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: Double) throws { node.children?.append(box(value)); count += 1 }
 
   // MARK: - Type
 
   func encode<T>(_ value: T) throws where T: Encodable {
     encoder.codingPath.append(XMLCodingKey(stringValue: encoder.currentKey, intValue: count))
     defer { self.encoder.codingPath.removeLast() }
-    let child = try encoder.encode(value)
+    
+    let child = try encoder.box(value)
     if node !== child {
       node.children.append(child)
     }

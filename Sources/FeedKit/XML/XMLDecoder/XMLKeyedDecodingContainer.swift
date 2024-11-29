@@ -45,31 +45,25 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
   }
 
   func contains(_ key: Key) -> Bool {
-    node.child(for: key.stringValue) != nil
+    if key.stringValue == "@text" && node.text?.isEmpty == false {
+      return true
+    }
+    return node.hasChild(for: key.stringValue)
   }
 
   // MARK: -
 
   func decodeNil(forKey key: Key) throws -> Bool {
-    // Get the child element matching the given key
-    guard let child = node.child(for: key.stringValue) else {
+    if key.stringValue == "@text" && node.text?.isEmpty == true {
       return true
     }
 
+    // Get the child element matching the given key
     // Avoids initialization if all variables are nil.
-    //
-    // Note: It's unclear if,
-    //
-    // 1. Initialization is needed when an element exists in the tree with no text
-    //    and its children also have no text, as attributes handling is not
-    //    yet implemented.
-    //
-    // 2. Initialization is needed when an element's text exists, but is empty.
-    //    For now, we also avoid any unnecessary initialization here.
-    if
-      (child.text == nil) &&
-      (child.text?.isEmpty ?? true) &&
-      (child.children?.isEmpty ?? true) {
+    if let child = node.child(for: key.stringValue),
+      child.text == nil &&
+      child.text?.isEmpty ?? true &&
+      child.children?.isEmpty ?? true {
       return true
     }
 
@@ -80,7 +74,13 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
   // MARK: - Decode
 
   func decode(_ type: Bool.Type, forKey key: Key) throws -> Bool { try decoder.decode(node, as: type, for: key) }
-  func decode(_ type: String.Type, forKey key: Key) throws -> String { try decoder.decode(node, as: type, for: key) }
+  func decode(_ type: String.Type, forKey key: Key) throws -> String {
+    if key.stringValue == "@text" {
+      return node.text ?? ""
+    }
+
+    return try decoder.decode(node, as: type, for: key)
+  }
 
   // MARK: - Int
 

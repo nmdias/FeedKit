@@ -148,8 +148,8 @@ extension AtomFeedLink: Equatable {}
 // MARK: - Codable
 
 extension AtomFeedLink: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
+  private enum CodingKeys: String, CodingKey {
+    case attributes = "@attributes"
   }
 
   public init(from decoder: any Decoder) throws {

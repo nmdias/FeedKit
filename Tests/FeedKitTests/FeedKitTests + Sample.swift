@@ -51,7 +51,6 @@ extension FeedKitTests {
     // When
     let actual = document.toXMLString(formatted: true)
 
-    saveToDocuments(expected: expected, actual: actual)
     // Then
     #expect(expected == actual)
   }
@@ -66,7 +65,6 @@ extension FeedKitTests {
     // When
     let actual = try! decoder.decode(Sample.self, from: element)
 
-    print(actual as Any)
     // Then
     #expect(expected == actual)
   }
@@ -79,8 +77,6 @@ extension FeedKitTests {
 
     // When
     let actual = try! encoder.encode(value: Sample.mock)
-
-    saveToDocuments(expected: expected.toXMLString(formatted: true), actual: actual.toXMLString(formatted: true))
     
     #expect(expected == actual)
   }

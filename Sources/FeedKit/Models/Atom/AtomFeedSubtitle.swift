@@ -41,22 +41,6 @@ public struct AtomFeedSubtitle {
     public init(type: String? = nil) {
       self.type = type
     }
-
-    private enum CodingKeys: CodingKey {
-      case type
-    }
-
-    public init(from decoder: any Decoder) throws {
-      let container: KeyedDecodingContainer<AtomFeedSubtitle.Attributes.CodingKeys> = try decoder.container(keyedBy: AtomFeedSubtitle.Attributes.CodingKeys.self)
-
-      type = try container.decodeIfPresent(String.self, forKey: AtomFeedSubtitle.Attributes.CodingKeys.type)
-    }
-
-    public func encode(to encoder: any Encoder) throws {
-      var container: KeyedEncodingContainer<AtomFeedSubtitle.Attributes.CodingKeys> = encoder.container(keyedBy: AtomFeedSubtitle.Attributes.CodingKeys.self)
-
-      try container.encodeIfPresent(type, forKey: AtomFeedSubtitle.Attributes.CodingKeys.type)
-    }
   }
 
   /// The element's attributes.
@@ -77,9 +61,9 @@ extension AtomFeedSubtitle: Equatable {}
 // MARK: - Codable
 
 extension AtomFeedSubtitle: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
+  private enum CodingKeys: String, CodingKey {
+    case text = "@text"
+    case attributes = "@attributes"
   }
 
   public init(from decoder: any Decoder) throws {

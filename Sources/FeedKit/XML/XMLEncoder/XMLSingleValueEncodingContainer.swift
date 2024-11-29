@@ -43,48 +43,50 @@ class XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
     self.codingPath = codingPath
   }
 
-  // MARK: -
-
-  func encodeNil() throws {
-    fatalError()
+  func push(_ node: XMLNode) {
+    encoder.stack.push(node)
   }
 
-  func push<T: LosslessStringConvertible>(_ value: T) {
-    encoder.stack.push(.init(
-      type: .element, 
+  func box<T: LosslessStringConvertible>(_ value: T) -> XMLNode {
+    .init(
+      type: .element,
       name: encoder.currentKey,
       text: "\(value)"
-    ))
+    )
   }
 
-  func encode(_ value: Bool) throws { push(value) }
-  func encode(_ value: String) throws { push(value) }
+  // MARK: -
+
+  func encodeNil() throws { fatalError() }
+
+  func encode(_ value: Bool) throws { push(box(value)) }
+  func encode(_ value: String) throws { push(box(value)) }
 
   // MARK: - Int
 
-  func encode(_ value: Int) throws { push(value) }
-  func encode(_ value: Int8) throws { push(value) }
-  func encode(_ value: Int16) throws { push(value) }
-  func encode(_ value: Int32) throws { push(value) }
-  func encode(_ value: Int64) throws { push(value) }
+  func encode(_ value: Int) throws { push(box(value)) }
+  func encode(_ value: Int8) throws { push(box(value)) }
+  func encode(_ value: Int16) throws { push(box(value)) }
+  func encode(_ value: Int32) throws { push(box(value)) }
+  func encode(_ value: Int64) throws { push(box(value)) }
 
   // MARK: - Unsigned Int
 
-  func encode(_ value: UInt) throws { push(value) }
-  func encode(_ value: UInt8) throws { push(value) }
-  func encode(_ value: UInt16) throws { push(value) }
-  func encode(_ value: UInt32) throws { push(value) }
-  func encode(_ value: UInt64) throws { push(value) }
+  func encode(_ value: UInt) throws { push(box(value)) }
+  func encode(_ value: UInt8) throws { push(box(value)) }
+  func encode(_ value: UInt16) throws { push(box(value)) }
+  func encode(_ value: UInt32) throws { push(box(value)) }
+  func encode(_ value: UInt64) throws { push(box(value)) }
 
   // MARK: - Floating point
 
-  func encode(_ value: Float) throws { push(value) }
-  func encode(_ value: Double) throws { push(value) }
+  func encode(_ value: Float) throws { push(box(value)) }
+  func encode(_ value: Double) throws { push(box(value)) }
 
   // MARK: - Encode Type
 
   func encode<T>(_ value: T) throws where T: Encodable {
-    let some = try encoder.encode(value)
+    let some = try encoder.box(value)
     encoder.stack.push(some)
   }
 }

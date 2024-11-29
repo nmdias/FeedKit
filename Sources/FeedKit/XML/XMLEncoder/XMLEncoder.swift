@@ -37,6 +37,8 @@ class XMLEncoder: Encoder {
   /// User-defined contextual information for the encoding process.
   var userInfo: [CodingUserInfoKey: Any] = [:]
 
+  var dateCodingStrategy: XMLDateCodingStrategy = .deferredToDate
+
   /// Initializes an XML encoder with an optional coding path.
   /// - Parameters:
   ///   - codingPath: The initial coding path, defaulting to an empty array.
@@ -79,14 +81,26 @@ class XMLEncoder: Encoder {
     XMLSingleValueEncodingContainer(encoder: self, node: stack.top()!, codingPath: codingPath)
   }
 
+  func box(_ date: Date) throws -> XMLNode {
+    switch dateCodingStrategy {
+    case .deferredToDate: try date.encode(to: self); return stack.top()!
+    case let .formatter(formatter):
+      return .init(
+        type: .element,
+        name: currentKey,
+        text: formatter.string(from: date)
+      )
+    }
+  }
+
   /// Encodes a value and returns the corresponding XML node.
   /// - Parameter value: The value to encode.
   /// - Returns: The encoded XML node.
   /// - Throws: An error if encoding fails.
-  func encode(_ value: Encodable) throws -> XMLNode {
+  func box(_ value: Encodable) throws -> XMLNode {
     switch value {
     case is Date:
-      return try encode(value as! Date)
+      return try box(value as! Date)
     default:
       try value.encode(to: self)
       return stack.pop()!

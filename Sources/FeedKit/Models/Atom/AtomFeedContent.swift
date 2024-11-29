@@ -80,9 +80,9 @@ extension AtomFeedContent: Equatable {}
 // MARK: - Codable
 
 extension AtomFeedContent: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
+  private enum CodingKeys: String, CodingKey {
+    case text = "@text"
+    case attributes = "@attributes"
   }
 
   public init(from decoder: any Decoder) throws {

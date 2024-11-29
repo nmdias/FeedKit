@@ -56,7 +56,9 @@ public struct FeedParser {
   public func parse() throws -> Result<Feed, Error> {
     // When
     let some = try parser.parse().get().root!
-    let atomFeed = try XMLDecoder().decode(node: some, as: AtomFeed.self)
+    let decoder = XMLDecoder()
+    decoder.dateCodingStrategy = .formatter(RFC3339DateFormatter())
+    let atomFeed = try decoder.decode(node: some, as: AtomFeed.self)
     return .success(.atom(atomFeed))
   }
 }

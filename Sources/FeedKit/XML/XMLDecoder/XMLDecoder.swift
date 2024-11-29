@@ -33,6 +33,8 @@ class XMLDecoder: Decoder {
   /// User-defined contextual information for the decoding process.
   var userInfo: [CodingUserInfoKey: Any]
 
+  var dateCodingStrategy: XMLDateCodingStrategy = .deferredToDate
+
   /// Initializes the decoder with an empty stack and no coding path.
   init() {
     stack = .init()
@@ -106,12 +108,36 @@ class XMLDecoder: Decoder {
   func decode<T: Decodable>(node: XMLNode, as type: T.Type) throws -> T {
     switch T.self {
     case is Date.Type:
-      // TODO: -
-      return Date() as! T
+      return try decode(node: node, as: Date.self) as! T
     default:
       stack.push(node)
       defer { stack.pop() }
       return try type.init(from: self)
+    }
+  }
+
+  /// Decodes a `Date` value from the given XML node using the current strategy.
+  /// - Parameters:
+  ///   - node: The XML node containing the date value.
+  ///   - type: The expected type, which must be `Date`.
+  /// - Returns: A decoded `Date` instance.
+  /// - Throws: A `DecodingError` if the date cannot be decoded.
+  func decode(node: XMLNode, as type: Date.Type) throws -> Date {
+    switch dateCodingStrategy {
+    case .deferredToDate:
+      return try Date(from: self)
+    case let .formatter(formatter):
+      stack.push(node)
+      defer { stack.pop() }
+      guard
+        let stringDate = node.text,
+        let date = formatter.date(from: stringDate) else {
+        throw DecodingError.dataCorrupted(.init(
+          codingPath: codingPath,
+          debugDescription: "Unable to decode date with formatter: \(formatter)"
+        ))
+      }
+      return date
     }
   }
 
@@ -125,8 +151,8 @@ class XMLDecoder: Decoder {
     guard let text = node.text, let value = T(text) else {
       throw DecodingError.valueNotFound(type, .init(
         codingPath: codingPath,
-        debugDescription: "Expected text but found nil")
-      )
+        debugDescription: "Expected text but found nil"
+      ))
     }
     return value
   }
