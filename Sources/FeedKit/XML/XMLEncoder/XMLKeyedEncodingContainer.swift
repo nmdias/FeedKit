@@ -26,7 +26,7 @@ import Foundation
 
 class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol {
   /// The encoder used for encoding XML nodes.
-  let encoder: XMLEncoder
+  let encoder: _XMLEncoder
   /// The current XML node being encoded.
   let node: XMLNode
   /// The coding path of the current encoding process.
@@ -36,7 +36,7 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
   /// - Parameters:
   ///   - node: The XML node to encode.
   ///   - encoder: The XML encoder used for encoding.
-  init(node: XMLNode, encoder: XMLEncoder) {
+  init(node: XMLNode, encoder: _XMLEncoder) {
     self.node = node
     self.encoder = encoder
   }

@@ -63,6 +63,7 @@ extension FeedKitTests {
     let encoder = XMLEncoder()
     encoder.dateCodingStrategy = .formatter(RFC3339DateFormatter())
     let root = try? encoder.encode(value: mock)
+    root?.name = "feed" // TODO: - Need to infer this better
     let document = XMLDocument(root: root!)
 
     // When

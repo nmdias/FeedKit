@@ -24,8 +24,25 @@
 
 import Foundation
 
+class XMLEncoder {
+  /// The strategy for encoding `Date` values into XML nodes.
+  var dateCodingStrategy: XMLDateCodingStrategy = .deferredToDate
+
+  /// Encodes a value to an XML node.
+  /// - Parameter value: The value to encode.
+  /// - Returns: The encoded XML node.
+  /// - Throws: An error if encoding fails.
+  func encode<T: Codable>(value: T) throws -> XMLNode {
+    let key = XMLCodingKey(stringValue: "\(type(of: value))".lowercased(), intValue: nil)
+    let encoder = _XMLEncoder(codingPath: [key])
+    encoder.dateCodingStrategy = dateCodingStrategy
+    try value.encode(to: encoder)
+    return encoder.node!
+  }
+}
+
 /// A custom encoder for encoding XML data using a stack-based approach.
-class XMLEncoder: Encoder {
+class _XMLEncoder: Encoder {
   /// The stack used for managing XML nodes during encoding.
   var stack: XMLStack = .init()
   /// The current XML node being encoded, or `nil` if no node exists.
@@ -36,7 +53,7 @@ class XMLEncoder: Encoder {
   var codingPath: [any CodingKey] = []
   /// User-defined contextual information for the encoding process.
   var userInfo: [CodingUserInfoKey: Any] = [:]
-
+  /// The strategy for encoding `Date` values into XML nodes.
   var dateCodingStrategy: XMLDateCodingStrategy = .deferredToDate
 
   /// Initializes an XML encoder with an optional coding path.
@@ -46,17 +63,6 @@ class XMLEncoder: Encoder {
     stack = XMLStack()
     self.codingPath = codingPath
     userInfo = [:]
-  }
-
-  /// Encodes a value to an XML node.
-  /// - Parameter value: The value to encode.
-  /// - Returns: The encoded XML node.
-  /// - Throws: An error if encoding fails.
-  func encode<T: Codable>(value: T) throws -> XMLNode {
-    let key = XMLCodingKey(stringValue: "\(type(of: value))".lowercased(), intValue: nil)
-    let encoder = XMLEncoder(codingPath: [key])
-    try value.encode(to: encoder)
-    return encoder.node!
   }
 
   /// Returns a keyed encoding container for encoding XML nodes.

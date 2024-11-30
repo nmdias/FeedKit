@@ -26,7 +26,7 @@ import Foundation
 
 class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
   /// The XML encoder used for encoding values.
-  let encoder: XMLEncoder
+  let encoder: _XMLEncoder
   /// The XML node being encoded.
   let node: XMLNode
   /// The coding path of the current encoding process.
@@ -38,7 +38,7 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
   /// - Parameters:
   ///   - node: The XML node to encode values to.
   ///   - encoder: The XML encoder used for encoding.
-  init(node: XMLNode, encoder: XMLEncoder) {
+  init(node: XMLNode, encoder: _XMLEncoder) {
     self.node = node
     self.encoder = encoder
   }
