@@ -31,17 +31,14 @@ extension FeedKitTests {
   func rss() {
     // Given
     let data = data(resource: "RSS", withExtension: "xml")
-    let parser = FeedParser()
-    let expected: RSSFeed? = mock
+    let expected: RSSFeed = mock
 
     // When
-    let actual = try? parser.parse(data: data).get().rss
+    let actual = try? RSSFeed(data: data)
 
     // Then
     #expect(expected == actual)
-
   }
-  
 }
 
 extension FeedKitTests {

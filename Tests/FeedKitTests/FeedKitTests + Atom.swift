@@ -31,11 +31,10 @@ extension FeedKitTests {
   func atom() {
     // Given
     let data = data(resource: "Atom", withExtension: "xml")
-    let parser = FeedParser()
     let expected: AtomFeed = mock
 
     // When
-    let actual = try? parser.parse(data: data).get().atom
+    let actual = try? AtomFeed(data: data)
 
     // Then
     #expect(expected == actual)
@@ -45,11 +44,10 @@ extension FeedKitTests {
   func atomXhtml() {
     // Given
     let data = data(resource: "Atom + XHTML", withExtension: "xml")
-    let parser = FeedParser()
     let expected: AtomFeed = mockXhtml
 
     // When
-    let actual = try? parser.parse(data: data).get().atom
+    let actual = try? AtomFeed(data: data)
 
     // Then
     #expect(expected == actual)
