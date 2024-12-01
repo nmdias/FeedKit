@@ -25,40 +25,62 @@
 import Foundation
 
 /// A parser for processing feed data in XML or JSON formats.
+///
+/// `FeedParser` can parse feeds in Atom, RSS (including RDF), and JSON formats,
+/// automatically determining the format based on the provided data.
+///
+/// ### Usage Example
+/// ```swift
+/// let parser = FeedParser()
+/// let feedData: Data = ... // Load feed data from a URL or file
+///
+/// do {
+///     let result = try parser.parse(data: feedData)
+///     switch result {
+///     case .success(let feed):
+///         switch feed {
+///         case .atom(let atomFeed):
+///             print("Parsed an Atom feed: \(atomFeed)")
+///         case .rss(let rssFeed):
+///             print("Parsed an RSS feed: \(rssFeed)")
+///         case .json(let jsonFeed):
+///             print("Parsed a JSON feed: \(jsonFeed)")
+///         }
+///     case .failure(let error):
+///         print("Failed to parse feed: \(error)")
+///     }
+/// } catch {
+///     print("Unexpected error: \(error)")
+/// }
+/// ```
+///
+/// - SeeAlso: `Feed`, `FeedType`, `AtomFeed`, `RSSFeed`, `JSONFeed`
 public struct FeedParser {
-  let parser: FeedKit.XMLParser
-
-  /// Initializes the parser with the JSON or XML content from a URL.
+  /// Parses a single feed from the provided data.
   ///
-  /// - Parameter stringUrl: The URL string whose contents are used as feed data.
-  public init(stringUrl: String) {
-    fatalError()
-  }
-
-  /// Initializes the parser with the JSON or XML content from a URL.
+  /// This method determines the feed type (Atom, RSS, RDF, or JSON) from the
+  /// given data and parses it accordingly.
   ///
-  /// - Parameter URL: The URL whose contents are used as feed data.
-  public init(URL: URL) {
-    fatalError()
-  }
-
-  /// Initializes the parser with XML or JSON content from a data object.
-  ///
-  /// - Parameter data: The data object containing XML or JSON content.
-  public init(data: Data) {
-    parser = FeedKit.XMLParser(data: data)
-  }
-
-  /// Parses a single feed from the given data.
-  ///
-  /// - Parameter data: The feed data to parse.
+  /// - Parameter data: The raw feed data to parse.
   /// - Returns: A `Result` containing the parsed `Feed` or an error.
-  public func parse() throws -> Result<Feed, Error> {
-    // When
-    let some = try parser.parse().get().root!
-    let decoder = XMLDecoder()
-    decoder.dateCodingStrategy = .formatter(RFC3339DateFormatter())
-    let atomFeed = try decoder.decode(node: some, as: AtomFeed.self)
-    return .success(.atom(atomFeed))
+  /// - Throws: An `XMLError` if the feed type is unknown or parsing fails.
+  public func parse(data: Data) throws -> Result<Feed, Error> {
+    guard let feedType = FeedType(data: data) else {
+      throw XMLError.unexpected(reason: "Unknown feed data type.")
+    }
+
+    switch feedType {
+    case .atom:
+      let feed = try AtomFeed(data: data)
+      return .success(.atom(feed))
+
+    case .rss, .rdf:
+      let feed = try RSSFeed(data: data)
+      return .success(.rss(feed))
+
+    case .json:
+      let feed = try JSONFeed(data: data)
+      return .success(.json(feed))
+    }
   }
 }

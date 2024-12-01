@@ -35,238 +35,16 @@ import Foundation
 /// Subordinate to the <rss> element is a single <channel> element, which
 /// contains information about the channel (metadata) and its contents.
 public struct RSSFeed {
-  /// The name of the channel. It's how people refer to your service. If
-  /// you have an HTML website that contains the same information as your
-  /// RSS file, the title of your channel should be the same as the title
-  /// of your website.
+  /// Represents the <channel> element in an RSS 2.0 document.
   ///
-  /// Example: GoUpstate.com News Headlines
-  public var title: String?
+  /// The <channel> element provides metadata about the feed, such as the
+  /// title, link, and description, along with the list of items that the
+  /// feed contains. This property is optional, as an RSS document may not
+  /// always include a valid <channel> element.
+  public var channel: RSSFeedChannel?
 
-  /// The URL to the HTML website corresponding to the channel.
-  ///
-  /// Example: http://www.goupstate.com/
-  public var link: String?
-
-  /// Phrase or sentence describing the channel.
-  ///
-  /// Example: The latest news from GoUpstate.com, a Spartanburg Herald-Journal
-  /// Web site.
-  public var description: String?
-
-  /// The language the channel is written in. This allows aggregators to group
-  /// all Italian language sites, for example, on a single page. A list of
-  /// allowable values for this element, as provided by Netscape, is here:
-  /// http://cyber.law.harvard.edu/rss/languages.html
-  ///
-  /// You may also use values defined by the W3C:
-  /// http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-  ///
-  /// Example: en-us
-  public var language: String?
-
-  /// Copyright notice for content in the channel.
-  ///
-  /// Example: Copyright 2002, Spartanburg Herald-Journal
-  public var copyright: String?
-
-  /// Email address for person responsible for editorial content.
-  ///
-  /// Example: geo@herald.com (George Matesky)
-  public var managingEditor: String?
-
-  /// Email address for person responsible for technical issues relating to
-  /// channel.
-  ///
-  /// Example: betty@herald.com (Betty Guernsey)
-  public var webMaster: String?
-
-  /// The publication date for the content in the channel. For example, the
-  /// New York Times publishes on a daily basis, the publication date flips
-  /// once every 24 hours. That's when the pubDate of the channel changes.
-  /// All date-times in RSS conform to the Date and Time Specification of
-  /// RFC 822, with the exception that the year may be expressed with two
-  /// characters or four characters (four preferred).
-  ///
-  /// Example: Sat, 07 Sep 2002 00:00:01 GMT
-  public var pubDate: Date?
-
-  /// The last time the content of the channel changed.
-  ///
-  /// Example: Sat, 07 Sep 2002 09:42:31 GMT
-  public var lastBuildDate: Date?
-
-  /// Specify one or more categories that the channel belongs to. Follows the
-  /// same rules as the <item>-level category element.
-  ///
-  /// Example: Newspapers
-  public var categories: [RSSFeedCategory]?
-
-  /// A string indicating the program used to generate the channel.
-  ///
-  /// Example: MightyInHouse Content System v2.3
-  public var generator: String?
-
-  /// A URL that points to the documentation for the format used in the RSS
-  /// file. It's probably a pointer to this page. It's for people who might
-  /// stumble across an RSS file on a Web server 25 years from now and wonder
-  /// what it is.
-  ///
-  /// Example: http://blogs.law.harvard.edu/tech/rss
-  public var docs: String?
-
-  /// Allows processes to register with a cloud to be notified of updates to
-  /// the channel, implementing a lightweight publish-subscribe protocol for
-  /// RSS feeds.
-  ///
-  /// Example: <cloud domain="rpc.sys.com" port="80" path="/RPC2" registerProcedure="pingMe" protocol="soap"/>
-  ///
-  /// <cloud> is an optional sub-element of <channel>.
-  ///
-  /// It specifies a web service that supports the rssCloud interface which can
-  /// be implemented in HTTP-POST, XML-RPC or SOAP 1.1.
-  ///
-  /// Its purpose is to allow processes to register with a cloud to be notified
-  /// of updates to the channel, implementing a lightweight publish-subscribe
-  /// protocol for RSS feeds.
-  ///
-  /// <cloud domain="rpc.sys.com" port="80" path="/RPC2" registerProcedure="myCloud.rssPleaseNotify" protocol="xml-rpc" />
-  ///
-  /// In this example, to request notification on the channel it appears in,
-  /// you would send an XML-RPC message to rpc.sys.com on port 80, with a path
-  /// of /RPC2. The procedure to call is myCloud.rssPleaseNotify.
-  ///
-  /// A full explanation of this element and the rssCloud interface is here:
-  /// http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
-  public var cloud: RSSFeedCloud?
-
-  /// The PICS rating for the channel.
-  public var rating: String?
-
-  /// ttl stands for time to live. It's a number of minutes that indicates how
-  /// long a channel can be cached before refreshing from the source.
-  ///
-  /// Example: 60
-  ///
-  /// <ttl> is an optional sub-element of <channel>.
-  ///
-  /// ttl stands for time to live. It's a number of minutes that indicates how
-  /// long a channel can be cached before refreshing from the source. This makes
-  /// it possible for RSS sources to be managed by a file-sharing network such
-  /// as Gnutella.
-  public var ttl: Int?
-
-  /// Specifies a GIF, JPEG or PNG image that can be displayed with the channel.
-  ///
-  /// <image> is an optional sub-element of <channel>, which contains three
-  /// required and three optional sub-elements.
-  ///
-  /// <url> is the URL of a GIF, JPEG or PNG image that represents the channel.
-  ///
-  /// <title> describes the image, it's used in the ALT attribute of the HTML
-  /// <img> tag when the channel is rendered in HTML.
-  ///
-  /// <link> is the URL of the site, when the channel is rendered, the image
-  /// is a link to the site. (Note, in practice the image <title> and <link>
-  /// should have the same value as the channel's <title> and <link>.
-  ///
-  /// Optional elements include <width> and <height>, numbers, indicating the
-  /// width and height of the image in pixels. <description> contains text
-  /// that is included in the TITLE attribute of the link formed around the
-  /// image in the HTML rendering.
-  ///
-  /// Maximum value for width is 144, default value is 88.
-  ///
-  /// Maximum value for height is 400, default value is 31.
-  public var image: RSSFeedImage?
-
-  /// Specifies a text input box that can be displayed with the channel.
-  ///
-  /// A channel may optionally contain a <textInput> sub-element, which contains
-  /// four required sub-elements.
-  ///
-  /// <title> -- The label of the Submit button in the text input area.
-  ///
-  /// <description> -- Explains the text input area.
-  ///
-  /// <name> -- The name of the text object in the text input area.
-  ///
-  /// <link> -- The URL of the CGI script that processes text input requests.
-  ///
-  /// The purpose of the <textInput> element is something of a mystery. You can
-  /// use it to specify a search engine box. Or to allow a reader to provide
-  /// feedback. Most aggregators ignore it.
-  public var textInput: RSSFeedTextInput?
-
-  /// A hint for aggregators telling them which hours they can skip.
-  ///
-  /// An XML element that contains up to 24 <hour> sub-elements whose value is a
-  /// number between 0 and 23, representing a time in GMT, when aggregators, if they
-  /// support the feature, may not read the channel on hours listed in the skipHours
-  /// element.
-  ///
-  /// The hour beginning at midnight is hour zero.
-  public var skipHours: [Int]?
-
-  /// A hint for aggregators telling them which days they can skip.
-  ///
-  /// An XML element that contains up to seven <day> sub-elements whose value
-  /// is Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
-  /// Aggregators may not read the channel during days listed in the skipDays
-  /// element.
-  public var skipDays: [RSSFeedSkipDay]?
-
-  /// A channel may contain any number of <item>s. An item may represent a
-  /// "story" -- much like a story in a newspaper or magazine; if so its
-  /// description is a synopsis of the story, and the link points to the full
-  /// story. An item may also be complete in itself, if so, the description
-  /// contains the text (entity-encoded HTML is allowed; see examples:
-  /// http://cyber.law.harvard.edu/rss/encodingDescriptions.html), and
-  /// the link and title may be omitted. All elements of an item are optional,
-  /// however at least one of title or description must be present.
-  public var items: [RSSFeedItem]?
-
-  public init(
-    title: String? = nil,
-    link: String? = nil,
-    description: String? = nil,
-    language: String? = nil,
-    copyright: String? = nil,
-    managingEditor: String? = nil,
-    webMaster: String? = nil,
-    pubDate: Date? = nil,
-    lastBuildDate: Date? = nil,
-    categories: [RSSFeedCategory]? = nil,
-    generator: String? = nil,
-    docs: String? = nil,
-    cloud: RSSFeedCloud? = nil,
-    rating: String? = nil,
-    ttl: Int? = nil,
-    image: RSSFeedImage? = nil,
-    textInput: RSSFeedTextInput? = nil,
-    skipHours: [Int]? = nil,
-    skipDays: [RSSFeedSkipDay]? = nil,
-    items: [RSSFeedItem]? = nil) {
-    self.title = title
-    self.link = link
-    self.description = description
-    self.language = language
-    self.copyright = copyright
-    self.managingEditor = managingEditor
-    self.webMaster = webMaster
-    self.pubDate = pubDate
-    self.lastBuildDate = lastBuildDate
-    self.categories = categories
-    self.generator = generator
-    self.docs = docs
-    self.cloud = cloud
-    self.rating = rating
-    self.ttl = ttl
-    self.image = image
-    self.textInput = textInput
-    self.skipHours = skipHours
-    self.skipDays = skipDays
-    self.items = items
+  public init(channel: RSSFeedChannel? = nil) {
+    self.channel = channel
   }
 }
 
@@ -278,75 +56,33 @@ extension RSSFeed: Equatable {}
 
 extension RSSFeed: Codable {
   private enum CodingKeys: CodingKey {
-    case title
-    case link
-    case description
-    case language
-    case copyright
-    case managingEditor
-    case webMaster
-    case pubDate
-    case lastBuildDate
-    case categories
-    case generator
-    case docs
-    case cloud
-    case rating
-    case ttl
-    case image
-    case textInput
-    case skipHours
-    case skipDays
-    case items
+    case channel
   }
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<RSSFeed.CodingKeys> = try decoder.container(keyedBy: RSSFeed.CodingKeys.self)
 
-    title = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.title)
-    link = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.link)
-    description = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.description)
-    language = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.language)
-    copyright = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.copyright)
-    managingEditor = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.managingEditor)
-    webMaster = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.webMaster)
-    pubDate = try container.decodeIfPresent(Date.self, forKey: RSSFeed.CodingKeys.pubDate)
-    lastBuildDate = try container.decodeIfPresent(Date.self, forKey: RSSFeed.CodingKeys.lastBuildDate)
-    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: RSSFeed.CodingKeys.categories)
-    generator = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.generator)
-    docs = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.docs)
-    cloud = try container.decodeIfPresent(RSSFeedCloud.self, forKey: RSSFeed.CodingKeys.cloud)
-    rating = try container.decodeIfPresent(String.self, forKey: RSSFeed.CodingKeys.rating)
-    ttl = try container.decodeIfPresent(Int.self, forKey: RSSFeed.CodingKeys.ttl)
-    image = try container.decodeIfPresent(RSSFeedImage.self, forKey: RSSFeed.CodingKeys.image)
-    textInput = try container.decodeIfPresent(RSSFeedTextInput.self, forKey: RSSFeed.CodingKeys.textInput)
-    skipHours = try container.decodeIfPresent([Int].self, forKey: RSSFeed.CodingKeys.skipHours)
-    skipDays = try container.decodeIfPresent([RSSFeedSkipDay].self, forKey: RSSFeed.CodingKeys.skipDays)
-    items = try container.decodeIfPresent([RSSFeedItem].self, forKey: RSSFeed.CodingKeys.items)
+    channel = try container.decodeIfPresent(RSSFeedChannel.self, forKey: RSSFeed.CodingKeys.channel)
   }
 
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<RSSFeed.CodingKeys> = encoder.container(keyedBy: RSSFeed.CodingKeys.self)
 
-    try container.encodeIfPresent(title, forKey: RSSFeed.CodingKeys.title)
-    try container.encodeIfPresent(link, forKey: RSSFeed.CodingKeys.link)
-    try container.encodeIfPresent(description, forKey: RSSFeed.CodingKeys.description)
-    try container.encodeIfPresent(language, forKey: RSSFeed.CodingKeys.language)
-    try container.encodeIfPresent(copyright, forKey: RSSFeed.CodingKeys.copyright)
-    try container.encodeIfPresent(managingEditor, forKey: RSSFeed.CodingKeys.managingEditor)
-    try container.encodeIfPresent(webMaster, forKey: RSSFeed.CodingKeys.webMaster)
-    try container.encodeIfPresent(pubDate, forKey: RSSFeed.CodingKeys.pubDate)
-    try container.encodeIfPresent(lastBuildDate, forKey: RSSFeed.CodingKeys.lastBuildDate)
-    try container.encodeIfPresent(categories, forKey: RSSFeed.CodingKeys.categories)
-    try container.encodeIfPresent(generator, forKey: RSSFeed.CodingKeys.generator)
-    try container.encodeIfPresent(docs, forKey: RSSFeed.CodingKeys.docs)
-    try container.encodeIfPresent(cloud, forKey: RSSFeed.CodingKeys.cloud)
-    try container.encodeIfPresent(rating, forKey: RSSFeed.CodingKeys.rating)
-    try container.encodeIfPresent(ttl, forKey: RSSFeed.CodingKeys.ttl)
-    try container.encodeIfPresent(image, forKey: RSSFeed.CodingKeys.image)
-    try container.encodeIfPresent(textInput, forKey: RSSFeed.CodingKeys.textInput)
-    try container.encodeIfPresent(skipHours, forKey: RSSFeed.CodingKeys.skipHours)
-    try container.encodeIfPresent(skipDays, forKey: RSSFeed.CodingKeys.skipDays)
-    try container.encodeIfPresent(items, forKey: RSSFeed.CodingKeys.items)
+    try container.encodeIfPresent(channel, forKey: RSSFeed.CodingKeys.channel)
+  }
+}
+
+extension RSSFeed: Feedable {
+  init(data: Data) throws {
+    let parser = FeedKit.XMLParser(data: data)
+    let result = try parser.parse().get()
+
+    guard let rootNode = result.root else {
+      throw XMLError.unexpected(reason: "Unexpected parsing result. Root node is nil.")
+    }
+
+    let decoder = XMLDecoder()
+    decoder.dateCodingStrategy = .formatter(RFC3339DateFormatter()) // TODO: - Add permissable formatter
+    self = try decoder.decode(node: rootNode, as: Self.self)
   }
 }
