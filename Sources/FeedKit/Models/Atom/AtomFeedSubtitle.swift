@@ -24,59 +24,18 @@
 
 import Foundation
 
+public struct AtomFeedSubtitleAttributes: Codable, Equatable {
+  /// Text constructs MAY have a "type" attribute.  When present, the value
+  /// MUST be one of "text", "html", or "xhtml".  If the "type" attribute
+  /// is not provided, Atom Processors MUST behave as though it were
+  /// present with a value of "text".
+  public var type: String?
+
+  public init(type: String? = nil) {
+    self.type = type
+  }
+}
+
 /// The "atom:subtitle" element is a Text construct that conveys a human-
 /// readable description or subtitle for a feed.
-public struct AtomFeedSubtitle {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
-    /// Text constructs MAY have a "type" attribute.  When present, the value
-    /// MUST be one of "text", "html", or "xhtml".  If the "type" attribute
-    /// is not provided, Atom Processors MUST behave as though it were
-    /// present with a value of "text".
-    public var type: String?
-
-    public init(type: String? = nil) {
-      self.type = type
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension AtomFeedSubtitle: Equatable {}
-
-// MARK: - Codable
-
-extension AtomFeedSubtitle: Codable {
-  private enum CodingKeys: String, CodingKey {
-    case text = "@text"
-    case attributes = "@attributes"
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: CodingKeys.text)
-    attributes = try container.decodeIfPresent(AtomFeedSubtitle.Attributes.self, forKey: CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
-  }
-}
+public typealias AtomFeedSubtitle = FeedElement<AtomFeedSubtitleAttributes>
