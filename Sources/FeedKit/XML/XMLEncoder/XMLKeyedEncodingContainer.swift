@@ -42,6 +42,10 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
   }
 
   func box<T: LosslessStringConvertible>(_ value: T, for key: Key) {
+    if key.stringValue == "@text" {
+      node.text = "\(value)"
+      return
+    }
     node.children.append(.init(type: .element, name: key.stringValue, text: "\(value)"))
   }
 
