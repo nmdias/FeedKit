@@ -1,5 +1,5 @@
 //
-//  XMLSampleTests.swift
+//  SampleTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -27,7 +27,7 @@
 import Testing
 
 @Suite("Sample")
-struct XMLSampleTests: FeedKitTestable {
+struct SampleTests: FeedKitTestable {
   @Test
   func xmlParser() {
     // Given
@@ -61,10 +61,10 @@ struct XMLSampleTests: FeedKitTestable {
     // Given
     let decoder = XMLDecoder()
     let element: XMLNode = xmlNodeMock
-    let expected: XMLSample = mock
+    let expected: Sample = mock
 
     // When
-    let actual = try! decoder.decode(XMLSample.self, from: element)
+    let actual = try! decoder.decode(Sample.self, from: element)
 
     // Then
     #expect(expected == actual)
