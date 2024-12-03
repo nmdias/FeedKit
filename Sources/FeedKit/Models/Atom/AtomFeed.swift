@@ -34,7 +34,7 @@ import Foundation
 public struct AtomFeed {
   /// The "atom:title" element is a Text construct that conveys a human-
   /// readable title for an entry or feed.
-  public var title: String?
+  public var title: AtomFeedTitle?
 
   /// The "atom:subtitle" element is a Text construct that conveys a human-
   /// readable description or subtitle for a feed.
@@ -162,7 +162,7 @@ public struct AtomFeed {
   public var entries: [AtomFeedEntry]?
 
   public init(
-    title: String? = nil,
+    title: AtomFeedTitle? = nil,
     subtitle: AtomFeedSubtitle? = nil,
     links: [AtomFeedLink]? = nil,
     updated: Date? = nil,
@@ -216,7 +216,7 @@ extension AtomFeed: Codable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    title = try container.decodeIfPresent(String.self, forKey: CodingKeys.title)
+    title = try container.decodeIfPresent(AtomFeedTitle.self, forKey: CodingKeys.title)
     subtitle = try container.decodeIfPresent(AtomFeedSubtitle.self, forKey: CodingKeys.subtitle)
     links = try container.decodeIfPresent([AtomFeedLink].self, forKey: CodingKeys.link)
     updated = try container.decodeIfPresent(Date.self, forKey: CodingKeys.updated)

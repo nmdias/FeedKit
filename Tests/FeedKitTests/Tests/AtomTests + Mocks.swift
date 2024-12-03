@@ -27,7 +27,12 @@
 extension AtomTests {
   var mock: AtomFeed {
     .init(
-      title: "dive into mark",
+      title: .init(
+        text: "dive into mark",
+        attributes: .init(
+          type: "text"
+        )
+      ),
       subtitle: .init(
         text: "A <em>lot</em> of effort went into making this effortless",
         attributes: .init(
