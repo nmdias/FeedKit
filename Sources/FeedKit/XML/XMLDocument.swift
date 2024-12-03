@@ -182,12 +182,12 @@ extension XMLNode: XMLStringConvertible {
     // Look for a child with the name "@attributes"
     if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
       // If found, loop through its children and filter for attribute type
-      for attribute in attributesNode.children?.filter({ $0.type == .attribute }) ?? [] {
+      for attribute in attributesNode.children ?? [] {
         xml += " \(attribute.name)=\"\(attribute.text ?? "")\""
       }
     }
 
-    if let children = children?.filter({ $0.type == .element }), !children.isEmpty {
+    if let children = children?.filter({ $0.name != "@attributes" }), !children.isEmpty {
       // Close the opening tag
       xml += ">\(formatted ? "\n" : "")"
 

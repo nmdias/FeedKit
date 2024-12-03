@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + JSON.swift
+//  JSONTests + Mocks.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,26 +24,8 @@
 
 @testable import FeedKit
 
-import Foundation
-import Testing
-
-extension FeedKitTests {
-  @Test
-  func jsonFeed() {
-    // Given
-    let data = data(resource: "feed", withExtension: "json")
-    let expected: JSONFeed = mock
-
-    // When
-    let actual = try? JSONFeed(data: data)
-
-    // Then
-    #expect(expected == actual)
-  }
-}
-
-extension FeedKitTests {
-  private var mock: JSONFeed {
+extension JSONTests {
+  var mock: JSONFeed {
     .init(
       version: "https://jsonfeed.org/version/1",
       title: "Title",

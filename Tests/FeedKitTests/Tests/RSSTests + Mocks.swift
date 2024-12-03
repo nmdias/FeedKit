@@ -1,5 +1,5 @@
 //
-//  XMLDateCodingStrategy.swift
+//  RSSTests + Mocks.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -22,13 +22,10 @@
 //  SOFTWARE.
 //
 
-import Foundation
+@testable import FeedKit
 
-/// Strategies for decoding `Date` values from XML data.
-enum XMLDateCodingStrategy {
-  /// Use the `Date` type's default decoding implementation.
-  case deferredToDate
-  /// Decode using a specified `DateFormatter` instance.
-  /// - Parameter formatter: The formatter to use for decoding dates.
-  case formatter(DateFormatter)
+extension RSSTests {
+  var mock: RSSFeed {
+    .init()
+  }
 }

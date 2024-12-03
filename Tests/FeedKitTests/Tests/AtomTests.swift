@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + FeedType.swift
+//  AtomTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -26,60 +26,49 @@
 
 import Testing
 
-extension FeedKitTests {
+@Suite("Atom")
+struct AtomTests: FeedKitTestable {
   @Test
-  func atomFeedType() {
+  func atom() {
     // Given
     let data = data(resource: "Atom", withExtension: "xml")
-    let expected: FeedType = .atom
+    let expected: AtomFeed = mock
 
     // When
-    let actual = FeedType(data: data)
+    let actual = try? AtomFeed(data: data)
 
     // Then
-    #expect(actual?.isXML ?? false)
+    #expect(expected == actual)
+  }
+  
+  @Test
+  func atomXhtml() {
+    // Given
+    let data = data(resource: "Atom + XHTML", withExtension: "xml")
+    let expected: AtomFeed = xhtmlMock
+
+    // When
+    let actual = try? AtomFeed(data: data)
+
+    // Then
     #expect(expected == actual)
   }
 
   @Test
-  func rssFeedType() {
+  func atomXmlString() {
     // Given
-    let data = data(resource: "RSS", withExtension: "xml")
-    let expected: FeedType = .rss
+    let data = data(resource: "Atom", withExtension: "xml")
+    let expected = String(decoding: data, as: Unicode.UTF8.self)
+    let encoder = XMLEncoder()
+    encoder.dateCodingStrategy = .formatter(RFC3339DateFormatter())
+    let root = try? encoder.encode(value: mock)
+    root?.name = "feed" // TODO: - Need to infer this better
+    let document = XMLDocument(root: root!)
 
     // When
-    let actual = FeedType(data: data)
+    let actual = document.toXMLString(formatted: true)
 
     // Then
-    #expect(actual?.isXML ?? false)
-    #expect(expected == actual)
-  }
-
-  @Test
-  func rdfFeedType() {
-    // Given
-    let data = data(resource: "RDF", withExtension: "xml")
-    let expected: FeedType = .rdf
-
-    // When
-    let actual = FeedType(data: data)
-
-    // Then
-    #expect(actual?.isXML ?? false)
-    #expect(expected == actual)
-  }
-
-  @Test
-  func jsonFeedType() {
-    // Given
-    let data = data(resource: "feed", withExtension: "json")
-    let expected: FeedType = .json
-
-    // When
-    let actual = FeedType(data: data)
-
-    // Then
-    #expect(actual?.isJson ?? false)
     #expect(expected == actual)
   }
 }

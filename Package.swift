@@ -19,11 +19,11 @@ let package = Package(
       name: "FeedKitTests",
       dependencies: ["FeedKit"],
       resources: [
-        .process("Resources/Sample.xml"),
-        .process("Resources/Atom.xml"),
-        .process("Resources/Atom + XHTML.xml"),
-        .process("Resources/RDF.xml"),
-        .process("Resources/RSS.xml"),
+        .process("Resources/xml/Sample.xml"),
+        .process("Resources/xml/Atom.xml"),
+        .process("Resources/xml/Atom + XHTML.xml"),
+        .process("Resources/xml/RDF.xml"),
+        .process("Resources/xml/RSS.xml"),
         .process("Resources/json/feed.json"),
       ]
     ),

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sample>
   <header>
-    <title>Sample Document</title>
+    <title type="text">Sample Document</title>
     <description>This is a sample document.</description>
     <version>1.0</version>
     <keywords>
@@ -18,6 +18,7 @@
         <detail>Detail 1A</detail>
         <detail>Detail 1B</detail>
       </details>
+      <xhtml type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><p><strong>Some markings</strong><a href="http://www.example.org/">Example</a></p><div class="blockquote"><p>On a quote...</p></div></div></xhtml>
     </item>
     <item id="2" value="02">
       <name>Item 2</name>
@@ -27,6 +28,7 @@
         <detail>Detail 2A</detail>
         <detail>Detail 2B</detail>
       </details>
+      <xhtml type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><p><strong>Some markings</strong><a href="http://www.example.org/">Example</a></p><div class="blockquote"><p>On a quote...</p></div></div></xhtml>
     </item>
   </content>
   <footer>

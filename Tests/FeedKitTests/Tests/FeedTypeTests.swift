@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + Atom.swift
+//  FeedTypeTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -26,23 +26,61 @@
 
 import Testing
 
-extension FeedKitTests {
+@Suite("FeedType")
+struct FeedTypeTests: FeedKitTestable {
   @Test
-  func rss() {
+  func atomFeedType() {
     // Given
-    let data = data(resource: "RSS", withExtension: "xml")
-    let expected: RSSFeed = mock
+    let data = data(resource: "Atom", withExtension: "xml")
+    let expected: FeedType = .atom
 
     // When
-    let actual = try? RSSFeed(data: data)
+    let actual = FeedType(data: data)
 
     // Then
+    #expect(actual?.isXML ?? false)
     #expect(expected == actual)
   }
-}
 
-extension FeedKitTests {
-  private var mock: RSSFeed {
-    .init()
+  @Test
+  func rssFeedType() {
+    // Given
+    let data = data(resource: "RSS", withExtension: "xml")
+    let expected: FeedType = .rss
+
+    // When
+    let actual = FeedType(data: data)
+
+    // Then
+    #expect(actual?.isXML ?? false)
+    #expect(expected == actual)
+  }
+
+  @Test
+  func rdfFeedType() {
+    // Given
+    let data = data(resource: "RDF", withExtension: "xml")
+    let expected: FeedType = .rdf
+
+    // When
+    let actual = FeedType(data: data)
+
+    // Then
+    #expect(actual?.isXML ?? false)
+    #expect(expected == actual)
+  }
+
+  @Test
+  func jsonFeedType() {
+    // Given
+    let data = data(resource: "feed", withExtension: "json")
+    let expected: FeedType = .json
+
+    // When
+    let actual = FeedType(data: data)
+
+    // Then
+    #expect(actual?.isJson ?? false)
+    #expect(expected == actual)
   }
 }

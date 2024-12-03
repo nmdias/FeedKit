@@ -1,5 +1,5 @@
 //
-//  XMLDateCodingStrategy.swift
+//  JSONTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -22,13 +22,23 @@
 //  SOFTWARE.
 //
 
-import Foundation
+@testable import FeedKit
 
-/// Strategies for decoding `Date` values from XML data.
-enum XMLDateCodingStrategy {
-  /// Use the `Date` type's default decoding implementation.
-  case deferredToDate
-  /// Decode using a specified `DateFormatter` instance.
-  /// - Parameter formatter: The formatter to use for decoding dates.
-  case formatter(DateFormatter)
+import Foundation
+import Testing
+
+@Suite("JSON")
+struct JSONTests: FeedKitTestable {
+  @Test
+  func jsonFeed() {
+    // Given
+    let data = data(resource: "feed", withExtension: "json")
+    let expected: JSONFeed = mock
+
+    // When
+    let actual = try? JSONFeed(data: data)
+
+    // Then
+    #expect(expected == actual)
+  }
 }

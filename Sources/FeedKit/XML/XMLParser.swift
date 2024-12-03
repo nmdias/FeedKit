@@ -112,7 +112,7 @@ extension XMLParser: XMLParserDelegate {
       )
     } else if let node = stack.top(), node.isXhtml {
       // If inside an XHTML element, treat the current start element as plain text.
-      node.text = node.text?.appending("<\(elementName)") ?? node.text
+      node.text = node.text?.appending("<\(elementName)") ?? "<\(elementName)"
       // Append it's attributes
       for (key, value) in attributeDict {
         node.text! += " \(key)=\"\(value)\""

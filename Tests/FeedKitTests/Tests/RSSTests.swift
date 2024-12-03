@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + XML.swift
+//  RSSTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -26,58 +26,19 @@
 
 import Testing
 
-extension FeedKitTests {
+@Suite("RSS")
+struct RSSTests: FeedKitTestable {
   @Test
-  func xmlParser() {
+  func rss() {
     // Given
-    let data = data(resource: "Sample", withExtension: "xml")
-    let parser = XMLParser(data: data)
-    let expected = Sample.xmlElementMock
+    let data = data(resource: "RSS", withExtension: "xml")
+    let expected: RSSFeed = mock
 
     // When
-    let actual = try? parser.parse().get().root
+    let actual = try? RSSFeed(data: data)
 
     // Then
-    #expect(expected == actual)
-  }
-
-  @Test
-  func xmlString() {
-    // Given
-    let data = data(resource: "Sample", withExtension: "xml")
-    let expected = String(decoding: data, as: Unicode.UTF8.self)
-    let document = XMLDocument(root: Sample.xmlElementMock)
-
-    // When
-    let actual = document.toXMLString(formatted: true)
-
-    // Then
-    #expect(expected == actual)
-  }
-
-  @Test
-  func xmlDecoder() {
-    // Given
-    let decoder = XMLDecoder()
-    let element = Sample.xmlElementMock
-    let expected = Sample.mock
-
-    // When
-    let actual = try! decoder.decode(Sample.self, from: element)
-
-    // Then
-    #expect(expected == actual)
-  }
-
-  @Test
-  func xmlEncoder() {
-    // Given
-    let encoder = XMLEncoder()
-    let expected = Sample.xmlElementMock
-
-    // When
-    let actual = try! encoder.encode(value: Sample.mock)
-    
     #expect(expected == actual)
   }
 }
+

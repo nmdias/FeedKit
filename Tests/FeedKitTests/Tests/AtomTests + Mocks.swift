@@ -1,5 +1,5 @@
 //
-//  FeedKitTests + Atom.swift
+//  AtomTests + Mocks.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,56 +24,8 @@
 
 @testable import FeedKit
 
-import Testing
-
-extension FeedKitTests {
-  @Test
-  func atom() {
-    // Given
-    let data = data(resource: "Atom", withExtension: "xml")
-    let expected: AtomFeed = mock
-
-    // When
-    let actual = try? AtomFeed(data: data)
-
-    // Then
-    #expect(expected == actual)
-  }
-  
-  @Test
-  func atomXhtml() {
-    // Given
-    let data = data(resource: "Atom + XHTML", withExtension: "xml")
-    let expected: AtomFeed = mockXhtml
-
-    // When
-    let actual = try? AtomFeed(data: data)
-
-    // Then
-    #expect(expected == actual)
-  }
-
-  @Test
-  func atomXmlString() {
-    // Given
-    let data = data(resource: "Atom", withExtension: "xml")
-    let expected = String(decoding: data, as: Unicode.UTF8.self)
-    let encoder = XMLEncoder()
-    encoder.dateCodingStrategy = .formatter(RFC3339DateFormatter())
-    let root = try? encoder.encode(value: mock)
-    root?.name = "feed" // TODO: - Need to infer this better
-    let document = XMLDocument(root: root!)
-
-    // When
-    let actual = document.toXMLString(formatted: true)
-
-    // Then
-    #expect(expected == actual)
-  }
-}
-
-extension FeedKitTests {
-  private var mock: AtomFeed {
+extension AtomTests {
+  var mock: AtomFeed {
     .init(
       title: "dive into mark",
       subtitle: .init(
@@ -234,26 +186,26 @@ extension FeedKitTests {
           published: RFC3339DateFormatter().date(from: "2003-12-13T08:29:29-04:00"),
           source: nil,
           rights: "Copyright (c) 2003, Mark Pilgrim"
-        )
+        ),
       ]
     )
   }
 }
 
-extension FeedKitTests {
-  private var mockXhtml: AtomFeed {
+extension AtomTests {
+  var xhtmlMock: AtomFeed {
     .init(
       entries: [
         .init(
           summary: .init(
             text: """
-<div xmlns="http://www.w3.org/1999/xhtml"><p><strong>Some markings</strong><a href="http://www.example.org/">Example</a></p><div class="blockquote"><p>On a quote...</p></div></div>
-""",
+            <div xmlns="http://www.w3.org/1999/xhtml"><p><strong>Some markings</strong><a href="http://www.example.org/">Example</a></p><div class="blockquote"><p>On a quote...</p></div></div>
+            """,
             attributes: .init(
               type: "xhtml"
             )
           )
-        )
+        ),
       ]
     )
   }
