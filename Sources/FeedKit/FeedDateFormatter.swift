@@ -1,5 +1,5 @@
 //
-//  DateFormatters.swift
+//  FeedDateFormatter.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,20 +24,17 @@
 
 import Foundation
 
-import Foundation
-
-/// Enum representing different date specifications.
-enum DateSpec {
-  case iso8601
-  case rfc3339
-  case rfc822
-  case permissive
-}
-
-/// Base class for date formatting, handling multiple date formats.
-class BaseDateFormatter: DateFormatter, @unchecked Sendable {
+/// PermissiveDateFormatter, used as a base class for date formatting,
+/// handling multiple date formats and backup formats.
+class PermissiveDateFormatter: DateFormatter, @unchecked Sendable {
   /// Array of date formats to try when converting from string to date.
   var dateFormats: [String] { [] }
+
+  /// Array of date formats to try when converting from string to date.
+  /// Used in permissive parsing strategies when feeds are not fully
+  /// compliant with the specification and multiple formats need to be
+  /// attempted to ensure proper date parsing.
+  var backupDateFormats: [String] { [] }
 
   /// Initializes the formatter with default timezone and locale.
   override init() {
@@ -54,7 +51,7 @@ class BaseDateFormatter: DateFormatter, @unchecked Sendable {
   /// Attempts to parse a string into a Date using available formats.
   override func date(from string: String) -> Date? {
     let trimmedString = string.trimmingCharacters(in: .whitespacesAndNewlines)
-    for format in dateFormats {
+    for format in dateFormats + backupDateFormats {
       dateFormat = format
       if let date = super.date(from: trimmedString) {
         return date
@@ -79,7 +76,7 @@ class BaseDateFormatter: DateFormatter, @unchecked Sendable {
 // MARK: - ISO8601 formatter
 
 /// Formatter for ISO8601 date specification.
-class ISO8601DateFormatter: BaseDateFormatter, @unchecked Sendable {
+class ISO8601DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   /// List of date formats supported for ISO8601.
   override var dateFormats: [String] {
     [
@@ -88,18 +85,34 @@ class ISO8601DateFormatter: BaseDateFormatter, @unchecked Sendable {
       "yyyy-MM-dd'T'HH:mm",
     ]
   }
+
+  override var backupDateFormats: [String] {
+    [
+      // Not fully compatible with ISO8601.
+      // The correct ISO8601 format would separate the seconds (SS) from the timezone
+      // offset (ZZZZZ) with a colon or period.
+      "yyyy-MM-dd'T'HH:mmSSZZZZZ",
+    ]
+  }
 }
 
 // MARK: - RFC3339 formatter
 
 /// Formatter for RFC3339 date specification.
-class RFC3339DateFormatter: BaseDateFormatter, @unchecked Sendable {
+class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   /// List of date formats supported for RFC3339.
   override var dateFormats: [String] {
     [
       "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
       "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ",
+    ]
+  }
+
+  override var backupDateFormats: [String] {
+    [
+      // Not fully compatible with RFC3339 (incorrect timezone format).
       "yyyy-MM-dd'T'HH:mm:ss-SS:ZZ",
+      // Not fully compatible with RFC3339 (missing timezone information).
       "yyyy-MM-dd'T'HH:mm:ss",
     ]
   }
@@ -108,7 +121,7 @@ class RFC3339DateFormatter: BaseDateFormatter, @unchecked Sendable {
 // MARK: - RFC822 formatter
 
 /// Formatter for RFC822 date specification with backup formats.
-class RFC822DateFormatter: BaseDateFormatter, @unchecked Sendable {
+class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   /// List of date formats supported for RFC822.
   override var dateFormats: [String] {
     [
@@ -120,11 +133,13 @@ class RFC822DateFormatter: BaseDateFormatter, @unchecked Sendable {
   }
 
   /// Backup date formats to handle potential parsing issues.
-  let backupFormats: [String] = [
-    "d MMM yyyy HH:mm:ss zzz",
-    "d MMM yyyy HH:mm zzz",
-    "EEE, dd MMM yyyy, HH:mm:ss zzz",
-  ]
+  override var backupDateFormats: [String] {
+    [
+      "d MMM yyyy HH:mm:ss zzz",
+      "d MMM yyyy HH:mm zzz",
+      "EEE, dd MMM yyyy, HH:mm:ss zzz",
+    ]
+  }
 
   /// Attempts to parse a string into a Date using primary and backup formats.
   override func date(from string: String) -> Date? {
@@ -145,7 +160,7 @@ class RFC822DateFormatter: BaseDateFormatter, @unchecked Sendable {
       withTemplate: "$1"
     )
 
-    for format in backupFormats {
+    for format in backupDateFormats {
       dateFormat = format
       if let date = super.date(from: trimmed) {
         return date
@@ -155,10 +170,35 @@ class RFC822DateFormatter: BaseDateFormatter, @unchecked Sendable {
   }
 }
 
-// MARK: - UnifiedDateFormatter
+// MARK: - DateSpec
+
+/// Enum representing different date specifications.
+enum DateSpec {
+  /// ISO8601 date format (e.g., 2024-12-05T10:30:00Z).
+  case iso8601
+  /// RFC3339 date format (e.g., 2024-12-05T10:30:00+00:00).
+  case rfc3339
+  /// RFC822 date format (e.g., Tue, 05 Dec 2024 10:30:00 GMT).
+  case rfc822
+  /// Permissive mode which attempts to parse the date using multiple formats.
+  /// It tries RFC822 first, then RFC3339, and finally ISO8601 in that order.
+  case permissive
+}
+
+// MARK: - FeedDateFormatter
 
 /// A formatter that handles multiple date specifications (ISO8601, RFC3339, RFC822).
 class FeedDateFormatter {
+  /// The date specification to use for formatting dates.
+  let spec: DateSpec
+
+  /// Initializes the date formatter with a specified date format.
+  ///
+  /// - Parameter spec: The date specification (ISO8601, RFC3339, RFC822, etc.).
+  init(spec: DateSpec) {
+    self.spec = spec
+  }
+
   /// ISO8601 date formatter.
   lazy var iso8601Formatter: ISO8601DateFormatter = {
     ISO8601DateFormatter()
@@ -178,9 +218,8 @@ class FeedDateFormatter {
   ///
   /// - Parameters:
   ///   - string: The date string to be parsed.
-  ///   - spec: The date specification to use.
   /// - Returns: A Date object if parsing is successful, otherwise nil.
-  func date(from string: String, spec: DateSpec) -> Date? {
+  func date(from string: String) -> Date? {
     switch spec {
     case .iso8601:
       return iso8601Formatter.date(from: string)
@@ -200,9 +239,8 @@ class FeedDateFormatter {
   ///
   /// - Parameters:
   ///   - date: The Date object to be converted to a string.
-  ///   - spec: The date specification to use.
   /// - Returns: A string representation of the date.
-  func string(from date: Date, spec: DateSpec) -> String {
+  func string(from date: Date) -> String {
     switch spec {
     case .iso8601:
       return iso8601Formatter.string(from: date)
@@ -211,7 +249,7 @@ class FeedDateFormatter {
     case .rfc822:
       return rfc822Formatter.string(from: date)
     case .permissive:
-      return iso8601Formatter.string(from: date)
+      fatalError()
     }
   }
 }
