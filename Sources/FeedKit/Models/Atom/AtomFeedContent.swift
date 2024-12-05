@@ -24,78 +24,37 @@
 
 import Foundation
 
-/// The "atom:content" element either contains or links to the content of
-/// the entry.  The content of atom:content is Language-Sensitive.
-public struct AtomFeedContent {
-  /// The element's text.
-  public var text: String?
+public struct AtomFeedContentAttributes: Codable, Equatable {
+  /// On the atom:content element, the value of the "type" attribute MAY be
+  /// one of "text", "html", or "xhtml".  Failing that, it MUST conform to
+  /// the syntax of a MIME media type, but MUST NOT be a composite type
+  /// (see Section 4.2.6 of [MIMEREG]).  If neither the type attribute nor
+  /// the src attribute is provided, Atom Processors MUST behave as though
+  /// the type attribute were present with a value of "text".
+  public var type: String?
 
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
-    /// On the atom:content element, the value of the "type" attribute MAY be
-    /// one of "text", "html", or "xhtml".  Failing that, it MUST conform to
-    /// the syntax of a MIME media type, but MUST NOT be a composite type
-    /// (see Section 4.2.6 of [MIMEREG]).  If neither the type attribute nor
-    /// the src attribute is provided, Atom Processors MUST behave as though
-    /// the type attribute were present with a value of "text".
-    public var type: String?
-
-    /// The atom:content MAY have a "src" attribute, whose value MUST be an IRI
-    /// reference [RFC3987].  If the "src" attribute is present, atom:content
-    /// MUST be empty.  Atom Processors MAY use the IRI to retrieve the
-    /// content and MAY choose to ignore remote content or to present it in a
-    /// different manner than local content.
-    ///
-    /// If the "src" attribute is present, the "type" attribute SHOULD be
-    /// provided and MUST be a MIME media type [MIMEREG], rather than "text",
-    /// "html", or "xhtml".  The value is advisory; that is to say, when the
-    /// corresponding URI (mapped from an IRI, if necessary) is dereferenced,
-    /// if the server providing that content also provides a media type, the
-    /// server-provided media type is authoritative.
-    public var src: String?
-
-    public init(
-      type: String? = nil,
-      src: String? = nil) {
-      self.type = type
-      self.src = src
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
+  /// The atom:content MAY have a "src" attribute, whose value MUST be an IRI
+  /// reference [RFC3987].  If the "src" attribute is present, atom:content
+  /// MUST be empty.  Atom Processors MAY use the IRI to retrieve the
+  /// content and MAY choose to ignore remote content or to present it in a
+  /// different manner than local content.
+  ///
+  /// If the "src" attribute is present, the "type" attribute SHOULD be
+  /// provided and MUST be a MIME media type [MIMEREG], rather than "text",
+  /// "html", or "xhtml".  The value is advisory; that is to say, when the
+  /// corresponding URI (mapped from an IRI, if necessary) is dereferenced,
+  /// if the server providing that content also provides a media type, the
+  /// server-provided media type is authoritative.
+  public var src: String?
 
   public init(
-    text: String? = nil,
-    attributes: AtomFeedContent.Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
+    type: String? = nil,
+    src: String? = nil) {
+    self.type = type
+    self.src = src
   }
 }
 
-// MARK: - Equatable
-
-extension AtomFeedContent: Equatable {}
-
-// MARK: - Codable
-
-extension AtomFeedContent: Codable {
-  private enum CodingKeys: String, CodingKey {
-    case text = "@text"
-    case attributes = "@attributes"
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: CodingKeys.text)
-    attributes = try container.decodeIfPresent(AtomFeedContent.Attributes.self, forKey: CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
-  }
-}
+/// The "atom:content" element either contains or links to the content of
+/// the entry.  The content of atom:content is Language-Sensitive.
+public typealias AtomFeedContent = FeedElement<AtomFeedContentAttributes>

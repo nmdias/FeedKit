@@ -24,6 +24,25 @@
 
 import Foundation
 
+public struct AtomFeedGeneratorAttributes: Codable, Equatable {
+  /// The atom:generator element MAY have a "uri" attribute whose value
+  /// MUST be an IRI reference [RFC3987].  When dereferenced, the resulting
+  /// URI (mapped from an IRI, if necessary) SHOULD produce a
+  /// representation that is relevant to that agent.
+  public var uri: String?
+
+  /// The atom:generator element MAY have a "version" attribute that
+  /// indicates the version of the generating agent.
+  public var version: String?
+
+  public init(
+    uri: String? = nil,
+    version: String? = nil) {
+    self.uri = uri
+    self.version = version
+  }
+}
+
 /// The "atom:generator" element's content identifies the agent used to
 /// generate a feed, for debugging and other purposes.
 ///
@@ -39,64 +58,4 @@ import Foundation
 ///
 /// The atom:generator element MAY have a "version" attribute that
 /// indicates the version of the generating agent.
-public struct AtomFeedGenerator {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
-    /// The atom:generator element MAY have a "uri" attribute whose value
-    /// MUST be an IRI reference [RFC3987].  When dereferenced, the resulting
-    /// URI (mapped from an IRI, if necessary) SHOULD produce a
-    /// representation that is relevant to that agent.
-    public var uri: String?
-
-    /// The atom:generator element MAY have a "version" attribute that
-    /// indicates the version of the generating agent.
-    public var version: String?
-
-    public init(
-      uri: String? = nil,
-      version: String? = nil) {
-      self.uri = uri
-      self.version = version
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension AtomFeedGenerator: Equatable {}
-
-// MARK: - Codable
-
-extension AtomFeedGenerator: Codable {
-  private enum CodingKeys: String, CodingKey {
-    case text = "@text"
-    case attributes = "@attributes"
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: CodingKeys.text)
-    attributes = try container.decodeIfPresent(AtomFeedGenerator.Attributes.self, forKey: CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
-  }
-}
+public typealias AtomFeedGenerator = FeedElement<AtomFeedGeneratorAttributes>

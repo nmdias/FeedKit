@@ -54,3 +54,27 @@ public struct FeedElement<Attributes: Codable & Equatable>: Codable, Equatable {
     try container.encodeIfPresent(attributes, forKey: .attributes)
   }
 }
+
+/// A generic element with only attributes.
+public struct FeedAttributesElement<Attributes: Codable & Equatable>: Codable, Equatable {
+  /// The element's attributes.
+  public var attributes: Attributes?
+
+  public init(text: String? = nil, attributes: Attributes? = nil) {
+    self.attributes = attributes
+  }
+
+  private enum CodingKeys: String, CodingKey {
+    case attributes = "@attributes"
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    attributes = try container.decodeIfPresent(Attributes.self, forKey: .attributes)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encodeIfPresent(attributes, forKey: .attributes)
+  }
+}
