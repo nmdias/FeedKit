@@ -166,7 +166,7 @@ extension JSONFeed: Codable {
     try container.encode(icon, forKey: .icon)
     try container.encode(favicon, forKey: .favicon)
     try container.encode(expired, forKey: .expired)
-    try container.encode(author, forKey: .expired)
+    try container.encode(author, forKey: .author)
     try container.encode(hubs, forKey: .hubs)
     try container.encode(items, forKey: .items)
   }
