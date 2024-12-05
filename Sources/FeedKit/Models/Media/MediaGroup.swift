@@ -70,6 +70,10 @@ public struct MediaGroup {
 
 extension MediaGroup: Equatable {}
 
+// MARK: - Hashable
+
+extension MediaGroup: Hashable {}
+
 // MARK: - Codable
 
 extension MediaGroup: Codable {

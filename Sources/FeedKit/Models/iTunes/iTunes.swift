@@ -286,6 +286,10 @@ public struct iTunes {
 
 extension iTunes: Equatable {}
 
+// MARK: - Hashable
+
+extension iTunes: Hashable {}
+
 // MARK: - Codable
 
 extension iTunes: Codable {

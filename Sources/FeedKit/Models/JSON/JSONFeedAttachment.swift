@@ -65,6 +65,10 @@ public struct JSONFeedAttachment {
 
 extension JSONFeedAttachment: Equatable {}
 
+// MARK: - Hashable
+
+extension JSONFeedAttachment: Hashable {}
+
 // MARK: - Codable
 
 extension JSONFeedAttachment: Codable {

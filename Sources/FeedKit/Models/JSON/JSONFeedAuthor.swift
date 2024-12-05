@@ -57,6 +57,10 @@ public struct JSONFeedAuthor {
 
 extension JSONFeedAuthor: Equatable {}
 
+// MARK: - Hashable
+
+extension JSONFeedAuthor: Hashable {}
+
 // MARK: - Codable
 
 extension JSONFeedAuthor: Codable {

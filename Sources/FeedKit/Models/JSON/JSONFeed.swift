@@ -135,6 +135,10 @@ public struct JSONFeed {
 
 extension JSONFeed: Equatable {}
 
+// MARK: - Hashable
+
+extension JSONFeed: Hashable {}
+
 // MARK: - Codable
 
 extension JSONFeed: Codable {

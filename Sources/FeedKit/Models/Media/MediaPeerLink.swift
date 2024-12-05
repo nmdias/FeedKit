@@ -30,7 +30,7 @@ public struct MediaPeerLink {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The peer link's type.
     public var type: String?
 
@@ -57,6 +57,10 @@ public struct MediaPeerLink {
 // MARK: - Equatable
 
 extension MediaPeerLink: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaPeerLink: Hashable {}
 
 // MARK: - Codable
 

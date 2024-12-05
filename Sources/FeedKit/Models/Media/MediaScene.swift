@@ -59,6 +59,10 @@ public struct MediaScene {
 
 extension MediaScene: Equatable {}
 
+// MARK: - Hashable
+
+extension MediaScene: Hashable {}
+
 // MARK: - Codable
 
 extension MediaScene: Codable {

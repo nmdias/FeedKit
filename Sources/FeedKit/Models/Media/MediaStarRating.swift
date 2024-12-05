@@ -28,7 +28,7 @@ import Foundation
 /// Valid attributes are average, count, min and max.
 public struct MediaStarRating {
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The star rating's average.
     public var average: Double?
 
@@ -64,6 +64,10 @@ public struct MediaStarRating {
 // MARK: - Equatable
 
 extension MediaStarRating: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaStarRating: Hashable {}
 
 // MARK: - Codable
 

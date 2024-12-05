@@ -57,6 +57,10 @@ public struct MediaCommunity {
 
 extension MediaCommunity: Equatable {}
 
+// MARK: - Hashable
+
+extension MediaCommunity: Hashable {}
+
 // MARK: - Codable
 
 extension MediaCommunity: Codable {

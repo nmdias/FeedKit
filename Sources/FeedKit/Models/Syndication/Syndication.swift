@@ -64,6 +64,10 @@ public struct Syndication {
 
 extension Syndication: Equatable {}
 
+// MARK: - Hashable
+
+extension Syndication: Hashable {}
+
 // MARK: - Codable
 
 extension Syndication: Codable {

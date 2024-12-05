@@ -32,7 +32,7 @@ public struct MediaRating {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The URI that identifies the rating scheme. It is an optional attribute.
     /// If this attribute is not included, the default scheme is urn:simple (adult | nonadult).
     public var scheme: String?
@@ -56,6 +56,10 @@ public struct MediaRating {
 // MARK: - Equatable
 
 extension MediaRating: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaRating: Hashable {}
 
 // MARK: - Codable
 

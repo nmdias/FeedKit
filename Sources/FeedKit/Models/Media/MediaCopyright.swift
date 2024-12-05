@@ -30,7 +30,7 @@ public struct MediaCopyright {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The URL for a terms of use page or additional copyright information.
     /// If the media is operating under a Creative Commons license, the
     /// Creative Commons module should be used instead. It is an optional
@@ -56,6 +56,10 @@ public struct MediaCopyright {
 // MARK: - Equatable
 
 extension MediaCopyright: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaCopyright: Hashable {}
 
 // MARK: - Codable
 

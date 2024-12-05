@@ -34,7 +34,7 @@ public struct MediaPrice {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Valid values are "rent", "purchase", "package" or "subscription". If
     /// nothing is specified, then the media is free.
     public var type: String?
@@ -75,6 +75,10 @@ public struct MediaPrice {
 // MARK: - Equatable
 
 extension MediaPrice: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaPrice: Hashable {}
 
 // MARK: - Codable
 

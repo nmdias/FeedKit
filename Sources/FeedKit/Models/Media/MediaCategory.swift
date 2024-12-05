@@ -31,7 +31,7 @@ public struct MediaCategory {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The URI that identifies the categorization scheme. It is an optional
     /// attribute. If this attribute is not included, the default scheme
     /// is "http://search.yahoo.com/mrss/category_schema".
@@ -63,6 +63,10 @@ public struct MediaCategory {
 // MARK: - Equatable
 
 extension MediaCategory: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaCategory: Hashable {}
 
 // MARK: - Codable
 

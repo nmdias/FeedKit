@@ -29,7 +29,7 @@ import Foundation
 /// to geoRSS.
 public struct MediaLocation {
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Description of the place whose location is being specified.
     public var description: String?
 
@@ -59,6 +59,10 @@ public struct MediaLocation {
 // MARK: - Equatable
 
 extension MediaLocation: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaLocation: Hashable {}
 
 // MARK: - Codable
 

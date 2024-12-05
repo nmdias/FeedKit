@@ -24,7 +24,7 @@
 
 import Foundation
 
-public struct AtomFeedCategoryAttributes: Codable, Equatable {
+public struct AtomFeedCategoryAttributes: Codable, Equatable, Hashable {
   /// The "term" attribute is a string that identifies the category to
   /// which the entry or feed belongs.  Category elements MUST have a
   /// "term" attribute.

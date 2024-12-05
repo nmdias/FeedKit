@@ -172,6 +172,10 @@ public struct DublinCore {
 
 extension DublinCore: Equatable {}
 
+// MARK: - Hashable
+
+extension DublinCore: Hashable {}
+
 // MARK: - Codable
 
 extension DublinCore: Codable {

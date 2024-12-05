@@ -24,7 +24,7 @@
 
 import Foundation
 
-public struct AtomFeedSummaryAttributes: Codable, Equatable {
+public struct AtomFeedSummaryAttributes: Codable, Equatable, Hashable {
   /// Text constructs MAY have a "type" attribute.  When present, the value
   /// MUST be one of "text", "html", or "xhtml".  If the "type" attribute
   /// is not provided, Atom Processors MUST behave as though it were

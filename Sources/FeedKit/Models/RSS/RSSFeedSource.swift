@@ -43,7 +43,7 @@ public struct RSSFeedSource {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Required attribute of the `Source` element, which links to the
     /// XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
     public var url: String?
@@ -67,6 +67,10 @@ public struct RSSFeedSource {
 // MARK: - Equatable
 
 extension RSSFeedSource: Equatable {}
+
+// MARK: - Hashable
+
+extension RSSFeedSource: Hashable {}
 
 // MARK: - Codable
 

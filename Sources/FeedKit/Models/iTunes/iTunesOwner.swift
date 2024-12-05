@@ -49,6 +49,10 @@ public struct iTunesOwner {
 
 extension iTunesOwner: Equatable {}
 
+// MARK: - Hashable
+
+extension iTunesOwner: Hashable {}
+
 // MARK: - Codable
 
 extension iTunesOwner: Codable {

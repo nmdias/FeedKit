@@ -31,7 +31,7 @@ public struct MediaHash {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// This is the hash of the binary media file. It can appear multiple times as long as
     /// each instance is a different algo. It has one optional attribute.
     public var algo: String?
@@ -55,6 +55,10 @@ public struct MediaHash {
 // MARK: - Equatable
 
 extension MediaHash: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaHash: Hashable {}
 
 // MARK: - Codable
 

@@ -48,6 +48,10 @@ public struct MediaTag {
 
 extension MediaTag: Equatable {}
 
+// MARK: - Hashable
+
+extension MediaTag: Hashable {}
+
 // MARK: - Codable
 
 extension MediaTag: Codable {

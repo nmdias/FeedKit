@@ -28,7 +28,7 @@ import Foundation
 /// view count and the favorite count. Valid attributes are views and favorites.
 public struct MediaStatistics {
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The number of views.
     public var views: Int?
 
@@ -54,6 +54,10 @@ public struct MediaStatistics {
 // MARK: - Equatable
 
 extension MediaStatistics: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaStatistics: Hashable {}
 
 // MARK: - Codable
 

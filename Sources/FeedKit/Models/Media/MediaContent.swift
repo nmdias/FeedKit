@@ -32,7 +32,7 @@ import Foundation
 /// media. It contains 14 attributes, most of which are optional.
 public struct MediaContent {
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Should specify the direct URL to the media object. If not included,
     /// a <media:player> element must be specified.
     public var url: String?
@@ -177,6 +177,10 @@ public struct MediaContent {
 // MARK: - Equatable
 
 extension MediaContent: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaContent: Hashable {}
 
 // MARK: - Codable
 

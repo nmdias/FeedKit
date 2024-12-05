@@ -71,6 +71,10 @@ extension RSSFeedSkipDay {
 
 extension RSSFeedSkipDay: Equatable {}
 
+// MARK: - Hashable
+
+extension RSSFeedSkipDay: Hashable {}
+
 // MARK: - Codable
 
 extension RSSFeedSkipDay: Codable {}

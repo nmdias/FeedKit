@@ -31,7 +31,7 @@ public struct RSSFeedCategory {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// A string that identifies a categorization taxonomy. It's an optional
     /// attribute of `<category>`. e.g. "http://www.fool.com/cusips"
     public var domain: String?
@@ -55,6 +55,10 @@ public struct RSSFeedCategory {
 // MARK: - Equatable
 
 extension RSSFeedCategory: Equatable {}
+
+// MARK: - Hashable
+
+extension RSSFeedCategory: Hashable {}
 
 // MARK: - Codable
 

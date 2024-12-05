@@ -51,7 +51,7 @@ import Foundation
 /// are different from the standard RSS image tag specifications.
 public struct iTunesImage {
   /// The attributes of the element.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The image's url.
     public var href: String?
 
@@ -71,6 +71,10 @@ public struct iTunesImage {
 // MARK: - Equatable
 
 extension iTunesImage: Equatable {}
+
+// MARK: - Hashable
+
+extension iTunesImage: Hashable {}
 
 // MARK: - Codable
 

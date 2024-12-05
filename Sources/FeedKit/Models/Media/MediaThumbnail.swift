@@ -33,7 +33,7 @@ public struct MediaThumbnail {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Specifies the url of the thumbnail. It is a required attribute.
     public var url: String?
 
@@ -75,6 +75,10 @@ public struct MediaThumbnail {
 // MARK: - Equatable
 
 extension MediaThumbnail: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaThumbnail: Hashable {}
 
 // MARK: - Codable
 

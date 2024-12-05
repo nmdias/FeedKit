@@ -44,6 +44,11 @@ public struct Content {
 
 extension Content: Equatable {}
 
+// MARK: - Hashable
+
+extension Content: Hashable {}
+
+
 // MARK: - Codable
 
 extension Content: Codable {

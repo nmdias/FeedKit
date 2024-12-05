@@ -70,6 +70,10 @@ public struct AtomFeedSource {
 
 extension AtomFeedSource: Equatable {}
 
+// MARK: - Hashable
+
+extension AtomFeedSource: Hashable {}
+
 // MARK: - Codable
 
 extension AtomFeedSource: Codable {

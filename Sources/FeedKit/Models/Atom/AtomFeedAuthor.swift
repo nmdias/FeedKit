@@ -65,6 +65,10 @@ public struct AtomFeedAuthor {
 
 extension AtomFeedAuthor: Equatable {}
 
+// MARK: - Hashable
+
+extension AtomFeedAuthor: Hashable {}
+
 // MARK: - Codable
 
 extension AtomFeedAuthor: Codable {

@@ -39,7 +39,7 @@ public struct MediaRestriction {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Indicates the type of relationship that the restriction represents
     /// (allow | deny). In the example above, the media object should only be
     /// syndicated in Australia and the United States. It is a required
@@ -77,6 +77,10 @@ public struct MediaRestriction {
 // MARK: - Equatable
 
 extension MediaRestriction: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaRestriction: Hashable {}
 
 // MARK: - Codable
 

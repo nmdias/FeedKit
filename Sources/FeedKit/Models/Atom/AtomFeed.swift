@@ -195,6 +195,10 @@ public struct AtomFeed {
 
 extension AtomFeed: Equatable {}
 
+// MARK: - Hashable
+
+extension AtomFeed: Hashable {}
+
 // MARK: - Codable
 
 extension AtomFeed: Codable {

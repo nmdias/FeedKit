@@ -38,7 +38,7 @@ import Foundation
 /// length="12216320" type="audio/mpeg" />
 public struct RSSFeedEnclosure {
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Where the enclosure is located.
     ///
     /// Example: http://www.scripting.com/mp3s/weatherReportSuite.mp3
@@ -75,6 +75,10 @@ public struct RSSFeedEnclosure {
 // MARK: - Equatable
 
 extension RSSFeedEnclosure: Equatable {}
+
+// MARK: - Hashable
+
+extension RSSFeedEnclosure: Hashable {}
 
 // MARK: - Codable
 

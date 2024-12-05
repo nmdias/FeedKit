@@ -140,6 +140,10 @@ public struct JSONFeedItem {
 
 extension JSONFeedItem: Equatable {}
 
+// MARK: - Hashable
+
+extension JSONFeedItem: Hashable {}
+
 // MARK: - Codable
 
 extension JSONFeedItem: Codable {

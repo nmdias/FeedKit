@@ -69,6 +69,10 @@ public struct RSSFeedTextInput {
 
 extension RSSFeedTextInput: Equatable {}
 
+// MARK: - Hashable
+
+extension RSSFeedTextInput: Hashable {}
+
 // MARK: - Codable
 
 extension RSSFeedTextInput: Codable {

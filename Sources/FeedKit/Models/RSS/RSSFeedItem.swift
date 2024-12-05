@@ -198,6 +198,10 @@ public struct RSSFeedItem {
 
 extension RSSFeedItem: Equatable {}
 
+// MARK: - Hashable
+
+extension RSSFeedItem: Hashable {}
+
 // MARK: - Codable
 
 extension RSSFeedItem: Codable {

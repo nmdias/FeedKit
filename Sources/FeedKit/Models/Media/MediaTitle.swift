@@ -30,7 +30,7 @@ public struct MediaTitle {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Specifies the type of text embedded. Possible values are either "plain" or "html".
     /// Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
     public var type: String?
@@ -54,6 +54,10 @@ public struct MediaTitle {
 // MARK: - Equatable
 
 extension MediaTitle: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaTitle: Hashable {}
 
 // MARK: - Codable
 

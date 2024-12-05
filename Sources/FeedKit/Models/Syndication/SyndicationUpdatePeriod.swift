@@ -70,6 +70,10 @@ extension SyndicationUpdatePeriod {
 
 extension SyndicationUpdatePeriod: Equatable {}
 
+// MARK: - Hashable
+
+extension SyndicationUpdatePeriod: Hashable {}
+
 // MARK: - Codable
 
 extension SyndicationUpdatePeriod: Codable {}

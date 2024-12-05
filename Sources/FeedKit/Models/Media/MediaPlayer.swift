@@ -33,7 +33,7 @@ public struct MediaPlayer {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The URL of the player console that plays the media. It is a required attribute.
     public var url: String?
 
@@ -66,6 +66,10 @@ public struct MediaPlayer {
 // MARK: - Equatable
 
 extension MediaPlayer: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaPlayer: Hashable {}
 
 // MARK: - Codable
 

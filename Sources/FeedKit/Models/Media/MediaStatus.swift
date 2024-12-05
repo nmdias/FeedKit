@@ -28,7 +28,7 @@ import Foundation
 /// active or it has been blocked/deleted.
 public struct MediaStatus {
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// State can have values "active", "blocked" or "deleted". "active" means
     /// a media object is active in the system, "blocked" means a media object
     /// is blocked by the publisher, "deleted" means a media object has been
@@ -58,6 +58,10 @@ public struct MediaStatus {
 // MARK: - Equatable
 
 extension MediaStatus: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaStatus: Hashable {}
 
 // MARK: - Codable
 

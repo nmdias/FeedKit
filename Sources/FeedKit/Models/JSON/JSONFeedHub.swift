@@ -46,6 +46,10 @@ public struct JSONFeedHub {
 
 extension JSONFeedHub: Equatable {}
 
+// MARK: - Hashable
+
+extension JSONFeedHub: Hashable {}
+
 // MARK: - Codable
 
 extension JSONFeedHub: Codable {

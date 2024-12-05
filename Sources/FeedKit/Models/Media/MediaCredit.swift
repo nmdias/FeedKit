@@ -34,7 +34,7 @@ public struct MediaCredit {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Specifies the role the entity played. Must be lowercase. It is an
     /// optional attribute.
     public var role: String?
@@ -68,6 +68,10 @@ public struct MediaCredit {
 // MARK: - Equatable
 
 extension MediaCredit: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaCredit: Hashable {}
 
 // MARK: - Codable
 

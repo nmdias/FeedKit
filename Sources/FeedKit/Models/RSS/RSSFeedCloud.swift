@@ -49,7 +49,7 @@ import Foundation
 /// http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
 public struct RSSFeedCloud {
   /// The attributes of the `<channel>`'s `<cloud>` element.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The domain to register notification to.
     public var domain: String?
 
@@ -93,6 +93,10 @@ public struct RSSFeedCloud {
 // MARK: - Equatable
 
 extension RSSFeedCloud: Equatable {}
+
+// MARK: - Hashable
+
+extension RSSFeedCloud: Hashable {}
 
 // MARK: - Codable
 

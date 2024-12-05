@@ -28,7 +28,7 @@ import Foundation
 /// content.
 public struct MediaSubTitle {
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The type of the subtitle.
     public var type: String?
 
@@ -59,6 +59,10 @@ public struct MediaSubTitle {
 // MARK: - Equatable
 
 extension MediaSubTitle: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaSubTitle: Hashable {}
 
 // MARK: - Codable
 

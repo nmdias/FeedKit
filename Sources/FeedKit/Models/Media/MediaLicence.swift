@@ -31,7 +31,7 @@ public struct MediaLicence {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The licence type.
     public var type: String?
 
@@ -58,6 +58,10 @@ public struct MediaLicence {
 // MARK: - Equatable
 
 extension MediaLicence: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaLicence: Hashable {}
 
 // MARK: - Codable
 

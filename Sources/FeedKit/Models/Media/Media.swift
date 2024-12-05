@@ -233,6 +233,10 @@ public struct Media {
 
 extension Media: Equatable {}
 
+// MARK: - Hashable
+
+extension Media: Hashable {}
+
 // MARK: - Codable
 
 extension Media: Codable {

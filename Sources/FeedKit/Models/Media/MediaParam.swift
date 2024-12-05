@@ -30,7 +30,7 @@ public struct MediaParam {
   public var text: String?
 
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// The parameter's key name.
     public var name: String?
 
@@ -53,6 +53,10 @@ public struct MediaParam {
 // MARK: - Equatable
 
 extension MediaParam: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaParam: Hashable {}
 
 // MARK: - Codable
 

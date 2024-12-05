@@ -27,7 +27,7 @@ import Foundation
 /// Optional element to specify the rights information of a media object.
 public struct MediaRights {
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable {
+  public struct Attributes: Codable, Equatable, Hashable {
     /// Is the status of the media object saying whether a media object has
     /// been created by the publisher or they have rights to circulate it.
     /// Supported values are "userCreated" and "official".
@@ -49,6 +49,10 @@ public struct MediaRights {
 // MARK: - Equatable
 
 extension MediaRights: Equatable {}
+
+// MARK: - Hashable
+
+extension MediaRights: Hashable {}
 
 // MARK: - Codable
 
