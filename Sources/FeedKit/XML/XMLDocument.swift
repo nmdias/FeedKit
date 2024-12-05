@@ -24,13 +24,13 @@
 
 import Foundation
 
-enum XMLNodeType: Equatable, Codable {
+enum XMLNodeType: Equatable, Codable, Hashable {
   case element
   case attribute
 }
 
 /// Represents an XML document containing a root node.
-class XMLDocument: Equatable {
+class XMLDocument: Equatable, Hashable {
   /// The root node of the document.
   var root: XMLNode?
 
@@ -45,10 +45,16 @@ class XMLDocument: Equatable {
   static func == (lhs: XMLDocument, rhs: XMLDocument) -> Bool {
     lhs.root == rhs.root
   }
+
+  // MARK: Hashable
+
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(root)
+  }
 }
 
 /// Represents an node in the XML document.
-class XMLNode: Codable, Equatable {
+class XMLNode: Codable, Equatable, Hashable {
   /// The parent node of this node.
   weak var parent: XMLNode?
   /// The type of the node.
@@ -120,6 +126,21 @@ class XMLNode: Codable, Equatable {
     }
 
     return true
+  }
+
+  // MARK: Hashable
+
+  func hash(into hasher: inout Hasher) {
+    // Hash basic properties
+    hasher.combine(type)
+    hasher.combine(name)
+    hasher.combine(text)
+    hasher.combine(isXhtml)
+
+    // Recursively hash the children
+    if let children = children {
+      hasher.combine(children.map { $0.hashValue })
+    }
   }
 
   func child(for name: String) -> XMLNode? {
