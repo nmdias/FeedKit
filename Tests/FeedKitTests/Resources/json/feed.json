@@ -61,26 +61,12 @@
           "size_in_bytes": 89970236,
           "duration_in_seconds": 6629
         }
-      ],
-      "_blue_shed": {
-        "about": "https://blueshed-podcasts.com/json-feed-extension-docs",
-        "explicit": false,
-        "copyright": "1948 by George Orwell",
-        "owner": "Big Brother and the Holding Company",
-        "subtitle": "All shouting, all the time. Double. Plus. Good."
-      }
+      ]
     },
     {
       "id": "1",
       "content_html": "<p>Hello, world!</p>",
       "url": "https://example.org/initial-post"
     }
-  ],
-  "_blue_shed": {
-    "about": "https://blueshed-podcasts.com/json-feed-extension-docs",
-    "explicit": false,
-    "copyright": "1948 by George Orwell",
-    "owner": "Big Brother and the Holding Company",
-    "subtitle": "All shouting, all the time. Double. Plus. Good."
-  }
+  ]
 }
