@@ -43,7 +43,6 @@ class XMLSingleValueDecodingContainer: SingleValueDecodingContainer {
 
   func decodeNil() -> Bool {
     if
-      node.text == nil &&
       node.text?.isEmpty ?? true &&
       node.children?.isEmpty ?? true {
       return true
