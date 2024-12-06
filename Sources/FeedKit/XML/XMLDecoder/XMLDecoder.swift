@@ -38,6 +38,7 @@ class XMLDecoder {
   /// - throws: An error if any value throws an error during decoding.
   func decode<T>(_ type: T.Type, from node: XMLNode) throws -> T where T: Decodable {
     let decoder = _XMLDecoder(node: node, codingPath: [])
+    decoder.dateDecodingStrategy = dateDecodingStrategy
     return try T(from: decoder)
   }
 }
