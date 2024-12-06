@@ -193,7 +193,7 @@ extension JSONFeed: Codable {
   }
 }
 
-extension JSONFeed: Feedable {
+extension JSONFeed: FeedInitializable {
   init(data: Data) throws {
     let formatter = RFC3339DateFormatter()
     let decoder = JSONDecoder()

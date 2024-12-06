@@ -76,7 +76,9 @@ extension RSSFeed: Codable {
   }
 }
 
-extension RSSFeed: Feedable {
+// MARK: - FeedInitializable
+
+extension RSSFeed: FeedInitializable {
   init(data: Data) throws {
     let parser = FeedKit.XMLParser(data: data)
     let result = try parser.parse().get()

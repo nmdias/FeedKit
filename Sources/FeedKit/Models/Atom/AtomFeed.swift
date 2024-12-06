@@ -253,7 +253,9 @@ extension AtomFeed: Codable {
   }
 }
 
-extension AtomFeed: Feedable {
+// MARK: - FeedInitializable
+
+extension AtomFeed: FeedInitializable {
   init(data: Data) throws {
     let parser = FeedKit.XMLParser(data: data)
     let result = try parser.parse().get()

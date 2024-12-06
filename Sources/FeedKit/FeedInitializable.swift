@@ -1,5 +1,5 @@
 //
-//  Feedable.swift
+//  FeedInitializable.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Manuel Dias
 //
@@ -25,7 +25,7 @@
 import Foundation
 
 /// A protocol that defines initializers for creating a feed from different sources.
-protocol Feedable: Codable {
+protocol FeedInitializable: Codable {
   /// Default initializer.
   init()
   /// Initializes from a URL pointing to a feed.
@@ -39,10 +39,11 @@ protocol Feedable: Codable {
   init(data: Data) throws
 }
 
-extension Feedable {
+extension FeedInitializable {
   init() {
     self.init()
   }
+
   /// Default implementation for initializing from a URL.
   init(url: URL) throws {
     fatalError()
