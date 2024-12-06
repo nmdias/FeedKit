@@ -86,7 +86,7 @@ extension RSSFeed: Feedable {
     }
 
     let decoder = XMLDecoder()
-    decoder.dateCodingStrategy = .formatter(RFC3339DateFormatter()) // TODO: - Add permissable formatter
+    decoder.dateDecodingStrategy = .formatter(RFC3339DateFormatter()) // TODO: - Add permissable formatter
     self = try decoder.decode(node: rootNode, as: Self.self)
   }
 }

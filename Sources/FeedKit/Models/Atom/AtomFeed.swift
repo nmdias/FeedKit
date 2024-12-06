@@ -263,7 +263,7 @@ extension AtomFeed: Feedable {
     }
 
     let decoder = XMLDecoder()
-    decoder.dateCodingStrategy = .formatter(RFC3339DateFormatter())
+    decoder.dateDecodingStrategy = .formatter(RFC3339DateFormatter())
     self = try decoder.decode(node: rootNode, as: Self.self)
   }
 }

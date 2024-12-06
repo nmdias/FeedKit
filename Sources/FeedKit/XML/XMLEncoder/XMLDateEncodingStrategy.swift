@@ -1,5 +1,5 @@
 //
-//  XMLDateCodingStrategy.swift
+//  XMLDateEncodingStrategy.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,11 +24,11 @@
 
 import Foundation
 
-/// Strategies for decoding `Date` values from XML data.
-enum XMLDateCodingStrategy {
-  /// Use the `Date` type's default decoding implementation.
+/// Strategies for encoding `Date` values to XML data.
+enum XMLDateEncodingStrategy {
+  /// Use the `Date` type's default encoding implementation.
   case deferredToDate
   /// Decode using a specified `DateFormatter` instance.
-  /// - Parameter formatter: The formatter to use for decoding dates.
+  /// - Parameter formatter: The formatter to use for encoding dates.
   case formatter(DateFormatter)
 }

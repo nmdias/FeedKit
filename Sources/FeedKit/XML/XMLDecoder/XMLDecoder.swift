@@ -32,8 +32,8 @@ class XMLDecoder: Decoder {
   var codingPath: [any CodingKey]
   /// User-defined contextual information for the decoding process.
   var userInfo: [CodingUserInfoKey: Any]
-
-  var dateCodingStrategy: XMLDateCodingStrategy = .deferredToDate
+  /// The strategy for decoding `Date` values from XML nodes.
+  var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
 
   /// Initializes the decoder with an empty stack and no coding path.
   init() {
@@ -123,7 +123,7 @@ class XMLDecoder: Decoder {
   /// - Returns: A decoded `Date` instance.
   /// - Throws: A `DecodingError` if the date cannot be decoded.
   func decode(node: XMLNode, as type: Date.Type) throws -> Date {
-    switch dateCodingStrategy {
+    switch dateDecodingStrategy {
     case .deferredToDate:
       return try Date(from: self)
     case let .formatter(formatter):

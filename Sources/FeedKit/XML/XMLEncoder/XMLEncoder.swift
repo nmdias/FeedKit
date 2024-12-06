@@ -26,7 +26,7 @@ import Foundation
 
 class XMLEncoder {
   /// The strategy for encoding `Date` values into XML nodes.
-  var dateCodingStrategy: XMLDateCodingStrategy = .deferredToDate
+  var dateEncodingStrategy: XMLDateEncodingStrategy = .deferredToDate
 
   /// Encodes a value to an XML node.
   /// - Parameter value: The value to encode.
@@ -35,7 +35,7 @@ class XMLEncoder {
   func encode<T: Codable>(value: T) throws -> XMLNode {
     let key = XMLCodingKey(stringValue: "\(type(of: value))".lowercased(), intValue: nil)
     let encoder = _XMLEncoder(codingPath: [key])
-    encoder.dateCodingStrategy = dateCodingStrategy
+    encoder.dateEncodingStrategy = dateEncodingStrategy
     try value.encode(to: encoder)
     return encoder.node!
   }
@@ -54,7 +54,7 @@ class _XMLEncoder: Encoder {
   /// User-defined contextual information for the encoding process.
   var userInfo: [CodingUserInfoKey: Any] = [:]
   /// The strategy for encoding `Date` values into XML nodes.
-  var dateCodingStrategy: XMLDateCodingStrategy = .deferredToDate
+  var dateEncodingStrategy: XMLDateEncodingStrategy = .deferredToDate
 
   /// Initializes an XML encoder with an optional coding path.
   /// - Parameters:
@@ -88,7 +88,7 @@ class _XMLEncoder: Encoder {
   }
 
   func box(_ date: Date) throws -> XMLNode {
-    switch dateCodingStrategy {
+    switch dateEncodingStrategy {
     case .deferredToDate: try date.encode(to: self); return stack.top()!
     case let .formatter(formatter):
       return .init(
