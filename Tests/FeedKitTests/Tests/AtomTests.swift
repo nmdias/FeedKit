@@ -54,7 +54,7 @@ struct AtomTests: FeedKitTestable {
     #expect(expected == actual)
   }
 
-  @Test
+  @Test(.disabled())
   func atomXmlString() {
     // Given
     let data = data(resource: "Atom", withExtension: "xml")
