@@ -29,13 +29,13 @@ import Testing
 @Suite("RSS")
 struct RSSTests: FeedKitTestable {
   @Test
-  func rss() {
+  func rss() throws {
     // Given
     let data = data(resource: "RSS", withExtension: "xml")
     let expected: RSSFeed = mock
 
     // When
-    let actual = try? RSSFeed(data: data)
+    let actual = try RSSFeed(data: data)
 
     // Then
     #expect(expected == actual)

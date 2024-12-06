@@ -29,7 +29,7 @@ import Testing
 @Suite("Sample")
 struct SampleTests: FeedKitTestable {
   @Test
-  func xmlParser() {
+  func xmlParser() throws {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
     let parser = XMLParser(data: data)
@@ -43,7 +43,7 @@ struct SampleTests: FeedKitTestable {
   }
 
   @Test
-  func xmlString() {
+  func xmlString() throws {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
     let expected = String(decoding: data, as: Unicode.UTF8.self)
@@ -57,7 +57,7 @@ struct SampleTests: FeedKitTestable {
   }
 
   @Test
-  func xmlDecoder() {
+  func xmlDecoder() throws {
     // Given
     let decoder = XMLDecoder()
     let element: XMLNode = xmlNodeMock
@@ -71,7 +71,7 @@ struct SampleTests: FeedKitTestable {
   }
 
   @Test("Encode Model -> Node")
-  func xmlEncoder() {
+  func xmlEncoder() throws {
     // Given
     let encoder = XMLEncoder()
     let expected: XMLNode = xmlNodeMock

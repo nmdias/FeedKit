@@ -29,7 +29,7 @@ import Testing
 @Suite("Atom")
 struct AtomTests: FeedKitTestable {
   @Test
-  func atom() {
+  func atom() throws {
     // Given
     let data = data(resource: "Atom", withExtension: "xml")
     let expected: AtomFeed = mock
@@ -42,7 +42,7 @@ struct AtomTests: FeedKitTestable {
   }
   
   @Test
-  func atomXhtml() {
+  func atomXhtml() throws {
     // Given
     let data = data(resource: "Atom + XHTML", withExtension: "xml")
     let expected: AtomFeed = xhtmlMock
@@ -55,7 +55,7 @@ struct AtomTests: FeedKitTestable {
   }
 
   @Test(.disabled())
-  func atomXmlString() {
+  func atomXmlString() throws {
     // Given
     let data = data(resource: "Atom", withExtension: "xml")
     let expected = String(decoding: data, as: Unicode.UTF8.self)

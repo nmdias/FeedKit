@@ -30,7 +30,7 @@ import Testing
 @Suite("JSON")
 struct JSONTests: FeedKitTestable {
   @Test
-  func jsonFeed() {
+  func jsonFeed() throws {
     // Given
     let data = data(resource: "feed", withExtension: "json")
     let expected: JSONFeed = mock

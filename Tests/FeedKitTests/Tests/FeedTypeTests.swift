@@ -29,7 +29,7 @@ import Testing
 @Suite("FeedType")
 struct FeedTypeTests: FeedKitTestable {
   @Test
-  func atomFeedType() {
+  func atomFeedType() throws {
     // Given
     let data = data(resource: "Atom", withExtension: "xml")
     let expected: FeedType = .atom
@@ -43,7 +43,7 @@ struct FeedTypeTests: FeedKitTestable {
   }
 
   @Test
-  func rssFeedType() {
+  func rssFeedType() throws {
     // Given
     let data = data(resource: "RSS", withExtension: "xml")
     let expected: FeedType = .rss
@@ -57,7 +57,7 @@ struct FeedTypeTests: FeedKitTestable {
   }
 
   @Test
-  func rdfFeedType() {
+  func rdfFeedType() throws {
     // Given
     let data = data(resource: "RDF", withExtension: "xml")
     let expected: FeedType = .rdf
@@ -71,7 +71,7 @@ struct FeedTypeTests: FeedKitTestable {
   }
 
   @Test
-  func jsonFeedType() {
+  func jsonFeedType() throws {
     // Given
     let data = data(resource: "feed", withExtension: "json")
     let expected: FeedType = .json
