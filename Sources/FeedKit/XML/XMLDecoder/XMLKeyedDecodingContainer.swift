@@ -54,15 +54,19 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
   // MARK: -
 
   func decodeNil(forKey key: Key) throws -> Bool {
-    if key.stringValue == "@text" && node.text?.isEmpty == true {
-      return true
+    if key.stringValue == "@text" {
+      return node.text?.isEmpty == true
+    }
+
+    if key.stringValue == "@attributes" {
+      return node.children?.isEmpty == true
     }
 
     // Get the child element matching the given key
     // Avoids initialization if all variables are nil.
     if let child = node.child(for: key.stringValue),
-      child.text?.isEmpty ?? true &&
-      child.children?.isEmpty ?? true {
+       child.text?.isEmpty ?? true &&
+       child.children?.isEmpty ?? true {
       return true
     }
 
