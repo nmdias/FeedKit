@@ -188,7 +188,7 @@ enum DateSpec {
 // MARK: - FeedDateFormatter
 
 /// A formatter that handles multiple date specifications (ISO8601, RFC3339, RFC822).
-class FeedDateFormatter {
+class FeedDateFormatter: DateFormatter, @unchecked Sendable {
   /// The date specification to use for formatting dates.
   let spec: DateSpec
 
@@ -197,6 +197,11 @@ class FeedDateFormatter {
   /// - Parameter spec: The date specification (ISO8601, RFC3339, RFC822, etc.).
   init(spec: DateSpec) {
     self.spec = spec
+    super.init()
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 
   /// ISO8601 date formatter.
@@ -219,7 +224,7 @@ class FeedDateFormatter {
   /// - Parameters:
   ///   - string: The date string to be parsed.
   /// - Returns: A Date object if parsing is successful, otherwise nil.
-  func date(from string: String) -> Date? {
+  override func date(from string: String) -> Date? {
     switch spec {
     case .iso8601:
       return iso8601Formatter.date(from: string)
@@ -240,7 +245,7 @@ class FeedDateFormatter {
   /// - Parameters:
   ///   - date: The Date object to be converted to a string.
   /// - Returns: A string representation of the date.
-  func string(from date: Date) -> String {
+  override func string(from date: Date) -> String {
     switch spec {
     case .iso8601:
       return iso8601Formatter.string(from: date)
