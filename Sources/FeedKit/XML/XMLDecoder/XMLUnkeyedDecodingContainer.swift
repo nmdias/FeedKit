@@ -26,7 +26,7 @@ import Foundation
 
 class XMLUnkeyedDecodingContainer: UnkeyedDecodingContainer {
   /// The XML decoder used for decoding the current node.
-  var decoder: XMLDecoder
+  var decoder: _XMLDecoder
   /// The XML nodes being decoded.
   var nodes: [XMLNode]
   /// The current XML node being decoded.
@@ -44,7 +44,7 @@ class XMLUnkeyedDecodingContainer: UnkeyedDecodingContainer {
   /// - Parameters:
   ///   - decoder: The XML decoder used for decoding.
   ///   - element: The XML element representing the unkeyed container.
-  init(decoder: XMLDecoder, node: XMLNode) {
+  init(decoder: _XMLDecoder, node: XMLNode) {
     self.decoder = decoder
     if let parent = node.parent {
       decoder.stack.pop()

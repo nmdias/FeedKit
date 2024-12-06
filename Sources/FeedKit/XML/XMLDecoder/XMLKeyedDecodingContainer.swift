@@ -26,7 +26,7 @@ import Foundation
 
 class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol {
   /// The XML decoder used for decoding the current element.
-  var decoder: XMLDecoder
+  var decoder: _XMLDecoder
   /// The current XML element being decoded.
   var node: XMLNode
   /// The coding path of the current decoding process.
@@ -39,7 +39,7 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
   /// - Parameters:
   ///   - decoder: The XML decoder used for decoding.
   ///   - element: The XML element to decode.
-  init(decoder: XMLDecoder, node: XMLNode) {
+  init(decoder: _XMLDecoder, node: XMLNode) {
     self.decoder = decoder
     self.node = node
   }

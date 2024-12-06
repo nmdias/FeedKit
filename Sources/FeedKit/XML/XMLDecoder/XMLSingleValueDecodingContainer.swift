@@ -26,14 +26,14 @@ import Foundation
 
 class XMLSingleValueDecodingContainer: SingleValueDecodingContainer {
   /// The XML decoder used for decoding the current element.
-  var decoder: XMLDecoder
+  var decoder: _XMLDecoder
   /// The current XML element being decoded.
   var node: XMLNode
   /// The coding path of the current decoding process.
   var codingPath: [any CodingKey] { decoder.codingPath }
 
   init(
-    decoder: XMLDecoder,
+    decoder: _XMLDecoder,
     node: XMLNode) {
     self.decoder = decoder
     self.node = node

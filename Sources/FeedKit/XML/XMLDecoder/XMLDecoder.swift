@@ -24,34 +24,9 @@
 
 import Foundation
 
-/// A decoder for XML data that uses a stack-based parsing approach.
-class XMLDecoder: Decoder {
-  /// The stack used for managing XML elements during decoding.
-  var stack: XMLStack
-  /// The path of coding keys used to locate a value in the decoding process.
-  var codingPath: [any CodingKey]
-  /// User-defined contextual information for the decoding process.
-  var userInfo: [CodingUserInfoKey: Any]
+class XMLDecoder {
   /// The strategy for decoding `Date` values from XML nodes.
   var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
-
-  /// Initializes the decoder with an empty stack and no coding path.
-  init() {
-    stack = .init()
-    codingPath = []
-    userInfo = [:]
-  }
-
-  /// Initializes the decoder with a root element and optional coding path.
-  /// - Parameters:
-  ///   - element: The root XML element to start decoding from.
-  ///   - codingPath: The initial coding path, defaulting to an empty array.
-  init(node: XMLNode, codingPath: [CodingKey] = []) {
-    stack = XMLStack()
-    stack.push(node)
-    self.codingPath = codingPath
-    userInfo = [:]
-  }
 
   /// Decodes a top-level value of the given type from the given XML representation.
   ///
@@ -62,8 +37,31 @@ class XMLDecoder: Decoder {
   ///   are corrupted, or if the given data is not valid XML.
   /// - throws: An error if any value throws an error during decoding.
   func decode<T>(_ type: T.Type, from node: XMLNode) throws -> T where T: Decodable {
+    let decoder = _XMLDecoder(node: node, codingPath: [])
+    return try T(from: decoder)
+  }
+}
+
+/// A decoder for XML data that uses a stack-based parsing approach.
+class _XMLDecoder: Decoder {
+  /// The stack used for managing XML elements during decoding.
+  var stack: XMLStack
+  /// The path of coding keys used to locate a value in the decoding process.
+  var codingPath: [any CodingKey]
+  /// User-defined contextual information for the decoding process.
+  var userInfo: [CodingUserInfoKey: Any]
+  /// The strategy for decoding `Date` values from XML nodes.
+  var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
+
+  /// Initializes the decoder with a root element and optional coding path.
+  /// - Parameters:
+  ///   - element: The root XML element to start decoding from.
+  ///   - codingPath: The initial coding path, defaulting to an empty array.
+  init(node: XMLNode, codingPath: [CodingKey] = []) {
+    stack = XMLStack()
     stack.push(node)
-    return try T(from: self)
+    self.codingPath = codingPath
+    userInfo = [:]
   }
 
   /// Returns a keyed decoding container for the current XML element.

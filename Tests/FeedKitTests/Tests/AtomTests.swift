@@ -60,7 +60,7 @@ struct AtomTests: FeedKitTestable {
     let data = data(resource: "Atom", withExtension: "xml")
     let expected = String(decoding: data, as: Unicode.UTF8.self)
     let encoder = XMLEncoder()
-    encoder.dateCodingStrategy = .formatter(RFC3339DateFormatter())
+    encoder.dateEncodingStrategy = .formatter(RFC3339DateFormatter())
     let root = try? encoder.encode(value: mock)
     root?.name = "feed" // TODO: - Need to infer this better
     let document = XMLDocument(root: root!)
