@@ -88,7 +88,7 @@ extension RSSFeed: FeedInitializable {
     }
 
     let decoder = XMLDecoder()
-    decoder.dateDecodingStrategy = .formatter(RFC3339DateFormatter()) // TODO: - Add permissable formatter
+    decoder.dateDecodingStrategy = .formatter(FeedDateFormatter(spec: .permissive))
     self = try decoder.decode(Self.self, from: rootNode)
   }
 }
