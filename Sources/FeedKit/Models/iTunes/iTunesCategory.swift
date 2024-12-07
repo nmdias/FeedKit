@@ -91,8 +91,8 @@ extension iTunesCategory: Hashable {}
 // MARK: - Codable
 
 extension iTunesCategory: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
+  private enum CodingKeys: String, CodingKey {
+    case attributes = "@attributes"
     case subcategory
   }
 

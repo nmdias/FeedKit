@@ -24,6 +24,15 @@
 
 import Foundation
 
+public struct iTunesImageAttributes: Codable, Equatable, Hashable {
+  /// The image's url.
+  public var href: String?
+
+  public init(href: String? = nil) {
+    self.href = href
+  }
+}
+
 /// Specify your podcast artwork using the <a href> attribute in the
 /// <itunes:image> tag. If you do not specify the <itunes:image> tag, the
 /// iTunes Store uses the content specified in the RSS feed image tag and Apple
@@ -49,49 +58,4 @@ import Foundation
 /// size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate
 /// file extensions (.jpg, .png), and in the RGB colorspace. These requirements
 /// are different from the standard RSS image tag specifications.
-public struct iTunesImage {
-  /// The attributes of the element.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The image's url.
-    public var href: String?
-
-    public init(href: String? = nil) {
-      self.href = href
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(attributes: Attributes? = nil) {
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension iTunesImage: Equatable {}
-
-// MARK: - Hashable
-
-extension iTunesImage: Hashable {}
-
-// MARK: - Codable
-
-extension iTunesImage: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<iTunesImage.CodingKeys> = try decoder.container(keyedBy: iTunesImage.CodingKeys.self)
-
-    attributes = try container.decodeIfPresent(iTunesImage.Attributes.self, forKey: iTunesImage.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container = encoder.container(keyedBy: iTunesImage.CodingKeys.self)
-
-    try container.encodeIfPresent(attributes, forKey: iTunesImage.CodingKeys.attributes)
-  }
-}
+public typealias iTunesImage = FeedAttributesElement<iTunesImageAttributes>

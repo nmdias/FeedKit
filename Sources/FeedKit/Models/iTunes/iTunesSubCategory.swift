@@ -24,6 +24,15 @@
 
 import Foundation
 
+public struct iTunesSubCategoryAttributes: Codable, Equatable, Hashable {
+  /// The primary iTunes Category.
+  public var text: String?
+
+  public init(text: String? = nil) {
+    self.text = text
+  }
+}
+
 /// Users can browse podcast subject categories in the iTunes Store by choosing
 /// a category from the Podcasts pop-up menu in the navigation bar. Use the
 /// <itunes:category> tag to specify the browsing category for your podcast.
@@ -55,49 +64,4 @@ import Foundation
 /// <itunes:category text="Technology">
 /// <itunes:category text="Gadgets" />
 /// </itunes:category>
-public struct iTunesSubCategory {
-  /// The attributes of the element.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The primary iTunes Category.
-    public var text: String?
-
-    public init(text: String? = nil) {
-      self.text = text
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(attributes: Attributes? = nil) {
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension iTunesSubCategory: Equatable {}
-
-// MARK: - Hashable
-
-extension iTunesSubCategory: Hashable {}
-
-// MARK: - Codable
-
-extension iTunesSubCategory: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<iTunesSubCategory.CodingKeys> = try decoder.container(keyedBy: iTunesSubCategory.CodingKeys.self)
-
-    attributes = try container.decodeIfPresent(iTunesSubCategory.Attributes.self, forKey: iTunesSubCategory.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<iTunesSubCategory.CodingKeys> = encoder.container(keyedBy: iTunesSubCategory.CodingKeys.self)
-
-    try container.encodeIfPresent(attributes, forKey: iTunesSubCategory.CodingKeys.attributes)
-  }
-}
+public typealias iTunesSubCategory = FeedAttributesElement<iTunesSubCategoryAttributes>
