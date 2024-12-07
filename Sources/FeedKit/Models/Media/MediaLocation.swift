@@ -24,62 +24,26 @@
 
 import Foundation
 
+public struct MediaLocationAttributes: Codable, Equatable, Hashable {
+  /// Description of the place whose location is being specified.
+  public var description: String?
+
+  /// Time at which the reference to a particular location starts in the
+  /// media object.
+  public var start: TimeInterval?
+
+  /// Time at which the reference to a particular location ends in the media
+  /// object.
+  public var end: TimeInterval?
+
+  public init(description: String? = nil, start: TimeInterval? = nil, end: TimeInterval? = nil) {
+    self.description = description
+    self.start = start
+    self.end = end
+  }
+}
+
 /// Optional element to specify geographical information about various
 /// locations captured in the content of a media object. The format conforms
 /// to geoRSS.
-public struct MediaLocation {
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// Description of the place whose location is being specified.
-    public var description: String?
-
-    /// Time at which the reference to a particular location starts in the
-    /// media object.
-    public var start: TimeInterval?
-
-    /// Time at which the reference to a particular location ends in the media
-    /// object.
-    public var end: TimeInterval?
-
-    public init(description: String? = nil, start: TimeInterval? = nil, end: TimeInterval? = nil) {
-      self.description = description
-      self.start = start
-      self.end = end
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(attributes: Attributes? = nil) {
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaLocation: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaLocation: Hashable {}
-
-// MARK: - Codable
-
-extension MediaLocation: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaLocation.CodingKeys> = try decoder.container(keyedBy: MediaLocation.CodingKeys.self)
-
-    attributes = try container.decodeIfPresent(MediaLocation.Attributes.self, forKey: MediaLocation.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaLocation.CodingKeys> = encoder.container(keyedBy: MediaLocation.CodingKeys.self)
-
-    try container.encodeIfPresent(attributes, forKey: MediaLocation.CodingKeys.attributes)
-  }
-}
+public typealias MediaLocation = FeedAttributesElement<MediaLocationAttributes>

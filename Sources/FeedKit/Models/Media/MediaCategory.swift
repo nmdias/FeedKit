@@ -24,69 +24,24 @@
 
 import Foundation
 
-/// Allows a taxonomy to be set that gives an indication of the type of media
-/// content, and its particular contents. It has two optional attributes.
-public struct MediaCategory {
-  /// The element's text.
-  public var text: String?
+public struct MediaCategoryAttributes: Codable, Equatable, Hashable {
+  /// The URI that identifies the categorization scheme. It is an optional
+  /// attribute. If this attribute is not included, the default scheme
+  /// is "http://search.yahoo.com/mrss/category_schema".
+  public var scheme: String?
 
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The URI that identifies the categorization scheme. It is an optional
-    /// attribute. If this attribute is not included, the default scheme
-    /// is "http://search.yahoo.com/mrss/category_schema".
-    public var scheme: String?
-
-    /// The human readable label that can be displayed in end user
-    /// applications. It is an optional attribute.
-    public var label: String?
-
-    public init(
-      scheme: String? = nil,
-      label: String? = nil) {
-      self.scheme = scheme
-      self.label = label
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
+  /// The human readable label that can be displayed in end user
+  /// applications. It is an optional attribute.
+  public var label: String?
 
   public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.attributes = attributes
-    self.text = text
+    scheme: String? = nil,
+    label: String? = nil) {
+    self.scheme = scheme
+    self.label = label
   }
 }
 
-// MARK: - Equatable
-
-extension MediaCategory: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaCategory: Hashable {}
-
-// MARK: - Codable
-
-extension MediaCategory: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaCategory.CodingKeys> = try decoder.container(keyedBy: MediaCategory.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaCategory.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaCategory.Attributes.self, forKey: MediaCategory.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaCategory.CodingKeys> = encoder.container(keyedBy: MediaCategory.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaCategory.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaCategory.CodingKeys.attributes)
-  }
-}
+/// Allows a taxonomy to be set that gives an indication of the type of media
+/// content, and its particular contents. It has two optional attributes.
+public typealias MediaCategory = FeedElement<MediaCategoryAttributes>

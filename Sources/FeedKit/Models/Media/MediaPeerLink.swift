@@ -24,63 +24,18 @@
 
 import Foundation
 
+public struct MediaPeerLinkAttributes: Codable, Equatable, Hashable {
+  /// The peer link's type.
+  public var type: String?
+
+  /// The location of the peer link provider.
+  public var href: String?
+
+  public init(type: String? = nil, href: String? = nil) {
+    self.type = type
+    self.href = href
+  }
+}
+
 /// Optional element for P2P link.
-public struct MediaPeerLink {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The peer link's type.
-    public var type: String?
-
-    /// The location of the peer link provider.
-    public var href: String?
-
-    public init(type: String? = nil, href: String? = nil) {
-      self.type = type
-      self.href = href
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaPeerLink: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaPeerLink: Hashable {}
-
-// MARK: - Codable
-
-extension MediaPeerLink: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaPeerLink.CodingKeys> = try decoder.container(keyedBy: MediaPeerLink.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaPeerLink.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaPeerLink.Attributes.self, forKey: MediaPeerLink.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaPeerLink.CodingKeys> = encoder.container(keyedBy: MediaPeerLink.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaPeerLink.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaPeerLink.CodingKeys.attributes)
-  }
-}
+public typealias MediaPeerLink = FeedElement<MediaPeerLinkAttributes>

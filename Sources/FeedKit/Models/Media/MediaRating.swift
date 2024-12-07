@@ -24,62 +24,17 @@
 
 import Foundation
 
+public struct MediaRatingAttributes: Codable, Equatable, Hashable {
+  /// The URI that identifies the rating scheme. It is an optional attribute.
+  /// If this attribute is not included, the default scheme is urn:simple (adult | nonadult).
+  public var scheme: String?
+
+  public init(scheme: String? = nil) {
+    self.scheme = scheme
+  }
+}
+
 /// This allows the permissible audience to be declared. If this element is not
 /// included, it assumes that no restrictions are necessary. It has one optional
 /// attribute.
-public struct MediaRating {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The URI that identifies the rating scheme. It is an optional attribute.
-    /// If this attribute is not included, the default scheme is urn:simple (adult | nonadult).
-    public var scheme: String?
-
-    public init(scheme: String? = nil) {
-      self.scheme = scheme
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaRating: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaRating: Hashable {}
-
-// MARK: - Codable
-
-extension MediaRating: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaRating.CodingKeys> = try decoder.container(keyedBy: MediaRating.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaRating.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaRating.Attributes.self, forKey: MediaRating.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaRating.CodingKeys> = encoder.container(keyedBy: MediaRating.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaRating.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaRating.CodingKeys.attributes)
-  }
-}
+public typealias MediaRating = FeedElement<MediaRatingAttributes>

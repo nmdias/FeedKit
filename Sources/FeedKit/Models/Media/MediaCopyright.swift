@@ -24,62 +24,17 @@
 
 import Foundation
 
+public struct MediaCopyrightAttributes: Codable, Equatable, Hashable {
+  /// The URL for a terms of use page or additional copyright information.
+  /// If the media is operating under a Creative Commons license, the
+  /// Creative Commons module should be used instead. It is an optional
+  /// attribute.
+  public var url: String?
+
+  public init(url: String? = nil) {
+    self.url = url
+  }
+}
+
 /// Copyright information for the media object. It has one optional attribute.
-public struct MediaCopyright {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The URL for a terms of use page or additional copyright information.
-    /// If the media is operating under a Creative Commons license, the
-    /// Creative Commons module should be used instead. It is an optional
-    /// attribute.
-    public var url: String?
-
-    public init(url: String? = nil) {
-      self.url = url
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.attributes = attributes
-    self.text = text
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaCopyright: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaCopyright: Hashable {}
-
-// MARK: - Codable
-
-extension MediaCopyright: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaCopyright.CodingKeys> = try decoder.container(keyedBy: MediaCopyright.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaCopyright.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaCopyright.Attributes.self, forKey: MediaCopyright.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaCopyright.CodingKeys> = encoder.container(keyedBy: MediaCopyright.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaCopyright.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaCopyright.CodingKeys.attributes)
-  }
-}
+public typealias MediaCopyright = FeedElement<MediaCopyrightAttributes>

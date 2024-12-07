@@ -24,91 +24,46 @@
 
 import Foundation
 
+public struct MediaTextAttributes: Codable, Equatable, Hashable {
+  /// Specifies the type of text embedded. Possible values are either "plain"
+  /// or "html". Default value is "plain". All HTML must be entity-encoded.
+  /// It is an optional attribute.
+  public var type: String?
+
+  /// The primary language encapsulated in the media object. Language codes
+  /// possible are detailed in RFC 3066. This attribute is used similar to
+  /// the xml:lang attribute detailed in the XML 1.0 Specification (Third
+  /// Edition). It is an optional attribute.
+  public var lang: String?
+
+  /// Specifies the start time offset that the text starts being relevant to
+  /// the media object. An example of this would be for closed captioning.
+  /// It uses the NTP time code format (see: the time attribute used in
+  /// <media:thumbnail>). It is an optional attribute.
+  public var start: String?
+
+  /// Specifies the end time that the text is relevant. If this attribute is
+  /// not provided, and a start time is used, it is expected that the end
+  /// time is either the end of the clip or the start of the next
+  /// <media:text> element.
+  public var end: String?
+
+  public init(
+    type: String? = nil,
+    lang: String? = nil,
+    start: String? = nil,
+    end: String? = nil) {
+    self.type = type
+    self.lang = lang
+    self.start = start
+    self.end = end
+  }
+}
+
 /// Allows the inclusion of a text transcript, closed captioning or lyrics of
 /// the media content. Many of these elements are permitted to provide a time
 /// series of text. In such cases, it is encouraged, but not required, that the
 /// elements be grouped by language and appear in time sequence order based on
 /// the start time. Elements can have overlapping start and end times. It has
 /// four optional attributes.
-public struct MediaText {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// Specifies the type of text embedded. Possible values are either "plain"
-    /// or "html". Default value is "plain". All HTML must be entity-encoded.
-    /// It is an optional attribute.
-    public var type: String?
-
-    /// The primary language encapsulated in the media object. Language codes
-    /// possible are detailed in RFC 3066. This attribute is used similar to
-    /// the xml:lang attribute detailed in the XML 1.0 Specification (Third
-    /// Edition). It is an optional attribute.
-    public var lang: String?
-
-    /// Specifies the start time offset that the text starts being relevant to
-    /// the media object. An example of this would be for closed captioning.
-    /// It uses the NTP time code format (see: the time attribute used in
-    /// <media:thumbnail>). It is an optional attribute.
-    public var start: String?
-
-    /// Specifies the end time that the text is relevant. If this attribute is
-    /// not provided, and a start time is used, it is expected that the end
-    /// time is either the end of the clip or the start of the next
-    /// <media:text> element.
-    public var end: String?
-
-    public init(
-      type: String? = nil,
-      lang: String? = nil,
-      start: String? = nil,
-      end: String? = nil) {
-      self.type = type
-      self.lang = lang
-      self.start = start
-      self.end = end
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaText: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaText: Hashable {}
-
-// MARK: - Codable
-
-extension MediaText: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaText.CodingKeys> = try decoder.container(keyedBy: MediaText.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaText.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaText.Attributes.self, forKey: MediaText.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaText.CodingKeys> = encoder.container(keyedBy: MediaText.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaText.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaText.CodingKeys.attributes)
-  }
-}
+public typealias MediaText = FeedElement<MediaTextAttributes>

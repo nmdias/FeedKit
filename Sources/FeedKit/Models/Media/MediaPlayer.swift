@@ -24,72 +24,27 @@
 
 import Foundation
 
+public struct MediaPlayerAttributes: Codable, Equatable, Hashable {
+  /// The URL of the player console that plays the media. It is a required attribute.
+  public var url: String?
+
+  /// The width of the browser window that the URL should be opened in. It is
+  /// an optional attribute.
+  public var width: Int?
+
+  /// The height of the browser window that the URL should be opened in. It is an
+  /// optional attribute.
+  public var height: Int?
+
+  public init(url: String? = nil, width: Int? = nil, height: Int? = nil) {
+    self.url = url
+    self.width = width
+    self.height = height
+  }
+}
+
 /// Allows the media object to be accessed through a web browser media player
 /// console. This element is required only if a direct media url attribute is
 /// not specified in the <media:content> element. It has one required attribute
 /// and two optional attributes.
-public struct MediaPlayer {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The URL of the player console that plays the media. It is a required attribute.
-    public var url: String?
-
-    /// The width of the browser window that the URL should be opened in. It is
-    /// an optional attribute.
-    public var width: Int?
-
-    /// The height of the browser window that the URL should be opened in. It is an
-    /// optional attribute.
-    public var height: Int?
-
-    public init(url: String? = nil, width: Int? = nil, height: Int? = nil) {
-      self.url = url
-      self.width = width
-      self.height = height
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaPlayer: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaPlayer: Hashable {}
-
-// MARK: - Codable
-
-extension MediaPlayer: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaPlayer.CodingKeys> = try decoder.container(keyedBy: MediaPlayer.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaPlayer.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaPlayer.Attributes.self, forKey: MediaPlayer.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaPlayer.CodingKeys> = encoder.container(keyedBy: MediaPlayer.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaPlayer.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaPlayer.CodingKeys.attributes)
-  }
-}
+public typealias MediaPlayer = FeedElement<MediaPlayerAttributes>

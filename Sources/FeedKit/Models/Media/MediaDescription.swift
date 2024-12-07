@@ -24,61 +24,16 @@
 
 import Foundation
 
+
+public struct MediaDescriptionAttributes: Codable, Equatable, Hashable {
+  /// Specifies the type of text embedded. Possible values are either "plain" or "html".
+  /// Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
+  public var type: String?
+
+  public init(type: String? = nil) {
+    self.type = type
+  }
+}
 /// Short description describing the media object typically a sentence in
 /// length. It has one optional attribute.
-public struct MediaDescription {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// Specifies the type of text embedded. Possible values are either "plain" or "html".
-    /// Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
-    public var type: String?
-
-    public init(type: String? = nil) {
-      self.type = type
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.attributes = attributes
-    self.text = text
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaDescription: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaDescription: Hashable {}
-
-// MARK: - Codable
-
-extension MediaDescription: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaDescription.CodingKeys> = try decoder.container(keyedBy: MediaDescription.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaDescription.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaDescription.Attributes.self, forKey: MediaDescription.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaDescription.CodingKeys> = encoder.container(keyedBy: MediaDescription.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaDescription.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaDescription.CodingKeys.attributes)
-  }
-}
+public typealias MediaDescription = FeedElement<MediaDescriptionAttributes>

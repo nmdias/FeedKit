@@ -24,67 +24,31 @@
 
 import Foundation
 
+public struct MediaStarRatingAttributes: Codable, Equatable, Hashable {
+  /// The star rating's average.
+  public var average: Double?
+
+  /// The star rating's total count.
+  public var count: Int?
+
+  /// The star rating's minimum value.
+  public var min: Int?
+
+  /// The star rating's maximum value.
+  public var max: Int?
+
+  public init(
+    average: Double? = nil,
+    count: Int? = nil,
+    min: Int? = nil,
+    max: Int? = nil) {
+    self.average = average
+    self.count = count
+    self.min = min
+    self.max = max
+  }
+}
+
 /// This element specifies the rating-related information about a media object.
 /// Valid attributes are average, count, min and max.
-public struct MediaStarRating {
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The star rating's average.
-    public var average: Double?
-
-    /// The star rating's total count.
-    public var count: Int?
-
-    /// The star rating's minimum value.
-    public var min: Int?
-
-    /// The star rating's maximum value.
-    public var max: Int?
-
-    public init(
-      average: Double? = nil,
-      count: Int? = nil,
-      min: Int? = nil,
-      max: Int? = nil) {
-      self.average = average
-      self.count = count
-      self.min = min
-      self.max = max
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(attributes: Attributes? = nil) {
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaStarRating: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaStarRating: Hashable {}
-
-// MARK: - Codable
-
-extension MediaStarRating: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaStarRating.CodingKeys> = try decoder.container(keyedBy: MediaStarRating.CodingKeys.self)
-
-    attributes = try container.decodeIfPresent(MediaStarRating.Attributes.self, forKey: MediaStarRating.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaStarRating.CodingKeys> = encoder.container(keyedBy: MediaStarRating.CodingKeys.self)
-
-    try container.encodeIfPresent(attributes, forKey: MediaStarRating.CodingKeys.attributes)
-  }
-}
+public typealias MediaStarRating = FeedAttributesElement<MediaStarRatingAttributes>

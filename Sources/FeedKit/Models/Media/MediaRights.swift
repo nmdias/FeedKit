@@ -24,52 +24,16 @@
 
 import Foundation
 
+public struct MediaRightsAttributes: Codable, Equatable, Hashable {
+  /// Is the status of the media object saying whether a media object has
+  /// been created by the publisher or they have rights to circulate it.
+  /// Supported values are "userCreated" and "official".
+  public var status: String?
+
+  public init(status: String? = nil) {
+    self.status = status
+  }
+}
+
 /// Optional element to specify the rights information of a media object.
-public struct MediaRights {
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// Is the status of the media object saying whether a media object has
-    /// been created by the publisher or they have rights to circulate it.
-    /// Supported values are "userCreated" and "official".
-    public var status: String?
-
-    public init(status: String? = nil) {
-      self.status = status
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(attributes: Attributes? = nil) {
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaRights: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaRights: Hashable {}
-
-// MARK: - Codable
-
-extension MediaRights: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaRights.CodingKeys> = try decoder.container(keyedBy: MediaRights.CodingKeys.self)
-
-    attributes = try container.decodeIfPresent(MediaRights.Attributes.self, forKey: MediaRights.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaRights.CodingKeys> = encoder.container(keyedBy: MediaRights.CodingKeys.self)
-
-    try container.encodeIfPresent(attributes, forKey: MediaRights.CodingKeys.attributes)
-  }
-}
+public typealias MediaRights = FeedAttributesElement<MediaRightsAttributes>

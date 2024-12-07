@@ -24,61 +24,16 @@
 
 import Foundation
 
+public struct MediaHashAttributes: Codable, Equatable, Hashable {
+  /// This is the hash of the binary media file. It can appear multiple times as long as
+  /// each instance is a different algo. It has one optional attribute.
+  public var algo: String?
+
+  public init(algo: String? = nil) {
+    self.algo = algo
+  }
+}
+
 /// This is the hash of the binary media file. It can appear multiple times as
 /// long as each instance is a different algo. It has one optional attribute.
-public struct MediaHash {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// This is the hash of the binary media file. It can appear multiple times as long as
-    /// each instance is a different algo. It has one optional attribute.
-    public var algo: String?
-
-    public init(algo: String? = nil) {
-      self.algo = algo
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaHash: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaHash: Hashable {}
-
-// MARK: - Codable
-
-extension MediaHash: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaHash.CodingKeys> = try decoder.container(keyedBy: MediaHash.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaHash.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaHash.Attributes.self, forKey: MediaHash.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaHash.CodingKeys> = encoder.container(keyedBy: MediaHash.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaHash.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaHash.CodingKeys.attributes)
-  }
-}
+public typealias MediaHash = FeedElement<MediaHashAttributes>

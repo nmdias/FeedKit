@@ -24,62 +24,26 @@
 
 import Foundation
 
+public struct MediaSubTitleAttributes: Codable, Equatable, Hashable {
+  /// The type of the subtitle.
+  public var type: String?
+
+  /// The subtitle language based on the RFC 3066.
+  public var lang: String?
+
+  /// The location of the subtitle.
+  public var href: String?
+
+  public init(
+    type: String? = nil,
+    lang: String? = nil,
+    href: String? = nil) {
+    self.type = type
+    self.lang = lang
+    self.href = href
+  }
+}
+
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public struct MediaSubTitle {
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The type of the subtitle.
-    public var type: String?
-
-    /// The subtitle language based on the RFC 3066.
-    public var lang: String?
-
-    /// The location of the subtitle.
-    public var href: String?
-
-    public init(
-      type: String? = nil,
-      lang: String? = nil,
-      href: String? = nil) {
-      self.type = type
-      self.lang = lang
-      self.href = href
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(attributes: Attributes? = nil) {
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaSubTitle: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaSubTitle: Hashable {}
-
-// MARK: - Codable
-
-extension MediaSubTitle: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaSubTitle.CodingKeys> = try decoder.container(keyedBy: MediaSubTitle.CodingKeys.self)
-
-    attributes = try container.decodeIfPresent(MediaSubTitle.Attributes.self, forKey: MediaSubTitle.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaSubTitle.CodingKeys> = encoder.container(keyedBy: MediaSubTitle.CodingKeys.self)
-
-    try container.encodeIfPresent(attributes, forKey: MediaSubTitle.CodingKeys.attributes)
-  }
-}
+public typealias MediaSubTitle = FeedAttributesElement<MediaSubTitleAttributes>

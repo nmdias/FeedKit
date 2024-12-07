@@ -24,6 +24,30 @@
 
 import Foundation
 
+public struct MediaRestrictionAttributes: Codable, Equatable, Hashable {
+  /// Indicates the type of relationship that the restriction represents
+  /// (allow | deny). In the example above, the media object should only be
+  /// syndicated in Australia and the United States. It is a required
+  /// attribute.
+  ///
+  /// Note: If the "allow" element is empty and the type of relationship is
+  /// "allow", it is assumed that the empty list means "allow nobody" and
+  /// the media should not be syndicated.
+  public var relationship: String?
+
+  /// Specifies the type of restriction (country | uri | sharing ) that the
+  /// media can be syndicated. It is an optional attribute; however can only
+  /// be excluded when using one of the literal values "all" or "none".
+  public var type: String?
+
+  public init(
+    relationship: String? = nil,
+    type: String? = nil) {
+    self.relationship = relationship
+    self.type = type
+  }
+}
+
 /// Allows restrictions to be placed on the aggregator rendering the media in
 /// the feed. Currently, restrictions are based on distributor (URI), country
 /// codes and sharing of a media object. This element is purely informational
@@ -34,73 +58,4 @@ import Foundation
 /// literals are reserved: "all", "none". These literals can only be used once.
 /// This element has one required attribute and one optional attribute (with
 /// strict requirements for its exclusion).
-public struct MediaRestriction {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// Indicates the type of relationship that the restriction represents
-    /// (allow | deny). In the example above, the media object should only be
-    /// syndicated in Australia and the United States. It is a required
-    /// attribute.
-    ///
-    /// Note: If the "allow" element is empty and the type of relationship is
-    /// "allow", it is assumed that the empty list means "allow nobody" and
-    /// the media should not be syndicated.
-    public var relationship: String?
-
-    /// Specifies the type of restriction (country | uri | sharing ) that the
-    /// media can be syndicated. It is an optional attribute; however can only
-    /// be excluded when using one of the literal values "all" or "none".
-    public var type: String?
-
-    public init(
-      relationship: String? = nil,
-      type: String? = nil) {
-      self.relationship = relationship
-      self.type = type
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.attributes = attributes
-    self.text = text
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaRestriction: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaRestriction: Hashable {}
-
-// MARK: - Codable
-
-extension MediaRestriction: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaRestriction.CodingKeys> = try decoder.container(keyedBy: MediaRestriction.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaRestriction.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaRestriction.Attributes.self, forKey: MediaRestriction.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaRestriction.CodingKeys> = encoder.container(keyedBy: MediaRestriction.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaRestriction.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaRestriction.CodingKeys.attributes)
-  }
-}
+public typealias MediaRestriction = FeedElement<MediaRestrictionAttributes>

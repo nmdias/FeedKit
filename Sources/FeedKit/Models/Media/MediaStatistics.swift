@@ -24,57 +24,21 @@
 
 import Foundation
 
+public struct MediaStatisticsAttributes: Codable, Equatable, Hashable {
+  /// The number of views.
+  public var views: Int?
+
+  /// The number fo favorites.
+  public var favorites: Int?
+
+  public init(
+    views: Int? = nil,
+    favorites: Int? = nil) {
+    self.views = views
+    self.favorites = favorites
+  }
+}
+
 /// This element specifies various statistics about a media object like the
 /// view count and the favorite count. Valid attributes are views and favorites.
-public struct MediaStatistics {
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The number of views.
-    public var views: Int?
-
-    /// The number fo favorites.
-    public var favorites: Int?
-
-    public init(
-      views: Int? = nil,
-      favorites: Int? = nil) {
-      self.views = views
-      self.favorites = favorites
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(attributes: Attributes? = nil) {
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaStatistics: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaStatistics: Hashable {}
-
-// MARK: - Codable
-
-extension MediaStatistics: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaStatistics.CodingKeys> = try decoder.container(keyedBy: MediaStatistics.CodingKeys.self)
-
-    attributes = try container.decodeIfPresent(MediaStatistics.Attributes.self, forKey: MediaStatistics.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaStatistics.CodingKeys> = encoder.container(keyedBy: MediaStatistics.CodingKeys.self)
-
-    try container.encodeIfPresent(attributes, forKey: MediaStatistics.CodingKeys.attributes)
-  }
-}
+public typealias MediaStatistics = FeedAttributesElement<MediaStatisticsAttributes>

@@ -24,59 +24,14 @@
 
 import Foundation
 
+public struct MediaParamAttributes: Codable, Equatable, Hashable {
+  /// The parameter's key name.
+  public var name: String?
+
+  public init(name: String? = nil) {
+    self.name = name
+  }
+}
+
 /// Key-Value pairs with additional parameters for the embedded Media.
-public struct MediaParam {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The parameter's key name.
-    public var name: String?
-
-    public init(name: String? = nil) {
-      self.name = name
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension MediaParam: Equatable {}
-
-// MARK: - Hashable
-
-extension MediaParam: Hashable {}
-
-// MARK: - Codable
-
-extension MediaParam: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaParam.CodingKeys> = try decoder.container(keyedBy: MediaParam.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: MediaParam.CodingKeys.text)
-    attributes = try container.decodeIfPresent(MediaParam.Attributes.self, forKey: MediaParam.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaParam.CodingKeys> = encoder.container(keyedBy: MediaParam.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: MediaParam.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: MediaParam.CodingKeys.attributes)
-  }
-}
+public typealias MediaParam = FeedElement<MediaParamAttributes>
