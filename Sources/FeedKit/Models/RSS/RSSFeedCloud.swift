@@ -24,6 +24,40 @@
 
 import Foundation
 
+/// The attributes of the `<channel>`'s `<cloud>` element.
+public struct RSSFeedCloudAttributes: Codable, Equatable, Hashable {
+  /// The domain to register notification to.
+  public var domain: String?
+
+  /// The port to connect to.
+  public var port: Int?
+
+  /// The path to the RPC service. e.g. "/RPC2".
+  public var path: String?
+
+  /// The procedure to call. e.g. "myCloud.rssPleaseNotify" .
+  public var registerProcedure: String?
+
+  /// The `protocol` specification. Can be HTTP-POST, XML-RPC or SOAP 1.1 -
+  /// Note: "protocol" is a reserved keyword, so `protocolSpecification`
+  /// is used instead and refers to the `protocol` attribute of the `cloud`
+  /// element.
+  public var `protocol`: String?
+
+  public init(
+    domain: String? = nil,
+    port: Int? = nil,
+    path: String? = nil,
+    registerProcedure: String? = nil,
+    protocol: String? = nil) {
+    self.domain = domain
+    self.port = port
+    self.path = path
+    self.registerProcedure = registerProcedure
+    self.protocol = `protocol`
+  }
+}
+
 /// Allows processes to register with a cloud to be notified of updates to
 /// the channel, implementing a lightweight publish-subscribe protocol for
 /// RSS feeds.
@@ -47,73 +81,5 @@ import Foundation
 ///
 /// A full explanation of this element and the rssCloud interface is here:
 /// http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
-public struct RSSFeedCloud {
-  /// The attributes of the `<channel>`'s `<cloud>` element.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// The domain to register notification to.
-    public var domain: String?
 
-    /// The port to connect to.
-    public var port: Int?
-
-    /// The path to the RPC service. e.g. "/RPC2".
-    public var path: String?
-
-    /// The procedure to call. e.g. "myCloud.rssPleaseNotify" .
-    public var registerProcedure: String?
-
-    /// The `protocol` specification. Can be HTTP-POST, XML-RPC or SOAP 1.1 -
-    /// Note: "protocol" is a reserved keyword, so `protocolSpecification`
-    /// is used instead and refers to the `protocol` attribute of the `cloud`
-    /// element.
-    public var `protocol`: String?
-
-    public init(
-      domain: String? = nil,
-      port: Int? = nil,
-      path: String? = nil,
-      registerProcedure: String? = nil,
-      protocol: String? = nil) {
-      self.domain = domain
-      self.port = port
-      self.path = path
-      self.registerProcedure = registerProcedure
-      self.protocol = `protocol`
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(attributes: Attributes? = nil) {
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension RSSFeedCloud: Equatable {}
-
-// MARK: - Hashable
-
-extension RSSFeedCloud: Hashable {}
-
-// MARK: - Codable
-
-extension RSSFeedCloud: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<RSSFeedCloud.CodingKeys> = try decoder.container(keyedBy: RSSFeedCloud.CodingKeys.self)
-
-    attributes = try container.decodeIfPresent(RSSFeedCloud.Attributes.self, forKey: RSSFeedCloud.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<RSSFeedCloud.CodingKeys> = encoder.container(keyedBy: RSSFeedCloud.CodingKeys.self)
-
-    try container.encodeIfPresent(attributes, forKey: RSSFeedCloud.CodingKeys.attributes)
-  }
-}
+public typealias RSSFeedCloud = FeedAttributesElement<RSSFeedCloudAttributes>

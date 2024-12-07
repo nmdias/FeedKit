@@ -210,7 +210,7 @@ extension RSSFeedItem: Codable {
     case link
     case description
     case author
-    case categories
+    case category
     case comments
     case enclosure
     case guid
@@ -225,7 +225,7 @@ extension RSSFeedItem: Codable {
     link = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.link)
     description = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.description)
     author = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.author)
-    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: RSSFeedItem.CodingKeys.categories)
+    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: RSSFeedItem.CodingKeys.category)
     comments = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.comments)
     enclosure = try container.decodeIfPresent(RSSFeedEnclosure.self, forKey: RSSFeedItem.CodingKeys.enclosure)
     guid = try container.decodeIfPresent(RSSFeedGUID.self, forKey: RSSFeedItem.CodingKeys.guid)
@@ -240,7 +240,7 @@ extension RSSFeedItem: Codable {
     try container.encodeIfPresent(link, forKey: RSSFeedItem.CodingKeys.link)
     try container.encodeIfPresent(description, forKey: RSSFeedItem.CodingKeys.description)
     try container.encodeIfPresent(author, forKey: RSSFeedItem.CodingKeys.author)
-    try container.encodeIfPresent(categories, forKey: RSSFeedItem.CodingKeys.categories)
+    try container.encodeIfPresent(categories, forKey: RSSFeedItem.CodingKeys.category)
     try container.encodeIfPresent(comments, forKey: RSSFeedItem.CodingKeys.comments)
     try container.encodeIfPresent(enclosure, forKey: RSSFeedItem.CodingKeys.enclosure)
     try container.encodeIfPresent(guid, forKey: RSSFeedItem.CodingKeys.guid)

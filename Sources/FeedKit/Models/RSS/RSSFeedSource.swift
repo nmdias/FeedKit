@@ -24,6 +24,16 @@
 
 import Foundation
 
+public struct RSSFeedSourceAttributes: Codable, Equatable, Hashable {
+  /// Required attribute of the `Source` element, which links to the
+  /// XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
+  public var url: String?
+
+  public init(url: String? = nil) {
+    self.url = url
+  }
+}
+
 /// The RSS channel that the item came from.
 ///
 /// <source> is an optional sub-element of <item>.
@@ -38,59 +48,4 @@ import Foundation
 /// publicize the sources of news items. It can be used in the Post command
 /// of an aggregator. It should be generated automatically when forwarding
 /// an item from an aggregator to a weblog authoring tool.
-public struct RSSFeedSource {
-  /// The element's text.
-  public var text: String?
-
-  /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
-    /// Required attribute of the `Source` element, which links to the
-    /// XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
-    public var url: String?
-
-    public init(url: String? = nil) {
-      self.url = url
-    }
-  }
-
-  /// The element's attributes.
-  public var attributes: Attributes?
-
-  public init(
-    text: String? = nil,
-    attributes: Attributes? = nil) {
-    self.text = text
-    self.attributes = attributes
-  }
-}
-
-// MARK: - Equatable
-
-extension RSSFeedSource: Equatable {}
-
-// MARK: - Hashable
-
-extension RSSFeedSource: Hashable {}
-
-// MARK: - Codable
-
-extension RSSFeedSource: Codable {
-  private enum CodingKeys: CodingKey {
-    case text
-    case attributes
-  }
-
-  public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<RSSFeedSource.CodingKeys> = try decoder.container(keyedBy: RSSFeedSource.CodingKeys.self)
-
-    text = try container.decodeIfPresent(String.self, forKey: RSSFeedSource.CodingKeys.text)
-    attributes = try container.decodeIfPresent(RSSFeedSource.Attributes.self, forKey: RSSFeedSource.CodingKeys.attributes)
-  }
-
-  public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<RSSFeedSource.CodingKeys> = encoder.container(keyedBy: RSSFeedSource.CodingKeys.self)
-
-    try container.encodeIfPresent(text, forKey: RSSFeedSource.CodingKeys.text)
-    try container.encodeIfPresent(attributes, forKey: RSSFeedSource.CodingKeys.attributes)
-  }
-}
+public typealias RSSFeedSource = FeedElement<RSSFeedSourceAttributes>

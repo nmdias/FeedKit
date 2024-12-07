@@ -291,7 +291,7 @@ extension RSSFeedChannel: Codable {
     case webMaster
     case pubDate
     case lastBuildDate
-    case categories
+    case category
     case generator
     case docs
     case cloud
@@ -301,7 +301,7 @@ extension RSSFeedChannel: Codable {
     case textInput
     case skipHours
     case skipDays
-    case items
+    case item
   }
 
   public init(from decoder: any Decoder) throws {
@@ -316,7 +316,7 @@ extension RSSFeedChannel: Codable {
     webMaster = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.webMaster)
     pubDate = try container.decodeIfPresent(Date.self, forKey: RSSFeedChannel.CodingKeys.pubDate)
     lastBuildDate = try container.decodeIfPresent(Date.self, forKey: RSSFeedChannel.CodingKeys.lastBuildDate)
-    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: RSSFeedChannel.CodingKeys.categories)
+    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: RSSFeedChannel.CodingKeys.category)
     generator = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.generator)
     docs = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.docs)
     cloud = try container.decodeIfPresent(RSSFeedCloud.self, forKey: RSSFeedChannel.CodingKeys.cloud)
@@ -326,7 +326,7 @@ extension RSSFeedChannel: Codable {
     textInput = try container.decodeIfPresent(RSSFeedTextInput.self, forKey: RSSFeedChannel.CodingKeys.textInput)
     skipHours = try container.decodeIfPresent(RSSFeedSkipHours.self, forKey: RSSFeedChannel.CodingKeys.skipHours)
     skipDays = try container.decodeIfPresent(RSSFeedSkipDays.self, forKey: RSSFeedChannel.CodingKeys.skipDays)
-    items = try container.decodeIfPresent([RSSFeedItem].self, forKey: RSSFeedChannel.CodingKeys.items)
+    items = try container.decodeIfPresent([RSSFeedItem].self, forKey: RSSFeedChannel.CodingKeys.item)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -341,7 +341,7 @@ extension RSSFeedChannel: Codable {
     try container.encodeIfPresent(webMaster, forKey: RSSFeedChannel.CodingKeys.webMaster)
     try container.encodeIfPresent(pubDate, forKey: RSSFeedChannel.CodingKeys.pubDate)
     try container.encodeIfPresent(lastBuildDate, forKey: RSSFeedChannel.CodingKeys.lastBuildDate)
-    try container.encodeIfPresent(categories, forKey: RSSFeedChannel.CodingKeys.categories)
+    try container.encodeIfPresent(categories, forKey: RSSFeedChannel.CodingKeys.category)
     try container.encodeIfPresent(generator, forKey: RSSFeedChannel.CodingKeys.generator)
     try container.encodeIfPresent(docs, forKey: RSSFeedChannel.CodingKeys.docs)
     try container.encodeIfPresent(cloud, forKey: RSSFeedChannel.CodingKeys.cloud)
@@ -351,6 +351,6 @@ extension RSSFeedChannel: Codable {
     try container.encodeIfPresent(textInput, forKey: RSSFeedChannel.CodingKeys.textInput)
     try container.encodeIfPresent(skipHours, forKey: RSSFeedChannel.CodingKeys.skipHours)
     try container.encodeIfPresent(skipDays, forKey: RSSFeedChannel.CodingKeys.skipDays)
-    try container.encodeIfPresent(items, forKey: RSSFeedChannel.CodingKeys.items)
+    try container.encodeIfPresent(items, forKey: RSSFeedChannel.CodingKeys.item)
   }
 }

@@ -41,4 +41,3 @@ struct RSSTests: FeedKitTestable {
     #expect(expected == actual)
   }
 }
-
