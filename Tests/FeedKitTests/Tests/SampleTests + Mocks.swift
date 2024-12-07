@@ -264,12 +264,10 @@ extension SampleTests {
                   name: "@attributes",
                   children: [
                     .init(
-                      type: .attribute,
                       name: "id",
                       text: "1"
                     ),
                     .init(
-                      type: .attribute,
                       name: "value",
                       text: "01"
                     ),
@@ -330,12 +328,10 @@ extension SampleTests {
                   name: "@attributes",
                   children: [
                     .init(
-                      type: .attribute,
                       name: "id",
                       text: "2"
                     ),
                     .init(
-                      type: .attribute,
                       name: "value",
                       text: "02"
                     ),

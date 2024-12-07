@@ -24,11 +24,6 @@
 
 import Foundation
 
-enum XMLNodeType: Equatable, Codable, Hashable {
-  case element
-  case attribute
-}
-
 /// Represents an XML document containing a root node.
 class XMLDocument: Equatable, Hashable {
   /// The root node of the document.
@@ -57,8 +52,6 @@ class XMLDocument: Equatable, Hashable {
 class XMLNode: Codable, Equatable, Hashable {
   /// The parent node of this node.
   weak var parent: XMLNode?
-  /// The type of the node.
-  var type: XMLNodeType
   /// The name of the node.
   var name: String
   /// The text of the node, if present.
@@ -80,13 +73,11 @@ class XMLNode: Codable, Equatable, Hashable {
   ///   - attributes: Attributes for the node, if any.
   ///   - children: Children for the node, if any.
   init(
-    type: XMLNodeType = .element,
     name: String,
     text: String? = nil,
     isXhtml: Bool = false,
     attributes: [String: String]? = nil,
     children: [XMLNode]? = nil) {
-    self.type = type
     self.name = name
     self.text = text
     self.isXhtml = isXhtml
@@ -99,7 +90,6 @@ class XMLNode: Codable, Equatable, Hashable {
 
   static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
     if
-      lhs.type != rhs.type ||
       lhs.name != rhs.name ||
       lhs.text != rhs.text ||
       lhs.isXhtml != rhs.isXhtml {
@@ -118,7 +108,6 @@ class XMLNode: Codable, Equatable, Hashable {
     for (lChild, rChild) in zip(lhsChildren, rhsChildren) {
       if
         lChild.name != rChild.name ||
-        lChild.type != rChild.type ||
         lChild.text != rChild.text ||
         lChild.isXhtml != rChild.isXhtml {
         return false
@@ -132,7 +121,6 @@ class XMLNode: Codable, Equatable, Hashable {
 
   func hash(into hasher: inout Hasher) {
     // Hash basic properties
-    hasher.combine(type)
     hasher.combine(name)
     hasher.combine(text)
     hasher.combine(isXhtml)

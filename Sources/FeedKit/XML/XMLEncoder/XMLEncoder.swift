@@ -69,7 +69,7 @@ class _XMLEncoder: Encoder {
   /// - Parameter type: The type of the coding key.
   /// - Returns: A keyed encoding container.
   func container<Key>(keyedBy type: Key.Type) -> KeyedEncodingContainer<Key> where Key: CodingKey {
-    let node = XMLNode(type: .element, name: currentKey)
+    let node = XMLNode(name: currentKey)
     stack.push(node)
     return KeyedEncodingContainer(XMLKeyedEncodingContainer(node: node, encoder: self))
   }
@@ -92,7 +92,6 @@ class _XMLEncoder: Encoder {
     case .deferredToDate: try date.encode(to: self); return stack.top()!
     case let .formatter(formatter):
       return .init(
-        type: .element,
         name: currentKey,
         text: formatter.string(from: date)
       )

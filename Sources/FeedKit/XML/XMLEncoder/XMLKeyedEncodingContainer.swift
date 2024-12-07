@@ -46,7 +46,7 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
       node.text = "\(value)"
       return
     }
-    node.children.append(.init(type: .element, name: key.stringValue, text: "\(value)"))
+    node.children.append(.init(name: key.stringValue, text: "\(value)"))
   }
 
   // MARK: -

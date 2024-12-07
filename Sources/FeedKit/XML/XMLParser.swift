@@ -94,7 +94,6 @@ extension XMLParser: XMLParserDelegate {
     if isXhtml {
       // Entering an XHTML element; create a single node for it.
       stack.push(.init(
-        type: .element,
         name: elementName,
         isXhtml: isXhtml,
         children: [
@@ -102,7 +101,6 @@ extension XMLParser: XMLParserDelegate {
             name: "@attributes",
             children: attributeDict.map {
               .init(
-                type: .attribute,
                 name: $0,
                 text: $1
               )
@@ -123,21 +121,18 @@ extension XMLParser: XMLParserDelegate {
       // node with the element name.
       if attributeDict.isEmpty {
         stack.push(.init(
-          type: .element,
           name: elementName
         ))
       } else {
         // If attributes are found, treat them as child nodes of the element.
         // Each attribute is added as a child node with its key and value.
         stack.push(.init(
-          type: .element,
           name: elementName,
           children: [
             .init(
               name: "@attributes",
               children: attributeDict.map {
                 .init(
-                  type: .attribute,
                   name: $0,
                   text: $1
                 )

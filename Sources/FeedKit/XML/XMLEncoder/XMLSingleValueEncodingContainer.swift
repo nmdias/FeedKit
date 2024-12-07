@@ -49,7 +49,6 @@ class XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
 
   func box<T: LosslessStringConvertible>(_ value: T) -> XMLNode {
     .init(
-      type: .element,
       name: encoder.currentKey,
       text: "\(value)"
     )
