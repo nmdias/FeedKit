@@ -206,7 +206,7 @@ public struct RSSFeedChannel {
   /// element.
   ///
   /// The hour beginning at midnight is hour zero.
-  public var skipHours: [Int]?
+  public var skipHours: RSSFeedSkipHours?
 
   /// A hint for aggregators telling them which days they can skip.
   ///
@@ -214,7 +214,7 @@ public struct RSSFeedChannel {
   /// is Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
   /// Aggregators may not read the channel during days listed in the skipDays
   /// element.
-  public var skipDays: [RSSFeedSkipDay]?
+  public var skipDays: RSSFeedSkipDays?
 
   /// A channel may contain any number of <item>s. An item may represent a
   /// "story" -- much like a story in a newspaper or magazine; if so its
@@ -244,8 +244,8 @@ public struct RSSFeedChannel {
     ttl: Int? = nil,
     image: RSSFeedImage? = nil,
     textInput: RSSFeedTextInput? = nil,
-    skipHours: [Int]? = nil,
-    skipDays: [RSSFeedSkipDay]? = nil,
+    skipHours: RSSFeedSkipHours? = nil,
+    skipDays: RSSFeedSkipDays? = nil,
     items: [RSSFeedItem]? = nil) {
     self.title = title
     self.link = link
@@ -324,8 +324,8 @@ extension RSSFeedChannel: Codable {
     ttl = try container.decodeIfPresent(Int.self, forKey: RSSFeedChannel.CodingKeys.ttl)
     image = try container.decodeIfPresent(RSSFeedImage.self, forKey: RSSFeedChannel.CodingKeys.image)
     textInput = try container.decodeIfPresent(RSSFeedTextInput.self, forKey: RSSFeedChannel.CodingKeys.textInput)
-    skipHours = try container.decodeIfPresent([Int].self, forKey: RSSFeedChannel.CodingKeys.skipHours)
-    skipDays = try container.decodeIfPresent([RSSFeedSkipDay].self, forKey: RSSFeedChannel.CodingKeys.skipDays)
+    skipHours = try container.decodeIfPresent(RSSFeedSkipHours.self, forKey: RSSFeedChannel.CodingKeys.skipHours)
+    skipDays = try container.decodeIfPresent(RSSFeedSkipDays.self, forKey: RSSFeedChannel.CodingKeys.skipDays)
     items = try container.decodeIfPresent([RSSFeedItem].self, forKey: RSSFeedChannel.CodingKeys.items)
   }
 

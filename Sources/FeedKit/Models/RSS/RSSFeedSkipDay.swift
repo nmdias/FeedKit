@@ -38,7 +38,7 @@ import Foundation
 /// - friday: Aggregator hint to skip parsing on `Friday`.
 /// - saturday: Aggregator hint to skip parsing on `Saturday`.
 /// - sunday: Aggregator hint to skip parsing on `Sunday`.
-public enum RSSFeedSkipDay: String {
+public enum SkipDay: String, Equatable, Hashable, Codable {
   case monday
   case tuesday
   case wednesday
@@ -48,9 +48,9 @@ public enum RSSFeedSkipDay: String {
   case sunday
 }
 
-extension RSSFeedSkipDay {
+extension SkipDay {
   /// Lowercase the incoming `rawValue` string to try and match the
-  /// `RSSFeedSkipDay`'s `rawValue`
+  /// `SkipDay`'s `rawValue`
   ///
   /// - Parameter rawValue: The raw value
   public init?(rawValue: String) {
@@ -67,14 +67,34 @@ extension RSSFeedSkipDay {
   }
 }
 
+public struct RSSFeedSkipDays {
+  public var days: [SkipDay]?
+}
+
 // MARK: - Equatable
 
-extension RSSFeedSkipDay: Equatable {}
+extension RSSFeedSkipDays: Equatable {}
 
 // MARK: - Hashable
 
-extension RSSFeedSkipDay: Hashable {}
+extension RSSFeedSkipDays: Hashable {}
 
 // MARK: - Codable
 
-extension RSSFeedSkipDay: Codable {}
+extension RSSFeedSkipDays: Codable {
+  private enum CodingKeys: CodingKey {
+    case day
+  }
+
+  public init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<RSSFeedSkipDays.CodingKeys> = try decoder.container(keyedBy: RSSFeedSkipDays.CodingKeys.self)
+
+    days = try container.decodeIfPresent([SkipDay].self, forKey: RSSFeedSkipDays.CodingKeys.day)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<RSSFeedSkipDays.CodingKeys> = encoder.container(keyedBy: RSSFeedSkipDays.CodingKeys.self)
+
+    try container.encodeIfPresent(days, forKey: RSSFeedSkipDays.CodingKeys.day)
+  }
+}
