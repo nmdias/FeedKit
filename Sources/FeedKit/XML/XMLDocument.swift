@@ -52,6 +52,10 @@ class XMLDocument: Equatable, Hashable {
 class XMLNode: Codable, Equatable, Hashable {
   /// The parent node of this node.
   weak var parent: XMLNode?
+  /// The namespace URI
+  var namespaceURI: String?
+  /// The namespace prefix
+  var prefix: String?
   /// The name of the node.
   var name: String
   /// The text of the node, if present.
@@ -73,11 +77,15 @@ class XMLNode: Codable, Equatable, Hashable {
   ///   - attributes: Attributes for the node, if any.
   ///   - children: Children for the node, if any.
   init(
+    namespaceURI: String? = nil,
+    prefix: String? = nil,
     name: String,
     text: String? = nil,
     isXhtml: Bool = false,
     attributes: [String: String]? = nil,
     children: [XMLNode]? = nil) {
+    self.namespaceURI = namespaceURI
+    self.prefix = prefix
     self.name = name
     self.text = text
     self.isXhtml = isXhtml

@@ -40,11 +40,15 @@ class XMLParser: NSObject {
   /// A boolean indicating whether the XML parsing process has completed.
   /// Set to `true` when parsing is finished; otherwise, `false`.
   var isComplete = false
+  /// Namespace prefix-to-URI mappings.
+  var namespacePrefixes: [String: String] = [:]
 
   /// Initializes the wrapper with XML data.
   /// - Parameter data: The XML data to parse.
   init(data: Data) {
     parser = Foundation.XMLParser(data: data)
+    parser.shouldProcessNamespaces = true
+    parser.shouldReportNamespacePrefixes = true
     stack = XMLStack()
     super.init()
     parser.delegate = self
@@ -84,16 +88,50 @@ class XMLParser: NSObject {
 extension XMLParser: XMLParserDelegate {
   func parser(
     _ parser: Foundation.XMLParser,
+    didStartMappingPrefix prefix: String,
+    toURI namespaceURI: String) {
+    namespacePrefixes[prefix] = namespaceURI
+  }
+
+  func parser(
+    _ parser: Foundation.XMLParser,
+    didEndMappingPrefix prefix: String) {
+    namespacePrefixes.removeValue(forKey: prefix)
+  }
+
+  func parser(
+    _ parser: Foundation.XMLParser,
     didStartElement elementName: String,
     namespaceURI: String?,
     qualifiedName qName: String?,
     attributes attributeDict: [String: String] = [:]) {
+    // Determine prefix and namespace
+    var prefix: String?
+    if let qName, qName.contains(":") {
+      prefix = qName.components(separatedBy: ":").first
+    }
+
+    // Check if a namespace URI is already provided
+    var resolvedNamespaceURI = namespaceURI
+
+    // If no namespace URI, attempt to resolve it using the prefix
+    if resolvedNamespaceURI == nil, let prefix {
+      resolvedNamespaceURI = namespacePrefixes[prefix]
+    }
+
+    // If the resolved namespace URI is empty, treat it as nil
+    if resolvedNamespaceURI?.isEmpty == true {
+      resolvedNamespaceURI = nil
+    }
+
     // Check if the element contains XHTML. If so, avoid building a tree.
     // Instead, we append a single node with the XHTML content and mark it as isXhtml.
     let isXhtml = attributeDict["type"] == "xhtml"
     if isXhtml {
       // Entering an XHTML element; create a single node for it.
       stack.push(.init(
+        namespaceURI: resolvedNamespaceURI,
+        prefix: prefix,
         name: elementName,
         isXhtml: isXhtml,
         children: [
@@ -121,12 +159,16 @@ extension XMLParser: XMLParserDelegate {
       // node with the element name.
       if attributeDict.isEmpty {
         stack.push(.init(
+          namespaceURI: resolvedNamespaceURI,
+          prefix: prefix,
           name: elementName
         ))
       } else {
         // If attributes are found, treat them as child nodes of the element.
         // Each attribute is added as a child node with its key and value.
         stack.push(.init(
+          namespaceURI: resolvedNamespaceURI,
+          prefix: prefix,
           name: elementName,
           children: [
             .init(
