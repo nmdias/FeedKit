@@ -98,6 +98,8 @@ class XMLNode: Codable, Equatable, Hashable {
 
   static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
     if
+      lhs.namespaceURI != rhs.namespaceURI ||
+      lhs.prefix != rhs.prefix ||
       lhs.name != rhs.name ||
       lhs.text != rhs.text ||
       lhs.isXhtml != rhs.isXhtml {
@@ -115,6 +117,8 @@ class XMLNode: Codable, Equatable, Hashable {
     // caused by the parent property, which creates circular references
     for (lChild, rChild) in zip(lhsChildren, rhsChildren) {
       if
+        lChild.namespaceURI != rChild.namespaceURI ||
+        lChild.prefix != rChild.prefix ||
         lChild.name != rChild.name ||
         lChild.text != rChild.text ||
         lChild.isXhtml != rChild.isXhtml {
