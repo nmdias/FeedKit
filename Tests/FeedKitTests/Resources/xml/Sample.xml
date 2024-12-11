@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sample>
+<sample xmlns:ns="http://example.ns/namespace">
   <header>
+    <ns:description>This is a sample namespace element.</ns:description>
     <title type="text">Sample Document</title>
     <description>This is a sample document.</description>
     <version>1.0</version>

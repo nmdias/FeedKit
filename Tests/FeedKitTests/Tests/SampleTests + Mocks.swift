@@ -30,10 +30,56 @@ struct Sample: Codable, Equatable {
       let keyword: [String]
     }
 
+    struct Namespace: Codable, Equatable {
+      let description: String
+    }
+
     let title: String
     let description: String
     let version: String
     let keywords: Keywords
+    let namespace: Namespace
+
+    init(
+      title: String,
+      description: String,
+      version: String,
+      keywords: Sample.Header.Keywords,
+      namespace: Sample.Header.Namespace) {
+      self.title = title
+      self.description = description
+      self.version = version
+      self.keywords = keywords
+      self.namespace = namespace
+    }
+
+    private enum CodingKeys: String, CodingKey {
+      case title
+      case description
+      case version
+      case keywords
+      case namespace = "xmlns:ns"
+    }
+
+    init(from decoder: any Decoder) throws {
+      let container: KeyedDecodingContainer<Sample.Header.CodingKeys> = try decoder.container(keyedBy: Sample.Header.CodingKeys.self)
+
+      title = try container.decode(String.self, forKey: Sample.Header.CodingKeys.title)
+      description = try container.decode(String.self, forKey: Sample.Header.CodingKeys.description)
+      version = try container.decode(String.self, forKey: Sample.Header.CodingKeys.version)
+      keywords = try container.decode(Sample.Header.Keywords.self, forKey: Sample.Header.CodingKeys.keywords)
+      namespace = try container.decode(Sample.Header.Namespace.self, forKey: Sample.Header.CodingKeys.namespace)
+    }
+
+    func encode(to encoder: any Encoder) throws {
+      var container: KeyedEncodingContainer<Sample.Header.CodingKeys> = encoder.container(keyedBy: Sample.Header.CodingKeys.self)
+
+      try container.encode(title, forKey: Sample.Header.CodingKeys.title)
+      try container.encode(description, forKey: Sample.Header.CodingKeys.description)
+      try container.encode(version, forKey: Sample.Header.CodingKeys.version)
+      try container.encode(keywords, forKey: Sample.Header.CodingKeys.keywords)
+      try container.encode(namespace, forKey: Sample.Header.CodingKeys.namespace)
+    }
   }
 
   struct Content: Codable, Equatable {
@@ -147,6 +193,9 @@ extension SampleTests {
             "Generic",
             "Placeholder",
           ]
+        ),
+        namespace: .init(
+          description: "This is a sample namespace element."
         )
       ),
       content: .init(
@@ -249,6 +298,15 @@ extension SampleTests {
                 .init(
                   name: "keyword",
                   text: "Placeholder"
+                ),
+              ]
+            ),
+            .init(
+              name: "@namespace",
+              children: [
+                .init(
+                  name: "ns:description",
+                  text: "This is a sample namespace element."
                 ),
               ]
             ),
