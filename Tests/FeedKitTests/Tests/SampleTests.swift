@@ -64,7 +64,7 @@ struct SampleTests: FeedKitTestable {
     let expected: Sample = mock
 
     // When
-    let actual = try! decoder.decode(Sample.self, from: element)
+    let actual = try decoder.decode(Sample.self, from: element)
 
     // Then
     #expect(expected == actual)
@@ -77,7 +77,7 @@ struct SampleTests: FeedKitTestable {
     let expected: XMLNode = xmlNodeMock
 
     // When
-    let actual = try! encoder.encode(value: mock)
+    let actual = try encoder.encode(value: mock)
 
     #expect(expected == actual)
   }
