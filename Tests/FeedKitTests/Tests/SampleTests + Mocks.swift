@@ -260,6 +260,9 @@ extension SampleTests {
 extension SampleTests {
   var xmlNodeMock: XMLNode {
     .init(
+      namespacePrefixes: [
+        "ns": "http://example.ns/namespace"
+      ],
       name: "sample",
       children: [
         .init(
@@ -305,7 +308,8 @@ extension SampleTests {
               name: "@namespace",
               children: [
                 .init(
-                  name: "ns:description",
+                  prefix: "ns",
+                  name: "description",
                   text: "This is a sample namespace element."
                 ),
               ]

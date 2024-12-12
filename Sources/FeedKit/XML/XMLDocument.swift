@@ -52,6 +52,8 @@ class XMLDocument: Equatable, Hashable {
 class XMLNode: Codable, Equatable, Hashable {
   /// The parent node of this node.
   weak var parent: XMLNode?
+  /// Namespace prefix-to-URI mappings.
+  var namespacePrefixes: [String: String] = [:]
   /// The namespace URI
   var namespaceURI: String?
   /// The namespace prefix
@@ -77,6 +79,7 @@ class XMLNode: Codable, Equatable, Hashable {
   ///   - attributes: Attributes for the node, if any.
   ///   - children: Children for the node, if any.
   init(
+    namespacePrefixes: [String: String] = [:],
     namespaceURI: String? = nil,
     prefix: String? = nil,
     name: String,
@@ -84,6 +87,7 @@ class XMLNode: Codable, Equatable, Hashable {
     isXhtml: Bool = false,
     attributes: [String: String]? = nil,
     children: [XMLNode]? = nil) {
+    self.namespacePrefixes = namespacePrefixes
     self.namespaceURI = namespaceURI
     self.prefix = prefix
     self.name = name
@@ -194,43 +198,96 @@ extension XMLNode: XMLStringConvertible {
     indentationLevel: Int = 1) -> String {
     let indent = formatted ? String(repeating: "  ", count: indentationLevel) : ""
 
+    // Skip processing nodes with the name "@attributes".
     if name == "@attributes" {
       return ""
     }
+    var xml = ""
 
-    var xml = "\(indent)<\(name)"
-
-    // Look for a child with the name "@attributes"
-    if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
-      // If found, loop through its children and filter for attribute type
-      for attribute in attributesNode.children ?? [] {
-        xml += " \(attribute.name)=\"\(attribute.text ?? "")\""
-      }
+    if let prefix {
+      xml += "\(indent)<\(prefix):\(name)"
+    } else {
+      xml += "\(indent)<\(name)"
     }
 
+    xml += namespaceDeclarationsToString()
+
+    xml += attributesToString()
+
+    // Process child nodes, excluding "@attributes"
     if let children = children?.filter({ $0.name != "@attributes" }), !children.isEmpty {
-      // Close the opening tag
+      // Close the opening tag and add child nodes recursively.
       xml += ">\(formatted ? "\n" : "")"
 
       // Append children recursively, with increased
       // indentation level if formatted is true
       for child in children {
-        xml += child.toXMLString(
-          formatted: formatted,
-          indentationLevel: indentationLevel + 1
-        )
+        // Process children of a "@namespace" node, if present.
+        if child.name == "@namespace" {
+          for namespaceNode in child.children?.filter({ $0.name != "@attributes" }) ?? [] {
+            xml += namespaceNode.toXMLString(
+              formatted: formatted,
+              indentationLevel: indentationLevel + 1
+            )
+          }
+        } else {
+          xml += child.toXMLString(
+            formatted: formatted,
+            indentationLevel: indentationLevel + 1
+          )
+        }
       }
 
       // Add closing tag with indentation if formatted is true
       xml += "\(formatted ? indent : "")</\(name)>\(formatted ? "\n" : "")"
     } else if let text {
       // Element has text, close opening tag and add text
-      xml += ">\(text)</\(name)>\(formatted ? "\n" : "")"
+      if let prefix {
+        xml += ">\(text)</\(prefix):\(name)>\(formatted ? "\n" : "")"
+      } else {
+        xml += ">\(text)</\(name)>\(formatted ? "\n" : "")"
+      }
+
     } else {
       // Self-closing tag for an empty node
       xml += " />\(formatted ? "\n" : "")"
     }
 
     return xml
+  }
+}
+
+// MARK: - XMLNode + XMLStringConvertible Helpers
+
+extension XMLNode {
+  /// Converts namespace declarations into a string representation.
+  /// - Returns: A formatted string of namespace declarations, or an empty string.
+  private func namespaceDeclarationsToString() -> String {
+    // Generate a string for namespace declarations in the format:
+    // - Default namespace: xmlns="URI"
+    // - Prefixed namespace: xmlns:prefix="URI"
+    let namespaceDeclarations = namespacePrefixes.map { prefix, uri in
+      prefix.isEmpty
+        ? "xmlns=\"\(uri)\""
+        : "xmlns:\(prefix)=\"\(uri)\""
+    }.joined(separator: " ")
+
+    // Return the namespace declarations, prefixed with a space if not empty.
+    return namespaceDeclarations.isEmpty ? "" : " \(namespaceDeclarations)"
+  }
+
+  /// Converts attributes of the node into a string representation.
+  /// - Returns: A formatted string of attributes, or an empty string if none exist.
+  private func attributesToString() -> String {
+    var result = ""
+
+    // Find a child node named "@attributes" that contains the attributes.
+    if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
+      // Append each attribute in the format: name="value".
+      for attribute in attributesNode.children ?? [] {
+        result += " \(attribute.name)=\"\(attribute.text ?? "")\""
+      }
+    }
+    return result
   }
 }
