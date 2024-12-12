@@ -226,6 +226,14 @@ public struct RSSFeedChannel {
   /// however at least one of title or description must be present.
   public var items: [RSSFeedItem]?
 
+  // MARK: - Namespaces
+
+  /// The Dublin Core Metadata Element Set is a standard for cross-domain
+  /// resource description.
+  ///
+  /// See https://tools.ietf.org/html/rfc5013
+  public var dublinCore: DublinCore?
+
   public init(
     title: String? = nil,
     link: String? = nil,
@@ -246,7 +254,8 @@ public struct RSSFeedChannel {
     textInput: RSSFeedTextInput? = nil,
     skipHours: RSSFeedSkipHours? = nil,
     skipDays: RSSFeedSkipDays? = nil,
-    items: [RSSFeedItem]? = nil) {
+    items: [RSSFeedItem]? = nil,
+    dublinCore: DublinCore? = nil) {
     self.title = title
     self.link = link
     self.description = description
@@ -267,6 +276,7 @@ public struct RSSFeedChannel {
     self.skipHours = skipHours
     self.skipDays = skipDays
     self.items = items
+    self.dublinCore = dublinCore
   }
 }
 
@@ -281,7 +291,7 @@ extension RSSFeedChannel: Hashable {}
 // MARK: - Codable
 
 extension RSSFeedChannel: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case title
     case link
     case description
@@ -302,6 +312,7 @@ extension RSSFeedChannel: Codable {
     case skipHours
     case skipDays
     case item
+    case dublinCore = "xmlns:dc"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -327,6 +338,7 @@ extension RSSFeedChannel: Codable {
     skipHours = try container.decodeIfPresent(RSSFeedSkipHours.self, forKey: RSSFeedChannel.CodingKeys.skipHours)
     skipDays = try container.decodeIfPresent(RSSFeedSkipDays.self, forKey: RSSFeedChannel.CodingKeys.skipDays)
     items = try container.decodeIfPresent([RSSFeedItem].self, forKey: RSSFeedChannel.CodingKeys.item)
+    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: RSSFeedChannel.CodingKeys.dublinCore)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -352,5 +364,6 @@ extension RSSFeedChannel: Codable {
     try container.encodeIfPresent(skipHours, forKey: RSSFeedChannel.CodingKeys.skipHours)
     try container.encodeIfPresent(skipDays, forKey: RSSFeedChannel.CodingKeys.skipDays)
     try container.encodeIfPresent(items, forKey: RSSFeedChannel.CodingKeys.item)
+    try container.encodeIfPresent(dublinCore, forKey: RSSFeedChannel.CodingKeys.dublinCore)
   }
 }

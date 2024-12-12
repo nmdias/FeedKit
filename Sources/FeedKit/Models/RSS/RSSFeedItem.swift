@@ -170,6 +170,12 @@ public struct RSSFeedItem {
   /// an item from an aggregator to a weblog authoring tool.
   public var source: RSSFeedSource?
 
+  /// The Dublin Core Metadata Element Set is a standard for cross-domain
+  /// resource description.
+  ///
+  /// See https://tools.ietf.org/html/rfc5013
+  public var dublinCore: DublinCore?
+
   public init(
     title: String? = nil,
     link: String? = nil,
@@ -180,7 +186,8 @@ public struct RSSFeedItem {
     enclosure: RSSFeedEnclosure? = nil,
     guid: RSSFeedGUID? = nil,
     pubDate: Date? = nil,
-    source: RSSFeedSource? = nil) {
+    source: RSSFeedSource? = nil,
+    dublinCore: DublinCore? = nil) {
     self.title = title
     self.link = link
     self.description = description
@@ -191,6 +198,7 @@ public struct RSSFeedItem {
     self.guid = guid
     self.pubDate = pubDate
     self.source = source
+    self.dublinCore = dublinCore
   }
 }
 
@@ -205,7 +213,7 @@ extension RSSFeedItem: Hashable {}
 // MARK: - Codable
 
 extension RSSFeedItem: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case title
     case link
     case description
@@ -216,6 +224,7 @@ extension RSSFeedItem: Codable {
     case guid
     case pubDate
     case source
+    case dublinCore = "xmlns:dc"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -231,6 +240,7 @@ extension RSSFeedItem: Codable {
     guid = try container.decodeIfPresent(RSSFeedGUID.self, forKey: RSSFeedItem.CodingKeys.guid)
     pubDate = try container.decodeIfPresent(Date.self, forKey: RSSFeedItem.CodingKeys.pubDate)
     source = try container.decodeIfPresent(RSSFeedSource.self, forKey: RSSFeedItem.CodingKeys.source)
+    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: RSSFeedItem.CodingKeys.dublinCore)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -246,5 +256,6 @@ extension RSSFeedItem: Codable {
     try container.encodeIfPresent(guid, forKey: RSSFeedItem.CodingKeys.guid)
     try container.encodeIfPresent(pubDate, forKey: RSSFeedItem.CodingKeys.pubDate)
     try container.encodeIfPresent(source, forKey: RSSFeedItem.CodingKeys.source)
+    try container.encodeIfPresent(dublinCore, forKey: RSSFeedItem.CodingKeys.dublinCore)
   }
 }
