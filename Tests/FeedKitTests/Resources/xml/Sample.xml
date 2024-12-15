@@ -8,7 +8,8 @@
       <keyword>Generic</keyword>
       <keyword>Placeholder</keyword>
     </keywords>
-    <ns:description>This is a sample namespace element.</ns:description>
+    <ns:title>This title is a sample namespace element.</ns:title>
+    <ns:description>This description is a sample namespace element.</ns:description>
   </header>
   <content>
     <item id="1" value="01">

@@ -112,22 +112,13 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     decoder.codingPath.append(key)
     defer { self.decoder.codingPath.removeLast() }
 
-    if key.isNamespace {
-      guard let child = node.child(for: "@namespace") else {
-        throw DecodingError.dataCorruptedError(
-          forKey: key, in: self,
-          debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)")
-      }
-      return try decoder.decode(node: child, as: T.self)
-    } else {
-      guard let child = node.child(for: key.stringValue) else {
-        throw DecodingError.dataCorruptedError(
-          forKey: key, in: self,
-          debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)")
-      }
-
-      return try decoder.decode(node: child, as: T.self)
+    guard let child = node.child(for: key.stringValue) else {
+      throw DecodingError.dataCorruptedError(
+        forKey: key, in: self,
+        debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)")
     }
+
+    return try decoder.decode(node: child, as: T.self)
   }
 
   // MARK: -

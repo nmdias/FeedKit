@@ -223,7 +223,7 @@ extension XMLNode: XMLStringConvertible {
       // indentation level if formatted is true
       for child in children {
         // Process children of a "@namespace" node, if present.
-        if child.name == "@namespace" {
+        if child.name.split(separator: ":").first == "xmlns" {
           for namespaceNode in child.children?.filter({ $0.name != "@attributes" }) ?? [] {
             xml += namespaceNode.toXMLString(
               formatted: formatted,

@@ -31,6 +31,7 @@ struct Sample: Codable, Equatable {
     }
 
     struct Namespace: Codable, Equatable {
+      let title: String
       let description: String
     }
 
@@ -195,7 +196,8 @@ extension SampleTests {
           ]
         ),
         namespace: .init(
-          description: "This is a sample namespace element."
+          title: "This title is a sample namespace element.",
+          description: "This description is a sample namespace element."
         )
       ),
       content: .init(
@@ -305,12 +307,17 @@ extension SampleTests {
               ]
             ),
             .init(
-              name: "@namespace",
+              name: "xmlns:ns",
               children: [
                 .init(
                   prefix: "ns",
+                  name: "title",
+                  text: "This title is a sample namespace element."
+                ),
+                .init(
+                  prefix: "ns",
                   name: "description",
-                  text: "This is a sample namespace element."
+                  text: "This description is a sample namespace element."
                 ),
               ]
             ),
