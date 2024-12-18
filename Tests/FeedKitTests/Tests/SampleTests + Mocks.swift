@@ -25,16 +25,11 @@
 @testable import FeedKit
 
 struct Sample: Codable, Equatable {
+  let header: Header
+  let content: Content
+  let footer: Footer
+
   struct Header: Codable, Equatable {
-    struct Keywords: Codable, Equatable {
-      let keyword: [String]
-    }
-
-    struct Namespace: Codable, Equatable {
-      let title: String
-      let description: String
-    }
-
     let title: String
     let description: String
     let version: String
@@ -45,8 +40,8 @@ struct Sample: Codable, Equatable {
       title: String,
       description: String,
       version: String,
-      keywords: Sample.Header.Keywords,
-      namespace: Sample.Header.Namespace) {
+      keywords: Keywords,
+      namespace: Namespace) {
       self.title = title
       self.description = description
       self.version = version
@@ -62,29 +57,51 @@ struct Sample: Codable, Equatable {
       case namespace = "xmlns:ns"
     }
 
-    init(from decoder: any Decoder) throws {
-      let container: KeyedDecodingContainer<Sample.Header.CodingKeys> = try decoder.container(keyedBy: Sample.Header.CodingKeys.self)
-
-      title = try container.decode(String.self, forKey: Sample.Header.CodingKeys.title)
-      description = try container.decode(String.self, forKey: Sample.Header.CodingKeys.description)
-      version = try container.decode(String.self, forKey: Sample.Header.CodingKeys.version)
-      keywords = try container.decode(Sample.Header.Keywords.self, forKey: Sample.Header.CodingKeys.keywords)
-      namespace = try container.decode(Sample.Header.Namespace.self, forKey: Sample.Header.CodingKeys.namespace)
+    struct Keywords: Codable, Equatable {
+      let keyword: [String]
     }
 
-    func encode(to encoder: any Encoder) throws {
-      var container: KeyedEncodingContainer<Sample.Header.CodingKeys> = encoder.container(keyedBy: Sample.Header.CodingKeys.self)
-
-      try container.encode(title, forKey: Sample.Header.CodingKeys.title)
-      try container.encode(description, forKey: Sample.Header.CodingKeys.description)
-      try container.encode(version, forKey: Sample.Header.CodingKeys.version)
-      try container.encode(keywords, forKey: Sample.Header.CodingKeys.keywords)
-      try container.encode(namespace, forKey: Sample.Header.CodingKeys.namespace)
+    struct Namespace: Codable, Equatable {
+      let title: String
+      let description: String
     }
   }
 
   struct Content: Codable, Equatable {
-    struct Item: Equatable {
+    let item: [Item]
+
+    struct Item: Codable, Equatable {
+      let attributes: Attributes
+      let name: String
+      let description: String
+      let precision: Double
+      let details: Details
+      let xhtml: Xhtml
+
+      private enum CodingKeys: String, CodingKey {
+        case attributes = "@attributes"
+        case name
+        case description
+        case precision
+        case details
+        case xhtml
+      }
+
+      init(
+        attributes: Attributes,
+        name: String,
+        description: String,
+        precision: Double,
+        details: Details,
+        xhtml: Xhtml) {
+        self.attributes = attributes
+        self.name = name
+        self.description = description
+        self.precision = precision
+        self.details = details
+        self.xhtml = xhtml
+      }
+
       struct Attributes: Codable, Equatable {
         let id: Int
         let value: String
@@ -95,14 +112,10 @@ struct Sample: Codable, Equatable {
       }
 
       struct Xhtml: Codable, Equatable {
-        struct Attributes: Codable, Equatable {
-          let type: String
-        }
-
-        let attributes: Attributes
+        let attributes: XhtmlAttributes
         let text: String
 
-        init(attributes: Sample.Content.Item.Xhtml.Attributes, text: String) {
+        init(attributes: XhtmlAttributes, text: String) {
           self.attributes = attributes
           self.text = text
         }
@@ -112,73 +125,17 @@ struct Sample: Codable, Equatable {
           case text = "@text"
         }
 
-        init(from decoder: any Decoder) throws {
-          let container: KeyedDecodingContainer<Sample.Content.Item.Xhtml.CodingKeys> = try decoder.container(keyedBy: Sample.Content.Item.Xhtml.CodingKeys.self)
-
-          attributes = try container.decode(Sample.Content.Item.Xhtml.Attributes.self, forKey: Sample.Content.Item.Xhtml.CodingKeys.attributes)
-          text = try container.decode(String.self, forKey: Sample.Content.Item.Xhtml.CodingKeys.text)
-        }
-
-        func encode(to encoder: any Encoder) throws {
-          var container: KeyedEncodingContainer<Sample.Content.Item.Xhtml.CodingKeys> = encoder.container(keyedBy: Sample.Content.Item.Xhtml.CodingKeys.self)
-
-          try container.encode(attributes, forKey: Sample.Content.Item.Xhtml.CodingKeys.attributes)
-          try container.encode(text, forKey: Sample.Content.Item.Xhtml.CodingKeys.text)
+        struct XhtmlAttributes: Codable, Equatable {
+          let type: String
         }
       }
-
-      let attributes: Attributes
-      let name: String
-      let description: String
-      let precision: Double
-      let details: Details
-      let xhtml: Xhtml
     }
-
-    let item: [Item]
   }
 
   struct Footer: Codable, Equatable {
     let notes: String
     let created: String
     let revision: Int
-  }
-
-  let header: Header
-  let content: Content
-  let footer: Footer
-}
-
-extension Sample.Content.Item: Codable {
-  private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
-    case name
-    case description
-    case precision
-    case details
-    case xhtml
-  }
-
-  init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<Sample.Content.Item.CodingKeys> = try decoder.container(keyedBy: Sample.Content.Item.CodingKeys.self)
-
-    attributes = try container.decode(Sample.Content.Item.Attributes.self, forKey: Sample.Content.Item.CodingKeys.attributes)
-    name = try container.decode(String.self, forKey: Sample.Content.Item.CodingKeys.name)
-    description = try container.decode(String.self, forKey: Sample.Content.Item.CodingKeys.description)
-    precision = try container.decode(Double.self, forKey: Sample.Content.Item.CodingKeys.precision)
-    details = try container.decode(Sample.Content.Item.Details.self, forKey: Sample.Content.Item.CodingKeys.details)
-    xhtml = try container.decode(Sample.Content.Item.Xhtml.self, forKey: Sample.Content.Item.CodingKeys.xhtml)
-  }
-
-  func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<Sample.Content.Item.CodingKeys> = encoder.container(keyedBy: Sample.Content.Item.CodingKeys.self)
-
-    try container.encode(attributes, forKey: Sample.Content.Item.CodingKeys.attributes)
-    try container.encode(name, forKey: Sample.Content.Item.CodingKeys.name)
-    try container.encode(description, forKey: Sample.Content.Item.CodingKeys.description)
-    try container.encode(precision, forKey: Sample.Content.Item.CodingKeys.precision)
-    try container.encode(details, forKey: Sample.Content.Item.CodingKeys.details)
-    try container.encode(xhtml, forKey: Sample.Content.Item.CodingKeys.xhtml)
   }
 }
 
@@ -263,7 +220,7 @@ extension SampleTests {
   var xmlNodeMock: XMLNode {
     .init(
       namespacePrefixes: [
-        "ns": "http://example.ns/namespace"
+        "ns": "http://example.ns/namespace",
       ],
       name: "sample",
       children: [
