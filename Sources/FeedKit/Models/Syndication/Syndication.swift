@@ -60,6 +60,10 @@ public struct Syndication {
   }
 }
 
+// MARK: - XMLNamespaceDecodable
+
+extension Syndication: XMLNamespaceCodable {}
+
 // MARK: - Equatable
 
 extension Syndication: Equatable {}
@@ -71,25 +75,25 @@ extension Syndication: Hashable {}
 // MARK: - Codable
 
 extension Syndication: Codable {
-  private enum CodingKeys: CodingKey {
-    case updatePeriod
-    case updateFrequency
-    case updateBase
+  private enum CodingKeys: String, CodingKey {
+    case updatePeriod = "sy:updatePeriod"
+    case updateFrequency = "sy:updateFrequency"
+    case updateBase = "sy:updateBase"
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<Syndication.CodingKeys> = try decoder.container(keyedBy: Syndication.CodingKeys.self)
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    updatePeriod = try container.decodeIfPresent(SyndicationUpdatePeriod.self, forKey: Syndication.CodingKeys.updatePeriod)
-    updateFrequency = try container.decodeIfPresent(Int.self, forKey: Syndication.CodingKeys.updateFrequency)
-    updateBase = try container.decodeIfPresent(Date.self, forKey: Syndication.CodingKeys.updateBase)
+    updatePeriod = try container.decodeIfPresent(SyndicationUpdatePeriod.self, forKey: CodingKeys.updatePeriod)
+    updateFrequency = try container.decodeIfPresent(Int.self, forKey: CodingKeys.updateFrequency)
+    updateBase = try container.decodeIfPresent(Date.self, forKey: CodingKeys.updateBase)
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<Syndication.CodingKeys> = encoder.container(keyedBy: Syndication.CodingKeys.self)
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(updatePeriod, forKey: Syndication.CodingKeys.updatePeriod)
-    try container.encodeIfPresent(updateFrequency, forKey: Syndication.CodingKeys.updateFrequency)
-    try container.encodeIfPresent(updateBase, forKey: Syndication.CodingKeys.updateBase)
+    try container.encodeIfPresent(updatePeriod, forKey: CodingKeys.updatePeriod)
+    try container.encodeIfPresent(updateFrequency, forKey: CodingKeys.updateFrequency)
+    try container.encodeIfPresent(updateBase, forKey: CodingKeys.updateBase)
   }
 }
