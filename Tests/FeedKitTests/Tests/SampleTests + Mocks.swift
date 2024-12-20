@@ -64,6 +64,11 @@ struct Sample: Codable, Equatable {
     struct Namespace: Codable, Equatable {
       let title: String
       let description: String
+      
+      private enum CodingKeys: String, CodingKey {
+        case title = "ns:title"
+        case description = "ns:description"
+      }
     }
   }
 
@@ -267,13 +272,11 @@ extension SampleTests {
               name: "xmlns:ns",
               children: [
                 .init(
-                  prefix: "ns",
-                  name: "title",
+                  name: "ns:title",
                   text: "This title is a sample namespace element."
                 ),
                 .init(
-                  prefix: "ns",
-                  name: "description",
+                  name: "ns:description",
                   text: "This description is a sample namespace element."
                 ),
               ]

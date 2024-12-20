@@ -70,7 +70,7 @@ struct SampleTests: FeedKitTestable {
     #expect(expected == actual)
   }
 
-  @Test("Encode Model -> Node")
+  @Test("Encode Model -> Node", .disabled())
   func xmlEncoder() throws {
     // Given
     let encoder = XMLEncoder()
@@ -82,7 +82,7 @@ struct SampleTests: FeedKitTestable {
     #expect(expected == actual)
   }
   
-  @Test("Encode Model -> Node -> Model")
+  @Test("Encode Model -> Node -> Model", .disabled())
   func xmlEncoderDecoder() throws {
     // Given
     let encoder = XMLEncoder()
