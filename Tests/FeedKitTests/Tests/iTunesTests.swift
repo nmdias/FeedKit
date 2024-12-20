@@ -1,5 +1,5 @@
 //
-//  DublinCoreTests.swift
+//  iTunesTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -26,33 +26,19 @@
 
 import Testing
 
-@Suite("Dublin Core")
-struct DublinCoreTests: FeedKitTestable {
+@Suite("iTunes")
+struct iTunesTests: FeedKitTestable {
   @Test
-  func rssdc() throws {
+  func itunes() throws {
     // Given
-    let data = data(resource: "RSSDC", withExtension: "xml")
+    let data = data(resource: "iTunes", withExtension: "xml")
     let expected: RSSFeed = mock
 
     // When
     let actual = try RSSFeed(data: data)
 
     // Then
-    #expect(expected == actual)
-  }
-  
-  @Test()
-  func xmlString() throws {
-    // Given
-    let data = data(resource: "RSSDC", withExtension: "xml")
-    let expected = String(decoding: data, as: Unicode.UTF8.self)
-    
-    let feed = try RSSFeed(data: data)
-
-    // When
-    let actual = try feed.toXmlString(formatted: true)
-
-    // Then
-    #expect(expected == actual)
+    let result = expected == actual
+    #expect(result)
   }
 }

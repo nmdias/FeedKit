@@ -1,5 +1,5 @@
 //
-//  DublinCoreTests + Mocks.swift
+//  iTunesTests + Mocks.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,49 +24,10 @@
 
 @testable import FeedKit
 
-extension DublinCoreTests {
+extension iTunesTests {
   var mock: RSSFeed {
     .init(
-      channel: .init(
-        items: [
-          .init(
-            dublinCore: .init(
-              title: "title",
-              creator: "creator",
-              subject: "subject",
-              description: "description",
-              publisher: "publisher",
-              contributor: "contributor",
-              date: FeedDateFormatter(spec: .permissive).date(from: "2000-01-01T12:00+00:00"),
-              type: "type",
-              format: "format",
-              identifier: "identifier",
-              source: "source",
-              language: "language",
-              relation: "relation",
-              coverage: "coverage",
-              rights: "rights"
-            )
-          ),
-        ],
-        dublinCore: .init(
-          title: "title",
-          creator: "creator",
-          subject: "subject",
-          description: "description",
-          publisher: "publisher",
-          contributor: "contributor",
-          date: FeedDateFormatter(spec: .permissive).date(from: "2000-01-01T12:00+00:00"),
-          type: "type",
-          format: "format",
-          identifier: "identifier",
-          source: "source",
-          language: "language",
-          relation: "relation",
-          coverage: "coverage",
-          rights: "rights"
-        )
-      )
+      channel: nil
     )
   }
 }
