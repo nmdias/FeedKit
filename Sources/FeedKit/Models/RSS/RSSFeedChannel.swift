@@ -233,7 +233,25 @@ public struct RSSFeedChannel {
   ///
   /// See https://tools.ietf.org/html/rfc5013
   public var dublinCore: DublinCore?
+  
+  /// iTunes Podcasting Tags are de facto standard for podcast syndication.
+  /// See https://help.apple.com/itc/podcasts_connect/#/itcb54353390
+  public var iTunes: ITunes?
 
+  /// Provides syndication hints to aggregators and others picking up this RDF Site
+  /// Summary (RSS) feed regarding how often it is updated. For example, if you
+  /// updated your file twice an hour, updatePeriod would be "hourly" and
+  /// updateFrequency would be "2". The syndication module borrows from Ian Davis's
+  /// Open Content Syndication (OCS) directory format. It supercedes the RSS 0.91
+  /// skipDay and skipHour elements.
+  ///
+  /// See http://web.resource.org/rss/1.0/modules/syndication/
+  public var syndication: Syndication?
+  
+  /// Media RSS is a new RSS module that supplements the <enclosure>
+  /// capabilities of RSS 2.0.
+  public var media: Media?
+  
   public init(
     title: String? = nil,
     link: String? = nil,
@@ -255,7 +273,10 @@ public struct RSSFeedChannel {
     skipHours: RSSFeedSkipHours? = nil,
     skipDays: RSSFeedSkipDays? = nil,
     items: [RSSFeedItem]? = nil,
-    dublinCore: DublinCore? = nil) {
+    dublinCore: DublinCore? = nil,
+    iTunes: ITunes? = nil,
+    syndication: Syndication? = nil,
+    media: Media? = nil) {
     self.title = title
     self.link = link
     self.description = description
@@ -277,6 +298,9 @@ public struct RSSFeedChannel {
     self.skipDays = skipDays
     self.items = items
     self.dublinCore = dublinCore
+    self.iTunes = iTunes
+    self.syndication = syndication
+    self.media = media
   }
 }
 
@@ -312,58 +336,67 @@ extension RSSFeedChannel: Codable {
     case skipHours
     case skipDays
     case item
-    case dublinCore = "xmlns:dc"
+    case dublinCore = "dc"
+    case iTunes = "itunes"
+    case syndication = "sy"
+    case media = "media"
   }
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<RSSFeedChannel.CodingKeys> = try decoder.container(keyedBy: RSSFeedChannel.CodingKeys.self)
 
-    title = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.title)
-    link = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.link)
-    description = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.description)
-    language = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.language)
-    copyright = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.copyright)
-    managingEditor = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.managingEditor)
-    webMaster = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.webMaster)
-    pubDate = try container.decodeIfPresent(Date.self, forKey: RSSFeedChannel.CodingKeys.pubDate)
-    lastBuildDate = try container.decodeIfPresent(Date.self, forKey: RSSFeedChannel.CodingKeys.lastBuildDate)
-    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: RSSFeedChannel.CodingKeys.category)
-    generator = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.generator)
-    docs = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.docs)
-    cloud = try container.decodeIfPresent(RSSFeedCloud.self, forKey: RSSFeedChannel.CodingKeys.cloud)
-    rating = try container.decodeIfPresent(String.self, forKey: RSSFeedChannel.CodingKeys.rating)
-    ttl = try container.decodeIfPresent(Int.self, forKey: RSSFeedChannel.CodingKeys.ttl)
-    image = try container.decodeIfPresent(RSSFeedImage.self, forKey: RSSFeedChannel.CodingKeys.image)
-    textInput = try container.decodeIfPresent(RSSFeedTextInput.self, forKey: RSSFeedChannel.CodingKeys.textInput)
-    skipHours = try container.decodeIfPresent(RSSFeedSkipHours.self, forKey: RSSFeedChannel.CodingKeys.skipHours)
-    skipDays = try container.decodeIfPresent(RSSFeedSkipDays.self, forKey: RSSFeedChannel.CodingKeys.skipDays)
-    items = try container.decodeIfPresent([RSSFeedItem].self, forKey: RSSFeedChannel.CodingKeys.item)
-    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: RSSFeedChannel.CodingKeys.dublinCore)
+    title = try container.decodeIfPresent(String.self, forKey: CodingKeys.title)
+    link = try container.decodeIfPresent(String.self, forKey: CodingKeys.link)
+    description = try container.decodeIfPresent(String.self, forKey: CodingKeys.description)
+    language = try container.decodeIfPresent(String.self, forKey: CodingKeys.language)
+    copyright = try container.decodeIfPresent(String.self, forKey: CodingKeys.copyright)
+    managingEditor = try container.decodeIfPresent(String.self, forKey: CodingKeys.managingEditor)
+    webMaster = try container.decodeIfPresent(String.self, forKey: CodingKeys.webMaster)
+    pubDate = try container.decodeIfPresent(Date.self, forKey: CodingKeys.pubDate)
+    lastBuildDate = try container.decodeIfPresent(Date.self, forKey: CodingKeys.lastBuildDate)
+    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: CodingKeys.category)
+    generator = try container.decodeIfPresent(String.self, forKey: CodingKeys.generator)
+    docs = try container.decodeIfPresent(String.self, forKey: CodingKeys.docs)
+    cloud = try container.decodeIfPresent(RSSFeedCloud.self, forKey: CodingKeys.cloud)
+    rating = try container.decodeIfPresent(String.self, forKey: CodingKeys.rating)
+    ttl = try container.decodeIfPresent(Int.self, forKey: CodingKeys.ttl)
+    image = try container.decodeIfPresent(RSSFeedImage.self, forKey: CodingKeys.image)
+    textInput = try container.decodeIfPresent(RSSFeedTextInput.self, forKey: CodingKeys.textInput)
+    skipHours = try container.decodeIfPresent(RSSFeedSkipHours.self, forKey: CodingKeys.skipHours)
+    skipDays = try container.decodeIfPresent(RSSFeedSkipDays.self, forKey: CodingKeys.skipDays)
+    items = try container.decodeIfPresent([RSSFeedItem].self, forKey: CodingKeys.item)
+    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
+    iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
+    syndication = try container.decodeIfPresent(Syndication.self, forKey: CodingKeys.syndication)
+    media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
   }
 
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<RSSFeedChannel.CodingKeys> = encoder.container(keyedBy: RSSFeedChannel.CodingKeys.self)
 
-    try container.encodeIfPresent(title, forKey: RSSFeedChannel.CodingKeys.title)
-    try container.encodeIfPresent(link, forKey: RSSFeedChannel.CodingKeys.link)
-    try container.encodeIfPresent(description, forKey: RSSFeedChannel.CodingKeys.description)
-    try container.encodeIfPresent(language, forKey: RSSFeedChannel.CodingKeys.language)
-    try container.encodeIfPresent(copyright, forKey: RSSFeedChannel.CodingKeys.copyright)
-    try container.encodeIfPresent(managingEditor, forKey: RSSFeedChannel.CodingKeys.managingEditor)
-    try container.encodeIfPresent(webMaster, forKey: RSSFeedChannel.CodingKeys.webMaster)
-    try container.encodeIfPresent(pubDate, forKey: RSSFeedChannel.CodingKeys.pubDate)
-    try container.encodeIfPresent(lastBuildDate, forKey: RSSFeedChannel.CodingKeys.lastBuildDate)
-    try container.encodeIfPresent(categories, forKey: RSSFeedChannel.CodingKeys.category)
-    try container.encodeIfPresent(generator, forKey: RSSFeedChannel.CodingKeys.generator)
-    try container.encodeIfPresent(docs, forKey: RSSFeedChannel.CodingKeys.docs)
-    try container.encodeIfPresent(cloud, forKey: RSSFeedChannel.CodingKeys.cloud)
-    try container.encodeIfPresent(rating, forKey: RSSFeedChannel.CodingKeys.rating)
-    try container.encodeIfPresent(ttl, forKey: RSSFeedChannel.CodingKeys.ttl)
-    try container.encodeIfPresent(image, forKey: RSSFeedChannel.CodingKeys.image)
-    try container.encodeIfPresent(textInput, forKey: RSSFeedChannel.CodingKeys.textInput)
-    try container.encodeIfPresent(skipHours, forKey: RSSFeedChannel.CodingKeys.skipHours)
-    try container.encodeIfPresent(skipDays, forKey: RSSFeedChannel.CodingKeys.skipDays)
-    try container.encodeIfPresent(items, forKey: RSSFeedChannel.CodingKeys.item)
-    try container.encodeIfPresent(dublinCore, forKey: RSSFeedChannel.CodingKeys.dublinCore)
+    try container.encodeIfPresent(title, forKey: CodingKeys.title)
+    try container.encodeIfPresent(link, forKey: CodingKeys.link)
+    try container.encodeIfPresent(description, forKey: CodingKeys.description)
+    try container.encodeIfPresent(language, forKey: CodingKeys.language)
+    try container.encodeIfPresent(copyright, forKey: CodingKeys.copyright)
+    try container.encodeIfPresent(managingEditor, forKey: CodingKeys.managingEditor)
+    try container.encodeIfPresent(webMaster, forKey: CodingKeys.webMaster)
+    try container.encodeIfPresent(pubDate, forKey: CodingKeys.pubDate)
+    try container.encodeIfPresent(lastBuildDate, forKey: CodingKeys.lastBuildDate)
+    try container.encodeIfPresent(categories, forKey: CodingKeys.category)
+    try container.encodeIfPresent(generator, forKey: CodingKeys.generator)
+    try container.encodeIfPresent(docs, forKey: CodingKeys.docs)
+    try container.encodeIfPresent(cloud, forKey: CodingKeys.cloud)
+    try container.encodeIfPresent(rating, forKey: CodingKeys.rating)
+    try container.encodeIfPresent(ttl, forKey: CodingKeys.ttl)
+    try container.encodeIfPresent(image, forKey: CodingKeys.image)
+    try container.encodeIfPresent(textInput, forKey: CodingKeys.textInput)
+    try container.encodeIfPresent(skipHours, forKey: CodingKeys.skipHours)
+    try container.encodeIfPresent(skipDays, forKey: CodingKeys.skipDays)
+    try container.encodeIfPresent(items, forKey: CodingKeys.item)
+    try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
+    try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
+    try container.encodeIfPresent(syndication, forKey: CodingKeys.syndication)
+    try container.encodeIfPresent(media, forKey: CodingKeys.media)
   }
 }
