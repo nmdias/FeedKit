@@ -229,6 +229,10 @@ public struct Media {
   }
 }
 
+// MARK: - XMLNamespaceDecodable
+
+extension Media: XMLNamespaceCodable {}
+
 // MARK: - Equatable
 
 extension Media: Equatable {}
@@ -240,97 +244,97 @@ extension Media: Hashable {}
 // MARK: - Codable
 
 extension Media: Codable {
-  private enum CodingKeys: CodingKey {
-    case group
-    case contents
-    case rating
-    case title
-    case description
-    case keywords
-    case thumbnails
-    case category
-    case hash
-    case player
-    case credits
-    case copyright
-    case text
-    case restriction
-    case community
-    case comments
-    case embed
-    case responses
-    case backLinks
-    case status
-    case prices
-    case license
-    case subTitle
-    case peerLink
-    case location
-    case rights
-    case scenes
+  private enum CodingKeys: String, CodingKey {
+    case group = "media:group"
+    case contents = "media:contents"
+    case rating = "media:rating"
+    case title = "media:title"
+    case description = "media:description"
+    case keywords = "media:keywords"
+    case thumbnails = "media:thumbnails"
+    case category = "media:category"
+    case hash = "media:hash"
+    case player = "media:player"
+    case credits = "media:credits"
+    case copyright = "media:copyright"
+    case text = "media:text"
+    case restriction = "media:restriction"
+    case community = "media:community"
+    case comments = "media:comments"
+    case embed = "media:embed"
+    case responses = "media:responses"
+    case backLinks = "media:backLinks"
+    case status = "media:status"
+    case prices = "media:prices"
+    case license = "media:license"
+    case subTitle = "media:subTitle"
+    case peerLink = "media:peerLink"
+    case location = "media:location"
+    case rights = "media:rights"
+    case scenes = "media:scenes"
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<Media.CodingKeys> = try decoder.container(keyedBy: Media.CodingKeys.self)
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    group = try container.decodeIfPresent(MediaGroup.self, forKey: Media.CodingKeys.group)
-    contents = try container.decodeIfPresent([MediaContent].self, forKey: Media.CodingKeys.contents)
-    rating = try container.decodeIfPresent(MediaRating.self, forKey: Media.CodingKeys.rating)
-    title = try container.decodeIfPresent(MediaTitle.self, forKey: Media.CodingKeys.title)
-    description = try container.decodeIfPresent(MediaDescription.self, forKey: Media.CodingKeys.description)
-    keywords = try container.decodeIfPresent([String].self, forKey: Media.CodingKeys.keywords)
-    thumbnails = try container.decodeIfPresent([MediaThumbnail].self, forKey: Media.CodingKeys.thumbnails)
-    category = try container.decodeIfPresent(MediaCategory.self, forKey: Media.CodingKeys.category)
-    hash = try container.decodeIfPresent(MediaHash.self, forKey: Media.CodingKeys.hash)
-    player = try container.decodeIfPresent(MediaPlayer.self, forKey: Media.CodingKeys.player)
-    credits = try container.decodeIfPresent([MediaCredit].self, forKey: Media.CodingKeys.credits)
-    copyright = try container.decodeIfPresent(MediaCopyright.self, forKey: Media.CodingKeys.copyright)
-    text = try container.decodeIfPresent(MediaText.self, forKey: Media.CodingKeys.text)
-    restriction = try container.decodeIfPresent(MediaRestriction.self, forKey: Media.CodingKeys.restriction)
-    community = try container.decodeIfPresent(MediaCommunity.self, forKey: Media.CodingKeys.community)
-    comments = try container.decodeIfPresent([String].self, forKey: Media.CodingKeys.comments)
-    embed = try container.decodeIfPresent(MediaEmbed.self, forKey: Media.CodingKeys.embed)
-    responses = try container.decodeIfPresent([String].self, forKey: Media.CodingKeys.responses)
-    backLinks = try container.decodeIfPresent([String].self, forKey: Media.CodingKeys.backLinks)
-    status = try container.decodeIfPresent(MediaStatus.self, forKey: Media.CodingKeys.status)
-    prices = try container.decodeIfPresent([MediaPrice].self, forKey: Media.CodingKeys.prices)
-    license = try container.decodeIfPresent(MediaLicence.self, forKey: Media.CodingKeys.license)
-    subTitle = try container.decodeIfPresent(MediaSubTitle.self, forKey: Media.CodingKeys.subTitle)
-    peerLink = try container.decodeIfPresent(MediaPeerLink.self, forKey: Media.CodingKeys.peerLink)
-    location = try container.decodeIfPresent(MediaLocation.self, forKey: Media.CodingKeys.location)
-    rights = try container.decodeIfPresent(MediaRights.self, forKey: Media.CodingKeys.rights)
-    scenes = try container.decodeIfPresent([MediaScene].self, forKey: Media.CodingKeys.scenes)
+    group = try container.decodeIfPresent(MediaGroup.self, forKey: CodingKeys.group)
+    contents = try container.decodeIfPresent([MediaContent].self, forKey: CodingKeys.contents)
+    rating = try container.decodeIfPresent(MediaRating.self, forKey: CodingKeys.rating)
+    title = try container.decodeIfPresent(MediaTitle.self, forKey: CodingKeys.title)
+    description = try container.decodeIfPresent(MediaDescription.self, forKey: CodingKeys.description)
+    keywords = try container.decodeIfPresent([String].self, forKey: CodingKeys.keywords)
+    thumbnails = try container.decodeIfPresent([MediaThumbnail].self, forKey: CodingKeys.thumbnails)
+    category = try container.decodeIfPresent(MediaCategory.self, forKey: CodingKeys.category)
+    hash = try container.decodeIfPresent(MediaHash.self, forKey: CodingKeys.hash)
+    player = try container.decodeIfPresent(MediaPlayer.self, forKey: CodingKeys.player)
+    credits = try container.decodeIfPresent([MediaCredit].self, forKey: CodingKeys.credits)
+    copyright = try container.decodeIfPresent(MediaCopyright.self, forKey: CodingKeys.copyright)
+    text = try container.decodeIfPresent(MediaText.self, forKey: CodingKeys.text)
+    restriction = try container.decodeIfPresent(MediaRestriction.self, forKey: CodingKeys.restriction)
+    community = try container.decodeIfPresent(MediaCommunity.self, forKey: CodingKeys.community)
+    comments = try container.decodeIfPresent([String].self, forKey: CodingKeys.comments)
+    embed = try container.decodeIfPresent(MediaEmbed.self, forKey: CodingKeys.embed)
+    responses = try container.decodeIfPresent([String].self, forKey: CodingKeys.responses)
+    backLinks = try container.decodeIfPresent([String].self, forKey: CodingKeys.backLinks)
+    status = try container.decodeIfPresent(MediaStatus.self, forKey: CodingKeys.status)
+    prices = try container.decodeIfPresent([MediaPrice].self, forKey: CodingKeys.prices)
+    license = try container.decodeIfPresent(MediaLicence.self, forKey: CodingKeys.license)
+    subTitle = try container.decodeIfPresent(MediaSubTitle.self, forKey: CodingKeys.subTitle)
+    peerLink = try container.decodeIfPresent(MediaPeerLink.self, forKey: CodingKeys.peerLink)
+    location = try container.decodeIfPresent(MediaLocation.self, forKey: CodingKeys.location)
+    rights = try container.decodeIfPresent(MediaRights.self, forKey: CodingKeys.rights)
+    scenes = try container.decodeIfPresent([MediaScene].self, forKey: CodingKeys.scenes)
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<Media.CodingKeys> = encoder.container(keyedBy: Media.CodingKeys.self)
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(group, forKey: Media.CodingKeys.group)
-    try container.encodeIfPresent(contents, forKey: Media.CodingKeys.contents)
-    try container.encodeIfPresent(rating, forKey: Media.CodingKeys.rating)
-    try container.encodeIfPresent(title, forKey: Media.CodingKeys.title)
-    try container.encodeIfPresent(description, forKey: Media.CodingKeys.description)
-    try container.encodeIfPresent(keywords, forKey: Media.CodingKeys.keywords)
-    try container.encodeIfPresent(thumbnails, forKey: Media.CodingKeys.thumbnails)
-    try container.encodeIfPresent(category, forKey: Media.CodingKeys.category)
-    try container.encodeIfPresent(hash, forKey: Media.CodingKeys.hash)
-    try container.encodeIfPresent(player, forKey: Media.CodingKeys.player)
-    try container.encodeIfPresent(credits, forKey: Media.CodingKeys.credits)
-    try container.encodeIfPresent(copyright, forKey: Media.CodingKeys.copyright)
-    try container.encodeIfPresent(text, forKey: Media.CodingKeys.text)
-    try container.encodeIfPresent(restriction, forKey: Media.CodingKeys.restriction)
-    try container.encodeIfPresent(community, forKey: Media.CodingKeys.community)
-    try container.encodeIfPresent(comments, forKey: Media.CodingKeys.comments)
-    try container.encodeIfPresent(embed, forKey: Media.CodingKeys.embed)
-    try container.encodeIfPresent(responses, forKey: Media.CodingKeys.responses)
-    try container.encodeIfPresent(backLinks, forKey: Media.CodingKeys.backLinks)
-    try container.encodeIfPresent(status, forKey: Media.CodingKeys.status)
-    try container.encodeIfPresent(prices, forKey: Media.CodingKeys.prices)
-    try container.encodeIfPresent(license, forKey: Media.CodingKeys.license)
-    try container.encodeIfPresent(subTitle, forKey: Media.CodingKeys.subTitle)
-    try container.encodeIfPresent(peerLink, forKey: Media.CodingKeys.peerLink)
-    try container.encodeIfPresent(location, forKey: Media.CodingKeys.location)
-    try container.encodeIfPresent(rights, forKey: Media.CodingKeys.rights)
-    try container.encodeIfPresent(scenes, forKey: Media.CodingKeys.scenes)
+    try container.encodeIfPresent(group, forKey: CodingKeys.group)
+    try container.encodeIfPresent(contents, forKey: CodingKeys.contents)
+    try container.encodeIfPresent(rating, forKey: CodingKeys.rating)
+    try container.encodeIfPresent(title, forKey: CodingKeys.title)
+    try container.encodeIfPresent(description, forKey: CodingKeys.description)
+    try container.encodeIfPresent(keywords, forKey: CodingKeys.keywords)
+    try container.encodeIfPresent(thumbnails, forKey: CodingKeys.thumbnails)
+    try container.encodeIfPresent(category, forKey: CodingKeys.category)
+    try container.encodeIfPresent(hash, forKey: CodingKeys.hash)
+    try container.encodeIfPresent(player, forKey: CodingKeys.player)
+    try container.encodeIfPresent(credits, forKey: CodingKeys.credits)
+    try container.encodeIfPresent(copyright, forKey: CodingKeys.copyright)
+    try container.encodeIfPresent(text, forKey: CodingKeys.text)
+    try container.encodeIfPresent(restriction, forKey: CodingKeys.restriction)
+    try container.encodeIfPresent(community, forKey: CodingKeys.community)
+    try container.encodeIfPresent(comments, forKey: CodingKeys.comments)
+    try container.encodeIfPresent(embed, forKey: CodingKeys.embed)
+    try container.encodeIfPresent(responses, forKey: CodingKeys.responses)
+    try container.encodeIfPresent(backLinks, forKey: CodingKeys.backLinks)
+    try container.encodeIfPresent(status, forKey: CodingKeys.status)
+    try container.encodeIfPresent(prices, forKey: CodingKeys.prices)
+    try container.encodeIfPresent(license, forKey: CodingKeys.license)
+    try container.encodeIfPresent(subTitle, forKey: CodingKeys.subTitle)
+    try container.encodeIfPresent(peerLink, forKey: CodingKeys.peerLink)
+    try container.encodeIfPresent(location, forKey: CodingKeys.location)
+    try container.encodeIfPresent(rights, forKey: CodingKeys.rights)
+    try container.encodeIfPresent(scenes, forKey: CodingKeys.scenes)
   }
 }
