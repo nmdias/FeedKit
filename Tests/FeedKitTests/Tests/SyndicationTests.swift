@@ -1,5 +1,5 @@
 //
-//  SyndicationTests + Mocks.swift
+//  SyndicationTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,16 +24,20 @@
 
 @testable import FeedKit
 
-extension SyndicationTests {
-  var mock: RSSFeed {
-    .init(
-      channel: .init(
-        syndication: .init(
-          updatePeriod: .hourly,
-          updateFrequency: 2,
-          updateBase: FeedDateFormatter(spec: .iso8601).date(from: "2000-01-01T12:00+00:00")
-        )
-      )
-    )
+import Testing
+
+@Suite("Syndication")
+struct SyndicationTests: FeedKitTestable {
+  @Test
+  func syndication() throws {
+    // Given
+    let data = data(resource: "Syndication", withExtension: "xml")
+    let expected: RSSFeed = mock
+
+    // When
+    let actual = try RSSFeed(data: data)
+
+    // Then
+    #expect(expected == actual)
   }
 }
