@@ -46,7 +46,7 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
       node.text = "\(value)"
       return
     }
-    node.children.append(.init(name: key.stringValue, text: "\(value)"))
+    node.addChild(.init(name: key.stringValue, text: "\(value)"))
   }
 
   // MARK: -
@@ -87,7 +87,11 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
     defer { self.encoder.codingPath.removeLast() }
     let child = try encoder.box(value)
     if node !== child {
-      node.children.append(child)
+      if value is XMLNamespaceCodable {
+        node.parent?.addChild(child)
+      } else {
+        node.addChild(child)
+      }
     }
   }
 
