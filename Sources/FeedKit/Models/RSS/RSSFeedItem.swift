@@ -176,6 +176,19 @@ public struct RSSFeedItem {
   /// See https://tools.ietf.org/html/rfc5013
   public var dublinCore: DublinCore?
 
+  /// A module for the actual content of websites, in multiple formats.
+  ///
+  /// See http://web.resource.org/rss/1.0/modules/content/
+  public var content: Content?
+
+  /// iTunes Podcasting Tags are de facto standard for podcast syndication.
+  /// See https://help.apple.com/itc/podcasts_connect/#/itcb54353390
+  public var iTunes: ITunes?
+  
+  /// Media RSS is a new RSS module that supplements the <enclosure>
+  /// capabilities of RSS 2.0.
+  public var media: Media?
+  
   public init(
     title: String? = nil,
     link: String? = nil,
@@ -187,7 +200,10 @@ public struct RSSFeedItem {
     guid: RSSFeedGUID? = nil,
     pubDate: Date? = nil,
     source: RSSFeedSource? = nil,
-    dublinCore: DublinCore? = nil) {
+    dublinCore: DublinCore? = nil,
+    content: Content? = nil,
+    iTunes: ITunes? = nil,
+    media: Media? = nil) {
     self.title = title
     self.link = link
     self.description = description
@@ -199,6 +215,9 @@ public struct RSSFeedItem {
     self.pubDate = pubDate
     self.source = source
     self.dublinCore = dublinCore
+    self.content = content
+    self.iTunes = iTunes
+    self.media = media
   }
 }
 
@@ -224,38 +243,47 @@ extension RSSFeedItem: Codable {
     case guid
     case pubDate
     case source
-    case dublinCore = "xmlns:dc"
+    case dublinCore = "dc"
+    case content = "content"
+    case iTunes = "itunes"
+    case media = "media"
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<RSSFeedItem.CodingKeys> = try decoder.container(keyedBy: RSSFeedItem.CodingKeys.self)
+    let container: KeyedDecodingContainer<RSSFeedItem.CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    title = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.title)
-    link = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.link)
-    description = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.description)
-    author = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.author)
-    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: RSSFeedItem.CodingKeys.category)
-    comments = try container.decodeIfPresent(String.self, forKey: RSSFeedItem.CodingKeys.comments)
-    enclosure = try container.decodeIfPresent(RSSFeedEnclosure.self, forKey: RSSFeedItem.CodingKeys.enclosure)
-    guid = try container.decodeIfPresent(RSSFeedGUID.self, forKey: RSSFeedItem.CodingKeys.guid)
-    pubDate = try container.decodeIfPresent(Date.self, forKey: RSSFeedItem.CodingKeys.pubDate)
-    source = try container.decodeIfPresent(RSSFeedSource.self, forKey: RSSFeedItem.CodingKeys.source)
-    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: RSSFeedItem.CodingKeys.dublinCore)
+    title = try container.decodeIfPresent(String.self, forKey: CodingKeys.title)
+    link = try container.decodeIfPresent(String.self, forKey: CodingKeys.link)
+    description = try container.decodeIfPresent(String.self, forKey: CodingKeys.description)
+    author = try container.decodeIfPresent(String.self, forKey: CodingKeys.author)
+    categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: CodingKeys.category)
+    comments = try container.decodeIfPresent(String.self, forKey: CodingKeys.comments)
+    enclosure = try container.decodeIfPresent(RSSFeedEnclosure.self, forKey: CodingKeys.enclosure)
+    guid = try container.decodeIfPresent(RSSFeedGUID.self, forKey: CodingKeys.guid)
+    pubDate = try container.decodeIfPresent(Date.self, forKey: CodingKeys.pubDate)
+    source = try container.decodeIfPresent(RSSFeedSource.self, forKey: CodingKeys.source)
+    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
+    content = try container.decodeIfPresent(Content.self, forKey: CodingKeys.content)
+    iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
+    media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<RSSFeedItem.CodingKeys> = encoder.container(keyedBy: RSSFeedItem.CodingKeys.self)
+    var container: KeyedEncodingContainer<RSSFeedItem.CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(title, forKey: RSSFeedItem.CodingKeys.title)
-    try container.encodeIfPresent(link, forKey: RSSFeedItem.CodingKeys.link)
-    try container.encodeIfPresent(description, forKey: RSSFeedItem.CodingKeys.description)
-    try container.encodeIfPresent(author, forKey: RSSFeedItem.CodingKeys.author)
-    try container.encodeIfPresent(categories, forKey: RSSFeedItem.CodingKeys.category)
-    try container.encodeIfPresent(comments, forKey: RSSFeedItem.CodingKeys.comments)
-    try container.encodeIfPresent(enclosure, forKey: RSSFeedItem.CodingKeys.enclosure)
-    try container.encodeIfPresent(guid, forKey: RSSFeedItem.CodingKeys.guid)
-    try container.encodeIfPresent(pubDate, forKey: RSSFeedItem.CodingKeys.pubDate)
-    try container.encodeIfPresent(source, forKey: RSSFeedItem.CodingKeys.source)
-    try container.encodeIfPresent(dublinCore, forKey: RSSFeedItem.CodingKeys.dublinCore)
+    try container.encodeIfPresent(title, forKey: CodingKeys.title)
+    try container.encodeIfPresent(link, forKey: CodingKeys.link)
+    try container.encodeIfPresent(description, forKey: CodingKeys.description)
+    try container.encodeIfPresent(author, forKey: CodingKeys.author)
+    try container.encodeIfPresent(categories, forKey: CodingKeys.category)
+    try container.encodeIfPresent(comments, forKey: CodingKeys.comments)
+    try container.encodeIfPresent(enclosure, forKey: CodingKeys.enclosure)
+    try container.encodeIfPresent(guid, forKey: CodingKeys.guid)
+    try container.encodeIfPresent(pubDate, forKey: CodingKeys.pubDate)
+    try container.encodeIfPresent(source, forKey: CodingKeys.source)
+    try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
+    try container.encodeIfPresent(content, forKey: CodingKeys.content)
+    try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
+    try container.encodeIfPresent(media, forKey: CodingKeys.media)
   }
 }
