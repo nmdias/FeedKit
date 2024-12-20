@@ -97,16 +97,16 @@ extension iTunesCategory: Codable {
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<iTunesCategory.CodingKeys> = try decoder.container(keyedBy: iTunesCategory.CodingKeys.self)
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    attributes = try container.decodeIfPresent(iTunesCategory.Attributes.self, forKey: iTunesCategory.CodingKeys.attributes)
-    subcategory = try container.decodeIfPresent(iTunesSubCategory.self, forKey: iTunesCategory.CodingKeys.subcategory)
+    attributes = try container.decodeIfPresent(Attributes.self, forKey: CodingKeys.attributes)
+    subcategory = try container.decodeIfPresent(iTunesSubCategory.self, forKey: CodingKeys.subcategory)
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<iTunesCategory.CodingKeys> = encoder.container(keyedBy: iTunesCategory.CodingKeys.self)
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(attributes, forKey: iTunesCategory.CodingKeys.attributes)
-    try container.encodeIfPresent(subcategory, forKey: iTunesCategory.CodingKeys.subcategory)
+    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
+    try container.encodeIfPresent(subcategory, forKey: CodingKeys.subcategory)
   }
 }

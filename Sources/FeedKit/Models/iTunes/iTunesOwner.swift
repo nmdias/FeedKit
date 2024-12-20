@@ -56,22 +56,22 @@ extension iTunesOwner: Hashable {}
 // MARK: - Codable
 
 extension iTunesOwner: Codable {
-  private enum CodingKeys: CodingKey {
-    case email
-    case name
+  private enum CodingKeys: String, CodingKey {
+    case email = "itunes:email"
+    case name = "itunes:name"
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<iTunesOwner.CodingKeys> = try decoder.container(keyedBy: iTunesOwner.CodingKeys.self)
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    email = try container.decodeIfPresent(String.self, forKey: iTunesOwner.CodingKeys.email)
-    name = try container.decodeIfPresent(String.self, forKey: iTunesOwner.CodingKeys.name)
+    email = try container.decodeIfPresent(String.self, forKey: CodingKeys.email)
+    name = try container.decodeIfPresent(String.self, forKey: CodingKeys.name)
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<iTunesOwner.CodingKeys> = encoder.container(keyedBy: iTunesOwner.CodingKeys.self)
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(email, forKey: iTunesOwner.CodingKeys.email)
-    try container.encodeIfPresent(name, forKey: iTunesOwner.CodingKeys.name)
+    try container.encodeIfPresent(email, forKey: CodingKeys.email)
+    try container.encodeIfPresent(name, forKey: CodingKeys.name)
   }
 }
