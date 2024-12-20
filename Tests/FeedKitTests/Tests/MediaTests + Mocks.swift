@@ -1,5 +1,5 @@
 //
-//  MediaTests.swift
+//  MediaTests + Mocks.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,20 +24,10 @@
 
 @testable import FeedKit
 
-import Testing
-
-@Suite("Media")
-struct MediaTests: FeedKitTestable {
-  @Test
-  func media() throws {
-    // Given
-    let data = data(resource: "Media", withExtension: "xml")
-    let expected: RSSFeed = mock
-
-    // When
-    let actual = try RSSFeed(data: data)
-
-    // Then
-    #expect(expected == actual)
+extension MediaTests {
+  var mock: RSSFeed {
+    .init(
+      channel: nil
+    )
   }
 }
