@@ -112,6 +112,10 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     decoder.codingPath.append(key)
     defer { self.decoder.codingPath.removeLast() }
 
+    if type is XMLNamespaceCodable.Type {
+      return try decoder.decode(node: node, as: T.self)
+    }
+    
     guard let child = node.child(for: key.stringValue) else {
       throw DecodingError.dataCorruptedError(
         forKey: key, in: self,
