@@ -77,19 +77,23 @@ class _XMLEncoder: Encoder {
   /// Returns an unkeyed encoding container for encoding XML nodes.
   /// - Returns: An unkeyed encoding container.
   func unkeyedContainer() -> any UnkeyedEncodingContainer {
-    stack.push(node!)
-    return XMLUnkeyedEncodingContainer(node: stack.top()!, encoder: self)
+    let node = XMLNode(name: currentKey)
+    stack.push(node)
+    return XMLUnkeyedEncodingContainer(node: node, encoder: self)
   }
 
   /// Returns a single-value encoding container for encoding a single XML node.
   /// - Returns: A single-value encoding container.
   func singleValueContainer() -> any SingleValueEncodingContainer {
-    XMLSingleValueEncodingContainer(encoder: self, node: stack.top()!, codingPath: codingPath)
+    let node = XMLNode(name: currentKey)
+    stack.push(node) // Push the node onto the stack
+    return XMLSingleValueEncodingContainer(encoder: self, node: node, codingPath: codingPath)
   }
 
   func box(_ date: Date) throws -> XMLNode {
     switch dateEncodingStrategy {
-    case .deferredToDate: try date.encode(to: self); return stack.top()!
+    case .deferredToDate:
+      fatalError()
     case let .formatter(formatter):
       return .init(
         name: currentKey,
