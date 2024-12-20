@@ -1,5 +1,5 @@
 //
-//  RDFTests + Mocks.swift
+//  RDFTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,26 +24,20 @@
 
 @testable import FeedKit
 
-extension RDFTests {
-  var mock: RSSFeed {
-    .init(
-      channel: .init(
-        title: "XML.com",
-        link: "http://xml.com/pub",
-        description: "XML.com features a rich mix of information and services for the XML community.",
-        items: [
-          .init(
-            title: "Processing Inclusions with XSLT",
-            link: "http://xml.com/pub/2000/08/09/xslt/xslt.html",
-            description: "Processing document inclusions with general XML tools can be problematic. This article proposes a way of preserving inclusion information through SAX-based processing."
-          ),
-          .init(
-            title: "Putting RDF to Work",
-            link: "http://xml.com/pub/2000/08/09/rdfdb/index.html",
-            description: "Tool and API support for the Resource Description Framework is slowly coming of age. Edd Dumbill takes a look at RDFDB, one of the most exciting new RDF toolkits."
-          )
-        ]
-      )
-    )
+import Testing
+
+@Suite("RDF")
+struct RDFTests: FeedKitTestable {
+  @Test
+  func rss() throws {
+    // Given
+    let data = data(resource: "RDF", withExtension: "xml")
+    let expected: RSSFeed = mock
+
+    // When
+    let actual = try RSSFeed(data: data)
+
+    // Then
+    #expect(expected == actual)
   }
 }
