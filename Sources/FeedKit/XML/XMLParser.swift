@@ -135,7 +135,7 @@ extension XMLParser: XMLParserDelegate {
         namespacePrefixes: namespacePrefixes,
         namespaceURI: resolvedNamespaceURI,
         prefix: prefix,
-        name: elementName,
+        name: qName ?? elementName,
         isXhtml: isXhtml,
         children: [
           .init(
@@ -165,7 +165,7 @@ extension XMLParser: XMLParserDelegate {
           namespacePrefixes: namespacePrefixes,
           namespaceURI: resolvedNamespaceURI,
           prefix: prefix,
-          name: elementName
+          name: qName ?? elementName
         ))
       } else {
         // If attributes are found, treat them as child nodes of the element.
@@ -174,7 +174,7 @@ extension XMLParser: XMLParserDelegate {
           namespacePrefixes: namespacePrefixes,
           namespaceURI: resolvedNamespaceURI,
           prefix: prefix,
-          name: elementName,
+          name: qName ?? elementName,
           children: [
             .init(
               name: "@attributes",
