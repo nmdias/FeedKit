@@ -27,7 +27,7 @@
 import Testing
 
 @Suite("RSSDC")
-struct RSSDCTests: FeedKitTestable {
+struct DublinCoreTests: FeedKitTestable {
   @Test
   func rssdc() throws {
     // Given
@@ -36,6 +36,21 @@ struct RSSDCTests: FeedKitTestable {
 
     // When
     let actual = try RSSFeed(data: data)
+
+    // Then
+    #expect(expected == actual)
+  }
+  
+  @Test()
+  func xmlString() throws {
+    // Given
+    let data = data(resource: "RSSDC", withExtension: "xml")
+    let expected = String(decoding: data, as: Unicode.UTF8.self)
+    
+    let feed = try RSSFeed(data: data)
+
+    // When
+    let actual = try feed.toXmlString(formatted: true)
 
     // Then
     #expect(expected == actual)

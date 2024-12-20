@@ -40,6 +40,10 @@ public struct Content {
   }
 }
 
+// MARK: - XMLNamespaceDecodable
+
+extension Content: XMLNamespaceCodable {}
+
 // MARK: - Equatable
 
 extension Content: Equatable {}
@@ -52,19 +56,19 @@ extension Content: Hashable {}
 // MARK: - Codable
 
 extension Content: Codable {
-  private enum CodingKeys: CodingKey {
-    case encoded
+  private enum CodingKeys: String, CodingKey {
+    case encoded = "content:encoded"
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<Content.CodingKeys> = try decoder.container(keyedBy: Content.CodingKeys.self)
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    encoded = try container.decodeIfPresent(String.self, forKey: Content.CodingKeys.encoded)
+    encoded = try container.decodeIfPresent(String.self, forKey: CodingKeys.encoded)
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container = encoder.container(keyedBy: Content.CodingKeys.self)
+    var container = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(encoded, forKey: Content.CodingKeys.encoded)
+    try container.encodeIfPresent(encoded, forKey: CodingKeys.encoded)
   }
 }
