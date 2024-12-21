@@ -1,5 +1,5 @@
 //
-//  AtomTests.swift
+//  ContentTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -26,47 +26,16 @@
 
 import Testing
 
-@Suite("Atom")
-struct AtomTests: FeedKitTestable {
+@Suite("Content")
+struct ContentTests: FeedKitTestable {
   @Test
-  func atom() throws {
+  func content() throws {
     // Given
-    let data = data(resource: "Atom", withExtension: "xml")
-    let expected: AtomFeed = mock
+    let data = data(resource: "Content", withExtension: "xml")
+    let expected: RSSFeed = mock
 
     // When
-    let actual = try? AtomFeed(data: data)
-
-    // Then
-    #expect(expected == actual)
-  }
-  
-  @Test(.disabled())
-  func atomXhtml() throws {
-    // Given
-    let data = data(resource: "Atom + XHTML", withExtension: "xml")
-    let expected: AtomFeed = xhtmlMock
-
-    // When
-    let actual = try? AtomFeed(data: data)
-
-    // Then
-    #expect(expected == actual)
-  }
-
-  @Test()
-  func atomXmlString() throws {
-    // Given
-    let data = data(resource: "Atom", withExtension: "xml")
-    let expected = String(decoding: data, as: Unicode.UTF8.self)
-    let encoder = XMLEncoder()
-    encoder.dateEncodingStrategy = .formatter(RFC3339DateFormatter())
-    let root = try? encoder.encode(value: mock)
-    root?.name = "feed" // TODO: - Need to infer this better
-    let document = XMLDocument(root: root!)
-
-    // When
-    let actual = document.toXMLString(formatted: true)
+    let actual = try? RSSFeed(data: data)
 
     // Then
     #expect(expected == actual)
