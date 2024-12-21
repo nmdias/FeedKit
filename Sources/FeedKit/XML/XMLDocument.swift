@@ -152,7 +152,14 @@ class XMLNode: Codable, Equatable, Hashable {
   }
 
   func hasChild(for name: String) -> Bool {
-    children?.first(where: { $0.name == name }) != nil
+    children?.first(where: { $0.name == name || $0.prefix == name }) != nil
+  }
+  
+  func addChild(_ child: XMLNode) {
+    if children == nil {
+      children = []
+    }
+    children.append(child)
   }
 }
 
