@@ -92,3 +92,27 @@ extension RSSFeed: FeedInitializable {
     self = try decoder.decode(Self.self, from: rootNode)
   }
 }
+
+extension RSSFeed: XMLStringConvertible {
+  func toXMLString(formatted: Bool, indentationLevel: Int) throws -> String {
+    let encoder = XMLEncoder()
+    encoder.dateEncodingStrategy = .formatter(FeedDateFormatter(spec: .rfc822))
+    let root = try encoder.encode(value: self)
+    root.name = "rss" // TODO: - Need to infer this better
+    root.addChild(.init(
+      name: "@attributes",
+      children: [
+        .init(
+          name: "version",
+          text: "2.0"
+        ),
+        .init(
+          name: "xmlns:dc",
+          text: "http://purl.org/dc/elements/1.1/"
+        ),
+      ]
+    ))
+    let document = XMLDocument(root: root)
+    return document.toXMLString(formatted: true)
+  }
+}

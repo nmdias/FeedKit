@@ -166,7 +166,7 @@ class XMLNode: Codable, Equatable, Hashable {
 // MARK: - XMLStringConvertible
 
 protocol XMLStringConvertible {
-  func toXMLString(formatted: Bool, indentationLevel: Int) -> String
+  func toXMLString(formatted: Bool, indentationLevel: Int) throws -> String
 }
 
 // MARK: - XMLDocument + XMLStringConvertible
