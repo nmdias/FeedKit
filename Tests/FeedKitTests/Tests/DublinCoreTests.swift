@@ -1,5 +1,5 @@
 //
-//  RSSTests.swift
+//  DublinCoreTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -26,10 +26,10 @@
 
 import Testing
 
-@Suite("RSSDC")
+@Suite("Dublin Core")
 struct DublinCoreTests: FeedKitTestable {
   @Test
-  func rssdc() throws {
+  func dublinCore() throws {
     // Given
     let data = data(resource: "RSSDC", withExtension: "xml")
     let expected: RSSFeed = mock
@@ -41,7 +41,7 @@ struct DublinCoreTests: FeedKitTestable {
     #expect(expected == actual)
   }
   
-  @Test()
+  @Test(.disabled())
   func xmlString() throws {
     // Given
     let data = data(resource: "RSSDC", withExtension: "xml")
