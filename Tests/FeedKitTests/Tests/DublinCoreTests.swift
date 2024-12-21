@@ -50,7 +50,7 @@ struct DublinCoreTests: FeedKitTestable {
     let feed = try RSSFeed(data: data)
 
     // When
-    let actual = try feed.toXmlString(formatted: true)
+    let actual = try feed.toXMLString(formatted: true)
 
     // Then
     #expect(expected == actual)
