@@ -94,7 +94,7 @@ extension RSSFeed: FeedInitializable {
 }
 
 extension RSSFeed: XMLStringConvertible {
-  func toXMLString(formatted: Bool, indentationLevel: Int) throws -> String {
+  func toXMLString(formatted: Bool, indentationLevel: Int = 1) throws -> String {
     let encoder = XMLEncoder()
     encoder.dateEncodingStrategy = .formatter(FeedDateFormatter(spec: .rfc822))
     let root = try encoder.encode(value: self)
