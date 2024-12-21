@@ -59,12 +59,23 @@ extension FeedType {
     // Inspect only the first 200 bytes for efficiency
     let string = String(decoding: data.prefix(inspectionPrefixLength), as: UTF8.self)
 
+    // Determine feed type using helper
+    guard let feedType = FeedType.detectFeedType(from: string) else {
+      return nil
+    }
+    self = feedType
+  }
+
+  /// Detects the feed type from a given string.
+  ///
+  /// - Parameter string: A string representation of the feed to be inspected.
+  /// - Returns: A `FeedType` if the string matches a known feed format, otherwise `nil`.
+  private static func detectFeedType(from string: String) -> FeedType? {
     // Define the set of characters considered dispositive (non-whitespace)
     let dispositiveCharacters = CharacterSet.alphanumerics
       .union(CharacterSet.punctuationCharacters)
       .union(CharacterSet.symbols)
 
-    // Loop through the first characters and determine feed type
     for scalar in string.unicodeScalars {
       // Skip whitespace and non-essential characters (e.g., BOM markers)
       if !dispositiveCharacters.contains(scalar) {
@@ -74,23 +85,27 @@ extension FeedType {
       let char = Character(scalar)
       switch char {
       case "<":
-        // Check for XML-based feed types (RSS, RDF, Atom)
-        if string.contains("<rss") {
-          self = .rss
-        } else if string.contains("<rdf") {
-          self = .rdf
-        } else if string.contains("<feed") {
-          self = .atom
-        } else {
-          return nil
-        }
-        return
+        return detectXMLFeedType(in: string)
       case "{":
-        self = .json
-        return
+        return .json
       default:
         return nil
       }
+    }
+    return nil
+  }
+
+  /// Detects XML-based feed types from a string.
+  ///
+  /// - Parameter string: A string representation of the feed to be inspected.
+  /// - Returns: A `FeedType` if the string matches a known XML feed format, otherwise `nil`.
+  private static func detectXMLFeedType(in string: String) -> FeedType? {
+    if string.contains("<rss") {
+      return .rss
+    } else if string.contains("<rdf") {
+      return .rdf
+    } else if string.contains("<feed") {
+      return .atom
     }
     return nil
   }
