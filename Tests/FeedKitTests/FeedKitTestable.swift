@@ -26,82 +26,82 @@ import Foundation
 import Testing
 
 protocol FeedKitTestable {
-    /// Loads a resource from the bundle and returns its data.
-    /// - Parameters:
-    ///   - resource: The name of the resource file.
-    ///   - ext: The file extension of the resource.
-    /// - Returns: Data loaded from the resource file.
-    /// - Throws: Fatal error if the resource cannot be found or loaded.
-    func data(resource: String, withExtension ext: String) -> Data
+  /// Loads a resource from the bundle and returns its data.
+  /// - Parameters:
+  ///   - resource: The name of the resource file.
+  ///   - ext: The file extension of the resource.
+  /// - Returns: Data loaded from the resource file.
+  /// - Throws: Fatal error if the resource cannot be found or loaded.
+  func data(resource: String, withExtension ext: String) -> Data
 
-    /// Saves the expected and actual objects to the documents directory for
-    /// debugging purposes. This method is helpful for comparing expected and
-    /// actual objects when debugging test failures.
-    /// - Parameters:
-    ///   - expected: The expected object, which will be saved as a JSON file.
-    ///   - actual: The actual object, which will be saved as a JSON file if
-    ///     it is not nil.
-    func saveToDocuments<T: Codable>(expected: T, actual: T?)
+  /// Saves the expected and actual objects to the documents directory for
+  /// debugging purposes. This method is helpful for comparing expected and
+  /// actual objects when debugging test failures.
+  /// - Parameters:
+  ///   - expected: The expected object, which will be saved as a JSON file.
+  ///   - actual: The actual object, which will be saved as a JSON file if
+  ///     it is not nil.
+  func saveToDocuments<T: Codable>(expected: T, actual: T?)
 
-    /// Saves a given object to a specified directory as a JSON file.
-    /// - Parameters:
-    ///   - object: The object to be saved, which must conform to the `Codable`
-    ///     protocol.
-    ///   - directory: The directory in which the file will be saved (e.g.,
-    ///     `.documentDirectory`).
-    ///   - fileName: The name of the file to be saved.
-    func save<T: Codable>(_ object: T, to directory: FileManager.SearchPathDirectory, as fileName: String)
+  /// Saves a given object to a specified directory as a JSON file.
+  /// - Parameters:
+  ///   - object: The object to be saved, which must conform to the `Codable`
+  ///     protocol.
+  ///   - directory: The directory in which the file will be saved (e.g.,
+  ///     `.documentDirectory`).
+  ///   - fileName: The name of the file to be saved.
+  func save<T: Codable>(_ object: T, to directory: FileManager.SearchPathDirectory, as fileName: String)
 }
 
 extension FeedKitTestable {
-    func data(resource: String, withExtension ext: String) -> Data {
-        guard let fileURL = Bundle.module.url(forResource: resource, withExtension: ext) else {
-            fatalError("Error: Could not find file \(resource).\(ext) in bundle.")
-        }
-        do {
-            let data = try Data(contentsOf: fileURL)
-            return data
-        } catch {
-            fatalError("Error: Failed to load data from \(fileURL): \(error)")
-        }
+  func data(resource: String, withExtension ext: String) -> Data {
+    guard let fileURL = Bundle.module.url(forResource: resource, withExtension: ext) else {
+      fatalError("Error: Could not find file \(resource).\(ext) in bundle.")
     }
-
-    func saveToDocuments<T: Codable>(expected: T, actual: T?) {
-        save(expected, to: .documentDirectory, as: "expected.json")
-
-        if let actual {
-            save(actual, to: .documentDirectory, as: "actual.json")
-        } else {
-            print("Actual is nil, skipping file creation.")
-        }
+    do {
+      let data = try Data(contentsOf: fileURL)
+      return data
+    } catch {
+      fatalError("Error: Failed to load data from \(fileURL): \(error)")
     }
+  }
 
-    func save<T: Codable>(_ object: T, to directory: FileManager.SearchPathDirectory, as fileName: String) {
-        do {
-            // Convert object to JSON data
-            let encoder = JSONEncoder()
-            encoder.outputFormatting = .prettyPrinted
-            let jsonData = try encoder.encode(object)
+  func saveToDocuments<T: Codable>(expected: T, actual: T?) {
+    save(expected, to: .documentDirectory, as: "expected.json")
 
-            // Get the directory path
-            if let directoryURL = FileManager.default.urls(for: directory, in: .userDomainMask).first {
-                let fileURL = directoryURL.appendingPathComponent(fileName)
-
-                // Delete the existing file if it exists
-                if FileManager.default.fileExists(atPath: fileURL.path) {
-                    do {
-                        try FileManager.default.removeItem(at: fileURL)
-                    } catch {
-                        print("Failed to delete existing file: \(error)")
-                    }
-                }
-
-                // Write the new JSON data to the file
-                try jsonData.write(to: fileURL)
-                print("File saved to: \(fileURL.path)")
-            }
-        } catch {
-            print("Failed to write \(fileName): \(error)")
-        }
+    if let actual {
+      save(actual, to: .documentDirectory, as: "actual.json")
+    } else {
+      print("Actual is nil, skipping file creation.")
     }
+  }
+
+  func save<T: Codable>(_ object: T, to directory: FileManager.SearchPathDirectory, as fileName: String) {
+    do {
+      // Convert object to JSON data
+      let encoder = JSONEncoder()
+      encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+      let jsonData = try encoder.encode(object)
+
+      // Get the directory path
+      if let directoryURL = FileManager.default.urls(for: directory, in: .userDomainMask).first {
+        let fileURL = directoryURL.appendingPathComponent(fileName)
+
+        // Delete the existing file if it exists
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+          do {
+            try FileManager.default.removeItem(at: fileURL)
+          } catch {
+            print("Failed to delete existing file: \(error)")
+          }
+        }
+
+        // Write the new JSON data to the file
+        try jsonData.write(to: fileURL)
+        print("File saved to: \(fileURL.path)")
+      }
+    } catch {
+      print("Failed to write \(fileName): \(error)")
+    }
+  }
 }
