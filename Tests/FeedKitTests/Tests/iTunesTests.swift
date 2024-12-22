@@ -37,8 +37,6 @@ struct iTunesTests: FeedKitTestable {
     // When
     let actual = try RSSFeed(data: data)
 
-    // Then
-    let result = expected == actual
-    #expect(result)
+    #expect(expected == actual)
   }
 }
