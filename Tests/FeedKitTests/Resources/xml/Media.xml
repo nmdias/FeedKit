@@ -1,10 +1,6 @@
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml">
   <channel>
-    <title>Song Site</title>
-    <description>Media RSS example with new fields added in v1.5.0</description>
     <item>
-      <link>http://www.foo.com</link>
-      <pubDate>Mon, 27 Aug 2001 16:08:56 PST</pubDate>
       <media:thumbnail url="http://www.foo.com/keyframe1.jpg" width="75" height="50" time="12:05:01.123" />
       <media:thumbnail url="http://www.foo.com/keyframe2.jpg" width="640" height="480" time="12:05:01.123" />
       <media:group>
