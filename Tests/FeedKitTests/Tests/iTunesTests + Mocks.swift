@@ -28,14 +28,6 @@ extension iTunesTests {
   var mock: RSSFeed {
     .init(
       channel: .init(
-        title: "Dan Carlin's Hardcore History",
-        link: "http://www.dancarlin.com",
-        description: "In \"Hardcore History\" journalist and broadcaster Dan Carlin takes his \"Martian\", unorthodox way of thinking and applies it to the past. Was Alexander the Great as bad a person as Adolf Hitler? What would Apaches with modern weapons be like? Will our modern civilization ever fall like civilizations from past eras? This isn't academic history (and Carlin isn't a historian) but the podcast's unique blend of high drama, masterful narration and Twilight Zone-style twists has entertained millions of listeners",
-        language: "en-use",
-        copyright: "dancarlin.com",
-        managingEditor: "dan@dancarlin.com (Dan Carlin)",
-        webMaster: "dan@dancarlin.com (Dan Carlin)",
-        pubDate: FeedDateFormatter(spec: .rfc822).date(from: "Sun, 07 Aug 2016 12:05:26 PST"),
         items: [
           .init(
             iTunes: .init(
@@ -63,10 +55,13 @@ extension iTunesTests {
           block: "No",
           categories: [
             .init(
-              attributes: .init(text: "Society & Culture"),
+              attributes: .init(
+                text: "Society & Culture"
+              ),
               subcategory: .init(
-                text: "History",
-                attributes: nil
+                attributes: .init(
+                  text: "History"
+                )
               )
             ),
           ],
