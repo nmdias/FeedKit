@@ -300,7 +300,7 @@ extension ITunes: Codable {
   private enum CodingKeys: String, CodingKey {
     case author = "itunes:author"
     case block = "itunes:block"
-    case categories = "itunes:categories"
+    case categories = "itunes:category"
     case image = "itunes:image"
     case duration = "itunes:duration"
     case explicit = "itunes:explicit"

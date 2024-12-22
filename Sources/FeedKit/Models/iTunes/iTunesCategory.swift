@@ -93,7 +93,7 @@ extension iTunesCategory: Hashable {}
 extension iTunesCategory: Codable {
   private enum CodingKeys: String, CodingKey {
     case attributes = "@attributes"
-    case subcategory
+    case subcategory = "itunes:category"
   }
 
   public init(from decoder: any Decoder) throws {
