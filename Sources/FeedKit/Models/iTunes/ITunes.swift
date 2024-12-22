@@ -307,7 +307,7 @@ extension ITunes: Codable {
     case isClosedCaptioned = "itunes:isClosedCaptioned"
     case order = "itunes:order"
     case complete = "itunes:complete"
-    case newFeedURL = "itunes:newFeedURL"
+    case newFeedURL = "itunes:new-feed-url"
     case owner = "itunes:owner"
     case title = "itunes:title"
     case subtitle = "itunes:subtitle"
