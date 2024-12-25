@@ -233,7 +233,7 @@ public struct RSSFeedChannel {
   ///
   /// See https://tools.ietf.org/html/rfc5013
   public var dublinCore: DublinCore?
-  
+
   /// iTunes Podcasting Tags are de facto standard for podcast syndication.
   /// See https://help.apple.com/itc/podcasts_connect/#/itcb54353390
   public var iTunes: ITunes?
@@ -247,11 +247,7 @@ public struct RSSFeedChannel {
   ///
   /// See http://web.resource.org/rss/1.0/modules/syndication/
   public var syndication: Syndication?
-  
-  /// Media RSS is a new RSS module that supplements the <enclosure>
-  /// capabilities of RSS 2.0.
-  public var media: Media?
-  
+
   public init(
     title: String? = nil,
     link: String? = nil,
@@ -275,8 +271,7 @@ public struct RSSFeedChannel {
     items: [RSSFeedItem]? = nil,
     dublinCore: DublinCore? = nil,
     iTunes: ITunes? = nil,
-    syndication: Syndication? = nil,
-    media: Media? = nil) {
+    syndication: Syndication? = nil) {
     self.title = title
     self.link = link
     self.description = description
@@ -300,7 +295,6 @@ public struct RSSFeedChannel {
     self.dublinCore = dublinCore
     self.iTunes = iTunes
     self.syndication = syndication
-    self.media = media
   }
 }
 
@@ -339,7 +333,6 @@ extension RSSFeedChannel: Codable {
     case dublinCore = "dc"
     case iTunes = "itunes"
     case syndication = "sy"
-    case media = "media"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -368,7 +361,6 @@ extension RSSFeedChannel: Codable {
     dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
     iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
     syndication = try container.decodeIfPresent(Syndication.self, forKey: CodingKeys.syndication)
-    media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -397,6 +389,5 @@ extension RSSFeedChannel: Codable {
     try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
     try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
     try container.encodeIfPresent(syndication, forKey: CodingKeys.syndication)
-    try container.encodeIfPresent(media, forKey: CodingKeys.media)
   }
 }
