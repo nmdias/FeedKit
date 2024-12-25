@@ -27,20 +27,75 @@
 import Foundation
 import Testing
 
-@Suite("MediaTags")
-struct MediaTagsTests {
+@Suite("GMLPositionTests")
+struct GMLPositionTests {
   @Test
-  func mediaTags() {
+  func validCoordinates() {
     // Given
-    let given = ""
-    let expected: [MediaTag]? = [
-      
-    ]
-    
+    let given = "35.669998 139.770004"
+    let expected: (latitude: Double, longitude: Double)? = (35.669998, 139.770004)
+
     // When
-    let actual = given.toMediaTags()
+    let actual = given.toGMLPosition()
 
     // Then
-    #expect(expected == actual)
+    #expect(expected?.latitude == actual?.latitude)
+    #expect(expected?.longitude == actual?.longitude)
+  }
+
+  @Test
+  func invalidCoordinatesMissingLongitude() {
+    // Given
+    let given = "35.669998"
+    let expected: (latitude: Double, longitude: Double)? = nil
+
+    // When
+    let actual = given.toGMLPosition()
+
+    // Then
+    #expect(expected?.latitude == actual?.latitude)
+    #expect(expected?.longitude == actual?.longitude)
+  }
+
+  @Test
+  func invalidCoordinatesExtraValue() {
+    // Given
+    let given = "35.669998 139.770004 extra"
+    let expected: (latitude: Double, longitude: Double)? = nil
+
+    // When
+    let actual = given.toGMLPosition()
+
+    // Then
+    #expect(expected?.latitude == actual?.latitude)
+    #expect(expected?.longitude == actual?.longitude)
+  }
+
+  @Test
+  func invalidCoordinateValue() {
+    // Given
+    let given = "invalid 139.770004"
+    let expected: (latitude: Double, longitude: Double)? = nil
+
+    // When
+    let actual = given.toGMLPosition()
+
+    // Then
+    #expect(expected?.latitude == actual?.latitude)
+    #expect(expected?.longitude == actual?.longitude)
+  }
+
+  @Test
+  func emptyString() {
+    // Given
+    let given = ""
+    let expected: (latitude: Double, longitude: Double)? = nil
+
+    // When
+    let actual = given.toGMLPosition()
+
+    // Then
+    #expect(expected?.latitude == actual?.latitude)
+    #expect(expected?.longitude == actual?.longitude)
   }
 }
