@@ -25,11 +25,19 @@
 /// Represents different types of feeds: Atom, RSS, and JSON.
 public enum Feed: Equatable {
   case atom(AtomFeed)
+  case rdf(RDFFeed)
   case rss(RSSFeed)
   case json(JSONFeed)
 }
 
 extension Feed {
+  /// Returns the associated `RDFFeed` if the feed is of type `.rdf`,
+  /// otherwise returns `nil`.
+  public var rdf: RDFFeed? {
+    guard case let .rdf(feed) = self else { return nil }
+    return feed
+  }
+  
   /// Returns the associated `RSSFeed` if the feed is of type `.rss`,
   /// otherwise returns `nil`.
   public var rss: RSSFeed? {

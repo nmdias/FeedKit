@@ -74,7 +74,11 @@ public struct FeedParser {
       let feed = try AtomFeed(data: data)
       return .success(.atom(feed))
 
-    case .rss, .rdf:
+    case .rdf:
+      let feed = try RDFFeed(data: data)
+      return .success(.rdf(feed))
+
+    case .rss:
       let feed = try RSSFeed(data: data)
       return .success(.rss(feed))
 

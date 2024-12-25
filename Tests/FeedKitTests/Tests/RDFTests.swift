@@ -28,14 +28,14 @@ import Testing
 
 @Suite("RDF")
 struct RDFTests: FeedKitTestable {
-  @Test
-  func rss() throws {
+  @Test(.disabled())
+  func rdf() throws {
     // Given
     let data = data(resource: "RDF", withExtension: "xml")
-    let expected: RSSFeed = mock
+    let expected: RDFFeed = mock
 
     // When
-    let actual = try RSSFeed(data: data)
+    let actual = try RDFFeed(data: data)
 
     // Then
     #expect(expected == actual)

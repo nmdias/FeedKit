@@ -1,5 +1,5 @@
 //
-//  RDFTests + Mocks.swift
+//  RDFFeedChannel.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -22,12 +22,21 @@
 //  SOFTWARE.
 //
 
-@testable import FeedKit
+import Foundation
 
-extension RDFTests {
-  var mock: RDFFeed {
-    .init(
-      channel: .init()
-    )
+public struct RDFFeedChannel {
+  public init() {
   }
 }
+
+// MARK: - Equatable
+
+extension RDFFeedChannel: Equatable {}
+
+// MARK: - Hashable
+
+extension RDFFeedChannel: Hashable {}
+
+// MARK: - Codable
+
+extension RDFFeedChannel: Codable {}
