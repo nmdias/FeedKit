@@ -27,11 +27,6 @@
         </media:text>
         <media:rating>nonadult</media:rating>
         <media:keywords>kitty, cat, big dog, yarn, fluffy</media:keywords>
-        <dcterms:valid>
-            start=2002-10-13T09:00+01:00;
-            end=2002-10-17T17:00+01:00;
-            scheme=W3C-DTF
-        </dcterms:valid>
       </media:content>
       <media:community>
         <media:starRating average="3.5" count="20" min="1" max="10" />
