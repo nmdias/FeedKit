@@ -1,5 +1,5 @@
 //
-//  MediaTagsTests.swift
+//  KeywordsTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -27,18 +27,68 @@
 import Foundation
 import Testing
 
-@Suite("MediaTags")
-struct MediaTagsTests {
+@Suite("Keywords")
+struct KeywordsTests: FeedKitTestable {
   @Test
-  func mediaTags() {
+  func validKeywords() {
     // Given
-    let given = ""
-    let expected: [MediaTag]? = [
-      
-    ]
-    
+    let input = "kitty, cat, big dog, yarn, fluffy"
+    let expected = ["kitty", "cat", "big dog", "yarn", "fluffy"]
+
     // When
-    let actual = given.toMediaTags()
+    let actual = input.toKeywords()
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func emptyString() {
+    // Given
+    let input = ""
+    let expected: [String]? = nil
+
+    // When
+    let actual = input.toKeywords()
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func extraWhitespace() {
+    // Given
+    let input = "  kitty , cat  ,  big dog ,   yarn,fluffy   "
+    let expected = ["kitty", "cat", "big dog", "yarn", "fluffy"]
+
+    // When
+    let actual = input.toKeywords()
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func noCommas() {
+    // Given
+    let input = "kitty cat big dog yarn fluffy"
+    let expected = ["kitty cat big dog yarn fluffy"]
+
+    // When
+    let actual = input.toKeywords()
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func multipleCommas() {
+    // Given
+    let input = "kitty,,cat,,big dog,,yarn,fluffy,,,"
+    let expected = ["kitty", "cat", "big dog", "yarn", "fluffy"]
+
+    // When
+    let actual = input.toKeywords()
 
     // Then
     #expect(expected == actual)
