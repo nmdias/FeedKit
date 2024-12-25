@@ -77,11 +77,11 @@ extension MediaGroup: Hashable {}
 // MARK: - Codable
 
 extension MediaGroup: Codable {
-  private enum CodingKeys: CodingKey {
-    case contents
-    case credits
-    case category
-    case rating
+  private enum CodingKeys: String, CodingKey {
+    case contents = "media:content"
+    case credits = "media:credit"
+    case category = "media:category"
+    case rating = "media:rating"
   }
 
   public init(from decoder: any Decoder) throws {

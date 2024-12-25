@@ -74,9 +74,9 @@ extension MediaEmbed: Hashable {}
 // MARK: - Codable
 
 extension MediaEmbed: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-    case params
+  private enum CodingKeys: String, CodingKey {
+    case attributes = "@attributes"
+    case params = "media:param"
   }
 
   public init(from decoder: any Decoder) throws {

@@ -1,5 +1,5 @@
 //
-//  MediaComments.swift
+//  MediaResponses.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,44 +24,42 @@
 
 import Foundation
 
-/// Allows inclusion of all the comments a media object has received.
-public struct MediaComments {
+/// Allows inclusion of a list of all media responses a media object has
+/// received.
+public struct MediaResponses {
+  /// Allows inclusion of a list of all media responses a media object has
+  /// received.
+  public var responses: [String]?
 
-  /// Allows inclusion of all the comments a media object has received.
-  public var comments: [String]?
-  
-  public init(comments: [String]? = nil) {
-    self.comments = comments
+  public init(responses: [String]? = nil) {
+    self.responses = responses
   }
 }
 
 // MARK: - Equatable
 
-extension MediaComments: Equatable {}
+extension MediaResponses: Equatable {}
 
 // MARK: - Hashable
 
-extension MediaComments: Hashable {}
+extension MediaResponses: Hashable {}
 
 // MARK: - Codable
 
-extension MediaComments: Codable {
-  
+extension MediaResponses: Codable {
   private enum CodingKeys: String, CodingKey {
-    case comments = "media:comment"
+    case response = "media:response"
   }
-  
+
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    
-    self.comments = try container.decodeIfPresent([String].self, forKey: CodingKeys.comments)
-    
+
+    responses = try container.decodeIfPresent([String].self, forKey: CodingKeys.response)
   }
-  
+
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
-    
-    try container.encodeIfPresent(self.comments, forKey: CodingKeys.comments)
+
+    try container.encodeIfPresent(responses, forKey: CodingKeys.response)
   }
-  
 }

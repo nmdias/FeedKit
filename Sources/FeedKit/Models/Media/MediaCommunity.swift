@@ -64,25 +64,25 @@ extension MediaCommunity: Hashable {}
 // MARK: - Codable
 
 extension MediaCommunity: Codable {
-  private enum CodingKeys: CodingKey {
-    case starRating
-    case statistics
-    case tags
+  enum CodingKeys: String, CodingKey {
+    case starRating = "media:starRating"
+    case statistics = "media:statistics"
+    case tags = "media:tags"
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaCommunity.CodingKeys> = try decoder.container(keyedBy: MediaCommunity.CodingKeys.self)
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    starRating = try container.decodeIfPresent(MediaStarRating.self, forKey: MediaCommunity.CodingKeys.starRating)
-    statistics = try container.decodeIfPresent(MediaStatistics.self, forKey: MediaCommunity.CodingKeys.statistics)
-    tags = try container.decodeIfPresent([MediaTag].self, forKey: MediaCommunity.CodingKeys.tags)
+    starRating = try container.decodeIfPresent(MediaStarRating.self, forKey: CodingKeys.starRating)
+    statistics = try container.decodeIfPresent(MediaStatistics.self, forKey: CodingKeys.statistics)
+    tags = try container.decodeIfPresent(String.self, forKey: .tags)?.toMediaTags()
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaCommunity.CodingKeys> = encoder.container(keyedBy: MediaCommunity.CodingKeys.self)
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(starRating, forKey: MediaCommunity.CodingKeys.starRating)
-    try container.encodeIfPresent(statistics, forKey: MediaCommunity.CodingKeys.statistics)
-    try container.encodeIfPresent(tags, forKey: MediaCommunity.CodingKeys.tags)
+    try container.encodeIfPresent(starRating, forKey: CodingKeys.starRating)
+    try container.encodeIfPresent(statistics, forKey: CodingKeys.statistics)
+    try container.encodeIfPresent(tags, forKey: CodingKeys.tags)
   }
 }

@@ -156,6 +156,14 @@ public struct MediaContent {
   /// content, and its particular contents. It has two optional attributes.
   public var category: MediaCategory?
 
+  public var credits: [MediaCredit]?
+
+  public var rating: MediaRating?
+
+  public var hash: MediaHash?
+
+  public var text: MediaText?
+
   public init(
     attributes: Attributes? = nil,
     title: MediaTitle? = nil,
@@ -163,14 +171,22 @@ public struct MediaContent {
     player: MediaPlayer? = nil,
     thumbnails: [MediaThumbnail]? = nil,
     keywords: [String]? = nil,
-    category: MediaCategory? = nil) {
+    category: MediaCategory? = nil,
+    credits: [MediaCredit]? = nil,
+    rating: MediaRating? = nil,
+    hash: MediaHash? = nil,
+    text: MediaText? = nil) {
+    self.attributes = attributes
     self.title = title
     self.description = description
     self.player = player
     self.thumbnails = thumbnails
     self.keywords = keywords
     self.category = category
-    self.attributes = attributes
+    self.credits = credits
+    self.rating = rating
+    self.hash = hash
+    self.text = text
   }
 }
 
@@ -185,37 +201,49 @@ extension MediaContent: Hashable {}
 // MARK: - Codable
 
 extension MediaContent: Codable {
-  private enum CodingKeys: CodingKey {
-    case attributes
-    case title
-    case description
-    case player
-    case thumbnails
-    case keywords
-    case category
+  private enum CodingKeys: String, CodingKey {
+    case attributes = "@attributes"
+    case title = "media:title"
+    case description = "media:description"
+    case player = "media:player"
+    case thumbnails = "media:thumbnail"
+    case keywords = "media:keywords"
+    case category = "media:category"
+    case credits = "media:credit"
+    case rating = "media:rating"
+    case hash = "media:hash"
+    case text = "media:text"
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaContent.CodingKeys> = try decoder.container(keyedBy: MediaContent.CodingKeys.self)
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    attributes = try container.decodeIfPresent(MediaContent.Attributes.self, forKey: MediaContent.CodingKeys.attributes)
-    title = try container.decodeIfPresent(MediaTitle.self, forKey: MediaContent.CodingKeys.title)
-    description = try container.decodeIfPresent(MediaDescription.self, forKey: MediaContent.CodingKeys.description)
-    player = try container.decodeIfPresent(MediaPlayer.self, forKey: MediaContent.CodingKeys.player)
-    thumbnails = try container.decodeIfPresent([MediaThumbnail].self, forKey: MediaContent.CodingKeys.thumbnails)
-    keywords = try container.decodeIfPresent([String].self, forKey: MediaContent.CodingKeys.keywords)
-    category = try container.decodeIfPresent(MediaCategory.self, forKey: MediaContent.CodingKeys.category)
+    attributes = try container.decodeIfPresent(MediaContent.Attributes.self, forKey: CodingKeys.attributes)
+    title = try container.decodeIfPresent(MediaTitle.self, forKey: CodingKeys.title)
+    description = try container.decodeIfPresent(MediaDescription.self, forKey: CodingKeys.description)
+    player = try container.decodeIfPresent(MediaPlayer.self, forKey: CodingKeys.player)
+    thumbnails = try container.decodeIfPresent([MediaThumbnail].self, forKey: CodingKeys.thumbnails)
+    keywords = try container.decodeIfPresent(String.self, forKey: CodingKeys.keywords)?.toKeywords()
+    category = try container.decodeIfPresent(MediaCategory.self, forKey: CodingKeys.category)
+    credits = try container.decodeIfPresent([MediaCredit].self, forKey: CodingKeys.credits)
+    rating = try container.decodeIfPresent(MediaRating.self, forKey: CodingKeys.rating)
+    hash = try container.decodeIfPresent(MediaHash.self, forKey: CodingKeys.hash)
+    text = try container.decodeIfPresent(MediaText.self, forKey: CodingKeys.text)
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaContent.CodingKeys> = encoder.container(keyedBy: MediaContent.CodingKeys.self)
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(attributes, forKey: MediaContent.CodingKeys.attributes)
-    try container.encodeIfPresent(title, forKey: MediaContent.CodingKeys.title)
-    try container.encodeIfPresent(description, forKey: MediaContent.CodingKeys.description)
-    try container.encodeIfPresent(player, forKey: MediaContent.CodingKeys.player)
-    try container.encodeIfPresent(thumbnails, forKey: MediaContent.CodingKeys.thumbnails)
-    try container.encodeIfPresent(keywords, forKey: MediaContent.CodingKeys.keywords)
-    try container.encodeIfPresent(category, forKey: MediaContent.CodingKeys.category)
+    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
+    try container.encodeIfPresent(title, forKey: CodingKeys.title)
+    try container.encodeIfPresent(description, forKey: CodingKeys.description)
+    try container.encodeIfPresent(player, forKey: CodingKeys.player)
+    try container.encodeIfPresent(thumbnails, forKey: CodingKeys.thumbnails)
+    try container.encodeIfPresent(keywords, forKey: CodingKeys.keywords)
+    try container.encodeIfPresent(category, forKey: CodingKeys.category)
+    try container.encodeIfPresent(credits, forKey: CodingKeys.credits)
+    try container.encodeIfPresent(rating, forKey: CodingKeys.rating)
+    try container.encodeIfPresent(hash, forKey: CodingKeys.hash)
+    try container.encodeIfPresent(text, forKey: CodingKeys.text)
   }
 }

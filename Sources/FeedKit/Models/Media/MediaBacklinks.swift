@@ -1,5 +1,5 @@
 //
-//  MediaComments.swift
+//  MediaBackLinks.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,44 +24,40 @@
 
 import Foundation
 
-/// Allows inclusion of all the comments a media object has received.
-public struct MediaComments {
+/// Allows inclusion of all the URLs pointing to a media object.
+public struct MediaBackLinks {
+  /// Allows inclusion of all the URLs pointing to a media object.
+  public var backLinks: [String]?
 
-  /// Allows inclusion of all the comments a media object has received.
-  public var comments: [String]?
-  
-  public init(comments: [String]? = nil) {
-    self.comments = comments
+  public init(backLinks: [String]? = nil) {
+    self.backLinks = backLinks
   }
 }
 
 // MARK: - Equatable
 
-extension MediaComments: Equatable {}
+extension MediaBackLinks: Equatable {}
 
 // MARK: - Hashable
 
-extension MediaComments: Hashable {}
+extension MediaBackLinks: Hashable {}
 
 // MARK: - Codable
 
-extension MediaComments: Codable {
-  
+extension MediaBackLinks: Codable {
   private enum CodingKeys: String, CodingKey {
-    case comment = "media:comment"
+    case backLink = "media:backLink"
   }
-  
+
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    
-    self.comments = try container.decodeIfPresent([String].self, forKey: CodingKeys.comment)
-    
+
+    backLinks = try container.decodeIfPresent([String].self, forKey: CodingKeys.backLink)
   }
-  
+
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
-    
-    try container.encodeIfPresent(self.comments, forKey: CodingKeys.comment)
+
+    try container.encodeIfPresent(backLinks, forKey: CodingKeys.backLink)
   }
-  
 }

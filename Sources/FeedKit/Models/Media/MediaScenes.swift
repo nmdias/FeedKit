@@ -30,64 +30,40 @@ import Foundation
 /// the optional sub-elements <sceneTitle>, <sceneDescription>,
 /// <sceneStartTime> and <sceneEndTime>, which contains title, description,
 /// start and end time of a particular scene in the media, respectively.
-public struct MediaScene {
-  /// The scene's title.
-  public var title: String?
-
-  /// The scene's description.
-  public var description: String?
-
-  /// The scene's start time.
-  public var startTime: TimeInterval?
-
-  /// The scene's end time.
-  public var endTime: TimeInterval?
-
-  public init(
-    title: String? = nil,
-    description: String? = nil,
-    startTime: TimeInterval? = nil,
-    endTime: TimeInterval? = nil) {
-    self.title = title
-    self.description = description
-    self.startTime = startTime
-    self.endTime = endTime
-  }
+public struct MediaScenes {
+  /// Optional element to specify various scenes within a media object. It can
+  /// have multiple child <media:scene> elements, where each <media:scene>
+  /// element contains information about a particular scene. <media:scene> has
+  /// the optional sub-elements <sceneTitle>, <sceneDescription>,
+  /// <sceneStartTime> and <sceneEndTime>, which contains title, description,
+  /// start and end time of a particular scene in the media, respectively.
+  public var scenes: [MediaScene]?
 }
 
 // MARK: - Equatable
 
-extension MediaScene: Equatable {}
+extension MediaScenes: Equatable {}
 
 // MARK: - Hashable
 
-extension MediaScene: Hashable {}
+extension MediaScenes: Hashable {}
 
 // MARK: - Codable
 
-extension MediaScene: Codable {
+extension MediaScenes: Codable {
   private enum CodingKeys: String, CodingKey {
-    case title = "sceneTitle"
-    case description = "sceneDescription"
-    case startTime = "sceneStartTime"
-    case endTime = "sceneEndTime"
+    case scenes = "media:scene"
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<MediaScene.CodingKeys> = try decoder.container(keyedBy: MediaScene.CodingKeys.self)
+    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    title = try container.decodeIfPresent(String.self, forKey: MediaScene.CodingKeys.title)
-    description = try container.decodeIfPresent(String.self, forKey: MediaScene.CodingKeys.description)
-    startTime = try container.decodeIfPresent(TimeInterval.self, forKey: MediaScene.CodingKeys.startTime)
-    endTime = try container.decodeIfPresent(TimeInterval.self, forKey: MediaScene.CodingKeys.endTime)
+    scenes = try container.decodeIfPresent([MediaScene].self, forKey: CodingKeys.scenes)
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<MediaScene.CodingKeys> = encoder.container(keyedBy: MediaScene.CodingKeys.self)
+    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(title, forKey: MediaScene.CodingKeys.title)
-    try container.encodeIfPresent(description, forKey: MediaScene.CodingKeys.description)
-    try container.encodeIfPresent(startTime, forKey: MediaScene.CodingKeys.startTime)
-    try container.encodeIfPresent(endTime, forKey: MediaScene.CodingKeys.endTime)
+    try container.encodeIfPresent(scenes, forKey: CodingKeys.scenes)
   }
 }

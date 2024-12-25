@@ -66,11 +66,11 @@ extension MediaScene: Hashable {}
 // MARK: - Codable
 
 extension MediaScene: Codable {
-  private enum CodingKeys: CodingKey {
-    case title
-    case description
-    case startTime
-    case endTime
+  private enum CodingKeys: String, CodingKey {
+    case title = "sceneTitle"
+    case description = "sceneDescription"
+    case startTime = "sceneStartTime"
+    case endTime = "sceneEndTime"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -78,8 +78,8 @@ extension MediaScene: Codable {
 
     title = try container.decodeIfPresent(String.self, forKey: MediaScene.CodingKeys.title)
     description = try container.decodeIfPresent(String.self, forKey: MediaScene.CodingKeys.description)
-    startTime = try container.decodeIfPresent(TimeInterval.self, forKey: MediaScene.CodingKeys.startTime)
-    endTime = try container.decodeIfPresent(TimeInterval.self, forKey: MediaScene.CodingKeys.endTime)
+    startTime = try container.decodeIfPresent(String.self, forKey: MediaScene.CodingKeys.startTime)?.toDuration()
+    endTime = try container.decodeIfPresent(String.self, forKey: MediaScene.CodingKeys.endTime)?.toDuration()
   }
 
   public func encode(to encoder: any Encoder) throws {

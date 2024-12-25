@@ -39,4 +39,4 @@ public struct MediaLicenceAttributes: Codable, Equatable, Hashable {
 
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public typealias MediaLicence = FeedAttributesElement<MediaLicenceAttributes>
+public typealias MediaLicence = FeedElement<MediaLicenceAttributes>

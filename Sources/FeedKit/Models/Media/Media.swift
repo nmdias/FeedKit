@@ -119,7 +119,7 @@ public struct Media {
   public var community: MediaCommunity?
 
   /// Allows inclusion of all the comments a media object has received.
-  public var comments: [String]?
+  public var comments: MediaComments?
 
   /// Sometimes player-specific embed code is needed for a player to play any
   /// video. <media:embed> allows inclusion of such information in the form of
@@ -128,10 +128,10 @@ public struct Media {
 
   /// Allows inclusion of a list of all media responses a media object has
   /// received.
-  public var responses: [String]?
+  public var responses: MediaResponses?
 
   /// Allows inclusion of all the URLs pointing to a media object.
-  public var backLinks: [String]?
+  public var backLinks: MediaBackLinks?
 
   /// Optional tag to specify the status of a media object -- whether it's still
   /// active or it has been blocked/deleted.
@@ -169,7 +169,7 @@ public struct Media {
   /// the optional sub-elements <sceneTitle>, <sceneDescription>,
   /// <sceneStartTime> and <sceneEndTime>, which contains title, description,
   /// start and end time of a particular scene in the media, respectively.
-  public var scenes: [MediaScene]?
+  public var scenes: MediaScenes?
 
   public init(
     group: MediaGroup? = nil,
@@ -187,10 +187,10 @@ public struct Media {
     text: MediaText? = nil,
     restriction: MediaRestriction? = nil,
     community: MediaCommunity? = nil,
-    comments: [String]? = nil,
+    comments: MediaComments? = nil,
     embed: MediaEmbed? = nil,
-    responses: [String]? = nil,
-    backLinks: [String]? = nil,
+    responses: MediaResponses? = nil,
+    backLinks: MediaBackLinks? = nil,
     status: MediaStatus? = nil,
     prices: [MediaPrice]? = nil,
     license: MediaLicence? = nil,
@@ -198,7 +198,7 @@ public struct Media {
     peerLink: MediaPeerLink? = nil,
     location: MediaLocation? = nil,
     rights: MediaRights? = nil,
-    scenes: [MediaScene]? = nil) {
+    scenes: MediaScenes? = nil) {
     self.group = group
     self.contents = contents
     self.rating = rating
@@ -246,16 +246,16 @@ extension Media: Hashable {}
 extension Media: Codable {
   private enum CodingKeys: String, CodingKey {
     case group = "media:group"
-    case contents = "media:contents"
+    case contents = "media:content"
     case rating = "media:rating"
     case title = "media:title"
     case description = "media:description"
     case keywords = "media:keywords"
-    case thumbnails = "media:thumbnails"
+    case thumbnails = "media:thumbnail"
     case category = "media:category"
     case hash = "media:hash"
     case player = "media:player"
-    case credits = "media:credits"
+    case credits = "media:credit"
     case copyright = "media:copyright"
     case text = "media:text"
     case restriction = "media:restriction"
@@ -265,7 +265,7 @@ extension Media: Codable {
     case responses = "media:responses"
     case backLinks = "media:backLinks"
     case status = "media:status"
-    case prices = "media:prices"
+    case prices = "media:price"
     case license = "media:license"
     case subTitle = "media:subTitle"
     case peerLink = "media:peerLink"
@@ -292,10 +292,10 @@ extension Media: Codable {
     text = try container.decodeIfPresent(MediaText.self, forKey: CodingKeys.text)
     restriction = try container.decodeIfPresent(MediaRestriction.self, forKey: CodingKeys.restriction)
     community = try container.decodeIfPresent(MediaCommunity.self, forKey: CodingKeys.community)
-    comments = try container.decodeIfPresent([String].self, forKey: CodingKeys.comments)
+    comments = try container.decodeIfPresent(MediaComments.self, forKey: CodingKeys.comments)
     embed = try container.decodeIfPresent(MediaEmbed.self, forKey: CodingKeys.embed)
-    responses = try container.decodeIfPresent([String].self, forKey: CodingKeys.responses)
-    backLinks = try container.decodeIfPresent([String].self, forKey: CodingKeys.backLinks)
+    responses = try container.decodeIfPresent(MediaResponses.self, forKey: CodingKeys.responses)
+    backLinks = try container.decodeIfPresent(MediaBackLinks.self, forKey: CodingKeys.backLinks)
     status = try container.decodeIfPresent(MediaStatus.self, forKey: CodingKeys.status)
     prices = try container.decodeIfPresent([MediaPrice].self, forKey: CodingKeys.prices)
     license = try container.decodeIfPresent(MediaLicence.self, forKey: CodingKeys.license)
@@ -303,7 +303,7 @@ extension Media: Codable {
     peerLink = try container.decodeIfPresent(MediaPeerLink.self, forKey: CodingKeys.peerLink)
     location = try container.decodeIfPresent(MediaLocation.self, forKey: CodingKeys.location)
     rights = try container.decodeIfPresent(MediaRights.self, forKey: CodingKeys.rights)
-    scenes = try container.decodeIfPresent([MediaScene].self, forKey: CodingKeys.scenes)
+    scenes = try container.decodeIfPresent(MediaScenes.self, forKey: CodingKeys.scenes)
   }
 
   public func encode(to encoder: any Encoder) throws {
