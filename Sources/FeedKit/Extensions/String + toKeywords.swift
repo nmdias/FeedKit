@@ -1,5 +1,5 @@
 //
-//  String + toMediaTags.swift
+//  String + toKeywords.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -25,27 +25,18 @@
 import Foundation
 
 extension String {
-  /// Parses a string of user-generated tags separated by commas into an array of
-  /// `MediaTag` objects.
+  /// Splits a comma-separated string into an array of trimmed keyword strings.
   ///
-  /// - Returns: An optional array of `MediaTag` objects, each with a tag and an
-  ///           associated weight. Returns `nil` if the string is empty or cannot
-  ///           be parsed into valid tags.
-  func toMediaTags() -> [MediaTag]? {
-    split(separator: ",").compactMap { value in
-      let components = value.split(separator: ":").map {
-        $0.trimmingCharacters(in: .whitespacesAndNewlines)
-      }
-      guard !components.isEmpty else { return nil }
+  /// - Returns: An optional array of strings, where each string is a keyword
+  ///   from the original comma-separated string. Each keyword is trimmed of
+  ///   whitespace. Returns `nil` if there are no keywords.
+  func toKeywords() -> [String]? {
+    // Split the string by commas
+    let components = split(separator: ",")
+      .map { $0.trimmingCharacters(in: .whitespaces) }
+      .filter { !$0.isEmpty } // Remove empty or whitespace-only components
 
-      var mediaTag = MediaTag()
-      mediaTag.tag = components.first
-      if components.count > 1 {
-        mediaTag.weight = Int(components.last ?? "")
-      } else {
-        mediaTag.weight = 1 // Default weight if not provided
-      }
-      return mediaTag
-    }
+    // Return nil if there are no valid keywords
+    return components.isEmpty ? nil : components
   }
 }
