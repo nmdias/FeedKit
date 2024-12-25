@@ -1,5 +1,5 @@
 //
-//  DurationTests.swift
+//  MediaTagsTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -27,32 +27,20 @@
 import Foundation
 import Testing
 
-@Suite("Duration")
-struct DurationTests {
+@Suite("MediaTags")
+struct MediaTagsTests {
   @Test
-  func duration() {
+  func mediaTags() {
     // Given
-    let hhmmss = "01:15:15"
-    let hmmss = "1:20:25"
-    let mmss = "43:15"
-    let mss = "5:09"
-    let ss = "45"
-
-    let garbagehhmmss = "o1:15:15"
-    let totalJunk = "bh:123;12j!"
-    let leadingZeroes = "001:15:15"
-    let tachyon = "-01:15:15"
+    let given = ""
+    let expected: [MediaTag]? = [
+      
+    ]
+    
+    // When
+    let actual = given.toMediaTags()
 
     // Then
-    #expect(hhmmss.toDuration() == 4515)
-    #expect(hmmss.toDuration() == 4825)
-    #expect(mmss.toDuration() == 2595)
-    #expect(mss.toDuration() == 309)
-    #expect(ss.toDuration() == 45)
-
-    #expect(garbagehhmmss.toDuration() == nil)
-    #expect(totalJunk.toDuration() == nil)
-    #expect(leadingZeroes.toDuration() == 4515)
-    #expect(tachyon.toDuration() == nil)
+    #expect(expected == actual)
   }
 }
