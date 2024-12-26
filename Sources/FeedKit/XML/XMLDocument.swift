@@ -147,6 +147,42 @@ class XMLNode: Codable, Equatable, Hashable {
     }
   }
 
+  // MARK: - Codable
+
+  private enum CodingKeys: CodingKey {
+    case namespacePrefixes
+    case namespaceURI
+    case prefix
+    case name
+    case text
+    case isXhtml
+    case children
+  }
+
+  required init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<XMLNode.CodingKeys> = try decoder.container(keyedBy: XMLNode.CodingKeys.self)
+
+    namespacePrefixes = try container.decode([String: String].self, forKey: XMLNode.CodingKeys.namespacePrefixes)
+    namespaceURI = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.namespaceURI)
+    prefix = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.prefix)
+    name = try container.decode(String.self, forKey: XMLNode.CodingKeys.name)
+    text = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.text)
+    isXhtml = try container.decode(Bool.self, forKey: XMLNode.CodingKeys.isXhtml)
+    children = try container.decodeIfPresent([XMLNode].self, forKey: XMLNode.CodingKeys.children)
+  }
+
+  func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<XMLNode.CodingKeys> = encoder.container(keyedBy: XMLNode.CodingKeys.self)
+
+    try container.encode(namespacePrefixes, forKey: XMLNode.CodingKeys.namespacePrefixes)
+    try container.encodeIfPresent(namespaceURI, forKey: XMLNode.CodingKeys.namespaceURI)
+    try container.encodeIfPresent(prefix, forKey: XMLNode.CodingKeys.prefix)
+    try container.encode(name, forKey: XMLNode.CodingKeys.name)
+    try container.encodeIfPresent(text, forKey: XMLNode.CodingKeys.text)
+    try container.encode(isXhtml, forKey: XMLNode.CodingKeys.isXhtml)
+    try container.encodeIfPresent(children, forKey: XMLNode.CodingKeys.children)
+  }
+
   func child(for name: String) -> XMLNode? {
     children?.first(where: { $0.name == name })
   }
@@ -154,7 +190,7 @@ class XMLNode: Codable, Equatable, Hashable {
   func hasChild(for name: String) -> Bool {
     children?.first(where: { $0.name == name || $0.prefix == name }) != nil
   }
-  
+
   func addChild(_ child: XMLNode) {
     if children == nil {
       children = []
