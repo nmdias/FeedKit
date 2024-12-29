@@ -88,7 +88,12 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
     let child = try encoder.box(value)
     if node !== child {
       if value is XMLNamespaceCodable {
-        guard let parent = node.parent else { fatalError() }
+        guard let parent = node.parent else {
+          #if DEBUG
+          print("Encoding Namespace for node without parent")
+          #endif
+          return
+        }
         parent.addChild(child)
       } else {
         node.addChild(child)
