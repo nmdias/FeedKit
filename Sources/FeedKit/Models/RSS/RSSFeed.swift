@@ -93,12 +93,14 @@ extension RSSFeed: FeedInitializable {
   }
 }
 
-extension RSSFeed: XMLStringConvertible {
-  func toXMLString(formatted: Bool, indentationLevel: Int = 1) throws -> String {
+// MARK: - XMLDocumentConvertible
+
+extension RSSFeed: XMLDocumentConvertible {
+  func toXmlDocument() throws -> XMLDocument {
     let encoder = XMLEncoder()
     encoder.dateEncodingStrategy = .formatter(FeedDateFormatter(spec: .rfc822))
     let root = try encoder.encode(value: self)
-    root.name = "rss" // TODO: - Need to infer this better
+    root.name = "rss"
     root.addChild(.init(
       name: "@attributes",
       children: [
@@ -113,6 +115,14 @@ extension RSSFeed: XMLStringConvertible {
       ]
     ))
     let document = XMLDocument(root: root)
-    return document.toXMLString(formatted: true)
+    return document
+  }
+}
+
+// MARK: - XMLStringConvertible
+
+extension RSSFeed: XMLStringConvertible {
+  func toXMLString(formatted: Bool, indentationLevel: Int = 1) throws -> String {
+    try toXmlDocument().toXMLString(formatted: true)
   }
 }
