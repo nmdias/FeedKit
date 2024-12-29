@@ -159,7 +159,7 @@ struct Sample: Codable, Equatable {
 }
 
 extension SampleTests {
-  var mock: Sample {
+  var sampleMock: Sample {
     .init(
       header: .init(
         title: .init(
