@@ -25,23 +25,23 @@
 @testable import FeedKit
 
 struct Sample: Codable, Equatable {
-  let header: Header
-  let content: Content
-  let footer: Footer
+  var header: Header?
+  var content: Content?
+  var footer: Footer?
 
   struct Header: Codable, Equatable {
-    let title: String
-    let description: String
-    let version: String
-    let keywords: Keywords
-    let namespace: Namespace
+    var title: Title?
+    var description: String?
+    var version: String?
+    var keywords: Keywords?
+    var namespace: Namespace?
 
     init(
-      title: String,
-      description: String,
-      version: String,
-      keywords: Keywords,
-      namespace: Namespace) {
+      title: Title? = nil,
+      description: String? = nil,
+      version: String? = nil,
+      keywords: Keywords? = nil,
+      namespace: Namespace? = nil) {
       self.title = title
       self.description = description
       self.version = version
@@ -57,14 +57,28 @@ struct Sample: Codable, Equatable {
       case namespace = "xmlns:ns"
     }
 
+    struct Title: Codable, Equatable {
+      var text: String?
+      var attributes: Attributes?
+
+      struct Attributes: Codable, Equatable {
+        var type: String?
+      }
+
+      private enum CodingKeys: String, CodingKey {
+        case text = "@text"
+        case attributes = "@attributes"
+      }
+    }
+
     struct Keywords: Codable, Equatable {
-      let keyword: [String]
+      var keyword: [String]?
     }
 
     struct Namespace: Codable, Equatable {
-      let title: String
-      let description: String
-      
+      var title: String?
+      var description: String?
+
       private enum CodingKeys: String, CodingKey {
         case title = "ns:title"
         case description = "ns:description"
@@ -73,15 +87,15 @@ struct Sample: Codable, Equatable {
   }
 
   struct Content: Codable, Equatable {
-    let item: [Item]
+    var item: [Item]
 
     struct Item: Codable, Equatable {
-      let attributes: Attributes
-      let name: String
-      let description: String
-      let precision: Double
-      let details: Details
-      let xhtml: Xhtml
+      var attributes: Attributes?
+      var name: String?
+      var description: String?
+      var precision: Double?
+      var details: Details?
+      var xhtml: Xhtml?
 
       private enum CodingKeys: String, CodingKey {
         case attributes = "@attributes"
@@ -93,12 +107,12 @@ struct Sample: Codable, Equatable {
       }
 
       init(
-        attributes: Attributes,
-        name: String,
-        description: String,
-        precision: Double,
-        details: Details,
-        xhtml: Xhtml) {
+        attributes: Attributes? = nil,
+        name: String? = nil,
+        description: String? = nil,
+        precision: Double? = nil,
+        details: Details? = nil,
+        xhtml: Xhtml? = nil) {
         self.attributes = attributes
         self.name = name
         self.description = description
@@ -108,17 +122,17 @@ struct Sample: Codable, Equatable {
       }
 
       struct Attributes: Codable, Equatable {
-        let id: Int
-        let value: String
+        var id: Int?
+        var value: String?
       }
 
       struct Details: Codable, Equatable {
-        let detail: [String]
+        var detail: [String]?
       }
 
       struct Xhtml: Codable, Equatable {
-        let attributes: XhtmlAttributes
-        let text: String
+        var attributes: XhtmlAttributes?
+        var text: String?
 
         init(attributes: XhtmlAttributes, text: String) {
           self.attributes = attributes
@@ -131,16 +145,16 @@ struct Sample: Codable, Equatable {
         }
 
         struct XhtmlAttributes: Codable, Equatable {
-          let type: String
+          var type: String?
         }
       }
     }
   }
 
   struct Footer: Codable, Equatable {
-    let notes: String
-    let created: String
-    let revision: Int
+    var notes: String?
+    var created: String?
+    var revision: Int?
   }
 }
 
@@ -148,7 +162,12 @@ extension SampleTests {
   var mock: Sample {
     .init(
       header: .init(
-        title: "Sample Document",
+        title: .init(
+          text: "Sample Document",
+          attributes: .init(
+            type: "text"
+          )
+        ),
         description: "This is a sample document.",
         version: "1.0",
         keywords: .init(
