@@ -1,5 +1,5 @@
 //
-//  XMLDocumentConvertible.swift
+//  XMLStringConvertible.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,6 +24,6 @@
 
 import Foundation
 
-protocol XMLDocumentConvertible {
-  func toXmlDocument() throws -> XMLDocument
+protocol XMLStringConvertible {
+  func toXMLString(formatted: Bool, indentationLevel: Int) throws -> String
 }
