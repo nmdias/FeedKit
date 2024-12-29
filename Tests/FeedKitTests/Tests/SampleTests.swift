@@ -38,8 +38,9 @@ struct SampleTests: FeedKitTestable {
     // When
     let actual = try parser.parse().get().root
 
+    let result = expected == actual
     // Then
-    #expect(expected == actual)
+    #expect(result)
   }
 
   @Test
@@ -70,7 +71,7 @@ struct SampleTests: FeedKitTestable {
     #expect(expected == actual)
   }
 
-  @Test("Encode Model -> Node", .disabled())
+  @Test("Encode Model -> Node")
   func xmlEncoder() throws {
     // Given
     let encoder = XMLEncoder()
@@ -81,8 +82,8 @@ struct SampleTests: FeedKitTestable {
 
     #expect(expected == actual)
   }
-  
-  @Test("Encode Model -> Node -> Model", .disabled())
+
+  @Test("Encode Model -> Node -> Model")
   func xmlEncoderDecoder() throws {
     // Given
     let encoder = XMLEncoder()
@@ -93,7 +94,7 @@ struct SampleTests: FeedKitTestable {
     let encodedNode = try encoder.encode(value: mock)
     let decodedSample = try decoder.decode(Sample.self, from: encodedNode)
     let actual = try encoder.encode(value: decodedSample)
-    
+
     #expect(expected == actual)
   }
 }
