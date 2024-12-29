@@ -101,6 +101,7 @@ class XMLNode: Codable, Equatable, Hashable {
   // MARK: Equatable
 
   static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
+    // Compare current node's properties
     if
       lhs.namespaceURI != rhs.namespaceURI ||
       lhs.prefix != rhs.prefix ||
@@ -116,16 +117,9 @@ class XMLNode: Codable, Equatable, Hashable {
       return false
     }
 
-    // Compare child nodes pairwise by their properties
-    // We avoid direct comparison of children to prevent recursion
-    // caused by the parent property, which creates circular references
+    // Compare child nodes recursively
     for (lChild, rChild) in zip(lhsChildren, rhsChildren) {
-      if
-        lChild.namespaceURI != rChild.namespaceURI ||
-        lChild.prefix != rChild.prefix ||
-        lChild.name != rChild.name ||
-        lChild.text != rChild.text ||
-        lChild.isXhtml != rChild.isXhtml {
+      if lChild != rChild {
         return false
       }
     }
@@ -197,12 +191,6 @@ class XMLNode: Codable, Equatable, Hashable {
     }
     children.append(child)
   }
-}
-
-// MARK: - XMLStringConvertible
-
-protocol XMLStringConvertible {
-  func toXMLString(formatted: Bool, indentationLevel: Int) throws -> String
 }
 
 // MARK: - XMLDocument + XMLStringConvertible
