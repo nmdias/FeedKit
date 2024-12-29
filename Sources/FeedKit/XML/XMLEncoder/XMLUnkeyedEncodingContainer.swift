@@ -86,7 +86,7 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
     
     let child = try encoder.box(value)
     if node !== child {
-      node.children.append(child)
+      node.addChild(child)
     }
     count += 1
   }
