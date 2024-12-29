@@ -241,7 +241,7 @@ extension SampleTests {
 }
 
 extension SampleTests {
-  var xmlNodeMock: XMLNode {
+  var nodeMock: XMLNode {
     .init(
       namespacePrefixes: [
         "ns": "http://example.ns/namespace",

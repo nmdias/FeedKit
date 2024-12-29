@@ -33,7 +33,7 @@ struct SampleTests: FeedKitTestable {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
     let parser = XMLParser(data: data)
-    let expected: XMLNode = xmlNodeMock
+    let expected: XMLNode = nodeMock
 
     // When
     let actual = try parser.parse().get().root
@@ -48,7 +48,7 @@ struct SampleTests: FeedKitTestable {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
     let expected = String(decoding: data, as: Unicode.UTF8.self)
-    let document = XMLDocument(root: xmlNodeMock)
+    let document = XMLDocument(root: nodeMock)
 
     // When
     let actual = document.toXMLString(formatted: true)
@@ -57,15 +57,14 @@ struct SampleTests: FeedKitTestable {
     #expect(expected == actual)
   }
 
-  @Test
+  @Test("Encode Node -> Model")
   func xmlDecoder() throws {
     // Given
     let decoder = XMLDecoder()
-    let element: XMLNode = xmlNodeMock
     let expected: Sample = sampleMock
 
     // When
-    let actual = try decoder.decode(Sample.self, from: element)
+    let actual = try decoder.decode(Sample.self, from: nodeMock)
 
     // Then
     #expect(expected == actual)
@@ -75,7 +74,7 @@ struct SampleTests: FeedKitTestable {
   func xmlEncoder() throws {
     // Given
     let encoder = XMLEncoder()
-    let expected: XMLNode = xmlNodeMock
+    let expected: XMLNode = nodeMock
 
     // When
     let actual = try encoder.encode(value: sampleMock)
