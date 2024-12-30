@@ -220,13 +220,7 @@ extension XMLNode: XMLStringConvertible {
     if name == "@attributes" {
       return ""
     }
-    var xml = ""
-
-    if let prefix {
-      xml += "\(indent)<\(prefix):\(name)"
-    } else {
-      xml += "\(indent)<\(name)"
-    }
+    var xml = "\(indent)<\(name)"
 
     xml += attributesToString()
 
@@ -238,31 +232,17 @@ extension XMLNode: XMLStringConvertible {
       // Append children recursively, with increased
       // indentation level if formatted is true
       for child in children {
-        // Process children of a "@namespace" node, if present.
-        if child.name.split(separator: ":").first == "xmlns" {
-          for namespaceNode in child.children?.filter({ $0.name != "@attributes" }) ?? [] {
-            xml += namespaceNode.toXMLString(
-              formatted: formatted,
-              indentationLevel: indentationLevel + 1
-            )
-          }
-        } else {
-          xml += child.toXMLString(
-            formatted: formatted,
-            indentationLevel: indentationLevel + 1
-          )
-        }
+        xml += child.toXMLString(
+          formatted: formatted,
+          indentationLevel: indentationLevel + 1
+        )
       }
 
       // Add closing tag with indentation if formatted is true
       xml += "\(formatted ? indent : "")</\(name)>\(formatted ? "\n" : "")"
     } else if let text {
       // Element has text, close opening tag and add text
-      if let prefix {
-        xml += ">\(text)</\(prefix):\(name)>\(formatted ? "\n" : "")"
-      } else {
-        xml += ">\(text)</\(name)>\(formatted ? "\n" : "")"
-      }
+      xml += ">\(text)</\(name)>\(formatted ? "\n" : "")"
 
     } else {
       // Self-closing tag for an empty node
