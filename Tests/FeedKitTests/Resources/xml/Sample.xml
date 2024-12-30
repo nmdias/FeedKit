@@ -12,7 +12,7 @@
     <ns:description>This description is a sample namespace element.</ns:description>
   </header>
   <content>
-    <item id="1" value="01">
+    <item>
       <name>Item 1</name>
       <description>This is a sample description for Item 1.</description>
       <precision>1.11</precision>
@@ -22,7 +22,7 @@
       </details>
       <xhtml type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><p><strong>Some markings</strong><a href="http://www.example.org/">Example</a></p><div class="blockquote"><p>On a quote...</p></div></div></xhtml>
     </item>
-    <item id="2" value="02">
+    <item>
       <name>Item 2</name>
       <description>This is a sample description for Item 2.</description>
       <precision>2.22</precision>
