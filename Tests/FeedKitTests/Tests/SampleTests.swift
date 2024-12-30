@@ -38,9 +38,8 @@ struct SampleTests: FeedKitTestable {
     // When
     let actual = try parser.parse().get().root
 
-    let result = expected == actual
     // Then
-    #expect(result)
+    #expect(expected == actual)
   }
 
   @Test
@@ -79,6 +78,7 @@ struct SampleTests: FeedKitTestable {
     // When
     let actual = try encoder.encode(value: sampleMock)
 
+    // Then
     #expect(expected == actual)
   }
 
@@ -93,6 +93,7 @@ struct SampleTests: FeedKitTestable {
     let sampleNode = try encoder.encode(value: sampleMock)
     let actual = try decoder.decode(Sample.self, from: sampleNode)
 
+    // Then
     #expect(expected == actual)
   }
 }
