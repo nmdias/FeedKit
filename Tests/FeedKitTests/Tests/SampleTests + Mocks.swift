@@ -25,9 +25,14 @@
 @testable import FeedKit
 
 struct Sample: Codable, Equatable {
+  var attributes: Attributes?
   var header: Header?
   var content: Content?
   var footer: Footer?
+  
+  struct Attributes: Codable, Equatable {
+    var xmlns: String?
+  }
 
   struct Header: Codable, Equatable {
     var title: Title?
@@ -149,9 +154,59 @@ struct Sample: Codable, Equatable {
   }
 }
 
+extension Sample {
+  private enum CodingKeys: String, CodingKey {
+    case attributes = "@attributes"
+    case header
+    case content
+    case footer
+  }
+  
+  init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<Sample.CodingKeys> = try decoder.container(keyedBy: Sample.CodingKeys.self)
+    
+    self.attributes = try container.decodeIfPresent(Sample.Attributes.self, forKey: Sample.CodingKeys.attributes)
+    self.header = try container.decodeIfPresent(Sample.Header.self, forKey: Sample.CodingKeys.header)
+    self.content = try container.decodeIfPresent(Sample.Content.self, forKey: Sample.CodingKeys.content)
+    self.footer = try container.decodeIfPresent(Sample.Footer.self, forKey: Sample.CodingKeys.footer)
+    
+  }
+  
+  func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<Sample.CodingKeys> = encoder.container(keyedBy: Sample.CodingKeys.self)
+    
+    try container.encodeIfPresent(self.attributes, forKey: Sample.CodingKeys.attributes)
+    try container.encodeIfPresent(self.header, forKey: Sample.CodingKeys.header)
+    try container.encodeIfPresent(self.content, forKey: Sample.CodingKeys.content)
+    try container.encodeIfPresent(self.footer, forKey: Sample.CodingKeys.footer)
+  }
+}
+
+extension Sample.Attributes {
+  private enum CodingKeys: String, CodingKey {
+    case xmlns = "xmlns:ns"
+  }
+  
+  init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<Sample.Attributes.CodingKeys> = try decoder.container(keyedBy: Sample.Attributes.CodingKeys.self)
+    
+    self.xmlns = try container.decodeIfPresent(String.self, forKey: Sample.Attributes.CodingKeys.xmlns)
+    
+  }
+  
+  func encode(to encoder: any Encoder) throws {
+    var container: KeyedEncodingContainer<Sample.Attributes.CodingKeys> = encoder.container(keyedBy: Sample.Attributes.CodingKeys.self)
+    
+    try container.encodeIfPresent(self.xmlns, forKey: Sample.Attributes.CodingKeys.xmlns)
+  }
+}
+
 extension SampleTests {
   var sampleMock: Sample {
     .init(
+      attributes: .init(
+        xmlns: "http://example.ns/namespace"
+      ),
       header: .init(
         title: .init(
           text: "Sample Document",
