@@ -52,10 +52,6 @@ class XMLDocument: Equatable, Hashable {
 class XMLNode: Codable, Equatable, Hashable {
   /// The parent node of this node.
   weak var parent: XMLNode?
-  /// Namespace prefix-to-URI mappings.
-  var namespacePrefixes: [String: String] = [:]
-  /// The namespace URI
-  var namespaceURI: String?
   /// The namespace prefix
   var prefix: String?
   /// The name of the node.
@@ -79,16 +75,12 @@ class XMLNode: Codable, Equatable, Hashable {
   ///   - attributes: Attributes for the node, if any.
   ///   - children: Children for the node, if any.
   init(
-    namespacePrefixes: [String: String] = [:],
-    namespaceURI: String? = nil,
     prefix: String? = nil,
     name: String,
     text: String? = nil,
     isXhtml: Bool = false,
     attributes: [String: String]? = nil,
     children: [XMLNode]? = nil) {
-    self.namespacePrefixes = namespacePrefixes
-    self.namespaceURI = namespaceURI
     self.prefix = prefix
     self.name = name
     self.text = text
@@ -103,7 +95,6 @@ class XMLNode: Codable, Equatable, Hashable {
   static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
     // Compare current node's properties
     if
-      lhs.namespaceURI != rhs.namespaceURI ||
       lhs.prefix != rhs.prefix ||
       lhs.name != rhs.name ||
       lhs.text != rhs.text ||
@@ -156,8 +147,6 @@ class XMLNode: Codable, Equatable, Hashable {
   required init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<XMLNode.CodingKeys> = try decoder.container(keyedBy: XMLNode.CodingKeys.self)
 
-    namespacePrefixes = try container.decode([String: String].self, forKey: XMLNode.CodingKeys.namespacePrefixes)
-    namespaceURI = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.namespaceURI)
     prefix = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.prefix)
     name = try container.decode(String.self, forKey: XMLNode.CodingKeys.name)
     text = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.text)
@@ -168,8 +157,6 @@ class XMLNode: Codable, Equatable, Hashable {
   func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<XMLNode.CodingKeys> = encoder.container(keyedBy: XMLNode.CodingKeys.self)
 
-    try container.encode(namespacePrefixes, forKey: XMLNode.CodingKeys.namespacePrefixes)
-    try container.encodeIfPresent(namespaceURI, forKey: XMLNode.CodingKeys.namespaceURI)
     try container.encodeIfPresent(prefix, forKey: XMLNode.CodingKeys.prefix)
     try container.encode(name, forKey: XMLNode.CodingKeys.name)
     try container.encodeIfPresent(text, forKey: XMLNode.CodingKeys.text)
@@ -241,8 +228,6 @@ extension XMLNode: XMLStringConvertible {
       xml += "\(indent)<\(name)"
     }
 
-    xml += namespaceDeclarationsToString()
-
     xml += attributesToString()
 
     // Process child nodes, excluding "@attributes"
@@ -291,22 +276,6 @@ extension XMLNode: XMLStringConvertible {
 // MARK: - XMLNode + XMLStringConvertible Helpers
 
 extension XMLNode {
-  /// Converts namespace declarations into a string representation.
-  /// - Returns: A formatted string of namespace declarations, or an empty string.
-  private func namespaceDeclarationsToString() -> String {
-    // Generate a string for namespace declarations in the format:
-    // - Default namespace: xmlns="URI"
-    // - Prefixed namespace: xmlns:prefix="URI"
-    let namespaceDeclarations = namespacePrefixes.map { prefix, uri in
-      prefix.isEmpty
-        ? "xmlns=\"\(uri)\""
-        : "xmlns:\(prefix)=\"\(uri)\""
-    }.joined(separator: " ")
-
-    // Return the namespace declarations, prefixed with a space if not empty.
-    return namespaceDeclarations.isEmpty ? "" : " \(namespaceDeclarations)"
-  }
-
   /// Converts attributes of the node into a string representation.
   /// - Returns: A formatted string of attributes, or an empty string if none exist.
   private func attributesToString() -> String {
