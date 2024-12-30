@@ -54,7 +54,7 @@ struct Sample: Codable, Equatable {
       case description
       case version
       case keywords
-      case namespace = "xmlns:ns"
+      case namespace = "ns"
     }
 
     struct Title: Codable, Equatable {
@@ -75,7 +75,7 @@ struct Sample: Codable, Equatable {
       var keyword: [String]?
     }
 
-    struct Namespace: Codable, Equatable {
+    struct Namespace: Codable, Equatable, XMLNamespaceCodable {
       var title: String?
       var description: String?
 
@@ -90,7 +90,6 @@ struct Sample: Codable, Equatable {
     var item: [Item]
 
     struct Item: Codable, Equatable {
-      var attributes: Attributes?
       var name: String?
       var description: String?
       var precision: Double?
@@ -98,7 +97,6 @@ struct Sample: Codable, Equatable {
       var xhtml: Xhtml?
 
       private enum CodingKeys: String, CodingKey {
-        case attributes = "@attributes"
         case name
         case description
         case precision
@@ -107,23 +105,16 @@ struct Sample: Codable, Equatable {
       }
 
       init(
-        attributes: Attributes? = nil,
         name: String? = nil,
         description: String? = nil,
         precision: Double? = nil,
         details: Details? = nil,
         xhtml: Xhtml? = nil) {
-        self.attributes = attributes
         self.name = name
         self.description = description
         self.precision = precision
         self.details = details
         self.xhtml = xhtml
-      }
-
-      struct Attributes: Codable, Equatable {
-        var id: Int?
-        var value: String?
       }
 
       struct Details: Codable, Equatable {
@@ -184,10 +175,6 @@ extension SampleTests {
       content: .init(
         item: [
           .init(
-            attributes: .init(
-              id: 1,
-              value: "01"
-            ),
             name: "Item 1",
             description: "This is a sample description for Item 1.",
             precision: 1.11,
@@ -207,10 +194,6 @@ extension SampleTests {
             )
           ),
           .init(
-            attributes: .init(
-              id: 2,
-              value: "02"
-            ),
             name: "Item 2",
             description: "This is a sample description for Item 2.",
             precision: 2.22,
@@ -243,11 +226,17 @@ extension SampleTests {
 extension SampleTests {
   var nodeMock: XMLNode {
     .init(
-      namespacePrefixes: [
-        "ns": "http://example.ns/namespace",
-      ],
       name: "sample",
       children: [
+        .init(
+          name: "@attributes",
+          children: [
+            .init(
+              name: "xmlns:ns",
+              text: "http://example.ns/namespace"
+            )
+          ]
+        ),
         .init(
           name: "header",
           children: [
@@ -288,17 +277,14 @@ extension SampleTests {
               ]
             ),
             .init(
-              name: "xmlns:ns",
-              children: [
-                .init(
-                  name: "ns:title",
-                  text: "This title is a sample namespace element."
-                ),
-                .init(
-                  name: "ns:description",
-                  text: "This description is a sample namespace element."
-                ),
-              ]
+              prefix: "ns",
+              name: "ns:title",
+              text: "This title is a sample namespace element."
+            ),
+            .init(
+              prefix: "ns",
+              name: "ns:description",
+              text: "This description is a sample namespace element."
             ),
           ]
         ),
@@ -308,19 +294,6 @@ extension SampleTests {
             .init(
               name: "item",
               children: [
-                .init(
-                  name: "@attributes",
-                  children: [
-                    .init(
-                      name: "id",
-                      text: "1"
-                    ),
-                    .init(
-                      name: "value",
-                      text: "01"
-                    ),
-                  ]
-                ),
                 .init(
                   name: "name",
                   text: "Item 1"
@@ -351,6 +324,7 @@ extension SampleTests {
                   text: """
                   <div xmlns="http://www.w3.org/1999/xhtml"><p><strong>Some markings</strong><a href="http://www.example.org/">Example</a></p><div class="blockquote"><p>On a quote...</p></div></div>
                   """,
+                  isXhtml: true,
                   children: [
                     .init(
                       name: "@attributes",
@@ -367,24 +341,7 @@ extension SampleTests {
             ),
             .init(
               name: "item",
-              attributes: [
-                "id": "2",
-                "value": "02",
-              ],
               children: [
-                .init(
-                  name: "@attributes",
-                  children: [
-                    .init(
-                      name: "id",
-                      text: "2"
-                    ),
-                    .init(
-                      name: "value",
-                      text: "02"
-                    ),
-                  ]
-                ),
                 .init(
                   name: "name",
                   text: "Item 2"
@@ -415,6 +372,7 @@ extension SampleTests {
                   text: """
                   <div xmlns="http://www.w3.org/1999/xhtml"><p><strong>Some markings</strong><a href="http://www.example.org/">Example</a></p><div class="blockquote"><p>On a quote...</p></div></div>
                   """,
+                  isXhtml: true,
                   children: [
                     .init(
                       name: "@attributes",
