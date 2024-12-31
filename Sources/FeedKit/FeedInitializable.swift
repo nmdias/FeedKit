@@ -51,7 +51,10 @@ extension FeedInitializable {
 
   /// Default implementation for initializing from a string.
   init(string: String) throws {
-    fatalError()
+    guard let data = string.data(using: .utf8) else {
+      throw XMLError.unexpected(reason: "Unable to convert string to data.")
+    }
+    try self.init(data: data)
   }
 
   /// Default implementation for initializing from data.

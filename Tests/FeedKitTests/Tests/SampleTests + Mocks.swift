@@ -24,7 +24,7 @@
 
 @testable import FeedKit
 
-struct Sample: Codable, Equatable {
+struct Sample: Codable, Equatable, FeedInitializable {
   var attributes: Attributes?
   var header: Header?
   var content: Content?
