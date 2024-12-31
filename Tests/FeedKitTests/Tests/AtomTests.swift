@@ -35,7 +35,7 @@ struct AtomTests: FeedKitTestable {
     let expected: AtomFeed = mock
 
     // When
-    let actual = try? AtomFeed(data: data)
+    let actual = try AtomFeed(data: data)
 
     // Then
     #expect(expected == actual)
