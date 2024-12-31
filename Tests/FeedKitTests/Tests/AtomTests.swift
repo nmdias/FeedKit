@@ -40,8 +40,8 @@ struct AtomTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
-  
-  @Test(.disabled())
+
+  @Test
   func atomXhtml() throws {
     // Given
     let data = data(resource: "Atom + XHTML", withExtension: "xml")
@@ -49,24 +49,6 @@ struct AtomTests: FeedKitTestable {
 
     // When
     let actual = try? AtomFeed(data: data)
-
-    // Then
-    #expect(expected == actual)
-  }
-
-  @Test(.disabled())
-  func atomXmlString() throws {
-    // Given
-    let data = data(resource: "Atom", withExtension: "xml")
-    let expected = String(decoding: data, as: Unicode.UTF8.self)
-    let encoder = XMLEncoder()
-    encoder.dateEncodingStrategy = .formatter(RFC3339DateFormatter())
-    let root = try? encoder.encode(value: mock)
-    root?.name = "feed" // TODO: - Need to infer this better
-    let document = XMLDocument(root: root!)
-
-    // When
-    let actual = document.toXMLString(formatted: true)
 
     // Then
     #expect(expected == actual)

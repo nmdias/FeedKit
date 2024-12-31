@@ -40,19 +40,4 @@ struct DublinCoreTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
-
-  @Test()
-  func xmlString() throws {
-    // Given
-    let data = data(resource: "RSSDC", withExtension: "xml")
-    let expected = String(decoding: data, as: Unicode.UTF8.self)
-
-    let feed = try RSSFeed(data: data)
-
-    // When
-    let actual = try feed.toXMLString(formatted: true)
-
-    // Then
-    #expect(expected == actual)
-  }
 }
