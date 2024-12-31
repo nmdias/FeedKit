@@ -7,7 +7,7 @@
     <dc:description>description</dc:description>
     <dc:publisher>publisher</dc:publisher>
     <dc:contributor>contributor</dc:contributor>
-    <dc:date>2000-01-01T12:00+00:00</dc:date>
+    <dc:date>Sat, 1 Jan 2000 12:00:00 GMT</dc:date>
     <dc:type>type</dc:type>
     <dc:format>format</dc:format>
     <dc:identifier>identifier</dc:identifier>
@@ -24,7 +24,7 @@
     <dc:description>description</dc:description>
     <dc:publisher>publisher</dc:publisher>
     <dc:contributor>contributor</dc:contributor>
-    <dc:date>2000-01-01T12:00+00:00</dc:date>
+    <dc:date>Sat, 1 Jan 2000 12:00:00 GMT</dc:date>
     <dc:type>type</dc:type>
     <dc:format>format</dc:format>
     <dc:identifier>identifier</dc:identifier>
