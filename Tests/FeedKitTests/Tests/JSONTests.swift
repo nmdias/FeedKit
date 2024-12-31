@@ -36,7 +36,7 @@ struct JSONTests: FeedKitTestable {
     let expected: JSONFeed = mock
 
     // When
-    let actual = try? JSONFeed(data: data)
+    let actual = try JSONFeed(data: data)
 
     // Then
     #expect(expected == actual)

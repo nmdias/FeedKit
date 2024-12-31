@@ -48,7 +48,7 @@ struct AtomTests: FeedKitTestable {
     let expected: AtomFeed = xhtmlMock
 
     // When
-    let actual = try? AtomFeed(data: data)
+    let actual = try AtomFeed(data: data)
 
     // Then
     #expect(expected == actual)

@@ -35,7 +35,7 @@ struct ContentTests: FeedKitTestable {
     let expected: RSSFeed = mock
 
     // When
-    let actual = try? RSSFeed(data: data)
+    let actual = try RSSFeed(data: data)
 
     // Then
     #expect(expected == actual)
