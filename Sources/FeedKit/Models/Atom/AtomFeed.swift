@@ -255,17 +255,4 @@ extension AtomFeed: Codable {
 
 // MARK: - FeedInitializable
 
-extension AtomFeed: FeedInitializable {
-  init(data: Data) throws {
-    let parser = FeedKit.XMLParser(data: data)
-    let result = try parser.parse().get()
-
-    guard let rootNode = result.root else {
-      throw XMLError.unexpected(reason: "Unexpected parsing result. Root node is nil.")
-    }
-
-    let decoder = XMLDecoder()
-    decoder.dateDecodingStrategy = .formatter(FeedDateFormatter(spec: .permissive))
-    self = try decoder.decode(Self.self, from: rootNode)
-  }
-}
+extension AtomFeed: FeedInitializable {}
