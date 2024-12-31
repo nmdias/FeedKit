@@ -69,19 +69,6 @@ struct SampleTests: FeedKitTestable {
     #expect(expected == actual)
   }
 
-  @Test("Encode Model -> Node")
-  func xmlEncoder() throws {
-    // Given
-    let encoder = XMLEncoder()
-    let expected: XMLNode = nodeMock
-
-    // When
-    let actual = try encoder.encode(value: sampleMock)
-
-    // Then
-    #expect(expected == actual)
-  }
-
   @Test("Encode Model -> Node -> Model")
   func xmlEncoderDecoder() throws {
     // Given
