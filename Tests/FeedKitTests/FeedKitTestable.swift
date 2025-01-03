@@ -54,6 +54,25 @@ protocol FeedKitTestable {
 }
 
 extension FeedKitTestable {
+  func url(resource: String, withExtension ext: String) -> URL {
+    guard let fileURL = Bundle.module.url(forResource: resource, withExtension: ext) else {
+      fatalError("Error: Could not find file \(resource).\(ext) in bundle.")
+    }
+    return fileURL
+  }
+
+  func string(resource: String, withExtension ext: String) -> String {
+    guard let fileURL = Bundle.module.url(forResource: resource, withExtension: ext) else {
+      fatalError("Error: Could not find file \(resource).\(ext) in bundle.")
+    }
+    do {
+      let string = try String(contentsOf: fileURL, encoding: .utf8)
+      return string
+    } catch {
+      fatalError("Error: Failed to load string from \(fileURL): \(error)")
+    }
+  }
+
   func data(resource: String, withExtension ext: String) -> Data {
     guard let fileURL = Bundle.module.url(forResource: resource, withExtension: ext) else {
       fatalError("Error: Could not find file \(resource).\(ext) in bundle.")
