@@ -40,10 +40,11 @@ extension String {
 
       var mediaTag = MediaTag()
       mediaTag.tag = components.first
+      // Default weight if not provided = 1
       if components.count > 1 {
-        mediaTag.weight = Int(components.last ?? "")
+        mediaTag.weight = Int(components.last ?? "") ?? 1 
       } else {
-        mediaTag.weight = 1 // Default weight if not provided
+        mediaTag.weight = 1
       }
       return mediaTag
     }

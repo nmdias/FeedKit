@@ -34,11 +34,11 @@ public struct MediaTag {
   public var tag: String?
 
   /// The tag weight. Default to 1 if not specified.
-  public var weight: Int? = 1
+  public var weight: Int = 1
 
   public init(
     tag: String? = nil,
-    weight: Int? = 1) {
+    weight: Int = 1) {
     self.tag = tag
     self.weight = weight
   }
@@ -64,13 +64,13 @@ extension MediaTag: Codable {
     let container: KeyedDecodingContainer<MediaTag.CodingKeys> = try decoder.container(keyedBy: MediaTag.CodingKeys.self)
 
     tag = try container.decodeIfPresent(String.self, forKey: MediaTag.CodingKeys.tag)
-    weight = try container.decodeIfPresent(Int.self, forKey: MediaTag.CodingKeys.weight)
+    weight = try container.decode(Int.self, forKey: MediaTag.CodingKeys.weight)
   }
 
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<MediaTag.CodingKeys> = encoder.container(keyedBy: MediaTag.CodingKeys.self)
 
     try container.encodeIfPresent(tag, forKey: MediaTag.CodingKeys.tag)
-    try container.encodeIfPresent(weight, forKey: MediaTag.CodingKeys.weight)
+    try container.encode(weight, forKey: MediaTag.CodingKeys.weight)
   }
 }
