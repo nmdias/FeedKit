@@ -56,6 +56,9 @@ import Foundation
 ///
 /// - SeeAlso: `Feed`, `FeedType`, `AtomFeed`, `RSSFeed`, `JSONFeed`
 public struct FeedParser {
+  /// Creates a new instance of `FeedParser`.
+  public init() {}
+
   /// Parses a feed from a URL (file or remote).
   ///
   /// - Parameter url: The URL of the feed.
