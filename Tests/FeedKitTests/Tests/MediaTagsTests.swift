@@ -32,11 +32,13 @@ struct MediaTagsTests {
   @Test
   func mediaTags() {
     // Given
-    let given = ""
+    let given = "news: 5, abc:3, reuters"
     let expected: [MediaTag]? = [
-      
+      .init(tag: "news", weight: 5),
+      .init(tag: "abc", weight: 3),
+      .init(tag: "reuters", weight: 1),
     ]
-    
+
     // When
     let actual = given.toMediaTags()
 
