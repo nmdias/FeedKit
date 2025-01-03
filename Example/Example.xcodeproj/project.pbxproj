@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A09BD8942D28A6CF00B1D143 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A09BD8932D28A6CF00B1D143 /* FeedKit */; };
+		A09BD8962D28A6CF00B1D143 /* XMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = A09BD8952D28A6CF00B1D143 /* XMLKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		A09BD8802D28A6A000B1D143 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09BD8942D28A6CF00B1D143 /* FeedKit in Frameworks */,
+				A09BD8962D28A6CF00B1D143 /* XMLKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,8 @@
 			);
 			name = Example;
 			packageProductDependencies = (
+				A09BD8932D28A6CF00B1D143 /* FeedKit */,
+				A09BD8952D28A6CF00B1D143 /* XMLKit */,
 			);
 			productName = Example;
 			productReference = A09BD8802D28A6A000B1D143 /* Example.app */;
@@ -94,6 +103,9 @@
 			);
 			mainGroup = A09BD8772D28A6A000B1D143;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A09BD8922D28A6CF00B1D143 /* XCLocalSwiftPackageReference "../../FeedKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A09BD8812D28A6A000B1D143 /* Products */;
 			projectDirPath = "";
@@ -245,10 +257,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
-				DEVELOPMENT_TEAM = MP286B9UUC;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -284,10 +297,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
-				DEVELOPMENT_TEAM = MP286B9UUC;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -339,6 +353,24 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A09BD8922D28A6CF00B1D143 /* XCLocalSwiftPackageReference "../../FeedKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../FeedKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A09BD8932D28A6CF00B1D143 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FeedKit;
+		};
+		A09BD8952D28A6CF00B1D143 /* XMLKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = XMLKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A09BD8782D28A6A000B1D143 /* Project object */;
 }
