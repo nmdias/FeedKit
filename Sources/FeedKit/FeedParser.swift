@@ -56,7 +56,59 @@ import Foundation
 ///
 /// - SeeAlso: `Feed`, `FeedType`, `AtomFeed`, `RSSFeed`, `JSONFeed`
 public struct FeedParser {
-  /// Parses a single feed from the provided data.
+  /// Parses a feed from a URL (file or remote).
+  ///
+  /// - Parameter url: The URL of the feed.
+  /// - Returns: A result with the parsed feed or an error.
+  /// - Throws: An error if fetching or parsing fails.
+  public func parse(url: URL) async throws -> Result<Feed, Error> {
+    if url.isFileURL {
+      return try parse(fileURL: url)
+    } else {
+      return try await parse(remoteURL: url)
+    }
+  }
+
+  /// Parses a feed from a local file URL.
+  ///
+  /// - Parameter url: The file URL of the feed.
+  /// - Returns: A result with the parsed feed or an error.
+  /// - Throws: An error if reading or parsing fails.
+  public func parse(fileURL url: URL) throws -> Result<Feed, Error> {
+    let data = try Data(contentsOf: url)
+    return try parse(data: data)
+  }
+
+  /// Parses a feed from a remote URL.
+  ///
+  /// - Parameter url: The remote URL of the feed.
+  /// - Returns: A result with the parsed feed or an error.
+  /// - Throws: An error if fetching or parsing fails.
+  public func parse(remoteURL url: URL) async throws -> Result<Feed, Error> {
+    let session = URLSession.shared
+    let (data, response) = try await session.data(from: url)
+
+    guard let httpResponse = response as? HTTPURLResponse,
+          (200 ... 299).contains(httpResponse.statusCode) else {
+      throw XMLError.unexpected(reason: "Invalid response from URL.")
+    }
+
+    return try parse(data: data)
+  }
+
+  /// Parses a feed from the provided string.
+  ///
+  /// - Parameter string: The raw feed content as a string.
+  /// - Returns: A `Result` containing the parsed `Feed` or an error.
+  /// - Throws: An `XMLError` if the feed type is unknown or parsing fails.
+  public func parse(string: String) throws -> Result<Feed, Error> {
+    guard let data = string.data(using: .utf8) else {
+      throw XMLError.unexpected(reason: "Unable to convert string to data.")
+    }
+    return try parse(data: data)
+  }
+
+  /// Parses a feed from the provided data.
   ///
   /// This method determines the feed type (Atom, RSS, RDF, or JSON) from the
   /// given data and parses it accordingly.
