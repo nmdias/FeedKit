@@ -37,7 +37,6 @@ struct MediaTests: FeedKitTestable {
     // When
     let actual = try RSSFeed(data: data)
 
-    saveToDocuments(expected: expected, actual: actual)
     // Then
     #expect(expected == actual)
   }
