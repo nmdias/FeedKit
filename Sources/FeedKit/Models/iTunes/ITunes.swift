@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 /// iTunes Podcasting Tags are de facto standard for podcast syndication. For more
 /// information see https://help.apple.com/itc/podcasts_connect/#/itcb54353390

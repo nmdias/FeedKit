@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 /// The attributes of the `<channel>`'s `<cloud>` element.
 public struct RSSFeedCloudAttributes: Codable, Equatable, Hashable {
@@ -82,4 +83,4 @@ public struct RSSFeedCloudAttributes: Codable, Equatable, Hashable {
 /// A full explanation of this element and the rssCloud interface is here:
 /// http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
 
-public typealias RSSFeedCloud = FeedAttributesElement<RSSFeedCloudAttributes>
+public typealias RSSFeedCloud = XMLAttributesElement<RSSFeedCloudAttributes>

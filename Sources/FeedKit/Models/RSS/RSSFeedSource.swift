@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct RSSFeedSourceAttributes: Codable, Equatable, Hashable {
   /// Required attribute of the `Source` element, which links to the
@@ -48,4 +49,4 @@ public struct RSSFeedSourceAttributes: Codable, Equatable, Hashable {
 /// publicize the sources of news items. It can be used in the Post command
 /// of an aggregator. It should be generated automatically when forwarding
 /// an item from an aggregator to a weblog authoring tool.
-public typealias RSSFeedSource = FeedElement<RSSFeedSourceAttributes>
+public typealias RSSFeedSource = XMLKit.XMLElement<RSSFeedSourceAttributes>

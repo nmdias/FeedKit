@@ -1,5 +1,5 @@
 //
-//  XMLDocumentConvertible.swift
+//  XMLDateDecodingStrategy.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,6 +24,11 @@
 
 import Foundation
 
-protocol XMLDocumentConvertible {
-  func toXmlDocument() throws -> XMLDocument
+/// Strategies for decoding `Date` values from XML data.
+public enum XMLDateDecodingStrategy {
+  /// Use the `Date` type's default decoding implementation.
+  case deferredToDate
+  /// Decode using a specified `DateFormatter` instance.
+  /// - Parameter formatter: The formatter to use for decoding dates.
+  case formatter(DateFormatter)
 }

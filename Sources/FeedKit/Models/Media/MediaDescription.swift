@@ -23,7 +23,7 @@
 //
 
 import Foundation
-
+import XMLKit
 
 public struct MediaDescriptionAttributes: Codable, Equatable, Hashable {
   /// Specifies the type of text embedded. Possible values are either "plain" or "html".
@@ -36,4 +36,4 @@ public struct MediaDescriptionAttributes: Codable, Equatable, Hashable {
 }
 /// Short description describing the media object typically a sentence in
 /// length. It has one optional attribute.
-public typealias MediaDescription = FeedElement<MediaDescriptionAttributes>
+public typealias MediaDescription = XMLKit.XMLElement<MediaDescriptionAttributes>

@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaLicenceAttributes: Codable, Equatable, Hashable {
   /// The licence type.
@@ -39,4 +40,4 @@ public struct MediaLicenceAttributes: Codable, Equatable, Hashable {
 
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public typealias MediaLicence = FeedElement<MediaLicenceAttributes>
+public typealias MediaLicence = XMLKit.XMLElement<MediaLicenceAttributes>

@@ -24,9 +24,12 @@
 
 import Foundation
 
-class XMLDecoder {
+public class XMLDecoder {
+  /// Creates a new instance of `XMLDecoder`.
+  public init() {}
+
   /// The strategy for decoding `Date` values from XML nodes.
-  var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
+  public var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
 
   /// Decodes a top-level value of the given type from the given XML representation.
   ///
@@ -40,6 +43,17 @@ class XMLDecoder {
     let decoder = _XMLDecoder(node: node, codingPath: [])
     decoder.dateDecodingStrategy = dateDecodingStrategy
     return try T(from: decoder)
+  }
+
+  public func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
+    let parser = XMLKit.XMLParser(data: data)
+    let result = try parser.parse().get()
+
+    guard let rootNode = result.root else {
+      throw XMLError.unexpected(reason: "Unexpected parsing result. Root is nil.")
+    }
+    
+    return try decode(type, from: rootNode)
   }
 }
 

@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaPlayerAttributes: Codable, Equatable, Hashable {
   /// The URL of the player console that plays the media. It is a required attribute.
@@ -47,4 +48,4 @@ public struct MediaPlayerAttributes: Codable, Equatable, Hashable {
 /// console. This element is required only if a direct media url attribute is
 /// not specified in the <media:content> element. It has one required attribute
 /// and two optional attributes.
-public typealias MediaPlayer = FeedElement<MediaPlayerAttributes>
+public typealias MediaPlayer = XMLKit.XMLElement<MediaPlayerAttributes>

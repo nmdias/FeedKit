@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct AtomFeedContentAttributes: Codable, Equatable, Hashable {
   /// On the atom:content element, the value of the "type" attribute MAY be
@@ -57,4 +58,4 @@ public struct AtomFeedContentAttributes: Codable, Equatable, Hashable {
 
 /// The "atom:content" element either contains or links to the content of
 /// the entry.  The content of atom:content is Language-Sensitive.
-public typealias AtomFeedContent = FeedElement<AtomFeedContentAttributes>
+public typealias AtomFeedContent = XMLKit.XMLElement<AtomFeedContentAttributes>

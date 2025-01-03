@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct RSSFeedEnclosureAttributes: Codable, Equatable, Hashable {
   /// Where the enclosure is located.
@@ -62,4 +63,4 @@ public struct RSSFeedEnclosureAttributes: Codable, Equatable, Hashable {
 ///
 /// <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3"
 /// length="12216320" type="audio/mpeg" />
-public typealias RSSFeedEnclosure = FeedAttributesElement<RSSFeedEnclosureAttributes>
+public typealias RSSFeedEnclosure = XMLAttributesElement<RSSFeedEnclosureAttributes>

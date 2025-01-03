@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaParamAttributes: Codable, Equatable, Hashable {
   /// The parameter's key name.
@@ -34,4 +35,4 @@ public struct MediaParamAttributes: Codable, Equatable, Hashable {
 }
 
 /// Key-Value pairs with additional parameters for the embedded Media.
-public typealias MediaParam = FeedElement<MediaParamAttributes>
+public typealias MediaParam = XMLKit.XMLElement<MediaParamAttributes>

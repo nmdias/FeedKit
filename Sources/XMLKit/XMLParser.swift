@@ -196,7 +196,7 @@ extension XMLParser: XMLParserDelegate {
       return
     }
 
-    stack.top()?.children.append(node)
+    stack.top()?.addChild(node)
   }
 
   func parserDidEndDocument(

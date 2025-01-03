@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct AtomFeedTitleAttributes: Codable, Equatable, Hashable {
   /// Text constructs MAY have a "type" attribute.  When present, the value
@@ -38,4 +39,4 @@ public struct AtomFeedTitleAttributes: Codable, Equatable, Hashable {
 
 /// The "atom:title" element is a Text construct that conveys a human-
 /// readable title for an entry or feed.
-public typealias AtomFeedTitle = FeedElement<AtomFeedTitleAttributes>
+public typealias AtomFeedTitle = XMLKit.XMLElement<AtomFeedTitleAttributes>

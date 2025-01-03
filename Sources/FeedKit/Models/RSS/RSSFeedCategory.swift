@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct RSSFeedCategoryAttributes: Codable, Equatable, Hashable {
   /// A string that identifies a categorization taxonomy. It's an optional
@@ -36,4 +37,4 @@ public struct RSSFeedCategoryAttributes: Codable, Equatable, Hashable {
 
 /// The category of `<channel>`. Identifies a category or tag to which the feed
 /// belongs.
-public typealias RSSFeedCategory = FeedAttributesElement<RSSFeedCategoryAttributes>
+public typealias RSSFeedCategory = XMLAttributesElement<RSSFeedCategoryAttributes>

@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct AtomFeedSubtitleAttributes: Codable, Equatable, Hashable {
   /// Text constructs MAY have a "type" attribute.  When present, the value
@@ -38,4 +39,4 @@ public struct AtomFeedSubtitleAttributes: Codable, Equatable, Hashable {
 
 /// The "atom:subtitle" element is a Text construct that conveys a human-
 /// readable description or subtitle for a feed.
-public typealias AtomFeedSubtitle = FeedElement<AtomFeedSubtitleAttributes>
+public typealias AtomFeedSubtitle = XMLKit.XMLElement<AtomFeedSubtitleAttributes>

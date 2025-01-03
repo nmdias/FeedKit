@@ -1,5 +1,5 @@
 //
-//  XMLDocument.swift
+//  XMLNode.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,42 +24,18 @@
 
 import Foundation
 
-/// Represents an XML document containing a root node.
-class XMLDocument: Equatable, Hashable {
-  /// The root node of the document.
-  var root: XMLNode?
-
-  /// Initializes a new document with an optional root node.
-  /// - Parameter root: The root node of the document.
-  init(root: XMLNode?) {
-    self.root = root
-  }
-
-  // MARK: Equatable
-
-  static func == (lhs: XMLDocument, rhs: XMLDocument) -> Bool {
-    lhs.root == rhs.root
-  }
-
-  // MARK: Hashable
-
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(root)
-  }
-}
-
 /// Represents an node in the XML document.
 class XMLNode: Codable, Equatable, Hashable {
   /// The parent node of this node.
   weak var parent: XMLNode?
+  /// Is the `text` property xhtml
+  var isXhtml: Bool = false
   /// The namespace prefix
   var prefix: String?
   /// The name of the node.
   var name: String
   /// The text of the node, if present.
   var text: String?
-  /// Is the `text` property xhtml
-  var isXhtml: Bool = false
   /// The child nodes of this node.
   var children: [XMLNode]? {
     didSet {
@@ -92,7 +68,7 @@ class XMLNode: Codable, Equatable, Hashable {
 
   // MARK: Equatable
 
-  static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
+  public static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
     // Compare current node's properties
     if
       lhs.prefix != rhs.prefix ||
@@ -120,7 +96,7 @@ class XMLNode: Codable, Equatable, Hashable {
 
   // MARK: Hashable
 
-  func hash(into hasher: inout Hasher) {
+  public func hash(into hasher: inout Hasher) {
     // Hash basic properties
     hasher.combine(name)
     hasher.combine(text)
@@ -144,7 +120,7 @@ class XMLNode: Codable, Equatable, Hashable {
     case children
   }
 
-  required init(from decoder: any Decoder) throws {
+  public required init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<XMLNode.CodingKeys> = try decoder.container(keyedBy: XMLNode.CodingKeys.self)
 
     prefix = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.prefix)
@@ -154,7 +130,7 @@ class XMLNode: Codable, Equatable, Hashable {
     children = try container.decodeIfPresent([XMLNode].self, forKey: XMLNode.CodingKeys.children)
   }
 
-  func encode(to encoder: any Encoder) throws {
+  public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<XMLNode.CodingKeys> = encoder.container(keyedBy: XMLNode.CodingKeys.self)
 
     try container.encodeIfPresent(prefix, forKey: XMLNode.CodingKeys.prefix)
@@ -164,46 +140,49 @@ class XMLNode: Codable, Equatable, Hashable {
     try container.encodeIfPresent(children, forKey: XMLNode.CodingKeys.children)
   }
 
-  func child(for name: String) -> XMLNode? {
+  public func child(for name: String) -> XMLNode? {
     children?.first(where: { $0.name == name })
   }
 
-  func hasChild(for name: String) -> Bool {
+  public func hasChild(for name: String) -> Bool {
     children?.first(where: { $0.name == name || $0.prefix == name }) != nil
   }
 
-  func addChild(_ child: XMLNode) {
+  public func addChild(_ child: XMLNode) {
     if children == nil {
       children = []
     }
-    children.append(child)
+    children?.append(child)
+  }
+
+  /// Adds an attribute to the `@attributes` child of the current element.
+  /// - Parameters:
+  ///   - name: The name of the attribute.
+  ///   - value: The value of the attribute.
+  public func addAttribute(name: String, value: String) {
+    // Find or create the `@attributes` node
+    if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
+      // Add the new attribute as a child of `@attributes`
+      if !attributesNode.hasChild(for: name) {
+        return
+      }
+
+      attributesNode.addChild(.init(name: name, text: value))
+
+    } else {
+      // Create the `@attributes` node, and
+      // add the new attribute as a child of `@attributes`
+      addChild(.init(
+        name: "@attributes",
+        children: [
+          .init(name: name, text: value),
+        ]
+      ))
+    }
   }
 }
 
-// MARK: - XMLDocument + XMLStringConvertible
-
-extension XMLDocument: XMLStringConvertible {
-  /// Generates an XML string representation of the document.
-  /// - Parameter formatted: Whether to generate formatted XML (default is
-  ///   false for compact XML).
-  /// - Returns: A string representation of the XML.
-  func toXMLString(
-    formatted: Bool = false,
-    indentationLevel: Int = 1) -> String {
-    guard let root = root else { return "" }
-
-    // XML header
-    let header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-
-    // Generate the XML body with or without formatting
-    let body = root.toXMLString(formatted: formatted, indentationLevel: 0)
-
-    // Combine header and body
-    return "\(header)\(formatted ? "\n" : "")\(body)"
-  }
-}
-
-// MARK: - XMLNode + XMLStringConvertible
+// MARK: - XMLStringConvertible
 
 extension XMLNode: XMLStringConvertible {
   /// Generates an XML string representation of the node and its children.
@@ -211,7 +190,7 @@ extension XMLNode: XMLStringConvertible {
   ///   false for compact XML).
   /// - Parameter indentationLevel: The current level of indentation.
   /// - Returns: A string representation of the XML for the node.
-  func toXMLString(
+  public func toXMLString(
     formatted: Bool = false,
     indentationLevel: Int = 1) -> String {
     let indent = formatted ? String(repeating: "  ", count: indentationLevel) : ""
@@ -253,7 +232,7 @@ extension XMLNode: XMLStringConvertible {
   }
 }
 
-// MARK: - XMLNode + XMLStringConvertible Helpers
+// MARK: - Private
 
 extension XMLNode {
   /// Converts attributes of the node into a string representation.

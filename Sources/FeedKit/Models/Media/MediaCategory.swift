@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaCategoryAttributes: Codable, Equatable, Hashable {
   /// The URI that identifies the categorization scheme. It is an optional
@@ -44,4 +45,4 @@ public struct MediaCategoryAttributes: Codable, Equatable, Hashable {
 
 /// Allows a taxonomy to be set that gives an indication of the type of media
 /// content, and its particular contents. It has two optional attributes.
-public typealias MediaCategory = FeedElement<MediaCategoryAttributes>
+public typealias MediaCategory = XMLKit.XMLElement<MediaCategoryAttributes>

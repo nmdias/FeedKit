@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaRightsAttributes: Codable, Equatable, Hashable {
   /// Is the status of the media object saying whether a media object has
@@ -36,4 +37,4 @@ public struct MediaRightsAttributes: Codable, Equatable, Hashable {
 }
 
 /// Optional element to specify the rights information of a media object.
-public typealias MediaRights = FeedAttributesElement<MediaRightsAttributes>
+public typealias MediaRights = XMLAttributesElement<MediaRightsAttributes>

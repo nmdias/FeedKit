@@ -1,5 +1,5 @@
 //
-//  CodingKey + Namespace.swift
+//  XMLDateEncodingStrategy.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,21 +24,11 @@
 
 import Foundation
 
-extension CodingKey {
-  /// Extracts the prefix of the key, if present (e.g., "xmlns" from "xmlns:ns").
-  var prefix: String? {
-    guard let index = stringValue.firstIndex(of: ":") else { return nil }
-    return String(stringValue[..<index])
-  }
-
-  /// Extracts the name of the key (e.g., "ns" from "xmlns:ns").
-  var name: String {
-    guard let index = stringValue.firstIndex(of: ":") else { return stringValue }
-    return String(stringValue[stringValue.index(after: index)...])
-  }
-
-  /// Determines if the key represents a namespace declaration (e.g., "xmlns").
-  var isNamespace: Bool {
-    return prefix == "xmlns"
-  }
+/// Strategies for encoding `Date` values to XML data.
+public enum XMLDateEncodingStrategy {
+  /// Use the `Date` type's default encoding implementation.
+  case deferredToDate
+  /// Decode using a specified `DateFormatter` instance.
+  /// - Parameter formatter: The formatter to use for encoding dates.
+  case formatter(DateFormatter)
 }

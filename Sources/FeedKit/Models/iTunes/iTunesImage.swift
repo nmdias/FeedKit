@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct iTunesImageAttributes: Codable, Equatable, Hashable {
   /// The image's url.
@@ -58,4 +59,4 @@ public struct iTunesImageAttributes: Codable, Equatable, Hashable {
 /// size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate
 /// file extensions (.jpg, .png), and in the RGB colorspace. These requirements
 /// are different from the standard RSS image tag specifications.
-public typealias iTunesImage = FeedAttributesElement<iTunesImageAttributes>
+public typealias iTunesImage = XMLAttributesElement<iTunesImageAttributes>

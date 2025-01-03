@@ -22,9 +22,9 @@
 //  SOFTWARE.
 //
 
-@testable import FeedKit
+@testable import XMLKit
 
-struct Sample: Codable, Equatable, FeedInitializable {
+struct Sample: Codable, Equatable {
   var attributes: Attributes?
   var header: Header?
   var content: Content?

@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaRestrictionAttributes: Codable, Equatable, Hashable {
   /// Indicates the type of relationship that the restriction represents
@@ -58,4 +59,4 @@ public struct MediaRestrictionAttributes: Codable, Equatable, Hashable {
 /// literals are reserved: "all", "none". These literals can only be used once.
 /// This element has one required attribute and one optional attribute (with
 /// strict requirements for its exclusion).
-public typealias MediaRestriction = FeedElement<MediaRestrictionAttributes>
+public typealias MediaRestriction = XMLKit.XMLElement<MediaRestrictionAttributes>

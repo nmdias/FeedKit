@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaStatisticsAttributes: Codable, Equatable, Hashable {
   /// The number of views.
@@ -41,4 +42,4 @@ public struct MediaStatisticsAttributes: Codable, Equatable, Hashable {
 
 /// This element specifies various statistics about a media object like the
 /// view count and the favorite count. Valid attributes are views and favorites.
-public typealias MediaStatistics = FeedAttributesElement<MediaStatisticsAttributes>
+public typealias MediaStatistics = XMLAttributesElement<MediaStatisticsAttributes>

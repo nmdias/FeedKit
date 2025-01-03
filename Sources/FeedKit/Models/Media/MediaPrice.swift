@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaPriceAttributes: Codable, Equatable, Hashable {
   /// Valid values are "rent", "purchase", "package" or "subscription". If
@@ -56,4 +57,4 @@ public struct MediaPriceAttributes: Codable, Equatable, Hashable {
 /// object can have multiple instances of this tag for including different
 /// pricing structures. The presence of this tag would mean that media object
 /// is not free.
-public typealias MediaPrice = FeedElement<MediaPriceAttributes>
+public typealias MediaPrice = XMLKit.XMLElement<MediaPriceAttributes>

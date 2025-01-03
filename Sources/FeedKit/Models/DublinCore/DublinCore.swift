@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 /// The Dublin Core Metadata Element Set is a standard for cross-domain
 /// resource description.

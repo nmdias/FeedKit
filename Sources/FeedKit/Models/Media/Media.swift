@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 /// Media RSS is a new RSS module that supplements the <enclosure>
 /// capabilities of RSS 2.0. RSS enclosures are already being used to

@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 /// Provides syndication hints to aggregators and others picking up this RDF Site
 /// Summary (RSS) feed regarding how often it is updated. For example, if you

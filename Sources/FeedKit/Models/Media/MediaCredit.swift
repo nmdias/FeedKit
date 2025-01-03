@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaCreditAttributes: Codable, Equatable, Hashable {
   /// Specifies the role the entity played. Must be lowercase. It is an
@@ -49,4 +50,4 @@ public struct MediaCreditAttributes: Codable, Equatable, Hashable {
 /// entities can have multiple roles, and several entities can have the same
 /// role. These should appear as distinct <media:credit> elements. It has two
 /// optional attributes.
-public typealias MediaCredit = FeedElement<MediaCreditAttributes>
+public typealias MediaCredit = XMLKit.XMLElement<MediaCreditAttributes>

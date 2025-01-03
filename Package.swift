@@ -15,16 +15,39 @@ let package = Package(
   products: [
     .library(
       name: "FeedKit",
-      targets: ["FeedKit"]
-    )
+      targets: [
+        "FeedKit"
+      ]
+    ),
+    .library(
+      name: "XMLKit",
+      targets: [
+        "XMLKit"
+      ]
+    ),
   ],
   targets: [
     .target(
-      name: "FeedKit"
+      name: "XMLKit"
+    ),
+    .testTarget(
+      name: "XMLKitTests",
+      dependencies: ["XMLKit"],
+      resources: [
+        .process("Resources/xml/Sample.xml")
+      ]
+    ),
+    .target(
+      name: "FeedKit",
+      dependencies: [
+        "XMLKit"
+      ]
     ),
     .testTarget(
       name: "FeedKitTests",
-      dependencies: ["FeedKit"],
+      dependencies: [
+        "FeedKit"
+      ],
       resources: [
         .process("Resources/json/feed.json"),
         .process("Resources/xml/Ampersand.xml"),
@@ -38,7 +61,6 @@ let package = Package(
         .process("Resources/xml/RSS.xml"),
         .process("Resources/xml/RSSDC.xml"),
         .process("Resources/xml/Media.xml"),
-        .process("Resources/xml/Sample.xml"),
         .process("Resources/xml/Syndication.xml"),
         .process("Resources/xml/iTunes.xml"),
       ]

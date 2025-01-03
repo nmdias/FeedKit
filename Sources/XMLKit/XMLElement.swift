@@ -1,5 +1,5 @@
 //
-//  FeedElement.swift
+//  XMLElement.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -25,7 +25,7 @@
 import Foundation
 
 /// A generic text-based element with attributes.
-public struct FeedElement<Attributes: Codable & Equatable & Hashable>: Codable, Equatable, Hashable {
+public struct XMLElement<Attributes: Codable & Equatable & Hashable>: Codable, Equatable, Hashable {
   /// The element's text.
   public var text: String?
 
@@ -56,7 +56,7 @@ public struct FeedElement<Attributes: Codable & Equatable & Hashable>: Codable, 
 }
 
 /// A generic element with only attributes.
-public struct FeedAttributesElement<Attributes: Codable & Equatable & Hashable>: Codable, Equatable, Hashable {
+public struct XMLAttributesElement<Attributes: Codable & Equatable & Hashable>: Codable, Equatable, Hashable {
   /// The element's attributes.
   public var attributes: Attributes?
 

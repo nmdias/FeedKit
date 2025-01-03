@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct iTunesSubCategoryAttributes: Codable, Equatable, Hashable {
   /// The primary iTunes Category.
@@ -64,4 +65,4 @@ public struct iTunesSubCategoryAttributes: Codable, Equatable, Hashable {
 /// <itunes:category text="Technology">
 /// <itunes:category text="Gadgets" />
 /// </itunes:category>
-public typealias iTunesSubCategory = FeedAttributesElement<iTunesSubCategoryAttributes>
+public typealias iTunesSubCategory = XMLAttributesElement<iTunesSubCategoryAttributes>

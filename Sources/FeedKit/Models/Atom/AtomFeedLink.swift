@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct AtomFeedLinkAttributes: Codable, Equatable, Hashable {
   /// The "href" attribute contains the link's IRI. atom:link elements MUST
@@ -131,4 +132,4 @@ public struct AtomFeedLinkAttributes: Codable, Equatable, Hashable {
 /// The "atom:link" element defines a reference from an entry or feed to
 /// a Web resource.  This specification assigns no meaning to the content
 /// (if any) of this element.
-public typealias AtomFeedLink = FeedAttributesElement<AtomFeedLinkAttributes>
+public typealias AtomFeedLink = XMLAttributesElement<AtomFeedLinkAttributes>

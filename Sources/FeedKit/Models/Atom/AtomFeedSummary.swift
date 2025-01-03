@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct AtomFeedSummaryAttributes: Codable, Equatable, Hashable {
   /// Text constructs MAY have a "type" attribute.  When present, the value
@@ -44,4 +45,4 @@ public struct AtomFeedSummaryAttributes: Codable, Equatable, Hashable {
 /// It is not advisable for the atom:summary element to duplicate
 /// atom:title or atom:content because Atom Processors might assume there
 /// is a useful summary when there is none.
-public typealias AtomFeedSummary = FeedElement<AtomFeedSummaryAttributes>
+public typealias AtomFeedSummary = XMLKit.XMLElement<AtomFeedSummaryAttributes>

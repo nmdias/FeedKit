@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaCopyrightAttributes: Codable, Equatable, Hashable {
   /// The URL for a terms of use page or additional copyright information.
@@ -37,4 +38,4 @@ public struct MediaCopyrightAttributes: Codable, Equatable, Hashable {
 }
 
 /// Copyright information for the media object. It has one optional attribute.
-public typealias MediaCopyright = FeedElement<MediaCopyrightAttributes>
+public typealias MediaCopyright = XMLKit.XMLElement<MediaCopyrightAttributes>

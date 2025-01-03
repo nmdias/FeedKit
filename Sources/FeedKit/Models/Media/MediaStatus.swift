@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaStatusAttributes: Codable, Equatable, Hashable {
   /// State can have values "active", "blocked" or "deleted". "active" means
@@ -45,4 +46,4 @@ public struct MediaStatusAttributes: Codable, Equatable, Hashable {
 
 /// Optional tag to specify the status of a media object -- whether it's still
 /// active or it has been blocked/deleted.
-public typealias MediaStatus = FeedAttributesElement<MediaStatusAttributes>
+public typealias MediaStatus = XMLAttributesElement<MediaStatusAttributes>

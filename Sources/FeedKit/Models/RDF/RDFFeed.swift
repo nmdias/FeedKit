@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct RDFFeed {
   public var channel: RDFFeedChannel?
@@ -62,23 +63,4 @@ extension RDFFeed: Codable {
 
 // MARK: - FeedInitializable
 
-extension RDFFeed: FeedInitializable {
-  init(data: Data) throws {
-    let parser = FeedKit.XMLParser(data: data)
-    let result = try parser.parse().get()
-
-    guard let rootNode = result.root else {
-      throw XMLError.unexpected(reason: "Unexpected parsing result. Root node is nil.")
-    }
-
-    let decoder = XMLDecoder()
-    decoder.dateDecodingStrategy = .formatter(FeedDateFormatter(spec: .permissive))
-    self = try decoder.decode(Self.self, from: rootNode)
-  }
-}
-
-extension RDFFeed: XMLStringConvertible {
-  func toXMLString(formatted: Bool, indentationLevel: Int = 1) throws -> String {
-    fatalError()
-  }
-}
+extension RDFFeed: FeedInitializable {}

@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaHashAttributes: Codable, Equatable, Hashable {
   /// This is the hash of the binary media file. It can appear multiple times as long as
@@ -36,4 +37,4 @@ public struct MediaHashAttributes: Codable, Equatable, Hashable {
 
 /// This is the hash of the binary media file. It can appear multiple times as
 /// long as each instance is a different algo. It has one optional attribute.
-public typealias MediaHash = FeedElement<MediaHashAttributes>
+public typealias MediaHash = XMLKit.XMLElement<MediaHashAttributes>

@@ -24,20 +24,24 @@
 
 import Foundation
 
-class XMLEncoder {
+public class XMLEncoder {
+  /// Creates a new instance of `XMLEncoder`.
+  public init() {}
+
   /// The strategy for encoding `Date` values into XML nodes.
-  var dateEncodingStrategy: XMLDateEncodingStrategy = .deferredToDate
+  public var dateEncodingStrategy: XMLDateEncodingStrategy = .deferredToDate
 
   /// Encodes a value to an XML node.
   /// - Parameter value: The value to encode.
   /// - Returns: The encoded XML node.
   /// - Throws: An error if encoding fails.
-  func encode<T: Codable>(value: T) throws -> XMLNode {
+  public func encode<T: Codable>(value: T) throws -> XMLKit.XMLDocument {
     let key = XMLCodingKey(stringValue: "\(type(of: value))".lowercased(), intValue: nil)
     let encoder = _XMLEncoder(codingPath: [key])
     encoder.dateEncodingStrategy = dateEncodingStrategy
     try value.encode(to: encoder)
-    return encoder.node!
+    let rootNode = encoder.node!
+    return XMLKit.XMLDocument(root: rootNode)
   }
 }
 

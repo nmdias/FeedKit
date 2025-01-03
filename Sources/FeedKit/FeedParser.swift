@@ -90,7 +90,7 @@ public struct FeedParser {
 
     guard let httpResponse = response as? HTTPURLResponse,
           (200 ... 299).contains(httpResponse.statusCode) else {
-      throw XMLError.unexpected(reason: "Invalid response from URL.")
+      throw FeedError.unexpected(reason: "Invalid response from URL.")
     }
 
     return try parse(data: data)
@@ -103,7 +103,7 @@ public struct FeedParser {
   /// - Throws: An `XMLError` if the feed type is unknown or parsing fails.
   public func parse(string: String) throws -> Result<Feed, Error> {
     guard let data = string.data(using: .utf8) else {
-      throw XMLError.unexpected(reason: "Unable to convert string to data.")
+      throw FeedError.unexpected(reason: "Unable to convert string to data.")
     }
     return try parse(data: data)
   }
@@ -118,7 +118,7 @@ public struct FeedParser {
   /// - Throws: An `XMLError` if the feed type is unknown or parsing fails.
   public func parse(data: Data) throws -> Result<Feed, Error> {
     guard let feedType = FeedType(data: data) else {
-      throw XMLError.unexpected(reason: "Unknown feed data type.")
+      throw FeedError.unexpected(reason: "Unknown feed data type.")
     }
 
     switch feedType {

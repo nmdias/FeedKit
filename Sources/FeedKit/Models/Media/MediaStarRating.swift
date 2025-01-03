@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaStarRatingAttributes: Codable, Equatable, Hashable {
   /// The star rating's average.
@@ -51,4 +52,4 @@ public struct MediaStarRatingAttributes: Codable, Equatable, Hashable {
 
 /// This element specifies the rating-related information about a media object.
 /// Valid attributes are average, count, min and max.
-public typealias MediaStarRating = FeedAttributesElement<MediaStarRatingAttributes>
+public typealias MediaStarRating = XMLAttributesElement<MediaStarRatingAttributes>

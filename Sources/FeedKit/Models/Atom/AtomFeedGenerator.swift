@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct AtomFeedGeneratorAttributes: Codable, Equatable, Hashable {
   /// The atom:generator element MAY have a "uri" attribute whose value
@@ -58,4 +59,4 @@ public struct AtomFeedGeneratorAttributes: Codable, Equatable, Hashable {
 ///
 /// The atom:generator element MAY have a "version" attribute that
 /// indicates the version of the generating agent.
-public typealias AtomFeedGenerator = FeedElement<AtomFeedGeneratorAttributes>
+public typealias AtomFeedGenerator = XMLKit.XMLElement<AtomFeedGeneratorAttributes>

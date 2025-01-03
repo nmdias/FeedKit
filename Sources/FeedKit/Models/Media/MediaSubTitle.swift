@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaSubTitleAttributes: Codable, Equatable, Hashable {
   /// The type of the subtitle.
@@ -46,4 +47,4 @@ public struct MediaSubTitleAttributes: Codable, Equatable, Hashable {
 
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public typealias MediaSubTitle = FeedAttributesElement<MediaSubTitleAttributes>
+public typealias MediaSubTitle = XMLAttributesElement<MediaSubTitleAttributes>

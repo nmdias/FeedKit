@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaThumbnailAttributes: Codable, Equatable, Hashable {
   /// Specifies the url of the thumbnail. It is a required attribute.
@@ -56,4 +57,4 @@ public struct MediaThumbnailAttributes: Codable, Equatable, Hashable {
 /// media object. If multiple thumbnails are included, and time coding is not
 /// at play, it is assumed that the images are in order of importance. It has
 /// one required attribute and three optional attributes.
-public typealias MediaThumbnail = FeedElement<MediaThumbnailAttributes>
+public typealias MediaThumbnail = XMLKit.XMLElement<MediaThumbnailAttributes>

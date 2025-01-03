@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 /// Data model for the XML DOM of the RSS 2.0 Specification
 /// See http://cyber.law.harvard.edu/rss/rss.html
@@ -83,25 +84,20 @@ extension RSSFeed: FeedInitializable {}
 // MARK: - XMLDocumentConvertible
 
 extension RSSFeed: XMLDocumentConvertible {
-  func toXmlDocument() throws -> XMLDocument {
+  public func toXmlDocument() throws -> XMLKit.XMLDocument {
     let encoder = XMLEncoder()
     encoder.dateEncodingStrategy = .formatter(FeedDateFormatter(spec: .rfc822))
-    let root = try encoder.encode(value: self)
-    root.name = "rss"
-    root.addChild(.init(
-      name: "@attributes",
-      children: [
-        .init(
-          name: "version",
-          text: "2.0"
-        ),
-        .init(
-          name: "xmlns:dc",
-          text: "http://purl.org/dc/elements/1.1/"
-        ),
-      ]
-    ))
-    let document = XMLDocument(root: root)
+
+    let document = try encoder.encode(value: self)
+    document.setRootName(name: "rss")
+    document.setRootAttribute(name: "version", value: "2.0")
+
+    for namespace in FeedNamespace.allCases {
+      if namespace.shouldInclude(in: self) {
+        document.setRootAttribute(name: namespace.prefix, value: namespace.url)
+      }
+    }
+
     return document
   }
 }
@@ -109,7 +105,7 @@ extension RSSFeed: XMLDocumentConvertible {
 // MARK: - XMLStringConvertible
 
 extension RSSFeed: XMLStringConvertible {
-  func toXMLString(formatted: Bool, indentationLevel: Int = 1) throws -> String {
+  public func toXMLString(formatted: Bool, indentationLevel: Int = 1) throws -> String {
     try toXmlDocument().toXMLString(formatted: true)
   }
 }

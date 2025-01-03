@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct AtomFeedCategoryAttributes: Codable, Equatable, Hashable {
   /// The "term" attribute is a string that identifies the category to
@@ -54,4 +55,4 @@ public struct AtomFeedCategoryAttributes: Codable, Equatable, Hashable {
 /// The "atom:category" element conveys information about a category
 /// associated with an entry or feed.  This specification assigns no
 /// meaning to the content (if any) of this element.
-public typealias AtomFeedCategory = FeedAttributesElement<AtomFeedCategoryAttributes>
+public typealias AtomFeedCategory = XMLAttributesElement<AtomFeedCategoryAttributes>

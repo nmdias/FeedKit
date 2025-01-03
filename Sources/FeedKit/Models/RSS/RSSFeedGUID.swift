@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct RSSFeedGUIDAttributes: Codable, Equatable, Hashable {
   /// If the guid element has an attribute named "isPermaLink" with a value of
@@ -68,4 +69,4 @@ public struct RSSFeedGUIDAttributes: Codable, Equatable, Hashable {
 /// isPermaLink is optional, its default value is true. If its value is false,
 /// the guid may not be assumed to be a url, or a url to anything in
 /// particular.
-public typealias RSSFeedGUID = FeedAttributesElement<RSSFeedGUIDAttributes>
+public typealias RSSFeedGUID = XMLAttributesElement<RSSFeedGUIDAttributes>

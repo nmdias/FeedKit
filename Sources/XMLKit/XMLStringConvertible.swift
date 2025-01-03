@@ -24,6 +24,6 @@
 
 import Foundation
 
-protocol XMLStringConvertible {
+public protocol XMLStringConvertible {
   func toXMLString(formatted: Bool, indentationLevel: Int) throws -> String
 }

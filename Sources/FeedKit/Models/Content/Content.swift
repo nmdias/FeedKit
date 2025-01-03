@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 /// A module for the actual content of websites, in multiple formats.
 /// See http://web.resource.org/rss/1.0/modules/content/

@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaPeerLinkAttributes: Codable, Equatable, Hashable {
   /// The peer link's type.
@@ -38,4 +39,4 @@ public struct MediaPeerLinkAttributes: Codable, Equatable, Hashable {
 }
 
 /// Optional element for P2P link.
-public typealias MediaPeerLink = FeedElement<MediaPeerLinkAttributes>
+public typealias MediaPeerLink = XMLKit.XMLElement<MediaPeerLinkAttributes>

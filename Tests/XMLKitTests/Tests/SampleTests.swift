@@ -22,12 +22,12 @@
 //  SOFTWARE.
 //
 
-@testable import FeedKit
+@testable import XMLKit
 
 import Testing
 
 @Suite("Sample")
-struct SampleTests: FeedKitTestable {
+struct SampleTests: XMLKitTestable {
   @Test
   func xmlParser() throws {
     // Given
@@ -77,8 +77,8 @@ struct SampleTests: FeedKitTestable {
     let expected: Sample = sampleMock
 
     // When
-    let sampleNode = try encoder.encode(value: sampleMock)
-    let actual = try decoder.decode(Sample.self, from: sampleNode)
+    let sampleDocument = try encoder.encode(value: sampleMock)
+    let actual = try decoder.decode(Sample.self, from: sampleDocument.root!)
 
     // Then
     #expect(expected == actual)

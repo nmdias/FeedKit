@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 /// A protocol defining initializers to create a feed from various sources.
 protocol FeedInitializable: Codable {
@@ -82,7 +83,7 @@ extension FeedInitializable {
 
     guard let httpResponse = response as? HTTPURLResponse,
           (200 ... 299).contains(httpResponse.statusCode) else {
-      throw XMLError.unexpected(reason: "Invalid response from URL.")
+      throw FeedError.unexpected(reason: "Invalid response from URL.")
     }
 
     try self.init(data: data)
@@ -93,7 +94,7 @@ extension FeedInitializable {
   /// - Throws: An error if the string cannot be converted to data or parsed.
   public init(string: String) throws {
     guard let data = string.data(using: .utf8) else {
-      throw XMLError.unexpected(reason: "Unable to convert string to data.")
+      throw FeedError.unexpected(reason: "Unable to convert string to data.")
     }
     try self.init(data: data)
   }
@@ -102,27 +103,20 @@ extension FeedInitializable {
   /// - Parameter data: The feed content as raw data.
   /// - Throws: An error if parsing or decoding fails.
   public init(data: Data) throws {
-    self = try Self.parse(data: data)
+    self = try Self.decode(data: data)
   }
 }
 
 // MARK: - Private
 
 extension FeedInitializable {
-  /// Helper method for parsing data into a model.
+  /// Helper method for decoding data into a model.
   /// - Parameter data: The raw feed data.
   /// - Returns: A parsed feed model conforming to `FeedInitializable`.
-  private static func parse(data: Data) throws -> Self {
-    let parser = FeedKit.XMLParser(data: data)
-    let result = try parser.parse().get()
-
-    guard let rootNode = result.root else {
-      throw XMLError.unexpected(reason: "Unexpected parsing result. Root is nil.")
-    }
-
+  private static func decode(data: Data) throws -> Self {
     let decoder = XMLDecoder()
     let formatter = FeedDateFormatter(spec: .permissive)
     decoder.dateDecodingStrategy = .formatter(formatter)
-    return try decoder.decode(Self.self, from: rootNode)
+    return try decoder.decode(Self.self, from: data)
   }
 }

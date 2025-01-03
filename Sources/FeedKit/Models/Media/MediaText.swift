@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaTextAttributes: Codable, Equatable, Hashable {
   /// Specifies the type of text embedded. Possible values are either "plain"
@@ -66,4 +67,4 @@ public struct MediaTextAttributes: Codable, Equatable, Hashable {
 /// elements be grouped by language and appear in time sequence order based on
 /// the start time. Elements can have overlapping start and end times. It has
 /// four optional attributes.
-public typealias MediaText = FeedElement<MediaTextAttributes>
+public typealias MediaText = XMLKit.XMLElement<MediaTextAttributes>

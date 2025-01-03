@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import XMLKit
 
 public struct MediaRatingAttributes: Codable, Equatable, Hashable {
   /// The URI that identifies the rating scheme. It is an optional attribute.
@@ -37,4 +38,4 @@ public struct MediaRatingAttributes: Codable, Equatable, Hashable {
 /// This allows the permissible audience to be declared. If this element is not
 /// included, it assumes that no restrictions are necessary. It has one optional
 /// attribute.
-public typealias MediaRating = FeedElement<MediaRatingAttributes>
+public typealias MediaRating = XMLKit.XMLElement<MediaRatingAttributes>
