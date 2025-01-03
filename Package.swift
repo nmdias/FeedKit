@@ -5,6 +5,13 @@ import PackageDescription
 
 let package = Package(
   name: "FeedKit",
+  platforms: [
+    .macOS(.v12),
+    .iOS(.v15),
+    .watchOS(.v6),
+    .tvOS(.v13),
+    .visionOS(.v1),
+  ],
   products: [
     .library(
       name: "FeedKit",
