@@ -32,19 +32,19 @@ struct FeedView: View {
     NavigationView {
       List {
         Section {
-          Text(feed.channel?.title ?? "")
+          Text(feed.channel?.title ?? "-")
         } header: {
           Text("Title")
         }
         Section {
-          Text(feed.channel?.description ?? "")
+          Text(feed.channel?.description ?? "-")
         } header: {
           Text("Description")
         }
         Section {
           ForEach(feed.channel?.items ?? [], id: \.hashValue) { item in
             NavigationLink(destination: FeedDetailView(item: item)) {
-              Text(item.title ?? "")
+              Text(item.title ?? "-")
             }
           }
         } header: {
