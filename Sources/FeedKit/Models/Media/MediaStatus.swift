@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaStatusAttributes: Codable, Equatable, Hashable {
+public struct MediaStatusAttributes: Codable, Equatable, Hashable, Sendable {
   /// State can have values "active", "blocked" or "deleted". "active" means
   /// a media object is active in the system, "blocked" means a media object
   /// is blocked by the publisher, "deleted" means a media object has been

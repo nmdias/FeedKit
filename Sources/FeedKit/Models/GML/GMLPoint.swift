@@ -40,6 +40,10 @@ public struct GMLPoint {
   }
 }
 
+// MARK: - Sendable
+
+extension GMLPoint: Sendable {}
+
 // MARK: - Equatable
 
 extension GMLPoint: Equatable {

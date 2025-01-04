@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct iTunesSubCategoryAttributes: Codable, Equatable, Hashable {
+public struct iTunesSubCategoryAttributes: Codable, Equatable, Hashable, Sendable {
   /// The primary iTunes Category.
   public var text: String?
 

@@ -35,6 +35,10 @@ public struct MediaComments {
   }
 }
 
+// MARK: - Sendable
+
+extension MediaComments: Sendable {}
+
 // MARK: - Equatable
 
 extension MediaComments: Equatable {}

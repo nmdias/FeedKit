@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaCopyrightAttributes: Codable, Equatable, Hashable {
+public struct MediaCopyrightAttributes: Codable, Equatable, Hashable, Sendable {
   /// The URL for a terms of use page or additional copyright information.
   /// If the media is operating under a Creative Commons license, the
   /// Creative Commons module should be used instead. It is an optional

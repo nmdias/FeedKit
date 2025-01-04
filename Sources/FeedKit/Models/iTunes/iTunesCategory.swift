@@ -57,7 +57,7 @@ import Foundation
 /// </itunes:category>
 public struct iTunesCategory {
   /// The attributes of the element.
-  public struct Attributes: Codable, Equatable, Hashable {
+  public struct Attributes: Codable, Equatable, Hashable, Sendable {
     /// The primary iTunes Category.
     public var text: String?
 
@@ -79,6 +79,10 @@ public struct iTunesCategory {
     self.subcategory = subcategory
   }
 }
+
+// MARK: - Sendable
+
+extension iTunesCategory: Sendable {}
 
 // MARK: - Equatable
 

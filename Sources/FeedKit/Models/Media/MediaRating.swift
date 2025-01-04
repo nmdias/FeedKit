@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaRatingAttributes: Codable, Equatable, Hashable {
+public struct MediaRatingAttributes: Codable, Equatable, Hashable, Sendable {
   /// The URI that identifies the rating scheme. It is an optional attribute.
   /// If this attribute is not included, the default scheme is urn:simple (adult | nonadult).
   public var scheme: String?

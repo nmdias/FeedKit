@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct AtomFeedContentAttributes: Codable, Equatable, Hashable {
+public struct AtomFeedContentAttributes: Codable, Equatable, Hashable, Sendable {
   /// On the atom:content element, the value of the "type" attribute MAY be
   /// one of "text", "html", or "xhtml".  Failing that, it MUST conform to
   /// the syntax of a MIME media type, but MUST NOT be a composite type

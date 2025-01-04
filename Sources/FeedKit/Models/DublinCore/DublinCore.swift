@@ -173,6 +173,10 @@ public struct DublinCore {
 
 extension DublinCore: XMLNamespaceCodable {}
 
+// MARK: - Sendable
+
+extension DublinCore: Sendable {}
+
 // MARK: - Equatable
 
 extension DublinCore: Equatable {}

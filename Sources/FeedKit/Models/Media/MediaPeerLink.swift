@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaPeerLinkAttributes: Codable, Equatable, Hashable {
+public struct MediaPeerLinkAttributes: Codable, Equatable, Hashable, Sendable {
   /// The peer link's type.
   public var type: String?
 

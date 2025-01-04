@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaPriceAttributes: Codable, Equatable, Hashable {
+public struct MediaPriceAttributes: Codable, Equatable, Hashable, Sendable {
   /// Valid values are "rent", "purchase", "package" or "subscription". If
   /// nothing is specified, then the media is free.
   public var type: String?

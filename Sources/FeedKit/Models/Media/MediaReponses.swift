@@ -36,6 +36,10 @@ public struct MediaResponses {
   }
 }
 
+// MARK: - Sendable
+
+extension MediaResponses: Sendable {}
+
 // MARK: - Equatable
 
 extension MediaResponses: Equatable {}

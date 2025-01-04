@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaHashAttributes: Codable, Equatable, Hashable {
+public struct MediaHashAttributes: Codable, Equatable, Hashable, Sendable {
   /// This is the hash of the binary media file. It can appear multiple times as long as
   /// each instance is a different algo. It has one optional attribute.
   public var algo: String?

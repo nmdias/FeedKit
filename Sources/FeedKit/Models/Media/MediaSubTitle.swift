@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaSubTitleAttributes: Codable, Equatable, Hashable {
+public struct MediaSubTitleAttributes: Codable, Equatable, Hashable, Sendable {
   /// The type of the subtitle.
   public var type: String?
 

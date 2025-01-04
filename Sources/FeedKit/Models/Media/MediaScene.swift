@@ -55,6 +55,10 @@ public struct MediaScene {
   }
 }
 
+// MARK: - Sendable
+
+extension MediaScene: Sendable {}
+
 // MARK: - Equatable
 
 extension MediaScene: Equatable {}

@@ -221,6 +221,10 @@ public struct RSSFeedItem {
   }
 }
 
+// MARK: - Sendable
+
+extension RSSFeedItem: Sendable {}
+
 // MARK: - Equatable
 
 extension RSSFeedItem: Equatable {}

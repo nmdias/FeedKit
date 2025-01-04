@@ -25,7 +25,7 @@
 import Foundation
 
 /// A generic text-based element with attributes.
-public struct XMLElement<Attributes: Codable & Equatable & Hashable>: Codable, Equatable, Hashable {
+public struct XMLElement<Attributes: Codable & Equatable & Hashable & Sendable>: Codable, Equatable, Hashable, Sendable {
   /// The element's text.
   public var text: String?
 
@@ -56,7 +56,7 @@ public struct XMLElement<Attributes: Codable & Equatable & Hashable>: Codable, E
 }
 
 /// A generic element with only attributes.
-public struct XMLAttributesElement<Attributes: Codable & Equatable & Hashable>: Codable, Equatable, Hashable {
+public struct XMLAttributesElement<Attributes: Codable & Equatable & Hashable & Sendable>: Codable, Equatable, Hashable, Sendable {
   /// The element's attributes.
   public var attributes: Attributes?
 

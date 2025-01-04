@@ -45,6 +45,10 @@ public struct iTunesOwner {
   }
 }
 
+// MARK: - Sendable
+
+extension iTunesOwner: Sendable {}
+
 // MARK: - Equatable
 
 extension iTunesOwner: Equatable {}

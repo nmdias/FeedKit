@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct RSSFeedEnclosureAttributes: Codable, Equatable, Hashable {
+public struct RSSFeedEnclosureAttributes: Codable, Equatable, Hashable, Sendable {
   /// Where the enclosure is located.
   ///
   /// Example: http://www.scripting.com/mp3s/weatherReportSuite.mp3

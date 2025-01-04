@@ -66,6 +66,10 @@ extension SyndicationUpdatePeriod {
   }
 }
 
+// MARK: - Sendable
+
+extension SyndicationUpdatePeriod: Sendable {}
+
 // MARK: - Equatable
 
 extension SyndicationUpdatePeriod: Equatable {}

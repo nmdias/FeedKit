@@ -34,6 +34,10 @@ public struct MediaBackLinks {
   }
 }
 
+// MARK: - Sendable
+
+extension MediaBackLinks: Sendable {}
+
 // MARK: - Equatable
 
 extension MediaBackLinks: Equatable {}

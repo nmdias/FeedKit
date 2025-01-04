@@ -65,6 +65,10 @@ public struct RSSFeedTextInput {
   }
 }
 
+// MARK: - Sendable
+
+extension RSSFeedTextInput: Sendable {}
+
 // MARK: - Equatable
 
 extension RSSFeedTextInput: Equatable {}

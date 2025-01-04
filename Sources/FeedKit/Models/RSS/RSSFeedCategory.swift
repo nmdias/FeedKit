@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct RSSFeedCategoryAttributes: Codable, Equatable, Hashable {
+public struct RSSFeedCategoryAttributes: Codable, Equatable, Hashable, Sendable {
   /// A string that identifies a categorization taxonomy. It's an optional
   /// attribute of `<category>`. e.g. "http://www.fool.com/cusips"
   public var domain: String?

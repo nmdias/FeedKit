@@ -39,6 +39,10 @@ public struct GeoRSS {
   }
 }
 
+// MARK: - Sendable
+
+extension GeoRSS: Sendable {}
+
 // MARK: - Equatable
 
 extension GeoRSS: Equatable {}

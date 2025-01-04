@@ -234,6 +234,10 @@ public struct Media {
 
 extension Media: XMLNamespaceCodable {}
 
+// MARK: - Sendable
+
+extension Media: Sendable {}
+
 // MARK: - Equatable
 
 extension Media: Equatable {}

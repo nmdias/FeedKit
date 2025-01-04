@@ -66,6 +66,10 @@ public struct MediaGroup {
   }
 }
 
+// MARK: - Sendable
+
+extension MediaGroup: Sendable {}
+
 // MARK: - Equatable
 
 extension MediaGroup: Equatable {}

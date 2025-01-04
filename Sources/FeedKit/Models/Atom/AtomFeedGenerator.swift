@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct AtomFeedGeneratorAttributes: Codable, Equatable, Hashable {
+public struct AtomFeedGeneratorAttributes: Codable, Equatable, Hashable, Sendable {
   /// The atom:generator element MAY have a "uri" attribute whose value
   /// MUST be an IRI reference [RFC3987].  When dereferenced, the resulting
   /// URI (mapped from an IRI, if necessary) SHOULD produce a

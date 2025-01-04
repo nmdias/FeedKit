@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct AtomFeedCategoryAttributes: Codable, Equatable, Hashable {
+public struct AtomFeedCategoryAttributes: Codable, Equatable, Hashable, Sendable {
   /// The "term" attribute is a string that identifies the category to
   /// which the entry or feed belongs.  Category elements MUST have a
   /// "term" attribute.

@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaLicenceAttributes: Codable, Equatable, Hashable {
+public struct MediaLicenceAttributes: Codable, Equatable, Hashable, Sendable {
   /// The licence type.
   public var type: String?
 

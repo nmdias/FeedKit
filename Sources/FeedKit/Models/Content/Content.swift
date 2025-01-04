@@ -45,6 +45,10 @@ public struct Content {
 
 extension Content: XMLNamespaceCodable {}
 
+// MARK: - Sendable
+
+extension Content: Sendable {}
+
 // MARK: - Equatable
 
 extension Content: Equatable {}

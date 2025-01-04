@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaCreditAttributes: Codable, Equatable, Hashable {
+public struct MediaCreditAttributes: Codable, Equatable, Hashable, Sendable {
   /// Specifies the role the entity played. Must be lowercase. It is an
   /// optional attribute.
   public var role: String?

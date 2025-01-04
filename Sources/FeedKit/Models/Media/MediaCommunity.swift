@@ -53,6 +53,10 @@ public struct MediaCommunity {
   }
 }
 
+// MARK: - Sendable
+
+extension MediaCommunity: Sendable {}
+
 // MARK: - Equatable
 
 extension MediaCommunity: Equatable {}

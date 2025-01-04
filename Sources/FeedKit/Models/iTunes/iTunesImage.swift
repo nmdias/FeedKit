@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct iTunesImageAttributes: Codable, Equatable, Hashable {
+public struct iTunesImageAttributes: Codable, Equatable, Hashable, Sendable {
   /// The image's url.
   public var href: String?
 

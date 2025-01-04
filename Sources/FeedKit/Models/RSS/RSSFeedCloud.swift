@@ -26,7 +26,7 @@ import Foundation
 import XMLKit
 
 /// The attributes of the `<channel>`'s `<cloud>` element.
-public struct RSSFeedCloudAttributes: Codable, Equatable, Hashable {
+public struct RSSFeedCloudAttributes: Codable, Equatable, Hashable, Sendable {
   /// The domain to register notification to.
   public var domain: String?
 

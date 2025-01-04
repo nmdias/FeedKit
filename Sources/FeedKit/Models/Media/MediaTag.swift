@@ -44,6 +44,10 @@ public struct MediaTag {
   }
 }
 
+// MARK: - Sendable
+
+extension MediaTag: Sendable {}
+
 // MARK: - Equatable
 
 extension MediaTag: Equatable {}

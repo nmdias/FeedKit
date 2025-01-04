@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaThumbnailAttributes: Codable, Equatable, Hashable {
+public struct MediaThumbnailAttributes: Codable, Equatable, Hashable, Sendable {
   /// Specifies the url of the thumbnail. It is a required attribute.
   public var url: String?
 

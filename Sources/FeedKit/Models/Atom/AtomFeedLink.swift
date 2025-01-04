@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct AtomFeedLinkAttributes: Codable, Equatable, Hashable {
+public struct AtomFeedLinkAttributes: Codable, Equatable, Hashable, Sendable {
   /// The "href" attribute contains the link's IRI. atom:link elements MUST
   /// have an href attribute, whose value MUST be a IRI reference
   /// [RFC3987].

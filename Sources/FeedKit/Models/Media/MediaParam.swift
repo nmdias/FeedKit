@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaParamAttributes: Codable, Equatable, Hashable {
+public struct MediaParamAttributes: Codable, Equatable, Hashable, Sendable {
   /// The parameter's key name.
   public var name: String?
 

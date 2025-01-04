@@ -61,6 +61,10 @@ public struct AtomFeedAuthor {
   }
 }
 
+// MARK: - Sendable
+
+extension AtomFeedAuthor: Sendable {}
+
 // MARK: - Equatable
 
 extension AtomFeedAuthor: Equatable {}

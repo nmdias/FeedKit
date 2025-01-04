@@ -66,6 +66,10 @@ public struct AtomFeedSource {
   }
 }
 
+// MARK: - Sendable
+
+extension AtomFeedSource: Sendable {}
+
 // MARK: - Equatable
 
 extension AtomFeedSource: Equatable {}

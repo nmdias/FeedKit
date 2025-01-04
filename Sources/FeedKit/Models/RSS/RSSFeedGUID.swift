@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct RSSFeedGUIDAttributes: Codable, Equatable, Hashable {
+public struct RSSFeedGUIDAttributes: Codable, Equatable, Hashable, Sendable {
   /// If the guid element has an attribute named "isPermaLink" with a value of
   /// true, the reader may assume that it is a permalink to the item, that is,
   /// a url that can be opened in a Web browser, that points to the full item

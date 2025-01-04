@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaTextAttributes: Codable, Equatable, Hashable {
+public struct MediaTextAttributes: Codable, Equatable, Hashable, Sendable {
   /// Specifies the type of text embedded. Possible values are either "plain"
   /// or "html". Default value is "plain". All HTML must be entity-encoded.
   /// It is an optional attribute.

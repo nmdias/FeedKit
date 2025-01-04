@@ -36,6 +36,10 @@ public struct RSSFeedSkipHours {
   public var hours: [Int]?
 }
 
+// MARK: - Sendable
+
+extension RSSFeedSkipHours: Sendable {}
+
 // MARK: - Equatable
 
 extension RSSFeedSkipHours: Equatable {}

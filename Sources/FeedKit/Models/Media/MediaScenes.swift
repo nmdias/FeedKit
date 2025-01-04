@@ -40,6 +40,10 @@ public struct MediaScenes {
   public var scenes: [MediaScene]?
 }
 
+// MARK: - Sendable
+
+extension MediaScenes: Sendable {}
+
 // MARK: - Equatable
 
 extension MediaScenes: Equatable {}

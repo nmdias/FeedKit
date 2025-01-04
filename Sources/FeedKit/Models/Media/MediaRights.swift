@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaRightsAttributes: Codable, Equatable, Hashable {
+public struct MediaRightsAttributes: Codable, Equatable, Hashable, Sendable {
   /// Is the status of the media object saying whether a media object has
   /// been created by the publisher or they have rights to circulate it.
   /// Supported values are "userCreated" and "official".

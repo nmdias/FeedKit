@@ -54,6 +54,10 @@ public struct AtomFeedContributor {
   }
 }
 
+// MARK: - Sendable
+
+extension AtomFeedContributor: Sendable {}
+
 // MARK: - Equatable
 
 extension AtomFeedContributor: Equatable {}

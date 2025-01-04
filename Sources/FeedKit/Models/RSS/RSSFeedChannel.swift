@@ -298,6 +298,10 @@ public struct RSSFeedChannel {
   }
 }
 
+// MARK: - Sendable
+
+extension RSSFeedChannel: Sendable {}
+
 // MARK: - Equatable
 
 extension RSSFeedChannel: Equatable {}

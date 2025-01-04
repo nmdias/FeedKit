@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct RSSFeedSourceAttributes: Codable, Equatable, Hashable {
+public struct RSSFeedSourceAttributes: Codable, Equatable, Hashable, Sendable {
   /// Required attribute of the `Source` element, which links to the
   /// XMLization of the source. e.g. "http://www.tomalak.org/links2.xml"
   public var url: String?

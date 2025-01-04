@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaRestrictionAttributes: Codable, Equatable, Hashable {
+public struct MediaRestrictionAttributes: Codable, Equatable, Hashable, Sendable {
   /// Indicates the type of relationship that the restriction represents
   /// (allow | deny). In the example above, the media object should only be
   /// syndicated in Australia and the United States. It is a required

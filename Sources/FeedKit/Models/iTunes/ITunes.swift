@@ -287,6 +287,10 @@ public struct ITunes {
 
 extension ITunes: XMLNamespaceCodable {}
 
+// MARK: - Sendable
+
+extension ITunes: Sendable {}
+
 // MARK: - Equatable
 
 extension ITunes: Equatable {}

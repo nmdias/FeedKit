@@ -65,6 +65,10 @@ public struct Syndication {
 
 extension Syndication: XMLNamespaceCodable {}
 
+// MARK: - Sendable
+
+extension Syndication: Sendable {}
+
 // MARK: - Equatable
 
 extension Syndication: Equatable {}

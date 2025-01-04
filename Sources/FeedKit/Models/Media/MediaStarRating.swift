@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaStarRatingAttributes: Codable, Equatable, Hashable {
+public struct MediaStarRatingAttributes: Codable, Equatable, Hashable, Sendable {
   /// The star rating's average.
   public var average: Double?
 

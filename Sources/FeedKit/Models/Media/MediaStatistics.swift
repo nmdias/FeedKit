@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaStatisticsAttributes: Codable, Equatable, Hashable {
+public struct MediaStatisticsAttributes: Codable, Equatable, Hashable, Sendable {
   /// The number of views.
   public var views: Int?
 

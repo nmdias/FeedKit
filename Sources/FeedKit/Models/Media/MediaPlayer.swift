@@ -25,7 +25,7 @@
 import Foundation
 import XMLKit
 
-public struct MediaPlayerAttributes: Codable, Equatable, Hashable {
+public struct MediaPlayerAttributes: Codable, Equatable, Hashable, Sendable {
   /// The URL of the player console that plays the media. It is a required attribute.
   public var url: String?
 

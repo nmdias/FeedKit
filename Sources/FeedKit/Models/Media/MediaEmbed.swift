@@ -29,7 +29,7 @@ import Foundation
 /// key-value pairs.
 public struct MediaEmbed {
   /// The element's attributes.
-  public struct Attributes: Codable, Equatable, Hashable {
+  public struct Attributes: Codable, Equatable, Hashable, Sendable {
     /// The location of the embeded media.
     public var url: String?
 
@@ -62,6 +62,10 @@ public struct MediaEmbed {
     self.params = params
   }
 }
+
+// MARK: - Sendable
+
+extension MediaEmbed: Sendable {}
 
 // MARK: - Equatable
 
