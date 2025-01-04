@@ -26,14 +26,29 @@ import FeedKit
 import SwiftUI
 
 struct ContentView: View {
+  let appleNewsFeed: RSSFeed = .init(
+    channel: .init(
+      title: "Apple News",
+      description: "Feed Description",
+      items: [
+        .init(title: "Feed Item 1", description: "Feed Description 1", pubDate: Date()),
+        .init(title: "Feed Item 2", description: "Feed Description 2", pubDate: Date()),
+        .init(title: "Feed Item 3", description: "Feed Description 3", pubDate: Date()),
+      ]
+    )
+  )
+
   var body: some View {
-    VStack {
-      Image(systemName: "globe")
-        .imageScale(.large)
-        .foregroundStyle(.tint)
-      Text("Hello, world!")
+    TabView {
+      FeedView(feed: appleNewsFeed)
+        .tabItem {
+          Label(appleNewsFeed.channel?.title ?? "", systemImage: "dot.radiowaves.up.forward")
+        }
+      ConcurrencyView()
+        .tabItem {
+          Label("Concurrency", systemImage: "list.bullet")
+        }
     }
-    .padding()
   }
 }
 
