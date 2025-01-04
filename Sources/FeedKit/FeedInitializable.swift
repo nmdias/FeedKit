@@ -26,7 +26,12 @@ import Foundation
 import XMLKit
 
 /// A protocol defining initializers to create a feed from various sources.
-protocol FeedInitializable: Codable {
+public protocol FeedInitializable: Codable {
+  /// Initializes from a URL string pointing to a feed.
+  /// - Parameter urlString: The URL string of the feed.
+  /// - Throws: An error if the URL string is invalid or loading fails.
+  init(urlString: String) async throws
+
   /// Initializes from a URL pointing to a feed.
   /// - Parameter url: The URL of the feed.
   /// - Throws: An error if the URL is invalid or loading fails.
@@ -55,6 +60,16 @@ protocol FeedInitializable: Codable {
 // MARK: - Default
 
 extension FeedInitializable {
+  /// Default implementation for initializing from a URL string.
+  /// - Parameter urlString: The URL string of the feed.
+  /// - Throws: An error if the feed cannot be loaded or parsed.
+  public init(urlString: String) async throws {
+    guard let url = URL(string: urlString) else {
+      throw FeedError.invalidUrlString
+    }
+    try await self.init(url: url)
+  }
+
   /// Default implementation for initializing from a URL.
   /// - Parameter url: The URL of the feed.
   /// - Throws: An error if the feed cannot be loaded or parsed.
