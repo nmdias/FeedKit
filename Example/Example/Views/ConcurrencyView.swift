@@ -25,12 +25,6 @@
 import FeedKit
 import SwiftUI
 
-extension RSSFeed: @retroactive Identifiable {
-  public var id: String {
-    UUID().uuidString
-  }
-}
-
 struct ConcurrencyView: View {
   @StateObject private var viewModel = ConcurrencyViewModel()
 
@@ -38,7 +32,7 @@ struct ConcurrencyView: View {
     NavigationView {
       List {
         Section {
-          ForEach(viewModel.feeds) { feed in
+          ForEach(viewModel.feeds, id: \.channel?.title) { feed in
             NavigationLink(destination: FeedView(feed: feed)) {
               Text(feed.channel?.title ?? "")
             }
