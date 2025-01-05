@@ -38,7 +38,35 @@ extension FeedParser {
   ///
   /// - Note: The `onFeedParsed` closure is executed immediately on completion
   ///   of each feed, while the returned result set contains all feed results
-  ///   after processing completes.
+  ///   after processing completes. If no closure is provided, the result can be
+  ///   accessed directly from the function return value.
+  ///
+  /// - Example:
+  ///   ```swift
+  ///   let urls: [String] = [feedURLString1, feedURLString2]
+  ///   let results = await parse(from: urls) { result in
+  ///       switch result {
+  ///       case let .success(feed):
+  ///           switch feed {
+  ///           case .atom(_):
+  ///               // Handle atom feed
+  ///           case .rdf(_):
+  ///               // Handle rdf feed
+  ///           case .rss(_):
+  ///               // Handle rss feed
+  ///           case .json(_):
+  ///               // Handle json feed
+  ///           }
+  ///           print("Feed parsed: \(feed)")
+  ///       case let .failure(error):
+  ///           print("Error parsing feed: \(error.localizedDescription)")
+  ///       }
+  ///   }
+  ///   ```
+  ///   If no callback is needed for each parsed feed, you can omit the closure:
+  ///   ```swift
+  ///   let results = await parse(from: urls)
+  ///   ```
   @discardableResult
   public func parse(
     from urlStrings: [String],
@@ -61,7 +89,35 @@ extension FeedParser {
   ///
   /// - Note: The `onFeedParsed` closure is executed immediately on completion
   ///   of each feed, while the returned result set contains all feed results
-  ///   after processing completes.
+  ///   after processing completes. If no closure is provided, the result can be
+  ///   accessed directly from the function return value.
+  ///
+  /// - Example:
+  ///   ```swift
+  ///   let urls: [URL] = [feedURL1, feedURL2]
+  ///   let results = await parse(from: urls) { result in
+  ///       switch result {
+  ///       case let .success(feed):
+  ///           switch feed {
+  ///           case .atom(_):
+  ///               // Handle atom feed
+  ///           case .rdf(_):
+  ///               // Handle rdf feed
+  ///           case .rss(_):
+  ///               // Handle rss feed
+  ///           case .json(_):
+  ///               // Handle json feed
+  ///           }
+  ///           print("Feed parsed: \(feed)")
+  ///       case let .failure(error):
+  ///           print("Error parsing feed: \(error.localizedDescription)")
+  ///       }
+  ///   }
+  ///   ```
+  ///   If no callback is needed for each parsed feed, you can omit the closure:
+  ///   ```swift
+  ///   let results = await parse(from: urls)
+  ///   ```
   @discardableResult
   public func parse(
     from urls: [URL],
