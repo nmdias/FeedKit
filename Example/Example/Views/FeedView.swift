@@ -27,31 +27,49 @@ import SwiftUI
 
 struct FeedView: View {
   let feed: RSSFeed
+  @State private var selectedItem: RSSFeedItem? // Track the selected item
+  @State private var showDetailView = false // Control the sheet presentation
 
   var body: some View {
     NavigationView {
-      List {
-        Section {
-          Text(feed.channel?.title ?? "-")
-        } header: {
-          Text("Title")
-        }
-        Section {
-          Text(feed.channel?.description ?? "-")
-        } header: {
-          Text("Description")
-        }
-        Section {
-          ForEach(feed.channel?.items ?? [], id: \.hashValue) { item in
-            NavigationLink(destination: FeedDetailView(item: item)) {
-              Text(item.title ?? "-")
-            }
+      ScrollViewReader { proxy in
+        List {
+          Section {
+            Text(feed.channel?.title ?? "-")
+          } header: {
+            Text("Title")
           }
-        } header: {
-          Text("Items")
+          Section {
+            Text(feed.channel?.description ?? "-")
+          } header: {
+            Text("Description")
+          }
+          Section {
+            ForEach(feed.channel?.items ?? [], id: \.hashValue) { item in
+              Button {
+                selectedItem = item // Set the selected item
+                showDetailView = true // Show the sheet
+              } label: {
+                Text(item.title ?? "-")
+                  .frame(maxWidth: .infinity, alignment: .leading)
+              }
+              .id(item.hashValue) // Assign an ID for scrolling
+            }
+          } header: {
+            Text("Items")
+          }
+        }
+        .listStyle(.insetGrouped)
+        .onAppear {
+
         }
       }
-    }.listStyle(.insetGrouped)
+    }
+    .sheet(isPresented: $showDetailView) {
+      if let selectedItem = selectedItem {
+        FeedDetailView(item: selectedItem) // Present the detail view
+      }
+    }
   }
 }
 

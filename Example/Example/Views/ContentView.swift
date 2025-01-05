@@ -39,7 +39,7 @@ struct ContentView: View {
           Label("Concurrency", systemImage: "list.bullet")
         }
     }.onAppear {
-      Task { 
+      Task {
         do {
           let feed = try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
 

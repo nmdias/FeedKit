@@ -25,48 +25,20 @@
 import FeedKit
 import SwiftUI
 
+extension RSSFeed: @retroactive Identifiable {
+  public var id: String {
+    UUID().uuidString
+  }
+}
+
 struct ConcurrencyView: View {
-  let feeds: [RSSFeed] = [
-    .init(
-      channel: .init(
-        title: "Feed 1",
-        description: "Feed Description 1",
-        items: [
-          .init(title: "Feed Item 1", description: "Feed Description 1", pubDate: Date()),
-          .init(title: "Feed Item 2", description: "Feed Description 2", pubDate: Date()),
-          .init(title: "Feed Item 3", description: "Feed Description 3", pubDate: Date()),
-        ]
-      )
-    ),
-    .init(
-      channel: .init(
-        title: "Feed 2",
-        description: "Feed Description 2",
-        items: [
-          .init(title: "Feed Item 1", description: "Feed Description 1", pubDate: Date()),
-          .init(title: "Feed Item 2", description: "Feed Description 2", pubDate: Date()),
-          .init(title: "Feed Item 3", description: "Feed Description 3", pubDate: Date()),
-        ]
-      )
-    ),
-    .init(
-      channel: .init(
-        title: "Feed 3",
-        description: "Feed Description 3",
-        items: [
-          .init(title: "Feed Item 1", description: "Feed Description 1", pubDate: Date()),
-          .init(title: "Feed Item 2", description: "Feed Description 2", pubDate: Date()),
-          .init(title: "Feed Item 3", description: "Feed Description 3", pubDate: Date()),
-        ]
-      )
-    ),
-  ]
+  @StateObject private var viewModel = ConcurrencyViewModel()
 
   var body: some View {
     NavigationView {
       List {
         Section {
-          ForEach(feeds, id: \.channel?.hashValue) { feed in
+          ForEach(viewModel.feeds) { feed in
             NavigationLink(destination: FeedView(feed: feed)) {
               Text(feed.channel?.title ?? "")
             }
@@ -75,6 +47,16 @@ struct ConcurrencyView: View {
           Text("Feeds")
         }
       }
-    }
+      .refreshable {
+        await viewModel.fetchFeeds()
+      }
+      .onAppear {
+        if viewModel.feeds.isEmpty {
+          Task {
+            await viewModel.fetchFeeds()
+          }
+        }
+      }
+    }.animation(.default, value: viewModel.feeds)
   }
 }
