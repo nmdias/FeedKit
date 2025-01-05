@@ -23,12 +23,20 @@
 //
 
 /// Represents different types of feeds: Atom, RSS, and JSON.
-public enum Feed: Equatable {
+public enum Feed {
   case atom(AtomFeed)
   case rdf(RDFFeed)
   case rss(RSSFeed)
   case json(JSONFeed)
 }
+
+// MARK: - Equatable
+
+extension Feed: Equatable {}
+
+// MARK: - Sendable
+
+extension Feed: Sendable {}
 
 extension Feed {
   /// Returns the associated `RDFFeed` if the feed is of type `.rdf`,
