@@ -59,6 +59,18 @@ public struct FeedParser {
   /// Creates a new instance of `FeedParser`.
   public init() {}
 
+  /// Parses a feed from a URL string (file or remote).
+  ///
+  /// - Parameter urlString: The URL string of the feed.
+  /// - Returns: A result with the parsed feed or an error.
+  /// - Throws: An error if fetching or parsing fails.
+  public func parse(urlString: String) async throws -> Result<Feed, Error> {
+    guard let url = URL(string: urlString) else {
+      throw FeedError.invalidUrlString
+    }
+    return try await parse(url: url)
+  }
+
   /// Parses a feed from a URL (file or remote).
   ///
   /// - Parameter url: The URL of the feed.
@@ -143,3 +155,7 @@ public struct FeedParser {
     }
   }
 }
+
+// MARK: - Sendble
+
+extension FeedParser: Sendable {}
