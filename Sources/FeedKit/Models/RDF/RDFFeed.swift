@@ -33,6 +33,10 @@ public struct RDFFeed {
   }
 }
 
+// MARK: - Sendable
+
+extension RDFFeed: Sendable {}
+
 // MARK: - Equatable
 
 extension RDFFeed: Equatable {}

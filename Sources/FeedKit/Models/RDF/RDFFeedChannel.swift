@@ -29,6 +29,10 @@ public struct RDFFeedChannel {
   }
 }
 
+// MARK: - Sendable
+
+extension RDFFeedChannel: Sendable {}
+
 // MARK: - Equatable
 
 extension RDFFeedChannel: Equatable {}
