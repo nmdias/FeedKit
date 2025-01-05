@@ -25,57 +25,77 @@
 import Foundation
 
 extension FeedParser {
-  /// Parses multiple feeds concurrently from an array of string URLs.
+  /// Parses multiple feeds from the provided URL strings concurrently.
   ///
   /// - Parameters:
-  ///   - stringUrls: An array of stringUrls pointing to feed data.
-  ///   - maxConcurrency: Maximum number of feeds to parse concurrently.
-  ///   - onFeedParsed: A closure called with the result of each parsed feed.
-  ///   - completion: An optional closure called with an array of all results
-  ///     after parsing is complete. If `completion` is not provided, the
-  ///     function does not store all parsed results in memory, reducing
-  ///     resource usage. Only `onFeedParsed` will be invoked.
+  ///   - urlStrings: The list of URL strings to fetch and parse feeds from.
+  ///     Defaults to the active processor count if not specified.
+  ///   - onFeedParsed: An optional closure called with each parsed feed.
+  ///     Executes as soon as a feed is parsed or an error occurs.
+  ///
+  /// - Returns: A list of results, one for each URL, indicating either a
+  ///   successfully parsed `Feed` or an error.
+  ///
+  /// - Note: The `onFeedParsed` closure is executed immediately on completion
+  ///   of each feed, while the returned result set contains all feed results
+  ///   after processing completes.
+  @discardableResult
   public func parse(
-    _ stringUrls: [String],
-    maxConcurrency: Int,
-    onFeedParsed: @escaping (Result<Feed, Error>) -> Void,
-    completion: (([Result<Feed, Error>]) -> Void)? = nil) {
-    fatalError()
+    from urlStrings: [String],
+    onFeedParsed: (@Sendable (Result<Feed, Error>) -> Void)? = nil
+  ) async -> [Result<Feed, Error>] {
+    let urls = urlStrings.compactMap { URL(string: $0) }
+    return await parse(from: urls, onFeedParsed: onFeedParsed)
   }
 
-  /// Parses multiple feeds concurrently from an array of URLs.
+  /// Parses multiple feeds from the provided URLs concurrently.
   ///
   /// - Parameters:
-  ///   - URLs: An array of URLs pointing to feed data.
-  ///   - maxConcurrency: Maximum number of feeds to parse concurrently.
-  ///   - onFeedParsed: A closure called with the result of each parsed feed.
-  ///   - completion: An optional closure called with an array of all results
-  ///     after parsing is complete. If `completion` is not provided, the
-  ///     function does not store all parsed results in memory, reducing
-  ///     resource usage. Only `onFeedParsed` will be invoked.
+  ///   - urls: The list of URLs to fetch and parse feeds from.
+  ///     Defaults to the active processor count if not specified.
+  ///   - onFeedParsed: An optional closure called with each parsed feed.
+  ///     Executes as soon as a feed is parsed or an error occurs.
+  ///
+  /// - Returns: A list of results, one for each URL, indicating either a
+  ///   successfully parsed `Feed` or an error.
+  ///
+  /// - Note: The `onFeedParsed` closure is executed immediately on completion
+  ///   of each feed, while the returned result set contains all feed results
+  ///   after processing completes.
+  @discardableResult
   public func parse(
-    _ URLs: [URL],
-    maxConcurrency: Int,
-    onFeedParsed: @escaping (Result<Feed, Error>) -> Void,
-    completion: (([Result<Feed, Error>]) -> Void)? = nil) {
-    fatalError()
-  }
+    from urls: [URL],
+    onFeedParsed: (@Sendable (Result<Feed, Error>) -> Void)? = nil
+  ) async -> [Result<Feed, Error>] {
+    var parsedFeeds: [Result<Feed, Error>] = []
 
-  /// Parses multiple feeds concurrently from an array of data objects.
-  ///
-  /// - Parameters:
-  ///   - data: An array of data objects containing feed content.
-  ///   - maxConcurrency: Maximum number of feeds to parse concurrently.
-  ///   - onFeedParsed: A closure called with the result of each parsed feed.
-  ///   - completion: An optional closure called with an array of all results
-  ///     after parsing is complete. If `completion` is not provided, the
-  ///     function does not store all parsed results in memory, reducing
-  ///     resource usage. Only `onFeedParsed` will be invoked.
-  public func parse(
-    _ data: [Data],
-    maxConcurrency: Int,
-    onFeedParsed: @escaping (Result<Feed, Error>) -> Void,
-    completion: (([Result<Feed, Error>]) -> Void)? = nil) {
-    fatalError()
+    await withTaskGroup(of: Result<Feed, Error>.self) { group in
+      for url in urls {
+        group.addTask {
+          do {
+            let result = try await parse(url: url)
+
+            // Invoke the callback immediately if provided
+            if let onFeedParsed = onFeedParsed {
+              onFeedParsed(result)
+            }
+
+            return result
+          } catch {
+            if let onFeedParsed = onFeedParsed {
+              onFeedParsed(.failure(error))
+            }
+            return .failure(error)
+          }
+        }
+      }
+
+      // Collect all parsed results
+      for await result in group {
+        parsedFeeds.append(result)
+      }
+    }
+
+    return parsedFeeds
   }
 }
