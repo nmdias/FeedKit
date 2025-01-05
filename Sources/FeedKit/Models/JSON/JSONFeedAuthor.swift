@@ -53,6 +53,10 @@ public struct JSONFeedAuthor {
   }
 }
 
+// MARK: - Sendable
+
+extension JSONFeedAuthor: Sendable {}
+
 // MARK: - Equatable
 
 extension JSONFeedAuthor: Equatable {}

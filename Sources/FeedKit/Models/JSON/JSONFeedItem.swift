@@ -136,6 +136,10 @@ public struct JSONFeedItem {
   }
 }
 
+// MARK: - Sendable
+
+extension JSONFeedItem: Sendable {}
+
 // MARK: - Equatable
 
 extension JSONFeedItem: Equatable {}

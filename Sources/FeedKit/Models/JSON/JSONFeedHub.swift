@@ -42,6 +42,10 @@ public struct JSONFeedHub {
   }
 }
 
+// MARK: - Sendable
+
+extension JSONFeedHub: Sendable {}
+
 // MARK: - Equatable
 
 extension JSONFeedHub: Equatable {}
