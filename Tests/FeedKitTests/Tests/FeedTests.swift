@@ -1,5 +1,5 @@
 //
-//  FeedParserTests.swift
+//  FeedTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -27,17 +27,16 @@
 import Foundation
 import Testing
 
-@Suite("FeedParser")
-struct FeedParserTests: FeedKitTestable {
+@Suite("Feed")
+struct FeedTests: FeedKitTestable {
   @Test
   func url() async throws {
     // Given
     let url = url(resource: "Atom", withExtension: "xml")
-    let parser = FeedParser()
     let expected: Feed = .atom(mock)
 
     // When
-    let actual = try await parser.parse(url: url).get()
+    let actual = try await Feed(url: url)
 
     // Then
     #expect(expected == actual)
@@ -47,11 +46,10 @@ struct FeedParserTests: FeedKitTestable {
   func fileURL() async throws {
     // Given
     let fileURL = url(resource: "Atom", withExtension: "xml")
-    let parser = FeedParser()
     let expected: Feed = .atom(mock)
 
     // When
-    let actual = try parser.parse(fileURL: fileURL).get()
+    let actual = try Feed(fileURL: fileURL)
 
     // Then
     #expect(expected == actual)
@@ -61,11 +59,10 @@ struct FeedParserTests: FeedKitTestable {
   func string() throws {
     // Given
     let string = string(resource: "Atom", withExtension: "xml")
-    let parser = FeedParser()
     let expected: Feed = .atom(mock)
 
     // When
-    let actual = try parser.parse(string: string).get()
+    let actual = try Feed(string: string)
 
     // Then
     #expect(expected == actual)
@@ -75,11 +72,10 @@ struct FeedParserTests: FeedKitTestable {
   func data() throws {
     // Given
     let data = data(resource: "Atom", withExtension: "xml")
-    let parser = FeedParser()
     let expected: Feed = .atom(mock)
 
     // When
-    let actual = try parser.parse(data: data).get()
+    let actual = try Feed(data: data)
 
     // Then
     #expect(expected == actual)

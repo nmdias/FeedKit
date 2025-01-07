@@ -30,14 +30,22 @@ class ConcurrencyViewModel: ObservableObject {
   @Published var feeds: [FeedModel] = []
 
   func loadFeeds() async {
-    feeds = []
-    await FeedParser().parse(from: feedUrls) { [weak self] result in
-      Task { @MainActor in
+    await withTaskGroup(of: Result<Feed, Error>.self) { group in
+      for urlString in feedUrls {
+        group.addTask {
+          do {
+            let feed = try await Feed(urlString: urlString)
+            return .success(feed)
+          } catch {
+            return .failure(error)
+          }
+        }
+      }
 
+      for await result in group {
         switch result {
         case let .success(feed):
-          self?.feeds.append(.init(feed: feed))
-
+          feeds.append(.init(feed: feed))
         case let .failure(error):
           print("Failed to load feed: \(error)")
         }

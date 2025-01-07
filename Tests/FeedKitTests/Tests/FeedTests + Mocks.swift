@@ -1,5 +1,5 @@
 //
-//  FeedParser + Mocks .swift
+//  FeedTests + Mocks .swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,7 +24,7 @@
 
 @testable import FeedKit
 
-extension FeedParserTests {
+extension FeedTests {
   var mock: AtomFeed {
     .init(
       title: .init(
