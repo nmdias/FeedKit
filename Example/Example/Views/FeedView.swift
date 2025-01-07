@@ -26,63 +26,24 @@ import FeedKit
 import SwiftUI
 
 struct FeedView: View {
-  let feed: RSSFeed
-  @State private var selectedItem: RSSFeedItem? // Track the selected item
-  @State private var showDetailView = false // Control the sheet presentation
+  let feed: FeedModel
 
   var body: some View {
-    NavigationView {
-      ScrollViewReader { proxy in
-        List {
-          Section {
-            Text(feed.channel?.title ?? "-")
-          } header: {
-            Text("Title")
+    List {
+      Section("Title") {
+        Text(feed.title ?? "-")
+      }
+      Section("Description") {
+        Text(feed.description ?? "-")
+      }
+      Section("Items") {
+        ForEach(feed.items ?? [], id: \.title) { item in
+          NavigationLink(destination: FeedItemView(item: item)) {
+            Text(item.title ?? "-")
           }
-          Section {
-            Text(feed.channel?.description ?? "-")
-          } header: {
-            Text("Description")
-          }
-          Section {
-            ForEach(feed.channel?.items ?? [], id: \.hashValue) { item in
-              Button {
-                selectedItem = item // Set the selected item
-                showDetailView = true // Show the sheet
-              } label: {
-                Text(item.title ?? "-")
-                  .frame(maxWidth: .infinity, alignment: .leading)
-              }
-              .id(item.hashValue) // Assign an ID for scrolling
-            }
-          } header: {
-            Text("Items")
-          }
-        }
-        .listStyle(.insetGrouped)
-        .onAppear {
-
         }
       }
     }
-    .sheet(isPresented: $showDetailView) {
-      if let selectedItem = selectedItem {
-        FeedDetailView(item: selectedItem) // Present the detail view
-      }
-    }
+    .listStyle(.insetGrouped)
   }
-}
-
-#Preview {
-  FeedView(feed: .init(
-    channel: .init(
-      title: "Feed Title",
-      description: "Feed Description",
-      items: [
-        .init(title: "Item 1", description: "Description 1", pubDate: Date()),
-        .init(title: "Item 2", description: "Description 2", pubDate: Date()),
-        .init(title: "Item 3", description: "Description 3", pubDate: Date()),
-      ]
-    )
-  ))
 }

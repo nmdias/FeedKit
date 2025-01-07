@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AppleNewsView.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -25,35 +25,43 @@
 import FeedKit
 import SwiftUI
 
-struct ContentView: View {
-  @State private var appleNewsFeed: RSSFeed = .init()
+struct AppleNewsView: View {
+  @State private var feed: RSSFeed = .init()
 
   var body: some View {
-    TabView {
-      FeedView(feed: appleNewsFeed)
-        .tabItem {
-          Label("Apple News", systemImage: "dot.radiowaves.up.forward")
+    NavigationView {
+      List {
+        Section("Title") {
+          Text(feed.channel?.title ?? "-")
         }
-      ConcurrencyView()
-        .tabItem {
-          Label("Concurrency", systemImage: "list.bullet")
-        }
-    }.onAppear {
-      Task {
-        do {
-          let feed = try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
-
-          withAnimation {
-            appleNewsFeed = feed
+        Section("Items") {
+          ForEach(feed.channel?.items ?? [], id: \.hashValue) { item in
+            NavigationLink(destination: FeedItemView(item: .init(item: item))) {
+              Text(item.title ?? "-")
+            }
           }
-        } catch {
-          print("Failed to fetch RSS feed: \(error)")
+        }
+      }
+      .listStyle(.insetGrouped)
+      .animation(.default, value: feed)
+      .refreshable {
+        Task {
+          await loadFeed()
+        }
+      }
+      .onAppear {
+        Task {
+          await loadFeed()
         }
       }
     }
   }
-}
 
-#Preview {
-  ContentView()
+  private func loadFeed() async {
+    do {
+      feed = try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
+    } catch {
+      print("Failed to fetch RSS feed: \(error)")
+    }
+  }
 }

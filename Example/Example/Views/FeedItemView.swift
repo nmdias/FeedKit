@@ -1,5 +1,5 @@
 //
-//  FeedDetailView.swift
+//  FeedItemView.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -25,32 +25,20 @@
 import FeedKit
 import SwiftUI
 
-struct FeedDetailView: View {
-  let item: RSSFeedItem
+struct FeedItemView: View {
+  let item: FeedItemModel
 
   var body: some View {
     List {
-      Section {
-        Text(item.title ?? "")
-      } header: {
-        Text("Title")
+      Section("Title") {
+        Text(item.title ?? "-")
       }
-
-      Section {
-        Text(item.description ?? "")
-      } header: {
-        Text("Description")
+      Section("Date") {
+        Text(item.date?.description ?? "-")
       }
-      
-      Section {
-        Text(item.pubDate?.description ?? "")
-      } header: {
-        Text("Date")
+      Section("Description") {
+        Text(item.description ?? "-")
       }
     }.listStyle(.insetGrouped)
   }
-}
-
-#Preview {
-  FeedDetailView(item: .init())
 }

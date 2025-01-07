@@ -29,7 +29,16 @@ import SwiftUI
 struct ExampleApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      TabView {
+        AppleNewsView()
+          .tabItem {
+            Label("Apple News", systemImage: "dot.radiowaves.up.forward")
+          }
+        ConcurrencyView()
+          .tabItem {
+            Label("Concurrency", systemImage: "list.bullet")
+          }
+      }
     }
   }
 }
