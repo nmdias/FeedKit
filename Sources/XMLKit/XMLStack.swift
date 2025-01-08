@@ -47,11 +47,6 @@ class XMLStack {
     stack.last
   }
 
-  /// Indicates whether the stack is empty.
-  var isEmpty: Bool {
-    stack.isEmpty
-  }
-
   /// The number of `XMLNode` instances in the stack.
   var count: Int {
     stack.count
