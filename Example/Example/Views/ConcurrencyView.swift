@@ -57,6 +57,7 @@ struct ConcurrencyView: View {
   }
 
   func loadFeeds() async {
+    feeds = []
     await withTaskGroup(of: Result<Feed, Error>.self) { group in
       for urlString in feedUrls {
         group.addTask {
@@ -81,7 +82,6 @@ struct ConcurrencyView: View {
   }
 
   let feedUrls = [
-    "https://techcrunch.com/feed/atom/",
     "https://www.9to5mac.com/feed/",
     "https://www.anandtech.com/rss",
     "https://www.androidauthority.com/feed/",
@@ -103,7 +103,6 @@ struct ConcurrencyView: View {
     "https://www.geekwire.com/feed/",
     "https://www.gizmodo.com/rss",
     "https://www.hackernews.com/rss",
-    "https://www.hackernoon.com/feed",
     "https://www.huffpost.com/section/technology/feed",
     "https://www.infoq.com/feed/",
     "https://www.lifehacker.com/rss",
@@ -114,7 +113,7 @@ struct ConcurrencyView: View {
     "https://www.readwrite.com/feed/",
     "https://www.siliconvalley.com/feed/",
     "https://www.softwaretestinghelp.com/feed/",
-    "https://www.techcrunch.com/feed/",
+    "https://www.techcrunch.com/feed/atom/",
     "https://www.techmeme.com/feed.xml",
     "https://www.technologyreview.com/feed/",
     "https://www.techradar.com/rss",
