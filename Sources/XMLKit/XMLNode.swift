@@ -110,8 +110,6 @@ class XMLNode: Codable, Equatable, Hashable {
   // MARK: - Codable
 
   private enum CodingKeys: CodingKey {
-    case namespacePrefixes
-    case namespaceURI
     case prefix
     case name
     case text
