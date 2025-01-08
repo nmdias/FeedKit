@@ -96,9 +96,13 @@ extension FeedInitializable {
     let session = URLSession.shared
     let (data, response) = try await session.data(from: url)
 
-    guard let httpResponse = response as? HTTPURLResponse,
-          (200 ... 299).contains(httpResponse.statusCode) else {
-      throw FeedError.unexpected(reason: "Invalid response from URL.")
+    guard let httpResponse = response as? HTTPURLResponse else {
+      throw FeedError.invalidHttpResponse(statusCode: nil)
+    }
+
+    let statusCode = httpResponse.statusCode
+    guard (200 ... 299).contains(statusCode) else {
+      throw FeedError.invalidHttpResponse(statusCode: statusCode)
     }
 
     try self.init(data: data)
@@ -109,7 +113,7 @@ extension FeedInitializable {
   /// - Throws: An error if the string cannot be converted to data or parsed.
   public init(string: String) throws {
     guard let data = string.data(using: .utf8) else {
-      throw FeedError.unexpected(reason: "Unable to convert string to data.")
+      throw FeedError.invalidUtf8String
     }
     try self.init(data: data)
   }

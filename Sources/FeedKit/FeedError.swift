@@ -26,24 +26,26 @@ import Foundation
 
 /// Error types with `NSError` codes and user info providers.
 ///
-/// - notFound: Couldn't find or parse any known feed.
-/// - cdataDecoding: Unable to decode bytes in a CDATA block to Unicode
-///   characters using UTF-8 encoding, often due to a malformed or unsupported
-///   format.
-/// - invalidUrl: Indicates that the provided URL is invalid or malformed.
-/// - invalidUrlString: Indicates that the provided string does not represent a
-///   valid URL.
-/// - network: A network-related issue, with a `reason` describing the
-///   specific cause.
-/// - unexpected: An unexpected error with an optional `reason` offering more
-///   context, typically indicating an issue the user cannot resolve.
+/// - invalidUrlString: The URL string provided is invalid.
+/// - invalidUrl: The provided URL does not point to a valid file or resource.
+/// - invalidHttpResponse: The HTTP response is invalid or has an unexpected
+///   status code.
+/// - invalidUtf8String: The provided string cannot be converted to UTF-8 data.
+/// - unknownFeedFormat: The feed format is not recognized or supported.
+/// - networkError: A network error occurred while downloading the feed.
+/// - fileReadError: An error occurred while reading the file at the specified
+///   URL.
+/// - unexpected: An unexpected error with an optional reason, offering more
+///   context on the issue.
 public enum FeedError: Error {
-  case notFound
-  case cdataDecoding(element: String)
-  case invalidUrl
+  /// The URL string provided is invalid.
   case invalidUrlString
-  case network(reason: String)
-  case unexpected(reason: String)
+  /// The HTTP response is invalid or has an unexpected status code.
+  case invalidHttpResponse(statusCode: Int?)
+  /// The provided string cannot be converted to UTF-8 data.
+  case invalidUtf8String
+  /// The feed format is not recognized or supported.
+  case unknownFeedFormat
 }
 
 // MARK: - LocalizedError
@@ -51,52 +53,48 @@ public enum FeedError: Error {
 extension FeedError: LocalizedError {
   public var errorDescription: String? {
     switch self {
-    case .notFound:
-      return "Feed not found."
-    case .cdataDecoding:
-      return "Error decoding CDATA Block."
-    case .invalidUrl:
-      return "Invalid URL provided."
     case .invalidUrlString:
-      return "Malformed URL string."
-    case let .network(reason):
-      return "Network error: \(reason)."
-    case let .unexpected(reason):
-      return "Internal error: \(reason)."
+      return "The URL string provided is invalid."
+    case let .invalidHttpResponse(statusCode):
+      if let code = statusCode {
+        return "The HTTP response is invalid with status code: \(code)."
+      } else {
+        return "The HTTP response is invalid with an unknown status code."
+      }
+    case .invalidUtf8String:
+      return "The provided string cannot be converted to UTF-8 data."
+    case .unknownFeedFormat:
+      return "The feed format is not recognized or supported."
     }
   }
 
   public var failureReason: String? {
     switch self {
-    case .notFound:
-      return "No recognizable feed was found in the parsed data."
-    case let .cdataDecoding(element):
-      return "Failed to decode CDATA block to Unicode at element: \(element). Ensure the data is in UTF-8 format."
-    case .invalidUrl:
-      return "The provided URL could not be parsed or recognized."
     case .invalidUrlString:
-      return "The URL string format is incorrect or incomplete."
-    case let .network(reason):
-      return "A network-related issue interrupted the process: \(reason)"
-    case let .unexpected(reason):
-      return "An internal error occurred that could not be resolved: \(reason)"
+      return "The URL string is not in a valid format."
+    case let .invalidHttpResponse(statusCode):
+      if let code = statusCode {
+        return "Received HTTP status code \(code), which is outside the expected range."
+      } else {
+        return "Received an invalid HTTP response with no status code."
+      }
+    case .invalidUtf8String:
+      return "The string data is not UTF-8 encoded or contains invalid bytes."
+    case .unknownFeedFormat:
+      return "The feed format could not be determined from the provided data."
     }
   }
 
   public var recoverySuggestion: String? {
     switch self {
-    case .notFound:
-      return "Please provide a valid RSS, Atom, or JSON feed."
-    case .cdataDecoding:
-      return "Verify that CDATA blocks are UTF-8 encoded."
-    case .invalidUrl:
-      return "Ensure that a complete, well-formed URL is provided."
     case .invalidUrlString:
-      return "Check that the URL string is correctly formatted and contains necessary components."
-    case let .network(reason):
-      return "Inspect network connection settings or retry later: \(reason)"
-    case .unexpected:
-      return "Consider submitting a detailed issue report on GitHub for assistance."
+      return "Verify the URL string and ensure it is correctly formatted."
+    case .invalidHttpResponse:
+      return "Ensure the server is reachable and returning a valid response."
+    case .invalidUtf8String:
+      return "Confirm that the string is UTF-8 encoded and does not contain invalid bytes."
+    case .unknownFeedFormat:
+      return "Ensure the feed data is in a recognized RSS, Atom, or JSON format."
     }
   }
 }
@@ -107,12 +105,10 @@ extension FeedError: CustomNSError {
   /// An error's code for the specified case.
   public var errorCode: Int {
     switch self {
-    case .notFound: return -1000
-    case .cdataDecoding: return -10001
-    case .invalidUrl: return -10002
-    case .invalidUrlString: return -10003
-    case .network: return -10004
-    case .unexpected: return -90000
+    case .invalidUrlString: return -1001
+    case .invalidHttpResponse: return -1003
+    case .invalidUtf8String: return -1004
+    case .unknownFeedFormat: return -1005
     }
   }
 

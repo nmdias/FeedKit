@@ -122,9 +122,13 @@ extension Feed {
     let session = URLSession.shared
     let (data, response) = try await session.data(from: url)
 
-    guard let httpResponse = response as? HTTPURLResponse,
-          (200 ... 299).contains(httpResponse.statusCode) else {
-      throw FeedError.unexpected(reason: "Invalid HTTP response")
+    guard let httpResponse = response as? HTTPURLResponse else {
+      throw FeedError.invalidHttpResponse(statusCode: nil)
+    }
+
+    let statusCode = httpResponse.statusCode
+    guard (200 ... 299).contains(statusCode) else {
+      throw FeedError.invalidHttpResponse(statusCode: statusCode)
     }
 
     try self.init(data: data)
@@ -137,7 +141,7 @@ extension Feed {
   ///           parsing fails.
   public init(string: String) throws {
     guard let data = string.data(using: .utf8) else {
-      throw FeedError.unexpected(reason: "Invalid UTF-8 string")
+      throw FeedError.invalidUtf8String
     }
     try self.init(data: data)
   }
@@ -149,11 +153,11 @@ extension Feed {
   /// into the appropriate format.
   ///
   /// - Parameter data: The raw feed data to parse.
-  /// - Throws: `FeedError.unexpected` if the feed type cannot be determined or
+  /// - Throws: `FeedError.unknownFeedFormat` if the feed type cannot be determined or
   ///           if parsing fails.
   public init(data: Data) throws {
     guard let feedType = FeedType(data: data) else {
-      throw FeedError.unexpected(reason: "Unknown feed format")
+      throw FeedError.unknownFeedFormat
     }
 
     switch feedType {
