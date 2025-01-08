@@ -55,7 +55,6 @@ class XMLNode: Codable, Equatable, Hashable {
     name: String,
     text: String? = nil,
     isXhtml: Bool = false,
-    attributes: [String: String]? = nil,
     children: [XMLNode]? = nil) {
     self.prefix = prefix
     self.name = name
