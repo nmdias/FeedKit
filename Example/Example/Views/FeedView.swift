@@ -44,6 +44,6 @@ struct FeedView: View {
         }
       }
     }
-    .listStyle(.insetGrouped)
+    .listStyle(.automatic)
   }
 }

@@ -42,7 +42,7 @@ struct AppleNewsView: View {
           }
         }
       }
-      .listStyle(.insetGrouped)
+      .listStyle(.automatic)
       .animation(.default, value: feed)
       .refreshable {
         Task {

@@ -39,6 +39,6 @@ struct FeedItemView: View {
       Section("Description") {
         Text(item.description ?? "-")
       }
-    }.listStyle(.insetGrouped)
+    }.listStyle(.automatic)
   }
 }
