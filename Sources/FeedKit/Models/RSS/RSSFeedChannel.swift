@@ -247,6 +247,11 @@ public struct RSSFeedChannel {
   ///
   /// See http://web.resource.org/rss/1.0/modules/syndication/
   public var syndication: Syndication?
+  
+  /// Atom namespace in an RSS feed helps WebSub subscribers discover the topic
+  /// and hub information.
+  /// See https://www.w3.org/TR/websub/#discovery
+  public var atom: Atom?
 
   public init(
     title: String? = nil,
@@ -271,7 +276,8 @@ public struct RSSFeedChannel {
     items: [RSSFeedItem]? = nil,
     dublinCore: DublinCore? = nil,
     iTunes: ITunes? = nil,
-    syndication: Syndication? = nil) {
+    syndication: Syndication? = nil,
+    atom: Atom? = nil) {
     self.title = title
     self.link = link
     self.description = description
@@ -295,6 +301,7 @@ public struct RSSFeedChannel {
     self.dublinCore = dublinCore
     self.iTunes = iTunes
     self.syndication = syndication
+    self.atom = atom
   }
 }
 
@@ -337,6 +344,7 @@ extension RSSFeedChannel: Codable {
     case dublinCore = "dc"
     case iTunes = "itunes"
     case syndication = "sy"
+    case atom = "atom"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -365,6 +373,7 @@ extension RSSFeedChannel: Codable {
     dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
     iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
     syndication = try container.decodeIfPresent(Syndication.self, forKey: CodingKeys.syndication)
+    atom = try container.decodeIfPresent(Atom.self, forKey: CodingKeys.atom)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -393,5 +402,6 @@ extension RSSFeedChannel: Codable {
     try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
     try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
     try container.encodeIfPresent(syndication, forKey: CodingKeys.syndication)
+    try container.encodeIfPresent(atom, forKey: CodingKeys.atom)
   }
 }

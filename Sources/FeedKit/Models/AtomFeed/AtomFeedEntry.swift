@@ -158,6 +158,15 @@ public struct AtomFeedEntry {
   /// then the atom:rights element of the containing atom:feed element, if
   /// present, is considered to apply to the entry.
   public var rights: String?
+  
+  /// Media RSS is a new RSS module that supplements the <enclosure>
+  /// capabilities of RSS 2.0.
+  public var media: Media?
+  
+  /// YouTube metadata contains channel ID and video ID for YouTube content.
+  ///
+  /// See https://developers.google.com/youtube/v3/guides/push_notifications
+  public var youTube: YouTube?
 
   public init(
     title: String? = nil,
@@ -171,7 +180,9 @@ public struct AtomFeedEntry {
     content: AtomFeedContent? = nil,
     published: Date? = nil,
     source: AtomFeedSource? = nil,
-    rights: String? = nil) {
+    rights: String? = nil,
+    media: Media? = nil,
+    youTube: YouTube? = nil) {
     self.title = title
     self.summary = summary
     self.authors = authors
@@ -184,6 +195,8 @@ public struct AtomFeedEntry {
     self.published = published
     self.source = source
     self.rights = rights
+    self.media = media
+    self.youTube = youTube
   }
 }
 
@@ -202,7 +215,7 @@ extension AtomFeedEntry: Hashable {}
 // MARK: - Codable
 
 extension AtomFeedEntry: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case title
     case summary
     case author
@@ -215,6 +228,8 @@ extension AtomFeedEntry: Codable {
     case published
     case source
     case rights
+    case media = "media"
+    case youTube = "yt"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -232,6 +247,8 @@ extension AtomFeedEntry: Codable {
     published = try container.decodeIfPresent(Date.self, forKey: CodingKeys.published)
     source = try container.decodeIfPresent(AtomFeedSource.self, forKey: CodingKeys.source)
     rights = try container.decodeIfPresent(String.self, forKey: CodingKeys.rights)
+    media = try container.decodeIfPresent(Media.self, forKey: .media)
+    youTube = try container.decodeIfPresent(YouTube.self, forKey: .youTube)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -249,5 +266,7 @@ extension AtomFeedEntry: Codable {
     try container.encodeIfPresent(published, forKey: CodingKeys.published)
     try container.encodeIfPresent(source, forKey: CodingKeys.source)
     try container.encodeIfPresent(rights, forKey: CodingKeys.rights)
+    try container.encodeIfPresent(media, forKey: CodingKeys.media)
+    try container.encodeIfPresent(youTube, forKey: CodingKeys.youTube)
   }
 }

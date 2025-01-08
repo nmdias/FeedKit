@@ -1,5 +1,5 @@
 //
-//  SchemeReplacingTests.swift
+//  RSSAtomTests.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -24,19 +24,18 @@
 
 @testable import FeedKit
 
-import Foundation
 import Testing
 
-@Suite("Scheme Replacing")
-struct SchemeReplacingTests {
+@Suite("RSS Atom")
+struct RSSAtomTests: FeedKitTestable {
   @Test
-  func replacingScheme() {
+  func rssAtom() throws {
     // Given
-    let url = URL(string: "feed://images.apple.com/main/rss/hotnews/hotnews.rss")!
-    let expected = URL(string: "https://images.apple.com/main/rss/hotnews/hotnews.rss")!
+    let data = data(resource: "RSSAtom", withExtension: "xml")
+    let expected: RSSFeed = mock
 
     // When
-    let actual = url.replacingScheme("feed", with: "https")
+    let actual = try RSSFeed(data: data)
 
     // Then
     #expect(expected == actual)

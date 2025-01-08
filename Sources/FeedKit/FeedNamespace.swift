@@ -33,6 +33,8 @@ enum FeedNamespace: CaseIterable {
   case content
   case georss
   case gml
+  case youTube
+  case atom
 
   /// The namespace prefix.
   var prefix: String {
@@ -51,6 +53,10 @@ enum FeedNamespace: CaseIterable {
       return "xmlns:georss"
     case .gml:
       return "xmlns:gml"
+    case .youTube:
+      return "xmlns:yt"
+    case .atom:
+      return "xmlns:atom"
     }
   }
 
@@ -71,6 +77,10 @@ enum FeedNamespace: CaseIterable {
       return "http://www.georss.org/georss"
     case .gml:
       return "http://www.opengis.net/gml"
+    case .youTube:
+      return "http://www.youtube.com/xml/schemas/2015"
+    case .atom:
+      return "http://www.w3.org/2005/Atom"
     }
   }
 }
@@ -101,6 +111,22 @@ extension FeedNamespace {
       return feed.channel?.items?.contains(where: { $0.media?.location?.geoRSS != nil }) ?? false
     case .gml:
       return feed.channel?.items?.contains(where: { $0.media?.location?.geoRSS?.gmlPoint != nil }) ?? false
+    case .youTube:
+      return false
+    case .atom:
+      return feed.channel?.atom != nil
+    }
+  }
+  
+  /// Determines whether the namespace should be included in an XML document.
+  /// - Parameter feed: The RSS feed being converted.
+  /// - Returns: A Boolean indicating whether the namespace should be included.
+  func shouldInclude(in feed: AtomFeed) -> Bool {
+    switch self {
+    case .youTube:
+      return feed.entries?.contains(where: { $0.youTube != nil }) ?? false
+    default:
+      return false
     }
   }
 }

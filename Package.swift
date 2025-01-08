@@ -60,9 +60,11 @@ let package = Package(
         .process("Resources/xml/RDFDC.xml"),
         .process("Resources/xml/RSS.xml"),
         .process("Resources/xml/RSSDC.xml"),
+        .process("Resources/xml/RSSAtom.xml"),
         .process("Resources/xml/Media.xml"),
         .process("Resources/xml/Syndication.xml"),
         .process("Resources/xml/iTunes.xml"),
+        .process("Resources/xml/YouTube.xml"),
       ]
     ),
   ]

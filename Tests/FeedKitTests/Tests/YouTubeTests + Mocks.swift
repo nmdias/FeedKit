@@ -1,5 +1,5 @@
 //
-//  URL + replacingScheme.swift
+//  YouTubeTests + Mocks.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -22,32 +22,25 @@
 //  SOFTWARE.
 //
 
-import Foundation
+@testable import FeedKit
 
-extension URL {
-  /// Returns a new `URL` with the scheme replaced by a given replacement scheme,
-  /// if the current scheme matches the target scheme (case-insensitive).
-  ///
-  /// - Parameters:
-  ///   - target: The target scheme to match.
-  ///   - replacement: The scheme to use as the replacement.
-  /// - Returns: A new URL with the replaced scheme, or `nil` if no changes were made or
-  ///            the replacement could not be applied.
-  func replacingScheme<Target, Replacement>(
-    _ target: Target,
-    with replacement: Replacement
-  ) -> URL? where Target: StringProtocol, Replacement: StringProtocol {
-    guard
-      let urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true),
-      let currentScheme = urlComponents.scheme,
-      currentScheme.caseInsensitiveCompare(target) == .orderedSame
-    else {
-      return nil
-    }
-
-    var modifiedComponents = urlComponents
-    modifiedComponents.scheme = String(replacement)
-
-    return modifiedComponents.url
+extension YouTubeTests {
+  var mock: AtomFeed {
+    .init(
+      entries: [
+        .init(
+          youTube: .init(
+            channelID: "UCE_M8A5yxnLfW0KghEeajjw",
+            videoID: "51QO4pavK3A"
+          )
+        ),
+        .init(
+          youTube: .init(
+            channelID: "UCE_M8A5yxnLfW0KghEeajjw",
+            videoID: "j1HGOY32s2Y"
+          )
+        )
+      ]
+    )
   }
 }
