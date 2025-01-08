@@ -27,16 +27,10 @@ import Foundation
 /// Error types with `NSError` codes and user info providers.
 ///
 /// - invalidUrlString: The URL string provided is invalid.
-/// - invalidUrl: The provided URL does not point to a valid file or resource.
 /// - invalidHttpResponse: The HTTP response is invalid or has an unexpected
 ///   status code.
 /// - invalidUtf8String: The provided string cannot be converted to UTF-8 data.
 /// - unknownFeedFormat: The feed format is not recognized or supported.
-/// - networkError: A network error occurred while downloading the feed.
-/// - fileReadError: An error occurred while reading the file at the specified
-///   URL.
-/// - unexpected: An unexpected error with an optional reason, offering more
-///   context on the issue.
 public enum FeedError: Error {
   /// The URL string provided is invalid.
   case invalidUrlString
