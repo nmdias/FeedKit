@@ -25,7 +25,7 @@ FeedKit `v10` is currently in **beta**. It should be stable enough :eyes:, but i
   - [x] [iTunes](http://www.itunes.com/dtds/podcast-1.0.dtd)
   - [x] [YouTube](http://www.youtube.com/xml/schemas/2015)
 - [x] Examples
-- [x] Documentation
+- [x] [Documentation](https://swiftpackageindex.com/nmdias/FeedKit/main/documentation/feedkit)
 - [x] Unit Tests
 
 ## Usage
