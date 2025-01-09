@@ -1,90 +1,164 @@
 ![FeedKit](/FeedKit.png?raw=true)
 
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/nmdias/FeedKit)
-
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/nmdias/FeedKit)
 
-FeedKit is a Swift library for parsing and generating RSS, Atom, and JSON feeds.
+FeedKit is a Swift library for Parsing and Generating RSS, Atom, and JSON feeds.
 
 ## Features
 
 - [x] [Atom](https://tools.ietf.org/html/rfc4287)
 - [x] RSS [0.90](http://www.rssboard.org/rss-0-9-0), [0.91](http://www.rssboard.org/rss-0-9-1), [1.00](http://web.resource.org/rss/1.0/spec), [2.00](http://cyber.law.harvard.edu/rss/rss.html)
-- [x] [JSON](https://jsonfeed.org/version/1)
+- [x] JSON [1.0](https://jsonfeed.org/version/1)
 - [x] Namespaces
-  - [x] [Dublin Core](http://web.resource.org/rss/1.0/modules/dc/)
-  - [x] [Syndication](http://web.resource.org/rss/1.0/modules/syndication/)
-  - [x] [Content](http://web.resource.org/rss/1.0/modules/content/)
-  - [x] [Media RSS](http://www.rssboard.org/media-rss)
-  - [x] [Geo RSS](https://docs.ogc.org/cs/17-002r1/17-002r1.html)
-  - [x] [iTunes Podcasting Tags](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
-- [x] [Documentation](http://cocoadocs.org/docsets/FeedKit)
-- [x] Unit Test Coverage
+  - [x] [Atom](http://www.w3.org/2005/Atom)
+  - [x] [Dublin Core](http://purl.org/dc/elements/1.1/)
+  - [x] [Syndication](http://purl.org/rss/1.0/modules/syndication/)
+  - [x] [Content](http://purl.org/rss/1.0/modules/content/)
+  - [x] [Media RSS](http://search.yahoo.com/mrss/)
+  - [x] [Geo RSS](http://www.georss.org/georss)
+  - [x] [GML](http://www.opengis.net/gml)
+  - [x] [iTunes](http://www.itunes.com/dtds/podcast-1.0.dtd)
+  - [x] [YouTube](http://www.youtube.com/xml/schemas/2015)
+- [x] Examples
+- [x] Documentation
+- [x] Unit Tests
 
-Installation >> [`instructions`](https://github.com/nmdias/FeedKit/blob/master/INSTALL.md) <<
+### FeedKit v10 :warning:
+
+FeedKit `v10` is currently in **beta**. It should be stable enough :eyes:, but if stable enough is not enough, consider using **[`v9`](https://github.com/nmdias/FeedKit/releases/tag/9.1.2)** for now. The beta version includes a new parsing engine, features and improvements, and may contain bugs that still need to be ironed out and unit tested.
 
 ## Usage
 
-Build a URL pointing to an RSS, Atom or JSON Feed.
+The `RSSFeed`, `AtomFeed` and `JSONFeed` structs makes it easy to fetch and parse feeds from a URL. Here's how to use it:
 
 ```swift
-let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
+try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
 ```
 
-Get an instance of `FeedParser`
+## Universal Feed Parser
+
+The `Feed` enum allows you to handle various feed formats, including `RSS`, `Atom`, `RDF`, and `JSON` feeds. This makes it a versatile solution for parsing any type of feed.
 
 ```swift
-let parser = FeedParser(URL: feedURL) // or FeedParser() or FeedParser(xmlStream: stream)
-```
+// Initialize and parse a feed
+let feed = try await Feed(urlString: "https://example.com/feed")
 
-Then call `parse` or `parseAsync` to start parsing the feed...
-
-> A **common scenario** in UI environments would be parsing a feed **asynchronously** from a user initiated action, such as the touch of a button. e.g.
-
-```swift
-// Parse asynchronously, not to block the UI.
-parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-    // Do your thing, then back to the Main thread
-    DispatchQueue.main.async {
-        // ..and update the UI
-    }
+// Use a switch to handle different feeds explicitly
+switch feed {
+case let .atom(feed):   // Atom Syndication Format Feed Model
+case let .rss(feed):    // Really Simple Syndication Feed Model
+case let .json(feed):   // JSON Feed Model
+// ...
 }
+
+// Or through optional properties
+feed.rssFeed // feed.atomFeed, feed.jsonFeed, ...
 ```
 
-Remember, you are responsible to manually bring the result closure to whichever queue is apropriate. Usually to the Main thread, for UI apps, by calling `DispatchQueue.main.async` .
+## Feed Generation
 
-Alternatively, you can also parse synchronously.
+To generate XML for a Feed, create an instance of an `RSSFeed`, `AtomFeed` or `JSONFeed` and populate it with the necessary data.
 
 ```swift
-let result = parser.parse()
+let feed = RSSFeed(
+  channel: .init(
+    title: "Breaking News",
+    link: "http://www.breakingnews.com/",
+    description: "Get the latest updates as they happen.",
+    // ...
+    items: [
+      .init(
+        title: "Breaking News: All Hearts are Joyful",
+        link: "http://breakingnews.com/2025/01/09/joyful-hearts",
+        description: "A heartwarming story of unity and celebration."
+        // ...
+      ),
+    ]
+  )
+)
 ```
 
-## Parse Result
-
-FeedKit adopts Swift 5 Result type, as `Result<Feed, ParserError>`, and as such, if parsing succeeds you should now have a `Strongly Typed Model` of an `RSS`, `Atom` or `JSON Feed`, within the `Feed` enum:
+Then call `toXMLString(formatted:)` to generate an XML string.
 
 ```swift
-switch result {
-case .success(let feed):
-
-    // Grab the parsed feed directly as an optional rss, atom or json feed object
-    feed.rssFeed
-
-    // Or alternatively...
-    switch feed {
-    case let .atom(feed):       // Atom Syndication Format Feed Model
-    case let .rss(feed):        // Really Simple Syndication Feed Model
-    case let .json(feed):       // JSON Feed Model
-    }
-
-case .failure(let error):
-    print(error)
-}
+let xmlString = try feed.toXMLString(formatted: true)
 ```
 
-## Model Preview
+<details>
+  <summary>Output</summary>
 
-> The RSS and Atom feed Models are rather extensive throughout the supported namespaces. These are just a preview of what's available.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Breaking News</title>
+    <link>http://www.breakingnews.com/</link>
+    <description>Get the latest updates as they happen.</description>
+    <item>
+      <title>Breaking News: All Hearts are Joyful</title>
+      <link>http://breakingnews.com/2025/01/09/joyful-hearts</link>
+      <description>A heartwarming story of unity and celebration.</description>
+    </item>
+  </channel>
+</rss>
+```
+
+</details>
+
+## Initializers
+
+All Feed types, `Feed`, `RSSFeed`, `JSON...` provide various initializers for flexibility in loading and parsing feed data.
+
+<details>
+  <summary>Show</summary>
+
+From a URL `String`:
+
+```swift
+init(urlString: String) async throws
+```
+
+From a `URL`, handling both local file URLs and remote URLs:
+
+```swift
+init(url: URL) async throws
+```
+
+From a local file `URL`:
+
+```swift
+init(fileURL url: URL) throws
+```
+
+From a remote `URL`:
+
+```swift
+init(remoteURL url: URL) async throws
+```
+
+From an XML or JSON `String`:
+
+```swift
+init(string: String) throws
+```
+
+From raw `Data`:
+
+```swift
+init(data: Data) throws
+```
+
+These initializers provide a flexible way to load feeds from the most common sources.
+
+</details>
+
+## Feed Models
+
+The `RSS`, `Atom`, and `JSON` feed models are highly comprehensive, especially when combined with the supported namespaces. Below is just a small preview of what’s available.
+
+<details>
+<summary>Preview</summary>
 
 #### RSS
 
@@ -205,6 +279,17 @@ item?.attachments
 item?.extensions
 // ...
 ```
+
+</details>
+
+## Installation
+
+To add FeedKit to your Xcode project, follow these steps:
+
+- Open your project in Xcode and go to the "File" menu.
+- Select "Add Package Dependencies…"
+- Enter the "Package URL": https://github.com/nmdias/FeedKit
+- Select "Add Package"
 
 ## License
 
