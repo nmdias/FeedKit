@@ -29,14 +29,14 @@ import Testing
 @Suite("Sample")
 struct SampleTests: XMLKitTestable {
   @Test
-  func xmlParser() throws {
+  func xmlReader() throws {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
-    let parser = XMLParser(data: data)
+    let reader = XMLReader(data: data)
     let expected: XMLNode = nodeMock
 
     // When
-    let actual = try parser.parse().get().root
+    let actual = try reader.read().get().root
 
     // Then
     #expect(expected == actual)

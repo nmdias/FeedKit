@@ -23,6 +23,9 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 import XMLKit
 
 /// A protocol defining initializers to create a feed from various sources.

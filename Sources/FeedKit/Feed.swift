@@ -23,7 +23,9 @@
 //
 
 import Foundation
-
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 /// Represents a parsed web feed in various formats.
 ///
 /// `Feed` is an enum that can hold either an Atom, RSS, RDF, or JSON feed. It provides

@@ -46,8 +46,8 @@ public class XMLDecoder {
   }
 
   public func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
-    let parser = XMLKit.XMLParser(data: data)
-    let result = try parser.parse().get()
+    let reader = XMLReader(data: data)
+    let result = try reader.read().get()
 
     guard let rootNode = result.root else {
       throw XMLError.unexpected(reason: "Unexpected parsing result. Root is nil.")

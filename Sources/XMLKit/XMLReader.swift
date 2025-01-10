@@ -1,5 +1,5 @@
 //
-//  XMLParser.swift
+//  XMLReader.swift
 //
 //  Copyright (c) 2016 - 2024 Nuno Dias
 //
@@ -23,10 +23,13 @@
 //
 
 import Foundation
+#if canImport(FoundationXML)
+import FoundationXML
+#endif
 
-class XMLParser: NSObject {
+class XMLReader: NSObject {
   /// The XML Parser.
-  let parser: Foundation.XMLParser
+  let parser: XMLParser
 
   // List of encodings used in XML feeds ordered by priority
   let encodings: [String.Encoding] = [
@@ -59,7 +62,7 @@ class XMLParser: NSObject {
   /// Initializes the wrapper with XML data.
   /// - Parameter data: The XML data to parse.
   init(data: Data) {
-    parser = Foundation.XMLParser(data: data)
+    parser = XMLParser(data: data)
     stack = XMLStack()
     super.init()
     parser.delegate = self
@@ -67,7 +70,7 @@ class XMLParser: NSObject {
 
   /// Parses the XML data and returns a `Result` indicating success or failure.
   /// - Returns: A `Result` with the parsed document on success, or an error.
-  func parse() -> Result<XMLDocument, XMLError> {
+  func read() -> Result<XMLDocument, XMLError> {
     // Starts the parsing process. If parsing fails or an error occurs,
     // returns a failure result with the existing error or an unknown error.
     guard
@@ -97,9 +100,9 @@ class XMLParser: NSObject {
 
 // MARK: - XMLParserDelegate
 
-extension XMLParser: XMLParserDelegate {
+extension XMLReader: XMLParserDelegate {
   func parser(
-    _ parser: Foundation.XMLParser,
+    _ parser: XMLParser,
     didStartElement elementName: String,
     namespaceURI: String?,
     qualifiedName qName: String?,
@@ -170,13 +173,13 @@ extension XMLParser: XMLParserDelegate {
   }
 
   func parser(
-    _ parser: Foundation.XMLParser,
+    _ parser: XMLParser,
     foundCharacters string: String) {
     map(string)
   }
 
   func parser(
-    _ parser: Foundation.XMLParser,
+    _ parser: XMLParser,
     foundCDATA CDATABlock: Data) {
     // Attempts to decode a CDATA block to an encoding, ordered by priority
     for encoding in encodings {
@@ -192,7 +195,7 @@ extension XMLParser: XMLParserDelegate {
   }
 
   func parser(
-    _ parser: Foundation.XMLParser,
+    _ parser: XMLParser,
     didEndElement elementName: String,
     namespaceURI: String?,
     qualifiedName qName: String?) {
@@ -218,7 +221,7 @@ extension XMLParser: XMLParserDelegate {
   }
 
   func parserDidEndDocument(
-    _ parser: Foundation.XMLParser) {
+    _ parser: XMLParser) {
     #if DEBUG
       if !isComplete {
         print("Parsing ended without reaching the root path.")
@@ -227,7 +230,7 @@ extension XMLParser: XMLParserDelegate {
   }
 
   func parser(
-    _ parser: Foundation.XMLParser,
+    _ parser: XMLParser,
     parseErrorOccurred parseError: Error) {
     // Ignore errors that occur after a feed is successfully parsed. Some
     // real-world feeds contain junk such as "[]" after the XML segment;
