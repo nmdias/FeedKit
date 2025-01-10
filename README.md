@@ -30,21 +30,23 @@ FeedKit **[`v10`](https://github.com/nmdias/FeedKit)** is currently in **beta**.
 
 ## Usage
 
-The `Feed`, `RSSFeed`, `AtomFeed` and `JSONFeed` types makes it easy to fetch and parse feeds. Here's how to use them:
+The fetching, loading and parsing of feeds can be made with either a **dedicated** type, such as `RSSFeed`, `AtomFeed` and `JSONFeed`, or an **universal** type `Feed` that determines the type of feed before parsing occurs.
 
-### Dedicated Feed Parser
+Here's how to use them:
 
-If you know the type of feed that is expected, you can use a dedicated type, such as:
+### Dedicated
+
+When you know the type of feed to be parsed, a dedicated type is recomended.
 
 ```swift
 try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
 ```
 
-### Universal Feed Parser
+### Universal
 
-If you don't know the type of feed, use the `Feed` enum.
+When you don't know the type of feed, use the universal `Feed` type.
 
-The `Feed` enum type allows you to handle various feed formats, including **RSS**, **Atom** and **JSON** feeds. This makes it a versatile solution for parsing any type of feed.
+The `Feed` enum type handles various feed formats, including **RSS**, **Atom** and **JSON** feeds. This makes it a versatile solution for parsing any type of feed.
 
 ```swift
 // Fetch and parse a feed
