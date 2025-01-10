@@ -9,7 +9,7 @@ FeedKit is a Swift library for Parsing and Generating RSS, Atom, and JSON feeds.
 
 FeedKit **[`v10`](https://github.com/nmdias/FeedKit)** is currently in **beta**. It should be stable enough :eyes:, but if stable enough is not enough, consider using **[`v9`](https://github.com/nmdias/FeedKit/releases/tag/9.1.2)** for now. The beta version includes a new parsing engine, features and improvements, and may contain bugs that still need to be ironed out and unit tested.
 
-## Features
+# Features
 
 - [x] [Atom](https://tools.ietf.org/html/rfc4287)
 - [x] [RSS](http://cyber.law.harvard.edu/rss/rss.html)
@@ -28,15 +28,13 @@ FeedKit **[`v10`](https://github.com/nmdias/FeedKit)** is currently in **beta**.
 - [x] [Documentation](https://swiftpackageindex.com/nmdias/FeedKit/main/documentation/feedkit)
 - [x] Unit Tests
 
-## Usage
+## Feed Parsing
 
-The fetching, loading and parsing of feeds can be made with either a **dedicated** type, such as `RSSFeed`, `AtomFeed` and `JSONFeed`, or an **universal** type `Feed` that determines the type of feed before parsing occurs.
-
-Here's how to use them:
+The fetching, loading and parsing of feeds can be made with a **dedicated** type, such as `RSSFeed`, `AtomFeed` and `JSONFeed`, or a **universal** type `Feed`.
 
 ### Dedicated
 
-When you know the type of feed to be parsed, a dedicated type is recomended.
+When you know the type of feed to be parsed, use a dedicated type.
 
 ```swift
 try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
@@ -44,29 +42,25 @@ try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
 
 ### Universal
 
-When you don't know the type of feed, use the universal `Feed` type.
+When you don't know the type of feed, use the universal `Feed` enum type.
 
-The `Feed` enum type handles various feed formats, including **RSS**, **Atom** and **JSON** feeds. This makes it a versatile solution for parsing any type of feed.
+The `Feed` enum type handles **RSS**, **Atom** and **JSON** feeds and will determine the type of feed before parsing occurs.
 
 ```swift
-// Fetch and parse a feed
-let feed = try await Feed(urlString: "https://example.com/feed")
+// Fetch and parse any feed type
+let feed = try await Feed(urlString: "https://surprise.me/feed")
 
-// Use a switch to handle different feeds explicitly
+// Use a switch to get the resulting parsed feed model
 switch feed {
-case let .atom(feed):   // Atom Syndication Format Feed Model
-case let .rss(feed):    // Really Simple Syndication Feed Model
-case let .json(feed):   // JSON Feed Model
-// ...
+case let .atom(feed): // An AtomFeed instance
+case let .rss(feed): // An RSSFeed instance
+case let .json(feed): // A JSONFeed instance
 }
-
-// Or through optional properties
-feed.rss // feed.atom, feed.rdf, feed.json, ...
 ```
 
 ### Initializers
 
-All feed types provide multiple initializers. They provide a flexible way to fetch and parse feeds from the most common sources.
+All feed types have multiple initializers. They provide a flexible way to fetch and parse feeds from the most common sources.
 
 <details>
   <summary>Show</summary>
@@ -132,7 +126,7 @@ let feed = RSSFeed(
 )
 ```
 
-Then call `toXMLString(formatted:)` to generate an XML string.
+Then call `toXMLString(formatted:)` to generate the XML string.
 
 ```swift
 let xmlString = try feed.toXMLString(formatted: true)
