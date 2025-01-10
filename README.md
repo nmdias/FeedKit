@@ -7,13 +7,13 @@ FeedKit is a Swift library for Parsing and Generating RSS, Atom, and JSON feeds.
 
 ### FeedKit v10 :warning:
 
-FeedKit `v10` is currently in **beta**. It should be stable enough :eyes:, but if stable enough is not enough, consider using **[`v9`](https://github.com/nmdias/FeedKit/releases/tag/9.1.2)** for now. The beta version includes a new parsing engine, features and improvements, and may contain bugs that still need to be ironed out and unit tested.
+FeedKit **[`v10`](https://github.com/nmdias/FeedKit)** is currently in **beta**. It should be stable enough :eyes:, but if stable enough is not enough, consider using **[`v9`](https://github.com/nmdias/FeedKit/releases/tag/9.1.2)** for now. The beta version includes a new parsing engine, features and improvements, and may contain bugs that still need to be ironed out and unit tested.
 
 ## Features
 
 - [x] [Atom](https://tools.ietf.org/html/rfc4287)
-- [x] RSS [0.90](http://www.rssboard.org/rss-0-9-0), [0.91](http://www.rssboard.org/rss-0-9-1), [1.00](http://web.resource.org/rss/1.0/spec), [2.00](http://cyber.law.harvard.edu/rss/rss.html)
-- [x] JSON [1.0](https://jsonfeed.org/version/1)
+- [x] [RSS](http://cyber.law.harvard.edu/rss/rss.html)
+- [x] [JSON](https://jsonfeed.org)
 - [x] Namespaces
   - [x] [Atom](http://www.w3.org/2005/Atom)
   - [x] [Dublin Core](http://purl.org/dc/elements/1.1/)
@@ -30,18 +30,24 @@ FeedKit `v10` is currently in **beta**. It should be stable enough :eyes:, but i
 
 ## Usage
 
-The `RSSFeed`, `AtomFeed` and `JSONFeed` structs makes it easy to fetch and parse feeds from a URL. Here's how to use it:
+The `Feed`, `RSSFeed`, `AtomFeed` and `JSONFeed` types makes it easy to fetch and parse feeds. Here's how to use them:
+
+### Dedicated Feed Parser
+
+If you know the type of feed that is expected, you can use a dedicated type, such as:
 
 ```swift
 try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
 ```
 
-## Universal Feed Parser
+### Universal Feed Parser
 
-The `Feed` enum allows you to handle various feed formats, including `RSS`, `Atom`, `RDF`, and `JSON` feeds. This makes it a versatile solution for parsing any type of feed.
+If you don't know the type of feed, use the `Feed` enum.
+
+The `Feed` enum type allows you to handle various feed formats, including **RSS**, **Atom** and **JSON** feeds. This makes it a versatile solution for parsing any type of feed.
 
 ```swift
-// Initialize and parse a feed
+// Fetch and parse a feed
 let feed = try await Feed(urlString: "https://example.com/feed")
 
 // Use a switch to handle different feeds explicitly
@@ -53,12 +59,57 @@ case let .json(feed):   // JSON Feed Model
 }
 
 // Or through optional properties
-feed.rssFeed // feed.atomFeed, feed.jsonFeed, ...
+feed.rss // feed.atom, feed.rdf, feed.json, ...
 ```
+
+### Initializers
+
+All feed types provide multiple initializers. They provide a flexible way to fetch and parse feeds from the most common sources.
+
+<details>
+  <summary>Show</summary>
+
+From a URL `String`:
+
+```swift
+init(urlString: String) async throws
+```
+
+From a `URL`, handling both local file URLs and remote URLs:
+
+```swift
+init(url: URL) async throws
+```
+
+From a local file `URL`:
+
+```swift
+init(fileURL url: URL) throws
+```
+
+From a remote `URL`:
+
+```swift
+init(remoteURL url: URL) async throws
+```
+
+From an XML or JSON `String`:
+
+```swift
+init(string: String) throws
+```
+
+From raw `Data`:
+
+```swift
+init(data: Data) throws
+```
+
+</details>
 
 ## Feed Generation
 
-To generate XML for a Feed, create an instance of an `RSSFeed`, `AtomFeed` or `JSONFeed` and populate it with the necessary data.
+To generate an XML string for any given XML feed, create an instance of an `RSSFeed` or `AtomFeed` and populate it with the necessary data.
 
 ```swift
 let feed = RSSFeed(
@@ -106,56 +157,9 @@ let xmlString = try feed.toXMLString(formatted: true)
 
 </details>
 
-## Initializers
-
-All Feed types, `Feed`, `RSSFeed`, `JSON...` provide various initializers for flexibility in loading and parsing feed data.
-
-<details>
-  <summary>Show</summary>
-
-From a URL `String`:
-
-```swift
-init(urlString: String) async throws
-```
-
-From a `URL`, handling both local file URLs and remote URLs:
-
-```swift
-init(url: URL) async throws
-```
-
-From a local file `URL`:
-
-```swift
-init(fileURL url: URL) throws
-```
-
-From a remote `URL`:
-
-```swift
-init(remoteURL url: URL) async throws
-```
-
-From an XML or JSON `String`:
-
-```swift
-init(string: String) throws
-```
-
-From raw `Data`:
-
-```swift
-init(data: Data) throws
-```
-
-These initializers provide a flexible way to load feeds from the most common sources.
-
-</details>
-
 ## Feed Models
 
-The `RSS`, `Atom`, and `JSON` feed models are highly comprehensive, especially when combined with the supported namespaces. Below is just a small preview of what’s available.
+The **RSS**, **Atom**, and **JSON** feed models are highly comprehensive, especially when combined with all the supported namespaces. Below is a small preview of what’s available.
 
 <details>
 <summary>Preview</summary>
@@ -163,32 +167,33 @@ The `RSS`, `Atom`, and `JSON` feed models are highly comprehensive, especially w
 #### RSS
 
 ```swift
-feed.title
-feed.link
-feed.description
-feed.language
-feed.copyright
-feed.managingEditor
-feed.webMaster
-feed.pubDate
-feed.lastBuildDate
-feed.categories
-feed.generator
-feed.docs
-feed.cloud
-feed.rating
-feed.ttl
-feed.image
-feed.textInput
-feed.skipHours
-feed.skipDays
-//...
-feed.dublinCore
-feed.syndication
-feed.iTunes
+channel.title
+channel.link
+channel.description
+channel.language
+channel.copyright
+channel.managingEditor
+channel.webMaster
+channel.pubDate
+channel.lastBuildDate
+channel.categories
+channel.generator
+channel.docs
+channel.cloud
+channel.rating
+channel.ttl
+channel.image
+channel.textInput
+channel.skipHours
+channel.skipDays
+// ...
+channel.dublinCore
+channel.syndication
+channel.iTunes
+channel.atom
 // ...
 
-let item = feed.items?.first
+let item = channel.items?.first
 
 item?.title
 item?.link
@@ -239,6 +244,8 @@ entry?.published
 entry?.source
 entry?.rights
 // ...
+entry?.media
+entry?.youTube
 ```
 
 #### JSON
@@ -256,7 +263,6 @@ feed.favicon
 feed.author
 feed.expired
 feed.hubs
-feed.extensions
 // ...
 
 let item = feed.items?.first
@@ -276,7 +282,6 @@ item?.author
 item?.url
 item?.tags
 item?.attachments
-item?.extensions
 // ...
 ```
 
