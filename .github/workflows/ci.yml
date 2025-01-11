@@ -1,0 +1,41 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  macos-build-and-test:
+    name: build and test (macos)
+    runs-on: macos-15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.0.app
+
+      - name: Show Swift Version
+        run: swift --version
+
+      - name: Build and Test
+        run: swift test
+
+  linux-build-and-test:
+    name: build and test (linux)
+    runs-on: ubuntu-latest
+    container:
+      image: swift:6.0-focal
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Show Swift Version
+        run: swift --version
+
+      - name: Build and Test
+        run: swift test
