@@ -26,13 +26,18 @@ import Foundation
 
 /// Types of feed: RSS, RDF, Atom, and JSON.
 ///
-/// The `FeedType` enum helps detect the feed format based on raw data.
-/// It provides methods to determine if the feed is XML-based or JSON-based.
+/// The `FeedType` enum helps detect the feed format based on raw data
+/// and provides accessors to determine if the feed is XML-based or JSON-based.
 ///
 /// **Note:** FeedKit handles the automatic determination of the feed type during
 /// parsing, so you generally don't need to manually detect the feed type. However,
 /// using `FeedType` can be helpful when you want to identify the feed type without
-/// parsing or decoding the entire feed.
+/// parsing and decoding the entire feed.
+///
+/// An `inspectionPrefixLength` constant limits the
+/// number of bytes inspected when determining the feed type. This helps improve
+/// performance by only inspecting a small portion of the data (200 bytes), which
+/// is usually sufficient for detecting the feed format.
 ///
 /// Example using `switch`:
 /// ```swift
@@ -82,6 +87,7 @@ public extension FeedType {
   }
 }
 
+/// The number of bytes to inspect when determining the feed type.
 fileprivate let inspectionPrefixLength = 200
 
 public extension FeedType {
@@ -90,7 +96,8 @@ public extension FeedType {
   /// - Parameter data: A `Data` object representing a feed to be inspected.
   /// - Returns: A `FeedType` if the data matches a known feed format, otherwise `nil`.
   init?(data: Data) {
-    // Inspect only the first 200 bytes for efficiency
+    // Inspect only the first 200 bytes. This helps improve performance while
+    // still providing enough data to reliably detect the feed format.
     let string = String(decoding: data.prefix(inspectionPrefixLength), as: UTF8.self)
 
     // Determine the feed type
