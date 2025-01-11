@@ -25,8 +25,8 @@ jobs:
           if [ "${{ matrix.platform }}" == "macos-latest" ]; then
             swift build --target XMLKit
             swift build --target FeedKit
-            swift test --target XMLKit
-            swift test --target FeedKit
+            swift test --filter XMLKit
+            swift test --filter FeedKit
           else
             xcodebuild -scheme FeedKit -destination 'platform=${{ matrix.platform }}'
             xcodebuild -scheme XMLKit -destination 'platform=${{ matrix.platform }}'
