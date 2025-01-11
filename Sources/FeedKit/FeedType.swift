@@ -23,20 +23,20 @@
 //
 
 import Foundation
-/// Types of feed. The `rawValue` matches the top-level XML element of a feed.
+/// Types of feed.
 ///
 /// - atom: The `Atom Syndication Format` feed type.
 /// - rdf: The `Really Simple Syndication` feed type version 0.90.
 /// - rss: The `Really Simple Syndication` feed type version 2.0.
 /// - json: JSON formatted feed, commonly used for web APIs.
-enum FeedType: String {
+public enum FeedType {
   case rss
   case rdf
   case atom
   case json
 }
 
-extension FeedType {
+public extension FeedType {
   /// Returns `true` if the feed type is XML-based (RSS, RDF, or Atom).
   var isXML: Bool {
     self == .rss || self == .rdf || self == .atom
@@ -50,7 +50,7 @@ extension FeedType {
 
 fileprivate let inspectionPrefixLength = 200
 
-extension FeedType {
+public extension FeedType {
   /// Initializes a `FeedType` based on the provided `Data` object.
   ///
   /// - Parameter data: A `Data` object representing a feed to be inspected.
@@ -59,7 +59,7 @@ extension FeedType {
     // Inspect only the first 200 bytes for efficiency
     let string = String(decoding: data.prefix(inspectionPrefixLength), as: UTF8.self)
 
-    // Determine feed type using helper
+    // Determine the feed type
     guard let feedType = FeedType.detectFeedType(from: string) else {
       return nil
     }
