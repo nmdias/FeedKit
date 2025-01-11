@@ -11,24 +11,28 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        platform: [macos-latest, ios-latest, watchos-latest, visionos-latest]
+        platform: [macos, ios, watchos, visionos]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Select Xcode 16.0
-        run: sudo xcode-select -s /Applications/Xcode.app/
+        run: sudo xcode-select -s /Applications/Xcode_16.0.app
 
-      - name: Build and Test FeedKit and XMLKit on ${{ matrix.platform }}
+      - name: Build and Test FeedKit on ${{ matrix.platform }}
         run: |
-          if [ "${{ matrix.platform }}" == "macos-latest" ]; then
+          if [ "${{ matrix.platform }}" == "macos" ]; then
             swift build --target XMLKit
             swift build --target FeedKit
             swift test --filter XMLKit
             swift test --filter FeedKit
-          else
-            xcodebuild -scheme FeedKit -destination 'platform=${{ matrix.platform }}'
-            xcodebuild -scheme XMLKit -destination 'platform=${{ matrix.platform }}'
-            xcodebuild test -scheme FeedKit -destination 'platform=${{ matrix.platform }}'
-            xcodebuild test -scheme XMLKit -destination 'platform=${{ matrix.platform }}'
+          elif [ "${{ matrix.platform }}" == "ios" ]; then
+            xcodebuild -scheme FeedKit -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' build test
+            xcodebuild -scheme XMLKit -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' build test
+          elif [ "${{ matrix.platform }}" == "watchos" ]; then
+            xcodebuild -scheme FeedKit -destination 'platform=watchOS Simulator,name=Apple Watch Series 8,OS=latest' build test
+            xcodebuild -scheme XMLKit -destination 'platform=watchOS Simulator,name=Apple Watch Series 8,OS=latest' build test
+          elif [ "${{ matrix.platform }}" == "visionos" ]; then
+            xcodebuild -scheme FeedKit -destination 'platform=visionOS Simulator,name=Vision Pro,OS=latest' build test
+            xcodebuild -scheme XMLKit -destination 'platform=visionOS Simulator,name=Vision Pro,OS=latest' build test
