@@ -2,4 +2,4 @@ version: 1
 builder:
   configs:
     - scheme: FeedKit
-    - documentation_targets: [FeedKit]
+      documentation_targets: [FeedKit]
