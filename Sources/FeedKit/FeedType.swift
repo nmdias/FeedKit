@@ -23,16 +23,50 @@
 //
 
 import Foundation
-/// Types of feed.
+
+/// Types of feed: RSS, RDF, Atom, and JSON.
 ///
-/// - atom: The `Atom Syndication Format` feed type.
-/// - rdf: The `Really Simple Syndication` feed type version 0.90.
-/// - rss: The `Really Simple Syndication` feed type version 2.0.
-/// - json: JSON formatted feed, commonly used for web APIs.
+/// The `FeedType` enum helps detect the feed format based on raw data.
+/// It provides methods to determine if the feed is XML-based or JSON-based.
+///
+/// **Note:** FeedKit handles the automatic determination of the feed type during
+/// parsing, so you generally don't need to manually detect the feed type. However,
+/// using `FeedType` can be helpful when you want to identify the feed type without
+/// parsing or decoding the entire feed.
+///
+/// Example using `switch`:
+/// ```swift
+/// if let feed = FeedType(data: feedData) {
+///   switch feed {
+///   case .rss:
+///     print("RSS feed detected")
+///   case .rdf:
+///     print("RDF feed detected")
+///   case .atom:
+///     print("Atom feed detected")
+///   case .json:
+///     print("JSON feed detected")
+///   }
+/// }
+///
+/// Example using `if`:
+/// ```swift
+/// if let feed = FeedType(data: feedData) {
+///   if feed.isXML {
+///     print("XML-based feed detected")
+///   } else if feed.isJson {
+///     print("JSON feed detected")
+///   }
+/// }
+/// ```
 public enum FeedType {
+  /// Represents the RSS 2.0 feed format.
   case rss
+  /// Represents the RDF 0.90 feed format.
   case rdf
+  /// Represents the Atom Syndication Format feed.
   case atom
+  /// Represents a JSON-formatted feed, commonly used in web APIs.
   case json
 }
 
