@@ -24,16 +24,39 @@
 
 import Foundation
 
-/// Represents feed namespaces.
+/// Represents various feed namespaces used in syndication feeds.
+///
+/// The `FeedNamespace` enum defines different namespaces that are commonly used
+/// in syndication feeds (e.g., RSS, Atom) to represent metadata and extensions.
+/// Each case corresponds to a specific namespace that can be used in feed parsing
+/// and handling. These namespaces provide additional information and functionality
+/// for feeds beyond the core elements.
 enum FeedNamespace: CaseIterable {
+  /// Represents the Dublin Core metadata terms used for describing
+  /// resources in a standardized way.
   case dublinCore
+  /// Represents the iTunes namespace, typically used in podcasts and
+  /// media feeds.
   case itunes
+  /// Represents the syndication namespace, used for feed metadata
+  /// related to syndication functionality.
   case syndication
+  /// Represents the media namespace, used for media-related content
+  /// (e.g., images, audio, and video) in feeds.
   case media
+  /// Represents the content namespace, used for providing additional
+  /// content metadata.
   case content
+  /// Represents the GeoRSS namespace, used for geographic data in feeds.
   case georss
+  /// Represents the Geography Markup Language (GML) namespace, used
+  /// for encoding geographic information.
   case gml
+  /// Represents the YouTube namespace, used for YouTube-specific metadata
+  /// in video feeds.
   case youTube
+  /// Represents the Atom feed namespace, typically used for syndication
+  /// in the Atom format.
   case atom
 
   /// The namespace prefix.
@@ -117,7 +140,7 @@ extension FeedNamespace {
       return feed.channel?.atom != nil
     }
   }
-  
+
   /// Determines whether the namespace should be included in an XML document.
   /// - Parameter feed: The RSS feed being converted.
   /// - Returns: A Boolean indicating whether the namespace should be included.
