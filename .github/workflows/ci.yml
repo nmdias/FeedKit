@@ -1,0 +1,34 @@
+name: Build and Test FeedKit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        platform: [macos-latest, ios-latest, watchos-latest, visionos-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 16.0
+        run: sudo xcode-select -s /Applications/Xcode.app/
+
+      - name: Build and Test FeedKit and XMLKit on ${{ matrix.platform }}
+        run: |
+          if [ "${{ matrix.platform }}" == "macos-latest" ]; then
+            swift build --target XMLKit
+            swift build --target FeedKit
+            swift test --target XMLKit
+            swift test --target FeedKit
+          else
+            xcodebuild -scheme FeedKit -destination 'platform=${{ matrix.platform }}'
+            xcodebuild -scheme XMLKit -destination 'platform=${{ matrix.platform }}'
+            xcodebuild test -scheme FeedKit -destination 'platform=${{ matrix.platform }}'
+            xcodebuild test -scheme XMLKit -destination 'platform=${{ matrix.platform }}'
