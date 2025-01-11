@@ -1,5 +1,6 @@
 <img src="./FeedKit.png" width="500"><br>
 
+[![CI](https://github.com/nmdias/FeedKit/actions/workflows/ci.yml/badge.svg)](https://github.com/nmdias/FeedKit/actions/workflows/ci.yml)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/nmdias/FeedKit)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/nmdias/FeedKit)
 
