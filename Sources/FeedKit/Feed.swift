@@ -79,9 +79,9 @@ public enum Feed {
   case json(JSONFeed)
 }
 
-// MARK: - Initialization
+// MARK: - FeedInitializable
 
-extension Feed {
+extension Feed: FeedInitializable {
   /// Initializes a `Feed` by parsing content from the specified URL string.
   ///
   /// - Parameter urlString: A valid URL string pointing to a feed.
