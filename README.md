@@ -106,7 +106,7 @@ init(data: Data) throws
 
 </details>
 
-## Feed Generation
+## Feed Generator
 
 To generate an XML string for any given XML feed, create an instance of an `RSSFeed` or `AtomFeed` and populate it with the necessary data.
 
