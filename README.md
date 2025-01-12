@@ -4,7 +4,7 @@
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/nmdias/FeedKit)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/nmdias/FeedKit)
 
-FeedKit is a Swift library for Parsing and Generating RSS, Atom, and JSON feeds.
+FeedKit is a Swift library for Reading and Generating RSS, Atom, and JSON feeds.
 
 ### FeedKit v10 (Beta) :warning:
 
@@ -31,13 +31,13 @@ It should be stable enough :eyes:, but if stable enough is not enough, consider 
 - [x] [Documentation](https://swiftpackageindex.com/nmdias/FeedKit/main/documentation/feedkit)
 - [x] Unit Tests
 
-## Feed Parsing
+## Feed Reader
 
-The fetching, loading and parsing of feeds can be made with a **dedicated** type, such as `RSSFeed`, `AtomFeed` and `JSONFeed`, or a **universal** type `Feed`.
+Feed reading can be made with a **dedicated** type, such as `RSSFeed`, `AtomFeed` and `JSONFeed`, or a **universal** type `Feed`.
 
 ### Dedicated
 
-When you know the type of feed to be parsed, use a dedicated type.
+When you know the type of feed to be read, use a dedicated type.
 
 ```swift
 try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
@@ -47,13 +47,13 @@ try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
 
 When you don't know the type of feed, use the universal `Feed` enum type.
 
-The `Feed` enum type handles **RSS**, **Atom** and **JSON** feeds and will determine the type of feed before parsing occurs.
+The `Feed` enum type handles **RSS**, **Atom** and **JSON** feeds and will determine the type of feed before reading, parsing and decoding occurs.
 
 ```swift
-// Fetch and parse any feed type
+// Read any type of feed
 let feed = try await Feed(urlString: "https://surprise.me/feed")
 
-// Use a switch to get the resulting parsed feed model
+// Use a switch to get the resulting feed model
 switch feed {
 case let .atom(feed): // An AtomFeed instance
 case let .rss(feed): // An RSSFeed instance
@@ -63,7 +63,7 @@ case let .json(feed): // A JSONFeed instance
 
 ### Initializers
 
-All feed types have multiple initializers. They provide a flexible way to fetch and parse feeds from the most common sources.
+All feed types have multiple initializers. They provide a flexible way to read feeds from the most common sources.
 
 <details>
   <summary>Show</summary>
