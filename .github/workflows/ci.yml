@@ -19,6 +19,9 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode_16.0.app
 
+      - name: List available devices
+        run: xcrun simctl list devices available
+
       - name: Show Swift Version
         run: swift --version
 
@@ -39,3 +42,19 @@ jobs:
 
       - name: Build and Test
         run: swift test
+
+  macos-build-and-test-xcodebuild-ios:
+    name: build and test (xcodebuild ios)
+    runs-on: macos-15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.0.app
+
+      - name: List available devices
+        run: xcrun simctl list devices available
+
+      - name: Build and Test
+        run: xcodebuild -scheme FeedKit-Package -destination 'platform=iOS Simulator,name=iPhone 16' test
