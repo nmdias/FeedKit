@@ -34,7 +34,7 @@ class PermissiveDateFormatter: DateFormatter, @unchecked Sendable {
   /// Used in permissive parsing strategies when feeds are not fully
   /// compliant with the specification and multiple formats need to be
   /// attempted to ensure proper date parsing.
-  var backupDateFormats: [String] { [] }
+  var permissiveDateFormats: [String] { [] }
 
   /// Initializes the formatter with default timezone and locale.
   override init() {
@@ -51,7 +51,7 @@ class PermissiveDateFormatter: DateFormatter, @unchecked Sendable {
   /// Attempts to parse a string into a Date using available formats.
   override func date(from string: String) -> Date? {
     let trimmedString = string.trimmingCharacters(in: .whitespacesAndNewlines)
-    for format in dateFormats + backupDateFormats {
+    for format in dateFormats + permissiveDateFormats {
       dateFormat = format
       if let date = super.date(from: trimmedString) {
         return date
@@ -86,7 +86,7 @@ class ISO8601DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
     ]
   }
 
-  override var backupDateFormats: [String] {
+  override var permissiveDateFormats: [String] {
     [
       // Not fully compatible with ISO8601.
       // The correct ISO8601 format would separate the seconds (SS) from the timezone
@@ -108,7 +108,7 @@ class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
     ]
   }
 
-  override var backupDateFormats: [String] {
+  override var permissiveDateFormats: [String] {
     [
       // Not fully compatible with RFC3339 (incorrect timezone format).
       "yyyy-MM-dd'T'HH:mm:ss-SS:ZZ",
@@ -133,7 +133,7 @@ class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   }
 
   /// Backup date formats to handle potential parsing issues.
-  override var backupDateFormats: [String] {
+  override var permissiveDateFormats: [String] {
     [
       "d MMM yyyy HH:mm:ss zzz",
       "d MMM yyyy HH:mm zzz",
@@ -160,7 +160,7 @@ class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
       withTemplate: "$1"
     )
 
-    for format in backupDateFormats {
+    for format in permissiveDateFormats {
       dateFormat = format
       if let date = super.date(from: trimmed) {
         return date
