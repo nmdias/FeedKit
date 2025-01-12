@@ -51,6 +51,7 @@ import Foundation
 ///     print("JSON feed detected")
 ///   }
 /// }
+///```
 ///
 /// Example using `if`:
 /// ```swift
