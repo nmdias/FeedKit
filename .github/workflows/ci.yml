@@ -9,27 +9,8 @@ on:
       - "*"
 
 jobs:
-  macos-build-and-test:
-    name: build and test (macos)
-    runs-on: macos-15
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-
-      - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_16.0.app
-
-      - name: List available devices
-        run: xcrun simctl list devices available
-
-      - name: Show Swift Version
-        run: swift --version
-
-      - name: Build and Test
-        run: swift test
-
   linux-build-and-test:
-    name: build and test (linux)
+    name: Test (swift linux)
     runs-on: ubuntu-latest
     container:
       image: swift:6.0-focal
@@ -43,8 +24,8 @@ jobs:
       - name: Build and Test
         run: swift test
 
-  macos-build-and-test-xcodebuild-ios:
-    name: build and test (xcodebuild ios)
+  macos-build-and-test:
+    name: Test (swift macOS)
     runs-on: macos-15
     steps:
       - name: Check out code
@@ -56,11 +37,14 @@ jobs:
       - name: List available devices
         run: xcrun simctl list devices available
 
+      - name: Show Swift Version
+        run: swift --version
+
       - name: Build and Test
-        run: xcodebuild -scheme FeedKit-Package -destination 'platform=iOS Simulator,name=iPhone 16' test
+        run: set -o pipefail && swift test | xcbeautify
 
   macos-build-and-test-xcodebuild-macos:
-    name: build and test (xcodebuild macos)
+    name: Test (xcodebuild macOS)
     runs-on: macos-15
     steps:
       - name: Check out code
@@ -73,4 +57,68 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: xcodebuild -scheme FeedKit-Package -destination 'platform=macOS,arch=arm64' test
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=macOS,arch=arm64' test | xcbeautify
+
+  macos-build-and-test-xcodebuild-ios:
+    name: Test (xcodebuild iOS)
+    runs-on: macos-15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.0.app
+
+      - name: List available devices
+        run: xcrun simctl list devices available
+
+      - name: Build and Test
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=iOS Simulator,name=iPhone 16' test | xcbeautify
+
+  macos-build-and-test-xcodebuild-tvos:
+    name: Test (xcodebuild tvOS)
+    runs-on: macos-15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.0.app
+
+      - name: List available devices
+        run: xcrun simctl list devices available
+
+      - name: Build and Test
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=tvOS Simulator,name=Apple TV' test | xcbeautify
+
+  macos-build-and-test-xcodebuild-watchos:
+    name: Test (xcodebuild watchOS)
+    runs-on: macos-15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.0.app
+
+      - name: List available devices
+        run: xcrun simctl list devices available
+
+      - name: Build and Test
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)' test | xcbeautify
+
+  macos-build-and-test-xcodebuild-visionos:
+    name: Test (xcodebuild visionOS)
+    runs-on: macos-15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.0.app
+
+      - name: List available devices
+        run: xcrun simctl list devices available
+
+      - name: Build and Test
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=visionOS Simulator,name=Apple Vision Pro' test | xcbeautify
