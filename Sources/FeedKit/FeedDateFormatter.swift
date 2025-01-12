@@ -103,7 +103,9 @@ class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   /// List of date formats supported for RFC3339.
   override var dateFormats: [String] {
     [
+      // RFC 3339 without fractional seconds.
       "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
+      // RFC 3339 with 2-digit fractional seconds (limited precision).
       "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ",
     ]
   }
@@ -125,19 +127,26 @@ class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   /// List of date formats supported for RFC822.
   override var dateFormats: [String] {
     [
+      // RFC 822/1123 format with seconds.
       "EEE, d MMM yyyy HH:mm:ss zzz",
+      // RFC 822/1123 format without seconds.
       "EEE, d MMM yyyy HH:mm zzz",
-      "d MMM yyyy HH:mm:ss Z",
-      "yyyy-MM-dd HH:mm:ss Z",
+      // RFC 822 compatible, includes day, month, year, time, and timezone.
+      "d MMM yyyy HH:mm:ss zzz",
+      // RFC 822 compatible, similar to above but without seconds.
+      "d MMM yyyy HH:mm zzz",
+      // RFC 822 compatible, includes weekday, day, month, year, time, and timezone.
+      "EEE, dd MMM yyyy, HH:mm:ss zzz",
     ]
   }
 
   /// Backup date formats to handle potential parsing issues.
   override var permissiveDateFormats: [String] {
     [
-      "d MMM yyyy HH:mm:ss zzz",
-      "d MMM yyyy HH:mm zzz",
-      "EEE, dd MMM yyyy, HH:mm:ss zzz",
+      // Non-standard, similar to RFC 822 with numeric timezone.
+      "d MMM yyyy HH:mm:ss Z",
+      // Non-standard, ISO-like format with numeric timezone.
+      "yyyy-MM-dd HH:mm:ss Z",
     ]
   }
 
