@@ -61,8 +61,6 @@ struct FeedModel: Equatable {
       self.init(feed: rssFeed)
     case let .json(jsonFeed):
       self.init(feed: jsonFeed)
-    default:
-      self.init()
     }
   }
 }
