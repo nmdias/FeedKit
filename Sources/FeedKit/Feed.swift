@@ -23,56 +23,58 @@
 //
 
 import Foundation
+
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
-/// Represents a parsed web feed in various formats.
-///
-/// `Feed` is an enum that can hold either an Atom, RSS, RDF, or JSON feed. It provides
-/// type-safe access to the underlying feed format through its cases and convenience
-/// accessors.
+
+/// `Feed` is an enum that can parse and hold either an `AtomFeed`, `RSSFeed`,
+/// or `JSONFeed` feed. It provides type-safe access to the underlying feed format
+/// through its cases and convenience accessors.
 ///
 /// ## Examples
-/// You can access the feed content either through pattern matching or convenience
+/// You can parse and access a feed either through pattern matching or convenience
 /// properties:
 ///
+/// Start by fetching and parsing a feed
 /// ```swift
-/// do {
-///     // Parse feed from a URL
-///     let feed = try await Feed(url: feedURL)
+///let feed = try await Feed(url: feedURL)
+///```
 ///
-///     // Method 1: Pattern matching with switch
-///     switch feed {
-///     case .atom(let atomFeed):
-///         print("Atom feed title: \(atomFeed)")
-///     case .rss(let rssFeed):
-///         print("RSS feed title: \(rssFeed)")
-///     case .rdf(let rdfFeed):
-///         print("RDF feed title: \(rdfFeed)")
-///     case .json(let jsonFeed):
-///         print("JSON feed title: \(jsonFeed)")
-///     }
+/// Method 1: Pattern matching with switch
 ///
-///     // Method 2: Optional property access
-///     if let atomFeed = feed.atom {
-///         print("Atom feed title: \(atomFeed)")
-///     } else if let rssFeed = feed.rss {
-///         print("RSS feed title: \(rssFeed)")
-///     }
-/// } catch {
-///     print("Failed to parse feed: \(error)")
-/// }
+///```swift
+///switch feed {
+///case .atom(let atomFeed):
+///    print("Atom feed title: \(atomFeed)")
+///case .rss(let rssFeed):
+///    print("RSS feed title: \(rssFeed)")
+///case .json(let jsonFeed):
+///    print("JSON feed title: \(jsonFeed)")
+///}
+///```
+/// Method 2: Optional property access
+///
+///```swift
+///
+///if let atomFeed = feed.atom {
+///    print("Atom feed: \(atomFeed)")
+///} else if let rssFeed = feed.rss {
+///    print("RSS feed: \(rssFeed)")
+///} else if let jsonFeed = feed.json {
+///    print("JSON feed: \(jsonFeed)")
+///}
 /// ```
 ///
 /// Feed parsing supports both local and remote URLs, raw data, and string input.
-/// The feed type is automatically detected during parsing.
+/// The feed type is automatically detected during initialization. If a valid
+/// is detected, parsing is attempted, otherwise an error is thrown.
 ///
-/// - Note: All initializers may throw errors if parsing fails or if the input
-///         is invalid.
-/// - SeeAlso: `AtomFeed`, `RSSFeed`, `RDFFeed`, `JSONFeed`, `FeedError`
+/// - Note: All initializers may throw errors if an invalid input is detected
+///         or if parsing fails.
+/// - SeeAlso: `AtomFeed`, `RSSFeed`, `JSONFeed`, `FeedError`
 public enum Feed {
   case atom(AtomFeed)
-  case rdf(RDFFeed)
   case rss(RSSFeed)
   case json(JSONFeed)
 }
@@ -166,9 +168,6 @@ extension Feed {
     case .atom:
       let feed = try AtomFeed(data: data)
       self = .atom(feed)
-    case .rdf:
-      let feed = try RDFFeed(data: data)
-      self = .rdf(feed)
     case .rss:
       let feed = try RSSFeed(data: data)
       self = .rss(feed)
@@ -182,15 +181,6 @@ extension Feed {
 // MARK: - Convenience Accessors
 
 extension Feed {
-  /// Returns the wrapped RDF feed if this feed is of type `.rdf`.
-  ///
-  /// Use this property to safely access the RDF feed content when you expect
-  /// an RDF format.
-  public var rdf: RDFFeed? {
-    guard case let .rdf(feed) = self else { return nil }
-    return feed
-  }
-
   /// Returns the wrapped RSS feed if this feed is of type `.rss`.
   ///
   /// Use this property to safely access the RSS feed content when you expect

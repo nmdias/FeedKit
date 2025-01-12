@@ -57,20 +57,6 @@ struct FeedTypeTests: FeedKitTestable {
   }
 
   @Test
-  func rdfFeedType() throws {
-    // Given
-    let data = data(resource: "RDF", withExtension: "xml")
-    let expected: FeedType = .rdf
-
-    // When
-    let actual = FeedType(data: data)
-
-    // Then
-    #expect(actual?.isXML ?? false)
-    #expect(expected == actual)
-  }
-
-  @Test
   func jsonFeedType() throws {
     // Given
     let data = data(resource: "feed", withExtension: "json")
