@@ -61,6 +61,34 @@ case let .json(feed): // A JSONFeed instance
 }
 ```
 
+#### Manual Feed Type Detection
+
+The universal `Feed` enum above automatically determines the feed type, so you generally don't need to do it manually. However, using a `FeedType` enum can be helpful when you want to **identify the type of feed without
+the overhead of parsing and decoding**.
+
+<details>
+  <summary>Show</summary>
+
+```swift
+if let feedType = FeedType(data: data) {
+  // Type detection
+  switch feedType {
+  case .rss: // RSS feed detected
+  case .atom: // Atom feed detecte
+  case .json: // JSON feed detecte
+  }
+
+  // Or content type detection
+  if feedType.isXML {
+    // XML-based feed detected
+  } else if feed.isJson {
+    // JSON feed detected
+  }
+}
+```
+
+</details>
+
 ### Initializers
 
 All feed types have multiple initializers. They provide a flexible way to read feeds from the most common sources.
