@@ -52,7 +52,7 @@ public class XMLDocument: Equatable, Hashable {
   }
 
   public func setRootAttribute(name: String, value: String) {
-    root?.addAttribute(name: name, value: value)
+    root?.setAttribute(name: name, value: value)
   }
 }
 

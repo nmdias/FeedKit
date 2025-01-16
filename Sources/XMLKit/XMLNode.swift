@@ -156,15 +156,18 @@ class XMLNode: Codable, Equatable, Hashable {
   /// - Parameters:
   ///   - name: The name of the attribute.
   ///   - value: The value of the attribute.
-  public func addAttribute(name: String, value: String) {
+  public func setAttribute(name: String, value: String) {
     // Find or create the `@attributes` node
     if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
       // Add the new attribute as a child of `@attributes`
-      if !attributesNode.hasChild(for: name) {
-        return
+      if let child = attributesNode.child(for: name) {
+        child.text = value
+      } else {
+        attributesNode.addChild(.init(
+          name: name,
+          text: value
+        ))
       }
-
-      attributesNode.addChild(.init(name: name, text: value))
 
     } else {
       // Create the `@attributes` node, and
@@ -172,7 +175,10 @@ class XMLNode: Codable, Equatable, Hashable {
       addChild(.init(
         name: "@attributes",
         children: [
-          .init(name: name, text: value),
+          .init(
+            name: name,
+            text: value
+          ),
         ]
       ))
     }
