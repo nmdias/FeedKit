@@ -97,6 +97,7 @@ class XMLNode: Codable, Equatable, Hashable {
 
   public func hash(into hasher: inout Hasher) {
     // Hash basic properties
+    hasher.combine(prefix)
     hasher.combine(name)
     hasher.combine(text)
     hasher.combine(isXhtml)
