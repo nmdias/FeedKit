@@ -25,7 +25,7 @@
 import Foundation
 
 /// Represents an XML document containing a root node.
-public class XMLDocument: Equatable, Hashable {
+public class XMLDocument: Equatable, Hashable, Codable {
   /// The root node of the document.
   var root: XMLNode?
 
