@@ -47,10 +47,16 @@ public class XMLDocument: Equatable, Hashable, Codable {
     hasher.combine(root)
   }
 
+  /// Sets the name of the root node.
+  /// - Parameter name: The new name for the root node.
   public func setRootName(name: String) {
     root?.name = name
   }
 
+  /// Adds or updates an attribute in the root node.
+  /// - Parameters:
+  ///   - name: The name of the attribute to add or update.
+  ///   - value: The value to associate with the attribute.
   public func setRootAttribute(name: String, value: String) {
     root?.setAttribute(name: name, value: value)
   }
