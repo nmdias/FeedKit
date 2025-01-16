@@ -24,27 +24,12 @@
 
 import Foundation
 #if canImport(FoundationXML)
-import FoundationXML
+  import FoundationXML
 #endif
 
 class XMLReader: NSObject {
   /// The XML Parser.
   let parser: XMLParser
-
-  // List of encodings used in XML feeds ordered by priority
-  let encodings: [String.Encoding] = [
-    .utf8, // Most common encoding
-    .isoLatin1, // ISO-8859-1 (Latin-1) is common for Western European languages
-    .windowsCP1252, // Common in Western European Windows environments
-    .shiftJIS, // Common for Japanese text
-    .utf16, // UTF-16 for documents that use 2-byte encoding
-    .utf16LittleEndian, // Little-endian UTF-16 encoding
-    .utf16BigEndian, // Big-endian UTF-16 encoding
-    .isoLatin2, // ISO-8859-2 for Central and Eastern European languages
-    .windowsCP1250, // Windows-1250 for Central European languages
-    .windowsCP1251, // Windows-1251 for Cyrillic-based languages
-  ]
-
   /// A stack of `XMLNode` instances representing the current hierarchy
   /// of XML elements during parsing.
   /// - New elements are pushed to the stack as they are encountered.
@@ -182,7 +167,7 @@ extension XMLReader: XMLParserDelegate {
     _ parser: XMLParser,
     foundCDATA CDATABlock: Data) {
     // Attempts to decode a CDATA block to an encoding, ordered by priority
-    for encoding in encodings {
+    for encoding in XMLReader.encodings {
       if let string = String(data: CDATABlock, encoding: encoding) {
         map(string)
         return
@@ -239,4 +224,22 @@ extension XMLReader: XMLParserDelegate {
     guard !isComplete, error == nil else { return }
     error = .unexpected(reason: parseError.localizedDescription)
   }
+}
+
+// MARK: - Encodings
+
+extension XMLReader {
+  // List of encodings used in XML feeds ordered by priority
+  private static let encodings: [String.Encoding] = [
+    .utf8, // Most common encoding
+    .isoLatin1, // ISO-8859-1 (Latin-1) is common for Western European languages
+    .windowsCP1252, // Common in Western European Windows environments
+    .shiftJIS, // Common for Japanese text
+    .utf16, // UTF-16 for documents that use 2-byte encoding
+    .utf16LittleEndian, // Little-endian UTF-16 encoding
+    .utf16BigEndian, // Big-endian UTF-16 encoding
+    .isoLatin2, // ISO-8859-2 for Central and Eastern European languages
+    .windowsCP1250, // Windows-1250 for Central European languages
+    .windowsCP1251, // Windows-1251 for Cyrillic-based languages
+  ]
 }
