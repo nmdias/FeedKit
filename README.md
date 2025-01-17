@@ -70,20 +70,20 @@ the overhead of parsing and decoding**.
   <summary>Show</summary>
 
 ```swift
-if let feedType = FeedType(data: data) {
-  // Type detection
-  switch feedType {
-  case .rss: // RSS feed detected
-  case .atom: // Atom feed detecte
-  case .json: // JSON feed detecte
-  }
+let feedType = try FeedType(data: data)
 
-  // Or content type detection
-  if feedType.isXML {
-    // XML-based feed detected
-  } else if feed.isJson {
-    // JSON feed detected
-  }
+// Detect feed type
+switch feedType {
+case .rss: // RSS feed detected
+case .atom: // Atom feed detected
+case .json: // JSON feed detected
+}
+
+// Or feed content type
+if feedType.isXML {
+  // XML feed detected
+} else if feedType.isJson {
+  // JSON feed detected
 }
 ```
 
@@ -91,7 +91,7 @@ if let feedType = FeedType(data: data) {
 
 ### Initializers
 
-All feed types have multiple initializers. They provide a flexible way to read feeds from the most common sources.
+All feed types conform to `FeedInitializable`, sharing multiple common initializers. They provide a flexible way to read feeds from the most common sources.
 
 <details>
   <summary>Show</summary>
