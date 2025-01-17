@@ -51,7 +51,7 @@ import Foundation
 ///     print("JSON feed detected")
 ///   }
 /// }
-///```
+/// ```
 ///
 /// Example using `if`:
 /// ```swift
@@ -87,23 +87,29 @@ public extension FeedType {
 /// The number of bytes to inspect when determining the feed type.
 fileprivate let inspectionPrefixLength = 200
 
-public extension FeedType {
+// MARK: - FeedInitializable
+
+extension FeedType: FeedInitializable {
   /// Initializes a `FeedType` based on the provided `Data` object.
   ///
   /// - Parameter data: A `Data` object representing a feed to be inspected.
   /// - Returns: A `FeedType` if the data matches a known feed format, otherwise `nil`.
-  init?(data: Data) {
+  public init(data: Data) throws {
     // Inspect only the first 200 bytes. This helps improve performance while
     // still providing enough data to reliably detect the feed format.
     let string = String(decoding: data.prefix(inspectionPrefixLength), as: UTF8.self)
 
     // Determine the feed type
     guard let feedType = FeedType.detectFeedType(from: string) else {
-      return nil
+      throw FeedError.unknownFeedFormat
     }
     self = feedType
   }
+}
 
+// MARK: -
+
+public extension FeedType {
   /// Detects the feed type from a given string.
   ///
   /// - Parameter string: A string representation of the feed to be inspected.

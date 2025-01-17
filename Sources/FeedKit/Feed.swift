@@ -160,10 +160,8 @@ extension Feed: FeedInitializable {
   /// - Throws: `FeedError.unknownFeedFormat` if the feed type cannot be determined or
   ///           if parsing fails.
   public init(data: Data) throws {
-    guard let feedType = FeedType(data: data) else {
-      throw FeedError.unknownFeedFormat
-    }
-
+    let feedType = try FeedType(data: data)
+    
     switch feedType {
     case .atom:
       let feed = try AtomFeed(data: data)
