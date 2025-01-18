@@ -31,7 +31,7 @@ public struct JSONFeed {
   /// (required, string) is the URL of the version of the format the feed
   /// uses. This should appear at the very top, though we recognize that not all
   /// JSON generators allow for ordering.
-  public var version: String?
+  var version: String = "https://jsonfeed.org/version/1"
 
   /// (required, string) is the name of the feed, which will often correspond to
   /// the name of the website (blog, for instance), though not necessarily.
@@ -102,7 +102,6 @@ public struct JSONFeed {
   public var items: [JSONFeedItem]?
 
   public init(
-    version: String? = nil,
     title: String? = nil,
     homePageURL: String? = nil,
     feedUrl: String? = nil,
@@ -115,7 +114,6 @@ public struct JSONFeed {
     expired: Bool? = nil,
     hubs: [JSONFeedHub]? = nil,
     items: [JSONFeedItem]? = nil) {
-    self.version = version
     self.title = title
     self.homePageURL = homePageURL
     self.feedUrl = feedUrl
@@ -164,7 +162,7 @@ extension JSONFeed: Codable {
 
   public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
-    try container.encodeIfPresent(version, forKey: .version)
+    try container.encode(version, forKey: .version)
     try container.encodeIfPresent(title, forKey: .title)
     try container.encodeIfPresent(userComment, forKey: .user_comment)
     try container.encodeIfPresent(homePageURL, forKey: .home_page_url)
@@ -181,7 +179,7 @@ extension JSONFeed: Codable {
 
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
-    version = try values.decodeIfPresent(String.self, forKey: .version)
+    version = try values.decode(String.self, forKey: .version)
     title = try values.decodeIfPresent(String.self, forKey: .title)
     userComment = try values.decodeIfPresent(String.self, forKey: .user_comment)
     homePageURL = try values.decodeIfPresent(String.self, forKey: .home_page_url)

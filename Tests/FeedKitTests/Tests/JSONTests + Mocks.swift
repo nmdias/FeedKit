@@ -27,7 +27,6 @@
 extension JSONTests {
   var mock: JSONFeed {
     .init(
-      version: "https://jsonfeed.org/version/1",
       title: "Title",
       homePageURL: "https://example.org/",
       feedUrl: "https://example.org/feed.json?p=1",
