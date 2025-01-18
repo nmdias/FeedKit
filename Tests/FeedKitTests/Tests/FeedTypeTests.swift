@@ -38,7 +38,7 @@ struct FeedTypeTests: FeedKitTestable {
     let actual = try FeedType(data: data)
 
     // Then
-    #expect(actual.isXML ?? false)
+    #expect(actual.isXML)
     #expect(expected == actual)
   }
 
@@ -52,7 +52,7 @@ struct FeedTypeTests: FeedKitTestable {
     let actual = try FeedType(data: data)
 
     // Then
-    #expect(actual.isXML ?? false)
+    #expect(actual.isXML)
     #expect(expected == actual)
   }
 
@@ -66,7 +66,7 @@ struct FeedTypeTests: FeedKitTestable {
     let actual = try FeedType(data: data)
 
     // Then
-    #expect(actual.isJson ?? false)
+    #expect(actual.isJson)
     #expect(expected == actual)
   }
 }
