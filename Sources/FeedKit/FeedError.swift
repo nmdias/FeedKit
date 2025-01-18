@@ -40,6 +40,8 @@ public enum FeedError: Error {
   case invalidUtf8String
   /// The feed format is not recognized or supported.
   case unknownFeedFormat
+  /// Failed to convert JSON data to a UTF-8 string.
+  case utf8ConversionFailed
 }
 
 // MARK: - LocalizedError
@@ -59,6 +61,8 @@ extension FeedError: LocalizedError {
       return "The provided string cannot be converted to UTF-8 data."
     case .unknownFeedFormat:
       return "The feed format is not recognized or supported."
+    case .utf8ConversionFailed:
+      return "Failed to convert data to a UTF-8 string."
     }
   }
 
@@ -76,6 +80,8 @@ extension FeedError: LocalizedError {
       return "The string data is not UTF-8 encoded or contains invalid bytes."
     case .unknownFeedFormat:
       return "The feed format could not be determined from the provided data."
+    case .utf8ConversionFailed:
+      return "The data could not be represented as a UTF-8 encoded string."
     }
   }
 
@@ -89,6 +95,8 @@ extension FeedError: LocalizedError {
       return "Confirm that the string is UTF-8 encoded and does not contain invalid bytes."
     case .unknownFeedFormat:
       return "Ensure the feed data is in a recognized RSS, Atom, or JSON format."
+    case .utf8ConversionFailed:
+      return "Verify that the encoded data can be represented as a string."
     }
   }
 }
@@ -103,6 +111,7 @@ extension FeedError: CustomNSError {
     case .invalidHttpResponse: return -1003
     case .invalidUtf8String: return -1004
     case .unknownFeedFormat: return -1005
+    case .utf8ConversionFailed: return -1006
     }
   }
 
