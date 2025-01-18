@@ -136,6 +136,8 @@ init(data: Data) throws
 
 ## Feed Generator
 
+### XML
+
 To generate an XML string for any given XML feed, create an instance of an `RSSFeed` or `AtomFeed` and populate it with the necessary data.
 
 ```swift
@@ -160,7 +162,7 @@ let feed = RSSFeed(
 Then call `toXMLString(formatted:)` to generate the XML string.
 
 ```swift
-let xmlString = try feed.toXMLString(formatted: true)
+let jsonString = try feed.toXMLString(formatted: true)
 ```
 
 <details>
@@ -183,6 +185,14 @@ let xmlString = try feed.toXMLString(formatted: true)
 ```
 
 </details>
+
+### JSON
+
+In the same way, you can also call `toJSONString(formatted:)` to generate a JSON string from any `JSONFeed` model.
+
+```swift
+let xmlString = try feed.toXMLString(formatted: true)
+```
 
 ## Feed Models
 
