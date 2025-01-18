@@ -41,4 +41,17 @@ struct JSONTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
+
+  @Test
+  func jsonString() throws {
+    // Given
+    let expected: JSONFeed = mock
+
+    // When
+    let jsonString = try expected.toJSONString(formatted: true)
+    let actual = try JSONFeed(string: jsonString)
+
+    // Then
+    #expect(expected == actual)
+  }
 }
