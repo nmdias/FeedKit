@@ -6,9 +6,9 @@
 
 FeedKit is a Swift library for Reading and Generating RSS, Atom, and JSON feeds.
 
-### FeedKit v10 (Beta) :warning:
+### FeedKit v10 (Release Candidate) :warning:
 
-FeedKit **[`v10`](https://github.com/nmdias/FeedKit)** is in beta and introduces a new parsing engine, features, and improvements. It may contain bugs that still need to be ironed out and unit tested.
+FeedKit **[`v10`](https://github.com/nmdias/FeedKit)** is now in Release Candidate (RC) and introduces a new parsing engine, features, and improvements. While this version is feature-complete and extensively tested, it may still have some minor issues to address before the final release.
 
 It should be stable enough :eyes:, but if stable enough is not enough, consider using **[`v9`](https://github.com/nmdias/FeedKit/releases/tag/9.1.2)**.
 
