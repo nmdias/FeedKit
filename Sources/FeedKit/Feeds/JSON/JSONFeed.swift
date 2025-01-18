@@ -205,3 +205,16 @@ extension JSONFeed: FeedInitializable {
     self = try decoder.decode(JSONFeed.self, from: data)
   }
 }
+
+extension JSONFeed {
+  public func toJSONString(formatted: Bool) throws -> String {
+    let encoder = JSONEncoder()
+    encoder.dateEncodingStrategy = .formatted(RFC3339DateFormatter())
+    encoder.outputFormatting = formatted ? [.prettyPrinted] : []
+    let data = try encoder.encode(self)
+    guard let string = String(data: data, encoding: .utf8) else {
+      throw FeedError.utf8ConversionFailed
+    }
+    return string
+  }
+}
