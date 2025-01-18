@@ -76,9 +76,9 @@ extension JSONFeedAuthor: Codable {
 
   public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
-    try container.encode(name, forKey: .name)
-    try container.encode(url, forKey: .url)
-    try container.encode(avatar, forKey: .avatar)
+    try container.encodeIfPresent(name, forKey: .name)
+    try container.encodeIfPresent(url, forKey: .url)
+    try container.encodeIfPresent(avatar, forKey: .avatar)
   }
 
   public init(from decoder: Decoder) throws {

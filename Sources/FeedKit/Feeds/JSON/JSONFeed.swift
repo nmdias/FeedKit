@@ -164,19 +164,19 @@ extension JSONFeed: Codable {
 
   public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
-    try container.encode(version, forKey: .version)
-    try container.encode(title, forKey: .title)
-    try container.encode(userComment, forKey: .user_comment)
-    try container.encode(homePageURL, forKey: .home_page_url)
-    try container.encode(description, forKey: .description)
-    try container.encode(feedUrl, forKey: .feed_url)
-    try container.encode(nextUrl, forKey: .next_url)
-    try container.encode(icon, forKey: .icon)
-    try container.encode(favicon, forKey: .favicon)
-    try container.encode(expired, forKey: .expired)
-    try container.encode(author, forKey: .author)
-    try container.encode(hubs, forKey: .hubs)
-    try container.encode(items, forKey: .items)
+    try container.encodeIfPresent(version, forKey: .version)
+    try container.encodeIfPresent(title, forKey: .title)
+    try container.encodeIfPresent(userComment, forKey: .user_comment)
+    try container.encodeIfPresent(homePageURL, forKey: .home_page_url)
+    try container.encodeIfPresent(description, forKey: .description)
+    try container.encodeIfPresent(feedUrl, forKey: .feed_url)
+    try container.encodeIfPresent(nextUrl, forKey: .next_url)
+    try container.encodeIfPresent(icon, forKey: .icon)
+    try container.encodeIfPresent(favicon, forKey: .favicon)
+    try container.encodeIfPresent(expired, forKey: .expired)
+    try container.encodeIfPresent(author, forKey: .author)
+    try container.encodeIfPresent(hubs, forKey: .hubs)
+    try container.encodeIfPresent(items, forKey: .items)
   }
 
   public init(from decoder: Decoder) throws {
