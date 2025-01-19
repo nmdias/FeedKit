@@ -162,7 +162,7 @@ let feed = RSSFeed(
 Then call `toXMLString(formatted:)` to generate the XML string.
 
 ```swift
-let jsonString = try feed.toXMLString(formatted: true)
+try feed.toXMLString(formatted: true)
 ```
 
 <details>
@@ -188,10 +188,10 @@ let jsonString = try feed.toXMLString(formatted: true)
 
 ### JSON
 
-In the same way, you can also call `toJSONString(formatted:)` to generate a JSON string from any `JSONFeed` model.
+In the same way, you can create an instance of a `JSONFeed`, populate it, and then call `toJSONString(formatted:)` to generate a JSON string.
 
 ```swift
-let xmlString = try feed.toXMLString(formatted: true)
+try feed.toJSONString(formatted: true)
 ```
 
 ## Feed Models
