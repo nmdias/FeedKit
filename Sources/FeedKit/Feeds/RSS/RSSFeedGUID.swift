@@ -69,4 +69,4 @@ public struct RSSFeedGUIDAttributes: Codable, Equatable, Hashable, Sendable {
 /// isPermaLink is optional, its default value is true. If its value is false,
 /// the guid may not be assumed to be a url, or a url to anything in
 /// particular.
-public typealias RSSFeedGUID = XMLAttributesElement<RSSFeedGUIDAttributes>
+public typealias RSSFeedGUID = XMLKit.XMLElement<RSSFeedGUIDAttributes>
