@@ -1,28 +1,28 @@
 //
-//  MediaTests + Mocks.swift
+// MediaTests + Mocks.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 @testable import FeedKit
+
 extension MediaTests {
   var mock: RSSFeed {
     var media: Media = .init()
@@ -125,7 +125,7 @@ extension MediaTests {
       .init(
         attributes: .init(
           url: "http://www.foo.com/video.mov",
-          fileSize: 12216320,
+          fileSize: 12_216_320,
           type: "video/quicktime",
           medium: "video",
           isDefault: true,
@@ -149,7 +149,7 @@ extension MediaTests {
       .init(
         attributes: .init(
           url: "http://www.foo.com/movie.mov",
-          fileSize: 12216320,
+          fileSize: 12_216_320,
           type: "video/quicktime",
           medium: nil,
           isDefault: nil,
@@ -299,10 +299,10 @@ extension MediaTests {
           attributes: .init(
             name: "flashVars"
           )
-        )
+        ),
       ]
     )
-    
+
     media.status = .init(
       text: nil,
       attributes: .init(
@@ -359,7 +359,7 @@ extension MediaTests {
         href: "http://www.licensehost.com/license"
       )
     )
-    
+
     media.location = .init(
       attributes: .init(
         description: "My house",
@@ -372,7 +372,7 @@ extension MediaTests {
         )
       )
     )
-    
+
     media.peerLink = .init(
       text: nil,
       attributes: .init(
@@ -380,7 +380,7 @@ extension MediaTests {
         href: "http://www.foo.org/sampleFile.torrent"
       )
     )
-    
+
     media.prices = [
       .init(
         text: nil,
@@ -390,16 +390,16 @@ extension MediaTests {
           info: "http://www.dummy.jp/package_info.html",
           currency: "EUR"
         )
-      )
+      ),
     ]
-    
+
     media.responses = .init(
       responses: [
         "http://www.response1.com",
-        "http://www.response2.com"
+        "http://www.response2.com",
       ]
     )
-    
+
     media.restriction = .init(
       text: "au us",
       attributes: .init(
@@ -407,7 +407,7 @@ extension MediaTests {
         type: "country"
       )
     )
-    
+
     media.scenes = .init(
       scenes: [
         .init(

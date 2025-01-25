@@ -1,35 +1,51 @@
 //
-//  XMLDecoder.swift
+// XMLDecoder.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 public class XMLDecoder {
+  // MARK: Lifecycle
+
   /// Creates a new instance of `XMLDecoder`.
   public init() {}
 
+  // MARK: Public
+
   /// The strategy for decoding `Date` values from XML nodes.
   public var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
+
+  public func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
+    let reader: XMLReader = .init(data: data)
+    let result = try reader.read().get()
+
+    guard let rootNode = result.root else {
+      throw XMLError.unexpected(reason: "Unexpected parsing result. Root is nil.")
+    }
+
+    return try decode(type, from: rootNode)
+  }
+
+  // MARK: Internal
 
   /// Decodes a top-level value of the given type from the given XML representation.
   ///
@@ -39,34 +55,16 @@ public class XMLDecoder {
   /// - throws: `DecodingError.dataCorrupted` if values requested from the payload
   ///   are corrupted, or if the given data is not valid XML.
   /// - throws: An error if any value throws an error during decoding.
-  func decode<T>(_ type: T.Type, from node: XMLNode) throws -> T where T: Decodable {
-    let decoder = _XMLDecoder(node: node, codingPath: [])
+  func decode<T>(_: T.Type, from node: XMLNode) throws -> T where T: Decodable {
+    let decoder: _XMLDecoder = .init(node: node, codingPath: [])
     decoder.dateDecodingStrategy = dateDecodingStrategy
     return try T(from: decoder)
-  }
-
-  public func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
-    let reader = XMLReader(data: data)
-    let result = try reader.read().get()
-
-    guard let rootNode = result.root else {
-      throw XMLError.unexpected(reason: "Unexpected parsing result. Root is nil.")
-    }
-    
-    return try decode(type, from: rootNode)
   }
 }
 
 /// A decoder for XML data that uses a stack-based parsing approach.
 class _XMLDecoder: Decoder {
-  /// The stack used for managing XML elements during decoding.
-  var stack: XMLStack
-  /// The path of coding keys used to locate a value in the decoding process.
-  var codingPath: [any CodingKey]
-  /// User-defined contextual information for the decoding process.
-  var userInfo: [CodingUserInfoKey: Any]
-  /// The strategy for decoding `Date` values from XML nodes.
-  var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
+  // MARK: Lifecycle
 
   /// Initializes the decoder with a root element and optional coding path.
   /// - Parameters:
@@ -79,11 +77,22 @@ class _XMLDecoder: Decoder {
     userInfo = [:]
   }
 
+  // MARK: Internal
+
+  /// The stack used for managing XML elements during decoding.
+  var stack: XMLStack
+  /// The path of coding keys used to locate a value in the decoding process.
+  var codingPath: [any CodingKey]
+  /// User-defined contextual information for the decoding process.
+  var userInfo: [CodingUserInfoKey: Any]
+  /// The strategy for decoding `Date` values from XML nodes.
+  var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
+
   /// Returns a keyed decoding container for the current XML element.
   /// - Parameter type: The type of the coding key.
   /// - Returns: A keyed decoding container for the specified key type.
   /// - Throws: An error if the container cannot be created.
-  func container<Key>(keyedBy type: Key.Type) throws -> KeyedDecodingContainer<Key> where Key: CodingKey {
+  func container<Key>(keyedBy _: Key.Type) throws -> KeyedDecodingContainer<Key> where Key: CodingKey {
     KeyedDecodingContainer(XMLKeyedDecodingContainer<Key>(
       decoder: self,
       node: stack.top()!
@@ -135,7 +144,7 @@ class _XMLDecoder: Decoder {
   ///   - type: The expected type, which must be `Date`.
   /// - Returns: A decoded `Date` instance.
   /// - Throws: A `DecodingError` if the date cannot be decoded.
-  func decode(node: XMLNode, as type: Date.Type) throws -> Date {
+  func decode(node: XMLNode, as _: Date.Type) throws -> Date {
     switch dateDecodingStrategy {
     case .deferredToDate:
       return try Date(from: self)
@@ -144,7 +153,8 @@ class _XMLDecoder: Decoder {
       defer { stack.pop() }
       guard
         let stringDate = node.text,
-        let date = formatter.date(from: stringDate) else {
+        let date = formatter.date(from: stringDate)
+      else {
         throw DecodingError.dataCorrupted(.init(
           codingPath: codingPath,
           debugDescription: "Unable to decode date with formatter: \(formatter)"
@@ -180,11 +190,12 @@ class _XMLDecoder: Decoder {
   /// - Returns: A decoded value of the specified type.
   /// - Throws: A `DecodingError.dataCorrupted` error if the element's text is
   ///   missing or cannot be converted to the specified type.
-  func decode<T: LosslessStringConvertible, Key: CodingKey>(_ node: XMLNode, as type: T.Type, for key: Key) throws -> T {
+  func decode<T: LosslessStringConvertible>(_ node: XMLNode, as type: T.Type, for key: some CodingKey) throws -> T {
     guard
       let child = node.child(for: key.stringValue),
       let text = child.text,
-      let value = T(text) else {
+      let value = T(text)
+    else {
       throw DecodingError.dataCorrupted(.init(
         codingPath: codingPath,
         debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)"

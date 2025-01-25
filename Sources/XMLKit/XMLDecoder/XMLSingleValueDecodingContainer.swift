@@ -1,50 +1,56 @@
 //
-//  XMLSingleValueDecodingContainer.swift
+// XMLSingleValueDecodingContainer.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 class XMLSingleValueDecodingContainer: SingleValueDecodingContainer {
+  // MARK: Lifecycle
+
+  init(
+    decoder: _XMLDecoder,
+    node: XMLNode
+  ) {
+    self.decoder = decoder
+    self.node = node
+  }
+
+  // MARK: Internal
+
   /// The XML decoder used for decoding the current element.
   var decoder: _XMLDecoder
   /// The current XML element being decoded.
   var node: XMLNode
+
   /// The coding path of the current decoding process.
   var codingPath: [any CodingKey] { decoder.codingPath }
-
-  init(
-    decoder: _XMLDecoder,
-    node: XMLNode) {
-    self.decoder = decoder
-    self.node = node
-  }
 
   // MARK: -
 
   func decodeNil() -> Bool {
     if
-      node.text?.isEmpty ?? true &&
-      node.children?.isEmpty ?? true {
+      node.text?.isEmpty ?? true,
+      node.children?.isEmpty ?? true
+    {
       return true
     }
     return false

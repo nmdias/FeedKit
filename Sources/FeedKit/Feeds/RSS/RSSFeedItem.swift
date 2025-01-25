@@ -1,26 +1,25 @@
 //
-//  RSSFeedItem.swift
+// RSSFeedItem.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
@@ -33,6 +32,42 @@ import Foundation
 /// the link and title may be omitted. All elements of an item are optional,
 /// however at least one of title or description must be present.
 public struct RSSFeedItem {
+  // MARK: Lifecycle
+
+  public init(
+    title: String? = nil,
+    link: String? = nil,
+    description: String? = nil,
+    author: String? = nil,
+    categories: [RSSFeedCategory]? = nil,
+    comments: String? = nil,
+    enclosure: RSSFeedEnclosure? = nil,
+    guid: RSSFeedGUID? = nil,
+    pubDate: Date? = nil,
+    source: RSSFeedSource? = nil,
+    dublinCore: DublinCore? = nil,
+    content: Content? = nil,
+    iTunes: ITunes? = nil,
+    media: Media? = nil
+  ) {
+    self.title = title
+    self.link = link
+    self.description = description
+    self.author = author
+    self.categories = categories
+    self.comments = comments
+    self.enclosure = enclosure
+    self.guid = guid
+    self.pubDate = pubDate
+    self.source = source
+    self.dublinCore = dublinCore
+    self.content = content
+    self.iTunes = iTunes
+    self.media = media
+  }
+
+  // MARK: Public
+
   /// The title of the item.
   ///
   /// Example: Venice Film Festival Tries to Quit Sinking
@@ -184,41 +219,10 @@ public struct RSSFeedItem {
   /// iTunes Podcasting Tags are de facto standard for podcast syndication.
   /// See https://help.apple.com/itc/podcasts_connect/#/itcb54353390
   public var iTunes: ITunes?
-  
+
   /// Media RSS is a new RSS module that supplements the <enclosure>
   /// capabilities of RSS 2.0.
   public var media: Media?
-  
-  public init(
-    title: String? = nil,
-    link: String? = nil,
-    description: String? = nil,
-    author: String? = nil,
-    categories: [RSSFeedCategory]? = nil,
-    comments: String? = nil,
-    enclosure: RSSFeedEnclosure? = nil,
-    guid: RSSFeedGUID? = nil,
-    pubDate: Date? = nil,
-    source: RSSFeedSource? = nil,
-    dublinCore: DublinCore? = nil,
-    content: Content? = nil,
-    iTunes: ITunes? = nil,
-    media: Media? = nil) {
-    self.title = title
-    self.link = link
-    self.description = description
-    self.author = author
-    self.categories = categories
-    self.comments = comments
-    self.enclosure = enclosure
-    self.guid = guid
-    self.pubDate = pubDate
-    self.source = source
-    self.dublinCore = dublinCore
-    self.content = content
-    self.iTunes = iTunes
-    self.media = media
-  }
 }
 
 // MARK: - Sendable
@@ -248,9 +252,9 @@ extension RSSFeedItem: Codable {
     case pubDate
     case source
     case dublinCore = "dc"
-    case content = "content"
+    case content
     case iTunes = "itunes"
-    case media = "media"
+    case media
   }
 
   public init(from decoder: any Decoder) throws {

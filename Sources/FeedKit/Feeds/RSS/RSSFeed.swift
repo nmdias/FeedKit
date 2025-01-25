@@ -1,26 +1,25 @@
 //
-//  RSSFeed.swift
+// RSSFeed.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 import XMLKit
@@ -36,6 +35,14 @@ import XMLKit
 /// Subordinate to the <rss> element is a single <channel> element, which
 /// contains information about the channel (metadata) and its contents.
 public struct RSSFeed {
+  // MARK: Lifecycle
+
+  public init(channel: RSSFeedChannel? = nil) {
+    self.channel = channel
+  }
+
+  // MARK: Public
+
   /// Represents the <channel> element in an RSS 2.0 document.
   ///
   /// The <channel> element provides metadata about the feed, such as the
@@ -43,10 +50,6 @@ public struct RSSFeed {
   /// feed contains. This property is optional, as an RSS document may not
   /// always include a valid <channel> element.
   public var channel: RSSFeedChannel?
-
-  public init(channel: RSSFeedChannel? = nil) {
-    self.channel = channel
-  }
 }
 
 // MARK: - Sendable
@@ -89,7 +92,7 @@ extension RSSFeed: FeedInitializable {}
 
 extension RSSFeed: XMLDocumentConvertible {
   public func toXmlDocument() throws -> XMLKit.XMLDocument {
-    let encoder = XMLEncoder()
+    let encoder: XMLEncoder = .init()
     encoder.dateEncodingStrategy = .formatter(FeedDateFormatter(spec: .rfc822))
 
     let document = try encoder.encode(value: self)
@@ -109,7 +112,7 @@ extension RSSFeed: XMLDocumentConvertible {
 // MARK: - XMLStringConvertible
 
 extension RSSFeed: XMLStringConvertible {
-  public func toXMLString(formatted: Bool, indentationLevel: Int = 1) throws -> String {
+  public func toXMLString(formatted _: Bool, indentationLevel _: Int = 1) throws -> String {
     try toXmlDocument().toXMLString(formatted: true)
   }
 }

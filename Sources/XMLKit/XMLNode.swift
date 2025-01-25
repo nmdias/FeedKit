@@ -1,48 +1,31 @@
 //
-//  XMLNode.swift
+// XMLNode.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 /// Represents an node in the XML document.
 class XMLNode: Codable, Equatable, Hashable {
-  /// The parent node of this node.
-  weak var parent: XMLNode?
-  /// Is the `text` property xhtml
-  var isXhtml: Bool = false
-  /// The namespace prefix
-  var prefix: String?
-  /// The name of the node.
-  var name: String
-  /// The text of the node, if present.
-  var text: String?
-  /// The child nodes of this node.
-  var children: [XMLNode]? {
-    didSet {
-      // Update the parent reference for all children
-      children?.forEach { $0.parent = self }
-    }
-  }
+  // MARK: Lifecycle
 
   /// Initializes a new node.
   /// - Parameters:
@@ -55,7 +38,8 @@ class XMLNode: Codable, Equatable, Hashable {
     name: String,
     text: String? = nil,
     isXhtml: Bool = false,
-    children: [XMLNode]? = nil) {
+    children: [XMLNode]? = nil
+  ) {
     self.prefix = prefix
     self.name = name
     self.text = text
@@ -65,6 +49,18 @@ class XMLNode: Codable, Equatable, Hashable {
     self.children?.forEach { $0.parent = self }
   }
 
+  public required init(from decoder: any Decoder) throws {
+    let container: KeyedDecodingContainer<XMLNode.CodingKeys> = try decoder.container(keyedBy: XMLNode.CodingKeys.self)
+
+    prefix = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.prefix)
+    name = try container.decode(String.self, forKey: XMLNode.CodingKeys.name)
+    text = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.text)
+    isXhtml = try container.decode(Bool.self, forKey: XMLNode.CodingKeys.isXhtml)
+    children = try container.decodeIfPresent([XMLNode].self, forKey: XMLNode.CodingKeys.children)
+  }
+
+  // MARK: Public
+
   // MARK: Equatable
 
   public static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
@@ -73,7 +69,8 @@ class XMLNode: Codable, Equatable, Hashable {
       lhs.prefix != rhs.prefix ||
       lhs.name != rhs.name ||
       lhs.text != rhs.text ||
-      lhs.isXhtml != rhs.isXhtml {
+      lhs.isXhtml != rhs.isXhtml
+    {
       return false
     }
 
@@ -103,29 +100,9 @@ class XMLNode: Codable, Equatable, Hashable {
     hasher.combine(isXhtml)
 
     // Recursively hash the children
-    if let children = children {
-      hasher.combine(children.map { $0.hashValue })
+    if let children {
+      hasher.combine(children.map(\.hashValue))
     }
-  }
-
-  // MARK: - Codable
-
-  private enum CodingKeys: CodingKey {
-    case prefix
-    case name
-    case text
-    case isXhtml
-    case children
-  }
-
-  public required init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<XMLNode.CodingKeys> = try decoder.container(keyedBy: XMLNode.CodingKeys.self)
-
-    prefix = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.prefix)
-    name = try container.decode(String.self, forKey: XMLNode.CodingKeys.name)
-    text = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.text)
-    isXhtml = try container.decode(Bool.self, forKey: XMLNode.CodingKeys.isXhtml)
-    children = try container.decodeIfPresent([XMLNode].self, forKey: XMLNode.CodingKeys.children)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -184,6 +161,39 @@ class XMLNode: Codable, Equatable, Hashable {
       ))
     }
   }
+
+  // MARK: Internal
+
+  /// The parent node of this node.
+  weak var parent: XMLNode?
+  /// Is the `text` property xhtml
+  var isXhtml: Bool = false
+  /// The namespace prefix
+  var prefix: String?
+  /// The name of the node.
+  var name: String
+  /// The text of the node, if present.
+  var text: String?
+
+  /// The child nodes of this node.
+  var children: [XMLNode]? {
+    didSet {
+      // Update the parent reference for all children
+      children?.forEach { $0.parent = self }
+    }
+  }
+
+  // MARK: Private
+
+  // MARK: - Codable
+
+  private enum CodingKeys: CodingKey {
+    case prefix
+    case name
+    case text
+    case isXhtml
+    case children
+  }
 }
 
 // MARK: - XMLStringConvertible
@@ -196,7 +206,8 @@ extension XMLNode: XMLStringConvertible {
   /// - Returns: A string representation of the XML for the node.
   public func toXMLString(
     formatted: Bool = false,
-    indentationLevel: Int = 1) -> String {
+    indentationLevel: Int = 1
+  ) -> String {
     let indent = formatted ? String(repeating: "  ", count: indentationLevel) : ""
 
     // Skip processing nodes with the name "@attributes".

@@ -1,36 +1,30 @@
 //
-//  XMLKeyedEncodingContainer.swift
+// XMLKeyedEncodingContainer.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol {
-  /// The encoder used for encoding XML nodes.
-  let encoder: _XMLEncoder
-  /// The current XML node being encoded.
-  let node: XMLNode
-  /// The coding path of the current encoding process.
-  var codingPath: [any CodingKey] { encoder.codingPath }
+  // MARK: Lifecycle
 
   /// Initializes an encoding container for an XML node.
   /// - Parameters:
@@ -41,7 +35,17 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
     self.encoder = encoder
   }
 
-  func box<T: LosslessStringConvertible>(_ value: T, for key: Key) {
+  // MARK: Internal
+
+  /// The encoder used for encoding XML nodes.
+  let encoder: _XMLEncoder
+  /// The current XML node being encoded.
+  let node: XMLNode
+
+  /// The coding path of the current encoding process.
+  var codingPath: [any CodingKey] { encoder.codingPath }
+
+  func box(_ value: some LosslessStringConvertible, for key: Key) {
     if key.stringValue == "@text" {
       node.text = "\(value)"
       return
@@ -51,7 +55,7 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
 
   // MARK: -
 
-  func encodeNil(forKey key: Key) throws {
+  func encodeNil(forKey _: Key) throws {
     fatalError()
   }
 
@@ -81,7 +85,7 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
 
   // MARK: - Type
 
-  func encode<T>(_ value: T, forKey key: Key) throws where T: Encodable {
+  func encode(_ value: some Encodable, forKey key: Key) throws {
     encoder.codingPath.append(key)
 
     defer { self.encoder.codingPath.removeLast() }
@@ -91,10 +95,10 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
         let prefix = child.name
         let namespaceChildren = child.children
 
-        namespaceChildren?.forEach({ namespaceChild in
+        namespaceChildren?.forEach { namespaceChild in
           namespaceChild.prefix = prefix
           node.addChild(namespaceChild)
-        })
+        }
 
       } else {
         node.addChild(child)
@@ -104,11 +108,11 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
 
   // MARK: -
 
-  func nestedContainer<NestedKey>(keyedBy keyType: NestedKey.Type, forKey key: Key) -> KeyedEncodingContainer<NestedKey> where NestedKey: CodingKey {
+  func nestedContainer<NestedKey>(keyedBy _: NestedKey.Type, forKey _: Key) -> KeyedEncodingContainer<NestedKey> where NestedKey: CodingKey {
     fatalError()
   }
 
-  func nestedUnkeyedContainer(forKey key: Key) -> UnkeyedEncodingContainer {
+  func nestedUnkeyedContainer(forKey _: Key) -> UnkeyedEncodingContainer {
     fatalError()
   }
 
@@ -116,7 +120,7 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
     fatalError()
   }
 
-  func superEncoder(forKey key: Key) -> Encoder {
+  func superEncoder(forKey _: Key) -> Encoder {
     fatalError()
   }
 }

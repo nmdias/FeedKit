@@ -1,39 +1,30 @@
 //
-//  XMLKeyedDecodingContainer.swift
+// XMLKeyedDecodingContainer.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol {
-  /// The XML decoder used for decoding the current element.
-  var decoder: _XMLDecoder
-  /// The current XML element being decoded.
-  var node: XMLNode
-  /// The coding path of the current decoding process.
-  var codingPath: [CodingKey] { decoder.codingPath }
-  /// This property is expected to contain all keys present in the current
-  /// XML element. However, it is not yet utilized.
-  var allKeys: [Key] = []
+  // MARK: Lifecycle
 
   /// Initializes a keyed decoding container for an XML element.
   /// - Parameters:
@@ -44,8 +35,21 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     self.node = node
   }
 
+  // MARK: Internal
+
+  /// The XML decoder used for decoding the current element.
+  var decoder: _XMLDecoder
+  /// The current XML element being decoded.
+  var node: XMLNode
+  /// This property is expected to contain all keys present in the current
+  /// XML element. However, it is not yet utilized.
+  var allKeys: [Key] = []
+
+  /// The coding path of the current decoding process.
+  var codingPath: [CodingKey] { decoder.codingPath }
+
   func contains(_ key: Key) -> Bool {
-    if key.stringValue == "@text" && node.text?.isEmpty == false {
+    if key.stringValue == "@text", node.text?.isEmpty == false {
       return true
     }
     return node.hasChild(for: key.stringValue)
@@ -65,8 +69,9 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     // Get the child element matching the given key
     // Avoids initialization if all variables are nil.
     if let child = node.child(for: key.stringValue),
-       child.text?.isEmpty ?? true &&
-       child.children?.isEmpty ?? true {
+       child.text?.isEmpty ?? true,
+       child.children?.isEmpty ?? true
+    {
       return true
     }
 
@@ -115,11 +120,12 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     if type is XMLNamespaceCodable.Type {
       return try decoder.decode(node: node, as: T.self)
     }
-    
+
     guard let child = node.child(for: key.stringValue) else {
       throw DecodingError.dataCorruptedError(
         forKey: key, in: self,
-        debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)")
+        debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)"
+      )
     }
 
     return try decoder.decode(node: child, as: T.self)
@@ -127,11 +133,11 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
 
   // MARK: -
 
-  func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type, forKey key: Key) throws -> KeyedDecodingContainer<NestedKey> where NestedKey: CodingKey {
+  func nestedContainer<NestedKey>(keyedBy _: NestedKey.Type, forKey _: Key) throws -> KeyedDecodingContainer<NestedKey> where NestedKey: CodingKey {
     fatalError()
   }
 
-  func nestedUnkeyedContainer(forKey key: Key) throws -> any UnkeyedDecodingContainer {
+  func nestedUnkeyedContainer(forKey _: Key) throws -> any UnkeyedDecodingContainer {
     fatalError()
   }
 
@@ -139,7 +145,7 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     fatalError()
   }
 
-  func superDecoder(forKey key: Key) throws -> any Decoder {
+  func superDecoder(forKey _: Key) throws -> any Decoder {
     fatalError()
   }
 }

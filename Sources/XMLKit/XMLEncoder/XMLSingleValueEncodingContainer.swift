@@ -1,36 +1,30 @@
 //
-//  XMLSingleValueEncodingContainer.swift
+// XMLSingleValueEncodingContainer.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 class XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
-  /// The XML encoder used for encoding.
-  let encoder: _XMLEncoder
-  /// The XML node being encoded.
-  let node: XMLNode
-  /// The coding path of the current encoding process.
-  var codingPath: [any CodingKey]
+  // MARK: Lifecycle
 
   /// Initializes a container for encoding values to an XML node.
   /// - Parameters:
@@ -43,7 +37,16 @@ class XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
     self.codingPath = codingPath
   }
 
-  func box<T: LosslessStringConvertible>(_ value: T) -> XMLNode {
+  // MARK: Internal
+
+  /// The XML encoder used for encoding.
+  let encoder: _XMLEncoder
+  /// The XML node being encoded.
+  let node: XMLNode
+  /// The coding path of the current encoding process.
+  var codingPath: [any CodingKey]
+
+  func box(_ value: some LosslessStringConvertible) -> XMLNode {
     .init(
       name: encoder.currentKey,
       text: "\(value)"
@@ -80,7 +83,7 @@ class XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
 
   // MARK: - Encode Type
 
-  func encode<T>(_ value: T) throws where T: Encodable {
+  func encode(_ value: some Encodable) throws {
     let some = try encoder.box(value)
     encoder.stack.push(some)
   }

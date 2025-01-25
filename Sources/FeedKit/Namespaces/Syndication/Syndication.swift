@@ -1,26 +1,25 @@
 //
-//  Syndication.swift
+// Syndication.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 import XMLKit
@@ -34,6 +33,20 @@ import XMLKit
 ///
 /// See http://web.resource.org/rss/1.0/modules/syndication/
 public struct Syndication {
+  // MARK: Lifecycle
+
+  public init(
+    updatePeriod: SyndicationUpdatePeriod? = nil,
+    updateFrequency: Int? = nil,
+    updateBase: Date? = nil
+  ) {
+    self.updatePeriod = updatePeriod
+    self.updateFrequency = updateFrequency
+    self.updateBase = updateBase
+  }
+
+  // MARK: Public
+
   /// Describes the period over which the channel format is updated. Acceptable
   /// values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is
   /// assumed.
@@ -50,15 +63,6 @@ public struct Syndication {
   /// updateFrequency to calculate the publishing schedule. The date format takes
   /// the form: yyyy-mm-ddThh:mm
   public var updateBase: Date?
-
-  public init(
-    updatePeriod: SyndicationUpdatePeriod? = nil,
-    updateFrequency: Int? = nil,
-    updateBase: Date? = nil) {
-    self.updatePeriod = updatePeriod
-    self.updateFrequency = updateFrequency
-    self.updateBase = updateBase
-  }
 }
 
 // MARK: - XMLNamespaceDecodable

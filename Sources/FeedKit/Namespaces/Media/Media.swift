@@ -1,26 +1,25 @@
 //
-//  Media.swift
+// Media.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 import XMLKit
@@ -33,6 +32,68 @@ import XMLKit
 /// content publishers and bloggers to syndicate multimedia content
 /// such as TV and video clips, movies, images and audio.
 public struct Media {
+  // MARK: Lifecycle
+
+  public init(
+    group: MediaGroup? = nil,
+    contents: [MediaContent]? = nil,
+    rating: MediaRating? = nil,
+    title: MediaTitle? = nil,
+    description: MediaDescription? = nil,
+    keywords: [String]? = nil,
+    thumbnails: [MediaThumbnail]? = nil,
+    category: MediaCategory? = nil,
+    hash: MediaHash? = nil,
+    player: MediaPlayer? = nil,
+    credits: [MediaCredit]? = nil,
+    copyright: MediaCopyright? = nil,
+    text: MediaText? = nil,
+    restriction: MediaRestriction? = nil,
+    community: MediaCommunity? = nil,
+    comments: MediaComments? = nil,
+    embed: MediaEmbed? = nil,
+    responses: MediaResponses? = nil,
+    backLinks: MediaBackLinks? = nil,
+    status: MediaStatus? = nil,
+    prices: [MediaPrice]? = nil,
+    license: MediaLicence? = nil,
+    subTitle: MediaSubTitle? = nil,
+    peerLink: MediaPeerLink? = nil,
+    location: MediaLocation? = nil,
+    rights: MediaRights? = nil,
+    scenes: MediaScenes? = nil
+  ) {
+    self.group = group
+    self.contents = contents
+    self.rating = rating
+    self.title = title
+    self.description = description
+    self.keywords = keywords
+    self.thumbnails = thumbnails
+    self.category = category
+    self.hash = hash
+    self.player = player
+    self.credits = credits
+    self.copyright = copyright
+    self.text = text
+    self.restriction = restriction
+    self.community = community
+    self.comments = comments
+    self.embed = embed
+    self.responses = responses
+    self.backLinks = backLinks
+    self.status = status
+    self.prices = prices
+    self.license = license
+    self.subTitle = subTitle
+    self.peerLink = peerLink
+    self.location = location
+    self.rights = rights
+    self.scenes = scenes
+  }
+
+  // MARK: Public
+
   /// The <media:group> element is a sub-element of <item>. It allows grouping
   /// of <media:content> elements that are effectively the same content,
   /// yet different representations. For instance: the same song recorded
@@ -171,63 +232,6 @@ public struct Media {
   /// <sceneStartTime> and <sceneEndTime>, which contains title, description,
   /// start and end time of a particular scene in the media, respectively.
   public var scenes: MediaScenes?
-
-  public init(
-    group: MediaGroup? = nil,
-    contents: [MediaContent]? = nil,
-    rating: MediaRating? = nil,
-    title: MediaTitle? = nil,
-    description: MediaDescription? = nil,
-    keywords: [String]? = nil,
-    thumbnails: [MediaThumbnail]? = nil,
-    category: MediaCategory? = nil,
-    hash: MediaHash? = nil,
-    player: MediaPlayer? = nil,
-    credits: [MediaCredit]? = nil,
-    copyright: MediaCopyright? = nil,
-    text: MediaText? = nil,
-    restriction: MediaRestriction? = nil,
-    community: MediaCommunity? = nil,
-    comments: MediaComments? = nil,
-    embed: MediaEmbed? = nil,
-    responses: MediaResponses? = nil,
-    backLinks: MediaBackLinks? = nil,
-    status: MediaStatus? = nil,
-    prices: [MediaPrice]? = nil,
-    license: MediaLicence? = nil,
-    subTitle: MediaSubTitle? = nil,
-    peerLink: MediaPeerLink? = nil,
-    location: MediaLocation? = nil,
-    rights: MediaRights? = nil,
-    scenes: MediaScenes? = nil) {
-    self.group = group
-    self.contents = contents
-    self.rating = rating
-    self.title = title
-    self.description = description
-    self.keywords = keywords
-    self.thumbnails = thumbnails
-    self.category = category
-    self.hash = hash
-    self.player = player
-    self.credits = credits
-    self.copyright = copyright
-    self.text = text
-    self.restriction = restriction
-    self.community = community
-    self.comments = comments
-    self.embed = embed
-    self.responses = responses
-    self.backLinks = backLinks
-    self.status = status
-    self.prices = prices
-    self.license = license
-    self.subTitle = subTitle
-    self.peerLink = peerLink
-    self.location = location
-    self.rights = rights
-    self.scenes = scenes
-  }
 }
 
 // MARK: - XMLNamespaceDecodable

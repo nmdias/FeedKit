@@ -1,40 +1,32 @@
 //
-//  FeedDateFormatter.swift
+// FeedDateFormatter.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 /// PermissiveDateFormatter, used as a base class for date formatting,
 /// handling multiple date formats and backup formats.
 class PermissiveDateFormatter: DateFormatter, @unchecked Sendable {
-  /// Array of date formats to try when converting from string to date.
-  var dateFormats: [String] { [] }
-
-  /// Array of date formats to try when converting from string to date.
-  /// Used in permissive parsing strategies when feeds are not fully
-  /// compliant with the specification and multiple formats need to be
-  /// attempted to ensure proper date parsing.
-  var permissiveDateFormats: [String] { [] }
+  // MARK: Lifecycle
 
   /// Initializes the formatter with default timezone and locale.
   override init() {
@@ -44,9 +36,21 @@ class PermissiveDateFormatter: DateFormatter, @unchecked Sendable {
   }
 
   /// Unavailable initializer for decoding.
-  required init?(coder aDecoder: NSCoder) {
+  @available(*, unavailable)
+  required init?(coder _: NSCoder) {
     fatalError("init(coder:) not supported")
   }
+
+  // MARK: Internal
+
+  /// Array of date formats to try when converting from string to date.
+  var dateFormats: [String] { [] }
+
+  /// Array of date formats to try when converting from string to date.
+  /// Used in permissive parsing strategies when feeds are not fully
+  /// compliant with the specification and multiple formats need to be
+  /// attempted to ensure proper date parsing.
+  var permissiveDateFormats: [String] { [] }
 
   /// Attempts to parse a string into a Date using available formats.
   override func date(from string: String) -> Date? {
@@ -198,8 +202,7 @@ enum DateSpec {
 
 /// A formatter that handles multiple date specifications (ISO8601, RFC3339, RFC822).
 class FeedDateFormatter: DateFormatter, @unchecked Sendable {
-  /// The date specification to use for formatting dates.
-  let spec: DateSpec
+  // MARK: Lifecycle
 
   /// Initializes the date formatter with a specified date format.
   ///
@@ -209,24 +212,24 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
     super.init()
   }
 
-  required init?(coder: NSCoder) {
+  @available(*, unavailable)
+  required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 
+  // MARK: Internal
+
+  /// The date specification to use for formatting dates.
+  let spec: DateSpec
+
   /// ISO8601 date formatter.
-  lazy var iso8601Formatter: ISO8601DateFormatter = {
-    ISO8601DateFormatter()
-  }()
+  lazy var iso8601Formatter: ISO8601DateFormatter = .init()
 
   /// RFC3339 date formatter.
-  lazy var rfc3339Formatter: RFC3339DateFormatter = {
-    RFC3339DateFormatter()
-  }()
+  lazy var rfc3339Formatter: RFC3339DateFormatter = .init()
 
   /// RFC822 date formatter.
-  lazy var rfc822Formatter: RFC822DateFormatter = {
-    RFC822DateFormatter()
-  }()
+  lazy var rfc822Formatter: RFC822DateFormatter = .init()
 
   /// Converts a string to a Date based on the given date specification.
   ///
@@ -236,14 +239,13 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
   override func date(from string: String) -> Date? {
     switch spec {
     case .iso8601:
-      return iso8601Formatter.date(from: string)
+      iso8601Formatter.date(from: string)
     case .rfc3339:
-      return rfc3339Formatter.date(from: string)
+      rfc3339Formatter.date(from: string)
     case .rfc822:
-      return rfc822Formatter.date(from: string)
+      rfc822Formatter.date(from: string)
     case .permissive:
-      return
-        rfc822Formatter.date(from: string) ??
+      rfc822Formatter.date(from: string) ??
         rfc3339Formatter.date(from: string) ??
         iso8601Formatter.date(from: string)
     }
@@ -257,11 +259,11 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
   override func string(from date: Date) -> String {
     switch spec {
     case .iso8601:
-      return iso8601Formatter.string(from: date)
+      iso8601Formatter.string(from: date)
     case .rfc3339:
-      return rfc3339Formatter.string(from: date)
+      rfc3339Formatter.string(from: date)
     case .rfc822:
-      return rfc822Formatter.string(from: date)
+      rfc822Formatter.string(from: date)
     case .permissive:
       fatalError()
     }

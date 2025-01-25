@@ -1,26 +1,25 @@
 //
-//  JSONFeed.swift
+// JSONFeed.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
@@ -28,10 +27,37 @@ import Foundation
 /// but with one big difference: it's JSON instead of XML.
 /// See https://jsonfeed.org/version/1
 public struct JSONFeed {
-  /// (required, string) is the URL of the version of the format the feed
-  /// uses. This should appear at the very top, though we recognize that not all
-  /// JSON generators allow for ordering.
-  var version: String = "https://jsonfeed.org/version/1"
+  // MARK: Lifecycle
+
+  public init(
+    title: String? = nil,
+    homePageURL: String? = nil,
+    feedURL: String? = nil,
+    description: String? = nil,
+    userComment: String? = nil,
+    nextURL: String? = nil,
+    icon: String? = nil,
+    favicon: String? = nil,
+    author: JSONFeedAuthor? = nil,
+    expired: Bool? = nil,
+    hubs: [JSONFeedHub]? = nil,
+    items: [JSONFeedItem]? = nil
+  ) {
+    self.title = title
+    self.homePageURL = homePageURL
+    self.feedURL = feedURL
+    self.description = description
+    self.userComment = userComment
+    self.nextURL = nextURL
+    self.icon = icon
+    self.favicon = favicon
+    self.author = author
+    self.expired = expired
+    self.hubs = hubs
+    self.items = items
+  }
+
+  // MARK: Public
 
   /// (required, string) is the name of the feed, which will often correspond to
   /// the name of the website (blog, for instance), though not necessarily.
@@ -48,7 +74,7 @@ public struct JSONFeed {
   /// (optional but strongly recommended, string) is the URL of the feed, and
   /// serves as the unique identifier for the feed. As with home_page_url, this
   /// should be considered required for feeds on the public web.
-  public var feedUrl: String?
+  public var feedURL: String?
 
   /// (optional, string) provides more detail, beyond the title, on what the feed
   /// is about. A feed reader may display this text.
@@ -65,7 +91,7 @@ public struct JSONFeed {
   /// probably won't use it very often. next_url must not be the same as
   /// feed_url, and it must not be the same as a previous next_url (to avoid
   /// infinite loops).
-  public var nextUrl: String?
+  public var nextURL: String?
 
   /// (optional, string) is the URL of an image for the feed suitable to be used
   /// in a timeline, much the way an avatar might be used. It should be square
@@ -101,32 +127,12 @@ public struct JSONFeed {
   /// The JSONFeed items.
   public var items: [JSONFeedItem]?
 
-  public init(
-    title: String? = nil,
-    homePageURL: String? = nil,
-    feedUrl: String? = nil,
-    description: String? = nil,
-    userComment: String? = nil,
-    nextUrl: String? = nil,
-    icon: String? = nil,
-    favicon: String? = nil,
-    author: JSONFeedAuthor? = nil,
-    expired: Bool? = nil,
-    hubs: [JSONFeedHub]? = nil,
-    items: [JSONFeedItem]? = nil) {
-    self.title = title
-    self.homePageURL = homePageURL
-    self.feedUrl = feedUrl
-    self.description = description
-    self.userComment = userComment
-    self.nextUrl = nextUrl
-    self.icon = icon
-    self.favicon = favicon
-    self.author = author
-    self.expired = expired
-    self.hubs = hubs
-    self.items = items
-  }
+  // MARK: Internal
+
+  /// (required, string) is the URL of the version of the format the feed
+  /// uses. This should appear at the very top, though we recognize that not all
+  /// JSON generators allow for ordering.
+  var version: String = "https://jsonfeed.org/version/1"
 }
 
 // MARK: - Sendable
@@ -167,8 +173,8 @@ extension JSONFeed: Codable {
     try container.encodeIfPresent(userComment, forKey: .user_comment)
     try container.encodeIfPresent(homePageURL, forKey: .home_page_url)
     try container.encodeIfPresent(description, forKey: .description)
-    try container.encodeIfPresent(feedUrl, forKey: .feed_url)
-    try container.encodeIfPresent(nextUrl, forKey: .next_url)
+    try container.encodeIfPresent(feedURL, forKey: .feed_url)
+    try container.encodeIfPresent(nextURL, forKey: .next_url)
     try container.encodeIfPresent(icon, forKey: .icon)
     try container.encodeIfPresent(favicon, forKey: .favicon)
     try container.encodeIfPresent(expired, forKey: .expired)
@@ -184,8 +190,8 @@ extension JSONFeed: Codable {
     userComment = try values.decodeIfPresent(String.self, forKey: .user_comment)
     homePageURL = try values.decodeIfPresent(String.self, forKey: .home_page_url)
     description = try values.decodeIfPresent(String.self, forKey: .description)
-    feedUrl = try values.decodeIfPresent(String.self, forKey: .feed_url)
-    nextUrl = try values.decodeIfPresent(String.self, forKey: .next_url)
+    feedURL = try values.decodeIfPresent(String.self, forKey: .feed_url)
+    nextURL = try values.decodeIfPresent(String.self, forKey: .next_url)
     icon = try values.decodeIfPresent(String.self, forKey: .icon)
     favicon = try values.decodeIfPresent(String.self, forKey: .favicon)
     expired = try values.decodeIfPresent(Bool.self, forKey: .expired)
@@ -197,16 +203,16 @@ extension JSONFeed: Codable {
 
 extension JSONFeed: FeedInitializable {
   public init(data: Data) throws {
-    let formatter = RFC3339DateFormatter()
-    let decoder = JSONDecoder()
+    let formatter: RFC3339DateFormatter = .init()
+    let decoder: JSONDecoder = .init()
     decoder.dateDecodingStrategy = .formatted(formatter)
     self = try decoder.decode(JSONFeed.self, from: data)
   }
 }
 
-extension JSONFeed {
-  public func toJSONString(formatted: Bool) throws -> String {
-    let encoder = JSONEncoder()
+public extension JSONFeed {
+  func toJSONString(formatted: Bool) throws -> String {
+    let encoder: JSONEncoder = .init()
     encoder.dateEncodingStrategy = .formatted(RFC3339DateFormatter())
     encoder.outputFormatting = formatted ? [.prettyPrinted] : []
     let data = try encoder.encode(self)

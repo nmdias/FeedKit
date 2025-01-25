@@ -1,31 +1,50 @@
 //
-//  AtomLink.swift
+// AtomLink.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 import XMLKit
 
 public struct AtomLinkAttributes: Codable, Equatable, Hashable, Sendable {
+  // MARK: Lifecycle
+
+  public init(
+    href: String? = nil,
+    rel: String? = nil,
+    type: String? = nil,
+    hreflang: String? = nil,
+    title: String? = nil,
+    length: Int64? = nil
+  ) {
+    self.href = href
+    self.rel = rel
+    self.type = type
+    self.hreflang = hreflang
+    self.title = title
+    self.length = length
+  }
+
+  // MARK: Public
+
   /// The "href" attribute contains the link's IRI. atom:link elements MUST
   /// have an href attribute, whose value MUST be a IRI reference
   /// [RFC3987].
@@ -112,21 +131,6 @@ public struct AtomLinkAttributes: Codable, Equatable, Hashable, Sendable {
   /// by the underlying protocol.  Link elements MAY have a length
   /// attribute.
   public var length: Int64?
-
-  public init(
-    href: String? = nil,
-    rel: String? = nil,
-    type: String? = nil,
-    hreflang: String? = nil,
-    title: String? = nil,
-    length: Int64? = nil) {
-    self.href = href
-    self.rel = rel
-    self.type = type
-    self.hreflang = hreflang
-    self.title = title
-    self.length = length
-  }
 }
 
 /// The "atom:link" element defines a reference from an entry or feed to

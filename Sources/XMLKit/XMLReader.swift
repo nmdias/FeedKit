@@ -1,26 +1,25 @@
 //
-//  XMLReader.swift
+// XMLReader.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 #if canImport(FoundationXML)
@@ -28,6 +27,19 @@ import Foundation
 #endif
 
 class XMLReader: NSObject {
+  // MARK: Lifecycle
+
+  /// Initializes the wrapper with XML data.
+  /// - Parameter data: The XML data to parse.
+  init(data: Data) {
+    parser = XMLParser(data: data)
+    stack = XMLStack()
+    super.init()
+    parser.delegate = self
+  }
+
+  // MARK: Internal
+
   /// The XML Parser.
   let parser: XMLParser
   /// A stack of `XMLNode` instances representing the current hierarchy
@@ -44,15 +56,6 @@ class XMLReader: NSObject {
   /// Set to `true` when parsing is finished; otherwise, `false`.
   var isComplete = false
 
-  /// Initializes the wrapper with XML data.
-  /// - Parameter data: The XML data to parse.
-  init(data: Data) {
-    parser = XMLParser(data: data)
-    stack = XMLStack()
-    super.init()
-    parser.delegate = self
-  }
-
   /// Parses the XML data and returns a `Result` indicating success or failure.
   /// - Returns: A `Result` with the parsed document on success, or an error.
   func read() -> Result<XMLDocument, XMLError> {
@@ -61,7 +64,8 @@ class XMLReader: NSObject {
     guard
       parser.parse(),
       error == nil,
-      let root = stack.pop() else {
+      let root = stack.pop()
+    else {
       let error = error ?? .unexpected(reason: "An unknown error occurred or the parsing operation aborted.")
       return .failure(error)
     }
@@ -77,8 +81,12 @@ class XMLReader: NSObject {
   /// - Parameter string: The character data found in the XML.
   func map(_ string: String) {
     // Get the working element
-    guard let element = stack.top() else { return }
-    guard !string.isEmpty else { return }
+    guard let element = stack.top() else {
+      return
+    }
+    guard !string.isEmpty else {
+      return
+    }
     element.text = element.text?.appending(string) ?? string
   }
 }
@@ -87,11 +95,12 @@ class XMLReader: NSObject {
 
 extension XMLReader: XMLParserDelegate {
   func parser(
-    _ parser: XMLParser,
+    _: XMLParser,
     didStartElement elementName: String,
-    namespaceURI: String?,
-    qualifiedName qName: String?,
-    attributes attributeDict: [String: String] = [:]) {
+    namespaceURI _: String?,
+    qualifiedName _: String?,
+    attributes attributeDict: [String: String] = [:]
+  ) {
     // Determine prefix and namespace
     var prefix: String?
     if elementName.contains(":") {
@@ -117,7 +126,8 @@ extension XMLReader: XMLParserDelegate {
               )
             }
           ),
-        ])
+        ]
+      )
       )
     } else if let node = stack.top(), node.isXhtml {
       // If inside an XHTML element, treat the current start element as plain text.
@@ -151,21 +161,24 @@ extension XMLReader: XMLParserDelegate {
                 )
               }
             ),
-          ])
+          ]
+        )
         )
       }
     }
   }
 
   func parser(
-    _ parser: XMLParser,
-    foundCharacters string: String) {
+    _: XMLParser,
+    foundCharacters string: String
+  ) {
     map(string)
   }
 
   func parser(
     _ parser: XMLParser,
-    foundCDATA CDATABlock: Data) {
+    foundCDATA CDATABlock: Data
+  ) {
     // Attempts to decode a CDATA block to an encoding, ordered by priority
     for encoding in XMLReader.encodings {
       if let string = String(data: CDATABlock, encoding: encoding) {
@@ -180,11 +193,14 @@ extension XMLReader: XMLParserDelegate {
   }
 
   func parser(
-    _ parser: XMLParser,
+    _: XMLParser,
     didEndElement elementName: String,
-    namespaceURI: String?,
-    qualifiedName qName: String?) {
-    guard let node = stack.top() else { return }
+    namespaceURI _: String?,
+    qualifiedName _: String?
+  ) {
+    guard let node = stack.top() else {
+      return
+    }
 
     // If exiting an XHTML element, close it as plain text.
     if node.isXhtml, node.name != elementName {
@@ -206,7 +222,8 @@ extension XMLReader: XMLParserDelegate {
   }
 
   func parserDidEndDocument(
-    _ parser: XMLParser) {
+    _: XMLParser)
+  {
     #if DEBUG
       if !isComplete {
         print("Parsing ended without reaching the root path.")
@@ -215,13 +232,16 @@ extension XMLReader: XMLParserDelegate {
   }
 
   func parser(
-    _ parser: XMLParser,
-    parseErrorOccurred parseError: Error) {
+    _: XMLParser,
+    parseErrorOccurred parseError: Error
+  ) {
     // Ignore errors that occur after a feed is successfully parsed. Some
     // real-world feeds contain junk such as "[]" after the XML segment;
     // just ignore this stuff.
     // https://github.com/nmdias/FeedKit/pull/53
-    guard !isComplete, error == nil else { return }
+    guard !isComplete, error == nil else {
+      return
+    }
     error = .unexpected(reason: parseError.localizedDescription)
   }
 }

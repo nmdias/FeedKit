@@ -1,35 +1,33 @@
 //
-//  DateTests.swift
+// DateTests.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 @testable import FeedKit
-
 import Foundation
 import Testing
 
 @Suite("Date Formatters")
 struct DateTests {
-  var calendar: Calendar
+  // MARK: Lifecycle
 
   init() {
     calendar = Calendar(identifier: .gregorian)
@@ -37,15 +35,19 @@ struct DateTests {
     calendar.timeZone = TimeZone(secondsFromGMT: 0)!
   }
 
+  // MARK: Internal
+
+  var calendar: Calendar
+
   // MARK: - RFC339
 
   @Test
   func rfc3339() {
     // Given
-    let formatter = FeedDateFormatter(spec: .rfc3339)
+    let formatter: FeedDateFormatter = .init(spec: .rfc3339)
     let dateString = "2016-01-15T15:54:10-01:00"
 
-    let expected = DateComponents(year: 2016, month: 1, day: 15, hour: 16, minute: 54, second: 10)
+    let expected: DateComponents = .init(year: 2016, month: 1, day: 15, hour: 16, minute: 54, second: 10)
 
     // When
     let date = formatter.date(from: dateString)
@@ -58,7 +60,7 @@ struct DateTests {
   @Test
   func rfc3339Spec() {
     // Given
-    let formatter = FeedDateFormatter(spec: .rfc3339)
+    let formatter: FeedDateFormatter = .init(spec: .rfc3339)
     let dateStrings = [
       "2016-06-05T09:30:01Z",
       "2016-06-05T03:18:00Z",
@@ -88,10 +90,10 @@ struct DateTests {
   @Test
   func rfc822() {
     // Given
-    let formatter = FeedDateFormatter(spec: .rfc822)
+    let formatter: FeedDateFormatter = .init(spec: .rfc822)
     let dateString = "Tue, 04 Feb 2014 22:03:45 Z"
 
-    let expected = DateComponents(year: 2014, month: 2, day: 4, hour: 22, minute: 3, second: 45)
+    let expected: DateComponents = .init(year: 2014, month: 2, day: 4, hour: 22, minute: 3, second: 45)
 
     // When
     let date = formatter.date(from: dateString)
@@ -104,7 +106,7 @@ struct DateTests {
   @Test
   func rfc822Spec() {
     // Given
-    let formatter = FeedDateFormatter(spec: .rfc822)
+    let formatter: FeedDateFormatter = .init(spec: .rfc822)
     let dateStrings = [
       "Tue, 04 Feb 2014 22:10:15 Z",
       "Sun, 05 Jun 2016 08:35:14 Z",
@@ -138,10 +140,10 @@ struct DateTests {
   @Test
   func rfc8601() {
     // Given
-    let formatter = FeedDateFormatter(spec: .iso8601)
+    let formatter: FeedDateFormatter = .init(spec: .iso8601)
     let dateString = "1994-11-05T08:15:30-05:00"
 
-    let expected = DateComponents(year: 1994, month: 11, day: 5, hour: 13, minute: 15, second: 30)
+    let expected: DateComponents = .init(year: 1994, month: 11, day: 5, hour: 13, minute: 15, second: 30)
 
     // When
     let date = formatter.date(from: dateString)
@@ -154,7 +156,7 @@ struct DateTests {
   @Test
   func rfc8601Spec() {
     // Given
-    let formatter = FeedDateFormatter(spec: .iso8601)
+    let formatter: FeedDateFormatter = .init(spec: .iso8601)
     let dateStrings = [
       "1994-11-05T08:15:30-05:00",
       "1994-11-05T08:15:30.00-05:00",

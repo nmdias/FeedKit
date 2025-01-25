@@ -1,38 +1,30 @@
 //
-//  XMLUnkeyedEncodingContainer.swift
+// XMLUnkeyedEncodingContainer.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
-  /// The XML encoder used for encoding values.
-  let encoder: _XMLEncoder
-  /// The XML node being encoded.
-  let node: XMLNode
-  /// The coding path of the current encoding process.
-  var codingPath: [CodingKey] { encoder.codingPath }
-  /// The number of children (encoded values) in the current node.
-  var count: Int = 0
+  // MARK: Lifecycle
 
   /// Initializes a value encoding container for an XML node.
   /// - Parameters:
@@ -43,16 +35,28 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
     self.encoder = encoder
   }
 
+  // MARK: Internal
+
+  /// The XML encoder used for encoding values.
+  let encoder: _XMLEncoder
+  /// The XML node being encoded.
+  let node: XMLNode
+  /// The number of children (encoded values) in the current node.
+  var count: Int = 0
+
+  /// The coding path of the current encoding process.
+  var codingPath: [CodingKey] { encoder.codingPath }
+
   /// Encodes a value and appends it as a child of the current node.
   /// - Parameter value: The value to encode, which must conform to
   ///   `LosslessStringConvertible`.
-  func box<T: LosslessStringConvertible>(_ value: T) -> XMLNode {
+  func box(_ value: some LosslessStringConvertible) -> XMLNode {
     .init(name: encoder.currentKey, text: "\(value)")
   }
 
   // MARK: -
 
-  func encodeNil() throws { }
+  func encodeNil() throws {}
 
   func encode(_ value: Bool) throws { node.children?.append(box(value)); count += 1 }
   func encode(_ value: String) throws { node.children?.append(box(value)); count += 1 }
@@ -80,10 +84,10 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
 
   // MARK: - Type
 
-  func encode<T>(_ value: T) throws where T: Encodable {
+  func encode(_ value: some Encodable) throws {
     encoder.codingPath.append(XMLCodingKey(stringValue: encoder.currentKey, intValue: count))
     defer { self.encoder.codingPath.removeLast() }
-    
+
     let child = try encoder.box(value)
     if node !== child {
       node.addChild(child)
@@ -93,7 +97,7 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
 
   // MARK: -
 
-  func nestedContainer<NestedKey>(keyedBy keyType: NestedKey.Type) -> KeyedEncodingContainer<NestedKey> where NestedKey: CodingKey {
+  func nestedContainer<NestedKey>(keyedBy _: NestedKey.Type) -> KeyedEncodingContainer<NestedKey> where NestedKey: CodingKey {
     fatalError()
   }
 

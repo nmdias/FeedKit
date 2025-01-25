@@ -1,32 +1,67 @@
 //
-//  JSONFeedItem.swift
+// JSONFeedItem.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 /// An individual item of a JSON Feed, acting as a container for metadata and data
 /// associated with the item.
 public struct JSONFeedItem {
+  // MARK: Lifecycle
+
+  public init(
+    id: String? = nil,
+    url: String? = nil,
+    externalURL: String? = nil,
+    title: String? = nil,
+    contentText: String? = nil,
+    contentHtml: String? = nil,
+    summary: String? = nil,
+    image: String? = nil,
+    bannerImage: String? = nil,
+    datePublished: Date? = nil,
+    dateModified: Date? = nil,
+    author: JSONFeedAuthor? = nil,
+    tags: [String]? = nil,
+    attachments: [JSONFeedAttachment]? = nil
+  ) {
+    self.id = id
+    self.url = url
+    self.externalURL = externalURL
+    self.title = title
+    self.contentText = contentText
+    self.contentHtml = contentHtml
+    self.summary = summary
+    self.image = image
+    self.bannerImage = bannerImage
+    self.datePublished = datePublished
+    self.dateModified = dateModified
+    self.author = author
+    self.tags = tags
+    self.attachments = attachments
+  }
+
+  // MARK: Public
+
   /// (required, string) is unique for that item for that feed over time. If an
   /// item is ever updated, the id should be unchanged. New items should never
   /// use a previously-used id. If an id is presented as a number or other type,
@@ -43,7 +78,7 @@ public struct JSONFeedItem {
   /// (very optional, string) is the URL of a page elsewhere. This is especially
   /// useful for linkblogs. If url links to where you're talking about a thing,
   /// then external_url links to the thing you're talking about.
-  public var externalUrl: String?
+  public var externalURL: String?
 
   /// (optional, string) is plain text. Microblog items in particular may omit
   /// titles.
@@ -103,37 +138,6 @@ public struct JSONFeedItem {
 
   /// (optional, array) lists related resources.
   public var attachments: [JSONFeedAttachment]?
-
-  public init(
-    id: String? = nil,
-    url: String? = nil,
-    externalUrl: String? = nil,
-    title: String? = nil,
-    contentText: String? = nil,
-    contentHtml: String? = nil,
-    summary: String? = nil,
-    image: String? = nil,
-    bannerImage: String? = nil,
-    datePublished: Date? = nil,
-    dateModified: Date? = nil,
-    author: JSONFeedAuthor? = nil,
-    tags: [String]? = nil,
-    attachments: [JSONFeedAttachment]? = nil) {
-    self.id = id
-    self.url = url
-    self.externalUrl = externalUrl
-    self.title = title
-    self.contentText = contentText
-    self.contentHtml = contentHtml
-    self.summary = summary
-    self.image = image
-    self.bannerImage = bannerImage
-    self.datePublished = datePublished
-    self.dateModified = dateModified
-    self.author = author
-    self.tags = tags
-    self.attachments = attachments
-  }
 }
 
 // MARK: - Sendable
@@ -173,7 +177,7 @@ extension JSONFeedItem: Codable {
     try container.encodeIfPresent(id, forKey: .id)
     try container.encodeIfPresent(title, forKey: .title)
     try container.encodeIfPresent(url, forKey: .url)
-    try container.encodeIfPresent(externalUrl, forKey: .external_url)
+    try container.encodeIfPresent(externalURL, forKey: .external_url)
     try container.encodeIfPresent(contentText, forKey: .content_text)
     try container.encodeIfPresent(contentHtml, forKey: .content_html)
     try container.encodeIfPresent(summary, forKey: .summary)
@@ -196,7 +200,7 @@ extension JSONFeedItem: Codable {
     }
     title = try values.decodeIfPresent(String.self, forKey: .title)
     url = try values.decodeIfPresent(String.self, forKey: .url)
-    externalUrl = try values.decodeIfPresent(String.self, forKey: .external_url)
+    externalURL = try values.decodeIfPresent(String.self, forKey: .external_url)
     contentText = try values.decodeIfPresent(String.self, forKey: .content_text)
     contentHtml = try values.decodeIfPresent(String.self, forKey: .content_html)
     summary = try values.decodeIfPresent(String.self, forKey: .summary)

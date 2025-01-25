@@ -1,26 +1,25 @@
 //
-//  DublinCore.swift
+// DublinCore.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 import XMLKit
@@ -30,6 +29,44 @@ import XMLKit
 ///
 /// See https://tools.ietf.org/html/rfc5013
 public struct DublinCore {
+  // MARK: Lifecycle
+
+  public init(
+    title: String? = nil,
+    creator: String? = nil,
+    subject: String? = nil,
+    description: String? = nil,
+    publisher: String? = nil,
+    contributor: String? = nil,
+    date: Date? = nil,
+    type: String? = nil,
+    format: String? = nil,
+    identifier: String? = nil,
+    source: String? = nil,
+    language: String? = nil,
+    relation: String? = nil,
+    coverage: String? = nil,
+    rights: String? = nil
+  ) {
+    self.title = title
+    self.creator = creator
+    self.subject = subject
+    self.description = description
+    self.publisher = publisher
+    self.contributor = contributor
+    self.date = date
+    self.type = type
+    self.format = format
+    self.identifier = identifier
+    self.source = source
+    self.language = language
+    self.relation = relation
+    self.coverage = coverage
+    self.rights = rights
+  }
+
+  // MARK: Public
+
   /// A name given to the resource.
   public var title: String?
 
@@ -134,39 +171,6 @@ public struct DublinCore {
   /// rights associated with the resource, including intellectual property
   /// rights.
   public var rights: String?
-
-  public init(
-    title: String? = nil,
-    creator: String? = nil,
-    subject: String? = nil,
-    description: String? = nil,
-    publisher: String? = nil,
-    contributor: String? = nil,
-    date: Date? = nil,
-    type: String? = nil,
-    format: String? = nil,
-    identifier: String? = nil,
-    source: String? = nil,
-    language: String? = nil,
-    relation: String? = nil,
-    coverage: String? = nil,
-    rights: String? = nil) {
-    self.title = title
-    self.creator = creator
-    self.subject = subject
-    self.description = description
-    self.publisher = publisher
-    self.contributor = contributor
-    self.date = date
-    self.type = type
-    self.format = format
-    self.identifier = identifier
-    self.source = source
-    self.language = language
-    self.relation = relation
-    self.coverage = coverage
-    self.rights = rights
-  }
 }
 
 // MARK: - XMLNamespaceDecodable

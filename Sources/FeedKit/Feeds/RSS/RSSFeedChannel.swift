@@ -1,26 +1,25 @@
 //
-//  RSSFeed.swift
+// RSSFeedChannel.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
@@ -35,6 +34,62 @@ import Foundation
 /// Subordinate to the <rss> element is a single <channel> element, which
 /// contains information about the channel (metadata) and its contents.
 public struct RSSFeedChannel {
+  // MARK: Lifecycle
+
+  public init(
+    title: String? = nil,
+    link: String? = nil,
+    description: String? = nil,
+    language: String? = nil,
+    copyright: String? = nil,
+    managingEditor: String? = nil,
+    webMaster: String? = nil,
+    pubDate: Date? = nil,
+    lastBuildDate: Date? = nil,
+    categories: [RSSFeedCategory]? = nil,
+    generator: String? = nil,
+    docs: String? = nil,
+    cloud: RSSFeedCloud? = nil,
+    rating: String? = nil,
+    ttl: Int? = nil,
+    image: RSSFeedImage? = nil,
+    textInput: RSSFeedTextInput? = nil,
+    skipHours: RSSFeedSkipHours? = nil,
+    skipDays: RSSFeedSkipDays? = nil,
+    items: [RSSFeedItem]? = nil,
+    dublinCore: DublinCore? = nil,
+    iTunes: ITunes? = nil,
+    syndication: Syndication? = nil,
+    atom: Atom? = nil
+  ) {
+    self.title = title
+    self.link = link
+    self.description = description
+    self.language = language
+    self.copyright = copyright
+    self.managingEditor = managingEditor
+    self.webMaster = webMaster
+    self.pubDate = pubDate
+    self.lastBuildDate = lastBuildDate
+    self.categories = categories
+    self.generator = generator
+    self.docs = docs
+    self.cloud = cloud
+    self.rating = rating
+    self.ttl = ttl
+    self.image = image
+    self.textInput = textInput
+    self.skipHours = skipHours
+    self.skipDays = skipDays
+    self.items = items
+    self.dublinCore = dublinCore
+    self.iTunes = iTunes
+    self.syndication = syndication
+    self.atom = atom
+  }
+
+  // MARK: Public
+
   /// The name of the channel. It's how people refer to your service. If
   /// you have an HTML website that contains the same information as your
   /// RSS file, the title of your channel should be the same as the title
@@ -247,62 +302,11 @@ public struct RSSFeedChannel {
   ///
   /// See http://web.resource.org/rss/1.0/modules/syndication/
   public var syndication: Syndication?
-  
+
   /// Atom namespace in an RSS feed helps WebSub subscribers discover the topic
   /// and hub information.
   /// See https://www.w3.org/TR/websub/#discovery
   public var atom: Atom?
-
-  public init(
-    title: String? = nil,
-    link: String? = nil,
-    description: String? = nil,
-    language: String? = nil,
-    copyright: String? = nil,
-    managingEditor: String? = nil,
-    webMaster: String? = nil,
-    pubDate: Date? = nil,
-    lastBuildDate: Date? = nil,
-    categories: [RSSFeedCategory]? = nil,
-    generator: String? = nil,
-    docs: String? = nil,
-    cloud: RSSFeedCloud? = nil,
-    rating: String? = nil,
-    ttl: Int? = nil,
-    image: RSSFeedImage? = nil,
-    textInput: RSSFeedTextInput? = nil,
-    skipHours: RSSFeedSkipHours? = nil,
-    skipDays: RSSFeedSkipDays? = nil,
-    items: [RSSFeedItem]? = nil,
-    dublinCore: DublinCore? = nil,
-    iTunes: ITunes? = nil,
-    syndication: Syndication? = nil,
-    atom: Atom? = nil) {
-    self.title = title
-    self.link = link
-    self.description = description
-    self.language = language
-    self.copyright = copyright
-    self.managingEditor = managingEditor
-    self.webMaster = webMaster
-    self.pubDate = pubDate
-    self.lastBuildDate = lastBuildDate
-    self.categories = categories
-    self.generator = generator
-    self.docs = docs
-    self.cloud = cloud
-    self.rating = rating
-    self.ttl = ttl
-    self.image = image
-    self.textInput = textInput
-    self.skipHours = skipHours
-    self.skipDays = skipDays
-    self.items = items
-    self.dublinCore = dublinCore
-    self.iTunes = iTunes
-    self.syndication = syndication
-    self.atom = atom
-  }
 }
 
 // MARK: - Sendable
@@ -344,7 +348,7 @@ extension RSSFeedChannel: Codable {
     case dublinCore = "dc"
     case iTunes = "itunes"
     case syndication = "sy"
-    case atom = "atom"
+    case atom
   }
 
   public init(from decoder: any Decoder) throws {

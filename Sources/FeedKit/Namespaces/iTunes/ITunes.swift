@@ -1,26 +1,25 @@
 //
-//  iTunes.swift
+// ITunes.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 import XMLKit
@@ -28,6 +27,52 @@ import XMLKit
 /// iTunes Podcasting Tags are de facto standard for podcast syndication. For more
 /// information see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
 public struct ITunes {
+  // MARK: Lifecycle
+
+  public init(
+    author: String? = nil,
+    block: String? = nil,
+    categories: [iTunesCategory]? = nil,
+    image: iTunesImage? = nil,
+    duration: TimeInterval? = nil,
+    explicit: String? = nil,
+    isClosedCaptioned: String? = nil,
+    order: Int? = nil,
+    complete: String? = nil,
+    newFeedURL: String? = nil,
+    owner: iTunesOwner? = nil,
+    title: String? = nil,
+    subtitle: String? = nil,
+    summary: String? = nil,
+    keywords: String? = nil,
+    type: String? = nil,
+    episodeType: String? = nil,
+    season: Int? = nil,
+    episode: Int? = nil
+  ) {
+    self.author = author
+    self.block = block
+    self.categories = categories
+    self.image = image
+    self.duration = duration
+    self.explicit = explicit
+    self.isClosedCaptioned = isClosedCaptioned
+    self.order = order
+    self.complete = complete
+    self.newFeedURL = newFeedURL
+    self.owner = owner
+    self.title = title
+    self.subtitle = subtitle
+    self.summary = summary
+    self.keywords = keywords
+    self.type = type
+    self.episodeType = episodeType
+    self.season = season
+    self.episode = episode
+  }
+
+  // MARK: Public
+
   /// The content you specify in the <itunes:author> tag appears in the Artist
   /// column on the iTunes Store. If the tag is not present, the iTunes Store
   /// uses the contents of the <author> tag. If <itunes:author> is not present
@@ -240,47 +285,6 @@ public struct ITunes {
   /// Use the <itunes:episode> tag in conjunction with the <itunes:season> tag
   /// to indicate the order an episode should be presented within a season.
   public var episode: Int?
-
-  public init(
-    author: String? = nil,
-    block: String? = nil,
-    categories: [iTunesCategory]? = nil,
-    image: iTunesImage? = nil,
-    duration: TimeInterval? = nil,
-    explicit: String? = nil,
-    isClosedCaptioned: String? = nil,
-    order: Int? = nil,
-    complete: String? = nil,
-    newFeedURL: String? = nil,
-    owner: iTunesOwner? = nil,
-    title: String? = nil,
-    subtitle: String? = nil,
-    summary: String? = nil,
-    keywords: String? = nil,
-    type: String? = nil,
-    episodeType: String? = nil,
-    season: Int? = nil,
-    episode: Int? = nil) {
-    self.author = author
-    self.block = block
-    self.categories = categories
-    self.image = image
-    self.duration = duration
-    self.explicit = explicit
-    self.isClosedCaptioned = isClosedCaptioned
-    self.order = order
-    self.complete = complete
-    self.newFeedURL = newFeedURL
-    self.owner = owner
-    self.title = title
-    self.subtitle = subtitle
-    self.summary = summary
-    self.keywords = keywords
-    self.type = type
-    self.episodeType = episodeType
-    self.season = season
-    self.episode = episode
-  }
 }
 
 // MARK: - XMLNamespaceDecodable

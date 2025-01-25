@@ -1,30 +1,28 @@
 //
-//  SampleTests.swift
+// SampleTests.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
-
-@testable import XMLKit
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Testing
+@testable import XMLKit
 
 @Suite("Sample")
 struct SampleTests: XMLKitTestable {
@@ -32,7 +30,7 @@ struct SampleTests: XMLKitTestable {
   func xmlReader() throws {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
-    let reader = XMLReader(data: data)
+    let reader: XMLReader = .init(data: data)
     let expected: XMLNode = nodeMock
 
     // When
@@ -46,8 +44,8 @@ struct SampleTests: XMLKitTestable {
   func xmlString() throws {
     // Given
     let data = data(resource: "Sample", withExtension: "xml")
-    let expected = String(decoding: data, as: Unicode.UTF8.self)
-    let document = XMLDocument(root: nodeMock)
+    let expected: String = .init(decoding: data, as: Unicode.UTF8.self)
+    let document: XMLDocument = .init(root: nodeMock)
 
     // When
     let actual = document.toXMLString(formatted: true)
@@ -59,7 +57,7 @@ struct SampleTests: XMLKitTestable {
   @Test("Encode Node -> Model")
   func xmlDecoder() throws {
     // Given
-    let decoder = XMLDecoder()
+    let decoder: XMLDecoder = .init()
     let expected: Sample = sampleMock
 
     // When
@@ -72,8 +70,8 @@ struct SampleTests: XMLKitTestable {
   @Test("Encode Model -> Node -> Model")
   func xmlEncoderDecoder() throws {
     // Given
-    let encoder = XMLEncoder()
-    let decoder = XMLDecoder()
+    let encoder: XMLEncoder = .init()
+    let decoder: XMLDecoder = .init()
     let expected: Sample = sampleMock
 
     // When

@@ -1,26 +1,25 @@
 //
-//  MediaContent.swift
+// MediaContent.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
@@ -31,8 +30,74 @@ import Foundation
 /// audio/video specific, this element can be used to publish any type of
 /// media. It contains 14 attributes, most of which are optional.
 public struct MediaContent {
+  // MARK: Lifecycle
+
+  public init(
+    attributes: Attributes? = nil,
+    title: MediaTitle? = nil,
+    description: MediaDescription? = nil,
+    player: MediaPlayer? = nil,
+    thumbnails: [MediaThumbnail]? = nil,
+    keywords: [String]? = nil,
+    category: MediaCategory? = nil,
+    credits: [MediaCredit]? = nil,
+    rating: MediaRating? = nil,
+    hash: MediaHash? = nil,
+    text: MediaText? = nil
+  ) {
+    self.attributes = attributes
+    self.title = title
+    self.description = description
+    self.player = player
+    self.thumbnails = thumbnails
+    self.keywords = keywords
+    self.category = category
+    self.credits = credits
+    self.rating = rating
+    self.hash = hash
+    self.text = text
+  }
+
+  // MARK: Public
+
   /// The element's attributes.
   public struct Attributes: Codable, Equatable, Hashable, Sendable {
+    // MARK: Lifecycle
+
+    public init(
+      url: String? = nil,
+      fileSize: Int? = nil,
+      type: String? = nil,
+      medium: String? = nil,
+      isDefault: Bool? = nil,
+      expression: String? = nil,
+      bitrate: Int? = nil,
+      framerate: Double? = nil,
+      samplingrate: Double? = nil,
+      channels: Int? = nil,
+      duration: Int? = nil,
+      height: Int? = nil,
+      width: Int? = nil,
+      lang: String? = nil
+    ) {
+      self.url = url
+      self.fileSize = fileSize
+      self.type = type
+      self.medium = medium
+      self.isDefault = isDefault
+      self.expression = expression
+      self.bitrate = bitrate
+      self.framerate = framerate
+      self.samplingrate = samplingrate
+      self.channels = channels
+      self.duration = duration
+      self.height = height
+      self.width = width
+      self.lang = lang
+    }
+
+    // MARK: Public
+
     /// Should specify the direct URL to the media object. If not included,
     /// a <media:player> element must be specified.
     public var url: String?
@@ -93,37 +158,6 @@ public struct MediaContent {
     /// XML 1.0 Specification (Third Edition). It is an optional
     /// attribute.
     public var lang: String?
-
-    public init(
-      url: String? = nil,
-      fileSize: Int? = nil,
-      type: String? = nil,
-      medium: String? = nil,
-      isDefault: Bool? = nil,
-      expression: String? = nil,
-      bitrate: Int? = nil,
-      framerate: Double? = nil,
-      samplingrate: Double? = nil,
-      channels: Int? = nil,
-      duration: Int? = nil,
-      height: Int? = nil,
-      width: Int? = nil,
-      lang: String? = nil) {
-      self.url = url
-      self.fileSize = fileSize
-      self.type = type
-      self.medium = medium
-      self.isDefault = isDefault
-      self.expression = expression
-      self.bitrate = bitrate
-      self.framerate = framerate
-      self.samplingrate = samplingrate
-      self.channels = channels
-      self.duration = duration
-      self.height = height
-      self.width = width
-      self.lang = lang
-    }
   }
 
   /// The element's attributes
@@ -163,31 +197,6 @@ public struct MediaContent {
   public var hash: MediaHash?
 
   public var text: MediaText?
-
-  public init(
-    attributes: Attributes? = nil,
-    title: MediaTitle? = nil,
-    description: MediaDescription? = nil,
-    player: MediaPlayer? = nil,
-    thumbnails: [MediaThumbnail]? = nil,
-    keywords: [String]? = nil,
-    category: MediaCategory? = nil,
-    credits: [MediaCredit]? = nil,
-    rating: MediaRating? = nil,
-    hash: MediaHash? = nil,
-    text: MediaText? = nil) {
-    self.attributes = attributes
-    self.title = title
-    self.description = description
-    self.player = player
-    self.thumbnails = thumbnails
-    self.keywords = keywords
-    self.category = category
-    self.credits = credits
-    self.rating = rating
-    self.hash = hash
-    self.text = text
-  }
 }
 
 // MARK: - Sendable

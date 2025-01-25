@@ -16,13 +16,13 @@ let package = Package(
     .library(
       name: "FeedKit",
       targets: [
-        "FeedKit"
+        "FeedKit",
       ]
     ),
     .library(
       name: "XMLKit",
       targets: [
-        "XMLKit"
+        "XMLKit",
       ]
     ),
   ],
@@ -34,19 +34,19 @@ let package = Package(
       name: "XMLKitTests",
       dependencies: ["XMLKit"],
       resources: [
-        .process("Resources/xml/Sample.xml")
+        .process("Resources/xml/Sample.xml"),
       ]
     ),
     .target(
       name: "FeedKit",
       dependencies: [
-        "XMLKit"
+        "XMLKit",
       ]
     ),
     .testTarget(
       name: "FeedKitTests",
       dependencies: [
-        "FeedKit"
+        "FeedKit",
       ],
       resources: [
         .process("Resources/json/feed.json"),

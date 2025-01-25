@@ -1,26 +1,25 @@
 //
-//  XMLError.swift
+// XMLError.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
@@ -44,33 +43,33 @@ extension XMLError: LocalizedError {
   public var errorDescription: String? {
     switch self {
     case .notFound:
-      return "Feed not found."
+      "Feed not found."
     case .cdataDecoding:
-      return "Error decoding CDATA Block."
+      "Error decoding CDATA Block."
     case let .unexpected(reason):
-      return "Internal error: \(reason)."
+      "Internal error: \(reason)."
     }
   }
 
   public var failureReason: String? {
     switch self {
     case .notFound:
-      return "No recognizable feed was found in the parsed data."
+      "No recognizable feed was found in the parsed data."
     case let .cdataDecoding(element):
-      return "Failed to decode CDATA block to Unicode at element: \(element). Ensure the data is in UTF-8 format."
+      "Failed to decode CDATA block to Unicode at element: \(element). Ensure the data is in UTF-8 format."
     case let .unexpected(reason):
-      return "An internal error occurred that could not be resolved: \(reason)"
+      "An internal error occurred that could not be resolved: \(reason)"
     }
   }
 
   public var recoverySuggestion: String? {
     switch self {
     case .notFound:
-      return "Please provide a valid RSS, Atom, or JSON feed."
+      "Please provide a valid RSS, Atom, or JSON feed."
     case .cdataDecoding:
-      return "Verify that CDATA blocks are UTF-8 encoded."
+      "Verify that CDATA blocks are UTF-8 encoded."
     case .unexpected:
-      return "Consider submitting a detailed issue report on GitHub for assistance."
+      "Consider submitting a detailed issue report on GitHub for assistance."
     }
   }
 }
@@ -81,15 +80,15 @@ extension XMLError: CustomNSError {
   /// An error's code for the specified case.
   public var errorCode: Int {
     switch self {
-    case .notFound: return -1000
-    case .cdataDecoding: return -10001
-    case .unexpected: return -90000
+    case .notFound: -1000
+    case .cdataDecoding: -10001
+    case .unexpected: -90000
     }
   }
 
   /// The error's userInfo dictionary for the specified case.
   public var errorUserInfo: [String: Any] {
-    return [
+    [
       NSLocalizedDescriptionKey: errorDescription ?? "",
       NSLocalizedFailureReasonErrorKey: failureReason ?? "",
       NSLocalizedRecoverySuggestionErrorKey: recoverySuggestion ?? "",
@@ -98,12 +97,12 @@ extension XMLError: CustomNSError {
 
   /// The error's domain for the specified case.
   public static var errorDomain: String {
-    return "com.feedkit.error"
+    "com.feedkit.error"
   }
 
   /// The `NSError` from the specified case.
   public var error: NSError {
-    return NSError(
+    NSError(
       domain: XMLError.errorDomain,
       code: errorCode,
       userInfo: errorUserInfo

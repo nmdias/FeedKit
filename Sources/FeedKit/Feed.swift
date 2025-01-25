@@ -1,31 +1,30 @@
 //
-//  Feed.swift
+// Feed.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
 #if canImport(FoundationNetworking)
-import FoundationNetworking
+  import FoundationNetworking
 #endif
 
 /// `Feed` is an enum that can parse and hold either an `AtomFeed`, `RSSFeed`,
@@ -38,32 +37,32 @@ import FoundationNetworking
 ///
 /// Start by fetching and parsing a feed
 /// ```swift
-///let feed = try await Feed(url: feedURL)
-///```
+/// let feed = try await Feed(url: feedURL)
+/// ```
 ///
 /// Method 1: Pattern matching with switch
 ///
-///```swift
-///switch feed {
-///case .atom(let atomFeed):
+/// ```swift
+/// switch feed {
+/// case .atom(let atomFeed):
 ///    print("Atom feed title: \(atomFeed)")
-///case .rss(let rssFeed):
+/// case .rss(let rssFeed):
 ///    print("RSS feed title: \(rssFeed)")
-///case .json(let jsonFeed):
+/// case .json(let jsonFeed):
 ///    print("JSON feed title: \(jsonFeed)")
-///}
-///```
+/// }
+/// ```
 /// Method 2: Optional property access
 ///
-///```swift
+/// ```swift
 ///
-///if let atomFeed = feed.atom {
+/// if let atomFeed = feed.atom {
 ///    print("Atom feed: \(atomFeed)")
-///} else if let rssFeed = feed.rss {
+/// } else if let rssFeed = feed.rss {
 ///    print("RSS feed: \(rssFeed)")
-///} else if let jsonFeed = feed.json {
+/// } else if let jsonFeed = feed.json {
 ///    print("JSON feed: \(jsonFeed)")
-///}
+/// }
 /// ```
 ///
 /// Feed parsing supports both local and remote URLs, raw data, and string input.
@@ -85,11 +84,11 @@ extension Feed: FeedInitializable {
   /// Initializes a `Feed` by parsing content from the specified URL string.
   ///
   /// - Parameter urlString: A valid URL string pointing to a feed.
-  /// - Throws: `FeedError.invalidUrlString` if the URL string is invalid, or other
+  /// - Throws: `FeedError.invalidURLString` if the URL string is invalid, or other
   ///           parsing errors if the feed content cannot be processed.
   public init(urlString: String) async throws {
     guard let url = URL(string: urlString) else {
-      throw FeedError.invalidUrlString
+      throw FeedError.invalidURLString
     }
     try await self.init(url: url)
   }
@@ -123,7 +122,7 @@ extension Feed: FeedInitializable {
   /// - Throws: Network errors, HTTP errors, or parsing errors if the download
   ///           fails or the content is invalid.
   public init(remoteURL url: URL) async throws {
-    let session = URLSession.shared
+    let session: URLSession = .shared
     let (data, response) = try await session.data(from: url)
 
     guard let httpResponse = response as? HTTPURLResponse else {
@@ -161,14 +160,16 @@ extension Feed: FeedInitializable {
   ///           if parsing fails.
   public init(data: Data) throws {
     let feedType = try FeedType(data: data)
-    
+
     switch feedType {
     case .atom:
       let feed = try AtomFeed(data: data)
       self = .atom(feed)
+
     case .rss:
       let feed = try RSSFeed(data: data)
       self = .rss(feed)
+
     case .json:
       let feed = try JSONFeed(data: data)
       self = .json(feed)
@@ -178,13 +179,15 @@ extension Feed: FeedInitializable {
 
 // MARK: - Convenience Accessors
 
-extension Feed {
+public extension Feed {
   /// Returns the wrapped RSS feed if this feed is of type `.rss`.
   ///
   /// Use this property to safely access the RSS feed content when you expect
   /// an RSS format.
-  public var rss: RSSFeed? {
-    guard case let .rss(feed) = self else { return nil }
+  var rss: RSSFeed? {
+    guard case let .rss(feed) = self else {
+      return nil
+    }
     return feed
   }
 
@@ -192,8 +195,10 @@ extension Feed {
   ///
   /// Use this property to safely access the Atom feed content when you expect
   /// an Atom format.
-  public var atom: AtomFeed? {
-    guard case let .atom(feed) = self else { return nil }
+  var atom: AtomFeed? {
+    guard case let .atom(feed) = self else {
+      return nil
+    }
     return feed
   }
 
@@ -201,8 +206,10 @@ extension Feed {
   ///
   /// Use this property to safely access the JSON feed content when you expect
   /// a JSON format.
-  public var json: JSONFeed? {
-    guard case let .json(feed) = self else { return nil }
+  var json: JSONFeed? {
+    guard case let .json(feed) = self else {
+      return nil
+    }
     return feed
   }
 }

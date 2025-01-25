@@ -1,26 +1,25 @@
 //
-//  AtomFeedEntry.swift
+// AtomFeedEntry.swift
 //
-//  Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import Foundation
 
@@ -30,6 +29,42 @@ import Foundation
 /// appear as the document (i.e., top-level) element of a stand-alone
 /// Atom Entry Document.
 public struct AtomFeedEntry {
+  // MARK: Lifecycle
+
+  public init(
+    title: String? = nil,
+    summary: AtomFeedSummary? = nil,
+    authors: [AtomFeedAuthor]? = nil,
+    contributors: [AtomFeedContributor]? = nil,
+    links: [AtomFeedLink]? = nil,
+    updated: Date? = nil,
+    categories: [AtomFeedCategory]? = nil,
+    id: String? = nil,
+    content: AtomFeedContent? = nil,
+    published: Date? = nil,
+    source: AtomFeedSource? = nil,
+    rights: String? = nil,
+    media: Media? = nil,
+    youTube: YouTube? = nil
+  ) {
+    self.title = title
+    self.summary = summary
+    self.authors = authors
+    self.contributors = contributors
+    self.links = links
+    self.updated = updated
+    self.categories = categories
+    self.id = id
+    self.content = content
+    self.published = published
+    self.source = source
+    self.rights = rights
+    self.media = media
+    self.youTube = youTube
+  }
+
+  // MARK: Public
+
   /// The "atom:title" element is a Text construct that conveys a human-
   /// readable title for an entry or feed.
   public var title: String?
@@ -158,46 +193,15 @@ public struct AtomFeedEntry {
   /// then the atom:rights element of the containing atom:feed element, if
   /// present, is considered to apply to the entry.
   public var rights: String?
-  
+
   /// Media RSS is a new RSS module that supplements the <enclosure>
   /// capabilities of RSS 2.0.
   public var media: Media?
-  
+
   /// YouTube metadata contains channel ID and video ID for YouTube content.
   ///
   /// See https://developers.google.com/youtube/v3/guides/push_notifications
   public var youTube: YouTube?
-
-  public init(
-    title: String? = nil,
-    summary: AtomFeedSummary? = nil,
-    authors: [AtomFeedAuthor]? = nil,
-    contributors: [AtomFeedContributor]? = nil,
-    links: [AtomFeedLink]? = nil,
-    updated: Date? = nil,
-    categories: [AtomFeedCategory]? = nil,
-    id: String? = nil,
-    content: AtomFeedContent? = nil,
-    published: Date? = nil,
-    source: AtomFeedSource? = nil,
-    rights: String? = nil,
-    media: Media? = nil,
-    youTube: YouTube? = nil) {
-    self.title = title
-    self.summary = summary
-    self.authors = authors
-    self.contributors = contributors
-    self.links = links
-    self.updated = updated
-    self.categories = categories
-    self.id = id
-    self.content = content
-    self.published = published
-    self.source = source
-    self.rights = rights
-    self.media = media
-    self.youTube = youTube
-  }
 }
 
 // MARK: - Sendable
@@ -228,7 +232,7 @@ extension AtomFeedEntry: Codable {
     case published
     case source
     case rights
-    case media = "media"
+    case media
     case youTube = "yt"
   }
 
