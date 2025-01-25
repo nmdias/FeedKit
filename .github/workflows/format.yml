@@ -1,0 +1,29 @@
+name: Format
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  swift_format:
+    name: swift format
+    runs-on: macos-15
+    permissions:
+      contents: write
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 16.2
+        run: sudo xcode-select -s /Applications/Xcode_16.2.app
+
+      - name: Run format.sh
+        run: |
+          chmod +x ./format.sh
+          ./format.sh      
+
+      - name: Commit format
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Run format.sh
+          branch: 'main'
