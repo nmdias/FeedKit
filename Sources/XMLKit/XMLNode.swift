@@ -156,7 +156,7 @@ class XMLNode: Codable, Equatable, Hashable {
           .init(
             name: name,
             text: value
-          ),
+          )
         ]
       ))
     }

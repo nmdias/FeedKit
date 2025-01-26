@@ -32,7 +32,7 @@ extension ContentTests {
             content: .init(
               encoded: "<p>What a <em>beautiful</em> day!</p>"
             )
-          ),
+          )
         ]
       )
     )

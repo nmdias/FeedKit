@@ -58,7 +58,7 @@ extension FeedTests {
             title: "Information about the link is Human-readable",
             length: 5678
           )
-        ),
+        )
       ],
       updated: RFC3339DateFormatter().date(from: "2005-07-31T12:29:29Z"),
       categories: [
@@ -75,7 +75,7 @@ extension FeedTests {
             scheme: nil,
             label: nil
           )
-        ),
+        )
       ],
       authors: [
         .init(
@@ -87,7 +87,7 @@ extension FeedTests {
           name: "Mark the Pilgrim",
           email: "5678@example.com",
           uri: "http://example.org/"
-        ),
+        )
       ],
       contributors: [
         .init(
@@ -99,7 +99,7 @@ extension FeedTests {
           name: "John Doe",
           email: "2345@example.com",
           uri: "http://example.org/"
-        ),
+        )
       ],
       id: "tag:example.org,2003:3",
       generator: .init(
@@ -126,7 +126,7 @@ extension FeedTests {
               name: "Mark Pilgrim",
               email: "f8dy@example.com",
               uri: "http://example.org/"
-            ),
+            )
           ],
           contributors: [
             .init(
@@ -138,7 +138,7 @@ extension FeedTests {
               name: "Joe Gregorio",
               email: "2345@example.com",
               uri: "http://example.org/"
-            ),
+            )
           ],
           links: [
             .init(
@@ -160,7 +160,7 @@ extension FeedTests {
                 title: "Information about the link is Human-readable",
                 length: 1337
               )
-            ),
+            )
           ],
           updated: RFC3339DateFormatter().date(from: "2005-07-31T12:29:29Z"),
           categories: [
@@ -177,7 +177,7 @@ extension FeedTests {
                 scheme: nil,
                 label: nil
               )
-            ),
+            )
           ],
           id: "tag:example.org,2003:3.2397",
           content: .init(
@@ -190,7 +190,7 @@ extension FeedTests {
           published: RFC3339DateFormatter().date(from: "2003-12-13T08:29:29-04:00"),
           source: nil,
           rights: "Copyright (c) 2003, Mark Pilgrim"
-        ),
+        )
       ]
     )
   }

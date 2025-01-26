@@ -48,7 +48,7 @@ extension JSONTests {
         .init(
           type: "Type 2",
           url: "http://example2.org/"
-        ),
+        )
       ],
       items: [
         .init(
@@ -70,7 +70,7 @@ extension JSONTests {
           ),
           tags: [
             "tag1",
-            "tag2",
+            "tag2"
           ],
           attachments: [
             .init(
@@ -86,7 +86,7 @@ extension JSONTests {
               title: "256Kb's version",
               sizeInBytes: 89_970_236,
               durationInSeconds: 6629
-            ),
+            )
           ]
         ),
         .init(
@@ -104,7 +104,7 @@ extension JSONTests {
           author: nil,
           tags: nil,
           attachments: nil
-        ),
+        )
       ]
     )
   }

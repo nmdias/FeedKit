@@ -125,7 +125,7 @@ extension XMLReader: XMLParserDelegate {
                 text: $1
               )
             }
-          ),
+          )
         ]
       )
       )
@@ -160,7 +160,7 @@ extension XMLReader: XMLParserDelegate {
                   text: $1
                 )
               }
-            ),
+            )
           ]
         )
         )
@@ -260,6 +260,6 @@ extension XMLReader {
     .utf16BigEndian, // Big-endian UTF-16 encoding
     .isoLatin2, // ISO-8859-2 for Central and Eastern European languages
     .windowsCP1250, // Windows-1250 for Central European languages
-    .windowsCP1251, // Windows-1251 for Cyrillic-based languages
+    .windowsCP1251 // Windows-1251 for Cyrillic-based languages
   ]
 }

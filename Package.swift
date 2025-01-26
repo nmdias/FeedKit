@@ -10,21 +10,21 @@ let package = Package(
     .iOS(.v15),
     .watchOS(.v8),
     .tvOS(.v15),
-    .visionOS(.v1),
+    .visionOS(.v1)
   ],
   products: [
     .library(
       name: "FeedKit",
       targets: [
-        "FeedKit",
+        "FeedKit"
       ]
     ),
     .library(
       name: "XMLKit",
       targets: [
-        "XMLKit",
+        "XMLKit"
       ]
-    ),
+    )
   ],
   targets: [
     .target(
@@ -34,19 +34,19 @@ let package = Package(
       name: "XMLKitTests",
       dependencies: ["XMLKit"],
       resources: [
-        .process("Resources/xml/Sample.xml"),
+        .process("Resources/xml/Sample.xml")
       ]
     ),
     .target(
       name: "FeedKit",
       dependencies: [
-        "XMLKit",
+        "XMLKit"
       ]
     ),
     .testTarget(
       name: "FeedKitTests",
       dependencies: [
-        "FeedKit",
+        "FeedKit"
       ],
       resources: [
         .process("Resources/json/feed.json"),
@@ -62,8 +62,8 @@ let package = Package(
         .process("Resources/xml/Media.xml"),
         .process("Resources/xml/Syndication.xml"),
         .process("Resources/xml/iTunes.xml"),
-        .process("Resources/xml/YouTube.xml"),
+        .process("Resources/xml/YouTube.xml")
       ]
-    ),
+    )
   ]
 )

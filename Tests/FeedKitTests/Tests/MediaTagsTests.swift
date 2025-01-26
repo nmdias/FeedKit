@@ -34,7 +34,7 @@ struct MediaTagsTests {
     let expected: [MediaTag]? = [
       .init(tag: "news", weight: 5),
       .init(tag: "abc", weight: 3),
-      .init(tag: "reuters", weight: 1),
+      .init(tag: "reuters", weight: 1)
     ]
 
     // When

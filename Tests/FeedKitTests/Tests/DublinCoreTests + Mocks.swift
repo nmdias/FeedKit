@@ -46,7 +46,7 @@ extension DublinCoreTests {
               coverage: "coverage",
               rights: "rights"
             )
-          ),
+          )
         ],
         dublinCore: .init(
           title: "title",

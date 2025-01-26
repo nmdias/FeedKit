@@ -29,13 +29,13 @@ extension MediaTests {
 
     media.backLinks = .init(backLinks: [
       "http://www.backlink1.com",
-      "http://www.backlink2.com",
+      "http://www.backlink2.com"
     ])
 
     media.comments = .init(
       comments: [
         "comment1",
-        "comment2",
+        "comment2"
       ]
     )
 
@@ -88,7 +88,7 @@ extension MediaTests {
           thumbnails: nil,
           keywords: nil,
           category: nil
-        ),
+        )
       ],
       credits: [
         .init(
@@ -104,7 +104,7 @@ extension MediaTests {
             role: "owner",
             scheme: "urn:yvs"
           )
-        ),
+        )
       ],
       category: .init(
         text: "music/artist name/album/song",
@@ -192,10 +192,10 @@ extension MediaTests {
               height: "50",
               time: "12:05:01.123"
             )
-          ),
+          )
         ],
         keywords: [
-          "kitty", "cat", "big dog", "yarn", "fluffy",
+          "kitty", "cat", "big dog", "yarn", "fluffy"
         ],
         category: .init(
           text: "music/artistname/album/song",
@@ -218,7 +218,7 @@ extension MediaTests {
               role: "artist",
               scheme: nil
             )
-          ),
+          )
         ],
         rating: .init(
           text: "nonadult",
@@ -239,7 +239,7 @@ extension MediaTests {
             end: nil
           )
         )
-      ),
+      )
     ]
 
     media.thumbnails = [
@@ -260,7 +260,7 @@ extension MediaTests {
           height: "480",
           time: "12:05:01.123"
         )
-      ),
+      )
     ]
 
     media.embed = .init(
@@ -299,7 +299,7 @@ extension MediaTests {
           attributes: .init(
             name: "flashVars"
           )
-        ),
+        )
       ]
     )
 
@@ -348,7 +348,7 @@ extension MediaTests {
         .init(
           tag: "reuters",
           weight: 1
-        ),
+        )
       ]
     )
 
@@ -390,13 +390,13 @@ extension MediaTests {
           info: "http://www.dummy.jp/package_info.html",
           currency: "EUR"
         )
-      ),
+      )
     ]
 
     media.responses = .init(
       responses: [
         "http://www.response1.com",
-        "http://www.response2.com",
+        "http://www.response2.com"
       ]
     )
 
@@ -415,7 +415,7 @@ extension MediaTests {
           description: "sceneDesc1",
           startTime: 15,
           endTime: 45
-        ),
+        )
       ]
     )
 
@@ -424,7 +424,7 @@ extension MediaTests {
         items: [
           .init(
             media: media
-          ),
+          )
         ]
       )
     )

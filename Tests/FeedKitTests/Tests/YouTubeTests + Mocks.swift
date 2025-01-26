@@ -38,7 +38,7 @@ extension YouTubeTests {
             channelID: "UCE_M8A5yxnLfW0KghEeajjw",
             videoID: "j1HGOY32s2Y"
           )
-        ),
+        )
       ]
     )
   }

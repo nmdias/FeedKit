@@ -122,6 +122,6 @@ struct ConcurrencyView: View {
     "https://www.tomshardware.com/feeds/all",
     "https://www.venturebeat.com/feed/",
     "https://www.wired.com/feed/rss",
-    "https://www.zdnet.com/rss.xml",
+    "https://www.zdnet.com/rss.xml"
   ]
 }

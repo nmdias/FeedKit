@@ -86,7 +86,7 @@ class ISO8601DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
     [
       "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ",
       "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
-      "yyyy-MM-dd'T'HH:mm",
+      "yyyy-MM-dd'T'HH:mm"
     ]
   }
 
@@ -95,7 +95,7 @@ class ISO8601DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
       // Not fully compatible with ISO8601.
       // The correct ISO8601 format would separate the seconds (SS) from the timezone
       // offset (ZZZZZ) with a colon or period.
-      "yyyy-MM-dd'T'HH:mmSSZZZZZ",
+      "yyyy-MM-dd'T'HH:mmSSZZZZZ"
     ]
   }
 }
@@ -110,7 +110,7 @@ class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
       // RFC 3339 without fractional seconds.
       "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
       // RFC 3339 with 2-digit fractional seconds (limited precision).
-      "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ",
+      "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ"
     ]
   }
 
@@ -119,7 +119,7 @@ class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
       // Not fully compatible with RFC3339 (incorrect timezone format).
       "yyyy-MM-dd'T'HH:mm:ss-SS:ZZ",
       // Not fully compatible with RFC3339 (missing timezone information).
-      "yyyy-MM-dd'T'HH:mm:ss",
+      "yyyy-MM-dd'T'HH:mm:ss"
     ]
   }
 }
@@ -140,7 +140,7 @@ class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
       // RFC 822 compatible, similar to above but without seconds.
       "d MMM yyyy HH:mm zzz",
       // RFC 822 compatible, includes weekday, day, month, year, time, and timezone.
-      "EEE, dd MMM yyyy, HH:mm:ss zzz",
+      "EEE, dd MMM yyyy, HH:mm:ss zzz"
     ]
   }
 
@@ -150,7 +150,7 @@ class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
       // Non-standard, similar to RFC 822 with numeric timezone.
       "d MMM yyyy HH:mm:ss Z",
       // Non-standard, ISO-like format with numeric timezone.
-      "yyyy-MM-dd HH:mm:ss Z",
+      "yyyy-MM-dd HH:mm:ss Z"
     ]
   }
 

@@ -127,7 +127,7 @@ extension FeedError: CustomNSError {
     [
       NSLocalizedDescriptionKey: errorDescription ?? "",
       NSLocalizedFailureReasonErrorKey: failureReason ?? "",
-      NSLocalizedRecoverySuggestionErrorKey: recoverySuggestion ?? "",
+      NSLocalizedRecoverySuggestionErrorKey: recoverySuggestion ?? ""
     ]
   }
 

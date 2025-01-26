@@ -50,7 +50,7 @@ extension RSSAtomTests {
                 title: nil,
                 length: nil
               )
-            ),
+            )
           ]
         )
       )

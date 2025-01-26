@@ -50,7 +50,7 @@ extension iTunesTests {
               season: 3,
               episode: 2
             )
-          ),
+          )
         ],
         iTunes: .init(
           author: "Dan Carlin",
@@ -65,7 +65,7 @@ extension iTunesTests {
                   text: "History"
                 )
               )
-            ),
+            )
           ],
           image: .init(
             text: nil,

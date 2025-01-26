@@ -244,7 +244,7 @@ extension SampleTests {
         keywords: .init(
           keyword: [
             "Generic",
-            "Placeholder",
+            "Placeholder"
           ]
         ),
         namespace: .init(
@@ -261,7 +261,7 @@ extension SampleTests {
             details: .init(
               detail: [
                 "Detail 1A",
-                "Detail 1B",
+                "Detail 1B"
               ]
             ),
             xhtml: .init(
@@ -280,7 +280,7 @@ extension SampleTests {
             details: .init(
               detail: [
                 "Detail 2A",
-                "Detail 2B",
+                "Detail 2B"
               ]
             ),
             xhtml: .init(
@@ -291,7 +291,7 @@ extension SampleTests {
               <div xmlns="http://www.w3.org/1999/xhtml"><p><strong>Some markings</strong><a href="http://www.example.org/">Example</a></p><div class="blockquote"><p>On a quote...</p></div></div>
               """
             )
-          ),
+          )
         ]
       ),
       footer: .init(
@@ -314,7 +314,7 @@ extension SampleTests {
             .init(
               name: "xmlns:ns",
               text: "http://example.ns/namespace"
-            ),
+            )
           ]
         ),
         .init(
@@ -330,9 +330,9 @@ extension SampleTests {
                     .init(
                       name: "type",
                       text: "text"
-                    ),
+                    )
                   ]
-                ),
+                )
               ]
             ),
             .init(
@@ -353,7 +353,7 @@ extension SampleTests {
                 .init(
                   name: "keyword",
                   text: "Placeholder"
-                ),
+                )
               ]
             ),
             .init(
@@ -365,7 +365,7 @@ extension SampleTests {
               prefix: "ns",
               name: "ns:description",
               text: "This description is a sample namespace element."
-            ),
+            )
           ]
         ),
         .init(
@@ -396,7 +396,7 @@ extension SampleTests {
                     .init(
                       name: "detail",
                       text: "Detail 1B"
-                    ),
+                    )
                   ]
                 ),
                 .init(
@@ -412,11 +412,11 @@ extension SampleTests {
                         .init(
                           name: "type",
                           text: "xhtml"
-                        ),
+                        )
                       ]
-                    ),
+                    )
                   ]
-                ),
+                )
               ]
             ),
             .init(
@@ -444,7 +444,7 @@ extension SampleTests {
                     .init(
                       name: "detail",
                       text: "Detail 2B"
-                    ),
+                    )
                   ]
                 ),
                 .init(
@@ -460,13 +460,13 @@ extension SampleTests {
                         .init(
                           name: "type",
                           text: "xhtml"
-                        ),
+                        )
                       ]
-                    ),
+                    )
                   ]
-                ),
+                )
               ]
-            ),
+            )
           ]
         ),
         .init(
@@ -483,9 +483,9 @@ extension SampleTests {
             .init(
               name: "revision",
               text: "1"
-            ),
+            )
           ]
-        ),
+        )
       ]
     )
   }

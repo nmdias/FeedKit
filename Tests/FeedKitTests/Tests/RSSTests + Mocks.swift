@@ -45,7 +45,7 @@ extension RSSTests {
             attributes: .init(
               domain: "dmoz"
             )
-          ),
+          )
         ],
         generator: "Iris Gen",
         docs: "http://blogs.law.harvard.edu/tech/rss",
@@ -80,12 +80,12 @@ extension RSSTests {
             1,
             2,
             22,
-            23,
+            23
           ]
         ),
         skipDays: .init(
           days: [
-            .saturday, .sunday,
+            .saturday, .sunday
           ]
         ),
         items: [
@@ -103,7 +103,7 @@ extension RSSTests {
                 attributes: .init(
                   domain: "rec.arts.movies.reviews"
                 )
-              ),
+              )
             ],
             comments: "http://dallas.example.com/feedback/1983/06/joebob.htm",
             enclosure: .init(
@@ -141,7 +141,7 @@ extension RSSTests {
                 attributes: .init(
                   domain: "rec.arts.movies.reviews"
                 )
-              ),
+              )
             ],
             comments: "http://dallas.example.com/feedback/1983/06/joebob.htm",
             enclosure: .init(
@@ -164,7 +164,7 @@ extension RSSTests {
                 url: "http://la.example.com/rss.xml"
               )
             )
-          ),
+          )
         ]
       )
     )
