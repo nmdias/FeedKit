@@ -41,7 +41,8 @@ public struct XMLHeader: Sendable {
   public init(
     version: String = "1.0",
     encoding: String.Encoding = .utf8,
-    isStandalone: Bool? = nil) {
+    isStandalone: Bool? = nil
+  ) {
     self.version = version
     self.encoding = encoding
     self.isStandalone = isStandalone
