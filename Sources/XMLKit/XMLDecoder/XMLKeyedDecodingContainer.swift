@@ -66,15 +66,6 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
       return node.children?.isEmpty == true
     }
 
-    // Get the child element matching the given key
-    // Avoids initialization if all variables are nil.
-    if let child = node.child(for: key.stringValue),
-       child.text?.isEmpty ?? true,
-       child.children?.isEmpty ?? true
-    {
-      return true
-    }
-
     // If the element has some content (either text or children), it's not 'nil'
     return false
   }
