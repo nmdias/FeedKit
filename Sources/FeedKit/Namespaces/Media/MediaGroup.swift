@@ -35,12 +35,14 @@ public struct MediaGroup {
     contents: [MediaContent]? = nil,
     credits: [MediaCredit]? = nil,
     category: MediaCategory? = nil,
-    rating: MediaRating? = nil
+    rating: MediaRating? = nil,
+    description: MediaDescription? = nil
   ) {
     self.contents = contents
     self.credits = credits
     self.category = category
     self.rating = rating
+    self.description = description
   }
 
   // MARK: Public
@@ -68,6 +70,10 @@ public struct MediaGroup {
   /// included, it assumes that no restrictions are necessary. It has one
   /// optional attribute.
   public var rating: MediaRating?
+
+  /// Short description describing the media object typically a sentence in
+  /// length. It has one optional attribute.
+  public var description: MediaDescription?
 }
 
 // MARK: - Sendable
@@ -90,6 +96,7 @@ extension MediaGroup: Codable {
     case credits = "media:credit"
     case category = "media:category"
     case rating = "media:rating"
+    case description = "media:description"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -99,6 +106,7 @@ extension MediaGroup: Codable {
     credits = try container.decodeIfPresent([MediaCredit].self, forKey: MediaGroup.CodingKeys.credits)
     category = try container.decodeIfPresent(MediaCategory.self, forKey: MediaGroup.CodingKeys.category)
     rating = try container.decodeIfPresent(MediaRating.self, forKey: MediaGroup.CodingKeys.rating)
+    description = try container.decodeIfPresent(MediaDescription.self, forKey: MediaGroup.CodingKeys.description)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -108,5 +116,6 @@ extension MediaGroup: Codable {
     try container.encodeIfPresent(credits, forKey: MediaGroup.CodingKeys.credits)
     try container.encodeIfPresent(category, forKey: MediaGroup.CodingKeys.category)
     try container.encodeIfPresent(rating, forKey: MediaGroup.CodingKeys.rating)
+    try container.encodeIfPresent(description, forKey: MediaGroup.CodingKeys.description)
   }
 }

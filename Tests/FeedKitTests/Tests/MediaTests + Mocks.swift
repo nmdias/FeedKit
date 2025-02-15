@@ -118,6 +118,10 @@ extension MediaTests {
         attributes: .init(
           scheme: "urn:mpaa"
         )
+      ),
+      description: .init(
+        text: "What a wonderful description he found",
+        attributes: nil
       )
     )
 
