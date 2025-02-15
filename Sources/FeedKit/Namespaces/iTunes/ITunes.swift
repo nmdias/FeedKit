@@ -48,7 +48,7 @@ public struct ITunes {
     type: String? = nil,
     episodeType: String? = nil,
     season: Int? = nil,
-    episode: Int? = nil
+    episode: String? = nil
   ) {
     self.author = author
     self.block = block
@@ -284,7 +284,7 @@ public struct ITunes {
 
   /// Use the <itunes:episode> tag in conjunction with the <itunes:season> tag
   /// to indicate the order an episode should be presented within a season.
-  public var episode: Int?
+  public var episode: String?
 }
 
 // MARK: - XMLNamespaceDecodable
@@ -349,7 +349,7 @@ extension ITunes: Codable {
     type = try container.decodeIfPresent(String.self, forKey: CodingKeys.type)
     episodeType = try container.decodeIfPresent(String.self, forKey: CodingKeys.episodeType)
     season = try container.decodeIfPresent(Int.self, forKey: CodingKeys.season)
-    episode = try container.decodeIfPresent(Int.self, forKey: CodingKeys.episode)
+    episode = try container.decodeIfPresent(String.self, forKey: CodingKeys.episode)
   }
 
   public func encode(to encoder: any Encoder) throws {

@@ -48,7 +48,7 @@ extension iTunesTests {
               keywords: "Persia, Achaemenid, Xerxes, Darius, Artaxerxes, Greek, Macedonian, ancient history, military, Philip, Alexander, Spartan, Athens, Herodotus, Leonidas, podcast, Plataea, Issus, Salamis, Gaugamela",
               episodeType: "full",
               season: 3,
-              episode: 2
+              episode: "2"
             )
           )
         ],
