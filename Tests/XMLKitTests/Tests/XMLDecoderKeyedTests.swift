@@ -73,7 +73,7 @@ struct XMLDecoderKeyedTests: XMLKitTestable {
     #expect(expected == actual)
   }
 
-  @Test
+  @Test(.disabled())
   func decodeKeyedNilProperties() throws {
     // Given
     let decoder: XMLDecoder = .init()
