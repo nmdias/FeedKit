@@ -36,13 +36,15 @@ public struct MediaGroup {
     credits: [MediaCredit]? = nil,
     category: MediaCategory? = nil,
     rating: MediaRating? = nil,
-    description: MediaDescription? = nil
+    description: MediaDescription? = nil,
+    thumbnails: [MediaThumbnail]? = nil
   ) {
     self.contents = contents
     self.credits = credits
     self.category = category
     self.rating = rating
     self.description = description
+    self.thumbnails = thumbnails
   }
 
   // MARK: Public
@@ -74,6 +76,12 @@ public struct MediaGroup {
   /// Short description describing the media object typically a sentence in
   /// length. It has one optional attribute.
   public var description: MediaDescription?
+
+  /// Allows particular images to be used as representative images for the
+  /// media object. If multiple thumbnails are included, and time coding is not
+  /// at play, it is assumed that the images are in order of importance. It has
+  /// one required attribute and three optional attributes.
+  public var thumbnails: [MediaThumbnail]?
 }
 
 // MARK: - Sendable
@@ -97,6 +105,7 @@ extension MediaGroup: Codable {
     case category = "media:category"
     case rating = "media:rating"
     case description = "media:description"
+    case thumbnails = "media:thumbnail"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -107,6 +116,7 @@ extension MediaGroup: Codable {
     category = try container.decodeIfPresent(MediaCategory.self, forKey: MediaGroup.CodingKeys.category)
     rating = try container.decodeIfPresent(MediaRating.self, forKey: MediaGroup.CodingKeys.rating)
     description = try container.decodeIfPresent(MediaDescription.self, forKey: MediaGroup.CodingKeys.description)
+    thumbnails = try container.decodeIfPresent([MediaThumbnail].self, forKey: MediaGroup.CodingKeys.thumbnails)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -117,5 +127,6 @@ extension MediaGroup: Codable {
     try container.encodeIfPresent(category, forKey: MediaGroup.CodingKeys.category)
     try container.encodeIfPresent(rating, forKey: MediaGroup.CodingKeys.rating)
     try container.encodeIfPresent(description, forKey: MediaGroup.CodingKeys.description)
+    try container.encodeIfPresent(thumbnails, forKey: MediaGroup.CodingKeys.thumbnails)
   }
 }
