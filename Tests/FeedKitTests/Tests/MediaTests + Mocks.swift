@@ -122,7 +122,18 @@ extension MediaTests {
       description: .init(
         text: "What a wonderful description he found",
         attributes: nil
-      )
+      ),
+      thumbnails: [
+        .init(
+          text: nil,
+          attributes: .init(
+            url: "http://www.foo.com/keyframe3.jpg",
+            width: "480",
+            height: "360",
+            time: "12:05:01.123"
+          )
+        )
+      ]
     )
 
     media.contents = [
