@@ -171,4 +171,40 @@ struct DateTests {
     // Then
     #expect(dateStrings.count == dates.count)
   }
+
+  // MARK: - RFC1123
+
+  @Test
+  func rfc1123() {
+    // Given
+    let formatter: FeedDateFormatter = .init(spec: .rfc1123)
+    let dateString = "Fri, 06 Sep 2024 12:34:56 GMT"
+
+    let expected: DateComponents = .init(year: 2024, month: 9, day: 6, hour: 12, minute: 34, second: 56)
+
+    // When
+    let date = formatter.date(from: dateString)
+    let actual = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date!)
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func rfc1123Spec() {
+    // Given
+    let formatter: FeedDateFormatter = .init(spec: .rfc1123)
+    let dateStrings = [
+      "Fri, 06 Sep 2024 12:34:56 GMT",
+      "Fri, 06 Sep 2024"
+    ]
+
+    // When
+    let dates = dateStrings.compactMap { dateString -> Date? in
+      formatter.date(from: dateString)
+    }
+
+    // Then
+    #expect(dateStrings.count == dates.count)
+  }
 }
