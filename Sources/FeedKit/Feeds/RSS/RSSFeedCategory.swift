@@ -40,4 +40,4 @@ public struct RSSFeedCategoryAttributes: Codable, Equatable, Hashable, Sendable 
 
 /// The category of `<channel>`. Identifies a category or tag to which the feed
 /// belongs.
-public typealias RSSFeedCategory = XMLAttributesElement<RSSFeedCategoryAttributes>
+public typealias RSSFeedCategory = XMLKit.XMLElement<RSSFeedCategoryAttributes>
