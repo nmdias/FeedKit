@@ -272,9 +272,9 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
       rfc1123Formatter.date(from: string)
     case .permissive:
       rfc822Formatter.date(from: string) ??
-      rfc3339Formatter.date(from: string) ??
-      rfc1123Formatter.date(from: string) ??
-      iso8601Formatter.date(from: string)
+        rfc3339Formatter.date(from: string) ??
+        rfc1123Formatter.date(from: string) ??
+        iso8601Formatter.date(from: string)
     }
   }
 
