@@ -183,6 +183,25 @@ class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   }
 }
 
+// MARK: - RFC1123 formatter
+
+/// Formatter for RFC1123 date specification.
+class RFC1123DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
+  /// List of date formats supported for RFC1123.
+  override var dateFormats: [String] {
+    [
+      "EEE, dd MMM yyyy HH:mm:ss z"
+    ]
+  }
+
+  override var permissiveDateFormats: [String] {
+    [
+      // Omits the time and timezone
+      "EEE, dd MMM yyyy"
+    ]
+  }
+}
+
 // MARK: - DateSpec
 
 /// Enum representing different date specifications.
@@ -193,8 +212,10 @@ enum DateSpec {
   case rfc3339
   /// RFC822 date format (e.g., Tue, 05 Dec 2024 10:30:00 GMT).
   case rfc822
+  /// RFC1123 date format (e.g., Fri, 06 Sep 2024 12:34:56 GMT).
+  case rfc1123
   /// Permissive mode which attempts to parse the date using multiple formats.
-  /// It tries RFC822 first, then RFC3339, and finally ISO8601 in that order.
+  /// It tries RFC822 first, then RFC3339, RFC1123 and finally ISO8601 in that order.
   case permissive
 }
 
@@ -231,6 +252,9 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
   /// RFC822 date formatter.
   lazy var rfc822Formatter: RFC822DateFormatter = .init()
 
+  /// RFC1123 date formatter.
+  lazy var rfc1123Formatter: RFC1123DateFormatter = .init()
+
   /// Converts a string to a Date based on the given date specification.
   ///
   /// - Parameters:
@@ -244,10 +268,13 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
       rfc3339Formatter.date(from: string)
     case .rfc822:
       rfc822Formatter.date(from: string)
+    case .rfc1123:
+      rfc1123Formatter.date(from: string)
     case .permissive:
       rfc822Formatter.date(from: string) ??
-        rfc3339Formatter.date(from: string) ??
-        iso8601Formatter.date(from: string)
+      rfc3339Formatter.date(from: string) ??
+      rfc1123Formatter.date(from: string) ??
+      iso8601Formatter.date(from: string)
     }
   }
 
@@ -264,6 +291,8 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
       rfc3339Formatter.string(from: date)
     case .rfc822:
       rfc822Formatter.string(from: date)
+    case .rfc1123:
+      rfc1123Formatter.string(from: date)
     case .permissive:
       fatalError()
     }
