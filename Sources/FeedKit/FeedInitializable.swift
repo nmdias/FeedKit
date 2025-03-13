@@ -31,36 +31,36 @@ import XMLKit
 public protocol FeedInitializable: Codable {
   /// Initializes from a URL string pointing to a feed.
   /// - Parameter urlString: The URL string of the feed.
-  /// - Parameter customDateFormat The optional string that defines weird date formats
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if the URL string is invalid or loading fails.
   init(urlString: String, customDateFormatter: DateFormatter?) async throws
 
   /// Initializes from a URL pointing to a feed.
   /// - Parameter url: The URL of the feed.
-  /// - Parameter customDateFormat The optional string that defines weird date formats
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if the URL is invalid or loading fails.
   init(url: URL, customDateFormatter: DateFormatter?) async throws
 
   /// Initializes from a file URL.
   /// - Parameter url: The local file URL of the feed.
-  /// - Parameter customDateFormat The optional string that defines weird date formats
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if the file cannot be read or parsed.
   init(fileURL url: URL, customDateFormatter: DateFormatter?) throws
   /// Initializes from a remote URL.
   /// - Parameter url: The remote URL of the feed.
-  /// - Parameter customDateFormat The optional string that defines weird date formats
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if fetching or parsing fails.
   init(remoteURL url: URL, customDateFormatter: DateFormatter?) async throws
 
   /// Initializes from a string.
   /// - Parameter string: The feed content as a string.
-  /// - Parameter customDateFormat The optional string that defines weird date formats
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if the string cannot be parsed.
   init(string: String, customDateFormatter: DateFormatter?) throws
 
   /// Initializes from data.
   /// - Parameter data: The feed content as raw data.
-  /// - Parameter customDateFormat The optional string that defines weird date formats
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if the data cannot be parsed.
   init(data: Data, customDateFormatter: DateFormatter?) throws
 }
@@ -70,7 +70,7 @@ public protocol FeedInitializable: Codable {
 public extension FeedInitializable {
   /// Default implementation for initializing from a URL string.
   /// - Parameter urlString: The URL string of the feed.
-  /// - Parameter customDateFormat The optional string that defines weird date formats
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if the feed cannot be loaded or parsed.
   init(urlString: String, customDateFormatter: DateFormatter? = nil) async throws {
     guard let url = URL(string: urlString) else {
@@ -81,6 +81,7 @@ public extension FeedInitializable {
 
   /// Default implementation for initializing from a URL.
   /// - Parameter url: The URL of the feed.
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if the feed cannot be loaded or parsed.
   init(url: URL, customDateFormatter: DateFormatter? = nil) async throws {
     if url.isFileURL {
@@ -92,7 +93,7 @@ public extension FeedInitializable {
 
   /// Initializes from a file URL.
   /// - Parameter url: The local file URL of the feed.
-  /// - Parameter url: The URL of the feed.
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if the file cannot be read or parsed.
   init(fileURL url: URL, customDateFormatter: DateFormatter? = nil) throws {
     let data = try Data(contentsOf: url)
@@ -101,7 +102,7 @@ public extension FeedInitializable {
 
   /// Initializes from a remote URL.
   /// - Parameter url: The remote URL of the feed.
-  /// - Parameter url: The URL of the feed.
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if fetching or parsing fails.
   init(remoteURL url: URL, customDateFormatter: DateFormatter? = nil) async throws {
     let session: URLSession = .shared
@@ -121,7 +122,7 @@ public extension FeedInitializable {
 
   /// Default implementation for initializing from a string.
   /// - Parameter string: The feed content as a string.
-  /// - Parameter url: The URL of the feed.
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if the string cannot be converted to data or parsed.
   init(string: String, customDateFormatter: DateFormatter? = nil) throws {
     guard let data = string.data(using: .utf8) else {
@@ -132,7 +133,7 @@ public extension FeedInitializable {
 
   /// Default implementation for initializing from data.
   /// - Parameter data: The feed content as raw data.
-  /// - Parameter url: The URL of the feed.
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Throws: An error if parsing or decoding fails.
   init(data: Data, customDateFormatter: DateFormatter? = nil) throws {
     self = try Self.decode(data: data, customDateFormatter: customDateFormatter)
@@ -144,6 +145,7 @@ public extension FeedInitializable {
 extension FeedInitializable {
   /// Helper method for decoding data into a model.
   /// - Parameter data: The raw feed data.
+  /// - Parameter customDateFormatter: The optional `DateFormatter` that can be used to handle weird formats
   /// - Returns: A parsed feed model conforming to `FeedInitializable`.
   private static func decode(data: Data, customDateFormatter: DateFormatter? = nil) throws -> Self {
     let decoder: XMLDecoder = .init()
