@@ -226,6 +226,7 @@ enum DateSpec {
   /// Permissive mode which attempts to parse the date using multiple formats.
   /// It tries RFC822 first, then RFC3339, RFC1123 and finally ISO8601 in that order.
   case permissive
+  case custom(DateFormatter)
 }
 
 // MARK: - FeedDateFormatter
@@ -284,6 +285,8 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
         rfc3339Formatter.date(from: string) ??
         rfc1123Formatter.date(from: string) ??
         iso8601Formatter.date(from: string)
+    case .custom(let formatter):
+      formatter.date(from: string)
     }
   }
 
@@ -304,6 +307,8 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
       rfc1123Formatter.string(from: date)
     case .permissive:
       fatalError()
+    case .custom(let formatter):
+      formatter.string(from: date)
     }
   }
 }
