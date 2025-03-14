@@ -58,10 +58,10 @@ class PermissiveDateFormatter: DateFormatter, @unchecked Sendable {
 
     // Attempts parsing with the last successful format first to avoid
     // unnecessary iterations over all formats.
-    if dateFormat != nil && !dateFormat.isEmpty {
-        if let date = super.date(from: trimmedString) {
-            return date
-        }
+    if dateFormat != nil, !dateFormat.isEmpty {
+      if let date = super.date(from: trimmedString) {
+        return date
+      }
     }
 
     for format in dateFormats + permissiveDateFormats {
