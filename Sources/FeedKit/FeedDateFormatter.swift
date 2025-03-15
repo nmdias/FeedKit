@@ -89,7 +89,7 @@ class PermissiveDateFormatter: DateFormatter, @unchecked Sendable {
 // MARK: - ISO8601 formatter
 
 /// Formatter for ISO8601 date specification.
-class ISO8601DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
+final class ISO8601DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   /// List of date formats supported for ISO8601.
   override var dateFormats: [String] {
     [
@@ -112,7 +112,7 @@ class ISO8601DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
 // MARK: - RFC3339 formatter
 
 /// Formatter for RFC3339 date specification.
-class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
+final class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   /// List of date formats supported for RFC3339.
   override var dateFormats: [String] {
     [
@@ -133,10 +133,14 @@ class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   }
 }
 
+extension RFC3339DateFormatter {
+    static let shared = RFC3339DateFormatter()
+}
+
 // MARK: - RFC822 formatter
 
 /// Formatter for RFC822 date specification with backup formats.
-class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
+final class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   /// List of date formats supported for RFC822.
   override var dateFormats: [String] {
     [
@@ -195,7 +199,7 @@ class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
 // MARK: - RFC1123 formatter
 
 /// Formatter for RFC1123 date specification.
-class RFC1123DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
+final class RFC1123DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   /// List of date formats supported for RFC1123.
   override var dateFormats: [String] {
     [
@@ -230,8 +234,8 @@ enum DateSpec {
 
 // MARK: - FeedDateFormatter
 
-/// A formatter that handles multiple date specifications (ISO8601, RFC3339, RFC822).
-class FeedDateFormatter: DateFormatter, @unchecked Sendable {
+/// A formatter that handles multiple date specifications (ISO8601, RFC3339, RFC822, RFC1123).
+final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
   // MARK: Lifecycle
 
   /// Initializes the date formatter with a specified date format.
@@ -256,7 +260,7 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
   lazy var iso8601Formatter: ISO8601DateFormatter = .init()
 
   /// RFC3339 date formatter.
-  lazy var rfc3339Formatter: RFC3339DateFormatter = .init()
+  lazy var rfc3339Formatter: RFC3339DateFormatter = .shared
 
   /// RFC822 date formatter.
   lazy var rfc822Formatter: RFC822DateFormatter = .init()
