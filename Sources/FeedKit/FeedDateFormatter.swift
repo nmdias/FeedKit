@@ -225,7 +225,7 @@ enum DateSpec {
 
 // MARK: - FeedDateFormatter
 
-/// A formatter that handles multiple date specifications (ISO8601, RFC3339, RFC822).
+/// A formatter that handles multiple date specifications (ISO8601, RFC3339, RFC822, RFC1123).
 final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
   // MARK: Lifecycle
 
