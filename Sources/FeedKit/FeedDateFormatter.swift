@@ -124,6 +124,10 @@ class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
   }
 }
 
+extension RFC3339DateFormatter {
+    static let shared = RFC3339DateFormatter()
+}
+
 // MARK: - RFC822 formatter
 
 /// Formatter for RFC822 date specification with backup formats.
@@ -247,7 +251,7 @@ class FeedDateFormatter: DateFormatter, @unchecked Sendable {
   lazy var iso8601Formatter: ISO8601DateFormatter = .init()
 
   /// RFC3339 date formatter.
-  lazy var rfc3339Formatter: RFC3339DateFormatter = .init()
+  lazy var rfc3339Formatter: RFC3339DateFormatter = .shared
 
   /// RFC822 date formatter.
   lazy var rfc822Formatter: RFC822DateFormatter = .init()
