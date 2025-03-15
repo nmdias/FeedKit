@@ -134,7 +134,7 @@ final class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
 }
 
 extension RFC3339DateFormatter {
-    static let shared = RFC3339DateFormatter()
+  static let shared: RFC3339DateFormatter = .init()
 }
 
 // MARK: - RFC822 formatter
