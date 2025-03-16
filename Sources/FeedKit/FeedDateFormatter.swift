@@ -56,6 +56,10 @@ class PermissiveDateFormatter: DateFormatter, @unchecked Sendable {
   override func date(from string: String) -> Date? {
     let trimmedString = string.trimmingCharacters(in: .whitespacesAndNewlines)
 
+    guard !trimmedString.isEmpty else {
+      return nil
+    }
+
     // Attempts parsing with the last successful format first to avoid
     // unnecessary iterations over all formats.
     if dateFormat != nil, !dateFormat.isEmpty {
@@ -270,7 +274,11 @@ final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
   ///   - string: The date string to be parsed.
   /// - Returns: A Date object if parsing is successful, otherwise nil.
   override func date(from string: String) -> Date? {
-    switch spec {
+    guard !string.isEmpty else {
+      return nil
+    }
+
+    return switch spec {
     case .iso8601:
       iso8601Formatter.date(from: string)
     case .rfc3339:
