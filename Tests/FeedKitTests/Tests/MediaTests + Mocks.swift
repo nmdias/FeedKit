@@ -333,6 +333,39 @@ extension MediaTests {
         href: "http://www.foo.org/subtitle.smil"
       )
     )
+      
+    media.group?.community = .init(
+      starRating: .init(
+        text: nil,
+        attributes: .init(
+          average: 3.5,
+          count: 20,
+          min: 1,
+          max: 10
+        )
+      ),
+      statistics: .init(
+        text: nil,
+        attributes: .init(
+          views: 5,
+          favorites: 5
+        )
+      ),
+      tags: [
+        .init(
+          tag: "news",
+          weight: 5
+        ),
+        .init(
+          tag: "abc",
+          weight: 3
+        ),
+        .init(
+          tag: "reuters",
+          weight: 1
+        )
+      ]
+    )
 
     media.community = .init(
       starRating: .init(

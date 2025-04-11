@@ -37,7 +37,8 @@ public struct MediaGroup {
     category: MediaCategory? = nil,
     rating: MediaRating? = nil,
     description: MediaDescription? = nil,
-    thumbnails: [MediaThumbnail]? = nil
+    thumbnails: [MediaThumbnail]? = nil,
+    community: MediaCommunity? = nil
   ) {
     self.contents = contents
     self.credits = credits
@@ -45,6 +46,7 @@ public struct MediaGroup {
     self.rating = rating
     self.description = description
     self.thumbnails = thumbnails
+    self.community = community
   }
 
   // MARK: Public
@@ -82,6 +84,11 @@ public struct MediaGroup {
   /// at play, it is assumed that the images are in order of importance. It has
   /// one required attribute and three optional attributes.
   public var thumbnails: [MediaThumbnail]?
+  
+  /// This element stands for the community related content. This allows
+  /// inclusion of the user perception about a media object in the form of view
+  /// count, ratings and tags.
+  public var community: MediaCommunity?
 }
 
 // MARK: - Sendable
@@ -106,6 +113,7 @@ extension MediaGroup: Codable {
     case rating = "media:rating"
     case description = "media:description"
     case thumbnails = "media:thumbnail"
+    case community = "media:community"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -117,6 +125,7 @@ extension MediaGroup: Codable {
     rating = try container.decodeIfPresent(MediaRating.self, forKey: MediaGroup.CodingKeys.rating)
     description = try container.decodeIfPresent(MediaDescription.self, forKey: MediaGroup.CodingKeys.description)
     thumbnails = try container.decodeIfPresent([MediaThumbnail].self, forKey: MediaGroup.CodingKeys.thumbnails)
+    community = try container.decodeIfPresent(MediaCommunity.self, forKey: MediaGroup.CodingKeys.community)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -128,5 +137,6 @@ extension MediaGroup: Codable {
     try container.encodeIfPresent(rating, forKey: MediaGroup.CodingKeys.rating)
     try container.encodeIfPresent(description, forKey: MediaGroup.CodingKeys.description)
     try container.encodeIfPresent(thumbnails, forKey: MediaGroup.CodingKeys.thumbnails)
+    try container.encodeIfPresent(community, forKey: MediaGroup.CodingKeys.community)
   }
 }
