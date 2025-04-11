@@ -12,6 +12,11 @@
         <media:rating scheme="urn:mpaa">nonadult</media:rating>
         <media:description>What a wonderful description he found</media:description>
         <media:thumbnail url="http://www.foo.com/keyframe3.jpg" width="480" height="360" time="12:05:01.123" />
+        <media:community>
+          <media:starRating average="3.5" count="20" min="1" max="10" />
+          <media:statistics views="5" favorites="5" />
+          <media:tags>news: 5, abc:3, reuters</media:tags>
+        </media:community>
       </media:group>
       <media:content url="http://www.foo.com/video.mov" fileSize="12216320" type="video/quicktime" medium="video" isDefault="true" expression="full" bitrate="128" framerate="25" samplingrate="44.1" channels="2" duration="185" height="300" width="200" lang="en">
       </media:content>
