@@ -333,7 +333,7 @@ extension MediaTests {
         href: "http://www.foo.org/subtitle.smil"
       )
     )
-      
+
     media.group?.community = .init(
       starRating: .init(
         text: nil,
