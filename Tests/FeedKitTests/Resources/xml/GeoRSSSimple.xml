@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:georss="http://www.georss.org/georss" xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+      <georss:point>45 -5</georss:point>
+      <georss:elev>1234</georss:elev>
+  </entry>
+</feed>
