@@ -45,7 +45,8 @@ public struct AtomFeedEntry {
     source: AtomFeedSource? = nil,
     rights: String? = nil,
     media: Media? = nil,
-    youTube: YouTube? = nil
+    youTube: YouTube? = nil,
+    geoRSS: GeoRSSSimple? = nil
   ) {
     self.title = title
     self.summary = summary
@@ -61,6 +62,7 @@ public struct AtomFeedEntry {
     self.rights = rights
     self.media = media
     self.youTube = youTube
+    self.geoRSS = geoRSS
   }
 
   // MARK: Public
@@ -202,6 +204,8 @@ public struct AtomFeedEntry {
   ///
   /// See https://developers.google.com/youtube/v3/guides/push_notifications
   public var youTube: YouTube?
+
+  public var geoRSS: GeoRSSSimple?
 }
 
 // MARK: - Sendable
@@ -234,6 +238,7 @@ extension AtomFeedEntry: Codable {
     case rights
     case media
     case youTube = "yt"
+    case geoRSS = "georss"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -251,8 +256,9 @@ extension AtomFeedEntry: Codable {
     published = try container.decodeIfPresent(Date.self, forKey: CodingKeys.published)
     source = try container.decodeIfPresent(AtomFeedSource.self, forKey: CodingKeys.source)
     rights = try container.decodeIfPresent(String.self, forKey: CodingKeys.rights)
-    media = try container.decodeIfPresent(Media.self, forKey: .media)
-    youTube = try container.decodeIfPresent(YouTube.self, forKey: .youTube)
+    media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
+    youTube = try container.decodeIfPresent(YouTube.self, forKey: CodingKeys.youTube)
+    geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -272,5 +278,6 @@ extension AtomFeedEntry: Codable {
     try container.encodeIfPresent(rights, forKey: CodingKeys.rights)
     try container.encodeIfPresent(media, forKey: CodingKeys.media)
     try container.encodeIfPresent(youTube, forKey: CodingKeys.youTube)
+    try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
   }
 }

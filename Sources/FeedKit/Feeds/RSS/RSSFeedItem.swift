@@ -48,7 +48,8 @@ public struct RSSFeedItem {
     dublinCore: DublinCore? = nil,
     content: Content? = nil,
     iTunes: ITunes? = nil,
-    media: Media? = nil
+    media: Media? = nil,
+    geoRSS: GeoRSSSimple? = nil
   ) {
     self.title = title
     self.link = link
@@ -64,6 +65,7 @@ public struct RSSFeedItem {
     self.content = content
     self.iTunes = iTunes
     self.media = media
+    self.geoRSS = geoRSS
   }
 
   // MARK: Public
@@ -223,6 +225,8 @@ public struct RSSFeedItem {
   /// Media RSS is a new RSS module that supplements the <enclosure>
   /// capabilities of RSS 2.0.
   public var media: Media?
+    
+  public var geoRSS: GeoRSSSimple?
 }
 
 // MARK: - Sendable
@@ -255,6 +259,7 @@ extension RSSFeedItem: Codable {
     case content
     case iTunes = "itunes"
     case media
+    case geoRSS = "georss"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -274,6 +279,7 @@ extension RSSFeedItem: Codable {
     content = try container.decodeIfPresent(Content.self, forKey: CodingKeys.content)
     iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
     media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
+    geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -293,5 +299,6 @@ extension RSSFeedItem: Codable {
     try container.encodeIfPresent(content, forKey: CodingKeys.content)
     try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
     try container.encodeIfPresent(media, forKey: CodingKeys.media)
+    try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
   }
 }

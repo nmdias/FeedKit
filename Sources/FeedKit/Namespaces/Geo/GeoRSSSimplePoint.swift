@@ -1,5 +1,5 @@
 //
-// GeoRSS.swift
+// GeoRSSSimplePoint.swift
 //
 // Copyright (c) 2016 - 2025 Nuno Dias
 //
@@ -21,55 +21,57 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import Foundation
-
-/// GeoRSS is designed as a lightweight, community driven way to extend existing
-/// RSS feeds with simple geographic information. The GeoRSS standard provides for
-/// encoding location in an interoperable manner so that applications can request,
-/// aggregate, share and map geographically tag feeds.
-public struct GeoRSS {
-  // MARK: Lifecycle
-
-  public init(gmlPoint: GMLPoint? = nil) {
-    self.gmlPoint = gmlPoint
+public struct GeoRSSSimplePoint {
+  public init(position: (latitude: Double, longitude: Double)? = nil) {
+    self.position = position
   }
 
-  // MARK: Internal
+  // MARK: Public
 
-  /// A point consists of a GML <Point> element with a child <pos> element.
-  /// Within<pos> the latitude and longitude coordinate values are separated
-  /// by a space.
-  public var gmlPoint: GMLPoint?
+  /// The geographical position represented as latitude and longitude
+  /// for a <georss:point> element.
+  ///
+  /// - The `position` is an optional tuple containing the latitude and longitude
+  ///   as `Double` values. If not provided, it defaults to `nil`.
+  public var position: (latitude: Double, longitude: Double)?
 }
 
 // MARK: - Sendable
 
-extension GeoRSS: Sendable {}
+extension GeoRSSSimplePoint: Sendable {}
 
 // MARK: - Equatable
 
-extension GeoRSS: Equatable {}
+extension GeoRSSSimplePoint: Equatable {
+  public static func == (lhs: GeoRSSSimplePoint, rhs: GeoRSSSimplePoint) -> Bool {
+    lhs.position?.latitude == rhs.position?.latitude && lhs.position?.longitude == rhs.position?.longitude
+  }
+}
 
 // MARK: - Hashable
 
-extension GeoRSS: Hashable {}
+extension GeoRSSSimplePoint: Hashable {
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(position?.latitude)
+    hasher.combine(position?.longitude)
+  }
+}
 
 // MARK: - Codable
 
-extension GeoRSS: Codable {
-  private enum CodingKeys: String, CodingKey {
-    case gmlPoint = "gml:Point"
-  }
-
+extension GeoRSSSimplePoint: Codable {
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+    let container = try decoder.singleValueContainer()
 
-    gmlPoint = try container.decodeIfPresent(GMLPoint.self, forKey: CodingKeys.gmlPoint)
+    position = try container.decode(String.self).toGMLPosition()
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+    var container = encoder.singleValueContainer()
 
-    try container.encodeIfPresent(gmlPoint, forKey: CodingKeys.gmlPoint)
+    if let position {
+      let positionString = "\(position.latitude) \(position.longitude)"
+      try container.encode(positionString)
+    }
   }
 }
