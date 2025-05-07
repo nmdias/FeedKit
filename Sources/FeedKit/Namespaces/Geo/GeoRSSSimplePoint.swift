@@ -63,8 +63,7 @@ extension GeoRSSSimplePoint: Codable {
   public init(from decoder: any Decoder) throws {
     let container = try decoder.singleValueContainer()
 
-    let position = try container.decode(String.self).toGMLPosition()
-    self.position = position
+    position = try container.decode(String.self).toGMLPosition()
   }
 
   public func encode(to encoder: any Encoder) throws {
