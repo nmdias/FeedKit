@@ -84,7 +84,7 @@ public extension FeedType {
 }
 
 /// The number of bytes to inspect when determining the feed type.
-private let inspectionPrefixLength = 200
+private let inspectionPrefixLength = 128
 
 // MARK: - FeedInitializable
 
@@ -94,8 +94,12 @@ extension FeedType: FeedInitializable {
   /// - Parameter data: A `Data` object representing a feed to be inspected.
   /// - Returns: A `FeedType` if the data matches a known feed format, otherwise `nil`.
   public init(data: Data) throws {
-    // Inspect only the first 200 bytes. This helps improve performance while
-    // still providing enough data to reliably detect the feed format.
+    guard data.count >= inspectionPrefixLength else {
+      throw FeedError.unknownFeedFormat
+    }
+
+    // Inspect only the first `inspectionPrefixLength` bytes. This helps improve performance
+    // while still providing enough data to reliably detect the feed format.
     let string: String = .init(decoding: data.prefix(inspectionPrefixLength), as: UTF8.self)
 
     // Determine the feed type
