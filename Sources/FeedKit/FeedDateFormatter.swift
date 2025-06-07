@@ -163,7 +163,9 @@ final class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
       // Non-standard, similar to RFC 822 with numeric timezone.
       "d MMM yyyy HH:mm:ss Z",
       // Non-standard, ISO-like format with numeric timezone.
-      "yyyy-MM-dd HH:mm:ss Z"
+      "yyyy-MM-dd HH:mm:ss Z",
+      // Non-standard format with both numeric and named timezones (e.g. "UTC").
+      "yyyy-MM-dd HH:mm:ss Z zzz"
     ]
   }
 
