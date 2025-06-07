@@ -49,7 +49,7 @@ protocol FeedKitTestable {
   ///   - directory: The directory in which the file will be saved (e.g.,
   ///     `.documentDirectory`).
   ///   - fileName: The name of the file to be saved.
-  func save<T: Codable>(_ object: T, to directory: FileManager.SearchPathDirectory, as fileName: String)
+  func save(_ object: some Codable, to directory: FileManager.SearchPathDirectory, as fileName: String)
 }
 
 extension FeedKitTestable {
