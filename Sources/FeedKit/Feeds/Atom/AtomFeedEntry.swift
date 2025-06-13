@@ -45,7 +45,8 @@ public struct AtomFeedEntry {
     source: AtomFeedSource? = nil,
     rights: String? = nil,
     media: Media? = nil,
-    youTube: YouTube? = nil
+    youTube: YouTube? = nil,
+    dublinCore: DublinCore? = nil
   ) {
     self.title = title
     self.summary = summary
@@ -61,6 +62,7 @@ public struct AtomFeedEntry {
     self.rights = rights
     self.media = media
     self.youTube = youTube
+    self.dublinCore = dublinCore
   }
 
   // MARK: Public
@@ -202,6 +204,12 @@ public struct AtomFeedEntry {
   ///
   /// See https://developers.google.com/youtube/v3/guides/push_notifications
   public var youTube: YouTube?
+    
+  /// The Dublin Core Metadata Element Set is a standard for cross-domain
+  /// resource description.
+  ///
+  /// See https://tools.ietf.org/html/rfc5013
+  public var dublinCore: DublinCore?
 }
 
 // MARK: - Sendable
@@ -234,6 +242,7 @@ extension AtomFeedEntry: Codable {
     case rights
     case media
     case youTube = "yt"
+    case dublinCore = "dc"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -253,6 +262,7 @@ extension AtomFeedEntry: Codable {
     rights = try container.decodeIfPresent(String.self, forKey: CodingKeys.rights)
     media = try container.decodeIfPresent(Media.self, forKey: .media)
     youTube = try container.decodeIfPresent(YouTube.self, forKey: .youTube)
+    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -272,5 +282,6 @@ extension AtomFeedEntry: Codable {
     try container.encodeIfPresent(rights, forKey: CodingKeys.rights)
     try container.encodeIfPresent(media, forKey: CodingKeys.media)
     try container.encodeIfPresent(youTube, forKey: CodingKeys.youTube)
+    try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
   }
 }

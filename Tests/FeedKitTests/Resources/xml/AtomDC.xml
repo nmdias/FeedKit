@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://purl.org/atom/ns#" version="0.3" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <dc:title>title</dc:title>
+  <dc:creator>creator</dc:creator>
+  <dc:subject>subject</dc:subject>
+  <dc:description>description</dc:description>
+  <dc:publisher>publisher</dc:publisher>
+  <dc:contributor>contributor</dc:contributor>
+  <dc:date>Sat, 1 Jan 2000 12:00:00 GMT</dc:date>
+  <dc:type>type</dc:type>
+  <dc:format>format</dc:format>
+  <dc:identifier>identifier</dc:identifier>
+  <dc:source>source</dc:source>
+  <dc:language>language</dc:language>
+  <dc:relation>relation</dc:relation>
+  <dc:coverage>coverage</dc:coverage>
+  <dc:rights>rights</dc:rights>
+  <entry>
+    <dc:title>title</dc:title>
+    <dc:creator>creator</dc:creator>
+    <dc:subject>subject</dc:subject>
+    <dc:description>description</dc:description>
+    <dc:publisher>publisher</dc:publisher>
+    <dc:contributor>contributor</dc:contributor>
+    <dc:date>Sat, 1 Jan 2000 12:00:00 GMT</dc:date>
+    <dc:type>type</dc:type>
+    <dc:format>format</dc:format>
+    <dc:identifier>identifier</dc:identifier>
+    <dc:source>source</dc:source>
+    <dc:language>language</dc:language>
+    <dc:relation>relation</dc:relation>
+    <dc:coverage>coverage</dc:coverage>
+    <dc:rights>rights</dc:rights>
+  </entry>
+</feed>
