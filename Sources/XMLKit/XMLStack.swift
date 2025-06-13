@@ -23,7 +23,7 @@
 
 import Foundation
 
-class XMLStack {
+struct XMLStack {
   // MARK: Internal
 
   /// The number of `XMLNode` instances in the stack.
@@ -33,20 +33,20 @@ class XMLStack {
 
   /// Pushes an `XMLNode` onto the stack.
   /// - Parameter node: The `XMLNode` to add to the stack.
-  func push(_ node: XMLNode) {
+  mutating func push(_ node: XMLNode) {
     stack.append(node)
   }
 
   /// Removes and returns the top `XMLNode` from the stack.
   /// - Returns: The top `XMLNode` if the stack is not empty, otherwise `nil`.
   @discardableResult
-  func pop() -> XMLNode? {
+  mutating func pop() -> XMLNode? {
     stack.popLast()
   }
 
   /// Returns the top `XMLNode` without removing it from the stack.
   /// - Returns: The top `XMLNode` if the stack is not empty, otherwise `nil`.
-  func top() -> XMLNode? {
+  mutating func top() -> XMLNode? {
     stack.last
   }
 
