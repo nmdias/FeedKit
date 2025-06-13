@@ -99,9 +99,9 @@ class XMLNode: Codable, Equatable, Hashable {
     hasher.combine(text)
     hasher.combine(isXhtml)
 
-    // Recursively hash the children
+    // Hash children if present
     if let children {
-      hasher.combine(children.map(\.hashValue))
+      hasher.combine(children)
     }
   }
 
