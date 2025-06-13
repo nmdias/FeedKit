@@ -46,7 +46,8 @@ public struct AtomFeed {
     icon: String? = nil,
     logo: String? = nil,
     rights: String? = nil,
-    entries: [AtomFeedEntry]? = nil
+    entries: [AtomFeedEntry]? = nil,
+    dublinCore: DublinCore? = nil
   ) {
     self.title = title
     self.subtitle = subtitle
@@ -61,6 +62,7 @@ public struct AtomFeed {
     self.logo = logo
     self.rights = rights
     self.entries = entries
+    self.dublinCore = dublinCore
   }
 
   // MARK: Public
@@ -193,6 +195,12 @@ public struct AtomFeed {
   /// appear as the document (i.e., top-level) element of a stand-alone
   /// Atom Entry Document.
   public var entries: [AtomFeedEntry]?
+  
+  /// The Dublin Core Metadata Element Set is a standard for cross-domain
+  /// resource description.
+  ///
+  /// See https://tools.ietf.org/html/rfc5013
+  public var dublinCore: DublinCore?
 }
 
 // MARK: - Sendable
@@ -210,7 +218,7 @@ extension AtomFeed: Hashable {}
 // MARK: - Codable
 
 extension AtomFeed: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case title
     case subtitle
     case link
@@ -224,6 +232,7 @@ extension AtomFeed: Codable {
     case logo
     case rights
     case entry
+    case dublinCore = "dc"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -241,6 +250,7 @@ extension AtomFeed: Codable {
     logo = try container.decodeIfPresent(String.self, forKey: CodingKeys.logo)
     rights = try container.decodeIfPresent(String.self, forKey: CodingKeys.rights)
     entries = try container.decodeIfPresent([AtomFeedEntry].self, forKey: CodingKeys.entry)
+    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -258,6 +268,7 @@ extension AtomFeed: Codable {
     try container.encodeIfPresent(logo, forKey: CodingKeys.logo)
     try container.encodeIfPresent(rights, forKey: CodingKeys.rights)
     try container.encodeIfPresent(entries, forKey: CodingKeys.entry)
+    try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
   }
 }
 

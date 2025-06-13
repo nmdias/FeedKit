@@ -58,6 +58,7 @@ let package = Package(
         .process("Resources/xml/FeedNotFound.xml"),
         .process("Resources/xml/RSS.xml"),
         .process("Resources/xml/RSSDC.xml"),
+        .process("Resources/xml/AtomDC.xml"),
         .process("Resources/xml/RSSAtom.xml"),
         .process("Resources/xml/Media.xml"),
         .process("Resources/xml/Syndication.xml"),

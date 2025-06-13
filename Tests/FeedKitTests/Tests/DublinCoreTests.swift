@@ -27,10 +27,10 @@ import Testing
 @Suite("Dublin Core")
 struct DublinCoreTests: FeedKitTestable {
   @Test
-  func dublinCore() throws {
+  func dublinCoreRSS() throws {
     // Given
     let data = data(resource: "RSSDC", withExtension: "xml")
-    let expected: RSSFeed = mock
+    let expected: RSSFeed = rssMock
 
     // When
     let actual = try RSSFeed(data: data)
@@ -38,4 +38,18 @@ struct DublinCoreTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
+  
+  @Test
+  func dublinCoreAtom() throws {
+    // Given
+    let data = data(resource: "AtomDC", withExtension: "xml")
+    let expected: AtomFeed = atomMock
+    
+    // When
+    let actual = try AtomFeed(data: data)
+    
+    // Then
+    #expect(expected == actual)
+  }
+  
 }
