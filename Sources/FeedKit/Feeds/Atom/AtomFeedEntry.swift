@@ -204,7 +204,7 @@ public struct AtomFeedEntry {
   ///
   /// See https://developers.google.com/youtube/v3/guides/push_notifications
   public var youTube: YouTube?
-    
+
   /// The Dublin Core Metadata Element Set is a standard for cross-domain
   /// resource description.
   ///

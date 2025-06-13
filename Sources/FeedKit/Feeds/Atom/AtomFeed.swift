@@ -195,7 +195,7 @@ public struct AtomFeed {
   /// appear as the document (i.e., top-level) element of a stand-alone
   /// Atom Entry Document.
   public var entries: [AtomFeedEntry]?
-  
+
   /// The Dublin Core Metadata Element Set is a standard for cross-domain
   /// resource description.
   ///

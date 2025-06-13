@@ -68,7 +68,7 @@ extension DublinCoreTests {
       )
     )
   }
-  
+
   var atomMock: AtomFeed {
     .init(
       entries: [
@@ -110,6 +110,5 @@ extension DublinCoreTests {
         rights: "rights"
       )
     )
-  }    
-    
+  }
 }
