@@ -103,8 +103,8 @@ extension XMLReader: XMLParserDelegate {
   ) {
     // Determine prefix and namespace
     var prefix: String?
-    if elementName.contains(":") {
-      prefix = elementName.components(separatedBy: ":").first
+    if let prefixDelimiterIndex = elementName.firstIndex(of: ":") {
+      prefix = String(elementName[..<prefixDelimiterIndex])
     }
 
     // Check if the element contains XHTML. If so, avoid building a tree.
