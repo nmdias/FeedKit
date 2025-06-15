@@ -141,6 +141,8 @@ final class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
 
 /// Formatter for RFC822 date specification with backup formats.
 final class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
+  // MARK: Internal
+
   /// List of date formats supported for RFC822.
   override var dateFormats: [String] {
     [
@@ -180,8 +182,7 @@ final class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
     // handle these in full compliance with Unicode tr35-31. For example,
     // "Tues, 6 November 2007 12:00:00 GMT" is rejected because of the "Tues",
     // even though "Tues" is used as an example for EEE in tr35-31.
-    let trimRegEx = try! NSRegularExpression(pattern: "^[a-zA-Z]+, ([\\w :+-]+)$")
-    let trimmed = trimRegEx.stringByReplacingMatches(
+    let trimmed = Self.trimRegEx.stringByReplacingMatches(
       in: string,
       options: [],
       range: NSMakeRange(0, string.count),
@@ -196,6 +197,10 @@ final class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
     }
     return nil
   }
+
+  // MARK: Private
+
+  private static let trimRegEx = try! NSRegularExpression(pattern: "^[a-zA-Z]+, ([\\w :+-]+)$")
 }
 
 // MARK: - RFC1123 formatter
