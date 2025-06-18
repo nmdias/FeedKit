@@ -260,21 +260,6 @@ final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
 
   // MARK: Internal
 
-  /// The date specification to use for formatting dates.
-  let spec: DateSpec
-
-  /// ISO8601 date formatter.
-  lazy var iso8601Formatter: ISO8601DateFormatter = .init()
-
-  /// RFC3339 date formatter.
-  lazy var rfc3339Formatter: RFC3339DateFormatter = .init()
-
-  /// RFC822 date formatter.
-  lazy var rfc822Formatter: RFC822DateFormatter = .init()
-
-  /// RFC1123 date formatter.
-  lazy var rfc1123Formatter: RFC1123DateFormatter = .init()
-
   /// Converts a string to a Date based on the given date specification.
   ///
   /// - Parameters:
@@ -321,4 +306,21 @@ final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
       fatalError()
     }
   }
+
+  // MARK: Private
+
+  /// The date specification to use for formatting dates.
+  private let spec: DateSpec
+
+  /// ISO8601 date formatter.
+  private lazy var iso8601Formatter: ISO8601DateFormatter = .init()
+
+  /// RFC3339 date formatter.
+  private lazy var rfc3339Formatter: RFC3339DateFormatter = .init()
+
+  /// RFC822 date formatter.
+  private lazy var rfc822Formatter: RFC822DateFormatter = .init()
+
+  /// RFC1123 date formatter.
+  private lazy var rfc1123Formatter: RFC1123DateFormatter = .init()
 }
