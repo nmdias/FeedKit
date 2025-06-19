@@ -1,4 +1,10 @@
-<img src="./Assets/FeedKit.png" width="500"><br>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./Assets/FeedKit-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./Assets/FeedKit.svg">
+  <img width="500px" alt="FeedKit Logo" src="./Assets/FeedKit.svg">
+</picture>
+
+<p/>  
 
 [![CI](https://github.com/nmdias/FeedKit/actions/workflows/ci.yml/badge.svg)](https://github.com/nmdias/FeedKit/actions/workflows/ci.yml)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/nmdias/FeedKit)
