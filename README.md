@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./Assets/FeedKit-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./Assets/FeedKit.svg">
-  <img width="500px" alt="FeedKit Logo" src="./Assets/FeedKit.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/nmdias/FeedKit/raw/main/Assets/FeedKit-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/nmdias/FeedKit/raw/main/Assets/FeedKit.svg">
+  <img width="500px" alt="FeedKit Logo" src="https://github.com/nmdias/FeedKit/raw/main/Assets/FeedKit.svg">
 </picture>
 
 <p/>  
