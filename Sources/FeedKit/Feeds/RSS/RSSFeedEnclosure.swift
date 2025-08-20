@@ -37,6 +37,32 @@ public struct RSSFeedEnclosureAttributes: Codable, Equatable, Hashable, Sendable
     self.type = type
   }
 
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    
+    url = try container.decodeIfPresent(String.self, forKey: .url)
+    type = try container.decodeIfPresent(String.self, forKey: .type)
+    
+    // Handle length attribute gracefully - try to decode as Int64, but if it fails, set to nil
+    if let lengthString = try container.decodeIfPresent(String.self, forKey: .length) {
+      let trimmedLength = lengthString.trimmingCharacters(in: .whitespacesAndNewlines)
+      if !trimmedLength.isEmpty {
+        length = Int64(trimmedLength)
+      } else {
+        length = nil
+      }
+    } else {
+      length = nil
+    }
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encodeIfPresent(url, forKey: .url)
+    try container.encodeIfPresent(length?.description, forKey: .length)
+    try container.encodeIfPresent(type, forKey: .type)
+  }
+
   // MARK: Public
 
   /// Where the enclosure is located.
@@ -53,6 +79,14 @@ public struct RSSFeedEnclosureAttributes: Codable, Equatable, Hashable, Sendable
   ///
   /// Example: audio/mpeg
   public var type: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url
+    case length
+    case type
+  }
 }
 
 /// Describes a media object that is attached to the item.

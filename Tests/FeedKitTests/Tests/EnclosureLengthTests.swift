@@ -95,4 +95,82 @@ struct EnclosureLengthTests {
     #expect(item4.enclosure?.attributes?.url == "https://example.com/episode4.mp3")
     #expect(item4.enclosure?.attributes?.length == 12345678) // Valid length should work
   }
+
+  @Test
+  func enclosureWithExtremelyLargeLength() throws {
+    // Given - RSS feed with extremely large length value
+    let feedXML = """
+    <?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0">
+      <channel>
+        <title>Test Feed</title>
+        <description>Test feed with extreme length values</description>
+        <link>https://example.com</link>
+        
+        <item>
+          <title>Test Episode with huge length</title>
+          <description>Episode with length larger than Int64.max</description>
+          <enclosure url="https://example.com/huge.mp3" length="99999999999999999999999999999" type="audio/mpeg" />
+        </item>
+        
+        <item>
+          <title>Test Episode with negative length</title>
+          <description>Episode with negative length</description>
+          <enclosure url="https://example.com/negative.mp3" length="-123" type="audio/mpeg" />
+        </item>
+        
+        <item>
+          <title>Test Episode with zero length</title>
+          <description>Episode with zero length</description>
+          <enclosure url="https://example.com/zero.mp3" length="0" type="audio/mpeg" />
+        </item>
+        
+      </channel>
+    </rss>
+    """
+    
+    let data = feedXML.data(using: .utf8)!
+    
+    // When & Then - This should not crash
+    let feed = try Feed(data: data)
+    
+    let items = feed.rss?.channel?.items ?? []
+    #expect(items.count == 3)
+    
+    // Check extreme length values
+    let item1 = items[0]
+    #expect(item1.enclosure?.attributes?.url == "https://example.com/huge.mp3")
+    #expect(item1.enclosure?.attributes?.length == nil) // Huge length should be nil
+    
+    let item2 = items[1]
+    #expect(item2.enclosure?.attributes?.url == "https://example.com/negative.mp3")
+    #expect(item2.enclosure?.attributes?.length == -123) // Negative length should work
+    
+    let item3 = items[2]
+    #expect(item3.enclosure?.attributes?.url == "https://example.com/zero.mp3")
+    #expect(item3.enclosure?.attributes?.length == 0) // Zero length should work
+  }
+
+  @Test
+  func enclosureEncodingRoundTrip() throws {
+    // Given - Create an enclosure with known attributes
+    let attributes = RSSFeedEnclosureAttributes(
+      url: "https://example.com/test.mp3",
+      length: 12345678,
+      type: "audio/mpeg"
+    )
+    let enclosure = RSSFeedEnclosure(attributes: attributes)
+    
+    // When - Encode and decode
+    let encoder = JSONEncoder()
+    let encodedData = try encoder.encode(enclosure)
+    
+    let decoder = JSONDecoder()
+    let decodedEnclosure = try decoder.decode(RSSFeedEnclosure.self, from: encodedData)
+    
+    // Then - Verify round-trip
+    #expect(decodedEnclosure.attributes?.url == "https://example.com/test.mp3")
+    #expect(decodedEnclosure.attributes?.length == 12345678)
+    #expect(decodedEnclosure.attributes?.type == "audio/mpeg")
+  }
 }
