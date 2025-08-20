@@ -171,12 +171,28 @@ class _XMLDecoder: Decoder {
   /// - Returns: A decoded value of the specified type.
   /// - Throws: An error if the text is nil or conversion fails.
   func decode<T: LosslessStringConvertible>(_ node: XMLNode, as type: T.Type) throws -> T {
-    guard let text = node.text, let value = T(text) else {
+    guard let text = node.text else {
       throw DecodingError.valueNotFound(type, .init(
         codingPath: codingPath,
         debugDescription: "Expected text but found nil"
       ))
     }
+    
+    // Trim whitespace for numeric types, but preserve original text for String types
+    let processedText: String
+    if type is any Numeric.Type {
+      processedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+    } else {
+      processedText = text
+    }
+    
+    guard let value = T(processedText) else {
+      throw DecodingError.valueNotFound(type, .init(
+        codingPath: codingPath,
+        debugDescription: "Expected text but found nil"
+      ))
+    }
+    
     return value
   }
 
@@ -193,14 +209,29 @@ class _XMLDecoder: Decoder {
   func decode<T: LosslessStringConvertible>(_ node: XMLNode, as type: T.Type, for key: some CodingKey) throws -> T {
     guard
       let child = node.child(for: key.stringValue),
-      let text = child.text,
-      let value = T(text)
+      let text = child.text
     else {
       throw DecodingError.dataCorrupted(.init(
         codingPath: codingPath,
         debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)"
       ))
     }
+    
+    // Trim whitespace for numeric types, but preserve original text for String types
+    let processedText: String
+    if type is any Numeric.Type {
+      processedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+    } else {
+      processedText = text
+    }
+    
+    guard let value = T(processedText) else {
+      throw DecodingError.dataCorrupted(.init(
+        codingPath: codingPath,
+        debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)"
+      ))
+    }
+    
     return value
   }
 }
