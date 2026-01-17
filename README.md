@@ -27,6 +27,7 @@ FeedKit is a Swift library for Reading and Generating RSS, Atom, and JSON feeds.
   - [x] [GML](http://www.opengis.net/gml)
   - [x] [iTunes](http://www.itunes.com/dtds/podcast-1.0.dtd)
   - [x] [YouTube](http://www.youtube.com/xml/schemas/2015)
+  - [x] [Podcast](https://podcastindex.org/namespace/1.0)
 - [x] Examples
 - [x] [Documentation](https://swiftpackageindex.com/nmdias/FeedKit/main/documentation/feedkit)
 - [x] Unit Tests
