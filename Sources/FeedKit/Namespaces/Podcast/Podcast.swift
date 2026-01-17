@@ -32,7 +32,7 @@ import XMLKit
 /// See https://github.com/Podcastindex-org/podcast-namespace
 public struct Podcast {
   // MARK: Lifecycle
-    
+
   public init(
     guid: String? = nil,
     transcripts: [PodcastTranscript]? = nil
@@ -43,6 +43,7 @@ public struct Podcast {
   }
 
   // MARK: Public
+
   /// This element is used to declare a unique, global identifier for a podcast.
   /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/guid.md
   public var guid: String?
@@ -85,7 +86,7 @@ extension Podcast: Codable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    
+
     guid = try container.decodeIfPresent(String.self, forKey: CodingKeys.guid)
     transcripts = try container.decodeIfPresent([PodcastTranscript].self, forKey: CodingKeys.transcripts)
   }
