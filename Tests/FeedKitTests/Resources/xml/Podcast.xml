@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:podcast="https://podcastindex.org/namespace/1.0">
+  <channel>
+    <title>Test Podcast</title>
+    <link>https://example.com/podcast</link>
+    <description>A test podcast feed with podcast namespace elements</description>
+    <item>
+      <title>Episode 1: Introduction</title>
+      <description>This is the first episode of our test podcast.</description>
+      <podcast:transcript url="https://example.com/episode1/transcript.txt" type="text/plain" language="en" />
+      <podcast:transcript url="https://example.com/episode1/transcript.vtt" type="text/vtt" language="en" rel="captions" />
+    </item>
+    <item>
+      <title>Episode 2: Advanced Topics</title>
+      <description>This episode covers advanced topics.</description>
+      <podcast:transcript url="https://example.com/episode2/transcript.txt" type="text/plain" language="en" />
+    </item>
+  </channel>
+</rss>
