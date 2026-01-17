@@ -1,7 +1,7 @@
 //
 // XMLNode.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -49,7 +49,7 @@ class XMLNode: Codable, Equatable, Hashable {
     self.children?.forEach { $0.parent = self }
   }
 
-  public required init(from decoder: any Decoder) throws {
+  required init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<XMLNode.CodingKeys> = try decoder.container(keyedBy: XMLNode.CodingKeys.self)
 
     prefix = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.prefix)
@@ -59,11 +59,30 @@ class XMLNode: Codable, Equatable, Hashable {
     children = try container.decodeIfPresent([XMLNode].self, forKey: XMLNode.CodingKeys.children)
   }
 
-  // MARK: Public
+  // MARK: Internal
+
+  /// The parent node of this node.
+  weak var parent: XMLNode?
+  /// Is the `text` property xhtml
+  var isXhtml: Bool = false
+  /// The namespace prefix
+  var prefix: String?
+  /// The name of the node.
+  var name: String
+  /// The text of the node, if present.
+  var text: String?
+
+  /// The child nodes of this node.
+  var children: [XMLNode]? {
+    didSet {
+      // Update the parent reference for all children
+      children?.forEach { $0.parent = self }
+    }
+  }
 
   // MARK: Equatable
 
-  public static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
+  static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
     // Compare current node's properties
     if
       lhs.prefix != rhs.prefix ||
@@ -92,7 +111,7 @@ class XMLNode: Codable, Equatable, Hashable {
 
   // MARK: Hashable
 
-  public func hash(into hasher: inout Hasher) {
+  func hash(into hasher: inout Hasher) {
     // Hash basic properties
     hasher.combine(prefix)
     hasher.combine(name)
@@ -105,7 +124,7 @@ class XMLNode: Codable, Equatable, Hashable {
     }
   }
 
-  public func encode(to encoder: any Encoder) throws {
+  func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<XMLNode.CodingKeys> = encoder.container(keyedBy: XMLNode.CodingKeys.self)
 
     try container.encodeIfPresent(prefix, forKey: XMLNode.CodingKeys.prefix)
@@ -115,15 +134,15 @@ class XMLNode: Codable, Equatable, Hashable {
     try container.encodeIfPresent(children, forKey: XMLNode.CodingKeys.children)
   }
 
-  public func child(for name: String) -> XMLNode? {
+  func child(for name: String) -> XMLNode? {
     children?.first(where: { $0.name == name })
   }
 
-  public func hasChild(for name: String) -> Bool {
+  func hasChild(for name: String) -> Bool {
     children?.first(where: { $0.name == name || $0.prefix == name }) != nil
   }
 
-  public func addChild(_ child: XMLNode) {
+  func addChild(_ child: XMLNode) {
     if children == nil {
       children = []
     }
@@ -134,7 +153,7 @@ class XMLNode: Codable, Equatable, Hashable {
   /// - Parameters:
   ///   - name: The name of the attribute.
   ///   - value: The value of the attribute.
-  public func setAttribute(name: String, value: String) {
+  func setAttribute(name: String, value: String) {
     // Find or create the `@attributes` node
     if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
       // Add the new attribute as a child of `@attributes`
@@ -162,27 +181,6 @@ class XMLNode: Codable, Equatable, Hashable {
     }
   }
 
-  // MARK: Internal
-
-  /// The parent node of this node.
-  weak var parent: XMLNode?
-  /// Is the `text` property xhtml
-  var isXhtml: Bool = false
-  /// The namespace prefix
-  var prefix: String?
-  /// The name of the node.
-  var name: String
-  /// The text of the node, if present.
-  var text: String?
-
-  /// The child nodes of this node.
-  var children: [XMLNode]? {
-    didSet {
-      // Update the parent reference for all children
-      children?.forEach { $0.parent = self }
-    }
-  }
-
   // MARK: Private
 
   // MARK: - Codable
@@ -204,7 +202,7 @@ extension XMLNode: XMLStringConvertible {
   ///   false for compact XML).
   /// - Parameter indentationLevel: The current level of indentation.
   /// - Returns: A string representation of the XML for the node.
-  public func toXMLString(
+  func toXMLString(
     formatted: Bool = false,
     indentationLevel: Int = 1
   ) -> String {

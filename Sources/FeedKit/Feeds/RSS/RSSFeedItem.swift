@@ -1,7 +1,7 @@
 //
 // RSSFeedItem.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -48,7 +48,8 @@ public struct RSSFeedItem {
     dublinCore: DublinCore? = nil,
     content: Content? = nil,
     iTunes: ITunes? = nil,
-    media: Media? = nil
+    media: Media? = nil,
+    podcast: Podcast? = nil
   ) {
     self.title = title
     self.link = link
@@ -64,6 +65,7 @@ public struct RSSFeedItem {
     self.content = content
     self.iTunes = iTunes
     self.media = media
+    self.podcast = podcast
   }
 
   // MARK: Public
@@ -223,6 +225,10 @@ public struct RSSFeedItem {
   /// Media RSS is a new RSS module that supplements the <enclosure>
   /// capabilities of RSS 2.0.
   public var media: Media?
+
+  /// Podcast namespace provides podcast-specific metadata and extensions.
+  /// See https://github.com/Podcastindex-org/podcast-namespace
+  public var podcast: Podcast?
 }
 
 // MARK: - Sendable
@@ -255,6 +261,7 @@ extension RSSFeedItem: Codable {
     case content
     case iTunes = "itunes"
     case media
+    case podcast
   }
 
   public init(from decoder: any Decoder) throws {
@@ -274,6 +281,7 @@ extension RSSFeedItem: Codable {
     content = try container.decodeIfPresent(Content.self, forKey: CodingKeys.content)
     iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
     media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
+    podcast = try container.decodeIfPresent(Podcast.self, forKey: CodingKeys.podcast)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -293,5 +301,6 @@ extension RSSFeedItem: Codable {
     try container.encodeIfPresent(content, forKey: CodingKeys.content)
     try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
     try container.encodeIfPresent(media, forKey: CodingKeys.media)
+    try container.encodeIfPresent(podcast, forKey: CodingKeys.podcast)
   }
 }

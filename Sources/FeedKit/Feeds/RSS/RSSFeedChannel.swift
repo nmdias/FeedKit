@@ -1,7 +1,7 @@
 //
 // RSSFeedChannel.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -310,7 +310,7 @@ public struct RSSFeedChannel {
   /// See https://www.w3.org/TR/websub/#discovery
   public var atom: Atom?
 
-  /// A wholistic RSS namespace for podcasting that is meant to synthesize the fragmented world of podcast namespaces.
+  /// Podcast namespace provides podcast-specific metadata and extensions.
   /// See https://github.com/Podcastindex-org/podcast-namespace
   public var podcast: Podcast?
 }
