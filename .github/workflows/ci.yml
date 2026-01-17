@@ -121,4 +121,4 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=visionOS Simulator,name=Apple Vision Pro' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=visionOS Simulator,name=Apple Vision Pro, OS=26.2' test | xcbeautify
