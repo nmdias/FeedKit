@@ -32,12 +32,20 @@ import XMLKit
 /// See https://github.com/Podcastindex-org/podcast-namespace
 public struct Podcast {
   // MARK: Lifecycle
+    
+  public init(
+    guid: String? = nil,
+    transcripts: [PodcastTranscript]? = nil
 
-  public init(transcripts: [PodcastTranscript]? = nil) {
+  ) {
+    self.guid = guid
     self.transcripts = transcripts
   }
 
   // MARK: Public
+  /// This element is used to declare a unique, global identifier for a podcast.
+  /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/guid.md
+  public var guid: String?
 
   /// Links to transcript or closed captions files for a podcast episode.
   ///
@@ -71,18 +79,21 @@ extension Podcast: Hashable {}
 
 extension Podcast: Codable {
   private enum CodingKeys: String, CodingKey {
+    case guid = "podcast:guid"
     case transcripts = "podcast:transcript"
   }
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-
+    
+    guid = try container.decodeIfPresent(String.self, forKey: CodingKeys.guid)
     transcripts = try container.decodeIfPresent([PodcastTranscript].self, forKey: CodingKeys.transcripts)
   }
 
   public func encode(to encoder: any Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
 
+    try container.encodeIfPresent(guid, forKey: CodingKeys.guid)
     try container.encodeIfPresent(transcripts, forKey: CodingKeys.transcripts)
   }
 }
