@@ -267,6 +267,7 @@ extension AtomFeedEntry: Codable {
     rights = try container.decodeIfPresent(String.self, forKey: CodingKeys.rights)
     media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
     youTube = try container.decodeIfPresent(YouTube.self, forKey: CodingKeys.youTube)
+    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
     geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
   }
 
