@@ -1,7 +1,7 @@
 //
 // MediaGroup.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -84,7 +84,7 @@ public struct MediaGroup {
   /// at play, it is assumed that the images are in order of importance. It has
   /// one required attribute and three optional attributes.
   public var thumbnails: [MediaThumbnail]?
-  
+
   /// This element stands for the community related content. This allows
   /// inclusion of the user perception about a media object in the form of view
   /// count, ratings and tags.

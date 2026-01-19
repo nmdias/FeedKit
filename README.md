@@ -1,16 +1,16 @@
-<img src="./FeedKit.png" width="500"><br>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/nmdias/FeedKit/raw/main/Assets/FeedKit-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/nmdias/FeedKit/raw/main/Assets/FeedKit.svg">
+  <img width="500px" alt="FeedKit Logo" src="https://github.com/nmdias/FeedKit/raw/main/Assets/FeedKit.svg">
+</picture>
+
+<p/>  
 
 [![CI](https://github.com/nmdias/FeedKit/actions/workflows/ci.yml/badge.svg)](https://github.com/nmdias/FeedKit/actions/workflows/ci.yml)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/nmdias/FeedKit)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/nmdias/FeedKit)
 
 FeedKit is a Swift library for Reading and Generating RSS, Atom, and JSON feeds.
-
-### FeedKit v10 (Release Candidate) :warning:
-
-FeedKit **[`v10`](https://github.com/nmdias/FeedKit)** is now in Release Candidate (RC) and introduces a new parsing engine, features, and improvements. While this version is feature-complete and extensively tested, it may still have some minor issues to address before the final release.
-
-It should be stable enough :eyes:, but if stable enough is not enough, consider using **[`v9`](https://github.com/nmdias/FeedKit/releases/tag/9.1.2)**.
 
 # Features
 
@@ -27,6 +27,7 @@ It should be stable enough :eyes:, but if stable enough is not enough, consider 
   - [x] [GML](http://www.opengis.net/gml)
   - [x] [iTunes](http://www.itunes.com/dtds/podcast-1.0.dtd)
   - [x] [YouTube](http://www.youtube.com/xml/schemas/2015)
+  - [x] [Podcast](https://podcastindex.org/namespace/1.0)
 - [x] Examples
 - [x] [Documentation](https://swiftpackageindex.com/nmdias/FeedKit/main/documentation/feedkit)
 - [x] Unit Tests

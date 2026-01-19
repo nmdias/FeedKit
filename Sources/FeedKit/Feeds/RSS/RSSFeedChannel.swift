@@ -1,7 +1,7 @@
 //
 // RSSFeedChannel.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -60,7 +60,8 @@ public struct RSSFeedChannel {
     dublinCore: DublinCore? = nil,
     iTunes: ITunes? = nil,
     syndication: Syndication? = nil,
-    atom: Atom? = nil
+    atom: Atom? = nil,
+    podcast: Podcast? = nil
   ) {
     self.title = title
     self.link = link
@@ -86,6 +87,7 @@ public struct RSSFeedChannel {
     self.iTunes = iTunes
     self.syndication = syndication
     self.atom = atom
+    self.podcast = podcast
   }
 
   // MARK: Public
@@ -307,6 +309,10 @@ public struct RSSFeedChannel {
   /// and hub information.
   /// See https://www.w3.org/TR/websub/#discovery
   public var atom: Atom?
+
+  /// Podcast namespace provides podcast-specific metadata and extensions.
+  /// See https://github.com/Podcastindex-org/podcast-namespace
+  public var podcast: Podcast?
 }
 
 // MARK: - Sendable
@@ -349,6 +355,7 @@ extension RSSFeedChannel: Codable {
     case iTunes = "itunes"
     case syndication = "sy"
     case atom
+    case podcast
   }
 
   public init(from decoder: any Decoder) throws {
@@ -378,6 +385,7 @@ extension RSSFeedChannel: Codable {
     iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
     syndication = try container.decodeIfPresent(Syndication.self, forKey: CodingKeys.syndication)
     atom = try container.decodeIfPresent(Atom.self, forKey: CodingKeys.atom)
+    podcast = try container.decodeIfPresent(Podcast.self, forKey: CodingKeys.podcast)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -407,5 +415,6 @@ extension RSSFeedChannel: Codable {
     try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
     try container.encodeIfPresent(syndication, forKey: CodingKeys.syndication)
     try container.encodeIfPresent(atom, forKey: CodingKeys.atom)
+    try container.encodeIfPresent(podcast, forKey: CodingKeys.podcast)
   }
 }

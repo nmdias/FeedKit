@@ -1,7 +1,7 @@
 //
 // AtomFeedEntry.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -46,6 +46,7 @@ public struct AtomFeedEntry {
     rights: String? = nil,
     media: Media? = nil,
     youTube: YouTube? = nil,
+    dublinCore: DublinCore? = nil,
     geoRSS: GeoRSSSimple? = nil
   ) {
     self.title = title
@@ -62,6 +63,7 @@ public struct AtomFeedEntry {
     self.rights = rights
     self.media = media
     self.youTube = youTube
+    self.dublinCore = dublinCore
     self.geoRSS = geoRSS
   }
 
@@ -205,6 +207,12 @@ public struct AtomFeedEntry {
   /// See https://developers.google.com/youtube/v3/guides/push_notifications
   public var youTube: YouTube?
 
+  /// The Dublin Core Metadata Element Set is a standard for cross-domain
+  /// resource description.
+  ///
+  /// See https://tools.ietf.org/html/rfc5013
+  public var dublinCore: DublinCore?
+
   public var geoRSS: GeoRSSSimple?
 }
 
@@ -238,6 +246,7 @@ extension AtomFeedEntry: Codable {
     case rights
     case media
     case youTube = "yt"
+    case dublinCore = "dc"
     case geoRSS = "georss"
   }
 
@@ -278,6 +287,7 @@ extension AtomFeedEntry: Codable {
     try container.encodeIfPresent(rights, forKey: CodingKeys.rights)
     try container.encodeIfPresent(media, forKey: CodingKeys.media)
     try container.encodeIfPresent(youTube, forKey: CodingKeys.youTube)
+    try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
     try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
   }
 }

@@ -1,7 +1,7 @@
 //
 // DublinCoreTests.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,13 +27,26 @@ import Testing
 @Suite("Dublin Core")
 struct DublinCoreTests: FeedKitTestable {
   @Test
-  func dublinCore() throws {
+  func dublinCoreRSS() throws {
     // Given
     let data = data(resource: "RSSDC", withExtension: "xml")
-    let expected: RSSFeed = mock
+    let expected: RSSFeed = rssMock
 
     // When
     let actual = try RSSFeed(data: data)
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func dublinCoreAtom() throws {
+    // Given
+    let data = data(resource: "AtomDC", withExtension: "xml")
+    let expected: AtomFeed = atomMock
+
+    // When
+    let actual = try AtomFeed(data: data)
 
     // Then
     #expect(expected == actual)

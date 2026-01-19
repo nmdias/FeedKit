@@ -1,7 +1,7 @@
 //
 // FeedDateFormatter.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -141,6 +141,8 @@ final class RFC3339DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
 
 /// Formatter for RFC822 date specification with backup formats.
 final class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
+  // MARK: Internal
+
   /// List of date formats supported for RFC822.
   override var dateFormats: [String] {
     [
@@ -163,7 +165,9 @@ final class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
       // Non-standard, similar to RFC 822 with numeric timezone.
       "d MMM yyyy HH:mm:ss Z",
       // Non-standard, ISO-like format with numeric timezone.
-      "yyyy-MM-dd HH:mm:ss Z"
+      "yyyy-MM-dd HH:mm:ss Z",
+      // Non-standard format with both numeric and named timezones (e.g. "UTC").
+      "yyyy-MM-dd HH:mm:ss Z zzz"
     ]
   }
 
@@ -178,8 +182,7 @@ final class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
     // handle these in full compliance with Unicode tr35-31. For example,
     // "Tues, 6 November 2007 12:00:00 GMT" is rejected because of the "Tues",
     // even though "Tues" is used as an example for EEE in tr35-31.
-    let trimRegEx = try! NSRegularExpression(pattern: "^[a-zA-Z]+, ([\\w :+-]+)$")
-    let trimmed = trimRegEx.stringByReplacingMatches(
+    let trimmed = Self.trimRegEx.stringByReplacingMatches(
       in: string,
       options: [],
       range: NSMakeRange(0, string.count),
@@ -194,6 +197,10 @@ final class RFC822DateFormatter: PermissiveDateFormatter, @unchecked Sendable {
     }
     return nil
   }
+
+  // MARK: Private
+
+  private static let trimRegEx = try! NSRegularExpression(pattern: "^[a-zA-Z]+, ([\\w :+-]+)$")
 }
 
 // MARK: - RFC1123 formatter
@@ -253,21 +260,6 @@ final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
 
   // MARK: Internal
 
-  /// The date specification to use for formatting dates.
-  let spec: DateSpec
-
-  /// ISO8601 date formatter.
-  lazy var iso8601Formatter: ISO8601DateFormatter = .init()
-
-  /// RFC3339 date formatter.
-  lazy var rfc3339Formatter: RFC3339DateFormatter = .init()
-
-  /// RFC822 date formatter.
-  lazy var rfc822Formatter: RFC822DateFormatter = .init()
-
-  /// RFC1123 date formatter.
-  lazy var rfc1123Formatter: RFC1123DateFormatter = .init()
-
   /// Converts a string to a Date based on the given date specification.
   ///
   /// - Parameters:
@@ -314,4 +306,21 @@ final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
       fatalError()
     }
   }
+
+  // MARK: Private
+
+  /// The date specification to use for formatting dates.
+  private let spec: DateSpec
+
+  /// ISO8601 date formatter.
+  private lazy var iso8601Formatter: ISO8601DateFormatter = .init()
+
+  /// RFC3339 date formatter.
+  private lazy var rfc3339Formatter: RFC3339DateFormatter = .init()
+
+  /// RFC822 date formatter.
+  private lazy var rfc822Formatter: RFC822DateFormatter = .init()
+
+  /// RFC1123 date formatter.
+  private lazy var rfc1123Formatter: RFC1123DateFormatter = .init()
 }

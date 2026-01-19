@@ -1,7 +1,7 @@
 //
 // FeedNamespace.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -57,6 +57,9 @@ enum FeedNamespace: CaseIterable {
   /// Represents the Atom feed namespace, typically used for syndication
   /// in the Atom format.
   case atom
+  /// Represents the Podcast namespace, used for podcast-specific metadata
+  /// and extensions in podcast feeds.
+  case podcast
 
   // MARK: Internal
 
@@ -81,6 +84,8 @@ enum FeedNamespace: CaseIterable {
       "xmlns:yt"
     case .atom:
       "xmlns:atom"
+    case .podcast:
+      "xmlns:podcast"
     }
   }
 
@@ -105,6 +110,8 @@ enum FeedNamespace: CaseIterable {
       "http://www.youtube.com/xml/schemas/2015"
     case .atom:
       "http://www.w3.org/2005/Atom"
+    case .podcast:
+      "https://podcastindex.org/namespace/1.0"
     }
   }
 }
@@ -145,6 +152,10 @@ extension FeedNamespace {
 
     case .atom:
       feed.channel?.atom != nil
+
+    case .podcast:
+      feed.channel?.podcast != nil ||
+        feed.channel?.items?.contains(where: { $0.podcast != nil }) ?? false
     }
   }
 

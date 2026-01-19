@@ -1,7 +1,7 @@
 //
 // DublinCoreTests + Mocks.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@
 @testable import FeedKit
 
 extension DublinCoreTests {
-  var mock: RSSFeed {
+  var rssMock: RSSFeed {
     .init(
       channel: .init(
         items: [
@@ -65,6 +65,49 @@ extension DublinCoreTests {
           coverage: "coverage",
           rights: "rights"
         )
+      )
+    )
+  }
+
+  var atomMock: AtomFeed {
+    .init(
+      entries: [
+        .init(
+          dublinCore: .init(
+            title: "title",
+            creator: "creator",
+            subject: "subject",
+            description: "description",
+            publisher: "publisher",
+            contributor: "contributor",
+            date: FeedDateFormatter(spec: .rfc822).date(from: "Sat, 1 Jan 2000 12:00:00 GMT"),
+            type: "type",
+            format: "format",
+            identifier: "identifier",
+            source: "source",
+            language: "language",
+            relation: "relation",
+            coverage: "coverage",
+            rights: "rights"
+          )
+        )
+      ],
+      dublinCore: .init(
+        title: "title",
+        creator: "creator",
+        subject: "subject",
+        description: "description",
+        publisher: "publisher",
+        contributor: "contributor",
+        date: FeedDateFormatter(spec: .rfc822).date(from: "Sat, 1 Jan 2000 12:00:00 GMT"),
+        type: "type",
+        format: "format",
+        identifier: "identifier",
+        source: "source",
+        language: "language",
+        relation: "relation",
+        coverage: "coverage",
+        rights: "rights"
       )
     )
   }
