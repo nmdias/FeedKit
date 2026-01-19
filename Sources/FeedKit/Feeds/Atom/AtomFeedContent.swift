@@ -24,15 +24,17 @@
 import Foundation
 import XMLKit
 
-public struct AtomFeedContentAttributes: Codable, Equatable, Hashable, Sendable {
+public struct AtomFeedContentAttributes: Equatable, Hashable, Sendable {
   // MARK: Lifecycle
 
   public init(
     type: String? = nil,
-    src: String? = nil
+    src: String? = nil,
+    base: String? = nil
   ) {
     self.type = type
     self.src = src
+    self.base = base
   }
 
   // MARK: Public
@@ -58,6 +60,17 @@ public struct AtomFeedContentAttributes: Codable, Equatable, Hashable, Sendable 
   /// if the server providing that content also provides a media type, the
   /// server-provided media type is authoritative.
   public var src: String?
+
+  /// The Base URI as defined by RFC 3986, provided via the xml:base attribute.
+  public var base: String?
+}
+
+extension AtomFeedContentAttributes: Codable {
+  private enum CodingKeys: String, CodingKey {
+    case type
+    case src
+    case base = "xml:base"
+  }
 }
 
 /// The "atom:content" element either contains or links to the content of
