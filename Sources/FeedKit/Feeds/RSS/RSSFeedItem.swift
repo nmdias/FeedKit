@@ -49,7 +49,8 @@ public struct RSSFeedItem {
     content: Content? = nil,
     iTunes: ITunes? = nil,
     media: Media? = nil,
-    podcast: Podcast? = nil
+    podcast: Podcast? = nil,
+    geoRSS: GeoRSSSimple? = nil
   ) {
     self.title = title
     self.link = link
@@ -66,6 +67,7 @@ public struct RSSFeedItem {
     self.iTunes = iTunes
     self.media = media
     self.podcast = podcast
+    self.geoRSS = geoRSS
   }
 
   // MARK: Public
@@ -229,6 +231,8 @@ public struct RSSFeedItem {
   /// Podcast namespace provides podcast-specific metadata and extensions.
   /// See https://github.com/Podcastindex-org/podcast-namespace
   public var podcast: Podcast?
+
+  public var geoRSS: GeoRSSSimple?
 }
 
 // MARK: - Sendable
@@ -262,6 +266,7 @@ extension RSSFeedItem: Codable {
     case iTunes = "itunes"
     case media
     case podcast
+    case geoRSS = "georss"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -282,6 +287,7 @@ extension RSSFeedItem: Codable {
     iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
     media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
     podcast = try container.decodeIfPresent(Podcast.self, forKey: CodingKeys.podcast)
+    geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -302,5 +308,6 @@ extension RSSFeedItem: Codable {
     try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
     try container.encodeIfPresent(media, forKey: CodingKeys.media)
     try container.encodeIfPresent(podcast, forKey: CodingKeys.podcast)
+    try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
   }
 }

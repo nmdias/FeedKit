@@ -1,7 +1,7 @@
 //
-// GeoRSS.swift
+// GeoRSSSimple.swift
 //
-// Copyright (c) 2016 - 2026 Nuno Dias
+// Copyright (c) 2016 - 2025 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,54 +22,51 @@
 // SOFTWARE.
 
 import Foundation
+import XMLKit
 
-/// GeoRSS is designed as a lightweight, community driven way to extend existing
-/// RSS feeds with simple geographic information. The GeoRSS standard provides for
-/// encoding location in an interoperable manner so that applications can request,
-/// aggregate, share and map geographically tag feeds.
-public struct GeoRSS {
-  // MARK: Lifecycle
-
-  public init(gmlPoint: GMLPoint? = nil) {
-    self.gmlPoint = gmlPoint
+public struct GeoRSSSimple {
+  public init(point: GeoRSSSimplePoint? = nil, elevation: Double? = nil) {
+    self.point = point
+    self.elevation = elevation
   }
 
-  // MARK: Internal
-
-  /// A point consists of a GML <Point> element with a child <pos> element.
-  /// Within<pos> the latitude and longitude coordinate values are separated
-  /// by a space.
-  public var gmlPoint: GMLPoint?
+  public var point: GeoRSSSimplePoint?
+  public var elevation: Double?
 }
+
+extension GeoRSSSimple: XMLNamespaceCodable {}
 
 // MARK: - Sendable
 
-extension GeoRSS: Sendable {}
+extension GeoRSSSimple: Sendable {}
 
 // MARK: - Equatable
 
-extension GeoRSS: Equatable {}
+extension GeoRSSSimple: Equatable {}
 
 // MARK: - Hashable
 
-extension GeoRSS: Hashable {}
+extension GeoRSSSimple: Hashable {}
 
 // MARK: - Codable
 
-extension GeoRSS: Codable {
+extension GeoRSSSimple: Codable {
   private enum CodingKeys: String, CodingKey {
-    case gmlPoint = "gml:Point"
+    case point = "georss:point"
+    case elevation = "georss:elev"
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+    let container: KeyedDecodingContainer<GeoRSSSimple.CodingKeys> = try decoder.container(keyedBy: GeoRSSSimple.CodingKeys.self)
 
-    gmlPoint = try container.decodeIfPresent(GMLPoint.self, forKey: CodingKeys.gmlPoint)
+    point = try container.decodeIfPresent(GeoRSSSimplePoint.self, forKey: GeoRSSSimple.CodingKeys.point)
+    elevation = try container.decodeIfPresent(Double.self, forKey: GeoRSSSimple.CodingKeys.elevation)
   }
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
+    var container: KeyedEncodingContainer<GeoRSSSimple.CodingKeys> = encoder.container(keyedBy: GeoRSSSimple.CodingKeys.self)
 
-    try container.encodeIfPresent(gmlPoint, forKey: CodingKeys.gmlPoint)
+    try container.encodeIfPresent(point, forKey: GeoRSSSimple.CodingKeys.point)
+    try container.encodeIfPresent(elevation, forKey: GeoRSSSimple.CodingKeys.elevation)
   }
 }

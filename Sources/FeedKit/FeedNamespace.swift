@@ -142,7 +142,7 @@ extension FeedNamespace {
       feed.channel?.items?.contains(where: { $0.content != nil }) ?? false
 
     case .georss:
-      feed.channel?.items?.contains(where: { $0.media?.location?.geoRSS != nil }) ?? false
+      feed.channel?.items?.contains(where: { $0.media?.location?.geoRSS != nil || $0.geoRSS != nil }) ?? false
 
     case .gml:
       feed.channel?.items?.contains(where: { $0.media?.location?.geoRSS?.gmlPoint != nil }) ?? false
@@ -166,6 +166,8 @@ extension FeedNamespace {
     switch self {
     case .youTube:
       feed.entries?.contains(where: { $0.youTube != nil }) ?? false
+    case .georss:
+      feed.entries?.contains(where: { $0.geoRSS != nil }) ?? false
     default:
       false
     }
