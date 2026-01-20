@@ -184,7 +184,8 @@ extension AtomTests {
             text: "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><i>[Update: The Atom draft is finished.]</i></p></div>",
             attributes: .init(
               type: "xhtml",
-              src: "http://www.example.org/"
+              src: "http://www.example.org/",
+              base: "http://diveintomark.org/"
             )
           ),
           published: RFC3339DateFormatter().date(from: "2003-12-13T08:29:29-04:00"),
