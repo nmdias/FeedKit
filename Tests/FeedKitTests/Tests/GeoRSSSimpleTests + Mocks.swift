@@ -1,7 +1,7 @@
 //
 // GeoRSSSimpleTests + Mocks.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,18 +24,18 @@
 @testable import FeedKit
 
 extension GeoRSSSimpleTests {
-    var mock: AtomFeed {
+  var mock: AtomFeed {
+    .init(
+      entries: [
         .init(
-            entries: [
-                .init(
-                    geoRSS: .init(
-                        point: .init(
-                            position: (latitude: 45, longitude: -5)
-                        ),
-                        elevation: 1234
-                    )
-                )
-            ]
+          geoRSS: .init(
+            point: .init(
+              position: (latitude: 45, longitude: -5)
+            ),
+            elevation: 1234
+          )
         )
-    }
+      ]
+    )
+  }
 }

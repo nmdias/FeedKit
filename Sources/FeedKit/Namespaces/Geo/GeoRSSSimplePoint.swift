@@ -1,7 +1,7 @@
 //
 // GeoRSSSimplePoint.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,8 @@
 // SOFTWARE.
 
 public struct GeoRSSSimplePoint {
+  // MARK: Lifecycle
+
   public init(position: (latitude: Double, longitude: Double)? = nil) {
     self.position = position
   }

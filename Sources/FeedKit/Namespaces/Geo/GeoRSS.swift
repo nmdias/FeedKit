@@ -34,7 +34,7 @@ public struct GeoRSS {
     self.gmlPoint = gmlPoint
   }
 
-  // MARK: Internal
+  // MARK: Public
 
   /// A point consists of a GML <Point> element with a child <pos> element.
   /// Within<pos> the latitude and longitude coordinate values are separated

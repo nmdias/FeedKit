@@ -1,7 +1,7 @@
 //
 // GeoRSSSimple.swift
 //
-// Copyright (c) 2016 - 2025 Nuno Dias
+// Copyright (c) 2016 - 2026 Nuno Dias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,10 +25,14 @@ import Foundation
 import XMLKit
 
 public struct GeoRSSSimple {
+  // MARK: Lifecycle
+
   public init(point: GeoRSSSimplePoint? = nil, elevation: Double? = nil) {
     self.point = point
     self.elevation = elevation
   }
+
+  // MARK: Public
 
   public var point: GeoRSSSimplePoint?
   public var elevation: Double?
