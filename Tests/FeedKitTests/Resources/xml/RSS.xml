@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:source="http://source.scripting.com/">
   <channel>
     <title>Iris</title>
     <link>http://www.iris.news/</link>
@@ -50,6 +50,10 @@
       <category domain="rec.arts.movies.reviews">1983/V</category>
       <comments>http://dallas.example.com/feedback/1983/06/joebob.htm</comments>
       <description>I'm headed for France. I wasn't gonna go this year, but then last week "Valley Girl" came out and I said to myself, Joe Bob, you gotta get out of the country for a while.</description>
+      <source:markdown><![CDATA[## Highlights
+
+- Traveled to France.
+- Talked about "Valley Girl".]]></source:markdown>
       <enclosure length="24986239" type="audio/mpeg" url="http://dallas.example.com/joebob_050689.mp3" />
       <guid isPermaLink="false">tag:dallas.example.com,4131:news</guid>
       <pubDate>Fri, 05 Oct 2007 09:00:00 CST</pubDate>

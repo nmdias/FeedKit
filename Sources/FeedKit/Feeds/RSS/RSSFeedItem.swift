@@ -38,6 +38,7 @@ public struct RSSFeedItem {
     title: String? = nil,
     link: String? = nil,
     description: String? = nil,
+    markdown: String? = nil,
     author: String? = nil,
     categories: [RSSFeedCategory]? = nil,
     comments: String? = nil,
@@ -55,6 +56,7 @@ public struct RSSFeedItem {
     self.title = title
     self.link = link
     self.description = description
+    self.markdown = markdown
     self.author = author
     self.categories = categories
     self.comments = comments
@@ -88,6 +90,11 @@ public struct RSSFeedItem {
   /// week was about the way that the arrival of the stars at the Palazzo del
   /// Cinema was being staged.
   public var description: String?
+
+  /// The markdown content for the item.
+  ///
+  /// Example: ## Highlights
+  public var markdown: String?
 
   /// Email address of the author of the item.
   ///
@@ -254,6 +261,7 @@ extension RSSFeedItem: Codable {
     case title
     case link
     case description
+    case markdown = "source:markdown"
     case author
     case category
     case comments
@@ -275,6 +283,7 @@ extension RSSFeedItem: Codable {
     title = try container.decodeIfPresent(String.self, forKey: CodingKeys.title)
     link = try container.decodeIfPresent(String.self, forKey: CodingKeys.link)
     description = try container.decodeIfPresent(String.self, forKey: CodingKeys.description)
+    markdown = try container.decodeIfPresent(String.self, forKey: CodingKeys.markdown)
     author = try container.decodeIfPresent(String.self, forKey: CodingKeys.author)
     categories = try container.decodeIfPresent([RSSFeedCategory].self, forKey: CodingKeys.category)
     comments = try container.decodeIfPresent(String.self, forKey: CodingKeys.comments)
@@ -296,6 +305,7 @@ extension RSSFeedItem: Codable {
     try container.encodeIfPresent(title, forKey: CodingKeys.title)
     try container.encodeIfPresent(link, forKey: CodingKeys.link)
     try container.encodeIfPresent(description, forKey: CodingKeys.description)
+    try container.encodeIfPresent(markdown, forKey: CodingKeys.markdown)
     try container.encodeIfPresent(author, forKey: CodingKeys.author)
     try container.encodeIfPresent(categories, forKey: CodingKeys.category)
     try container.encodeIfPresent(comments, forKey: CodingKeys.comments)
