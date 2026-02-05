@@ -45,7 +45,9 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
   var count: Int = 0
 
   /// The coding path of the current encoding process.
-  var codingPath: [CodingKey] { encoder.codingPath }
+  var codingPath: [CodingKey] {
+    encoder.codingPath
+  }
 
   /// Encodes a value and appends it as a child of the current node.
   /// - Parameter value: The value to encode, which must conform to
@@ -58,29 +60,67 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
 
   func encodeNil() throws {}
 
-  func encode(_ value: Bool) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: String) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: Bool) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: String) throws {
+    node.children?.append(box(value)); count += 1
+  }
 
   // MARK: - Int
 
-  func encode(_ value: Int) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: Int8) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: Int16) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: Int32) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: Int64) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: Int) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: Int8) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: Int16) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: Int32) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: Int64) throws {
+    node.children?.append(box(value)); count += 1
+  }
 
   // MARK: - Unsigned Int
 
-  func encode(_ value: UInt) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: UInt8) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: UInt16) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: UInt32) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: UInt64) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: UInt) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: UInt8) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: UInt16) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: UInt32) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: UInt64) throws {
+    node.children?.append(box(value)); count += 1
+  }
 
   // MARK: - Floating point
 
-  func encode(_ value: Float) throws { node.children?.append(box(value)); count += 1 }
-  func encode(_ value: Double) throws { node.children?.append(box(value)); count += 1 }
+  func encode(_ value: Float) throws {
+    node.children?.append(box(value)); count += 1
+  }
+
+  func encode(_ value: Double) throws {
+    node.children?.append(box(value)); count += 1
+  }
 
   // MARK: - Type
 
@@ -97,7 +137,7 @@ class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
 
   // MARK: -
 
-  func nestedContainer<NestedKey>(keyedBy _: NestedKey.Type) -> KeyedEncodingContainer<NestedKey> where NestedKey: CodingKey {
+  func nestedContainer<NestedKey: CodingKey>(keyedBy _: NestedKey.Type) -> KeyedEncodingContainer<NestedKey> {
     fatalError()
   }
 

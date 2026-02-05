@@ -41,7 +41,7 @@ struct FeedTests: FeedKitTestable {
   }
 
   @Test
-  func fileURL() async throws {
+  func fileURL() throws {
     // Given
     let fileURL = url(resource: "Atom", withExtension: "xml")
     let expected: Feed = .atom(mock)

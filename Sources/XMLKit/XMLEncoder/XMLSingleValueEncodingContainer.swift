@@ -55,31 +55,71 @@ class XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
 
   // MARK: -
 
-  func encodeNil() throws { fatalError() }
+  func encodeNil() throws {
+    fatalError()
+  }
 
-  func encode(_ value: Bool) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: String) throws { encoder.stack.push(box(value)) }
+  func encode(_ value: Bool) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: String) throws {
+    encoder.stack.push(box(value))
+  }
 
   // MARK: - Int
 
-  func encode(_ value: Int) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: Int8) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: Int16) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: Int32) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: Int64) throws { encoder.stack.push(box(value)) }
+  func encode(_ value: Int) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: Int8) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: Int16) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: Int32) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: Int64) throws {
+    encoder.stack.push(box(value))
+  }
 
   // MARK: - Unsigned Int
 
-  func encode(_ value: UInt) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: UInt8) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: UInt16) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: UInt32) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: UInt64) throws { encoder.stack.push(box(value)) }
+  func encode(_ value: UInt) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: UInt8) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: UInt16) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: UInt32) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: UInt64) throws {
+    encoder.stack.push(box(value))
+  }
 
   // MARK: - Floating point
 
-  func encode(_ value: Float) throws { encoder.stack.push(box(value)) }
-  func encode(_ value: Double) throws { encoder.stack.push(box(value)) }
+  func encode(_ value: Float) throws {
+    encoder.stack.push(box(value))
+  }
+
+  func encode(_ value: Double) throws {
+    encoder.stack.push(box(value))
+  }
 
   // MARK: - Encode Type
 

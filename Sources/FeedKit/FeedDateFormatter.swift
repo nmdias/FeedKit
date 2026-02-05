@@ -44,13 +44,17 @@ class PermissiveDateFormatter: DateFormatter, @unchecked Sendable {
   // MARK: Internal
 
   /// Array of date formats to try when converting from string to date.
-  var dateFormats: [String] { [] }
+  var dateFormats: [String] {
+    []
+  }
 
   /// Array of date formats to try when converting from string to date.
   /// Used in permissive parsing strategies when feeds are not fully
   /// compliant with the specification and multiple formats need to be
   /// attempted to ensure proper date parsing.
-  var permissiveDateFormats: [String] { [] }
+  var permissiveDateFormats: [String] {
+    []
+  }
 
   /// Attempts to parse a string into a Date using available formats.
   override func date(from string: String) -> Date? {

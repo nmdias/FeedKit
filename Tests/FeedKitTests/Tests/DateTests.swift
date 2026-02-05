@@ -42,7 +42,7 @@ struct DateTests {
   // MARK: - RFC339
 
   @Test
-  func rfc3339() {
+  func rfc3339() throws {
     // Given
     let formatter: FeedDateFormatter = .init(spec: .rfc3339)
     let dateString = "2016-01-15T15:54:10-01:00"
@@ -51,7 +51,7 @@ struct DateTests {
 
     // When
     let date = formatter.date(from: dateString)
-    let actual = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date!)
+    let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
     #expect(expected == actual)
@@ -88,7 +88,7 @@ struct DateTests {
   // MARK: - RFC822
 
   @Test
-  func rfc822() {
+  func rfc822() throws {
     // Given
     let formatter: FeedDateFormatter = .init(spec: .rfc822)
     let dateString = "Tue, 04 Feb 2014 22:03:45 Z"
@@ -97,7 +97,7 @@ struct DateTests {
 
     // When
     let date = formatter.date(from: dateString)
-    let actual = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date!)
+    let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
     #expect(expected == actual)
@@ -138,7 +138,7 @@ struct DateTests {
   // MARK: - RFC822
 
   @Test
-  func rfc8601() {
+  func rfc8601() throws {
     // Given
     let formatter: FeedDateFormatter = .init(spec: .iso8601)
     let dateString = "1994-11-05T08:15:30-05:00"
@@ -147,7 +147,7 @@ struct DateTests {
 
     // When
     let date = formatter.date(from: dateString)
-    let actual = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date!)
+    let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
     #expect(expected == actual)
@@ -175,7 +175,7 @@ struct DateTests {
   // MARK: - RFC1123
 
   @Test
-  func rfc1123() {
+  func rfc1123() throws {
     // Given
     let formatter: FeedDateFormatter = .init(spec: .rfc1123)
     let dateString = "Fri, 06 Sep 2024 12:34:56 GMT"
@@ -184,7 +184,7 @@ struct DateTests {
 
     // When
     let date = formatter.date(from: dateString)
-    let actual = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date!)
+    let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
     #expect(expected == actual)

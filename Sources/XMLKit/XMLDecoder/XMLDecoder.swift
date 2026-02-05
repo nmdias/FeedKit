@@ -34,7 +34,7 @@ public class XMLDecoder {
   /// The strategy for decoding `Date` values from XML nodes.
   public var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
 
-  public func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
+  public func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
     let reader: XMLReader = .init(data: data)
     let result = try reader.read().get()
 
@@ -55,7 +55,7 @@ public class XMLDecoder {
   /// - throws: `DecodingError.dataCorrupted` if values requested from the payload
   ///   are corrupted, or if the given data is not valid XML.
   /// - throws: An error if any value throws an error during decoding.
-  func decode<T>(_: T.Type, from node: XMLNode) throws -> T where T: Decodable {
+  func decode<T: Decodable>(_: T.Type, from node: XMLNode) throws -> T {
     let decoder: _XMLDecoder = .init(node: node, codingPath: [])
     decoder.dateDecodingStrategy = dateDecodingStrategy
     return try T(from: decoder)
@@ -92,7 +92,7 @@ class _XMLDecoder: Decoder {
   /// - Parameter type: The type of the coding key.
   /// - Returns: A keyed decoding container for the specified key type.
   /// - Throws: An error if the container cannot be created.
-  func container<Key>(keyedBy _: Key.Type) throws -> KeyedDecodingContainer<Key> where Key: CodingKey {
+  func container<Key: CodingKey>(keyedBy _: Key.Type) throws -> KeyedDecodingContainer<Key> {
     KeyedDecodingContainer(XMLKeyedDecodingContainer<Key>(
       decoder: self,
       node: stack.top()!

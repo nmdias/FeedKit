@@ -28,7 +28,7 @@ import Testing
 @Suite("escape Characters")
 struct EscapeCharactersTests: XMLKitTestable {
   @Test
-  func escapeCharacters() throws {
+  func escapeCharacters() {
     // Given
     let input = "& < > \" '"
     let expected = "&amp; &lt; &gt; &quot; &apos;"

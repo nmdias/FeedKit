@@ -73,14 +73,19 @@ class _XMLEncoder: Encoder {
   var dateEncodingStrategy: XMLDateEncodingStrategy = .deferredToDate
 
   /// The current XML node being encoded, or `nil` if no node exists.
-  var node: XMLNode? { stack.top() }
+  var node: XMLNode? {
+    stack.top()
+  }
+
   /// The current key in the encoding path.
-  var currentKey: String { codingPath.last!.stringValue }
+  var currentKey: String {
+    codingPath.last!.stringValue
+  }
 
   /// Returns a keyed encoding container for encoding XML nodes.
   /// - Parameter type: The type of the coding key.
   /// - Returns: A keyed encoding container.
-  func container<Key>(keyedBy _: Key.Type) -> KeyedEncodingContainer<Key> where Key: CodingKey {
+  func container<Key: CodingKey>(keyedBy _: Key.Type) -> KeyedEncodingContainer<Key> {
     let node: XMLNode = .init(name: currentKey)
     stack.push(node)
     return KeyedEncodingContainer(XMLKeyedEncodingContainer(node: node, encoder: self))
