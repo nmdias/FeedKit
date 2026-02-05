@@ -93,6 +93,7 @@ extension RSSTests {
             title: "Seventh Heaven! Ryan Hurls Another No Hitter",
             link: "http://dallas.example.com/1991/05/02/nolan.htm",
             description: "I'm headed for France. I wasn't gonna go this year, but then last week \"Valley Girl\" came out and I said to myself, Joe Bob, you gotta get out of the country for a while.",
+            markdown: "## Highlights\n\n- Traveled to France.\n- Talked about \"Valley Girl\".",
             author: "jbb@dallas.example.com (Joe Bob Briggs)",
             categories: [
               .init(
