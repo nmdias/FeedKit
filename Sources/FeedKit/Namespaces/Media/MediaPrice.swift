@@ -54,6 +54,32 @@ public struct MediaPriceAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// Use [ISO 4217] for currency codes. This is an optional attribute.
   public var currency: String?
+
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
+
+    type = try container.decodeIfPresent(String.self, forKey: .type)
+    price = try container.decodeLossyIfPresent(Double.self, forKey: .price, lossy: lossy)
+    info = try container.decodeIfPresent(String.self, forKey: .info)
+    currency = try container.decodeIfPresent(String.self, forKey: .currency)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(type, forKey: .type)
+    try container.encodeIfPresent(price, forKey: .price)
+    try container.encodeIfPresent(info, forKey: .info)
+    try container.encodeIfPresent(currency, forKey: .currency)
+  }
+
+  private enum CodingKeys: String, CodingKey {
+    case type
+    case price
+    case info
+    case currency
+  }
 }
 
 /// Optional tag to include pricing information about a media object. If this

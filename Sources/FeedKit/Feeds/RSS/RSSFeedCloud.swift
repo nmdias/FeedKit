@@ -61,6 +61,35 @@ public struct RSSFeedCloudAttributes: Codable, Equatable, Hashable, Sendable {
   /// is used instead and refers to the `protocol` attribute of the `cloud`
   /// element.
   public var `protocol`: String?
+
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
+
+    domain = try container.decodeIfPresent(String.self, forKey: .domain)
+    port = try container.decodeLossyIfPresent(Int.self, forKey: .port, lossy: lossy)
+    path = try container.decodeIfPresent(String.self, forKey: .path)
+    registerProcedure = try container.decodeIfPresent(String.self, forKey: .registerProcedure)
+    `protocol` = try container.decodeIfPresent(String.self, forKey: .protocol)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(domain, forKey: .domain)
+    try container.encodeIfPresent(port, forKey: .port)
+    try container.encodeIfPresent(path, forKey: .path)
+    try container.encodeIfPresent(registerProcedure, forKey: .registerProcedure)
+    try container.encodeIfPresent(`protocol`, forKey: .protocol)
+  }
+
+  private enum CodingKeys: String, CodingKey {
+    case domain
+    case port
+    case path
+    case registerProcedure
+    case `protocol`
+  }
 }
 
 // Allows processes to register with a cloud to be notified of updates to

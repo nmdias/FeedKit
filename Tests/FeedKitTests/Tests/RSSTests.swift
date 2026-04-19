@@ -38,4 +38,31 @@ struct RSSTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
+
+  @Test
+  func lossyDecodingDisabledByDefault() throws {
+    // Given
+    let data = data(resource: "LossyRSS", withExtension: "xml")
+
+    // When / Then
+    #expect(throws: DecodingError.self) {
+      try RSSFeed(data: data)
+    }
+  }
+
+  @Test
+  func lossyDecodingAllowsMalformedOptionalNumbers() throws {
+    // Given
+    let data = data(resource: "LossyRSS", withExtension: "xml")
+
+    // When
+    let actual = try RSSFeed(data: data, lossy: true)
+
+    // Then
+    #expect(actual.channel?.image?.width == nil)
+    #expect(actual.channel?.image?.height == nil)
+    #expect(actual.channel?.items?.first?.enclosure?.attributes?.length == nil)
+    #expect(actual.channel?.items?.first?.media?.contents?.first?.attributes?.height == nil)
+    #expect(actual.channel?.items?.first?.media?.contents?.first?.attributes?.width == 1280)
+  }
 }

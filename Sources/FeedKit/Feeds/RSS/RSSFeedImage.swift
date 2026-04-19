@@ -117,12 +117,13 @@ extension RSSFeedImage: Codable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<RSSFeedImage.CodingKeys> = try decoder.container(keyedBy: RSSFeedImage.CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
 
     url = try container.decodeIfPresent(String.self, forKey: RSSFeedImage.CodingKeys.url)
     title = try container.decodeIfPresent(String.self, forKey: RSSFeedImage.CodingKeys.title)
     link = try container.decodeIfPresent(String.self, forKey: RSSFeedImage.CodingKeys.link)
-    width = try container.decodeIfPresent(Int.self, forKey: RSSFeedImage.CodingKeys.width)
-    height = try container.decodeIfPresent(Int.self, forKey: RSSFeedImage.CodingKeys.height)
+    width = try container.decodeLossyIfPresent(Int.self, forKey: RSSFeedImage.CodingKeys.width, lossy: lossy)
+    height = try container.decodeLossyIfPresent(Int.self, forKey: RSSFeedImage.CodingKeys.height, lossy: lossy)
     description = try container.decodeIfPresent(String.self, forKey: RSSFeedImage.CodingKeys.description)
   }
 

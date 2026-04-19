@@ -44,6 +44,20 @@ public struct RSSFeedGUIDAttributes: Codable, Equatable, Hashable, Sendable {
   /// the guid may not be assumed to be a url, or a url to anything in
   /// particular.
   public var isPermaLink: Bool?
+
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    isPermaLink = try container.decodeLossyIfPresent(Bool.self, forKey: .isPermaLink, lossy: decoder.isFeedLossyDecodingEnabled)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encodeIfPresent(isPermaLink, forKey: .isPermaLink)
+  }
+
+  private enum CodingKeys: String, CodingKey {
+    case isPermaLink
+  }
 }
 
 /// A string that uniquely identifies the item.

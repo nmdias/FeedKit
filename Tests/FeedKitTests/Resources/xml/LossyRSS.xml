@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Lossy RSS</title>
+    <link>https://example.com/</link>
+    <description>Feed with malformed optional numeric values.</description>
+    <image>
+      <url>https://example.com/logo.png</url>
+      <title>Lossy RSS</title>
+      <link>https://example.com/</link>
+      <width>88px</width>
+      <height>31px</height>
+    </image>
+    <item>
+      <title>Episode 1</title>
+      <link>https://example.com/episodes/1</link>
+      <description>First episode.</description>
+      <enclosure
+        url="https://example.com/audio/episode-1.mp3"
+        length="12216320 bytes"
+        type="audio/mpeg"
+      />
+      <media:content
+        url="https://example.com/video/episode-1.mp4"
+        height="720px"
+        width="1280"
+        duration="3600 seconds"
+      />
+    </item>
+  </channel>
+</rss>

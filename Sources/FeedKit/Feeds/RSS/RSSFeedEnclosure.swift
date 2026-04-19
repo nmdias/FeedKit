@@ -53,6 +53,29 @@ public struct RSSFeedEnclosureAttributes: Codable, Equatable, Hashable, Sendable
   ///
   /// Example: audio/mpeg
   public var type: String?
+
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
+
+    url = try container.decodeIfPresent(String.self, forKey: .url)
+    length = try container.decodeLossyIfPresent(Int64.self, forKey: .length, lossy: lossy)
+    type = try container.decodeIfPresent(String.self, forKey: .type)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(url, forKey: .url)
+    try container.encodeIfPresent(length, forKey: .length)
+    try container.encodeIfPresent(type, forKey: .type)
+  }
+
+  private enum CodingKeys: String, CodingKey {
+    case url
+    case length
+    case type
+  }
 }
 
 /// Describes a media object that is attached to the item.

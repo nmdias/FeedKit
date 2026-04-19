@@ -360,6 +360,7 @@ extension RSSFeedChannel: Codable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<RSSFeedChannel.CodingKeys> = try decoder.container(keyedBy: RSSFeedChannel.CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
 
     title = try container.decodeIfPresent(String.self, forKey: CodingKeys.title)
     link = try container.decodeIfPresent(String.self, forKey: CodingKeys.link)
@@ -375,7 +376,7 @@ extension RSSFeedChannel: Codable {
     docs = try container.decodeIfPresent(String.self, forKey: CodingKeys.docs)
     cloud = try container.decodeIfPresent(RSSFeedCloud.self, forKey: CodingKeys.cloud)
     rating = try container.decodeIfPresent(String.self, forKey: CodingKeys.rating)
-    ttl = try container.decodeIfPresent(Int.self, forKey: CodingKeys.ttl)
+    ttl = try container.decodeLossyIfPresent(Int.self, forKey: CodingKeys.ttl, lossy: lossy)
     image = try container.decodeIfPresent(RSSFeedImage.self, forKey: CodingKeys.image)
     textInput = try container.decodeIfPresent(RSSFeedTextInput.self, forKey: CodingKeys.textInput)
     skipHours = try container.decodeIfPresent(RSSFeedSkipHours.self, forKey: CodingKeys.skipHours)

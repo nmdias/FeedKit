@@ -158,6 +158,62 @@ public struct MediaContent {
     /// XML 1.0 Specification (Third Edition). It is an optional
     /// attribute.
     public var lang: String?
+
+    public init(from decoder: any Decoder) throws {
+      let container = try decoder.container(keyedBy: CodingKeys.self)
+      let lossy = decoder.isFeedLossyDecodingEnabled
+
+      url = try container.decodeIfPresent(String.self, forKey: .url)
+      fileSize = try container.decodeLossyIfPresent(Int.self, forKey: .fileSize, lossy: lossy)
+      type = try container.decodeIfPresent(String.self, forKey: .type)
+      medium = try container.decodeIfPresent(String.self, forKey: .medium)
+      isDefault = try container.decodeLossyIfPresent(Bool.self, forKey: .isDefault, lossy: lossy)
+      expression = try container.decodeIfPresent(String.self, forKey: .expression)
+      bitrate = try container.decodeLossyIfPresent(Int.self, forKey: .bitrate, lossy: lossy)
+      framerate = try container.decodeLossyIfPresent(Double.self, forKey: .framerate, lossy: lossy)
+      samplingrate = try container.decodeLossyIfPresent(Double.self, forKey: .samplingrate, lossy: lossy)
+      channels = try container.decodeLossyIfPresent(Int.self, forKey: .channels, lossy: lossy)
+      duration = try container.decodeLossyIfPresent(Int.self, forKey: .duration, lossy: lossy)
+      height = try container.decodeLossyIfPresent(Int.self, forKey: .height, lossy: lossy)
+      width = try container.decodeLossyIfPresent(Int.self, forKey: .width, lossy: lossy)
+      lang = try container.decodeIfPresent(String.self, forKey: .lang)
+    }
+
+    public func encode(to encoder: any Encoder) throws {
+      var container = encoder.container(keyedBy: CodingKeys.self)
+
+      try container.encodeIfPresent(url, forKey: .url)
+      try container.encodeIfPresent(fileSize, forKey: .fileSize)
+      try container.encodeIfPresent(type, forKey: .type)
+      try container.encodeIfPresent(medium, forKey: .medium)
+      try container.encodeIfPresent(isDefault, forKey: .isDefault)
+      try container.encodeIfPresent(expression, forKey: .expression)
+      try container.encodeIfPresent(bitrate, forKey: .bitrate)
+      try container.encodeIfPresent(framerate, forKey: .framerate)
+      try container.encodeIfPresent(samplingrate, forKey: .samplingrate)
+      try container.encodeIfPresent(channels, forKey: .channels)
+      try container.encodeIfPresent(duration, forKey: .duration)
+      try container.encodeIfPresent(height, forKey: .height)
+      try container.encodeIfPresent(width, forKey: .width)
+      try container.encodeIfPresent(lang, forKey: .lang)
+    }
+
+    private enum CodingKeys: String, CodingKey {
+      case url
+      case fileSize
+      case type
+      case medium
+      case isDefault
+      case expression
+      case bitrate
+      case framerate
+      case samplingrate
+      case channels
+      case duration
+      case height
+      case width
+      case lang
+    }
   }
 
   /// The element's attributes

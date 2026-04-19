@@ -330,6 +330,7 @@ extension ITunes: Codable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
 
     author = try container.decodeIfPresent(String.self, forKey: CodingKeys.author)
     block = try container.decodeIfPresent(String.self, forKey: CodingKeys.block)
@@ -338,7 +339,7 @@ extension ITunes: Codable {
     duration = try container.decodeIfPresent(String.self, forKey: CodingKeys.duration)?.toDuration()
     explicit = try container.decodeIfPresent(String.self, forKey: CodingKeys.explicit)
     isClosedCaptioned = try container.decodeIfPresent(String.self, forKey: CodingKeys.isClosedCaptioned)
-    order = try container.decodeIfPresent(Int.self, forKey: CodingKeys.order)
+    order = try container.decodeLossyIfPresent(Int.self, forKey: CodingKeys.order, lossy: lossy)
     complete = try container.decodeIfPresent(String.self, forKey: CodingKeys.complete)
     newFeedURL = try container.decodeIfPresent(String.self, forKey: CodingKeys.newFeedURL)
     owner = try container.decodeIfPresent(iTunesOwner.self, forKey: CodingKeys.owner)
@@ -348,7 +349,7 @@ extension ITunes: Codable {
     keywords = try container.decodeIfPresent(String.self, forKey: CodingKeys.keywords)
     type = try container.decodeIfPresent(String.self, forKey: CodingKeys.type)
     episodeType = try container.decodeIfPresent(String.self, forKey: CodingKeys.episodeType)
-    season = try container.decodeIfPresent(Int.self, forKey: CodingKeys.season)
+    season = try container.decodeLossyIfPresent(Int.self, forKey: CodingKeys.season, lossy: lossy)
     episode = try container.decodeIfPresent(String.self, forKey: CodingKeys.episode)
   }
 

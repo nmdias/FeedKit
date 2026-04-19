@@ -131,6 +131,38 @@ public struct AtomFeedLinkAttributes: Codable, Equatable, Hashable, Sendable {
   /// by the underlying protocol.  Link elements MAY have a length
   /// attribute.
   public var length: Int64?
+
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
+
+    href = try container.decodeIfPresent(String.self, forKey: .href)
+    rel = try container.decodeIfPresent(String.self, forKey: .rel)
+    type = try container.decodeIfPresent(String.self, forKey: .type)
+    hreflang = try container.decodeIfPresent(String.self, forKey: .hreflang)
+    title = try container.decodeIfPresent(String.self, forKey: .title)
+    length = try container.decodeLossyIfPresent(Int64.self, forKey: .length, lossy: lossy)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(href, forKey: .href)
+    try container.encodeIfPresent(rel, forKey: .rel)
+    try container.encodeIfPresent(type, forKey: .type)
+    try container.encodeIfPresent(hreflang, forKey: .hreflang)
+    try container.encodeIfPresent(title, forKey: .title)
+    try container.encodeIfPresent(length, forKey: .length)
+  }
+
+  private enum CodingKeys: String, CodingKey {
+    case href
+    case rel
+    case type
+    case hreflang
+    case title
+    case length
+  }
 }
 
 /// The "atom:link" element defines a reference from an entry or feed to

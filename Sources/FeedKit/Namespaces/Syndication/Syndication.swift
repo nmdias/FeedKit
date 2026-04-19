@@ -92,9 +92,10 @@ extension Syndication: Codable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
 
     updatePeriod = try container.decodeIfPresent(SyndicationUpdatePeriod.self, forKey: CodingKeys.updatePeriod)
-    updateFrequency = try container.decodeIfPresent(Int.self, forKey: CodingKeys.updateFrequency)
+    updateFrequency = try container.decodeLossyIfPresent(Int.self, forKey: CodingKeys.updateFrequency, lossy: lossy)
     updateBase = try container.decodeIfPresent(Date.self, forKey: CodingKeys.updateBase)
   }
 

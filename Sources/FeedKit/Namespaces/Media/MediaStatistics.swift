@@ -42,6 +42,26 @@ public struct MediaStatisticsAttributes: Codable, Equatable, Hashable, Sendable 
 
   /// The number fo favorites.
   public var favorites: Int?
+
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
+
+    views = try container.decodeLossyIfPresent(Int.self, forKey: .views, lossy: lossy)
+    favorites = try container.decodeLossyIfPresent(Int.self, forKey: .favorites, lossy: lossy)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(views, forKey: .views)
+    try container.encodeIfPresent(favorites, forKey: .favorites)
+  }
+
+  private enum CodingKeys: String, CodingKey {
+    case views
+    case favorites
+  }
 }
 
 /// This element specifies various statistics about a media object like the

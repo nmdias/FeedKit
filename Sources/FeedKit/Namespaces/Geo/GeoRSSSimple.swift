@@ -62,9 +62,10 @@ extension GeoRSSSimple: Codable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<GeoRSSSimple.CodingKeys> = try decoder.container(keyedBy: GeoRSSSimple.CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
 
     point = try container.decodeIfPresent(GeoRSSSimplePoint.self, forKey: GeoRSSSimple.CodingKeys.point)
-    elevation = try container.decodeIfPresent(Double.self, forKey: GeoRSSSimple.CodingKeys.elevation)
+    elevation = try container.decodeLossyIfPresent(Double.self, forKey: GeoRSSSimple.CodingKeys.elevation, lossy: lossy)
   }
 
   public func encode(to encoder: any Encoder) throws {

@@ -52,6 +52,32 @@ public struct MediaStarRatingAttributes: Codable, Equatable, Hashable, Sendable 
 
   /// The star rating's maximum value.
   public var max: Int?
+
+  public init(from decoder: any Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
+
+    average = try container.decodeLossyIfPresent(Double.self, forKey: .average, lossy: lossy)
+    count = try container.decodeLossyIfPresent(Int.self, forKey: .count, lossy: lossy)
+    min = try container.decodeLossyIfPresent(Int.self, forKey: .min, lossy: lossy)
+    max = try container.decodeLossyIfPresent(Int.self, forKey: .max, lossy: lossy)
+  }
+
+  public func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encodeIfPresent(average, forKey: .average)
+    try container.encodeIfPresent(count, forKey: .count)
+    try container.encodeIfPresent(min, forKey: .min)
+    try container.encodeIfPresent(max, forKey: .max)
+  }
+
+  private enum CodingKeys: String, CodingKey {
+    case average
+    case count
+    case min
+    case max
+  }
 }
 
 /// This element specifies the rating-related information about a media object.

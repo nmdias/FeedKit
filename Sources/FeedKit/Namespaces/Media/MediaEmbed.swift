@@ -63,6 +63,29 @@ public struct MediaEmbed {
 
     /// The height size for the embeded Media.
     public var height: Int?
+
+    public init(from decoder: any Decoder) throws {
+      let container = try decoder.container(keyedBy: CodingKeys.self)
+      let lossy = decoder.isFeedLossyDecodingEnabled
+
+      url = try container.decodeIfPresent(String.self, forKey: .url)
+      width = try container.decodeLossyIfPresent(Int.self, forKey: .width, lossy: lossy)
+      height = try container.decodeLossyIfPresent(Int.self, forKey: .height, lossy: lossy)
+    }
+
+    public func encode(to encoder: any Encoder) throws {
+      var container = encoder.container(keyedBy: CodingKeys.self)
+
+      try container.encodeIfPresent(url, forKey: .url)
+      try container.encodeIfPresent(width, forKey: .width)
+      try container.encodeIfPresent(height, forKey: .height)
+    }
+
+    private enum CodingKeys: String, CodingKey {
+      case url
+      case width
+      case height
+    }
   }
 
   /// The element's attributes.

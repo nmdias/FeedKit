@@ -84,13 +84,14 @@ extension Feed: FeedInitializable {
   /// Initializes a `Feed` by parsing content from the specified URL string.
   ///
   /// - Parameter urlString: A valid URL string pointing to a feed.
+  /// - Parameter lossy: When `true`, malformed optional scalar values decode as `nil`.
   /// - Throws: `FeedError.invalidURLString` if the URL string is invalid, or other
   ///           parsing errors if the feed content cannot be processed.
-  public init(urlString: String) async throws {
+  public init(urlString: String, lossy: Bool = false) async throws {
     guard let url = URL(string: urlString) else {
       throw FeedError.invalidURLString
     }
-    try await self.init(url: url)
+    try await self.init(url: url, lossy: lossy)
   }
 
   /// Initializes a `Feed` by parsing content from the specified URL.
@@ -98,30 +99,33 @@ extension Feed: FeedInitializable {
   /// This initializer automatically handles both local file URLs and remote URLs.
   ///
   /// - Parameter url: The URL pointing to the feed content.
+  /// - Parameter lossy: When `true`, malformed optional scalar values decode as `nil`.
   /// - Throws: Various errors depending on whether the URL is local or remote.
-  public init(url: URL) async throws {
+  public init(url: URL, lossy: Bool = false) async throws {
     if url.isFileURL {
-      try self.init(fileURL: url)
+      try self.init(fileURL: url, lossy: lossy)
     } else {
-      try await self.init(remoteURL: url)
+      try await self.init(remoteURL: url, lossy: lossy)
     }
   }
 
   /// Initializes a `Feed` by parsing content from a local file URL.
   ///
   /// - Parameter url: A file URL pointing to the feed content.
+  /// - Parameter lossy: When `true`, malformed optional scalar values decode as `nil`.
   /// - Throws: File reading errors or parsing errors if the content is invalid.
-  public init(fileURL url: URL) throws {
+  public init(fileURL url: URL, lossy: Bool = false) throws {
     let data = try Data(contentsOf: url)
-    try self.init(data: data)
+    try self.init(data: data, lossy: lossy)
   }
 
   /// Initializes a `Feed` by downloading and parsing content from a remote URL.
   ///
   /// - Parameter url: A remote URL pointing to the feed content.
+  /// - Parameter lossy: When `true`, malformed optional scalar values decode as `nil`.
   /// - Throws: Network errors, HTTP errors, or parsing errors if the download
   ///           fails or the content is invalid.
-  public init(remoteURL url: URL) async throws {
+  public init(remoteURL url: URL, lossy: Bool = false) async throws {
     let session: URLSession = .shared
     let (data, response) = try await session.data(from: url)
 
@@ -134,19 +138,20 @@ extension Feed: FeedInitializable {
       throw FeedError.invalidHttpResponse(statusCode: statusCode)
     }
 
-    try self.init(data: data)
+    try self.init(data: data, lossy: lossy)
   }
 
   /// Initializes a `Feed` by parsing the provided string content.
   ///
   /// - Parameter string: A string containing the feed content.
+  /// - Parameter lossy: When `true`, malformed optional scalar values decode as `nil`.
   /// - Throws: `FeedError` if the string cannot be converted to data or if
   ///           parsing fails.
-  public init(string: String) throws {
+  public init(string: String, lossy: Bool = false) throws {
     guard let data = string.data(using: .utf8) else {
       throw FeedError.invalidUtf8String
     }
-    try self.init(data: data)
+    try self.init(data: data, lossy: lossy)
   }
 
   /// Initializes a `Feed` by parsing the provided raw data.
@@ -156,22 +161,23 @@ extension Feed: FeedInitializable {
   /// into the appropriate format.
   ///
   /// - Parameter data: The raw feed data to parse.
+  /// - Parameter lossy: When `true`, malformed optional scalar values decode as `nil`.
   /// - Throws: `FeedError.unknownFeedFormat` if the feed type cannot be determined or
   ///           if parsing fails.
-  public init(data: Data) throws {
+  public init(data: Data, lossy: Bool = false) throws {
     let feedType = try FeedType(data: data)
 
     switch feedType {
     case .atom:
-      let feed = try AtomFeed(data: data)
+      let feed = try AtomFeed(data: data, lossy: lossy)
       self = .atom(feed)
 
     case .rss:
-      let feed = try RSSFeed(data: data)
+      let feed = try RSSFeed(data: data, lossy: lossy)
       self = .rss(feed)
 
     case .json:
-      let feed = try JSONFeed(data: data)
+      let feed = try JSONFeed(data: data, lossy: lossy)
       self = .json(feed)
     }
   }

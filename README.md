@@ -44,6 +44,12 @@ When you know the type of feed to be read, use a dedicated type.
 try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
 ```
 
+If you need to tolerate malformed optional scalar values from imperfect feeds, opt into lossy decoding:
+
+```swift
+try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss", lossy: true)
+```
+
 ### Universal
 
 When you don't know the type of feed, use the universal `Feed` enum type.
@@ -60,6 +66,12 @@ case let .atom(feed): // An AtomFeed instance
 case let .rss(feed): // An RSSFeed instance
 case let .json(feed): // A JSONFeed instance
 }
+```
+
+Lossy decoding is also available on the universal `Feed` type:
+
+```swift
+let feed = try await Feed(urlString: "https://surprise.me/feed", lossy: true)
 ```
 
 #### Manual Feed Type Detection
@@ -100,38 +112,40 @@ All feed types conform to `FeedInitializable`, sharing multiple common initializ
 From a URL `String`:
 
 ```swift
-init(urlString: String) async throws
+init(urlString: String, lossy: Bool = false) async throws
 ```
 
 From a `URL`, handling both local file URLs and remote URLs:
 
 ```swift
-init(url: URL) async throws
+init(url: URL, lossy: Bool = false) async throws
 ```
 
 From a local file `URL`:
 
 ```swift
-init(fileURL url: URL) throws
+init(fileURL url: URL, lossy: Bool = false) throws
 ```
 
 From a remote `URL`:
 
 ```swift
-init(remoteURL url: URL) async throws
+init(remoteURL url: URL, lossy: Bool = false) async throws
 ```
 
 From an XML or JSON `String`:
 
 ```swift
-init(string: String) throws
+init(string: String, lossy: Bool = false) throws
 ```
 
 From raw `Data`:
 
 ```swift
-init(data: Data) throws
+init(data: Data, lossy: Bool = false) throws
 ```
+
+When `lossy` is `true`, malformed optional scalar values such as invalid integers, doubles, booleans, or lengths are decoded as `nil` instead of causing the whole feed parse to fail.
 
 </details>
 

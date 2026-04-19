@@ -99,10 +99,11 @@ extension JSONFeedAttachment: Codable {
 
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
+    let lossy = decoder.isFeedLossyDecodingEnabled
     title = try values.decodeIfPresent(String.self, forKey: .title)
     url = try values.decodeIfPresent(String.self, forKey: .url)
     mimeType = try values.decodeIfPresent(String.self, forKey: .mime_type)
-    sizeInBytes = try values.decodeIfPresent(Int.self, forKey: .size_in_bytes)
-    durationInSeconds = try values.decodeIfPresent(TimeInterval.self, forKey: .duration_in_seconds)
+    sizeInBytes = try values.decodeLossyIfPresent(Int.self, forKey: .size_in_bytes, lossy: lossy)
+    durationInSeconds = try values.decodeLossyIfPresent(Double.self, forKey: .duration_in_seconds, lossy: lossy)
   }
 }
