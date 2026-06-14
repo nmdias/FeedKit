@@ -410,11 +410,11 @@ extension RSSFeedChannel: Codable {
     try container.encodeIfPresent(textInput, forKey: CodingKeys.textInput)
     try container.encodeIfPresent(skipHours, forKey: CodingKeys.skipHours)
     try container.encodeIfPresent(skipDays, forKey: CodingKeys.skipDays)
-    try container.encodeIfPresent(items, forKey: CodingKeys.item)
     try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
     try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
     try container.encodeIfPresent(syndication, forKey: CodingKeys.syndication)
     try container.encodeIfPresent(atom, forKey: CodingKeys.atom)
     try container.encodeIfPresent(podcast, forKey: CodingKeys.podcast)
+    try container.encodeIfPresent(items, forKey: CodingKeys.item)
   }
 }
