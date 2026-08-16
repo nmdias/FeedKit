@@ -102,8 +102,49 @@ extension JSONTests {
           datePublished: nil,
           dateModified: nil,
           author: nil,
+          authors: nil,
+          language: nil,
           tags: nil,
           attachments: nil
+        )
+      ]
+    )
+  }
+}
+
+extension JSONTests {
+  var mockV1_1: JSONFeed {
+    .init(
+      title: "Title",
+      homePageURL: "https://example.org/",
+      feedURL: "https://example.org/feed.json",
+      author: .init(
+        name: "Brent Simmons",
+        url: "http://example.org/",
+        avatar: "https://example.org/avatar.png"
+      ),
+      authors: [
+        .init(
+          name: "Brent Simmons",
+          url: "http://example.org/",
+          avatar: "https://example.org/avatar.png"
+        ),
+        .init(name: "John Gruber")
+      ],
+      language: "en-US",
+      items: [
+        .init(
+          id: "1",
+          url: "https://example.org/initial-post",
+          contentHtml: "<p>Hello, world!</p>",
+          author: .init(url: "http://example.org/no-name"),
+          authors: [.init(url: "http://example.org/no-name")],
+          language: "pt-PT"
+        ),
+        .init(
+          id: "2",
+          url: "https://example.org/second-post",
+          contentText: "Hello again, world!"
         )
       ]
     )

@@ -50,6 +50,7 @@ let package = Package(
       ],
       resources: [
         .process("Resources/json/feed.json"),
+        .process("Resources/json/feed_v1_1.json"),
         .process("Resources/xml/Ampersand.xml"),
         .process("Resources/xml/Atom + XHTML.xml"),
         .process("Resources/xml/Atom.xml"),

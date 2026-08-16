@@ -52,4 +52,48 @@ struct JSONTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
+
+  @Test
+  func jsonFeedV1_1() throws {
+    // Given
+    let data = data(resource: "feed_v1_1", withExtension: "json")
+    let expected: JSONFeed = mockV1_1
+
+    // When
+    let actual = try JSONFeed(data: data)
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  @Test
+  func jsonStringV1_1() throws {
+    // Given
+    let expected: JSONFeed = mockV1_1
+
+    // When
+    let jsonString = try expected.toJSONString(formatted: true)
+    let actual = try JSONFeed(string: jsonString)
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  /// JSON Feed 1.1 deprecated the singular `author`, so 1.1 feeds in the wild
+  /// often only carry `authors`. See https://github.com/nmdias/FeedKit/issues/223
+  @Test
+  func jsonFeedAuthorFallsBackToAuthors() throws {
+    // Given
+    let data = data(resource: "feed_v1_1", withExtension: "json")
+
+    // When
+    let feed = try JSONFeed(data: data)
+
+    // Then
+    #expect(feed.author?.name == "Brent Simmons")
+    #expect(feed.authors?.count == 2)
+    #expect(feed.language == "en-US")
+    #expect(feed.items?.first?.author?.url == "http://example.org/no-name")
+    #expect(feed.items?.first?.language == "pt-PT")
+  }
 }

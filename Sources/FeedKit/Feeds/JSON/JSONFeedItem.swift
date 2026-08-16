@@ -41,6 +41,8 @@ public struct JSONFeedItem {
     datePublished: Date? = nil,
     dateModified: Date? = nil,
     author: JSONFeedAuthor? = nil,
+    authors: [JSONFeedAuthor]? = nil,
+    language: String? = nil,
     tags: [String]? = nil,
     attachments: [JSONFeedAttachment]? = nil
   ) {
@@ -56,6 +58,8 @@ public struct JSONFeedItem {
     self.datePublished = datePublished
     self.dateModified = dateModified
     self.author = author
+    self.authors = authors
+    self.language = language
     self.tags = tags
     self.attachments = attachments
   }
@@ -127,8 +131,20 @@ public struct JSONFeedItem {
 
   /// (optional, object) has the same structure as the top-level author.
   /// If not specified in an item, then the top-level author, if present, is the
-  /// author of the item.
+  /// author of the item. Deprecated in JSON Feed 1.1 in favour of `authors`.
   public var author: JSONFeedAuthor?
+
+  /// (optional, array of objects) has the same structure as the top-level
+  /// authors. If not specified in an item, then the top-level authors, if
+  /// present, are the authors of the item. Added in JSON Feed 1.1, replacing
+  /// the singular `author`. Feed readers should always prefer `authors` if
+  /// present.
+  public var authors: [JSONFeedAuthor]?
+
+  /// (optional, string) is the language for this item, in the format specified
+  /// in RFC 5646. It's only necessary when the item's language is different
+  /// from the feed's language. Added in JSON Feed 1.1.
+  public var language: String?
 
   /// (optional, array of strings) can have any plain text values you want. Tags
   /// tend to be just one word, but they may be anything. Note: they are not the
@@ -169,6 +185,8 @@ extension JSONFeedItem: Codable {
     case date_modified
     case tags
     case author
+    case authors
+    case language
     case attachments
   }
 
@@ -187,6 +205,8 @@ extension JSONFeedItem: Codable {
     try container.encodeIfPresent(dateModified, forKey: .date_modified)
     try container.encodeIfPresent(tags, forKey: .tags)
     try container.encodeIfPresent(author, forKey: .author)
+    try container.encodeIfPresent(authors, forKey: .authors)
+    try container.encodeIfPresent(language, forKey: .language)
     try container.encodeIfPresent(attachments, forKey: .attachments)
   }
 
@@ -209,7 +229,14 @@ extension JSONFeedItem: Codable {
     datePublished = try values.decodeIfPresent(Date.self, forKey: .date_published)
     dateModified = try values.decodeIfPresent(Date.self, forKey: .date_modified)
     tags = try values.decodeIfPresent([String].self, forKey: .tags)
-    author = try values.decodeIfPresent(JSONFeedAuthor.self, forKey: .author)
+    let author = try values.decodeIfPresent(JSONFeedAuthor.self, forKey: .author)
+    let authors = try values.decodeIfPresent([JSONFeedAuthor].self, forKey: .authors)
+    // JSON Feed 1.1 deprecated the singular `author` in favour of `authors`,
+    // and 1.1 feeds commonly omit `author` entirely. Fall back to the first
+    // entry of `authors` so `author` remains usable either way.
+    self.authors = authors
+    self.author = author ?? authors?.first
+    language = try values.decodeIfPresent(String.self, forKey: .language)
     attachments = try values.decodeIfPresent([JSONFeedAttachment].self, forKey: .attachments)
   }
 }

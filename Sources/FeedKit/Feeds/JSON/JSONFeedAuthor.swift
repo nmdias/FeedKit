@@ -87,7 +87,7 @@ extension JSONFeedAuthor: Codable {
 
   public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
-    name = try values.decode(String.self, forKey: .name)
+    name = try values.decodeIfPresent(String.self, forKey: .name)
     url = try values.decodeIfPresent(String.self, forKey: .url)
     avatar = try values.decodeIfPresent(String.self, forKey: .avatar)
   }

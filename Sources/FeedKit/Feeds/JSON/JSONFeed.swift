@@ -39,6 +39,8 @@ public struct JSONFeed {
     icon: String? = nil,
     favicon: String? = nil,
     author: JSONFeedAuthor? = nil,
+    authors: [JSONFeedAuthor]? = nil,
+    language: String? = nil,
     expired: Bool? = nil,
     hubs: [JSONFeedHub]? = nil,
     items: [JSONFeedItem]? = nil
@@ -52,9 +54,17 @@ public struct JSONFeed {
     self.icon = icon
     self.favicon = favicon
     self.author = author
+    self.authors = authors
+    self.language = language
     self.expired = expired
     self.hubs = hubs
     self.items = items
+    // The `authors` and `language` members were introduced in JSON Feed 1.1,
+    // so a feed that uses them is a 1.1 feed.
+    if authors != nil || language != nil ||
+      items?.contains(where: { $0.authors != nil || $0.language != nil }) == true {
+      version = "https://jsonfeed.org/version/1.1"
+    }
   }
 
   // MARK: Public
@@ -109,8 +119,22 @@ public struct JSONFeed {
 
   /// (optional, object) specifies the feed author. The author object has
   /// several members. These are all optional - but if you provide an author
-  /// object, then at least one is required.
+  /// object, then at least one is required. Deprecated in JSON Feed 1.1 in
+  /// favour of `authors`.
   public var author: JSONFeedAuthor?
+
+  /// (optional, array of objects) specifies one or more feed authors. The
+  /// author object has several members. These are all optional - but if you
+  /// provide an author object, then at least one is required. Added in JSON
+  /// Feed 1.1, replacing the singular `author`. Feed readers should always
+  /// prefer `authors` if present.
+  public var authors: [JSONFeedAuthor]?
+
+  /// (optional, string) is the primary language for the feed in the format
+  /// specified in RFC 5646. The value is usually a 2-letter language tag from
+  /// ISO 639-1, optionally followed by a region tag. (Examples: en or en-US.)
+  /// Added in JSON Feed 1.1.
+  public var language: String?
 
   /// (optional, boolean) says whether or not the feed is finished - that is,
   /// whether or not it will ever update again. A feed for a temporary event,
@@ -162,6 +186,8 @@ extension JSONFeed: Codable {
     case favicon
     case expired
     case author
+    case authors
+    case language
     case hubs
     case items
   }
@@ -179,6 +205,8 @@ extension JSONFeed: Codable {
     try container.encodeIfPresent(favicon, forKey: .favicon)
     try container.encodeIfPresent(expired, forKey: .expired)
     try container.encodeIfPresent(author, forKey: .author)
+    try container.encodeIfPresent(authors, forKey: .authors)
+    try container.encodeIfPresent(language, forKey: .language)
     try container.encodeIfPresent(hubs, forKey: .hubs)
     try container.encodeIfPresent(items, forKey: .items)
   }
@@ -195,7 +223,14 @@ extension JSONFeed: Codable {
     icon = try values.decodeIfPresent(String.self, forKey: .icon)
     favicon = try values.decodeIfPresent(String.self, forKey: .favicon)
     expired = try values.decodeIfPresent(Bool.self, forKey: .expired)
-    author = try values.decodeIfPresent(JSONFeedAuthor.self, forKey: .author)
+    let author = try values.decodeIfPresent(JSONFeedAuthor.self, forKey: .author)
+    let authors = try values.decodeIfPresent([JSONFeedAuthor].self, forKey: .authors)
+    // JSON Feed 1.1 deprecated the singular `author` in favour of `authors`,
+    // and 1.1 feeds commonly omit `author` entirely. Fall back to the first
+    // entry of `authors` so `author` remains usable either way.
+    self.authors = authors
+    self.author = author ?? authors?.first
+    language = try values.decodeIfPresent(String.self, forKey: .language)
     hubs = try values.decodeIfPresent([JSONFeedHub].self, forKey: .hubs)
     items = try values.decodeIfPresent([JSONFeedItem].self, forKey: .items)
   }

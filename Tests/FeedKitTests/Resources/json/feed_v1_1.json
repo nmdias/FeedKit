@@ -1,0 +1,35 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Title",
+  "home_page_url": "https://example.org/",
+  "feed_url": "https://example.org/feed.json",
+  "language": "en-US",
+  "authors": [
+    {
+      "name": "Brent Simmons",
+      "url": "http://example.org/",
+      "avatar": "https://example.org/avatar.png"
+    },
+    {
+      "name": "John Gruber"
+    }
+  ],
+  "items": [
+    {
+      "id": "1",
+      "url": "https://example.org/initial-post",
+      "content_html": "<p>Hello, world!</p>",
+      "language": "pt-PT",
+      "authors": [
+        {
+          "url": "http://example.org/no-name"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "url": "https://example.org/second-post",
+      "content_text": "Hello again, world!"
+    }
+  ]
+}
