@@ -62,7 +62,8 @@ public struct JSONFeed {
     // The `authors` and `language` members were introduced in JSON Feed 1.1,
     // so a feed that uses them is a 1.1 feed.
     if authors != nil || language != nil ||
-      items?.contains(where: { $0.authors != nil || $0.language != nil }) == true {
+      items?.contains(where: { $0.authors != nil || $0.language != nil }) == true
+    {
       version = "https://jsonfeed.org/version/1.1"
     }
   }
