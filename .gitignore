@@ -6,3 +6,4 @@
 /*.xcodeproj
 xcuserdata/
 .swift-format
+Package.resolved

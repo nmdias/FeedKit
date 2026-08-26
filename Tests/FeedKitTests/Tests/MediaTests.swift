@@ -21,8 +21,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import Foundation
 @testable import FeedKit
 import Testing
+import XMLKit
 
 @Suite("Media")
 struct MediaTests: FeedKitTestable {
@@ -37,5 +39,54 @@ struct MediaTests: FeedKitTestable {
 
     // Then
     #expect(expected == actual)
+  }
+
+  @Test("A declared, non-conventional prefix bound to the Media (MRSS) namespace URI still decodes")
+  func mediaWithAlternatePrefix() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0"?>
+    <rss version="2.0" xmlns:mrss="http://search.yahoo.com/mrss/">
+      <channel>
+        <title>Test Channel</title>
+        <item>
+          <title>Test Item</title>
+          <mrss:content url="http://example.com/video.mp4" />
+        </item>
+      </channel>
+    </rss>
+    """
+
+    // When
+    let feed = try RSSFeed(string: xml)
+
+    // Then
+    #expect(feed.channel?.items?.first?.media?.contents?.first?.attributes?.url == "http://example.com/video.mp4")
+  }
+
+  @Test("An undeclared, conventionally-prefixed media: element decodes under .lenient but not under .strict")
+  func mediaUndeclaredPrefixIsLenientByDefault() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0"?>
+    <rss version="2.0">
+      <channel>
+        <title>Test Channel</title>
+        <item>
+          <title>Test Item</title>
+          <media:content url="http://example.com/video.mp4" />
+        </item>
+      </channel>
+    </rss>
+    """
+    let data = try #require(xml.data(using: .utf8))
+
+    // When
+    let lenientFeed = try RSSFeed(data: data, namespaceHandling: .lenient)
+    let strictFeed = try RSSFeed(data: data, namespaceHandling: .strict)
+
+    // Then
+    #expect(lenientFeed.channel?.items?.first?.media?.contents?.first?.attributes?.url == "http://example.com/video.mp4")
+    #expect(strictFeed.channel?.items?.first?.media == nil)
   }
 }

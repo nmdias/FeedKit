@@ -38,4 +38,24 @@ struct SyndicationTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
+
+  @Test("A declared, non-conventional prefix bound to the Syndication namespace URI still decodes")
+  func syndicationWithAlternatePrefix() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0"?>
+    <rss version="2.0" xmlns:synd="http://purl.org/rss/1.0/modules/syndication/">
+      <channel>
+        <title>Test Channel</title>
+        <synd:updatePeriod>daily</synd:updatePeriod>
+      </channel>
+    </rss>
+    """
+
+    // When
+    let feed = try RSSFeed(string: xml)
+
+    // Then
+    #expect(feed.channel?.syndication?.updatePeriod == .daily)
+  }
 }

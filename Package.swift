@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "FeedKit",
   platforms: [
-    .macOS(.v12),
+    .macOS(.v13),
     .iOS(.v15),
     .watchOS(.v8),
     .tvOS(.v15),
@@ -65,7 +65,11 @@ let package = Package(
         .process("Resources/xml/Syndication.xml"),
         .process("Resources/xml/iTunes.xml"),
         .process("Resources/xml/YouTube.xml"),
-        .process("Resources/xml/GeoRSSSimple.xml")
+        .process("Resources/xml/GeoRSSSimple.xml"),
+        .process("Resources/xml/Podcast.xml"),
+        .process("Resources/xml/SourceMarkdown.xml"),
+        .process("Resources/xml/NetNewsWire.xml"),
+        .process("Resources/xml/CommentAPI.xml")
       ]
     )
   ]

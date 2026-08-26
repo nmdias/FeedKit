@@ -1,0 +1,768 @@
+<rss xmlns:source="http://source.scripting.com/" version="2.0">
+  <channel>
+    <title>NetNewsWire</title>
+    <link>https://netnewswire.blog/</link>
+    <description></description>
+    
+    <language>en</language>
+    
+    <lastBuildDate>Mon, 29 Jun 2026 17:16:35 -0700</lastBuildDate>
+    <item>
+      <title>How to Beta Test NetNewsWire</title>
+      <link>https://netnewswire.blog/2026/06/29/how-to-beta-test-netnewswire.html</link>
+      <pubDate>Mon, 29 Jun 2026 17:16:35 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/06/29/how-to-beta-test-netnewswire.html</guid>
+      <description>&lt;p&gt;We very much appreciate the bug reports and feedback from NetNewsWire beta testers — and we want to make sure that everyone who might be interested in helping this way knows how to get started. It’s easy. 😀&lt;/p&gt;
+&lt;p&gt;So we’ve written up a new &lt;a href=&#34;https://netnewswire.com/help/beta-testing.html&#34;&gt;How to Beta Test NetNewsWire&lt;/a&gt; page. Want to help make NetNewsWire a better app? This is how!&lt;/p&gt;
+</description>
+      <source:markdown>We very much appreciate the bug reports and feedback from NetNewsWire beta testers — and we want to make sure that everyone who might be interested in helping this way knows how to get started. It’s easy. 😀
+
+So we’ve written up a new [How to Beta Test NetNewsWire](https://netnewswire.com/help/beta-testing.html) page. Want to help make NetNewsWire a better app? This is how!
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 7.1 for iOS</title>
+      <link>https://netnewswire.blog/2026/06/26/netnewswire-for-ios.html</link>
+      <pubDate>Fri, 26 Jun 2026 14:14:43 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/06/26/netnewswire-for-ios.html</guid>
+      <description>&lt;p&gt;NetNewsWire 7.1 for iOS, &lt;a href=&#34;https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210&#34;&gt;now available on the App Store&lt;/a&gt;, has the same new features as the Mac version…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The  &lt;a href=&#34;https://netnewswire.com/help/current-activity.html&#34;&gt;Current Activity screen&lt;/a&gt; shows what the app is doing&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://netnewswire.com/help/activity-log.html&#34;&gt;Activity Log screen&lt;/a&gt; shows what the app did&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://netnewswire.com/help/account-stats.html&#34;&gt;Account Stats screen&lt;/a&gt; shows various stats&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://netnewswire.com/help/dinosaurs.html&#34;&gt;Dinosaurs screen&lt;/a&gt; lists stale feeds&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;…plus a bunch more changes, including some performance enhancements. See the &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/tag/iOS-7.1&#34;&gt;release notes&lt;/a&gt; for the big list.&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 7.1 for iOS, [now available on the App Store](https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210), has the same new features as the Mac version…
+
+- The  [Current Activity screen](https://netnewswire.com/help/current-activity.html) shows what the app is doing
+- The [Activity Log screen](https://netnewswire.com/help/activity-log.html) shows what the app did
+- The [Account Stats screen](https://netnewswire.com/help/account-stats.html) shows various stats
+- The [Dinosaurs screen](https://netnewswire.com/help/dinosaurs.html) lists stale feeds
+
+…plus a bunch more changes, including some performance enhancements. See the [release notes](https://github.com/Ranchero-Software/NetNewsWire/releases/tag/iOS-7.1) for the big list.
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 7.1 for Mac</title>
+      <link>https://netnewswire.blog/2026/06/26/netnewswire-for-mac.html</link>
+      <pubDate>Fri, 26 Jun 2026 10:11:38 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/06/26/netnewswire-for-mac.html</guid>
+      <description>&lt;p&gt;NetNewsWire 7.1 for Mac includes new features that help you understand what’s up with your feeds:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The  &lt;a href=&#34;https://netnewswire.com/help/current-activity.html&#34;&gt;Current Activity window&lt;/a&gt; shows what the app is doing right now&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://netnewswire.com/help/activity-log.html&#34;&gt;Activity Log window&lt;/a&gt; shows what the app did recently&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://netnewswire.com/help/account-stats.html&#34;&gt;Account Stats window&lt;/a&gt; shows per-account article and status counts and database sizes, and it includes a Vacuum Databases button which can help with database size and performance&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://netnewswire.com/help/dinosaurs.html&#34;&gt;Dinosaurs window&lt;/a&gt; lists feeds that haven’t updated in n months (with a text field where you specify n)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are a bunch of other bug fixes and enhancements — &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-7.1&#34;&gt;see the release notes&lt;/a&gt; for the full scoop.&lt;/p&gt;
+&lt;p&gt;To update, do a Check for Updates in NetNewsWire or &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.1/NetNewsWire7.1.zip&#34;&gt;download the app&lt;/a&gt; directly.&lt;/p&gt;
+&lt;p&gt;PS NetNewsWire 7.1 for iOS will be out as soon as it gets through App Store review. Soon!&lt;/p&gt;
+&lt;p&gt;PPS Also: if you have feedback or questions, &lt;a href=&#34;https://discourse.netnewswire.com/&#34;&gt;check out our forum&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 7.1 for Mac includes new features that help you understand what’s up with your feeds:
+
+- The  [Current Activity window](https://netnewswire.com/help/current-activity.html) shows what the app is doing right now
+- The [Activity Log window](https://netnewswire.com/help/activity-log.html) shows what the app did recently
+- The [Account Stats window](https://netnewswire.com/help/account-stats.html) shows per-account article and status counts and database sizes, and it includes a Vacuum Databases button which can help with database size and performance
+- The [Dinosaurs window](https://netnewswire.com/help/dinosaurs.html) lists feeds that haven’t updated in n months (with a text field where you specify n)
+
+There are a bunch of other bug fixes and enhancements — [see the release notes](https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-7.1) for the full scoop.
+
+To update, do a Check for Updates in NetNewsWire or [download the app](https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.1/NetNewsWire7.1.zip) directly.
+
+PS NetNewsWire 7.1 for iOS will be out as soon as it gets through App Store review. Soon!
+
+PPS Also: if you have feedback or questions, [check out our forum](https://discourse.netnewswire.com/).
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>What We’ve Been Doing This Past Year</title>
+      <link>https://netnewswire.blog/2026/06/15/what-weve-been-doing-this.html</link>
+      <pubDate>Mon, 15 Jun 2026 12:17:56 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/06/15/what-weve-been-doing-this.html</guid>
+      <description>&lt;p&gt;On his blog, Brent writes about the &lt;a href=&#34;https://inessential.com/2026/06/15/netnewswire-status.html&#34;&gt;past year of NetNewsWire development&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <source:markdown>On his blog, Brent writes about the [past year of NetNewsWire development](https://inessential.com/2026/06/15/netnewswire-status.html).
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire Now Getting Feed Images from RSS</title>
+      <link>https://netnewswire.blog/2026/04/28/netnewswire-now-getting-feed-images.html</link>
+      <pubDate>Tue, 28 Apr 2026 11:30:55 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/04/28/netnewswire-now-getting-feed-images.html</guid>
+      <description>&lt;p&gt;In NetNewsWire 7.0.5 we made a change to get the feed image from RSS via the &lt;a href=&#34;https://cyber.harvard.edu/rss/rss.html#ltimagegtSubelementOfLtchannelgt&#34;&gt;image element&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Weren’t we &lt;em&gt;already&lt;/em&gt; doing this? Seems surprising that we weren’t!&lt;/p&gt;
+&lt;p&gt;It’s because, historically, these images were often rectangular — but the app wants square images. These days, probably due to the influence of mobile apps, images tend to be square, which is great. It means we can use these.&lt;/p&gt;
+&lt;h4 id=&#34;note-to-feed-publishers&#34;&gt;Note to feed publishers&lt;/h4&gt;
+&lt;p&gt;We suggest checking your feeds to see if they are supplying an image URL. Check that…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;You’re supplying a URL in the &lt;code&gt;&amp;lt;image&amp;gt;&lt;/code&gt; element in the &lt;code&gt;channel&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The image URL doesn’t return 404 or something unexpected&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The image is square&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The image isn’t small: 128 pixels per side is probably a good minimum&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note, though, that due to NetNewsWire’s caching — because it’s trying to not hit servers too often — it’s difficult to debug this using NetNewsWire. Changes may take days to take appear in the app.&lt;/p&gt;
+&lt;p&gt;But if you’ve done the above checks, then it’s good.&lt;/p&gt;
+&lt;h4 id=&#34;what-happens-when-there-is-no-feed-image&#34;&gt;What happens when there is no feed image&lt;/h4&gt;
+&lt;p&gt;NetNewsWire will continue to do what it has done for years — it will try to find a suitable feed image by downloading the home page and looking for &lt;code&gt;apple-touch-icon&lt;/code&gt;, &lt;code&gt;twitter:image&lt;/code&gt;, and &lt;code&gt;og:image&lt;/code&gt; URLs. This uses more bandwidth, unfortunately, but it works.&lt;/p&gt;
+&lt;p&gt;This is why it’s definitely better to supply a feed image. Don’t make the app go poking around!&lt;/p&gt;
+&lt;h4 id=&#34;example&#34;&gt;Example&lt;/h4&gt;
+&lt;p&gt;Here’s an example feed image from Dave Winer’s &lt;a href=&#34;http://scripting.com/rss.xml&#34;&gt;Scripting News RSS feed&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;image&amp;gt;
+    &amp;lt;title&amp;gt;Scripting News&amp;lt;/title&amp;gt;
+    &amp;lt;url&amp;gt;https://imgs.scripting.com/2025/06/04/curly.png&amp;lt;/url&amp;gt;
+    &amp;lt;link&amp;gt;http://scripting.com/&amp;lt;/link&amp;gt;
+    &amp;lt;description&amp;gt;Scripting News gets an image because it&#39;s part of a network that uses them. 6/4/25 by DW&amp;lt;/description&amp;gt;
+    &amp;lt;/image&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The part that NetNewsWire looks at is the &lt;code&gt;&amp;lt;url&amp;gt;&lt;/code&gt; part. (We don’t have a use currently for the other parts.)&lt;/p&gt;
+&lt;h4 id=&#34;ps&#34;&gt;PS&lt;/h4&gt;
+&lt;p&gt;In case you’re not a NetNewsWire user or aren’t sure what we’re talking about — here’s a screenshot showing a list of articles with feed images on the left:&lt;/p&gt;
+&lt;img src=https://cdn.uploads.micro.blog/6360/2026/feed-images.png alt=&#34;Feed images appear in a timeline in NetNewsWire.&#34; title=&#34;Feed images&#34; border=0 width=256 height=337&gt;
+</description>
+      <source:markdown>In NetNewsWire 7.0.5 we made a change to get the feed image from RSS via the [image element](https://cyber.harvard.edu/rss/rss.html#ltimagegtSubelementOfLtchannelgt).
+
+Weren’t we *already* doing this? Seems surprising that we weren’t!
+
+It’s because, historically, these images were often rectangular — but the app wants square images. These days, probably due to the influence of mobile apps, images tend to be square, which is great. It means we can use these.
+
+#### Note to feed publishers
+
+We suggest checking your feeds to see if they are supplying an image URL. Check that…
+
+* You’re supplying a URL in the `&lt;image&gt;` element in the `channel`
+
+* The image URL doesn’t return 404 or something unexpected
+
+* The image is square
+
+* The image isn’t small: 128 pixels per side is probably a good minimum
+
+Note, though, that due to NetNewsWire’s caching — because it’s trying to not hit servers too often — it’s difficult to debug this using NetNewsWire. Changes may take days to take appear in the app.
+
+But if you’ve done the above checks, then it’s good.
+
+#### What happens when there is no feed image
+
+NetNewsWire will continue to do what it has done for years — it will try to find a suitable feed image by downloading the home page and looking for `apple-touch-icon`, `twitter:image`, and `og:image` URLs. This uses more bandwidth, unfortunately, but it works.
+
+This is why it’s definitely better to supply a feed image. Don’t make the app go poking around!
+
+#### Example
+
+Here’s an example feed image from Dave Winer’s [Scripting News RSS feed](http://scripting.com/rss.xml):
+
+    &lt;image&gt;
+        &lt;title&gt;Scripting News&lt;/title&gt;
+        &lt;url&gt;https://imgs.scripting.com/2025/06/04/curly.png&lt;/url&gt;
+        &lt;link&gt;http://scripting.com/&lt;/link&gt;
+        &lt;description&gt;Scripting News gets an image because it&#39;s part of a network that uses them. 6/4/25 by DW&lt;/description&gt;
+        &lt;/image&gt;
+
+The part that NetNewsWire looks at is the `&lt;url&gt;` part. (We don’t have a use currently for the other parts.)
+
+#### PS
+
+In case you’re not a NetNewsWire user or aren’t sure what we’re talking about — here’s a screenshot showing a list of articles with feed images on the left:
+
+&lt;img src=https://cdn.uploads.micro.blog/6360/2026/feed-images.png alt=&#34;Feed images appear in a timeline in NetNewsWire.&#34; title=&#34;Feed images&#34; border=0 width=256 height=337&gt;
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 7.0.4 for iOS — runs on iOS 17 and up</title>
+      <link>https://netnewswire.blog/2026/04/06/netnewswire-for-ios-runs-on.html</link>
+      <pubDate>Mon, 06 Apr 2026 09:05:54 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/04/06/netnewswire-for-ios-runs-on.html</guid>
+      <description>&lt;p&gt;NetNewsWire 7.0.4 is out — get your updates the normal way or &lt;a href=&#34;https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210&#34;&gt;download from the App Store&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are two big changes in this release: it now runs on iOS 17 and up (it no longer requires iOS 26), and it includes the same new iCloud syncing enhancements that the &lt;a href=&#34;https://netnewswire.blog/2026/04/03/netnewswire-for-mac-new-icloud.html&#34;&gt;Mac version&lt;/a&gt; has.&lt;/p&gt;
+&lt;p&gt;See the new &lt;a href=&#34;https://netnewswire.com/help/optimize-icloud.html&#34;&gt;How to Optimize iCloud Syncing page&lt;/a&gt; for details on the iCloud changes, and &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/tag/iOS-7.0.4-7047&#34;&gt;read the release notes&lt;/a&gt; for details on all the changes.&lt;/p&gt;
+&lt;p&gt;If you have questions or run into any issues, remember that you can always get help on the &lt;a href=&#34;https://discourse.netnewswire.com/&#34;&gt;NetNewsWire forum&lt;/a&gt; and report bugs on the &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/issues&#34;&gt;issues tracker&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 7.0.4 is out — get your updates the normal way or [download from the App Store](https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210).
+
+There are two big changes in this release: it now runs on iOS 17 and up (it no longer requires iOS 26), and it includes the same new iCloud syncing enhancements that the [Mac version](https://netnewswire.blog/2026/04/03/netnewswire-for-mac-new-icloud.html) has. 
+
+See the new [How to Optimize iCloud Syncing page](https://netnewswire.com/help/optimize-icloud.html) for details on the iCloud changes, and [read the release notes](https://github.com/Ranchero-Software/NetNewsWire/releases/tag/iOS-7.0.4-7047) for details on all the changes.
+
+If you have questions or run into any issues, remember that you can always get help on the [NetNewsWire forum](https://discourse.netnewswire.com/) and report bugs on the [issues tracker](https://github.com/Ranchero-Software/NetNewsWire/issues).
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 7.0.4 for Mac — new iCloud features</title>
+      <link>https://netnewswire.blog/2026/04/03/netnewswire-for-mac-new-icloud.html</link>
+      <pubDate>Fri, 03 Apr 2026 11:38:50 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/04/03/netnewswire-for-mac-new-icloud.html</guid>
+      <description>&lt;p&gt;We’ve just released NetNewsWire 7.0.4 for Mac. Do a Check for Updates or &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.0.4/NetNewsWire7.0.4.zip&#34;&gt;download it directly&lt;/a&gt; to get the update.&lt;/p&gt;
+&lt;p&gt;The big new changes are to iCloud syncing: there’s a new setting to &lt;em&gt;not&lt;/em&gt; sync the content of unread articles, since that’s the biggest part of your iCloud database and what takes the longest to sync.&lt;/p&gt;
+&lt;p&gt;Another change is a new iCloud Storage Stats window that tells you exactly what’s in your iCloud storage — and it includes a Clean Up button that will trim down your storage (and lead to faster syncs in the future, though not necessarily right at first).&lt;/p&gt;
+&lt;p&gt;All of this and more is documented on the new &lt;a href=&#34;https://netnewswire.com/help/optimize-icloud.html&#34;&gt;How to Optimize iCloud Syncing&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;(Yes, these features are coming to iPhone and iPad too, as soon as the app gets through App Store review.)&lt;/p&gt;
+&lt;p&gt;Also note, in case you missed it earlier, that NetNewsWire for Mac runs on macOS 15 and up. It no longer requires macOS 26. (Similarly: the upcoming iOS release will run on iOS 17 and up. We want as many people as possible to get these iCloud changes.)&lt;/p&gt;
+&lt;p&gt;The iCloud changes aren’t the only changes — &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-7.0.4&#34;&gt;see the release notes&lt;/a&gt; for the full scoop.&lt;/p&gt;
+&lt;p&gt;As always, you can get help on the &lt;a href=&#34;https://discourse.netnewswire.com/&#34;&gt;NetNewsWire forum&lt;/a&gt; and report bugs on the &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/issues&#34;&gt;issues tracker&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <source:markdown>We’ve just released NetNewsWire 7.0.4 for Mac. Do a Check for Updates or [download it directly](https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.0.4/NetNewsWire7.0.4.zip) to get the update.
+
+The big new changes are to iCloud syncing: there’s a new setting to *not* sync the content of unread articles, since that’s the biggest part of your iCloud database and what takes the longest to sync.
+
+Another change is a new iCloud Storage Stats window that tells you exactly what’s in your iCloud storage — and it includes a Clean Up button that will trim down your storage (and lead to faster syncs in the future, though not necessarily right at first).
+
+All of this and more is documented on the new [How to Optimize iCloud Syncing](https://netnewswire.com/help/optimize-icloud.html) page.
+
+(Yes, these features are coming to iPhone and iPad too, as soon as the app gets through App Store review.)
+
+Also note, in case you missed it earlier, that NetNewsWire for Mac runs on macOS 15 and up. It no longer requires macOS 26. (Similarly: the upcoming iOS release will run on iOS 17 and up. We want as many people as possible to get these iCloud changes.)
+
+The iCloud changes aren’t the only changes — [see the release notes](https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-7.0.4) for the full scoop.
+
+As always, you can get help on the [NetNewsWire forum](https://discourse.netnewswire.com/) and report bugs on the [issues tracker](https://github.com/Ranchero-Software/NetNewsWire/issues).
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>Testing Help for NetNewsWire 7.0.4 — runs on iOS 17 and iOS 18</title>
+      <link>https://netnewswire.blog/2026/03/30/testing-help-for-netnewswire-runs.html</link>
+      <pubDate>Mon, 30 Mar 2026 11:59:05 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/03/30/testing-help-for-netnewswire-runs.html</guid>
+      <description>&lt;p&gt;We just released a TestFlight build of NetNewsWire 7.0.4 (which includes iCloud syncing enhancements) that runs on iOS 17 and up. (It had required iOS 26.)&lt;/p&gt;
+&lt;p&gt;If you have a device running one of these versions of iOS, we’d appreciate it if you would help test. Here’s where to &lt;a href=&#34;https://netnewswire.com/test-ios.html&#34;&gt;sign up for TestFlight for NetNewsWire&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thanks!&lt;/p&gt;
+&lt;p&gt;You can report bugs via TestFlight feedback, &lt;a href=&#34;https://discourse.netnewswire.com/c/beta-testing/7&#34;&gt;on the forum&lt;/a&gt;, or &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/issues&#34;&gt;on the bug tracker&lt;/a&gt;. Whatever works for you is cool with us 😀&lt;/p&gt;
+&lt;p&gt;Also: this page talks about the &lt;a href=&#34;https://netnewswire.com/help/optimize-icloud.html&#34;&gt;iCloud syncing enhancements in 7.0.4&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <source:markdown>We just released a TestFlight build of NetNewsWire 7.0.4 (which includes iCloud syncing enhancements) that runs on iOS 17 and up. (It had required iOS 26.)
+
+If you have a device running one of these versions of iOS, we’d appreciate it if you would help test. Here’s where to [sign up for TestFlight for NetNewsWire](https://netnewswire.com/test-ios.html).
+
+Thanks!
+
+You can report bugs via TestFlight feedback, [on the forum](https://discourse.netnewswire.com/c/beta-testing/7), or [on the bug tracker](https://github.com/Ranchero-Software/NetNewsWire/issues). Whatever works for you is cool with us 😀
+
+Also: this page talks about the [iCloud syncing enhancements in 7.0.4](https://netnewswire.com/help/optimize-icloud.html).
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire User Creates MCP Support Via AppleScript</title>
+      <link>https://netnewswire.blog/2026/03/21/netnewswire-user-creates-mcp-support.html</link>
+      <pubDate>Sat, 21 Mar 2026 14:08:44 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/03/21/netnewswire-user-creates-mcp-support.html</guid>
+      <description>&lt;p&gt;Jelly &lt;a href=&#34;https://discourse.netnewswire.com/t/nnw-mcp-support/199&#34;&gt;writes on the NetNewsWire Discourse forum&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’ve drafted a naive implementation of NNW MCP support through AppleScript. It supports listing feeds, getting/searching articles, subscribing new feeds…&lt;/p&gt;
+&lt;p&gt;I can now schedule a daily task that lets Claude summarize that day’s new articles and order them based on my previous behaviors every morning.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We love how AppleScript support is worth way more than the effort we put into it — users can keep creating cool things that we couldn’t have imagined back then.&lt;/p&gt;
+&lt;p&gt;To be clear: we didn’t do anything in NetNewsWire to support AI, LLMs, or MCP, but, since the app is scriptable, you can do all kinds of useful things with it.&lt;/p&gt;
+&lt;p&gt;Here’s the &lt;a href=&#34;https://github.com/jellllly420/netnewswire-mcp&#34;&gt;netnewswire-mcp repo&lt;/a&gt; on GitHub.&lt;/p&gt;
+</description>
+      <source:markdown>Jelly [writes on the NetNewsWire Discourse forum](https://discourse.netnewswire.com/t/nnw-mcp-support/199):
+
+&gt; I’ve drafted a naive implementation of NNW MCP support through AppleScript. It supports listing feeds, getting/searching articles, subscribing new feeds…
+&gt;
+&gt; I can now schedule a daily task that lets Claude summarize that day’s new articles and order them based on my previous behaviors every morning.
+
+We love how AppleScript support is worth way more than the effort we put into it — users can keep creating cool things that we couldn’t have imagined back then.
+
+To be clear: we didn’t do anything in NetNewsWire to support AI, LLMs, or MCP, but, since the app is scriptable, you can do all kinds of useful things with it.
+
+Here’s the [netnewswire-mcp repo](https://github.com/jellllly420/netnewswire-mcp) on GitHub.
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 7.0.2: The Return of the Error Log</title>
+      <link>https://netnewswire.blog/2026/03/19/netnewswire-the-return-of-the.html</link>
+      <pubDate>Thu, 19 Mar 2026 15:52:15 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/03/19/netnewswire-the-return-of-the.html</guid>
+      <description>&lt;p&gt;NetNewsWire of Yore had an Error Log window (on Mac) which could help you figure out what’s going on when a feed or account is acting weird — when it’s stopped updating, for instance.&lt;/p&gt;
+&lt;p&gt;NetNewsWire 7.0.2 brings that feature back, and we’ve already used it to help fix a syncing authentication bug (bug fix will be in 7.0.3).&lt;/p&gt;
+&lt;p&gt;Get your updates the usual way and enjoy the return of the Error Log!&lt;/p&gt;
+&lt;p&gt;For more details, plus screenshots, see &lt;a href=&#34;https://netnewswire.com/help/error-log.html&#34;&gt;How to Use the Error Log&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire of Yore had an Error Log window (on Mac) which could help you figure out what’s going on when a feed or account is acting weird — when it’s stopped updating, for instance.
+
+NetNewsWire 7.0.2 brings that feature back, and we’ve already used it to help fix a syncing authentication bug (bug fix will be in 7.0.3).
+
+Get your updates the usual way and enjoy the return of the Error Log!
+
+For more details, plus screenshots, see [How to Use the Error Log](https://netnewswire.com/help/error-log.html).
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 7.0.1 for Mac runs on macOS 15</title>
+      <link>https://netnewswire.blog/2026/03/04/netnewswire-for-mac-runs-on.html</link>
+      <pubDate>Wed, 04 Mar 2026 18:11:02 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/03/04/netnewswire-for-mac-runs-on.html</guid>
+      <description>&lt;p&gt;We’ve just released NetNewsWire 7.0.1 for Mac. To get it, do a check-for-updates or &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.0.1/NetNewsWire7.0.1.zip&#34;&gt;download it directly&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The big new thing is that runs on macOS 15. 💥 It fixes several bugs as well: see the &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-7.0.1&#34;&gt;change notes on GitHub&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;Thanks to everyone who helped test!&lt;/p&gt;
+&lt;p&gt;PS NetNewsWire 7.0.1 for iOS in waiting for review. Hopefully it will be out in the next few days.&lt;/p&gt;
+</description>
+      <source:markdown>We’ve just released NetNewsWire 7.0.1 for Mac. To get it, do a check-for-updates or [download it directly](https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.0.1/NetNewsWire7.0.1.zip).
+
+The big new thing is that runs on macOS 15. 💥 It fixes several bugs as well: see the [change notes on GitHub](https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-7.0.1) for details.
+
+Thanks to everyone who helped test!
+
+PS NetNewsWire 7.0.1 for iOS in waiting for review. Hopefully it will be out in the next few days.
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>Testing help for NetNewsWire 7.0.1 beta needed — runs on macOS 15</title>
+      <link>https://netnewswire.blog/2026/02/27/testing-help-for-netnewswire-beta.html</link>
+      <pubDate>Fri, 27 Feb 2026 14:34:27 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/02/27/testing-help-for-netnewswire-beta.html</guid>
+      <description>&lt;p&gt;NetNewsWire 7.0 required macOS 26, but now we’re working on making it compatible with macOS 15.&lt;/p&gt;
+&lt;p&gt;This latest beta — either do a check-for-updates or &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.0.1b4/NetNewsWire7.0.1b4.zip&#34;&gt;download it manually&lt;/a&gt; to get it — runs on macOS 15.&lt;/p&gt;
+&lt;p&gt;So far we’ve found just a couple cosmetic glitches, but we’d like to do a lot more testing than just a few quick looks around. We appreciate all the help!&lt;/p&gt;
+&lt;p&gt;You can report bugs on the &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/issues&#34;&gt;bug tracker&lt;/a&gt; or on the &lt;a href=&#34;https://discourse.netnewswire.com/t/netnewswire-7-0-1b4-runs-on-macos-15-testing-help-needed/&#34;&gt;Discourse forum topic&lt;/a&gt; for this beta.&lt;/p&gt;
+&lt;p&gt;(If you’re reporting on the bug tracker, please be sure to specify that you’re running macOS 15, if you are, and specify which version of NetNewsWire. Thanks!)&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 7.0 required macOS 26, but now we’re working on making it compatible with macOS 15.
+
+This latest beta — either do a check-for-updates or [download it manually](https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.0.1b4/NetNewsWire7.0.1b4.zip) to get it — runs on macOS 15.
+
+So far we’ve found just a couple cosmetic glitches, but we’d like to do a lot more testing than just a few quick looks around. We appreciate all the help!
+
+You can report bugs on the [bug tracker](https://github.com/Ranchero-Software/NetNewsWire/issues) or on the [Discourse forum topic](https://discourse.netnewswire.com/t/netnewswire-7-0-1b4-runs-on-macos-15-testing-help-needed/) for this beta.
+
+(If you’re reporting on the bug tracker, please be sure to specify that you’re running macOS 15, if you are, and specify which version of NetNewsWire. Thanks!)
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire Turns 23</title>
+      <link>https://netnewswire.blog/2026/02/11/netnewswire-turns.html</link>
+      <pubDate>Wed, 11 Feb 2026 10:35:12 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/02/11/netnewswire-turns.html</guid>
+      <description>&lt;p&gt;NetNewsWire 1.0 for Mac shipped 23 years ago today! 🎸🎩🕶️&lt;/p&gt;
+&lt;p&gt;Here’s where things are on this particular February 11: we just shipped 7.0 for Mac and iOS, and now we’re working on NetNewsWire 7.0.1.&lt;/p&gt;
+&lt;p&gt;After a big release, no matter how careful we are, there are often some regressions to fix and tweaks to make right away, so we’re working on those. Here’s the milestone with the &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/milestone/65&#34;&gt;current to-do list&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Big picture: we still have a lot of bugs to fix, lots of tech debt to deal with, and lots of polish-needed areas of the app. With &lt;a href=&#34;https://inessential.com/2025/05/24/retirement_and_netnewswire.html&#34;&gt;Brent’s retirement last year&lt;/a&gt; we’ve been able to go &lt;em&gt;way&lt;/em&gt; faster on dealing with all this. We plan to keep up the pace.&lt;/p&gt;
+&lt;p&gt;Here are our current plans:&lt;/p&gt;
+&lt;p&gt;For &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/milestone/50&#34;&gt;NetNewsWire 7.1&lt;/a&gt; we’re focusing on syncing fixes and improvements.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/milestone/52&#34;&gt;NetNewsWire 7.2&lt;/a&gt; doesn’t have a focus yet. Could end up being UX fixes and polish, could be something else. Could be a potpourri, though we do prefer having a focus when possible.&lt;/p&gt;
+&lt;p&gt;We don’t have a NetNewsWire 7.3 plan yet — that’s too far out. Depends on what actually happens with 7.1 and 7.2, and it depends on what Apple adds to our to-do list at WWDC this year. (Touchscreen Macs? Folding iPhones? Big new Swift features? Who knows!)&lt;/p&gt;
+&lt;p&gt;Note that we do add and remove tickets from milestones at any time — none of this is set in stone, of course.&lt;/p&gt;
+&lt;p&gt;It’s NetNewsWire’s birthday, but that’s a day to look forward, not to look back. The very best versions of NetNewsWire are still to come!&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 1.0 for Mac shipped 23 years ago today! 🎸🎩🕶️
+
+Here’s where things are on this particular February 11: we just shipped 7.0 for Mac and iOS, and now we’re working on NetNewsWire 7.0.1.
+
+After a big release, no matter how careful we are, there are often some regressions to fix and tweaks to make right away, so we’re working on those. Here’s the milestone with the [current to-do list](https://github.com/Ranchero-Software/NetNewsWire/milestone/65).
+
+Big picture: we still have a lot of bugs to fix, lots of tech debt to deal with, and lots of polish-needed areas of the app. With [Brent’s retirement last year](https://inessential.com/2025/05/24/retirement_and_netnewswire.html) we’ve been able to go &lt;em&gt;way&lt;/em&gt; faster on dealing with all this. We plan to keep up the pace.
+
+Here are our current plans:
+
+For [NetNewsWire 7.1](https://github.com/Ranchero-Software/NetNewsWire/milestone/50) we’re focusing on syncing fixes and improvements.
+
+[NetNewsWire 7.2](https://github.com/Ranchero-Software/NetNewsWire/milestone/52) doesn’t have a focus yet. Could end up being UX fixes and polish, could be something else. Could be a potpourri, though we do prefer having a focus when possible.
+
+We don’t have a NetNewsWire 7.3 plan yet — that’s too far out. Depends on what actually happens with 7.1 and 7.2, and it depends on what Apple adds to our to-do list at WWDC this year. (Touchscreen Macs? Folding iPhones? Big new Swift features? Who knows!)
+
+Note that we do add and remove tickets from milestones at any time — none of this is set in stone, of course.
+
+It’s NetNewsWire’s birthday, but that’s a day to look forward, not to look back. The very best versions of NetNewsWire are still to come!
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 7.0 for iOS</title>
+      <link>https://netnewswire.blog/2026/02/06/netnewswire-for-ios.html</link>
+      <pubDate>Fri, 06 Feb 2026 12:42:44 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/02/06/netnewswire-for-ios.html</guid>
+      <description>&lt;p&gt;NetNewsWire 7 for iOS 26 and up is available now &lt;a href=&#34;https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210&#34;&gt;on the App Store&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;This version adopts Liquid Glass — and we think it’s a better looking version of NetNewsWire. We think even people who aren’t fans of Liquid Glass will agree with us. 🐣&lt;/p&gt;
+&lt;p&gt;Credit goes to &lt;a href=&#34;https://stuartbreckenridge.net/&#34;&gt;Stuart Breckenridge&lt;/a&gt; for the design and implementation. Wonderful work! &lt;a href=&#34;https://netnewswire.com/screenshots-ios-7.html&#34;&gt;Check out the screenshots&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This version also fixes some small bugs and adds some small performance enhancements. (iOS developers might appreciate this bit: it adopts Swift structured concurrency.)&lt;/p&gt;
+&lt;p&gt;But, again, the main thing is the updated UI. It’s cool!&lt;/p&gt;
+&lt;p&gt;People who like details might enjoy this big list of UI changes from Stuart:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[Sidebar] What was previously a UITableView is now a UICollectionView. This was needed in order to adopt modern styling across iPad and iPhone. iPad uses the .sidebar style, and iPhone uses .insetGrouped. This is similar to the behaviour you see in Mail.&lt;/li&gt;
+&lt;li&gt;[Sidebar] The current refresh status is now located in the navigation bar as a subtitle, having previously been the footer&lt;/li&gt;
+&lt;li&gt;[Sidebar] Toolbar buttons follow Liquid Glass standards&lt;/li&gt;
+&lt;li&gt;[Sidebar (iPad)] Like the Mac refresh, the Feeds view floats and allows Timeline content to slide underneath&lt;/li&gt;
+&lt;li&gt;[Sidebar] Smart Feeds and Account headers now adopt modern secondary styling&lt;/li&gt;
+&lt;li&gt;[Sidebar (iPad)] Selected feeds have a modern capsule background and the text is bold&lt;/li&gt;
+&lt;li&gt;[Sidebar] Folders have been entirely redesigned to match modern standards—they now have the same indentation as any other feed, but the enclosed feeds are indented further&lt;/li&gt;
+&lt;li&gt;[Sidebar] Folders will highlight when Feeds are being dragged and dropped into them&lt;/li&gt;
+&lt;li&gt;[Sidebar] Separators have been realigned&lt;/li&gt;
+&lt;li&gt;[Sidebar] Unread counts are larger and are no longer backed by a filled capsule&lt;/li&gt;
+&lt;li&gt;[Sidebar] Unread counts for folders are only displayed when the folder is closed&lt;/li&gt;
+&lt;li&gt;[Sidebar] Swipe actions reveal icons&lt;/li&gt;
+&lt;li&gt;[Sidebar (iPad)] Users can resize the sidebar (within reason)&lt;/li&gt;
+&lt;li&gt;[Timeline] What was previously a UITableView is now a UICollectionView. This was needed in order to adopt modern cell styling—e.g., selected and swipe status—across iPad and iPhone.&lt;/li&gt;
+&lt;li&gt;[Timeline] Navigation bar images have been removed&lt;/li&gt;
+&lt;li&gt;[Timeline] Unread counts are now located in the navigation bar subtitle&lt;/li&gt;
+&lt;li&gt;[Timeline] Adopts hierarchical text colours for titles and summaries&lt;/li&gt;
+&lt;li&gt;[Timeline (iPad)] The search bar has been moved to the app-wide toolbar and behaves similar to the Mac search&lt;/li&gt;
+&lt;li&gt;[Timeline (iPhone)] The search bar has been moved to the bottom toolbar&lt;/li&gt;
+&lt;li&gt;[Timeline] The Timeline width is user adjustable (again, within reason)&lt;/li&gt;
+&lt;li&gt;[Timeline] Timeline cells have been redesigned in Interface builder and now have the rounded corner selection style&lt;/li&gt;
+&lt;li&gt;[Timeline] The Mark All as Read image (on both iPad and iPhone) has had alignment changes to make sure it sits in the middle of an englassified button&lt;/li&gt;
+&lt;li&gt;[Article (iPad)] Articles can be read in three-pane view without hiding the Sidebar&lt;/li&gt;
+&lt;li&gt;[Article (iPad)] The top toolbar inherits search capabilities&lt;/li&gt;
+&lt;li&gt;[Article] The bottom toolbar buttons have been grouped in a 2-1-2 formation with the Next Unread button sitting in the throne seat&lt;/li&gt;
+&lt;li&gt;[Sidebar, Timeline, Article] Visual state is restored on relaunch&lt;/li&gt;
+&lt;li&gt;[Widgets] Home Screen widgets have been redesigned to make better use of horizontal space&lt;/li&gt;
+&lt;li&gt;[Widgets] New Lock Screen widget with Today, Unread, Starred counts&lt;/li&gt;
+&lt;li&gt;[About] Tending to the dark corner of the garden, the About view on iOS has been redesigned and inspired by the Credits from Vesper&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <source:markdown>NetNewsWire 7 for iOS 26 and up is available now [on the App Store](https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210)!
+
+This version adopts Liquid Glass — and we think it’s a better looking version of NetNewsWire. We think even people who aren’t fans of Liquid Glass will agree with us. 🐣
+
+Credit goes to [Stuart Breckenridge](https://stuartbreckenridge.net/) for the design and implementation. Wonderful work! [Check out the screenshots](https://netnewswire.com/screenshots-ios-7.html).
+
+This version also fixes some small bugs and adds some small performance enhancements. (iOS developers might appreciate this bit: it adopts Swift structured concurrency.)
+
+But, again, the main thing is the updated UI. It’s cool!
+
+People who like details might enjoy this big list of UI changes from Stuart:
+
+- [Sidebar] What was previously a UITableView is now a UICollectionView. This was needed in order to adopt modern styling across iPad and iPhone. iPad uses the .sidebar style, and iPhone uses .insetGrouped. This is similar to the behaviour you see in Mail.
+- [Sidebar] The current refresh status is now located in the navigation bar as a subtitle, having previously been the footer
+- [Sidebar] Toolbar buttons follow Liquid Glass standards
+- [Sidebar (iPad)] Like the Mac refresh, the Feeds view floats and allows Timeline content to slide underneath
+- [Sidebar] Smart Feeds and Account headers now adopt modern secondary styling
+- [Sidebar (iPad)] Selected feeds have a modern capsule background and the text is bold
+- [Sidebar] Folders have been entirely redesigned to match modern standards—they now have the same indentation as any other feed, but the enclosed feeds are indented further
+- [Sidebar] Folders will highlight when Feeds are being dragged and dropped into them
+- [Sidebar] Separators have been realigned
+- [Sidebar] Unread counts are larger and are no longer backed by a filled capsule
+- [Sidebar] Unread counts for folders are only displayed when the folder is closed
+- [Sidebar] Swipe actions reveal icons
+- [Sidebar (iPad)] Users can resize the sidebar (within reason)
+- [Timeline] What was previously a UITableView is now a UICollectionView. This was needed in order to adopt modern cell styling—e.g., selected and swipe status—across iPad and iPhone.
+- [Timeline] Navigation bar images have been removed
+- [Timeline] Unread counts are now located in the navigation bar subtitle
+- [Timeline] Adopts hierarchical text colours for titles and summaries
+- [Timeline (iPad)] The search bar has been moved to the app-wide toolbar and behaves similar to the Mac search
+- [Timeline (iPhone)] The search bar has been moved to the bottom toolbar
+- [Timeline] The Timeline width is user adjustable (again, within reason)
+- [Timeline] Timeline cells have been redesigned in Interface builder and now have the rounded corner selection style
+- [Timeline] The Mark All as Read image (on both iPad and iPhone) has had alignment changes to make sure it sits in the middle of an englassified button
+- [Article (iPad)] Articles can be read in three-pane view without hiding the Sidebar
+- [Article (iPad)] The top toolbar inherits search capabilities
+- [Article] The bottom toolbar buttons have been grouped in a 2-1-2 formation with the Next Unread button sitting in the throne seat
+- [Sidebar, Timeline, Article] Visual state is restored on relaunch
+- [Widgets] Home Screen widgets have been redesigned to make better use of horizontal space
+- [Widgets] New Lock Screen widget with Today, Unread, Starred counts
+- [About] Tending to the dark corner of the garden, the About view on iOS has been redesigned and inspired by the Credits from Vesper
+
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 7 for Mac</title>
+      <link>https://netnewswire.blog/2026/01/27/netnewswire-for-mac.html</link>
+      <pubDate>Tue, 27 Jan 2026 12:32:41 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2026/01/27/netnewswire-for-mac.html</guid>
+      <description>&lt;p&gt;NetNewsWire 7.0 for Mac is now shipping!&lt;/p&gt;
+&lt;p&gt;The big change from 6.2.1 is that it adopts the Liquid Glass UI and it requires macOS 26.&lt;/p&gt;
+&lt;p&gt;(Note to people who aren’t on macOS 26: we fixed a lot of bugs in 6.2 and 6.2.1 knowing that many people might skip, or at least delay, installing macOS 26. Also note that there’s a page where you can &lt;a href=&#34;https://netnewswire.com/old-versions.html&#34;&gt;get old versions of NetNewsWire&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;To get NetNewsWire 7: in the app, in the NetNewsWire menu, do &lt;code&gt;Check for Updates…&lt;/code&gt; and it will update to the new version.&lt;/p&gt;
+&lt;p&gt;If you’re not already running NetNewsWire, or prefer to update manually, you can &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.0/NetNewsWire7.0.zip&#34;&gt;download NetNewsWire 7&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;feedback-and-support&#34;&gt;Feedback and support&lt;/h4&gt;
+&lt;p&gt;We recently switched from Slack to Discourse — we’ve got a &lt;a href=&#34;https://discourse.netnewswire.com/&#34;&gt;new forum&lt;/a&gt; that doesn’t delete conversations. It’s nice!&lt;/p&gt;
+&lt;p&gt;And, as always, you can report bugs and make feature requests on our &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/issues&#34;&gt;bug tracker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You don’t have to bookmark either of those two URLs — they’re available in NetNewsWire’s Help menu.&lt;/p&gt;
+&lt;h4 id=&#34;ps-ios-version-coming-soon&#34;&gt;PS iOS version coming soon&lt;/h4&gt;
+&lt;p&gt;We’re pretty close to being finished with the iPhone and iPad version. It too adopts the Liquid Glass UI. If you want in on the TestFlight — we appreciate help testing! — you can &lt;a href=&#34;https://netnewswire.com/test-ios.html&#34;&gt;sign up here&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;pps-screenshots&#34;&gt;PPS Screenshots&lt;/h4&gt;
+&lt;p&gt;Here are dark and light mode &lt;a href=&#34;https://netnewswire.com/screenshots-mac-7.html&#34;&gt;screenshots for NetNewsWire 7 for Mac&lt;/a&gt;, which you’re free to use in any blog posts, social media posts, reviews, etc. (Or make your own.)&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 7.0 for Mac is now shipping!
+
+The big change from 6.2.1 is that it adopts the Liquid Glass UI and it requires macOS 26.
+
+(Note to people who aren’t on macOS 26: we fixed a lot of bugs in 6.2 and 6.2.1 knowing that many people might skip, or at least delay, installing macOS 26. Also note that there’s a page where you can [get old versions of NetNewsWire](https://netnewswire.com/old-versions.html).)
+
+To get NetNewsWire 7: in the app, in the NetNewsWire menu, do `Check for Updates…` and it will update to the new version.
+
+If you’re not already running NetNewsWire, or prefer to update manually, you can [download NetNewsWire 7](https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.0/NetNewsWire7.0.zip).
+
+#### Feedback and support
+
+We recently switched from Slack to Discourse — we’ve got a [new forum](https://discourse.netnewswire.com/) that doesn’t delete conversations. It’s nice!
+
+And, as always, you can report bugs and make feature requests on our [bug tracker](https://github.com/Ranchero-Software/NetNewsWire/issues).
+
+You don’t have to bookmark either of those two URLs — they’re available in NetNewsWire’s Help menu. 
+
+#### PS iOS version coming soon
+
+We’re pretty close to being finished with the iPhone and iPad version. It too adopts the Liquid Glass UI. If you want in on the TestFlight — we appreciate help testing! — you can [sign up here](https://netnewswire.com/test-ios.html).
+
+#### PPS Screenshots
+
+Here are dark and light mode [screenshots for NetNewsWire 7 for Mac](https://netnewswire.com/screenshots-mac-7.html), which you’re free to use in any blog posts, social media posts, reviews, etc. (Or make your own.)
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>Moving from Slack to Discourse</title>
+      <link>https://netnewswire.blog/2025/12/29/moving-from-slack-to-discourse.html</link>
+      <pubDate>Mon, 29 Dec 2025 12:13:54 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2025/12/29/moving-from-slack-to-discourse.html</guid>
+      <description>&lt;p&gt;We’re dropping the Slack group as the NetNewsWire forum and switching to Discourse — &lt;a href=&#34;https://discourse.netnewswire.com/&#34;&gt;here’s the new forum&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Slack’s been pretty great for us, but it does have some limitations: conversations are automatically deleted and they’re not findable on the web in the first place.&lt;/p&gt;
+&lt;p&gt;The switch to Discourse means conversations will be preserved and they will be able to benefit people for years to come. And we get to use an open web app that’s also open source. Which we like very much.&lt;/p&gt;
+</description>
+      <source:markdown>We’re dropping the Slack group as the NetNewsWire forum and switching to Discourse — [here’s the new forum](https://discourse.netnewswire.com/).
+
+Slack’s been pretty great for us, but it does have some limitations: conversations are automatically deleted and they’re not findable on the web in the first place.
+
+The switch to Discourse means conversations will be preserved and they will be able to benefit people for years to come. And we get to use an open web app that’s also open source. Which we like very much.
+
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 6.2 for Mac and iOS</title>
+      <link>https://netnewswire.blog/2025/11/05/netnewswire-for-mac-and-ios.html</link>
+      <pubDate>Wed, 05 Nov 2025 14:17:36 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2025/11/05/netnewswire-for-mac-and-ios.html</guid>
+      <description>&lt;p&gt;NetNewsWire 6.2 is on the App Store for iOS, and you can download the Mac version (or do NetNewsWire &amp;gt; Check for Updates… if you’re already running the app).&lt;/p&gt;
+&lt;p&gt;Long-time Mac users will understand when we say that this is a Snow Leopard release — it fixes a bunch of bugs, makes some things faster, and adds only a couple features.&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-6.2&#34;&gt;release notes for Mac&lt;/a&gt; and &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/tag/iOS-6.2-6202&#34;&gt;release notes for iOS&lt;/a&gt; for more details. (They’re largely the same.)&lt;/p&gt;
+&lt;p&gt;Note also that it doesn’t adopt Liquid Glass. We’ll be doing that in NetNewsWire 7, which we’re working on now. (See &lt;a href=&#34;https://netnewswire.blog/2025/10/07/the-liquid-glass-plan.html&#34;&gt;The Liquid Glass Plan&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;All that said — there is one new feature of potential interest: we’ve added support for Markdown in RSS feeds. When the parser encounters a &lt;code&gt;source:markdown&lt;/code&gt; element, we save it in the database, and the app renders the Markdown as HTML and displays it in the article view.&lt;/p&gt;
+&lt;p&gt;There aren’t many feeds that include Markdown yet, but we hope that changes! You can read more about it in Dave Winer’s &lt;a href=&#34;http://scripting.com/2022/07/19/152235.html?title=devNotesForMarkdownInRss&#34;&gt;Dev notes for Markdown in RSS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;While we’re not sure where this feature will take us, we have some thoughts. One is that RSS and Markdown were always destined to meet in this way, and it’s about time. :) Another is that this is a part of making posting/editing/replying over the web — as opposed to closed social networks — easier. This is part of making the web itself the social network.&lt;/p&gt;
+&lt;p&gt;Anyway. It’s a foundation! We keep going.&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 6.2 is on the App Store for iOS, and you can download the Mac version (or do NetNewsWire &gt; Check for Updates… if you’re already running the app). 
+
+Long-time Mac users will understand when we say that this is a Snow Leopard release — it fixes a bunch of bugs, makes some things faster, and adds only a couple features.
+
+See the [release notes for Mac](https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-6.2) and [release notes for iOS](https://github.com/Ranchero-Software/NetNewsWire/releases/tag/iOS-6.2-6202) for more details. (They’re largely the same.)
+
+Note also that it doesn’t adopt Liquid Glass. We’ll be doing that in NetNewsWire 7, which we’re working on now. (See [The Liquid Glass Plan](https://netnewswire.blog/2025/10/07/the-liquid-glass-plan.html).)
+
+All that said — there is one new feature of potential interest: we’ve added support for Markdown in RSS feeds. When the parser encounters a `source:markdown` element, we save it in the database, and the app renders the Markdown as HTML and displays it in the article view.
+
+There aren’t many feeds that include Markdown yet, but we hope that changes! You can read more about it in Dave Winer’s [Dev notes for Markdown in RSS](http://scripting.com/2022/07/19/152235.html?title=devNotesForMarkdownInRss).
+
+While we’re not sure where this feature will take us, we have some thoughts. One is that RSS and Markdown were always destined to meet in this way, and it’s about time. :) Another is that this is a part of making posting/editing/replying over the web — as opposed to closed social networks — easier. This is part of making the web itself the social network.
+
+Anyway. It’s a foundation! We keep going.
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>The Liquid Glass Plan</title>
+      <link>https://netnewswire.blog/2025/10/07/the-liquid-glass-plan.html</link>
+      <pubDate>Tue, 07 Oct 2025 20:38:42 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2025/10/07/the-liquid-glass-plan.html</guid>
+      <description>&lt;p&gt;We’re hearing from folks eager for the Liquid Glass update to NetNewsWire. The bad news is that it’s not coming this week or next (who knows when, really) — but the good news is that it is very much in progress.&lt;/p&gt;
+&lt;p&gt;Here’s the plan:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NetNewsWire 6.2&lt;/strong&gt; for Mac and iOS. This is a Snow-Leopard-style release — the idea is to fix a bunch of bugs knowing that a lot of people, particularly Mac users, may be slow to upgrade to the 26es, and we want them to have something solid to use while they put off upgrading — because the release after this one will require iOS and macOS 26.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NetNewsWire 7&lt;/strong&gt; for Mac and iOS. This will be the Liquid Glass release, and, as noted above, it will require iOS and macOS 26.&lt;/p&gt;
+&lt;p&gt;If you’d like more details, see our &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/milestone/62&#34;&gt;milestone for NetNewsWire 6.2&lt;/a&gt;, which is 67% complete at this writing. Also see our &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/milestone/63&#34;&gt;NetNewsWire 7 milestone&lt;/a&gt; and &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/milestones&#34;&gt;list of milestones&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please note that anything may change at any time! Particularly when it comes to which issues are on which milestones — things get moved around all the time.&lt;/p&gt;
+&lt;h3 id=&#34;screenshots&#34;&gt;Screenshots&lt;/h3&gt;
+&lt;p&gt;If you’d like a sneak peak of what NetNewsWire 7 will look like, check out these posts by Stuart Breckenridge, who’s done great work on our Liquid Glass adoption:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stuartbreckenridge.net/adopting-liquid-glass-part-ii-netnewswire-mac/&#34;&gt;Adopting Liquid Glass, Part II (NetNewsWire Mac)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stuartbreckenridge.net/adopting-liquid-glass-part-iii-netnewswire-ios/&#34;&gt;Adopting Liquid Glass, Part III (NetNewsWire iOS)&lt;/a&gt;&lt;/p&gt;
+</description>
+      <source:markdown>We’re hearing from folks eager for the Liquid Glass update to NetNewsWire. The bad news is that it’s not coming this week or next (who knows when, really) — but the good news is that it is very much in progress.
+
+Here’s the plan:
+
+**NetNewsWire 6.2** for Mac and iOS. This is a Snow-Leopard-style release — the idea is to fix a bunch of bugs knowing that a lot of people, particularly Mac users, may be slow to upgrade to the 26es, and we want them to have something solid to use while they put off upgrading — because the release after this one will require iOS and macOS 26.
+
+**NetNewsWire 7** for Mac and iOS. This will be the Liquid Glass release, and, as noted above, it will require iOS and macOS 26.
+
+If you’d like more details, see our [milestone for NetNewsWire 6.2](https://github.com/Ranchero-Software/NetNewsWire/milestone/62), which is 67% complete at this writing. Also see our [NetNewsWire 7 milestone](https://github.com/Ranchero-Software/NetNewsWire/milestone/63) and [list of milestones](https://github.com/Ranchero-Software/NetNewsWire/milestones).
+
+Please note that anything may change at any time! Particularly when it comes to which issues are on which milestones — things get moved around all the time.
+
+### Screenshots
+
+If you’d like a sneak peak of what NetNewsWire 7 will look like, check out these posts by Stuart Breckenridge, who’s done great work on our Liquid Glass adoption:
+
+[Adopting Liquid Glass, Part II (NetNewsWire Mac)](https://stuartbreckenridge.net/adopting-liquid-glass-part-ii-netnewswire-mac/)
+
+[Adopting Liquid Glass, Part III (NetNewsWire iOS)](https://stuartbreckenridge.net/adopting-liquid-glass-part-iii-netnewswire-ios/)
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>New TestFlight Build Uploaded, Waiting for Review</title>
+      <link>https://netnewswire.blog/2025/08/11/new-testflight-build-uploaded-waiting.html</link>
+      <pubDate>Mon, 11 Aug 2025 11:22:56 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2025/08/11/new-testflight-build-uploaded-waiting.html</guid>
+      <description>&lt;p&gt;We know some folks are waiting on a new TestFlight build for iOS, and we have good news — we’ve just uploaded 6.1.10 (6198), and it’s waiting on Apple review. Once reviewed it will be available on TestFlight.&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Update a few hours later…&lt;/i&gt; The build is now available via TestFlight.&lt;/p&gt;
+</description>
+      <source:markdown>We know some folks are waiting on a new TestFlight build for iOS, and we have good news — we’ve just uploaded 6.1.10 (6198), and it’s waiting on Apple review. Once reviewed it will be available on TestFlight.
+
+&lt;i&gt;Update a few hours later…&lt;/i&gt; The build is now available via TestFlight.
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>TestFlight Build Expired (Again)</title>
+      <link>https://netnewswire.blog/2025/08/08/testflight-build-expired-again.html</link>
+      <pubDate>Fri, 08 Aug 2025 17:37:14 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2025/08/08/testflight-build-expired-again.html</guid>
+      <description>&lt;p&gt;For people using NetNewsWire via TestFlight: the current TestFlight build has expired, and it will be a few days before a new build has been uploaded and reviewed by Apple.&lt;/p&gt;
+&lt;p&gt;However, you can &lt;a href=&#34;https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210&#34;&gt;install the current build from the App Store&lt;/a&gt;. It’s exact same build as the current TestFlight build that expired. It installs over your TestFlight build without affecting your data — it’s safe to do.&lt;/p&gt;
+</description>
+      <source:markdown>For people using NetNewsWire via TestFlight: the current TestFlight build has expired, and it will be a few days before a new build has been uploaded and reviewed by Apple.
+
+However, you can [install the current build from the App Store](https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210). It’s exact same build as the current TestFlight build that expired. It installs over your TestFlight build without affecting your data — it’s safe to do.
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>TestFlight Build Expired, New One Coming</title>
+      <link>https://netnewswire.blog/2025/04/22/testflight-build-expired-new-one.html</link>
+      <pubDate>Tue, 22 Apr 2025 08:54:04 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2025/04/22/testflight-build-expired-new-one.html</guid>
+      <description>&lt;p&gt;Note for people using the TestFlight builds — the latest build expired today (sorry about that!), but a new one (6.1.9) is waiting for App Store review. As soon as it gets through the process, you’ll have a new TestFlight build.&lt;/p&gt;
+&lt;p&gt;If you don’t want to wait, you can of course switch to the &lt;a href=&#34;https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210&#34;&gt;App Store build&lt;/a&gt; instead without losing any data.&lt;/p&gt;
+</description>
+      <source:markdown>Note for people using the TestFlight builds — the latest build expired today (sorry about that!), but a new one (6.1.9) is waiting for App Store review. As soon as it gets through the process, you’ll have a new TestFlight build.
+
+If you don’t want to wait, you can of course switch to the [App Store build](https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210) instead without losing any data.
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 6.1.7 for Mac</title>
+      <link>https://netnewswire.blog/2024/12/16/netnewswire-for-mac.html</link>
+      <pubDate>Mon, 16 Dec 2024 09:35:23 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2024/12/16/netnewswire-for-mac.html</guid>
+      <description>&lt;p&gt;NetNewsWire 6.1.7 for Mac is available through the standard ways — check for updates or &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-6.1.7-release/NetNewsWire6.1.7.zip&#34;&gt;download it directly&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Changes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix bug clearing refresh progress&lt;/li&gt;
+&lt;li&gt;Fix bandwidth bugs with downloading web pages to find feed icons and favicons&lt;/li&gt;
+&lt;li&gt;Update default theme with enhancements by John Gruber&lt;/li&gt;
+&lt;li&gt;Space out requests made to openrss.org&lt;/li&gt;
+&lt;li&gt;Send user-agent with platform, version, and build to openrss.org (and only to that site)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note — we are working on an iOS release with the same changes that have been going into the Mac releases. If you’re willing to help test, you can &lt;a href=&#34;https://testflight.apple.com/join/wpedPMRR&#34;&gt;sign up for the TestFlight program&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 6.1.7 for Mac is available through the standard ways — check for updates or [download it directly](https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-6.1.7-release/NetNewsWire6.1.7.zip).
+
+Changes:
+
+* Fix bug clearing refresh progress
+* Fix bandwidth bugs with downloading web pages to find feed icons and favicons
+* Update default theme with enhancements by John Gruber
+* Space out requests made to openrss.org
+* Send user-agent with platform, version, and build to openrss.org (and only to that site)
+
+Note — we are working on an iOS release with the same changes that have been going into the Mac releases. If you’re willing to help test, you can [sign up for the TestFlight program](https://testflight.apple.com/join/wpedPMRR).
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 6.1.5 for iOS TestFlight</title>
+      <link>https://netnewswire.blog/2024/12/07/netnewswire-for-ios.html</link>
+      <pubDate>Sat, 07 Dec 2024 13:59:46 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2024/12/07/netnewswire-for-ios.html</guid>
+      <description>&lt;p&gt;NetNewsWire 6.1.5 for iOS — which has the same bandwidth-use fixes as the &lt;a href=&#34;https://netnewswire.blog/2024/12/05/netnewswire-for-mac.html&#34;&gt;recent Mac release&lt;/a&gt; — is available for testing now via TestFlight.&lt;/p&gt;
+&lt;p&gt;If you’re willing to help, please &lt;a href=&#34;https://testflight.apple.com/join/wpedPMRR&#34;&gt;sign up for the NetNewsWire TestFlight program&lt;/a&gt;. The team appreciates your help! 🍕🎸🕶️&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 6.1.5 for iOS — which has the same bandwidth-use fixes as the [recent Mac release](https://netnewswire.blog/2024/12/05/netnewswire-for-mac.html) — is available for testing now via TestFlight.
+
+If you’re willing to help, please [sign up for the NetNewsWire TestFlight program](https://testflight.apple.com/join/wpedPMRR). The team appreciates your help! 🍕🎸🕶️
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>NetNewsWire 6.1.6 for Mac</title>
+      <link>https://netnewswire.blog/2024/12/05/netnewswire-for-mac.html</link>
+      <pubDate>Thu, 05 Dec 2024 13:51:45 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2024/12/05/netnewswire-for-mac.html</guid>
+      <description>&lt;p&gt;NetNewsWire 6.1.6 for Mac is out — do a check for updates or &lt;a href=&#34;https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-6.1.6/NetNewsWire6.1.6.zip&#34;&gt;download it directly&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The theme of this release is using less bandwidth (and, as a consequence, less battery). It fixes a &lt;a href=&#34;https://inessential.com/2024/08/03/netnewswire_and_conditional_get_issues.html&#34;&gt;conditional GET issue&lt;/a&gt; and it now pays attention to Cache-Control response headers and 429 response codes.&lt;/p&gt;
+&lt;p&gt;There are also a few other small bug fixes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Restore toolbar button to show and hide the sidebar&lt;/li&gt;
+&lt;li&gt;Add keyboard shortcuts for Copy Article URL and Copy External URL menu items&lt;/li&gt;
+&lt;li&gt;Fix a few AppleScript support bugs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: this version requires macOS 13 and up.&lt;/p&gt;
+&lt;p&gt;Also note: the equivalent update for iOS is in testing — if you’d like to help, you can &lt;a href=&#34;https://testflight.apple.com/join/wpedPMRR&#34;&gt;join the TestFlight program&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <source:markdown>NetNewsWire 6.1.6 for Mac is out — do a check for updates or [download it directly](https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-6.1.6/NetNewsWire6.1.6.zip).
+
+The theme of this release is using less bandwidth (and, as a consequence, less battery). It fixes a [conditional GET issue](https://inessential.com/2024/08/03/netnewswire_and_conditional_get_issues.html) and it now pays attention to Cache-Control response headers and 429 response codes.
+
+There are also a few other small bug fixes:
+
+* Restore toolbar button to show and hide the sidebar
+* Add keyboard shortcuts for Copy Article URL and Copy External URL menu items
+* Fix a few AppleScript support bugs
+
+Note: this version requires macOS 13 and up.
+
+Also note: the equivalent update for iOS is in testing — if you’d like to help, you can [join the TestFlight program](https://testflight.apple.com/join/wpedPMRR).
+</source:markdown>
+    </item>
+    
+    <item>
+      <title>Conditional GET Issues</title>
+      <link>https://netnewswire.blog/2024/08/03/conditional-get-issues.html</link>
+      <pubDate>Sat, 03 Aug 2024 14:56:24 -0700</pubDate>
+      
+      <guid>http://NetNewsWire.micro.blog/2024/08/03/conditional-get-issues.html</guid>
+      <description>&lt;p&gt;On his blog, Brent writes about &lt;a href=&#34;https://inessential.com/2024/08/03/netnewswire_and_conditional_get_issues.html&#34;&gt;NetNewsWire and Conditional GET issues&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <source:markdown>On his blog, Brent writes about [NetNewsWire and Conditional GET issues](https://inessential.com/2024/08/03/netnewswire_and_conditional_get_issues.html).
+</source:markdown>
+    </item>
+    
+  </channel>
+</rss>

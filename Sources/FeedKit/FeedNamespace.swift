@@ -30,7 +30,7 @@ import Foundation
 /// Each case corresponds to a specific namespace that can be used in feed parsing
 /// and handling. These namespaces provide additional information and functionality
 /// for feeds beyond the core elements.
-enum FeedNamespace: CaseIterable {
+enum FeedNamespace: CaseIterable, Equatable {
   /// Represents the Dublin Core metadata terms used for describing
   /// resources in a standardized way.
   case dublinCore
@@ -63,35 +63,46 @@ enum FeedNamespace: CaseIterable {
   /// Represents the source namespace, used for Source-specific metadata
   /// like markdown content.
   case source
+  /// Represents the Well-Formed Web Comment API namespace, used for
+  /// comment-related URLs on an item.
+  case commentAPI
 
   // MARK: Internal
 
-  /// The namespace prefix.
+  /// The bare namespace prefix, as used in element names (e.g. `"dc"`).
   var prefix: String {
     switch self {
     case .dublinCore:
-      "xmlns:dc"
+      "dc"
     case .itunes:
-      "xmlns:itunes"
+      "itunes"
     case .syndication:
-      "xmlns:sy"
+      "sy"
     case .media:
-      "xmlns:media"
+      "media"
     case .content:
-      "xmlns:content"
+      "content"
     case .georss:
-      "xmlns:georss"
+      "georss"
     case .gml:
-      "xmlns:gml"
+      "gml"
     case .youTube:
-      "xmlns:yt"
+      "yt"
     case .atom:
-      "xmlns:atom"
+      "atom"
     case .podcast:
-      "xmlns:podcast"
+      "podcast"
     case .source:
-      "xmlns:source"
+      "source"
+    case .commentAPI:
+      "wfw"
     }
+  }
+
+  /// The `xmlns:*` attribute name used to declare this namespace on a root
+  /// element (e.g. `"xmlns:dc"`).
+  var attributeName: String {
+    "xmlns:\(prefix)"
   }
 
   /// The URL associated with the namespace.
@@ -119,7 +130,24 @@ enum FeedNamespace: CaseIterable {
       "https://podcastindex.org/namespace/1.0"
     case .source:
       "http://source.scripting.com/"
+    case .commentAPI:
+      "http://wellformedweb.org/CommentAPI/"
     }
+  }
+
+  /// Looks up the namespace whose URL matches the given value.
+  /// - Parameter url: The namespace URL to look up.
+  init?(url: String) {
+    guard let match = Self.allCases.first(where: { $0.url == url }) else {
+      return nil
+    }
+    self = match
+  }
+
+  /// A map of namespace URL to canonical prefix for every known namespace,
+  /// suitable for `XMLDecoder.namespaceMap`.
+  static var namespaceMap: [String: String] {
+    Dictionary(uniqueKeysWithValues: allCases.map { ($0.url, $0.prefix) })
   }
 }
 
@@ -166,6 +194,9 @@ extension FeedNamespace {
 
     case .source:
       feed.channel?.items?.contains(where: { $0.markdown != nil }) ?? false
+
+    case .commentAPI:
+      feed.channel?.items?.contains(where: { $0.commentAPI != nil }) ?? false
     }
   }
 
@@ -178,7 +209,12 @@ extension FeedNamespace {
       feed.entries?.contains(where: { $0.youTube != nil }) ?? false
     case .georss:
       feed.entries?.contains(where: { $0.geoRSS != nil }) ?? false
-    default:
+    case .dublinCore:
+      feed.dublinCore != nil ||
+        feed.entries?.contains(where: { $0.dublinCore != nil }) ?? false
+    case .media:
+      feed.entries?.contains(where: { $0.media != nil }) ?? false
+    case .itunes, .syndication, .content, .gml, .atom, .podcast, .source, .commentAPI:
       false
     }
   }

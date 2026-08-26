@@ -35,12 +35,14 @@ class XMLNode: Codable, Equatable, Hashable {
   ///   - children: Children for the node, if any.
   init(
     prefix: String? = nil,
+    namespaceURI: String? = nil,
     name: String,
     text: String? = nil,
     isXhtml: Bool = false,
     children: [XMLNode]? = nil
   ) {
     self.prefix = prefix
+    self.namespaceURI = namespaceURI
     self.name = name
     self.text = text
     self.isXhtml = isXhtml
@@ -53,6 +55,7 @@ class XMLNode: Codable, Equatable, Hashable {
     let container: KeyedDecodingContainer<XMLNode.CodingKeys> = try decoder.container(keyedBy: XMLNode.CodingKeys.self)
 
     prefix = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.prefix)
+    namespaceURI = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.namespaceURI)
     name = try container.decode(String.self, forKey: XMLNode.CodingKeys.name)
     text = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.text)
     isXhtml = try container.decode(Bool.self, forKey: XMLNode.CodingKeys.isXhtml)
@@ -67,6 +70,11 @@ class XMLNode: Codable, Equatable, Hashable {
   var isXhtml: Bool = false
   /// The namespace prefix
   var prefix: String?
+  /// The resolved namespace URI for this node, if the prefix (or the
+  /// default namespace) was declared via an `xmlns`/`xmlns:*` attribute
+  /// in scope at this point in the document. `nil` when the element's
+  /// namespace was never declared.
+  var namespaceURI: String?
   /// The name of the node.
   var name: String
   /// The text of the node, if present.
@@ -86,6 +94,7 @@ class XMLNode: Codable, Equatable, Hashable {
     // Compare current node's properties
     if
       lhs.prefix != rhs.prefix ||
+      lhs.namespaceURI != rhs.namespaceURI ||
       lhs.name != rhs.name ||
       lhs.text != rhs.text ||
       lhs.isXhtml != rhs.isXhtml
@@ -114,6 +123,7 @@ class XMLNode: Codable, Equatable, Hashable {
   func hash(into hasher: inout Hasher) {
     // Hash basic properties
     hasher.combine(prefix)
+    hasher.combine(namespaceURI)
     hasher.combine(name)
     hasher.combine(text)
     hasher.combine(isXhtml)
@@ -128,6 +138,7 @@ class XMLNode: Codable, Equatable, Hashable {
     var container: KeyedEncodingContainer<XMLNode.CodingKeys> = encoder.container(keyedBy: XMLNode.CodingKeys.self)
 
     try container.encodeIfPresent(prefix, forKey: XMLNode.CodingKeys.prefix)
+    try container.encodeIfPresent(namespaceURI, forKey: XMLNode.CodingKeys.namespaceURI)
     try container.encode(name, forKey: XMLNode.CodingKeys.name)
     try container.encodeIfPresent(text, forKey: XMLNode.CodingKeys.text)
     try container.encode(isXhtml, forKey: XMLNode.CodingKeys.isXhtml)
@@ -187,6 +198,7 @@ class XMLNode: Codable, Equatable, Hashable {
 
   private enum CodingKeys: CodingKey {
     case prefix
+    case namespaceURI
     case name
     case text
     case isXhtml
@@ -234,6 +246,7 @@ extension XMLNode: XMLStringConvertible {
       xml += "\(formatted ? indent : "")</\(name)>\(formatted ? "\n" : "")"
     } else if let text {
       // Element has text, close opening tag and add text
+      let text = isXhtml ? text : text.escapeCharacters()
       xml += ">\(text)</\(name)>\(formatted ? "\n" : "")"
 
     } else {
@@ -257,7 +270,7 @@ extension XMLNode {
     if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
       // Append each attribute in the format: name="value".
       for attribute in attributesNode.children ?? [] {
-        result += " \(attribute.name)=\"\(attribute.text ?? "")\""
+        result += " \(attribute.name)=\"\((attribute.text ?? "").escapeCharacters())\""
       }
     }
     return result

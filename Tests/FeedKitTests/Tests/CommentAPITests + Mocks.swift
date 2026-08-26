@@ -1,5 +1,5 @@
 //
-// iTunesTests.swift
+// CommentAPITests + Mocks.swift
 //
 // Copyright (c) 2016 - 2026 Nuno Dias
 //
@@ -22,39 +22,23 @@
 // SOFTWARE.
 
 @testable import FeedKit
-import Testing
 
-@Suite("iTunes")
-struct iTunesTests: FeedKitTestable {
-  @Test
-  func itunes() throws {
-    // Given
-    let data = data(resource: "iTunes", withExtension: "xml")
-    let expected: RSSFeed = mock
-
-    // When
-    let actual = try RSSFeed(data: data)
-
-    #expect(expected == actual)
-  }
-
-  @Test("A declared, non-conventional prefix bound to the iTunes namespace URI still decodes")
-  func itunesWithAlternatePrefix() throws {
-    // Given
-    let xml = """
-    <?xml version="1.0"?>
-    <rss version="2.0" xmlns:pod="http://www.itunes.com/dtds/podcast-1.0.dtd">
-      <channel>
-        <title>Test Channel</title>
-        <pod:author>Jane Doe</pod:author>
-      </channel>
-    </rss>
-    """
-
-    // When
-    let feed = try RSSFeed(string: xml)
-
-    // Then
-    #expect(feed.channel?.iTunes?.author == "Jane Doe")
+extension CommentAPITests {
+  var mock: RSSFeed {
+    .init(
+      channel: .init(
+        title: "Test Blog",
+        items: [
+          .init(
+            title: "Hello World",
+            link: "http://example.com/2024/01/01/hello-world/",
+            commentAPI: .init(
+              comment: "http://example.com/wp-comments-post.php?p=1",
+              commentRss: "http://example.com/2024/01/01/hello-world/feed/"
+            )
+          )
+        ]
+      )
+    )
   }
 }

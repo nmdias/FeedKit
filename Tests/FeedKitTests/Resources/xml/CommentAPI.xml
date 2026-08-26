@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:wfw="http://wellformedweb.org/CommentAPI/">
+  <channel>
+    <title>Test Blog</title>
+    <item>
+      <title>Hello World</title>
+      <link>http://example.com/2024/01/01/hello-world/</link>
+      <wfw:comment>http://example.com/wp-comments-post.php?p=1</wfw:comment>
+      <wfw:commentRss>http://example.com/2024/01/01/hello-world/feed/</wfw:commentRss>
+    </item>
+  </channel>
+</rss>

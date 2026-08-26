@@ -21,8 +21,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import Foundation
 @testable import FeedKit
 import Testing
+import XMLKit
 
 @Suite("Content")
 struct ContentTests: FeedKitTestable {
@@ -37,5 +39,54 @@ struct ContentTests: FeedKitTestable {
 
     // Then
     #expect(expected == actual)
+  }
+
+  @Test("A declared, non-conventional prefix bound to the content namespace URI still decodes")
+  func contentWithAlternatePrefix() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0"?>
+    <rss version="2.0" xmlns:cnt="http://purl.org/rss/1.0/modules/content/">
+      <channel>
+        <title>Test Channel</title>
+        <item>
+          <title>Test Item</title>
+          <cnt:encoded>Full content</cnt:encoded>
+        </item>
+      </channel>
+    </rss>
+    """
+
+    // When
+    let feed = try RSSFeed(string: xml)
+
+    // Then
+    #expect(feed.channel?.items?.first?.content?.encoded == "Full content")
+  }
+
+  @Test("An undeclared, conventionally-prefixed content: element decodes under .lenient but not under .strict")
+  func contentUndeclaredPrefixIsLenientByDefault() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0"?>
+    <rss version="2.0">
+      <channel>
+        <title>Test Channel</title>
+        <item>
+          <title>Test Item</title>
+          <content:encoded>Full content</content:encoded>
+        </item>
+      </channel>
+    </rss>
+    """
+    let data = try #require(xml.data(using: .utf8))
+
+    // When
+    let lenientFeed = try RSSFeed(data: data, namespaceHandling: .lenient)
+    let strictFeed = try RSSFeed(data: data, namespaceHandling: .strict)
+
+    // Then
+    #expect(lenientFeed.channel?.items?.first?.content?.encoded == "Full content")
+    #expect(strictFeed.channel?.items?.first?.content == nil)
   }
 }

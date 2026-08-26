@@ -101,7 +101,7 @@ extension RSSFeed: XMLDocumentConvertible {
 
     for namespace in FeedNamespace.allCases {
       if namespace.shouldInclude(in: self) {
-        document.setRootAttribute(name: namespace.prefix, value: namespace.url)
+        document.setRootAttribute(name: namespace.attributeName, value: namespace.url)
       }
     }
 

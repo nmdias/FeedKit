@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:source="http://source.scripting.com/">
+  <channel>
+    <title>Test Blog</title>
+    <link>https://example.com/blog</link>
+    <description>A test blog feed with source:markdown elements</description>
+    <item>
+      <title>Hello World</title>
+      <link>https://example.com/blog/hello-world</link>
+      <description>&lt;p&gt;Hello, &lt;strong&gt;world&lt;/strong&gt;!&lt;/p&gt;</description>
+      <source:markdown>Hello, **world**!</source:markdown>
+    </item>
+  </channel>
+</rss>

@@ -164,6 +164,37 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     return try decoder.decode(node: child, as: T.self)
   }
 
+  /// Overrides the standard library's default `decodeIfPresent`, which
+  /// determines presence via `contains(_:)` alone. `contains(_:)` matches
+  /// by prefix as well as by exact name (`XMLNode.hasChild(for:)`), which is
+  /// necessary to detect namespace-group types like `DublinCore` (there is
+  /// no single wrapping `<dc>` element, just `dc:title`, `dc:creator`, etc.
+  /// as direct children). But that same prefix match would wrongly treat an
+  /// ordinary, non-namespaced key as present whenever a sibling element
+  /// merely happens to use that key's text as its own namespace prefix
+  /// (e.g. a `source:markdown` element's `source` prefix colliding with the
+  /// core, unprefixed RSS `<source>` element). Since this override has the
+  /// concrete `T`, it can restrict prefix matching to genuine
+  /// `XMLNamespaceCodable` groups and require an exact name match for
+  /// everything else.
+  func decodeIfPresent<T: Decodable>(_ type: T.Type, forKey key: Key) throws -> T? {
+    if type is XMLNamespaceCodable.Type {
+      guard node.hasChild(for: key.stringValue) else {
+        return nil
+      }
+    } else {
+      guard node.child(for: key.stringValue) != nil else {
+        return nil
+      }
+    }
+
+    if try decodeNil(forKey: key) {
+      return nil
+    }
+
+    return try decode(type, forKey: key)
+  }
+
   // MARK: -
 
   func nestedContainer<NestedKey: CodingKey>(keyedBy _: NestedKey.Type, forKey _: Key) throws -> KeyedDecodingContainer<NestedKey> {

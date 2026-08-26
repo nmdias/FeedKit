@@ -38,4 +38,26 @@ struct GeoRSSSimpleTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
+
+  @Test("A declared, non-conventional prefix bound to the GeoRSS namespace URI still decodes")
+  func geoRSSSimpleWithAlternatePrefix() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0"?>
+    <feed xmlns="http://www.w3.org/2005/Atom" xmlns:geo="http://www.georss.org/georss">
+      <title>Test Feed</title>
+      <entry>
+        <title>Entry 1</title>
+        <geo:point>45 -5</geo:point>
+      </entry>
+    </feed>
+    """
+
+    // When
+    let feed = try AtomFeed(string: xml)
+
+    // Then
+    #expect(feed.entries?.first?.geoRSS?.point?.position?.latitude == 45)
+    #expect(feed.entries?.first?.geoRSS?.point?.position?.longitude == -5)
+  }
 }

@@ -38,4 +38,25 @@ struct YouTubeTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
+
+  @Test("A declared, non-conventional prefix bound to the YouTube namespace URI still decodes")
+  func youTubeWithAlternatePrefix() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0"?>
+    <feed xmlns="http://www.w3.org/2005/Atom" xmlns:youtube="http://www.youtube.com/xml/schemas/2015">
+      <title>Test Feed</title>
+      <entry>
+        <title>Entry 1</title>
+        <youtube:videoId>abc123</youtube:videoId>
+      </entry>
+    </feed>
+    """
+
+    // When
+    let feed = try AtomFeed(string: xml)
+
+    // Then
+    #expect(feed.entries?.first?.youTube?.videoID == "abc123")
+  }
 }

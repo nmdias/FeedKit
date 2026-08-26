@@ -34,12 +34,29 @@ public class XMLDecoder {
   /// The strategy for decoding `Date` values from XML nodes.
   public var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
 
+  /// A map of namespace URI to canonical prefix, used to resolve elements
+  /// that use a differently-prefixed but equivalent namespace before
+  /// decoding. Leave empty to skip namespace canonicalization entirely.
+  public var namespaceMap: [String: String] = [:]
+
+  /// How to treat elements using a conventional namespace prefix that was
+  /// never declared via an `xmlns`/`xmlns:*` attribute.
+  public var namespaceHandling: XMLNamespaceHandling = .lenient
+
   public func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
     let reader: XMLReader = .init(data: data)
     let result = try reader.read().get()
 
     guard let rootNode = result.root else {
       throw XMLError.unexpected(reason: "Unexpected parsing result. Root is nil.")
+    }
+
+    if !namespaceMap.isEmpty {
+      rootNode.canonicalizingNamespaces(
+        uriToPrefix: namespaceMap,
+        knownPrefixes: Set(namespaceMap.values),
+        handling: namespaceHandling
+      )
     }
 
     return try decode(type, from: rootNode)

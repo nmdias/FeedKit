@@ -1,5 +1,5 @@
 //
-// AtomTests.swift
+// CommentAPITests.swift
 //
 // Copyright (c) 2016 - 2026 Nuno Dias
 //
@@ -24,43 +24,33 @@
 @testable import FeedKit
 import Testing
 
-@Suite("Atom")
-struct AtomTests: FeedKitTestable {
+@Suite("Comment API")
+struct CommentAPITests: FeedKitTestable {
   @Test
-  func atom() throws {
+  func commentAPI() throws {
     // Given
-    let data = data(resource: "Atom", withExtension: "xml")
-    let expected: AtomFeed = mock
+    let data = data(resource: "CommentAPI", withExtension: "xml")
+    let expected: RSSFeed = mock
 
     // When
-    let actual = try AtomFeed(data: data)
+    let actual = try RSSFeed(data: data)
 
     // Then
     #expect(expected == actual)
   }
 
-  @Test
-  func atomXhtml() throws {
-    // Given
-    let data = data(resource: "Atom + XHTML", withExtension: "xml")
-    let expected: AtomFeed = xhtmlMock
-
-    // When
-    let actual = try AtomFeed(data: data)
-
-    // Then
-    #expect(expected == actual)
-  }
-
-  @Test("A declared, non-conventional prefix bound to the Atom namespace URI still decodes an atom:link inside RSS")
-  func atomLinkInRSSWithAlternatePrefix() throws {
+  @Test("A declared, non-conventional prefix bound to the Comment API namespace URI still decodes")
+  func commentAPIWithAlternatePrefix() throws {
     // Given
     let xml = """
     <?xml version="1.0"?>
-    <rss version="2.0" xmlns:a="http://www.w3.org/2005/Atom">
+    <rss version="2.0" xmlns:comments="http://wellformedweb.org/CommentAPI/">
       <channel>
-        <title>Test Channel</title>
-        <a:link href="http://example.com/feed" rel="self" />
+        <title>Test Blog</title>
+        <item>
+          <title>Test Item</title>
+          <comments:commentRss>http://example.com/feed/comments/1234</comments:commentRss>
+        </item>
       </channel>
     </rss>
     """
@@ -69,6 +59,6 @@ struct AtomTests: FeedKitTestable {
     let feed = try RSSFeed(string: xml)
 
     // Then
-    #expect(feed.channel?.atom?.links?.first?.attributes?.href == "http://example.com/feed")
+    #expect(feed.channel?.items?.first?.commentAPI?.commentRss == "http://example.com/feed/comments/1234")
   }
 }

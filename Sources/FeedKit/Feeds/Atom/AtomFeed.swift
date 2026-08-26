@@ -22,6 +22,7 @@
 // SOFTWARE.
 
 import Foundation
+import XMLKit
 
 /// Data model for the XML DOM of the Atom Specification
 /// See https://tools.ietf.org/html/rfc4287
@@ -275,3 +276,32 @@ extension AtomFeed: Codable {
 // MARK: - FeedInitializable
 
 extension AtomFeed: FeedInitializable {}
+
+// MARK: - XMLDocumentConvertible
+
+extension AtomFeed: XMLDocumentConvertible {
+  public func toXmlDocument() throws -> XMLKit.XMLDocument {
+    let encoder: XMLEncoder = .init()
+    encoder.dateEncodingStrategy = .formatter(FeedDateFormatter(spec: .rfc3339))
+
+    let document = try encoder.encode(value: self)
+    document.setRootName(name: "feed")
+    document.setRootAttribute(name: "xmlns", value: FeedNamespace.atom.url)
+
+    for namespace in FeedNamespace.allCases {
+      if namespace.shouldInclude(in: self) {
+        document.setRootAttribute(name: namespace.attributeName, value: namespace.url)
+      }
+    }
+
+    return document
+  }
+}
+
+// MARK: - XMLStringConvertible
+
+extension AtomFeed: XMLStringConvertible {
+  public func toXMLString(formatted _: Bool, indentationLevel _: Int = 1) throws -> String {
+    try toXmlDocument().toXMLString(formatted: true)
+  }
+}

@@ -21,8 +21,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import Foundation
 @testable import FeedKit
 import Testing
+import XMLKit
 
 @Suite("Dublin Core")
 struct DublinCoreTests: FeedKitTestable {
@@ -50,5 +52,54 @@ struct DublinCoreTests: FeedKitTestable {
 
     // Then
     #expect(expected == actual)
+  }
+
+  @Test("A declared, non-conventional prefix bound to the Dublin Core namespace URI still decodes")
+  func dublinCoreWithAlternatePrefix() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0"?>
+    <rss version="2.0" xmlns:dcterms="http://purl.org/dc/elements/1.1/">
+      <channel>
+        <title>Test Channel</title>
+        <item>
+          <title>Test Item</title>
+          <dcterms:creator>Jane Doe</dcterms:creator>
+        </item>
+      </channel>
+    </rss>
+    """
+
+    // When
+    let feed = try RSSFeed(string: xml)
+
+    // Then
+    #expect(feed.channel?.items?.first?.dublinCore?.creator == "Jane Doe")
+  }
+
+  @Test("An undeclared, conventionally-prefixed dc: element decodes under .lenient but not under .strict")
+  func dublinCoreUndeclaredPrefixIsLenientByDefault() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0"?>
+    <rss version="2.0">
+      <channel>
+        <title>Test Channel</title>
+        <item>
+          <title>Test Item</title>
+          <dc:creator>Jane Doe</dc:creator>
+        </item>
+      </channel>
+    </rss>
+    """
+    let data = try #require(xml.data(using: .utf8))
+
+    // When
+    let lenientFeed = try RSSFeed(data: data, namespaceHandling: .lenient)
+    let strictFeed = try RSSFeed(data: data, namespaceHandling: .strict)
+
+    // Then
+    #expect(lenientFeed.channel?.items?.first?.dublinCore?.creator == "Jane Doe")
+    #expect(strictFeed.channel?.items?.first?.dublinCore == nil)
   }
 }

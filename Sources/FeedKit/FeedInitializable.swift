@@ -124,7 +124,21 @@ public extension FeedInitializable {
   /// - Parameter data: The feed content as raw data.
   /// - Throws: An error if parsing or decoding fails.
   init(data: Data) throws {
-    self = try Self.decode(data: data)
+    try self.init(data: data, namespaceHandling: .lenient)
+  }
+
+  /// Initializes from data, controlling how elements using a conventional
+  /// namespace prefix (e.g. `content:`, `dc:`) that was never declared via
+  /// an `xmlns`/`xmlns:*` attribute are treated.
+  /// - Parameters:
+  ///   - data: The feed content as raw data.
+  ///   - namespaceHandling: `.lenient` (the default via `init(data:)`)
+  ///     tolerates undeclared conventional prefixes, matching real-world
+  ///     feeds. `.strict` requires a matching `xmlns` declaration and
+  ///     otherwise treats the element as absent.
+  /// - Throws: An error if parsing or decoding fails.
+  init(data: Data, namespaceHandling: XMLNamespaceHandling) throws {
+    self = try Self.decode(data: data, namespaceHandling: namespaceHandling)
   }
 }
 
@@ -132,12 +146,17 @@ public extension FeedInitializable {
 
 extension FeedInitializable {
   /// Helper method for decoding data into a model.
-  /// - Parameter data: The raw feed data.
+  /// - Parameters:
+  ///   - data: The raw feed data.
+  ///   - namespaceHandling: How to treat undeclared conventional namespace
+  ///     prefixes.
   /// - Returns: A parsed feed model conforming to `FeedInitializable`.
-  private static func decode(data: Data) throws -> Self {
+  private static func decode(data: Data, namespaceHandling: XMLNamespaceHandling) throws -> Self {
     let decoder: XMLDecoder = .init()
     let formatter: FeedDateFormatter = .init(spec: .permissive)
     decoder.dateDecodingStrategy = .formatter(formatter)
+    decoder.namespaceMap = FeedNamespace.namespaceMap
+    decoder.namespaceHandling = namespaceHandling
     return try decoder.decode(Self.self, from: data)
   }
 }

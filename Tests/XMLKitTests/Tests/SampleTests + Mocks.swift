@@ -358,11 +358,13 @@ extension SampleTests {
             ),
             .init(
               prefix: "ns",
+              namespaceURI: "http://example.ns/namespace",
               name: "ns:title",
               text: "This title is a sample namespace element."
             ),
             .init(
               prefix: "ns",
+              namespaceURI: "http://example.ns/namespace",
               name: "ns:description",
               text: "This description is a sample namespace element."
             )

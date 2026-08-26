@@ -55,6 +55,13 @@ class XMLReader: NSObject {
   /// A boolean indicating whether the XML parsing process has completed.
   /// Set to `true` when parsing is finished; otherwise, `false`.
   var isComplete = false
+  /// A stack of namespace scopes (prefix -> URI, with `""` representing the
+  /// default namespace). Each frame is the fully merged scope in effect for
+  /// the corresponding element on `stack`, inherited from its parent and
+  /// augmented with any `xmlns`/`xmlns:*` declarations found on the element
+  /// itself. One frame is pushed per `didStartElement` call and popped per
+  /// `didEndElement` call, so the two stacks always stay aligned.
+  var namespaceScopes: [[String: String]] = [[:]]
 
   /// Parses the XML data and returns a `Result` indicating success or failure.
   /// - Returns: A `Result` with the parsed document on success, or an error.
@@ -107,6 +114,20 @@ extension XMLReader: XMLParserDelegate {
       prefix = String(elementName[..<prefixDelimiterIndex])
     }
 
+    // Merge any xmlns/xmlns:* declarations found on this element into the
+    // parent's namespace scope, then resolve this element's own namespace
+    // URI (nil if the prefix, or default namespace, was never declared).
+    var scope = namespaceScopes.last ?? [:]
+    for (key, value) in attributeDict {
+      if key == "xmlns" {
+        scope[""] = value
+      } else if key.hasPrefix("xmlns:") {
+        scope[String(key.dropFirst("xmlns:".count))] = value
+      }
+    }
+    namespaceScopes.append(scope)
+    let namespaceURI = scope[prefix ?? ""]
+
     // Check if the element contains XHTML. If so, avoid building a tree.
     // Instead, we append a single node with the XHTML content and mark it as isXhtml.
     let isXhtml = attributeDict["type"] == "xhtml"
@@ -114,6 +135,7 @@ extension XMLReader: XMLParserDelegate {
       // Entering an XHTML element; create a single node for it.
       stack.push(.init(
         prefix: prefix,
+        namespaceURI: namespaceURI,
         name: elementName,
         isXhtml: isXhtml,
         children: [
@@ -142,6 +164,7 @@ extension XMLReader: XMLParserDelegate {
       if attributeDict.isEmpty {
         stack.push(.init(
           prefix: prefix,
+          namespaceURI: namespaceURI,
           name: elementName
         ))
       } else {
@@ -149,6 +172,7 @@ extension XMLReader: XMLParserDelegate {
         // Each attribute is added as a child node with its key and value.
         stack.push(.init(
           prefix: prefix,
+          namespaceURI: namespaceURI,
           name: elementName,
           children: [
             .init(
@@ -196,6 +220,10 @@ extension XMLReader: XMLParserDelegate {
     namespaceURI _: String?,
     qualifiedName _: String?
   ) {
+    // One namespace scope frame was pushed per didStartElement call; always
+    // pop exactly one here to keep the two stacks aligned.
+    defer { namespaceScopes.removeLast() }
+
     guard let node = stack.top() else {
       return
     }

@@ -1,5 +1,5 @@
 //
-// AtomTests.swift
+// PodcastTests.swift
 //
 // Copyright (c) 2016 - 2026 Nuno Dias
 //
@@ -24,51 +24,18 @@
 @testable import FeedKit
 import Testing
 
-@Suite("Atom")
-struct AtomTests: FeedKitTestable {
+@Suite("Podcast")
+struct PodcastTests: FeedKitTestable {
   @Test
-  func atom() throws {
+  func podcast() throws {
     // Given
-    let data = data(resource: "Atom", withExtension: "xml")
-    let expected: AtomFeed = mock
+    let data = data(resource: "Podcast", withExtension: "xml")
+    let expected: RSSFeed = rssMock
 
     // When
-    let actual = try AtomFeed(data: data)
+    let actual = try RSSFeed(data: data)
 
     // Then
     #expect(expected == actual)
-  }
-
-  @Test
-  func atomXhtml() throws {
-    // Given
-    let data = data(resource: "Atom + XHTML", withExtension: "xml")
-    let expected: AtomFeed = xhtmlMock
-
-    // When
-    let actual = try AtomFeed(data: data)
-
-    // Then
-    #expect(expected == actual)
-  }
-
-  @Test("A declared, non-conventional prefix bound to the Atom namespace URI still decodes an atom:link inside RSS")
-  func atomLinkInRSSWithAlternatePrefix() throws {
-    // Given
-    let xml = """
-    <?xml version="1.0"?>
-    <rss version="2.0" xmlns:a="http://www.w3.org/2005/Atom">
-      <channel>
-        <title>Test Channel</title>
-        <a:link href="http://example.com/feed" rel="self" />
-      </channel>
-    </rss>
-    """
-
-    // When
-    let feed = try RSSFeed(string: xml)
-
-    // Then
-    #expect(feed.channel?.atom?.links?.first?.attributes?.href == "http://example.com/feed")
   }
 }
