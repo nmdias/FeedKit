@@ -25,7 +25,6 @@
 import Foundation
 import Testing
 
-@Suite("FeedType")
 struct FeedTypeTests: FeedKitTestable {
   @Test
   func atomFeedType() throws {
@@ -46,6 +45,20 @@ struct FeedTypeTests: FeedKitTestable {
     // Given
     let data = data(resource: "RSS", withExtension: "xml")
     let expected: FeedType = .rss
+
+    // When
+    let actual = try FeedType(data: data)
+
+    // Then
+    #expect(actual.isXML)
+    #expect(expected == actual)
+  }
+
+  @Test
+  func rdfFeedType() throws {
+    // Given
+    let data = data(resource: "RDF", withExtension: "xml")
+    let expected: FeedType = .rdf
 
     // When
     let actual = try FeedType(data: data)

@@ -63,6 +63,8 @@ let package = Package(
         .process("Resources/xml/RSS.xml"),
         .process("Resources/xml/RSSDC.xml"),
         .process("Resources/xml/RSSFeedHistory.xml"),
+        .process("Resources/xml/RDF.xml"),
+        .process("Resources/xml/RDFDC.xml"),
         .process("Resources/xml/CommentAPI.xml"),
         .process("Resources/xml/RSSAtom.xml"),
         .process("Resources/xml/Media.xml"),

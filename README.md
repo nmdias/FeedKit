@@ -10,12 +10,13 @@
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/nmdias/FeedKit)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/nmdias/FeedKit)
 
-FeedKit is a Swift library for Reading and Generating RSS, Atom, and JSON feeds.
+FeedKit is a Swift library for Reading and Generating RSS, RDF, Atom, and JSON feeds.
 
 # Features
 
 - [x] [Atom](https://tools.ietf.org/html/rfc4287)
 - [x] [RSS](http://cyber.law.harvard.edu/rss/rss.html)
+- [x] [RDF](https://www.rssboard.org/rss-1-0) (RSS 1.0 and 0.90)
 - [x] [JSON](https://jsonfeed.org)
 - [x] Namespaces
   - [x] [Atom](http://www.w3.org/2005/Atom)
@@ -36,7 +37,7 @@ FeedKit is a Swift library for Reading and Generating RSS, Atom, and JSON feeds.
 
 ## Feed Reader
 
-Feed reading can be made with a **dedicated** type, such as `RSSFeed`, `AtomFeed` and `JSONFeed`, or a **universal** type `Feed`.
+Feed reading can be made with a **dedicated** type, such as `RSSFeed`, `RDFFeed`, `AtomFeed` and `JSONFeed`, or a **universal** type `Feed`.
 
 ### Dedicated
 
@@ -50,7 +51,7 @@ try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
 
 When you don't know the type of feed, use the universal `Feed` enum type.
 
-The `Feed` enum type handles **RSS**, **Atom** and **JSON** feeds and will determine the type of feed before reading, parsing and decoding occurs.
+The `Feed` enum type handles **RSS**, **RDF**, **Atom** and **JSON** feeds and will determine the type of feed before reading, parsing and decoding occurs.
 
 ```swift
 // Read any type of feed
@@ -60,6 +61,7 @@ let feed = try await Feed(urlString: "https://surprise.example/feed")
 switch feed {
 case let .atom(feed): // An AtomFeed instance
 case let .rss(feed): // An RSSFeed instance
+case let .rdf(feed): // An RDFFeed instance
 case let .json(feed): // A JSONFeed instance
 }
 ```
@@ -78,6 +80,7 @@ let feedType = try FeedType(data: data)
 // Detect feed type
 switch feedType {
 case .rss: // RSS feed detected
+case .rdf: // RDF feed detected
 case .atom: // Atom feed detected
 case .json: // JSON feed detected
 }
@@ -199,7 +202,7 @@ try feed.toJSONString(formatted: true)
 
 ## Feed Models
 
-The **RSS**, **Atom**, and **JSON** feed models are highly comprehensive, especially when combined with all the supported namespaces. Below is a small preview of what’s available.
+The **RSS**, **RDF**, **Atom**, and **JSON** feed models are highly comprehensive, especially when combined with all the supported namespaces. Below is a small preview of what’s available.
 
 <details>
 <summary>Preview</summary>
@@ -251,6 +254,27 @@ item?.content
 item?.iTunes
 item?.media
 // ...
+```
+
+#### RDF
+
+```swift
+feed.channel?.title
+feed.channel?.link
+feed.channel?.description
+// ...
+feed.channel?.dublinCore
+feed.channel?.syndication
+
+// In RSS 1.0 the items are siblings of the channel
+let item = feed.items?.first
+
+item?.title
+item?.link
+item?.description
+// ...
+item?.dublinCore
+item?.content
 ```
 
 #### Atom

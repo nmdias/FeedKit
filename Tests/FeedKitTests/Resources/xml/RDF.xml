@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.iris.example/rdf">
+    <title>Iris</title>
+    <link>https://www.iris.example/</link>
+    <description>The one place for you daily news.</description>
+    <image rdf:resource="https://www.iris.example/image.jpg" />
+    <items>
+      <rdf:Seq>
+        <rdf:li rdf:resource="https://www.iris.example/1991/05/02/nolan.htm" />
+        <rdf:li rdf:resource="https://www.iris.example/1991/05/03/nolan.htm" />
+      </rdf:Seq>
+    </items>
+    <textinput rdf:resource="https://www.iris.example/textinput.php" />
+  </channel>
+  <image rdf:about="https://www.iris.example/image.jpg">
+    <title>Iris</title>
+    <url>https://www.iris.example/image.jpg</url>
+    <link>https://www.iris.example/</link>
+  </image>
+  <item rdf:about="https://www.iris.example/1991/05/02/nolan.htm">
+    <title>Seventh Heaven! Ryan Hurls Another No Hitter</title>
+    <link>https://www.iris.example/1991/05/02/nolan.htm</link>
+    <description>I'm headed for France.</description>
+  </item>
+  <item rdf:about="https://www.iris.example/1991/05/03/nolan.htm">
+    <title>Seventh Heaven! Ryan Hurls Another No Hitter</title>
+    <link>https://www.iris.example/1991/05/03/nolan.htm</link>
+    <description>I'm headed for France.</description>
+  </item>
+  <textinput rdf:about="https://www.iris.example/textinput.php">
+    <title>TextInput Inquiry</title>
+    <description>Your aggregator supports the textinput element.</description>
+    <name>query</name>
+    <link>https://www.iris.example/textinput.php</link>
+  </textinput>
+</rdf:RDF>

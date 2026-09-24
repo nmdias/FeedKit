@@ -23,7 +23,7 @@
 
 import Foundation
 
-/// Types of feed: RSS, Atom, and JSON.
+/// Types of feed: RSS, RDF, Atom, and JSON.
 ///
 /// The `FeedType` enum helps detect the feed format based on raw data
 /// and provides accessors to determine if the feed is XML-based or JSON-based.
@@ -45,6 +45,8 @@ import Foundation
 ///   switch feed {
 ///   case .rss:
 ///     print("RSS feed detected")
+///   case .rdf:
+///     print("RDF feed detected")
 ///   case .atom:
 ///     print("Atom feed detected")
 ///   case .json:
@@ -66,6 +68,8 @@ import Foundation
 public enum FeedType {
   /// Represents the RSS 2.0 feed format.
   case rss
+  /// Represents the RDF Site Summary (RSS 1.0) feed format.
+  case rdf
   /// Represents the Atom Syndication Format feed.
   case atom
   /// Represents a JSON-formatted feed, commonly used in web APIs.
@@ -73,9 +77,9 @@ public enum FeedType {
 }
 
 public extension FeedType {
-  /// Returns `true` if the feed type is XML-based (RSS or Atom).
+  /// Returns `true` if the feed type is XML-based (RSS, RDF, or Atom).
   var isXML: Bool {
-    self == .rss || self == .atom
+    self == .rss || self == .rdf || self == .atom
   }
 
   /// Returns `true` if the feed type is JSON-based.
@@ -152,6 +156,8 @@ public extension FeedType {
   private static func detectXMLFeedType(in string: String) -> FeedType? {
     if string.contains("<rss") {
       return .rss
+    } else if string.contains("<rdf") {
+      return .rdf
     } else if string.contains("<feed") {
       return .atom
     }
