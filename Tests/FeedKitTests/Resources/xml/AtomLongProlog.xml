@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/static/theatlantic/syndication/feeds/atom-to-html.e8fb83e50eaf.xsl" ?><feed xml:lang="en-us" xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>Atom Feed With a Long Prolog</title>
+  <subtitle>A minimal Atom feed whose prolog pushes the root element past the detection prefix.</subtitle>
+  <link href="https://example.com/" rel="alternate"></link>
+  <link href="https://example.com/feed/all/" rel="self"></link>
+  <id>https://example.com/</id>
+  <updated>2026-09-23T21:08:46-04:00</updated>
+  <rights>Copyright 2026 by Example. All Rights Reserved.</rights>
+  <entry>
+    <title>An Entry</title>
+    <link href="https://example.com/article" rel="alternate"></link>
+    <id>tag:example.com,2026:1</id>
+    <updated>2026-09-23T21:08:46-04:00</updated>
+    <summary>An entry summary.</summary>
+  </entry>
+</feed>

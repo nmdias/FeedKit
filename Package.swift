@@ -54,6 +54,7 @@ let package = Package(
         .process("Resources/xml/Ampersand.xml"),
         .process("Resources/xml/Atom + XHTML.xml"),
         .process("Resources/xml/Atom.xml"),
+        .process("Resources/xml/AtomLongProlog.xml"),
         .process("Resources/xml/AtomMedia.xml"),
         .process("Resources/xml/Content.xml"),
         .process("Resources/xml/FeedNotFound.xml"),

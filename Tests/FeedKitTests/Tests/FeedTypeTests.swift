@@ -22,6 +22,7 @@
 // SOFTWARE.
 
 @testable import FeedKit
+import Foundation
 import Testing
 
 @Suite("FeedType")
@@ -51,6 +52,35 @@ struct FeedTypeTests: FeedKitTestable {
 
     // Then
     #expect(actual.isXML)
+    #expect(expected == actual)
+  }
+
+  @Test
+  func atomFeedTypeWithLongProlog() throws {
+    // Given
+    // A feed whose `xml-stylesheet` processing instruction pushes `<feed>`
+    // beyond the first 128 bytes. See https://github.com/nmdias/FeedKit/issues/226.
+    let data = data(resource: "AtomLongProlog", withExtension: "xml")
+    let expected: FeedType = .atom
+
+    // When
+    let actual = try FeedType(data: data)
+
+    // Then
+    #expect(actual.isXML)
+    #expect(expected == actual)
+  }
+
+  @Test
+  func feedTypeShorterThanInspectionPrefix() throws {
+    // Given
+    let data: Data = .init(#"<rss version="2.0"><channel><title>t</title></channel></rss>"#.utf8)
+    let expected: FeedType = .rss
+
+    // When
+    let actual = try FeedType(data: data)
+
+    // Then
     #expect(expected == actual)
   }
 

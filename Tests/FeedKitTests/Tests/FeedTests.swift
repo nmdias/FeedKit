@@ -78,4 +78,17 @@ struct FeedTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
+
+  @Test
+  func atomFeedWithLongProlog() throws {
+    // Given
+    // See https://github.com/nmdias/FeedKit/issues/226.
+    let data = data(resource: "AtomLongProlog", withExtension: "xml")
+
+    // When
+    let actual = try Feed(data: data)
+
+    // Then
+    #expect(actual.atom != nil)
+  }
 }
