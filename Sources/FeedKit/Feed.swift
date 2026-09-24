@@ -28,8 +28,8 @@ import Foundation
 #endif
 
 /// `Feed` is an enum that can parse and hold either an `AtomFeed`, `RSSFeed`,
-/// or `JSONFeed` feed. It provides type-safe access to the underlying feed format
-/// through its cases and convenience accessors.
+/// `RDFFeed`, or `JSONFeed` feed. It provides type-safe access to the underlying
+/// feed format through its cases and convenience accessors.
 ///
 /// ## Examples
 /// You can parse and access a feed either through pattern matching or convenience
@@ -48,6 +48,8 @@ import Foundation
 ///    print("Atom feed title: \(atomFeed)")
 /// case .rss(let rssFeed):
 ///    print("RSS feed title: \(rssFeed)")
+/// case .rdf(let rdfFeed):
+///    print("RDF feed title: \(rdfFeed)")
 /// case .json(let jsonFeed):
 ///    print("JSON feed title: \(jsonFeed)")
 /// }
@@ -60,6 +62,8 @@ import Foundation
 ///    print("Atom feed: \(atomFeed)")
 /// } else if let rssFeed = feed.rss {
 ///    print("RSS feed: \(rssFeed)")
+/// } else if let rdfFeed = feed.rdf {
+///    print("RDF feed: \(rdfFeed)")
 /// } else if let jsonFeed = feed.json {
 ///    print("JSON feed: \(jsonFeed)")
 /// }
@@ -71,10 +75,11 @@ import Foundation
 ///
 /// - Note: All initializers may throw errors if an invalid input is detected
 ///         or if parsing fails.
-/// - SeeAlso: `AtomFeed`, `RSSFeed`, `JSONFeed`, `FeedError`
+/// - SeeAlso: `AtomFeed`, `RSSFeed`, `RDFFeed`, `JSONFeed`, `FeedError`
 public enum Feed {
   case atom(AtomFeed)
   case rss(RSSFeed)
+  case rdf(RDFFeed)
   case json(JSONFeed)
 }
 
@@ -170,6 +175,10 @@ extension Feed: FeedInitializable {
       let feed = try RSSFeed(data: data)
       self = .rss(feed)
 
+    case .rdf:
+      let feed = try RDFFeed(data: data)
+      self = .rdf(feed)
+
     case .json:
       let feed = try JSONFeed(data: data)
       self = .json(feed)
@@ -197,6 +206,17 @@ public extension Feed {
   /// an Atom format.
   var atom: AtomFeed? {
     guard case let .atom(feed) = self else {
+      return nil
+    }
+    return feed
+  }
+
+  /// Returns the wrapped RDF feed if this feed is of type `.rdf`.
+  ///
+  /// Use this property to safely access the RDF feed content when you expect
+  /// an RDF (RSS 1.0) format.
+  var rdf: RDFFeed? {
+    guard case let .rdf(feed) = self else {
       return nil
     }
     return feed

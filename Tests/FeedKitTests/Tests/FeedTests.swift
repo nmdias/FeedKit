@@ -25,7 +25,6 @@
 import Foundation
 import Testing
 
-@Suite("Feed")
 struct FeedTests: FeedKitTestable {
   @Test
   func url() async throws {
@@ -90,5 +89,22 @@ struct FeedTests: FeedKitTestable {
 
     // Then
     #expect(actual.atom != nil)
+  }
+
+  @Test
+  func rdfFeed() throws {
+    // Given
+    // The universal `Feed` type detects and routes RDF (RSS 1.0) documents.
+    // See https://github.com/nmdias/FeedKit/issues/175
+    let data = data(resource: "RDF", withExtension: "xml")
+
+    // When
+    let actual = try Feed(data: data)
+
+    // Then
+    #expect(actual.rdf != nil)
+    #expect(actual.atom == nil)
+    #expect(actual.rss == nil)
+    #expect(actual.json == nil)
   }
 }
