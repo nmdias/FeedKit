@@ -61,7 +61,8 @@ public struct RSSFeedChannel {
     iTunes: ITunes? = nil,
     syndication: Syndication? = nil,
     atom: Atom? = nil,
-    podcast: Podcast? = nil
+    podcast: Podcast? = nil,
+    feedHistory: FeedHistory? = nil
   ) {
     self.title = title
     self.link = link
@@ -88,6 +89,7 @@ public struct RSSFeedChannel {
     self.syndication = syndication
     self.atom = atom
     self.podcast = podcast
+    self.feedHistory = feedHistory
   }
 
   // MARK: Public
@@ -313,6 +315,11 @@ public struct RSSFeedChannel {
   /// Podcast namespace provides podcast-specific metadata and extensions.
   /// See https://github.com/Podcastindex-org/podcast-namespace
   public var podcast: Podcast?
+
+  /// Feed Paging and Archiving metadata, which marks the channel as a complete,
+  /// paged or archived feed document.
+  /// See https://datatracker.ietf.org/doc/html/rfc5005
+  public var feedHistory: FeedHistory?
 }
 
 // MARK: - Sendable
@@ -356,6 +363,7 @@ extension RSSFeedChannel: Codable {
     case syndication = "sy"
     case atom
     case podcast
+    case feedHistory = "fh"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -386,6 +394,7 @@ extension RSSFeedChannel: Codable {
     syndication = try container.decodeIfPresent(Syndication.self, forKey: CodingKeys.syndication)
     atom = try container.decodeIfPresent(Atom.self, forKey: CodingKeys.atom)
     podcast = try container.decodeIfPresent(Podcast.self, forKey: CodingKeys.podcast)
+    feedHistory = try container.decodeIfPresent(FeedHistory.self, forKey: CodingKeys.feedHistory)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -415,6 +424,7 @@ extension RSSFeedChannel: Codable {
     try container.encodeIfPresent(syndication, forKey: CodingKeys.syndication)
     try container.encodeIfPresent(atom, forKey: CodingKeys.atom)
     try container.encodeIfPresent(podcast, forKey: CodingKeys.podcast)
+    try container.encodeIfPresent(feedHistory, forKey: CodingKeys.feedHistory)
     try container.encodeIfPresent(items, forKey: CodingKeys.item)
   }
 }

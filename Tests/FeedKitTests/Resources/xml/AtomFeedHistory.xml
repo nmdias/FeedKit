@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
+  <title>Example Feed</title>
+  <link rel="current" href="http://example.org/index.atom"/>
+  <link rel="self" href="http://example.org/2003/11/index.atom"/>
+  <fh:archive/>
+  <link rel="prev-archive" href="http://example.org/2003/10/index.atom"/>
+  <updated>2003-11-24T12:00:00Z</updated>
+  <author>
+    <name>John Doe</name>
+  </author>
+  <id>urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6</id>
+  <entry>
+    <title>Atom-Powered Robots Scheduled To Run Amok</title>
+    <link href="http://example.org/2003/11/24/robots_coming"/>
+    <id>urn:uuid:cdef5c6d5-gff8-4ebb-assa-80dwe44efkjo</id>
+    <updated>2003-11-24T12:00:00Z</updated>
+    <summary>Some text from an old, different entry.</summary>
+  </entry>
+</feed>
