@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:wfw="http://wellformedweb.org/CommentAPI/">
+  <channel>
+    <title>Example Feed</title>
+    <link>https://example.com/</link>
+    <description>An example feed whose items accept comments.</description>
+    <item>
+      <title>Joining Mastodon</title>
+      <link>https://example.com/news/130</link>
+      <wfw:commentRss>https://example.com/news/130/comments.xml</wfw:commentRss>
+      <wfw:comment>https://example.com/comment?post=130</wfw:comment>
+    </item>
+    <item>
+      <title>A Post Without a Comment Form</title>
+      <link>https://example.com/news/131</link>
+      <wfw:commentRss>https://example.com/news/131/comments.xml</wfw:commentRss>
+    </item>
+  </channel>
+</rss>

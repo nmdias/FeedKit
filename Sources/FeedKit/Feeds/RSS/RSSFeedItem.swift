@@ -51,7 +51,8 @@ public struct RSSFeedItem {
     iTunes: ITunes? = nil,
     media: Media? = nil,
     podcast: Podcast? = nil,
-    geoRSS: GeoRSSSimple? = nil
+    geoRSS: GeoRSSSimple? = nil,
+    commentAPI: CommentAPI? = nil
   ) {
     self.title = title
     self.link = link
@@ -70,6 +71,7 @@ public struct RSSFeedItem {
     self.media = media
     self.podcast = podcast
     self.geoRSS = geoRSS
+    self.commentAPI = commentAPI
   }
 
   // MARK: Public
@@ -240,6 +242,12 @@ public struct RSSFeedItem {
   public var podcast: Podcast?
 
   public var geoRSS: GeoRSSSimple?
+
+  /// The Comment API namespace links the item to the feed of its comments and
+  /// to an endpoint that accepts new comments.
+  ///
+  /// See https://www.rssboard.org/comment-api
+  public var commentAPI: CommentAPI?
 }
 
 // MARK: - Sendable
@@ -275,6 +283,7 @@ extension RSSFeedItem: Codable {
     case media
     case podcast
     case geoRSS = "georss"
+    case commentAPI = "wfw"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -297,6 +306,7 @@ extension RSSFeedItem: Codable {
     media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
     podcast = try container.decodeIfPresent(Podcast.self, forKey: CodingKeys.podcast)
     geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
+    commentAPI = try container.decodeIfPresent(CommentAPI.self, forKey: CodingKeys.commentAPI)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -319,5 +329,6 @@ extension RSSFeedItem: Codable {
     try container.encodeIfPresent(media, forKey: CodingKeys.media)
     try container.encodeIfPresent(podcast, forKey: CodingKeys.podcast)
     try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
+    try container.encodeIfPresent(commentAPI, forKey: CodingKeys.commentAPI)
   }
 }

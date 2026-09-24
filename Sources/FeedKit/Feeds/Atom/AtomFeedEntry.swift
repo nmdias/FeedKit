@@ -47,7 +47,8 @@ public struct AtomFeedEntry {
     media: Media? = nil,
     youTube: YouTube? = nil,
     dublinCore: DublinCore? = nil,
-    geoRSS: GeoRSSSimple? = nil
+    geoRSS: GeoRSSSimple? = nil,
+    commentAPI: CommentAPI? = nil
   ) {
     self.title = title
     self.summary = summary
@@ -65,6 +66,7 @@ public struct AtomFeedEntry {
     self.youTube = youTube
     self.dublinCore = dublinCore
     self.geoRSS = geoRSS
+    self.commentAPI = commentAPI
   }
 
   // MARK: Public
@@ -214,6 +216,12 @@ public struct AtomFeedEntry {
   public var dublinCore: DublinCore?
 
   public var geoRSS: GeoRSSSimple?
+
+  /// The Comment API namespace links the entry to the feed of its comments and
+  /// to an endpoint that accepts new comments.
+  ///
+  /// See https://www.rssboard.org/comment-api
+  public var commentAPI: CommentAPI?
 }
 
 // MARK: - Sendable
@@ -248,6 +256,7 @@ extension AtomFeedEntry: Codable {
     case youTube = "yt"
     case dublinCore = "dc"
     case geoRSS = "georss"
+    case commentAPI = "wfw"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -269,6 +278,7 @@ extension AtomFeedEntry: Codable {
     youTube = try container.decodeIfPresent(YouTube.self, forKey: CodingKeys.youTube)
     dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
     geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
+    commentAPI = try container.decodeIfPresent(CommentAPI.self, forKey: CodingKeys.commentAPI)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -290,5 +300,6 @@ extension AtomFeedEntry: Codable {
     try container.encodeIfPresent(youTube, forKey: CodingKeys.youTube)
     try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
     try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
+    try container.encodeIfPresent(commentAPI, forKey: CodingKeys.commentAPI)
   }
 }
