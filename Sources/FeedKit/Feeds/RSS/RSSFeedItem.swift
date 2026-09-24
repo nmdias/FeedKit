@@ -135,13 +135,13 @@ public struct RSSFeedItem {
 
   /// URL of a page for comments relating to the item.
   ///
-  /// Example: http://www.myblog.org/cgi-local/mt/mt-comments.cgi?entry_id=290
+  /// Example: http://www.myblog.example/cgi-local/mt/mt-comments.cgi?entry_id=290
   ///
   /// <comments> is an optional sub-element of <item>.
   ///
   /// If present, it is the url of the comments page for the item.
   ///
-  /// <comments>http://ekzemplo.com/entry/4403/comments</comments>
+  /// <comments>http://ekzemplo.example/entry/4403/comments</comments>
   ///
   /// More about comments here:
   /// http://cyber.law.harvard.edu/rss/weblogComments.html
@@ -171,7 +171,7 @@ public struct RSSFeedItem {
   /// identifies the item. When present, an aggregator may choose to use this
   /// string to determine if an item is new.
   ///
-  /// <guid>http://some.server.com/weblogItem3207</guid>
+  /// <guid>http://some.server.example/weblogItem3207</guid>
   ///
   /// There are no rules for the syntax of a guid. Aggregators must view them
   /// as a string. It's up to the source of the feed to establish the
@@ -208,7 +208,7 @@ public struct RSSFeedItem {
   /// from its <title>. It has one required attribute, url, which links to the
   /// XMLization of the source.
   ///
-  /// <source url="http://www.tomalak.org/links2.xml">Tomalak's Realm</source>
+  /// <source url="http://www.tomalak.example/links2.xml">Tomalak's Realm</source>
   ///
   /// The purpose of this element is to propagate credit for links, to
   /// publicize the sources of news items. It can be used in the Post command

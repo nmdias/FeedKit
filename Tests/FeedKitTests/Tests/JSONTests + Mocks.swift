@@ -43,18 +43,18 @@ extension JSONTests {
       hubs: [
         .init(
           type: "Type 1",
-          url: "http://example1.org/"
+          url: "http://example1.example/"
         ),
         .init(
           type: "Type 2",
-          url: "http://example2.org/"
+          url: "http://example2.example/"
         )
       ],
       items: [
         .init(
           id: "http://therecord.co/chris-parrish",
           url: "http://therecord.co/chris-parrish",
-          externalURL: "http://external.com/example",
+          externalURL: "http://external.example/example",
           title: "Special #1 - Chris Parrish",
           contentText: "Chris has worked at Adobe and as a founder of Rogue Sheep, which won an Apple Design Award for Postage. Chris's new company is Aged & Distilled with Guy English - which shipped Napkin, a Mac app for visual collaboration. Chris is also the co-host of The Record. He lives on Bainbridge Island, a quick ferry ride from Seattle.",
           contentHtml: "Chris has worked at <a href=\"http://adobe.com/\">Adobe</a> and as a founder of Rogue Sheep, which won an Apple Design Award for Postage. Chris's new company is Aged & Distilled with Guy English - which shipped <a href=\"http://aged-and-distilled.com/napkin/\">Napkin</a>, a Mac app for visual collaboration. Chris is also the co-host of The Record. He lives on <a href=\"http://www.ci.bainbridge-isl.wa.us/\">Bainbridge Island</a>, a quick ferry ride from Seattle.",

@@ -17,11 +17,11 @@
   "hubs": [
     {
       "type": "Type 1",
-      "url": "http://example1.org/"
+      "url": "http://example1.example/"
     },
     {
       "type": "Type 2",
-      "url": "http://example2.org/"
+      "url": "http://example2.example/"
     }
   ],
   "items": [
@@ -29,7 +29,7 @@
       "id": "http://therecord.co/chris-parrish",
       "title": "Special #1 - Chris Parrish",
       "url": "http://therecord.co/chris-parrish",
-      "external_url": "http://external.com/example",
+      "external_url": "http://external.example/example",
       "content_text": "Chris has worked at Adobe and as a founder of Rogue Sheep, which won an Apple Design Award for Postage. Chris's new company is Aged & Distilled with Guy English - which shipped Napkin, a Mac app for visual collaboration. Chris is also the co-host of The Record. He lives on Bainbridge Island, a quick ferry ride from Seattle.",
       "content_html": "Chris has worked at <a href=\"http://adobe.com/\">Adobe</a> and as a founder of Rogue Sheep, which won an Apple Design Award for Postage. Chris's new company is Aged & Distilled with Guy English - which shipped <a href=\"http://aged-and-distilled.com/napkin/\">Napkin</a>, a Mac app for visual collaboration. Chris is also the co-host of The Record. He lives on <a href=\"http://www.ci.bainbridge-isl.wa.us/\">Bainbridge Island</a>, a quick ferry ride from Seattle.",
       "summary": "Brent interviews Chris Parrish, co-host of The Record and one-half of Aged & Distilled.",

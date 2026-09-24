@@ -28,12 +28,12 @@ extension RSSTests {
     .init(
       channel: .init(
         title: "Iris",
-        link: "http://www.iris.news/",
+        link: "http://www.iris.example/",
         description: "The one place for you daily news.",
         language: "en-us",
         copyright: "Copyright 2015, Iris News",
-        managingEditor: "john.appleseed.editor@iris.news (John Appleseed)",
-        webMaster: "john.appleseed.master@iris.news (John Appleseed)",
+        managingEditor: "john.appleseed.editor@iris.example (John Appleseed)",
+        webMaster: "john.appleseed.master@iris.example (John Appleseed)",
         pubDate: FeedDateFormatter(spec: .rfc822).date(from: "Sun, 16 Aug 2015 05:00:00 GMT"),
         lastBuildDate: FeedDateFormatter(spec: .rfc822).date(from: "Sun, 16 Aug 2015 18:18:55 GMT"),
         categories: [
@@ -51,7 +51,7 @@ extension RSSTests {
         docs: "http://blogs.law.harvard.edu/tech/rss",
         cloud: .init(
           attributes: .init(
-            domain: "server.iris.com",
+            domain: "server.iris.example",
             port: 80,
             path: "/rpc",
             registerProcedure: "cloud.notify",
@@ -61,9 +61,9 @@ extension RSSTests {
         rating: "(PICS-1.1 \"http://www.rsac.org/ratingsv01.html\" l by \"webmaster@example.com\" on \"2007.01.29T10:09-0800\" r (n 0 s 0 v 0 l 0))",
         ttl: 60,
         image: .init(
-          url: "http://www.iris.news/image.jpg",
+          url: "http://www.iris.example/image.jpg",
           title: "Iris",
-          link: "http://www.iris.news/",
+          link: "http://www.iris.example/",
           width: 64,
           height: 192,
           description: "Read the Iris news feed."
@@ -72,7 +72,7 @@ extension RSSTests {
           title: "TextInput Inquiry",
           description: "Your aggregator supports the textInput element. What software are you using?",
           name: "query",
-          link: "http://www.iris.com/textinput.php"
+          link: "http://www.iris.example/textinput.php"
         ),
         skipHours: .init(
           hours: [

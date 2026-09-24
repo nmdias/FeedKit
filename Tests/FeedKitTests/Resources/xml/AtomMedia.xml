@@ -7,7 +7,7 @@
   <link rel="alternate" type="text/html" hreflang="en" href="http://example.org/" title="Human-readable information about the link" length="1234" />
   <link rel="self" type="application/atom+xml" hreflang="pt" href="http://example.org/feed.atom" title="Information about the link is Human-readable" length="5678" />
   <rights>Copyright (c) 2003, Mark Pilgrim</rights>
-  <logo>http://www.example.uk/logo.png</logo>
+  <logo>http://www.example.com/logo.png</logo>
   <generator uri="http://www.example.com/" version="1.0">Example Toolkit</generator>
   <category term="music" />
   <category term="video" />
@@ -32,24 +32,24 @@
     <email>2345@example.com</email>
   </contributor>
   <entry>
-    <media:thumbnail url="http://www.foo.com/keyframe1.jpg" width="75" height="50" time="12:05:01.123" />
-    <media:thumbnail url="http://www.foo.com/keyframe2.jpg" width="640" height="480" time="12:05:01.123" />
+    <media:thumbnail url="http://www.foo.example/keyframe1.jpg" width="75" height="50" time="12:05:01.123" />
+    <media:thumbnail url="http://www.foo.example/keyframe2.jpg" width="640" height="480" time="12:05:01.123" />
     <media:group>
-      <media:content url="http://www.foo.com/song64kbps.mp3" fileSize="1000" bitrate="64" type="audio/mpeg" isDefault="true" expression="full" />
-      <media:content url="http://www.foo.com/song.wav" fileSize="16000" type="audio/x-wav" expression="full" />
+      <media:content url="http://www.foo.example/song64kbps.mp3" fileSize="1000" bitrate="64" type="audio/mpeg" isDefault="true" expression="full" />
+      <media:content url="http://www.foo.example/song.wav" fileSize="16000" type="audio/x-wav" expression="full" />
       <media:credit role="producer" scheme="urn:ebu">entity name</media:credit>
       <media:credit role="owner" scheme="urn:yvs">copyright holder of the entity</media:credit>
       <media:category scheme="http://dmoz.org" label="Ace Ventura - Pet Detective">music/artist name/album/song</media:category>
       <media:rating scheme="urn:mpaa">nonadult</media:rating>
     </media:group>
-    <media:content url="http://www.foo.com/video.mov" fileSize="12216320" type="video/quicktime" medium="video" isDefault="true" expression="full" bitrate="128" framerate="25" samplingrate="44.1" channels="2" duration="185" height="300" width="200" lang="en">
+    <media:content url="http://www.foo.example/video.mov" fileSize="12216320" type="video/quicktime" medium="video" isDefault="true" expression="full" bitrate="128" framerate="25" samplingrate="44.1" channels="2" duration="185" height="300" width="200" lang="en">
     </media:content>
-    <media:content url="http://www.foo.com/movie.mov" fileSize="12216320" type="video/quicktime" expression="full">
-      <media:player url="http://www.foo.com/player?id=1111" height="200" width="400" />
+    <media:content url="http://www.foo.example/movie.mov" fileSize="12216320" type="video/quicktime" expression="full">
+      <media:player url="http://www.foo.example/player?id=1111" height="200" width="400" />
       <media:hash algo="md5">dfdec888b72151965a34b4b59031290a</media:hash>
       <media:credit role="producer">producer's name</media:credit>
       <media:credit role="artist">artist's name</media:credit>
-      <media:category scheme="http://blah.com/scheme">
+      <media:category scheme="http://blah.example/scheme">
           music/artistname/album/song
       </media:category>
       <media:text type="plain">
@@ -71,26 +71,26 @@
       <media:comment>comment1</media:comment>
       <media:comment>comment2</media:comment>
     </media:comments>
-    <media:embed url="http://www.foo.com/player.swf" width="512" height="323">
+    <media:embed url="http://www.foo.example/player.swf" width="512" height="323">
       <media:param name="type">application/x-shockwave-flash</media:param>
       <media:param name="width">512</media:param>
       <media:param name="height">323</media:param>
       <media:param name="allowFullScreen">true</media:param>
-      <media:param name="flashVars">id=12345&amp;vid=678912i&amp;lang=en-us&amp;intl=us&amp;thumbUrl=http://www.foo.com/thumbnail.jpg</media:param>
+      <media:param name="flashVars">id=12345&amp;vid=678912i&amp;lang=en-us&amp;intl=us&amp;thumbUrl=http://www.foo.example/thumbnail.jpg</media:param>
     </media:embed>
     <media:responses>
-      <media:response>http://www.response1.com</media:response>
-      <media:response>http://www.response2.com</media:response>
+      <media:response>http://www.response1.example</media:response>
+      <media:response>http://www.response2.example</media:response>
     </media:responses>
     <media:backLinks>
-      <media:backLink>http://www.backlink1.com</media:backLink>
-      <media:backLink>http://www.backlink2.com</media:backLink>
+      <media:backLink>http://www.backlink1.example</media:backLink>
+      <media:backLink>http://www.backlink2.example</media:backLink>
     </media:backLinks>
-    <media:status state="blocked" reason="http://www.reasonforblocking.com" />
-    <media:price type="rent" price="19.99" currency="EUR" info="http://www.dummy.jp/package_info.html" />
-    <media:license type="text/html" href="http://www.licensehost.com/license">Sample license for a video</media:license>
-    <media:subTitle type="application/smil" lang="en-us" href="http://www.foo.org/subtitle.smil" />
-    <media:peerLink type="application/x-bittorrent" href="http://www.foo.org/sampleFile.torrent" />
+    <media:status state="blocked" reason="http://www.reasonforblocking.example" />
+    <media:price type="rent" price="19.99" currency="EUR" info="http://www.dummy.example/package_info.html" />
+    <media:license type="text/html" href="http://www.licensehost.example/license">Sample license for a video</media:license>
+    <media:subTitle type="application/smil" lang="en-us" href="http://www.foo.example/subtitle.smil" />
+    <media:peerLink type="application/x-bittorrent" href="http://www.foo.example/sampleFile.torrent" />
     <media:location description="My house" start="00:01" end="01:00">
       <georss:where>
         <gml:Point>
