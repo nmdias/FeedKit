@@ -38,4 +38,30 @@ struct RSSTests: FeedKitTestable {
     // Then
     #expect(expected == actual)
   }
+
+  @Test
+  func rssChannelWithMultipleLinkElements() throws {
+    // Given
+    // A channel that repeats the `link` element: an attribute-only link comes
+    // first and the channel's URL only later. See issue #190.
+    let string = """
+    <?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+      <channel>
+        <link rel="self" href="https://example.com/rss"/>
+        <title>Title</title>
+        <link>https://example.com/</link>
+        <atom:link rel="self" href="https://example.com/rss" type="application/rss+xml"/>
+      </channel>
+    </rss>
+    """
+
+    // When
+    let actual = try RSSFeed(string: string)
+
+    // Then
+    #expect(actual.channel?.title == "Title")
+    #expect(actual.channel?.link == "https://example.com/")
+    #expect(actual.channel?.atom?.links?.first?.attributes?.href == "https://example.com/rss")
+  }
 }
