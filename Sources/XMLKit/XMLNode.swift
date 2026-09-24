@@ -134,8 +134,26 @@ class XMLNode: Codable, Equatable, Hashable {
     try container.encodeIfPresent(children, forKey: XMLNode.CodingKeys.children)
   }
 
+  /// Returns the first child matching the given name, preferring one that
+  /// carries text.
+  ///
+  /// XML allows an element to repeat at the same level, and the repetitions do
+  /// not have to be alike: an element may carry only attributes where a sibling
+  /// of the same name carries the value, as in
+  /// `<link rel="self" href="..."/>` followed by `<link>https://example.com/</link>`.
+  /// Returning the first match would then hand back the attribute-only element
+  /// for a key that is asked to resolve to a value, so children that carry text
+  /// take precedence over those that do not. The common case of a single
+  /// matching child, or of repeated children that all carry text, is unaffected
+  /// and still resolves to the first match.
+  ///
+  /// - Parameter name: The name of the child element.
+  /// - Returns: The first child element with that name that carries text, the
+  ///   first child element with that name when none does, or `nil` when the
+  ///   receiver has no such child.
   func child(for name: String) -> XMLNode? {
-    children?.first(where: { $0.name == name })
+    let candidates = children?.filter { $0.name == name } ?? []
+    return candidates.first(where: { $0.text?.isEmpty == false }) ?? candidates.first
   }
 
   /// Returns whether the receiver contains any element belonging to the
