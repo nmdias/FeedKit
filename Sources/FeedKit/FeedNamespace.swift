@@ -60,6 +60,9 @@ enum FeedNamespace: CaseIterable {
   /// Represents the Podcast namespace, used for podcast-specific metadata
   /// and extensions in podcast feeds.
   case podcast
+  /// Represents the Feed Paging and Archiving namespace, used to mark feed
+  /// documents that are complete, paged or archived.
+  case feedHistory
   /// Represents the source namespace, used for Source-specific metadata
   /// like markdown content.
   case source
@@ -89,6 +92,8 @@ enum FeedNamespace: CaseIterable {
       "xmlns:atom"
     case .podcast:
       "xmlns:podcast"
+    case .feedHistory:
+      "xmlns:fh"
     case .source:
       "xmlns:source"
     }
@@ -117,6 +122,8 @@ enum FeedNamespace: CaseIterable {
       "http://www.w3.org/2005/Atom"
     case .podcast:
       "https://podcastindex.org/namespace/1.0"
+    case .feedHistory:
+      "http://purl.org/syndication/history/1.0"
     case .source:
       "http://source.scripting.com/"
     }
@@ -164,6 +171,9 @@ extension FeedNamespace {
       feed.channel?.podcast != nil ||
         feed.channel?.items?.contains(where: { $0.podcast != nil }) ?? false
 
+    case .feedHistory:
+      feed.channel?.feedHistory != nil
+
     case .source:
       feed.channel?.items?.contains(where: { $0.markdown != nil }) ?? false
     }
@@ -178,6 +188,8 @@ extension FeedNamespace {
       feed.entries?.contains(where: { $0.youTube != nil }) ?? false
     case .georss:
       feed.entries?.contains(where: { $0.geoRSS != nil }) ?? false
+    case .feedHistory:
+      feed.feedHistory != nil
     default:
       false
     }

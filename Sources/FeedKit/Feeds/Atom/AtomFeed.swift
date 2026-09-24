@@ -47,7 +47,8 @@ public struct AtomFeed {
     logo: String? = nil,
     rights: String? = nil,
     entries: [AtomFeedEntry]? = nil,
-    dublinCore: DublinCore? = nil
+    dublinCore: DublinCore? = nil,
+    feedHistory: FeedHistory? = nil
   ) {
     self.title = title
     self.subtitle = subtitle
@@ -63,6 +64,7 @@ public struct AtomFeed {
     self.rights = rights
     self.entries = entries
     self.dublinCore = dublinCore
+    self.feedHistory = feedHistory
   }
 
   // MARK: Public
@@ -201,6 +203,11 @@ public struct AtomFeed {
   ///
   /// See https://tools.ietf.org/html/rfc5013
   public var dublinCore: DublinCore?
+
+  /// Feed Paging and Archiving metadata, which marks the feed as a complete,
+  /// paged or archived feed document.
+  /// See https://datatracker.ietf.org/doc/html/rfc5005
+  public var feedHistory: FeedHistory?
 }
 
 // MARK: - Sendable
@@ -233,6 +240,7 @@ extension AtomFeed: Codable {
     case rights
     case entry
     case dublinCore = "dc"
+    case feedHistory = "fh"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -251,6 +259,7 @@ extension AtomFeed: Codable {
     rights = try container.decodeIfPresent(String.self, forKey: CodingKeys.rights)
     entries = try container.decodeIfPresent([AtomFeedEntry].self, forKey: CodingKeys.entry)
     dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
+    feedHistory = try container.decodeIfPresent(FeedHistory.self, forKey: CodingKeys.feedHistory)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -269,6 +278,7 @@ extension AtomFeed: Codable {
     try container.encodeIfPresent(rights, forKey: CodingKeys.rights)
     try container.encodeIfPresent(entries, forKey: CodingKeys.entry)
     try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
+    try container.encodeIfPresent(feedHistory, forKey: CodingKeys.feedHistory)
   }
 }
 

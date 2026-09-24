@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
+  <channel>
+    <title>Liftoff News</title>
+    <link>http://liftoff.example.net/</link>
+    <description>Liftoff to Space Exploration.</description>
+    <lastBuildDate>Fri, 30 May 2003 11:06:42 GMT</lastBuildDate>
+    <fh:archive/>
+    <atom:link rel="current" href="http://liftoff.example.net/index.rss"/>
+    <atom:link rel="prev-archive" href="http://liftoff.example.net/2003/04/index.rss"/>
+    <item>
+      <title>Upcoming Eclipse</title>
+      <link>http://liftoff.example.net/2003/05/30/eclipse</link>
+      <description>Sky watchers in Europe, Asia, and parts of Alaska and Canada will experience a partial eclipse of the Sun on Saturday, May 31st.</description>
+      <pubDate>Fri, 30 May 2003 11:06:42 GMT</pubDate>
+      <guid>http://liftoff.example.net/2003/05/30/eclipse</guid>
+    </item>
+  </channel>
+</rss>
