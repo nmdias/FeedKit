@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:psc="http://podlove.org/simple-chapters">
+  <channel>
+    <title>Example Podcast</title>
+    <link>https://example.com/</link>
+    <description>An example podcast whose episodes carry chapter marks.</description>
+    <item>
+      <title>Fiat Lux</title>
+      <link>https://example.com/podcast/1</link>
+      <guid isPermaLink="false">urn:uuid:3241ace2-ca21-dd12-2341-1412ce31fad2</guid>
+      <pubDate>Fri, 23 Mar 2012 23:25:19 +0000</pubDate>
+      <description>First episode</description>
+      <enclosure url="https://example.com/files/fiatlux.mp3" length="12345" type="audio/mpeg" />
+      <psc:chapters version="1.2">
+        <psc:chapter start="0" title="Welcome" />
+        <psc:chapter start="3:07" title="Introducing Podlove" href="https://example.com/podlove" />
+        <psc:chapter start="8:26.250" title="Podlove WordPress Plugin" href="https://example.com/podlove-podcast-publisher" image="https://example.com/images/plugin.png" />
+        <psc:chapter start="12:42" title="Resumée" />
+      </psc:chapters>
+    </item>
+    <item>
+      <title>Without Chapters</title>
+      <link>https://example.com/podcast/2</link>
+      <guid isPermaLink="false">urn:uuid:9f0b6b1e-6a2f-4c1a-9f5e-2d1a5c3b7e01</guid>
+      <description>An episode that carries no chapter information.</description>
+    </item>
+    <item>
+      <title>Without a Version</title>
+      <link>https://example.com/podcast/3</link>
+      <guid isPermaLink="false">urn:uuid:1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f</guid>
+      <description>An episode whose chapter list omits the optional version attribute.</description>
+      <psc:chapters>
+        <psc:chapter start="37" title="A Single Chapter" />
+      </psc:chapters>
+    </item>
+  </channel>
+</rss>
