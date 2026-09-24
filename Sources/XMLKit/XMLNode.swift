@@ -138,8 +138,10 @@ class XMLNode: Codable, Equatable, Hashable {
     children?.first(where: { $0.name == name })
   }
 
-  func hasChild(for name: String) -> Bool {
-    children?.first(where: { $0.name == name || $0.prefix == name }) != nil
+  /// Returns whether the receiver contains any element belonging to the
+  /// namespace identified by `prefix`.
+  func hasNamespace(for prefix: String) -> Bool {
+    children?.first(where: { $0.prefix == prefix }) != nil
   }
 
   func addChild(_ child: XMLNode) {

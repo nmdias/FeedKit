@@ -54,7 +54,20 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     if key.stringValue == "@text", node.text?.isEmpty == false {
       return true
     }
-    return node.hasChild(for: key.stringValue)
+    if node.child(for: key.stringValue) != nil {
+      return true
+    }
+    // During discovery a namespace prefix is accepted for any key, which gives
+    // the decoder the chance to observe that a key such as `dc` holds a value.
+    // The authoritative pass only accepts it for keys observed to be namespace
+    // containers, so an element such as `<source:markdown>` is never mistaken
+    // for the RSS `<source>` element just because they share the prefix
+    // `source`.
+    if decoder.isDiscoveringNamespaceContainers {
+      return node.hasNamespace(for: key.stringValue)
+    }
+    return decoder.namespaceContainerKeys.contains(key.stringValue)
+      && node.hasNamespace(for: key.stringValue)
   }
 
   // MARK: -
@@ -151,6 +164,7 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     defer { self.decoder.codingPath.removeLast() }
 
     if type is XMLNamespaceCodable.Type {
+      decoder.namespaceContainerKeys.insert(key.stringValue)
       return try decoder.decode(node: node, as: T.self)
     }
 

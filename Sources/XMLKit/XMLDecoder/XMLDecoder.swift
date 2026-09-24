@@ -47,16 +47,42 @@ public class XMLDecoder {
 
   // MARK: Internal
 
-  /// Decodes a top-level value of the given type from the given XML representation.
+  /// Decodes a top-level value of the given type from the given XML element.
+  ///
+  /// Decoding runs twice. The first pass records which keys are namespace
+  /// containers, that is, keys whose type conforms to `XMLNamespaceCodable`.
+  /// Those types have no element of their own — they are represented only by the
+  /// namespace-prefixed elements of their members — so a key such as `dc` has to
+  /// be reported as present whenever the namespace is. The key alone cannot
+  /// reveal that: `<source:markdown>` carries the prefix `source`, yet it is not
+  /// the RSS `<source>` element. Knowing the namespace containers up front lets
+  /// the second pass, the one whose result is returned, accept a namespace
+  /// prefix only where it is genuinely meant as one. Neither pass performs any
+  /// side effect on the nodes, so running twice is safe.
+  ///
+  /// The discovery pass discards its result, so any error it raises is ignored;
+  /// the authoritative pass is the one that reports errors to the caller.
   ///
   /// - parameter type: The type of the value to decode.
-  /// - parameter data: The XML element to decode from.
+  /// - parameter node: The XML element to decode from.
   /// - returns: A value of the requested type.
   /// - throws: `DecodingError.dataCorrupted` if values requested from the payload
   ///   are corrupted, or if the given data is not valid XML.
   /// - throws: An error if any value throws an error during decoding.
   func decode<T: Decodable>(_: T.Type, from node: XMLNode) throws -> T {
-    let decoder: _XMLDecoder = .init(node: node, codingPath: [])
+    let discovery: _XMLDecoder = .init(
+      node: node,
+      codingPath: [],
+      isDiscoveringNamespaceContainers: true
+    )
+    discovery.dateDecodingStrategy = dateDecodingStrategy
+    _ = try? T(from: discovery)
+
+    let decoder: _XMLDecoder = .init(
+      node: node,
+      codingPath: [],
+      namespaceContainerKeys: discovery.namespaceContainerKeys
+    )
     decoder.dateDecodingStrategy = dateDecodingStrategy
     return try T(from: decoder)
   }
@@ -68,12 +94,24 @@ class _XMLDecoder: Decoder {
 
   /// Initializes the decoder with a root element and optional coding path.
   /// - Parameters:
-  ///   - element: The root XML element to start decoding from.
+  ///   - node: The root XML element to start decoding from.
   ///   - codingPath: The initial coding path, defaulting to an empty array.
-  init(node: XMLNode, codingPath: [CodingKey] = []) {
+  ///   - namespaceContainerKeys: Key names already known to hold a namespace
+  ///     container, used by the authoritative of the two decoding passes.
+  ///   - isDiscoveringNamespaceContainers: Whether this decoder is the discovery
+  ///     pass, which reports a namespace as present for any key that addresses
+  ///     it so that namespace container keys can be observed.
+  init(
+    node: XMLNode,
+    codingPath: [CodingKey] = [],
+    namespaceContainerKeys: Set<String> = [],
+    isDiscoveringNamespaceContainers: Bool = false
+  ) {
     stack = XMLStack()
     stack.push(node)
     self.codingPath = codingPath
+    self.namespaceContainerKeys = namespaceContainerKeys
+    self.isDiscoveringNamespaceContainers = isDiscoveringNamespaceContainers
     userInfo = [:]
   }
 
@@ -87,6 +125,17 @@ class _XMLDecoder: Decoder {
   var userInfo: [CodingUserInfoKey: Any]
   /// The strategy for decoding `Date` values from XML nodes.
   var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
+  /// Key names already resolved as namespace container keys, meaning the type
+  /// decoded at that key conforms to `XMLNamespaceCodable`.
+  ///
+  /// Such a type has no element of its own and is represented only by the
+  /// namespace-prefixed elements of its members, so its key has to be reported
+  /// as present whenever the namespace is. Recording the keys here keeps that
+  /// toleration from leaking onto ordinary elements whose name merely shares the
+  /// namespace prefix, such as `<source:markdown>` and the RSS `<source>`.
+  var namespaceContainerKeys: Set<String> = []
+  /// Whether this decoder belongs to the discovery pass.
+  var isDiscoveringNamespaceContainers: Bool = false
 
   /// Returns a keyed decoding container for the current XML element.
   /// - Parameter type: The type of the coding key.
