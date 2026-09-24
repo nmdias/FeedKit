@@ -31,6 +31,7 @@ FeedKit is a Swift library for Reading and Generating RSS, RDF, Atom, and JSON f
   - [x] [Podcast](https://podcastindex.org/namespace/1.0)
   - [x] [Feed Paging and Archiving](https://datatracker.ietf.org/doc/html/rfc5005)
   - [x] [Comment API](https://www.rssboard.org/comment-api)
+  - [x] [Podlove Simple Chapters](https://podlove.org/simple-chapters)
 - [x] Examples
 - [x] [Documentation](https://swiftpackageindex.com/nmdias/FeedKit/main/documentation/feedkit)
 - [x] Unit Tests

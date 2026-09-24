@@ -48,7 +48,8 @@ public struct AtomFeedEntry {
     youTube: YouTube? = nil,
     dublinCore: DublinCore? = nil,
     geoRSS: GeoRSSSimple? = nil,
-    commentAPI: CommentAPI? = nil
+    commentAPI: CommentAPI? = nil,
+    podloveSimpleChapters: PodloveSimpleChapters? = nil
   ) {
     self.title = title
     self.summary = summary
@@ -67,6 +68,7 @@ public struct AtomFeedEntry {
     self.dublinCore = dublinCore
     self.geoRSS = geoRSS
     self.commentAPI = commentAPI
+    self.podloveSimpleChapters = podloveSimpleChapters
   }
 
   // MARK: Public
@@ -222,6 +224,12 @@ public struct AtomFeedEntry {
   ///
   /// See https://www.rssboard.org/comment-api
   public var commentAPI: CommentAPI?
+
+  /// Podlove Simple Chapters embeds chapter marks for the media file the entry
+  /// references, so a client can present them before downloading the file.
+  ///
+  /// See https://podlove.org/simple-chapters/
+  public var podloveSimpleChapters: PodloveSimpleChapters?
 }
 
 // MARK: - Sendable
@@ -257,6 +265,7 @@ extension AtomFeedEntry: Codable {
     case dublinCore = "dc"
     case geoRSS = "georss"
     case commentAPI = "wfw"
+    case podloveSimpleChapters = "psc"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -279,6 +288,10 @@ extension AtomFeedEntry: Codable {
     dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
     geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
     commentAPI = try container.decodeIfPresent(CommentAPI.self, forKey: CodingKeys.commentAPI)
+    podloveSimpleChapters = try container.decodeIfPresent(
+      PodloveSimpleChapters.self,
+      forKey: CodingKeys.podloveSimpleChapters
+    )
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -301,5 +314,6 @@ extension AtomFeedEntry: Codable {
     try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
     try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
     try container.encodeIfPresent(commentAPI, forKey: CodingKeys.commentAPI)
+    try container.encodeIfPresent(podloveSimpleChapters, forKey: CodingKeys.podloveSimpleChapters)
   }
 }

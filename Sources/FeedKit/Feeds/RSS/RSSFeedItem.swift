@@ -52,7 +52,8 @@ public struct RSSFeedItem {
     media: Media? = nil,
     podcast: Podcast? = nil,
     geoRSS: GeoRSSSimple? = nil,
-    commentAPI: CommentAPI? = nil
+    commentAPI: CommentAPI? = nil,
+    podloveSimpleChapters: PodloveSimpleChapters? = nil
   ) {
     self.title = title
     self.link = link
@@ -72,6 +73,7 @@ public struct RSSFeedItem {
     self.podcast = podcast
     self.geoRSS = geoRSS
     self.commentAPI = commentAPI
+    self.podloveSimpleChapters = podloveSimpleChapters
   }
 
   // MARK: Public
@@ -248,6 +250,12 @@ public struct RSSFeedItem {
   ///
   /// See https://www.rssboard.org/comment-api
   public var commentAPI: CommentAPI?
+
+  /// Podlove Simple Chapters embeds chapter marks for the media file the item
+  /// references, so a client can present them before downloading the file.
+  ///
+  /// See https://podlove.org/simple-chapters/
+  public var podloveSimpleChapters: PodloveSimpleChapters?
 }
 
 // MARK: - Sendable
@@ -284,6 +292,7 @@ extension RSSFeedItem: Codable {
     case podcast
     case geoRSS = "georss"
     case commentAPI = "wfw"
+    case podloveSimpleChapters = "psc"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -307,6 +316,10 @@ extension RSSFeedItem: Codable {
     podcast = try container.decodeIfPresent(Podcast.self, forKey: CodingKeys.podcast)
     geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
     commentAPI = try container.decodeIfPresent(CommentAPI.self, forKey: CodingKeys.commentAPI)
+    podloveSimpleChapters = try container.decodeIfPresent(
+      PodloveSimpleChapters.self,
+      forKey: CodingKeys.podloveSimpleChapters
+    )
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -330,5 +343,6 @@ extension RSSFeedItem: Codable {
     try container.encodeIfPresent(podcast, forKey: CodingKeys.podcast)
     try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
     try container.encodeIfPresent(commentAPI, forKey: CodingKeys.commentAPI)
+    try container.encodeIfPresent(podloveSimpleChapters, forKey: CodingKeys.podloveSimpleChapters)
   }
 }
