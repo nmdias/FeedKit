@@ -1,19 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:podcast="https://podcastindex.org/namespace/1.0">
+<rss xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
   <channel>
-    <title>Test Podcast</title>
+    <title>Podcasting 2.0 Namespace Example</title>
+    <description>A test podcast feed with podcast namespace elements.</description>
     <link>https://example.com/podcast</link>
-    <description>A test podcast feed with podcast namespace elements</description>
+    <language>en-US</language>
+    <pubDate>Fri, 09 Oct 2020 04:30:38 GMT</pubDate>
+
+    <podcast:guid>y0ur-gu1d-g035-h3r3</podcast:guid>
+    <podcast:license url="https://example.org/mypodcastlicense/full.pdf">my-podcast-license-v1</podcast:license>
+    <podcast:locked owner="podcastowner@example.com">yes</podcast:locked>
+    <podcast:block>yes</podcast:block>
+    <podcast:block id="google">no</podcast:block>
+    <podcast:block id="amazon">no</podcast:block>
+    <podcast:funding url="https://example.com/donate">Support the show!</podcast:funding>
+    <podcast:funding url="https://example.com/members">Become a member!</podcast:funding>
+    <podcast:location rel="creator" geo="geo:30.2672,97.7431" osm="R113314" country="US">Austin, TX</podcast:location>
+    <podcast:medium>podcast</podcast:medium>
+    <podcast:txt purpose="verify">S6lpp-7ZCn8-dZfGc-OoyaG</podcast:txt>
+    <podcast:txt purpose="ai-content">false</podcast:txt>
+    <podcast:updateFrequency complete="false" dtstart="2021-01-01T00:00:00.000Z" rrule="FREQ=WEEKLY;INTERVAL=2">Biweekly</podcast:updateFrequency>
+
+    <podcast:image href="https://example.com/images/show/pci_avatar-massive.png" alt="An antenna emanating signal waves" purpose="artwork" aspect-ratio="1/1" width="3000" type="image/png" />
+    <podcast:image href="https://example.com/images/show/pci_avatar-massive_1200x630.webp" alt="An antenna emanating signal waves" purpose="social" aspect-ratio="1.9" width="1200" height="630" type="image/webp" />
+    <podcast:images srcset="https://example.com/images/pci_avatar-massive.jpg 1500w, https://example.com/images/pci_avatar-tiny.jpg 150w" />
+
+    <podcast:person href="https://www.podchaser.com/creators/adam-curry" img="https://example.com/images/adamcurry.jpg" group="cast" role="host">Adam Curry</podcast:person>
+
+    <podcast:value type="lightning" method="keysend" suggested="0.00000005000">
+      <podcast:valueRecipient name="podcaster" type="node" address="036557ea56b3b86f08be31bcd2557cae8021b0e3a9413f0c0e52625c6696972e57" split="99" />
+      <podcast:valueRecipient name="hosting company" type="node" address="036557ea56b3b86f08be31bcd2557cae8021b0e3a9413f0c0e52625c6696972e57" split="1" fee="true" />
+      <podcast:valueTimeSplit startTime="60" duration="237" remoteStartTime="30" remotePercentage="95">
+        <podcast:remoteItem itemGuid="https://podcastindex.org/podcast/4148683#1" feedGuid="a94f5cc9-8c58-55fc-91fe-a324087a655b" medium="music" />
+      </podcast:valueTimeSplit>
+    </podcast:value>
+
+    <podcast:trailer pubdate="Thu, 01 Apr 2021 08:00:00 EST" url="https://example.org/trailers/teaser" length="12345678" type="audio/mp3">Coming April 1st, 2021</podcast:trailer>
+
+    <podcast:liveItem status="live" start="2021-09-26T07:30:00.000-0600" end="2021-09-26T09:30:00.000-0600">
+      <title>Podcasting 2.0 Live Show</title>
+      <description>A look into the future of podcasting and how we get to Podcasting 2.0!</description>
+      <link>https://example.com/podcast/live</link>
+      <guid isPermaLink="true">https://example.com/live</guid>
+      <podcast:alternateEnclosure type="audio/mpeg" length="312" default="true">
+        <podcast:source uri="https://example.com/pc20/livestream" />
+      </podcast:alternateEnclosure>
+      <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+      <podcast:contentLink href="https://www.youtube.com/pc20/livestream">Watch on YouTube!</podcast:contentLink>
+    </podcast:liveItem>
+
+    <podcast:chat server="example.com" protocol="matrix" accountId="@bob:example.com" space="#general:example.com" />
+
+    <podcast:publisher>
+      <podcast:remoteItem medium="publisher" feedGuid="000000a0-aaa5-bbbf-b765-6333d449661a" feedUrl="https://publisherexample.xml" />
+    </podcast:publisher>
+
+    <podcast:podroll>
+      <podcast:remoteItem feedGuid="917393e3-1b1e-5cef-ace4-edaa54e1f810" feedUrl="https://feeds.podcastindex.org/pc20.xml" title="Podcasting 2.0" />
+      <podcast:remoteItem feedGuid="396d9ae0-da7e-5557-b894-b606231fa3ea" feedUrl="https://feedurl.example.rss" />
+    </podcast:podroll>
+
+    <podcast:podping usesPodping="true" />
+
     <item>
-      <title>Episode 1: Introduction</title>
-      <description>This is the first episode of our test podcast.</description>
-      <podcast:transcript url="https://example.com/episode1/transcript.txt" type="text/plain" language="en" />
-      <podcast:transcript url="https://example.com/episode1/transcript.vtt" type="text/vtt" language="en" rel="captions" />
+      <title>Episode 3 - The Future</title>
+      <description>A look into the future of podcasting.</description>
+      <link>https://example.com/podcast/ep0003</link>
+      <guid isPermaLink="true">https://example.com/ep0003</guid>
+      <pubDate>Fri, 09 Oct 2020 04:30:38 GMT</pubDate>
+      <author>John Doe (john@example.com)</author>
+
+      <podcast:season name="Podcasting 2.0">1</podcast:season>
+      <podcast:episode display="Ch.3">204</podcast:episode>
+      <podcast:chapters url="https://example.com/ep3_chapters.json" type="application/json+chapters" />
+      <podcast:soundbite startTime="33.833" duration="60.0" />
+      <podcast:soundbite startTime="1234.5" duration="42.25">Why the Podcast Namespace Matters</podcast:soundbite>
+
+      <podcast:transcript url="https://example.com/ep3/transcript.txt" type="text/plain" />
+      <podcast:transcript url="https://example.com/ep3/transcript.vtt" type="text/vtt" language="es" rel="captions" />
+
+      <podcast:person href="https://www.podchaser.com/creators/adam-curry-107ZzmWE5f" img="https://example.com/images/adamcurry.jpg">Adam Curry</podcast:person>
+      <podcast:person role="guest" href="https://github.com/daveajones/" img="https://example.com/images/davejones.jpg">Dave Jones</podcast:person>
+      <podcast:person group="visuals" role="cover art designer" href="https://example.com/artist/beckysmith">Becky Smith</podcast:person>
+
+      <podcast:location rel="subject" geo="geo:33.5159981,-86.8146098" osm="R6930627" country="US">Birmingham Civil Rights Museum</podcast:location>
+
+      <podcast:image href="https://example.com/images/ep3/pci_avatar-massive.png" alt="Episode 3 artwork" purpose="artwork" aspect-ratio="1/1" width="3000" type="image/png" />
+
+      <enclosure url="https://example.com/file-03.mp3" length="43200000" type="audio/mpeg" />
+
+      <podcast:alternateEnclosure type="audio/mpeg" length="43200000" bitrate="128000" default="true" title="Standard">
+        <podcast:source uri="https://example.com/file-03.mp3" />
+        <podcast:source uri="ipfs://someRandomMpegFile03" />
+      </podcast:alternateEnclosure>
+
+      <podcast:alternateEnclosure type="video/mp4" length="7924786" bitrate="511276.52" height="720" lang="en" title="Video version" codecs="avc1.640028,mp4a.40.2">
+        <podcast:source uri="https://example.com/file-720.mp4" />
+        <podcast:source uri="https://example.com/file-720.torrent" contentType="application/x-bittorrent" />
+        <podcast:integrity type="sri" value="sha384-ExVqijgYHm15PqQqdXfW95x+Rs6C+d6E/ICxyQOeFevnxNLR/wtJNrNYTjIysUBo" />
+      </podcast:alternateEnclosure>
+
+      <podcast:value type="lightning" method="keysend" suggested="0.00000005000">
+        <podcast:valueRecipient name="podcaster" type="node" address="036557ea56b3b86f08be31bcd2557cae8021b0e3a9413f0c0e52625c6696972e57" split="49" />
+        <podcast:valueRecipient name="hosting company" type="node" address="036557ea56b3b86f08be31bcd2557cae8021b0e3a9413f0c0e52625c6696972e57" split="1" />
+        <podcast:valueRecipient name="Gigi (Guest)" type="lnaddress" address="gigi@example.com" split="50" customKey="112111100" customValue="somevalue" />
+      </podcast:value>
+
+      <podcast:contentLink href="https://www.youtube.com/watch?v=example">Watch this episode on YouTube!</podcast:contentLink>
+
+      <podcast:socialInteract priority="1" uri="https://podcastindex.social/@dave/105079274766075912" protocol="activitypub" accountId="@dave" accountUrl="https://podcastindex.social/@dave" />
+      <podcast:socialInteract priority="2" uri="https://twitter.com/PodcastindexOrg/status/1507120226361647115" protocol="twitter" accountId="@podcastindexorg" accountUrl="https://twitter.com/PodcastindexOrg" />
+
+      <podcast:remoteItem feedGuid="917393e3-1b1e-5cef-ace4-edaa54e1f810" itemGuid="asdf089j0-ep240-20230510" />
     </item>
+
     <item>
-      <title>Episode 2: Advanced Topics</title>
-      <description>This episode covers advanced topics.</description>
-      <podcast:transcript url="https://example.com/episode2/transcript.txt" type="text/plain" language="en" />
+      <title>Episode 2 - The Present</title>
+      <description>Where are we at now in the podcasting era.</description>
+      <podcast:season>2</podcast:season>
+      <podcast:episode>2</podcast:episode>
+      <podcast:chat server="irc.zeronode.net" protocol="irc" accountId="@jsmith" space="#myawesomepodcast" />
     </item>
   </channel>
 </rss>
