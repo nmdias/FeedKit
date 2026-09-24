@@ -63,6 +63,9 @@ enum FeedNamespace: CaseIterable {
   /// Represents the Feed Paging and Archiving namespace, used to mark feed
   /// documents that are complete, paged or archived.
   case feedHistory
+  /// Represents the Comment API namespace, used to link an item to the feed
+  /// of its comments and to an endpoint that accepts new comments.
+  case commentAPI
   /// Represents the source namespace, used for Source-specific metadata
   /// like markdown content.
   case source
@@ -94,6 +97,8 @@ enum FeedNamespace: CaseIterable {
       "xmlns:podcast"
     case .feedHistory:
       "xmlns:fh"
+    case .commentAPI:
+      "xmlns:wfw"
     case .source:
       "xmlns:source"
     }
@@ -124,6 +129,8 @@ enum FeedNamespace: CaseIterable {
       "https://podcastindex.org/namespace/1.0"
     case .feedHistory:
       "http://purl.org/syndication/history/1.0"
+    case .commentAPI:
+      "http://wellformedweb.org/CommentAPI/"
     case .source:
       "http://source.scripting.com/"
     }
@@ -174,6 +181,9 @@ extension FeedNamespace {
     case .feedHistory:
       feed.channel?.feedHistory != nil
 
+    case .commentAPI:
+      feed.channel?.items?.contains(where: { $0.commentAPI != nil }) ?? false
+
     case .source:
       feed.channel?.items?.contains(where: { $0.markdown != nil }) ?? false
     }
@@ -190,6 +200,8 @@ extension FeedNamespace {
       feed.entries?.contains(where: { $0.geoRSS != nil }) ?? false
     case .feedHistory:
       feed.feedHistory != nil
+    case .commentAPI:
+      feed.entries?.contains(where: { $0.commentAPI != nil }) ?? false
     default:
       false
     }
