@@ -75,7 +75,7 @@ extension iTunesTests {
           ),
           explicit: "No",
           complete: "No",
-          newFeedURL: "http://newlocation.com/example.rss",
+          newFeedURL: "http://newlocation.example/example.rss",
           owner: .init(
             email: "dan@dancarlin.com",
             name: "Dan Carlin's Hardcore History"

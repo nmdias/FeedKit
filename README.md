@@ -52,7 +52,7 @@ The `Feed` enum type handles **RSS**, **Atom** and **JSON** feeds and will deter
 
 ```swift
 // Read any type of feed
-let feed = try await Feed(urlString: "https://surprise.me/feed")
+let feed = try await Feed(urlString: "https://surprise.example/feed")
 
 // Use a switch to get the resulting feed model
 switch feed {
@@ -145,13 +145,13 @@ To generate an XML string for any given XML feed, create an instance of an `RSSF
 let feed = RSSFeed(
   channel: .init(
     title: "Breaking News",
-    link: "http://www.breakingnews.com/",
+    link: "http://www.breakingnews.example/",
     description: "Get the latest updates as they happen.",
     // ...
     items: [
       .init(
         title: "Breaking News: All Hearts are Joyful",
-        link: "http://breakingnews.com/2025/01/09/joyful-hearts",
+        link: "http://breakingnews.example/2025/01/09/joyful-hearts",
         description: "A heartwarming story of unity and celebration."
         // ...
       ),
@@ -174,11 +174,11 @@ try feed.toXMLString(formatted: true)
 <rss version="2.0">
   <channel>
     <title>Breaking News</title>
-    <link>http://www.breakingnews.com/</link>
+    <link>http://www.breakingnews.example/</link>
     <description>Get the latest updates as they happen.</description>
     <item>
       <title>Breaking News: All Hearts are Joyful</title>
-      <link>http://breakingnews.com/2025/01/09/joyful-hearts</link>
+      <link>http://breakingnews.example/2025/01/09/joyful-hearts</link>
       <description>A heartwarming story of unity and celebration.</description>
     </item>
   </channel>

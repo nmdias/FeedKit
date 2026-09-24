@@ -9,7 +9,7 @@
     <itunes:author>Dan Carlin</itunes:author>
     <itunes:image href="http://www.dancarlin.com/graphics/DC_HH_iTunes.jpg" />
     <itunes:block>No</itunes:block>
-    <itunes:new-feed-url>http://newlocation.com/example.rss</itunes:new-feed-url>
+    <itunes:new-feed-url>http://newlocation.example/example.rss</itunes:new-feed-url>
     <itunes:complete>No</itunes:complete>
     <itunes:owner>
       <itunes:name>Dan Carlin's Hardcore History</itunes:name>

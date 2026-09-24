@@ -110,7 +110,7 @@ extension AtomTests {
         )
       ),
       icon: nil,
-      logo: "http://www.example.uk/logo.png",
+      logo: "http://www.example.com/logo.png",
       rights: "Copyright (c) 2003, Mark Pilgrim",
       entries: [
         .init(

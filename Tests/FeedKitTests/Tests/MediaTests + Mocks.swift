@@ -28,8 +28,8 @@ extension MediaTests {
     var media: Media = .init()
 
     media.backLinks = .init(backLinks: [
-      "http://www.backlink1.com",
-      "http://www.backlink2.com"
+      "http://www.backlink1.example",
+      "http://www.backlink2.example"
     ])
 
     media.comments = .init(
@@ -43,7 +43,7 @@ extension MediaTests {
       contents: [
         .init(
           attributes: .init(
-            url: "http://www.foo.com/song64kbps.mp3",
+            url: "http://www.foo.example/song64kbps.mp3",
             fileSize: 1000,
             type: "audio/mpeg",
             medium: nil,
@@ -67,7 +67,7 @@ extension MediaTests {
         ),
         .init(
           attributes: .init(
-            url: "http://www.foo.com/song.wav",
+            url: "http://www.foo.example/song.wav",
             fileSize: 16000,
             type: "audio/x-wav",
             medium: nil,
@@ -127,7 +127,7 @@ extension MediaTests {
         .init(
           text: nil,
           attributes: .init(
-            url: "http://www.foo.com/keyframe3.jpg",
+            url: "http://www.foo.example/keyframe3.jpg",
             width: "480",
             height: "360",
             time: "12:05:01.123"
@@ -139,7 +139,7 @@ extension MediaTests {
     media.contents = [
       .init(
         attributes: .init(
-          url: "http://www.foo.com/video.mov",
+          url: "http://www.foo.example/video.mov",
           fileSize: 12_216_320,
           type: "video/quicktime",
           medium: "video",
@@ -163,7 +163,7 @@ extension MediaTests {
       ),
       .init(
         attributes: .init(
-          url: "http://www.foo.com/movie.mov",
+          url: "http://www.foo.example/movie.mov",
           fileSize: 12_216_320,
           type: "video/quicktime",
           medium: nil,
@@ -193,7 +193,7 @@ extension MediaTests {
         player: .init(
           text: nil,
           attributes: .init(
-            url: "http://www.foo.com/player?id=1111",
+            url: "http://www.foo.example/player?id=1111",
             width: 400,
             height: 200
           )
@@ -202,7 +202,7 @@ extension MediaTests {
           .init(
             text: nil,
             attributes: .init(
-              url: "http://www.foo.com/keyframe.jpg",
+              url: "http://www.foo.example/keyframe.jpg",
               width: "75",
               height: "50",
               time: "12:05:01.123"
@@ -215,7 +215,7 @@ extension MediaTests {
         category: .init(
           text: "music/artistname/album/song",
           attributes: .init(
-            scheme: "http://blah.com/scheme",
+            scheme: "http://blah.example/scheme",
             label: "blah"
           )
         ),
@@ -261,7 +261,7 @@ extension MediaTests {
       .init(
         text: nil,
         attributes: .init(
-          url: "http://www.foo.com/keyframe1.jpg",
+          url: "http://www.foo.example/keyframe1.jpg",
           width: "75",
           height: "50",
           time: "12:05:01.123"
@@ -270,7 +270,7 @@ extension MediaTests {
       .init(
         text: nil,
         attributes: .init(
-          url: "http://www.foo.com/keyframe2.jpg",
+          url: "http://www.foo.example/keyframe2.jpg",
           width: "640",
           height: "480",
           time: "12:05:01.123"
@@ -280,7 +280,7 @@ extension MediaTests {
 
     media.embed = .init(
       attributes: .init(
-        url: "http://www.foo.com/player.swf",
+        url: "http://www.foo.example/player.swf",
         width: 512,
         height: 323
       ),
@@ -310,7 +310,7 @@ extension MediaTests {
           )
         ),
         .init(
-          text: "id=12345&vid=678912i&lang=en-us&intl=us&thumbUrl=http://www.foo.com/thumbnail.jpg",
+          text: "id=12345&vid=678912i&lang=en-us&intl=us&thumbUrl=http://www.foo.example/thumbnail.jpg",
           attributes: .init(
             name: "flashVars"
           )
@@ -322,7 +322,7 @@ extension MediaTests {
       text: nil,
       attributes: .init(
         state: "blocked",
-        reason: "http://www.reasonforblocking.com"
+        reason: "http://www.reasonforblocking.example"
       )
     )
 
@@ -330,7 +330,7 @@ extension MediaTests {
       attributes: .init(
         type: "application/smil",
         lang: "en-us",
-        href: "http://www.foo.org/subtitle.smil"
+        href: "http://www.foo.example/subtitle.smil"
       )
     )
 
@@ -404,7 +404,7 @@ extension MediaTests {
       text: "Sample license for a video",
       attributes: .init(
         type: "text/html",
-        href: "http://www.licensehost.com/license"
+        href: "http://www.licensehost.example/license"
       )
     )
 
@@ -425,7 +425,7 @@ extension MediaTests {
       text: nil,
       attributes: .init(
         type: "application/x-bittorrent",
-        href: "http://www.foo.org/sampleFile.torrent"
+        href: "http://www.foo.example/sampleFile.torrent"
       )
     )
 
@@ -435,7 +435,7 @@ extension MediaTests {
         attributes: .init(
           type: "rent",
           price: 19.99,
-          info: "http://www.dummy.jp/package_info.html",
+          info: "http://www.dummy.example/package_info.html",
           currency: "EUR"
         )
       )
@@ -443,8 +443,8 @@ extension MediaTests {
 
     media.responses = .init(
       responses: [
-        "http://www.response1.com",
-        "http://www.response2.com"
+        "http://www.response1.example",
+        "http://www.response2.example"
       ]
     )
 

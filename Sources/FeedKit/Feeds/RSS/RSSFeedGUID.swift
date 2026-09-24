@@ -56,7 +56,7 @@ public struct RSSFeedGUIDAttributes: Codable, Equatable, Hashable, Sendable {
 /// identifies the item. When present, an aggregator may choose to use this
 /// string to determine if an item is new.
 ///
-/// <guid>http://some.server.com/weblogItem3207</guid>
+/// <guid>http://some.server.example/weblogItem3207</guid>
 ///
 /// There are no rules for the syntax of a guid. Aggregators must view them
 /// as a string. It's up to the source of the feed to establish the

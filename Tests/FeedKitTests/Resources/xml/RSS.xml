@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:source="http://source.scripting.com/">
   <channel>
     <title>Iris</title>
-    <link>http://www.iris.news/</link>
+    <link>http://www.iris.example/</link>
     <description>The one place for you daily news.</description>
     <language>en-us</language>
     <copyright>Copyright 2015, Iris News</copyright>
-    <managingEditor>john.appleseed.editor@iris.news (John Appleseed)</managingEditor>
-    <webMaster>john.appleseed.master@iris.news (John Appleseed)</webMaster>
+    <managingEditor>john.appleseed.editor@iris.example (John Appleseed)</managingEditor>
+    <webMaster>john.appleseed.master@iris.example (John Appleseed)</webMaster>
     <pubDate>Sun, 16 Aug 2015 05:00:00 GMT</pubDate>
     <lastBuildDate>Sun, 16 Aug 2015 18:18:55 GMT</lastBuildDate>
     <category>Media</category>
     <category domain="dmoz">News/Media/Science</category>
     <generator>Iris Gen</generator>
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-    <cloud domain="server.iris.com" path="/rpc" port="80" protocol="xml-rpc" registerProcedure="cloud.notify" />
+    <cloud domain="server.iris.example" path="/rpc" port="80" protocol="xml-rpc" registerProcedure="cloud.notify" />
     <rating>(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l by "webmaster@example.com" on "2007.01.29T10:09-0800" r (n 0 s 0 v 0 l 0))</rating>
     <ttl>60</ttl>
     <image>
-      <link>http://www.iris.news/</link>
-      <url>http://www.iris.news/image.jpg</url>
+      <link>http://www.iris.example/</link>
+      <url>http://www.iris.example/image.jpg</url>
       <title>Iris</title>
       <description>Read the Iris news feed.</description>
       <width>64</width>
@@ -40,7 +40,7 @@
       <title>TextInput Inquiry</title>
       <description>Your aggregator supports the textInput element. What software are you using?</description>
       <name>query</name>
-      <link>http://www.iris.com/textinput.php</link>
+      <link>http://www.iris.example/textinput.php</link>
     </textInput>
     <item>
       <title>Seventh Heaven! Ryan Hurls Another No Hitter</title>

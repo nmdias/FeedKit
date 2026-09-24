@@ -7,7 +7,7 @@
   <link rel="alternate" type="text/html" hreflang="en" href="http://example.org/" title="Human-readable information about the link" length="1234" />
   <link rel="self" type="application/atom+xml" hreflang="pt" href="http://example.org/feed.atom" title="Information about the link is Human-readable" length="5678" />
   <rights>Copyright (c) 2003, Mark Pilgrim</rights>
-  <logo>http://www.example.uk/logo.png</logo>
+  <logo>http://www.example.com/logo.png</logo>
   <generator uri="http://www.example.com/" version="1.0">Example Toolkit</generator>
   <category term="music" />
   <category term="video" />
