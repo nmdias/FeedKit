@@ -89,6 +89,20 @@ class XMLReader: NSObject {
     }
     element.text = element.text?.appending(string) ?? string
   }
+
+  // MARK: Private
+
+  /// Trims whitespace and newlines from an attribute value.
+  ///
+  /// `XMLParser` does not sanitize attribute values, and real-world feeds may
+  /// pad them with whitespace, e.g. `length="169600320 "`. Element text is
+  /// trimmed when its element ends; attributes are sanitized here so that a
+  /// typed attribute decodes regardless of its surrounding whitespace.
+  /// - Parameter attributeValue: The raw attribute value reported by the parser.
+  /// - Returns: The attribute value without surrounding whitespace.
+  private static func sanitize(attributeValue: String) -> String {
+    attributeValue.trimmingCharacters(in: .whitespacesAndNewlines)
+  }
 }
 
 // MARK: - XMLParserDelegate
@@ -122,7 +136,7 @@ extension XMLReader: XMLParserDelegate {
             children: attributeDict.map {
               .init(
                 name: $0,
-                text: $1
+                text: Self.sanitize(attributeValue: $1)
               )
             }
           )
@@ -156,7 +170,7 @@ extension XMLReader: XMLParserDelegate {
               children: attributeDict.map {
                 .init(
                   name: $0,
-                  text: $1
+                  text: Self.sanitize(attributeValue: $1)
                 )
               }
             )
