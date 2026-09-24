@@ -29,7 +29,8 @@ import XMLKit
 ///
 /// The feed-level `fh:complete` and `fh:archive` elements identify what a
 /// document represents. The documents themselves are tied together with the
-/// link relations modelled by ``FeedHistoryLinkRelation``.
+/// first, last, previous, next, prev-archive, next-archive and current link
+/// relations, which feed documents express with their regular link elements.
 ///
 /// See https://datatracker.ietf.org/doc/html/rfc5005
 public struct FeedHistory {
