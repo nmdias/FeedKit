@@ -81,7 +81,7 @@ extension XMLError: CustomNSError {
   public var errorCode: Int {
     switch self {
     case .notFound: -1000
-    case .cdataDecoding: -10001
+    case .cdataDecoding: -1001
     case .unexpected: -90000
     }
   }
