@@ -1,0 +1,102 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hacker News: Front Page</title><link>https://news.ycombinator.com/</link><description>Hacker News RSS</description><docs>https://hnrss.org/</docs><generator>hnrss v2.1.1</generator><lastBuildDate>Fri, 25 Sep 2026 14:22:52 +0000</lastBuildDate><atom:link href="https://hnrss.org/frontpage" rel="self" type="application/rss+xml"></atom:link><item><title><![CDATA[Allow Carriers on Planes]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.jefftk.com/p/allow-carriers-on-planes">https://www.jefftk.com/p/allow-carriers-on-planes</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49844786">https://news.ycombinator.com/item?id=49844786</a></p>
+<p>Points: 13</p>
+<p># Comments: 1</p>
+]]></description><pubDate>Fri, 25 Sep 2026 14:00:10 +0000</pubDate><link>https://www.jefftk.com/p/allow-carriers-on-planes</link><dc:creator>surprisetalk</dc:creator><comments>https://news.ycombinator.com/item?id=49844786</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49844786</guid></item><item><title><![CDATA[ASML says it sold 'absolutely nothing' in Europe in 2026]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.tomshardware.com/tech-industry/semiconductors/asml-says-its-sells-absolutely-nothing-in-europe-calls-on-eu-to-help-create-demand">https://www.tomshardware.com/tech-industry/semiconductors/asml-says-its-sells-absolutely-nothing-in-europe-calls-on-eu-to-help-create-demand</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49844663">https://news.ycombinator.com/item?id=49844663</a></p>
+<p>Points: 29</p>
+<p># Comments: 17</p>
+]]></description><pubDate>Fri, 25 Sep 2026 13:49:06 +0000</pubDate><link>https://www.tomshardware.com/tech-industry/semiconductors/asml-says-its-sells-absolutely-nothing-in-europe-calls-on-eu-to-help-create-demand</link><dc:creator>MC995</dc:creator><comments>https://news.ycombinator.com/item?id=49844663</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49844663</guid></item><item><title><![CDATA[Nobody Asked for a Crab Chair]]></title><description><![CDATA[
+<p>Article URL: <a href="https://newmobility.com/nobody-asked-for-a-crab-chair/">https://newmobility.com/nobody-asked-for-a-crab-chair/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49843899">https://news.ycombinator.com/item?id=49843899</a></p>
+<p>Points: 22</p>
+<p># Comments: 27</p>
+]]></description><pubDate>Fri, 25 Sep 2026 12:48:00 +0000</pubDate><link>https://newmobility.com/nobody-asked-for-a-crab-chair/</link><dc:creator>speckx</dc:creator><comments>https://news.ycombinator.com/item?id=49843899</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49843899</guid></item><item><title><![CDATA[The Test]]></title><description><![CDATA[
+<p>Article URL: <a href="https://tante.cc/2026/09/24/the-test/">https://tante.cc/2026/09/24/the-test/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49843550">https://news.ycombinator.com/item?id=49843550</a></p>
+<p>Points: 43</p>
+<p># Comments: 5</p>
+]]></description><pubDate>Fri, 25 Sep 2026 12:14:02 +0000</pubDate><link>https://tante.cc/2026/09/24/the-test/</link><dc:creator>latexr</dc:creator><comments>https://news.ycombinator.com/item?id=49843550</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49843550</guid></item><item><title><![CDATA[I'm Tired of Being on the Network]]></title><description><![CDATA[
+<p>Article URL: <a href="https://matduggan.com/im-tired-of-being-on-the-network/">https://matduggan.com/im-tired-of-being-on-the-network/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49843547">https://news.ycombinator.com/item?id=49843547</a></p>
+<p>Points: 85</p>
+<p># Comments: 79</p>
+]]></description><pubDate>Fri, 25 Sep 2026 12:13:55 +0000</pubDate><link>https://matduggan.com/im-tired-of-being-on-the-network/</link><dc:creator>sagacity</dc:creator><comments>https://news.ycombinator.com/item?id=49843547</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49843547</guid></item><item><title><![CDATA[Platform-Independent SIMD in Go]]></title><description><![CDATA[
+<p>Article URL: <a href="https://go.dev/blog/simd-experiment">https://go.dev/blog/simd-experiment</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49843269">https://news.ycombinator.com/item?id=49843269</a></p>
+<p>Points: 87</p>
+<p># Comments: 21</p>
+]]></description><pubDate>Fri, 25 Sep 2026 11:47:06 +0000</pubDate><link>https://go.dev/blog/simd-experiment</link><dc:creator>yurivish</dc:creator><comments>https://news.ycombinator.com/item?id=49843269</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49843269</guid></item><item><title><![CDATA[Git-bug: Distributed, offline-first bug tracker embedded in Git]]></title><description><![CDATA[
+<p>Article URL: <a href="https://github.com/git-bug/git-bug">https://github.com/git-bug/git-bug</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49843174">https://news.ycombinator.com/item?id=49843174</a></p>
+<p>Points: 94</p>
+<p># Comments: 21</p>
+]]></description><pubDate>Fri, 25 Sep 2026 11:38:31 +0000</pubDate><link>https://github.com/git-bug/git-bug</link><dc:creator>alentred</dc:creator><comments>https://news.ycombinator.com/item?id=49843174</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49843174</guid></item><item><title><![CDATA[Show HN: Agentic CUDA Kernel Optimizer]]></title><description><![CDATA[
+<p>Hello; I was working on optimizing some CUDA kernels and I thought may be it is a good oppurtunity learn langgraph as well. I created a simple C++ CUDA Test Harness and handed that to AI agents. They can run kernels, get benchmarks, and even can profile via nsight</p>
+<hr>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49842596">https://news.ycombinator.com/item?id=49842596</a></p>
+<p>Points: 25</p>
+<p># Comments: 4</p>
+]]></description><pubDate>Fri, 25 Sep 2026 10:32:58 +0000</pubDate><link>https://github.com/bertaye/agentic-cuda-optimizer</link><dc:creator>bertaye</dc:creator><comments>https://news.ycombinator.com/item?id=49842596</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49842596</guid></item><item><title><![CDATA[The Mafia may be keeping fentanyl out of Italy]]></title><description><![CDATA[
+<p>Article URL: <a href="https://economist.com/europe/2026/09/24/the-mafia-may-be-keeping-fentanyl-out-of-italy">https://economist.com/europe/2026/09/24/the-mafia-may-be-keeping-fentanyl-out-of-italy</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49842487">https://news.ycombinator.com/item?id=49842487</a></p>
+<p>Points: 137</p>
+<p># Comments: 173</p>
+]]></description><pubDate>Fri, 25 Sep 2026 10:20:20 +0000</pubDate><link>https://economist.com/europe/2026/09/24/the-mafia-may-be-keeping-fentanyl-out-of-italy</link><dc:creator>runeks</dc:creator><comments>https://news.ycombinator.com/item?id=49842487</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49842487</guid></item><item><title><![CDATA[Oracle on the hook to pay data centre investors even if site has no electricity]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.ft.com/content/a96bf05a-a299-4d6a-a753-b298dd0f4016">https://www.ft.com/content/a96bf05a-a299-4d6a-a753-b298dd0f4016</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49842483">https://news.ycombinator.com/item?id=49842483</a></p>
+<p>Points: 101</p>
+<p># Comments: 83</p>
+]]></description><pubDate>Fri, 25 Sep 2026 10:19:36 +0000</pubDate><link>https://www.ft.com/content/a96bf05a-a299-4d6a-a753-b298dd0f4016</link><dc:creator>Betelbuddy</dc:creator><comments>https://news.ycombinator.com/item?id=49842483</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49842483</guid></item><item><title><![CDATA[Topcoat is pushing the boundary of server applications with Rust]]></title><description><![CDATA[
+<p>Article URL: <a href="https://tokio.rs/blog/2026-09-24-topcoat-server-applications">https://tokio.rs/blog/2026-09-24-topcoat-server-applications</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49842332">https://news.ycombinator.com/item?id=49842332</a></p>
+<p>Points: 64</p>
+<p># Comments: 41</p>
+]]></description><pubDate>Fri, 25 Sep 2026 09:59:40 +0000</pubDate><link>https://tokio.rs/blog/2026-09-24-topcoat-server-applications</link><dc:creator>sagacity</dc:creator><comments>https://news.ycombinator.com/item?id=49842332</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49842332</guid></item><item><title><![CDATA[Ink and Switch Interactive Homepage]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.inkandswitch.com/">https://www.inkandswitch.com/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49842270">https://news.ycombinator.com/item?id=49842270</a></p>
+<p>Points: 94</p>
+<p># Comments: 15</p>
+]]></description><pubDate>Fri, 25 Sep 2026 09:50:25 +0000</pubDate><link>https://www.inkandswitch.com/</link><dc:creator>iFreilicht</dc:creator><comments>https://news.ycombinator.com/item?id=49842270</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49842270</guid></item><item><title><![CDATA[Boards of Casio]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.ambionix.com/blog/boards-of-casio/">https://www.ambionix.com/blog/boards-of-casio/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49842084">https://news.ycombinator.com/item?id=49842084</a></p>
+<p>Points: 29</p>
+<p># Comments: 8</p>
+]]></description><pubDate>Fri, 25 Sep 2026 09:26:01 +0000</pubDate><link>https://www.ambionix.com/blog/boards-of-casio/</link><dc:creator>fidotron</dc:creator><comments>https://news.ycombinator.com/item?id=49842084</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49842084</guid></item><item><title><![CDATA[Special Projects (2016)]]></title><description><![CDATA[
+<p>Article URL: <a href="https://openai.com/index/special-projects/">https://openai.com/index/special-projects/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49841893">https://news.ycombinator.com/item?id=49841893</a></p>
+<p>Points: 47</p>
+<p># Comments: 27</p>
+]]></description><pubDate>Fri, 25 Sep 2026 08:55:43 +0000</pubDate><link>https://openai.com/index/special-projects/</link><dc:creator>vinhnx</dc:creator><comments>https://news.ycombinator.com/item?id=49841893</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49841893</guid></item><item><title><![CDATA[Dutch governments builds alternative for Microsoft based on NixOS]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.dawo.community/en/">https://www.dawo.community/en/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49841563">https://news.ycombinator.com/item?id=49841563</a></p>
+<p>Points: 611</p>
+<p># Comments: 344</p>
+]]></description><pubDate>Fri, 25 Sep 2026 08:06:49 +0000</pubDate><link>https://www.dawo.community/en/</link><dc:creator>fjfaase</dc:creator><comments>https://news.ycombinator.com/item?id=49841563</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49841563</guid></item><item><title><![CDATA[Amiga Screens: A Primer]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.datagubbe.se/amscr/">https://www.datagubbe.se/amscr/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49841309">https://news.ycombinator.com/item?id=49841309</a></p>
+<p>Points: 47</p>
+<p># Comments: 9</p>
+]]></description><pubDate>Fri, 25 Sep 2026 07:31:12 +0000</pubDate><link>https://www.datagubbe.se/amscr/</link><dc:creator>msephton</dc:creator><comments>https://news.ycombinator.com/item?id=49841309</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49841309</guid></item><item><title><![CDATA[Pentium II at 600Mhz with Voodoo 3 Emulated on 86Box with M6 Mac Mini]]></title><description><![CDATA[
+<p>Article URL: <a href="https://nyaa.sh/reviews/mac-mini-m6-emulation">https://nyaa.sh/reviews/mac-mini-m6-emulation</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49841285">https://news.ycombinator.com/item?id=49841285</a></p>
+<p>Points: 151</p>
+<p># Comments: 63</p>
+]]></description><pubDate>Fri, 25 Sep 2026 07:27:45 +0000</pubDate><link>https://nyaa.sh/reviews/mac-mini-m6-emulation</link><dc:creator>hugh4life</dc:creator><comments>https://news.ycombinator.com/item?id=49841285</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49841285</guid></item><item><title><![CDATA[CVE-2025-13032: Entering and Breaking the Avast Antivirus Sandbox Part 2]]></title><description><![CDATA[
+<p>Article URL: <a href="https://www.safateam.com/intelligence-hub/research/technical-articles/cve-2025-13032-entering-and-breaking-the-avast-antivirus-sandbox-part-2">https://www.safateam.com/intelligence-hub/research/technical-articles/cve-2025-13032-entering-and-breaking-the-avast-antivirus-sandbox-part-2</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49841115">https://news.ycombinator.com/item?id=49841115</a></p>
+<p>Points: 80</p>
+<p># Comments: 18</p>
+]]></description><pubDate>Fri, 25 Sep 2026 07:03:46 +0000</pubDate><link>https://www.safateam.com/intelligence-hub/research/technical-articles/cve-2025-13032-entering-and-breaking-the-avast-antivirus-sandbox-part-2</link><dc:creator>safateam</dc:creator><comments>https://news.ycombinator.com/item?id=49841115</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49841115</guid></item><item><title><![CDATA[What About Rails?]]></title><description><![CDATA[
+<p>Article URL: <a href="https://jardo.dev/what-about-rails">https://jardo.dev/what-about-rails</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49839664">https://news.ycombinator.com/item?id=49839664</a></p>
+<p>Points: 151</p>
+<p># Comments: 84</p>
+]]></description><pubDate>Fri, 25 Sep 2026 02:50:16 +0000</pubDate><link>https://jardo.dev/what-about-rails</link><dc:creator>jrochkind1</dc:creator><comments>https://news.ycombinator.com/item?id=49839664</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49839664</guid></item><item><title><![CDATA[Opus 5.5 is good at explainer videos]]></title><description><![CDATA[
+<p>Article URL: <a href="https://launchvideo.io">https://launchvideo.io</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=49836374">https://news.ycombinator.com/item?id=49836374</a></p>
+<p>Points: 322</p>
+<p># Comments: 176</p>
+]]></description><pubDate>Thu, 24 Sep 2026 20:28:47 +0000</pubDate><link>https://launchvideo.io</link><dc:creator>iacguy</dc:creator><comments>https://news.ycombinator.com/item?id=49836374</comments><guid isPermaLink="false">https://news.ycombinator.com/item?id=49836374</guid></item></channel></rss>

@@ -361,6 +361,16 @@ To add FeedKit to your Xcode project, follow these steps:
 - Enter the "Package URL": https://github.com/nmdias/FeedKit
 - Select "Add Package"
 
+## Performance
+
+Parsing speed across versions is tracked in [PERFORMANCE.md](PERFORMANCE.md). To
+measure and add a row:
+
+```sh
+cd Benchmarks
+./bench.sh
+```
+
 ## License
 
 FeedKit is released under the MIT license. See [LICENSE](https://github.com/nmdias/FeedKit/blob/master/LICENSE) for details.

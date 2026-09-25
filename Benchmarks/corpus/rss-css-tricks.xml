@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>CSS-Tricks</title>
+	<atom:link href="https://css-tricks.com/feed/" rel="self" type="application/rss+xml" />
+	<link>https://css-tricks.com</link>
+	<description>A learning community for front-end designers and developers</description>
+	<lastBuildDate>Thu, 03 Sep 2026 16:29:53 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+
+<image>
+	<url>https://i0.wp.com/css-tricks.com/wp-content/uploads/2021/07/star.png?fit=32%2C32&#038;ssl=1</url>
+	<title>CSS-Tricks</title>
+	<link>https://css-tricks.com</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">45537868</site>	<item>
+		<title>Let’s Use the Emergent CSS random() Function in all the Browsers</title>
+		<link>https://css-tricks.com/css-random-function-polyfill/</link>
+					<comments>https://css-tricks.com/css-random-function-polyfill/#respond</comments>
+		
+		<dc:creator><![CDATA[Lee Meyer]]></dc:creator>
+		<pubDate>Mon, 31 Aug 2026 15:12:19 +0000</pubDate>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[CSS functions]]></category>
+		<category><![CDATA[polyfill]]></category>
+		<category><![CDATA[random]]></category>
+		<category><![CDATA[resource]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396630</guid>
+
+					<description><![CDATA[<p>The journey to create a polyfill for the upcoming CSS <code>random()</code> function that works in all browsers.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/css-random-function-polyfill/">Let’s Use the Emergent CSS random() Function in all the Browsers</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/css-random-function-polyfill/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396630</post-id>	</item>
+		<item>
+		<title>What’s !important #18: &#060;geolocation&gt;, Syntax ::highlight()ing, named-feature(), and More</title>
+		<link>https://css-tricks.com/whats-important-18/</link>
+					<comments>https://css-tricks.com/whats-important-18/#respond</comments>
+		
+		<dc:creator><![CDATA[Daniel Schwarz]]></dc:creator>
+		<pubDate>Mon, 31 Aug 2026 14:08:55 +0000</pubDate>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[news]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396738</guid>
+
+					<description><![CDATA[<p>Well, that’s a wrap. No, not a flex-wrap, but rather today marks a new day, week, month, season, aaaand new edition of What’s important (#18), bringing you the best content that developers have produced over the last couple of weeks or so.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/whats-important-18/">What’s !important #18: &lt;geolocation&gt;, Syntax ::highlight()ing, named-feature(), and More</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/whats-important-18/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396738</post-id>	</item>
+		<item>
+		<title>Creating Web Widgets Using the Document Picture-in-Picture API</title>
+		<link>https://css-tricks.com/creating-web-widgets-using-the-document-picture-in-picture-api/</link>
+					<comments>https://css-tricks.com/creating-web-widgets-using-the-document-picture-in-picture-api/#respond</comments>
+		
+		<dc:creator><![CDATA[Daniel Schwarz]]></dc:creator>
+		<pubDate>Thu, 27 Aug 2026 14:41:06 +0000</pubDate>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[JavaScript]]></category>
+		<category><![CDATA[picture-in-picture]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=395259</guid>
+
+					<description><![CDATA[<p>The general idea is that we create a Document Picture-in-Picture window (DPIP window), and then we put HTML, CSS, and JavaScript into it.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/creating-web-widgets-using-the-document-picture-in-picture-api/">Creating Web Widgets Using the Document Picture-in-Picture API</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/creating-web-widgets-using-the-document-picture-in-picture-api/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">395259</post-id>	</item>
+		<item>
+		<title>animation-trigger</title>
+		<link>https://css-tricks.com/almanac/properties/a/animation-trigger/</link>
+		
+		<dc:creator><![CDATA[Saleh Mubashar]]></dc:creator>
+		<pubDate>Wed, 26 Aug 2026 15:38:41 +0000</pubDate>
+				<category><![CDATA[scroll-triggered animations]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?page_id=394713</guid>
+
+					<description><![CDATA[<p>The CSS <code>animation-trigger</code> property allows you to delay the start of a CSS animation until a specific trigger occurs.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/almanac/properties/a/animation-trigger/">animation-trigger</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">394713</post-id>	</item>
+		<item>
+		<title>MicroLighter: Syntax Highlighter</title>
+		<link>https://css-tricks.com/microlighter-syntax-highlighter/</link>
+					<comments>https://css-tricks.com/microlighter-syntax-highlighter/#comments</comments>
+		
+		<dc:creator><![CDATA[Geoff Graham]]></dc:creator>
+		<pubDate>Tue, 25 Aug 2026 14:10:34 +0000</pubDate>
+				<category><![CDATA[Links]]></category>
+		<category><![CDATA[custom highlight api]]></category>
+		<category><![CDATA[resource]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396665</guid>
+
+					<description><![CDATA[<p>Syntax highlighting for code blocks without the complicated markup, spans, classes, and bloated JavaScript, courtesy of Uncle Dave.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/microlighter-syntax-highlighter/">MicroLighter: Syntax Highlighter</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/microlighter-syntax-highlighter/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396665</post-id>	</item>
+		<item>
+		<title>WordPress PHP-Only Block Registration</title>
+		<link>https://css-tricks.com/wordpress-php-block-registration/</link>
+					<comments>https://css-tricks.com/wordpress-php-block-registration/#comments</comments>
+		
+		<dc:creator><![CDATA[Fränk Klein]]></dc:creator>
+		<pubDate>Mon, 24 Aug 2026 13:54:02 +0000</pubDate>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[WordPress]]></category>
+		<category><![CDATA[WordPress blocks]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=395401</guid>
+
+					<description><![CDATA[<p>Seven and half years after blocks arrived in Core, WordPress introduces a way to build blocks without React annd build pipelines. All you need is PHP.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/wordpress-php-block-registration/">WordPress PHP-Only Block Registration</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/wordpress-php-block-registration/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">395401</post-id>	</item>
+		<item>
+		<title>Resolved: CSS Class Prefix Selector</title>
+		<link>https://css-tricks.com/resolved-css-class-prefix-selector/</link>
+					<comments>https://css-tricks.com/resolved-css-class-prefix-selector/#comments</comments>
+		
+		<dc:creator><![CDATA[Geoff Graham]]></dc:creator>
+		<pubDate>Fri, 21 Aug 2026 15:13:03 +0000</pubDate>
+				<category><![CDATA[Links]]></category>
+		<category><![CDATA[selectors]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396644</guid>
+
+					<description><![CDATA[<p>A newly resolved proposal would allow us to select classes that are a prefix for variations with a wildcard, like <code>.prefix-*</code>.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/resolved-css-class-prefix-selector/">Resolved: CSS Class Prefix Selector</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/resolved-css-class-prefix-selector/feed/</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396644</post-id>	</item>
+		<item>
+		<title>CSS Navigation Matching, Early Days</title>
+		<link>https://css-tricks.com/css-navigation-matching-early-days/</link>
+					<comments>https://css-tricks.com/css-navigation-matching-early-days/#respond</comments>
+		
+		<dc:creator><![CDATA[Geoff Graham]]></dc:creator>
+		<pubDate>Wed, 19 Aug 2026 14:44:41 +0000</pubDate>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[css navigation]]></category>
+		<category><![CDATA[view transitions]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396428</guid>
+
+					<description><![CDATA[<p>Apply a style when someone navigates from one specific page to another. The idea being it'd make the sources for cross-document view transitions declarative in CSS rather than managing that stuff in JavaScript.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/css-navigation-matching-early-days/">CSS Navigation Matching, Early Days</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/css-navigation-matching-early-days/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396428</post-id>	</item>
+		<item>
+		<title>WordPress.com Student Plan</title>
+		<link>https://css-tricks.com/wordpress-student-plan/</link>
+					<comments>https://css-tricks.com/wordpress-student-plan/#comments</comments>
+		
+		<dc:creator><![CDATA[Geoff Graham]]></dc:creator>
+		<pubDate>Wed, 19 Aug 2026 08:50:00 +0000</pubDate>
+				<category><![CDATA[Links]]></category>
+		<category><![CDATA[education]]></category>
+		<category><![CDATA[WordPress]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396623</guid>
+
+					<description><![CDATA[<p>As someone who teaches beginning web development, I find that building a WordPress site makes for a great final project. Hosting those projects has always been a roadblock though.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/wordpress-student-plan/">WordPress.com Student Plan</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/wordpress-student-plan/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396623</post-id>	</item>
+		<item>
+		<title>Dark mode toggles: two states are enough</title>
+		<link>https://css-tricks.com/dark-mode-toggles-two-states-are-enough/</link>
+					<comments>https://css-tricks.com/dark-mode-toggles-two-states-are-enough/#comments</comments>
+		
+		<dc:creator><![CDATA[Geoff Graham]]></dc:creator>
+		<pubDate>Mon, 17 Aug 2026 14:15:50 +0000</pubDate>
+				<category><![CDATA[Links]]></category>
+		<category><![CDATA[dark mode]]></category>
+		<category><![CDATA[UI/UX Design]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396545</guid>
+
+					<description><![CDATA[<p>Lea's pushing back on light/dark mode implementations that display three state options for visitors: light, dark, and system.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/dark-mode-toggles-two-states-are-enough/">Dark mode toggles: two states are enough</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/dark-mode-toggles-two-states-are-enough/feed/</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396545</post-id>	</item>
+		<item>
+		<title>What’s !important #17: Custom Highlight API, CSS Navigation Matching, Fixing text-stroke, and More</title>
+		<link>https://css-tricks.com/whats-important-17/</link>
+					<comments>https://css-tricks.com/whats-important-17/#comments</comments>
+		
+		<dc:creator><![CDATA[Daniel Schwarz]]></dc:creator>
+		<pubDate>Fri, 14 Aug 2026 14:01:51 +0000</pubDate>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[news]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396557</guid>
+
+					<description><![CDATA[<p>Plus, how to style skeleton UIs, how to enable diagonal scrolling, how images can overflow themselves, and yet, still more. Basically, how to do a lot of really cool (CSS) stuff.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/whats-important-17/">What’s !important #17: Custom Highlight API, CSS Navigation Matching, Fixing text-stroke, and More</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/whats-important-17/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396557</post-id>	</item>
+		<item>
+		<title>Blocked aria-hidden: The Warning is Right, and Every Fix You&#8217;ve Found is Wrong</title>
+		<link>https://css-tricks.com/blocked-aria-hidden-fix/</link>
+					<comments>https://css-tricks.com/blocked-aria-hidden-fix/#comments</comments>
+		
+		<dc:creator><![CDATA[Durgesh Rajubhai Pawar]]></dc:creator>
+		<pubDate>Wed, 12 Aug 2026 13:43:56 +0000</pubDate>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[accessibility]]></category>
+		<category><![CDATA[aria]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396255</guid>
+
+					<description><![CDATA[<p>The warning is correct. And the recommended fixes you've probably seen are wrong. Here's what you can do instead to properly fix the issue.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/blocked-aria-hidden-fix/">Blocked aria-hidden: The Warning is Right, and Every Fix You&#8217;ve Found is Wrong</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/blocked-aria-hidden-fix/feed/</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396255</post-id>	</item>
+		<item>
+		<title>Animating CSS border-image</title>
+		<link>https://css-tricks.com/animating-css-border-image/</link>
+					<comments>https://css-tricks.com/animating-css-border-image/#comments</comments>
+		
+		<dc:creator><![CDATA[Preethi]]></dc:creator>
+		<pubDate>Mon, 10 Aug 2026 15:58:47 +0000</pubDate>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[border-image]]></category>
+		<category><![CDATA[css animation]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=394978</guid>
+
+					<description><![CDATA[<p>Border images are an overlooked feature. One neat fact is that border image slices can run across entire borders on an element, and animating it creates beautiful effects.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/animating-css-border-image/">Animating CSS border-image</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/animating-css-border-image/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">394978</post-id>	</item>
+		<item>
+		<title>SmashingConf Freiburg 2026, September 7-10</title>
+		<link>https://css-tricks.com/smashingconf-freiburg-2026-september-7-10/</link>
+					<comments>https://css-tricks.com/smashingconf-freiburg-2026-september-7-10/#respond</comments>
+		
+		<dc:creator><![CDATA[Geoff Graham]]></dc:creator>
+		<pubDate>Mon, 10 Aug 2026 15:57:39 +0000</pubDate>
+				<category><![CDATA[Links]]></category>
+		<category><![CDATA[conference]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=396506</guid>
+
+					<description><![CDATA[<p>Smashing Magazine’s in-person conferences are back and returning to the wonderful city of Freiburg next month, September 7–10.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/smashingconf-freiburg-2026-september-7-10/">SmashingConf Freiburg 2026, September 7-10</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/smashingconf-freiburg-2026-september-7-10/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">396506</post-id>	</item>
+		<item>
+		<title>Using and Styling the Dialog Element</title>
+		<link>https://css-tricks.com/using-and-styling-the-dialog-element/</link>
+					<comments>https://css-tricks.com/using-and-styling-the-dialog-element/#comments</comments>
+		
+		<dc:creator><![CDATA[Geoff Graham]]></dc:creator>
+		<pubDate>Fri, 07 Aug 2026 14:06:43 +0000</pubDate>
+				<category><![CDATA[Guides]]></category>
+		<category><![CDATA[Articles]]></category>
+		<category><![CDATA[dialog]]></category>
+		<category><![CDATA[html elements]]></category>
+		<guid isPermaLink="false">https://css-tricks.com/?p=394753</guid>
+
+					<description><![CDATA[<p>There's a lot of nuance to the <code>&#60;dialog&#62;</code> element, a seemingly little piece of web architecture. I've got some notes from digging into it.</p>
+<hr />
+<p><small><a rel="nofollow" href="https://css-tricks.com/using-and-styling-the-dialog-element/">Using and Styling the Dialog Element</a> originally handwritten and published with love on <a rel="nofollow" href="https://css-tricks.com">CSS-Tricks</a>. You should really <a href="https://css-tricks.com/newsletters/">get the newsletter</a> as well.</p>
+]]></description>
+		
+					<wfw:commentRss>https://css-tricks.com/using-and-styling-the-dialog-element/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">394753</post-id>	</item>
+	</channel>
+</rss>
+
+<!-- plugin=object-cache-pro client=phpredis metric#hits=7085 metric#misses=91 metric#hit-ratio=98.7 metric#bytes=7149113 metric#prefetches=333 metric#store-reads=35 metric#store-writes=2 metric#store-hits=340 metric#store-misses=85 metric#sql-queries=31 metric#ms-total=385.64 metric#ms-cache=17.55 metric#ms-cache-avg=0.4876 metric#ms-cache-ratio=4.6 -->
