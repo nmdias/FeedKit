@@ -1,4 +1,29 @@
 //
+// main.swift
+//
+// Copyright (c) 2016 - 2026 Nuno Dias
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+import FeedKit
+import Foundation
+
 // main.swift — FeedKit parse benchmark.
 //
 // One measurement: how long does it take to parse a fixed corpus of real feeds?
@@ -11,27 +36,30 @@
 //
 // Usage:
 //   bench --corpus Benchmarks/corpus --label 10.9.3 [--warmup 5] [--sweeps 50]
-//
-
-import FeedKit
-import Foundation
 
 // MARK: - Arguments
 
+let arguments: [String] = CommandLine.arguments
+
 var options: [String: String] = [:]
 var argumentIndex = 1
-while argumentIndex < CommandLine.arguments.count {
-  let token = CommandLine.arguments[argumentIndex]
-  if token.hasPrefix("--"), argumentIndex + 1 < CommandLine.arguments.count {
-    options[String(token.dropFirst(2))] = CommandLine.arguments[argumentIndex + 1]
+while argumentIndex < arguments.count {
+  let token = arguments[argumentIndex]
+  if token.hasPrefix("--"), argumentIndex + 1 < arguments.count {
+    options[String(token.dropFirst(2))] = arguments[argumentIndex + 1]
     argumentIndex += 2
   } else {
     argumentIndex += 1
   }
 }
 
-func option(_ key: String, _ fallback: String) -> String { options[key] ?? fallback }
-func option(_ key: String, _ fallback: Int) -> Int { options[key].flatMap(Int.init) ?? fallback }
+func option(_ key: String, _ fallback: String) -> String {
+  options[key] ?? fallback
+}
+
+func option(_ key: String, _ fallback: Int) -> Int {
+  options[key].flatMap(Int.init) ?? fallback
+}
 
 let corpusDirectory = option("corpus", "corpus")
 let label = option("label", "unlabeled")
@@ -47,11 +75,18 @@ struct Document {
 }
 
 struct BenchmarkError: Error, CustomStringConvertible {
+  // MARK: Lifecycle
+
+  init(_ description: String) {
+    self.description = description
+  }
+
+  // MARK: Internal
+
   let description: String
-  init(_ description: String) { self.description = description }
 }
 
-let fileManager = FileManager.default
+let fileManager: FileManager = .default
 let fileNames = (try? fileManager.contentsOfDirectory(atPath: corpusDirectory))?
   .filter { $0.hasSuffix(".xml") || $0.hasSuffix(".json") }
   .sorted() ?? []
@@ -65,7 +100,7 @@ for fileName in fileNames {
   // Files are named <format>-<something>.xml, e.g. atom-youtube-ltt.xml.
   let format = fileName.split(separator: "-").first.map(String.init) ?? ""
   let url = URL(fileURLWithPath: corpusDirectory).appendingPathComponent(fileName)
-  documents.append(Document(name: fileName, format: format, data: try Data(contentsOf: url)))
+  try documents.append(Document(name: fileName, format: format, data: Data(contentsOf: url)))
 }
 
 // MARK: - The measured operation
@@ -81,7 +116,7 @@ func parse(_ document: Document) throws -> Int {
   }
 }
 
-let clock = ContinuousClock()
+let clock: ContinuousClock = .init()
 
 func milliseconds(_ duration: Duration) -> Double {
   let parts = duration.components
@@ -95,14 +130,16 @@ func median(_ values: [Double]) -> Double {
 
 // MARK: - Verify, warm up, measure
 
-// One untimed pass first: proves every file parses and records the item count.
+/// One untimed pass first: proves every file parses and records the item count.
 var itemCount = 0
 for document in documents {
   itemCount += try parse(document)
 }
 
 for _ in 0 ..< warmupSweeps {
-  for document in documents { _ = try parse(document) }
+  for document in documents {
+    _ = try parse(document)
+  }
 }
 
 var sweepTimes: [Double] = []
@@ -124,12 +161,16 @@ for _ in 0 ..< timedSweeps {
 // MARK: - Report
 
 func pad(_ text: String, _ width: Int, right: Bool = false) -> String {
-  guard text.count < width else { return text }
-  let padding = String(repeating: " ", count: width - text.count)
+  guard text.count < width else {
+    return text
+  }
+  let padding: String = .init(repeating: " ", count: width - text.count)
   return right ? padding + text : text + padding
 }
 
-func rounded(_ value: Double) -> String { String(format: "%.3f", value) }
+func rounded(_ value: Double) -> String {
+  String(format: "%.3f", value)
+}
 
 let totalBytes = documents.reduce(0) { $0 + $1.data.count }
 let medianSweep = median(sweepTimes)
@@ -144,11 +185,13 @@ for document in documents {
   let samples = perDocument[document.name] ?? []
   print("\(pad(document.name, 34)) \(pad(document.format, 7)) \(pad(rounded(median(samples)), 10, right: true)) \(pad(rounded(samples.min() ?? .nan), 10, right: true))")
 }
+
 print(String(repeating: "-", count: 65))
 for format in perFormat.keys.sorted() {
   let samples = perFormat[format] ?? []
   print("\(pad(format, 34)) \(pad("", 7)) \(pad(rounded(median(samples)), 10, right: true)) \(pad(rounded(samples.min() ?? .nan), 10, right: true))")
 }
+
 print("")
 print("whole corpus, one sweep: median \(rounded(medianSweep)) ms, min \(rounded(minSweep)) ms")
 print("")
