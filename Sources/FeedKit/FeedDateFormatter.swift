@@ -240,6 +240,7 @@ enum DateSpec {
   case rfc1123
   /// Permissive mode which attempts to parse the date using multiple formats.
   /// It tries RFC822 first, then RFC3339, RFC1123 and finally ISO8601 in that order.
+  /// Serialization uses RFC3339.
   case permissive
 }
 
@@ -293,6 +294,12 @@ final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
 
   /// Converts a Date to a string based on the given date specification.
   ///
+  /// Permissive mode is intended for parsing, where a `String` may arrive in
+  /// any of the supported formats and the first one that parses wins. A `Date`
+  /// carries no record of the format it was parsed from, so there is no
+  /// permissive *output* format; serialization delegates to RFC3339, the most
+  /// widely understood of the formats permissive parsing accepts.
+  ///
   /// - Parameters:
   ///   - date: The Date object to be converted to a string.
   /// - Returns: A string representation of the date.
@@ -307,7 +314,7 @@ final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
     case .rfc1123:
       rfc1123Formatter.string(from: date)
     case .permissive:
-      fatalError()
+      rfc3339Formatter.string(from: date)
     }
   }
 
