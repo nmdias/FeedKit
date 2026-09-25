@@ -160,7 +160,6 @@ public struct JSONFeed {
 
   /// The JSONFeed items.
   public var items: [JSONFeedItem]?
-
 }
 
 // MARK: - Sendable
