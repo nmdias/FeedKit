@@ -60,7 +60,7 @@ import Foundation
 /// if let feed = FeedType(data: feedData) {
 ///   if feed.isXML {
 ///     print("XML-based feed detected")
-///   } else if feed.isJson {
+///   } else if feed.isJSON {
 ///     print("JSON feed detected")
 ///   }
 /// }
@@ -83,7 +83,7 @@ public extension FeedType {
   }
 
   /// Returns `true` if the feed type is JSON-based.
-  var isJson: Bool {
+  var isJSON: Bool {
     self == .json
   }
 }

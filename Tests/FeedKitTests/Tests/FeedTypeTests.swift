@@ -107,7 +107,7 @@ struct FeedTypeTests: FeedKitTestable {
     let actual = try FeedType(data: data)
 
     // Then
-    #expect(actual.isJson)
+    #expect(actual.isJSON)
     #expect(expected == actual)
   }
 }
