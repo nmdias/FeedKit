@@ -2,6 +2,7 @@
 
 **Repository:** `/Volumes/Development/Source/FeedKit` (git `main` @ `03e8ac2`, tags through `9.1.2`)
 **Review basis:** full source inspection of `Sources/`, `Tests/`, package manifests, CI, README, example app; the package was built and its test suite executed in this session; key behaviors were verified empirically against the built libraries with small standalone harness programs.
+**Updated:** 2026-09-25 — `main` @ `a853eff` plus [PR #234](https://github.com/nmdias/FeedKit/pull/234) (`fix/xml-escaping`). **C1 and H1 are fixed and covered by regression tests; every other finding stands.** Sections are annotated inline where a finding no longer holds; the original findings are kept verbatim as the record of the defect.
 
 Conventions used throughout:
 
@@ -15,17 +16,17 @@ Conventions used throughout:
 
 ## 1. Executive summary
 
-FeedKit is in a healthy middle stage of a real architectural evolution: the old hand-written `XMLParser` delegate pipeline of the 8.x/9.x line has been replaced by a clean two-layer design — **XMLKit** (a Foundation-only XML tree + Codable encoder/decoder) and **FeedKit** (pure value-type feed models that decode through XMLKit's `XMLDecoder`, plus one JSON model family). The package builds cleanly under Swift 6.0, all 122 tests in 26 suites pass, and the model layer is unusually complete (RSS/RDF/Atom/JSON plus 13 namespaces). The codebase is consistent, well-documented, and follows a single, repeatable model pattern.
+FeedKit is in a healthy middle stage of a real architectural evolution: the old hand-written `XMLParser` delegate pipeline of the 8.x/9.x line has been replaced by a clean two-layer design — **XMLKit** (a Foundation-only XML tree + Codable encoder/decoder) and **FeedKit** (pure value-type feed models that decode through XMLKit's `XMLDecoder`, plus one JSON model family). The package builds cleanly under Swift 6.0, all 122 tests in 26 suites passed at review time (145 tests in 34 suites after #234), and the model layer is unusually complete (RSS/RDF/Atom/JSON plus 13 namespaces). The codebase is consistent, well-documented, and follows a single, repeatable model pattern.
 
-However, the review found **four critical defects and one fundamental architectural limitation**, several of which are currently invisible to the test suite:
+However, the review found **four critical defects and one fundamental architectural limitation**, several of which were invisible to the test suite at the time. Two of them have since been fixed in [PR #234](https://github.com/nmdias/FeedKit/pull/234):
 
-| # | Severity | Issue | Evidence |
-|---|----------|-------|----------|
-| 1 | **Critical** | XML serialization emits unescaped text and attribute values, producing invalid XML | `String.escapeCharacters()` exists but is never called; verified: `A & B < C` serialized raw, output fails to re-parse with `NSXMLParserErrorDomain error 68` |
-| 2 | **Critical** | Namespace handling is prefix-literal, not URI-based: `<atom:feed>`, `<d:creator>` (DC under a non-canonical prefix), and prefixed Atom elements all fail to decode | `XMLReader` ignores `namespaceURI`; models hard-code keys like `"dc:title"`; verified: prefixed Atom feed → `unknownFeedFormat`/all-nil fields; `d:creator` → nil |
-| 3 | **Critical** | Public XMLKit Codable paths `fatalError()` on supported-in-principle operations (nested containers, `superEncoder`, `encodeNil`, encoding a `Date` with the default strategy) | 18 `fatalError()` sites in `XMLDecoder/` + `XMLEncoder/`; `FeedDateFormatter.string(from:)` crashes for `.permissive` |
-| 4 | **Critical** | Serialization exists only for RSS; README advertises Atom XML generation | `XMLDocumentConvertible`/`XMLStringConvertible` implemented only by `RSSFeed`; `FeedNamespace.shouldInclude(in: AtomFeed)` is dead code |
-| 5 | High | `RSSFeed.toXMLString(formatted: false)` ignores the parameter | `RSSFeed.swift:115-116` hardcodes `formatted: true` (verified) |
+| # | Severity | Issue | Evidence | Status |
+|---|----------|-------|----------|--------|
+| 1 | **Critical** | XML serialization emits unescaped text and attribute values, producing invalid XML | `String.escapeCharacters()` exists but is never called; verified: `A & B < C` serialized raw, output fails to re-parse with `NSXMLParserErrorDomain error 68` | ✅ **Fixed in #234** (§8.1) |
+| 2 | **Critical** | Namespace handling is prefix-literal, not URI-based: `<atom:feed>`, `<d:creator>` (DC under a non-canonical prefix), and prefixed Atom elements all fail to decode | `XMLReader` ignores `namespaceURI`; models hard-code keys like `"dc:title"`; verified: prefixed Atom feed → `unknownFeedFormat`/all-nil fields; `d:creator` → nil | Open (§7.1) |
+| 3 | **Critical** | Public XMLKit Codable paths `fatalError()` on supported-in-principle operations (nested containers, `superEncoder`, `encodeNil`, encoding a `Date` with the default strategy) | 18 `fatalError()` sites in `XMLDecoder/` + `XMLEncoder/`; `FeedDateFormatter.string(from:)` crashes for `.permissive` | Open (§10.4) |
+| 4 | **Critical** | Serialization exists only for RSS; README advertises Atom XML generation | `XMLDocumentConvertible`/`XMLStringConvertible` implemented only by `RSSFeed`; `FeedNamespace.shouldInclude(in: AtomFeed)` is dead code | Open (§8.2) |
+| 5 | High | `RSSFeed.toXMLString(formatted: false)` ignores the parameter | `RSSFeed.swift:115-116` hardcodes `formatted: true` (verified) | ✅ **Fixed in #234** (§8.2) |
 
 Positive findings of substance:
 
@@ -35,7 +36,7 @@ Positive findings of substance:
 - **(Fact)** CI runs Linux (swift 6.0) and an Apple matrix covering macOS/iOS/tvOS/watchOS/visionOS.
 - **(Interpretation)** The two-pass "namespace container discovery" decode is a pragmatic solution to a real Codable/XML impedance mismatch, but it is undocumented, doubles model-mapping cost, and is hazardous for custom `Decodable` types with side effects.
 
-**Bottom line:** the parsing architecture is sound enough to build on; the serialization path and the namespace model are not yet production-quality. The roadmap in §18 fixes the critical defects first, then completes serialization and hardens XMLKit, then invests in streaming/typing/quality.
+**Bottom line:** the parsing architecture is sound enough to build on; the namespace model is not yet production-quality. The serialization path is now correct for what it covers — escaping and the ignored `formatted:` flag were fixed in #234 — but it remains RSS-only. The roadmap in §18 fixes the critical defects first, then completes serialization and hardens XMLKit, then invests in streaming/typing/quality.
 
 ---
 
@@ -100,7 +101,7 @@ flowchart TD
     I --> J[pass 2: decode models from tree]
 ```
 
-**Writing (RSS only):** `RSSFeed.toXMLString(formatted:)` → `XMLEncoder` → `XMLNode` tree → `XMLDocument.toXMLString` (hardcoded header, no escaping). **JSON:** `JSONFeed.toJSONString(formatted:)` → `JSONEncoder`.
+**Writing (RSS only):** `RSSFeed.toXMLString(formatted:)` → `XMLEncoder` → `XMLNode` tree → `XMLDocument.toXMLString` (hardcoded header; text and attribute values escaped since #234). **JSON:** `JSONFeed.toJSONString(formatted:)` → `JSONEncoder`.
 
 ---
 
@@ -227,9 +228,11 @@ Weak points of the current design:
 
 ## 8. Serialization architecture assessment
 
-### 8.1 Critical: no escaping
+### 8.1 Critical: no escaping — ✅ fixed in #234
 
-**(Fact)** `String.escapeCharacters()` (`Sources/XMLKit/Extensions/String + escapeCharacters.swift`) is never called anywhere in `Sources/` (grep-verified). `XMLNode.toXMLString` emits `text` and attribute values verbatim (`XMLNode.swift:225-284`).
+> **Status (2026-09-25):** fixed by [PR #234](https://github.com/nmdias/FeedKit/pull/234), commit `550c9bb`. `XMLNode.toXMLString` now escapes element text and attribute values, and `isXhtml` nodes are emitted verbatim so captured XHTML markup is not double-encoded. `String.escapeCharacters()` is finally called from the serialization path. Regression tests (`XMLNodeEscapingTests`, `RSSSerializationTests`) fail with `NSXMLParserErrorDomain error 68` / `error 23` when the fix is reverted. The findings below are kept as the record of the defect at review time.
+
+**(Fact, at review time)** `String.escapeCharacters()` (`Sources/XMLKit/Extensions/String + escapeCharacters.swift`) is never called anywhere in `Sources/` (grep-verified). `XMLNode.toXMLString` emits `text` and attribute values verbatim (`XMLNode.swift:225-284`).
 
 **(Verified)** Serializing an RSS channel with `title: "A & B < C > D \"quoted\""` and `cloud.domain: "a&b.com"` produces:
 
@@ -240,14 +243,14 @@ Weak points of the current design:
 
 The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not cosmetic: it produces invalid documents, silently corrupts data on re-read, and is an injection vector for any consumer that embeds the output.
 
-**(Recommendation)** Escape text and attribute values in `XMLNode.toXMLString` (using `escapeCharacters()`, ideally implemented with `replacingOccurrences` or manual scan — the current `Character`-dictionary loop is O(n) but allocates per character; fine, but measurable). **The XHTML node stores pre-serialized markup** — it must be emitted verbatim (`isXhtml == true`), otherwise content gets double-escaped. Order matters: escape on the way out, never on the way in. Add round-trip tests (§12).
+**(Recommendation)** ✅ **Implemented in #234.** Escape text and attribute values in `XMLNode.toXMLString` (using `escapeCharacters()`, ideally implemented with `replacingOccurrences` or manual scan — the current `Character`-dictionary loop is O(n) but allocates per character; fine, but measurable). **The XHTML node stores pre-serialized markup** — it must be emitted verbatim (`isXhtml == true`), otherwise content gets double-escaped. Order matters: escape on the way out, never on the way in. Add round-trip tests (§12).
 
 ### 8.2 Serialization coverage and correctness
 
 | # | Issue | Evidence |
 |---|---|---|
 | 1 | Only RSS generates XML | `XMLDocumentConvertible`/`XMLStringConvertible` conformance only on `RSSFeed` (`RSSFeed.swift:93-117`); README claims Atom too (`README.md:144-148`) |
-| 2 | `formatted: false` is ignored | `RSSFeed.toXMLString` hardcodes `formatted: true` (`RSSFeed.swift:115-116`); verified output contains newlines when `formatted: false` |
+| 2 | `formatted: false` is ignored — ✅ fixed in #234 | `RSSFeed.toXMLString` hardcodes `formatted: true` (`RSSFeed.swift:115-116`); verified output contains newlines when `formatted: false` |
 | 3 | Header hardcoded; `XMLHeader` dead | `XMLDocument.toXMLString` emits a literal header (`XMLDocument.swift:85-86`); `XMLHeader` is defined, tested (`XMLHeaderTests.swift`), and unused |
 | 4 | Namespace declarations emitted smartly | `FeedNamespace.shouldInclude(in: RSSFeed)` adds `xmlns:*` only for used namespaces (`FeedNamespace.swift:149-200`) — good feature |
 | 5 | `shouldInclude(in: AtomFeed)` is dead code | `FeedNamespace.swift:205-220` — no Atom serializer exists |
@@ -258,7 +261,7 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 
 ### 8.3 Round-trip fidelity
 
-**(Fact)** There is no round-trip guarantee and no round-trip test for RSS serialization (the test suite's only XML string test is XMLKit's `Sample.xml`, whose content happens to need no escaping). Unknown/extension elements are **not preserved** — the model layer discards everything it doesn't model. **(Interpretation)** Lossy serialization is acceptable for a typed-model library, but it must be documented; today it isn't.
+**(Fact, updated 2026-09-25)** An RSS round-trip test now exists — `RSSSerializationTests`, added in #234 — and covers text and attribute metacharacters plus the `formatted:` flag. There is still no *guarantee* beyond the fields the model covers. Unknown/extension elements are **not preserved** — the model layer discards everything it doesn't model. **(Interpretation)** Lossy serialization is acceptable for a typed-model library, but it must be documented; today it isn't.
 
 ---
 
@@ -295,7 +298,7 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 |---|---|---|
 | 1 | XMLKit types leak into FeedKit's public API | `AtomFeedTitle` et al. are `XMLKit.XMLElement<...>` typealiases; consumers must import XMLKit; the type's `@text`/`@attributes` machinery is visible in the API surface |
 | 2 | Misuse resistance gaps | `fatalError()` in public Codable paths (§8.2 #6-7) — a consumer's legitimate `Codable` pattern crashes the process |
-| 3 | `formatted:` ignored | `RSSFeed.toXMLString(formatted: false)` (verified) |
+| 3 | `formatted:` ignored — ✅ fixed in #234 | `RSSFeed.toXMLString(formatted: false)` (verified) |
 | 4 | Naming inconsistency | `isXML` vs `isJson` (`FeedType.swift:80-88`); `toXMLString` vs `toJSONString` vs `toXmlDocument` (mixed XML/Xml capitalization) |
 | 5 | Error surface is heterogeneous | One call can throw `FeedError`, `XMLError`, `DecodingError` (Foundation), or `URLError`. `DecodingError` messages reference raw CodingKeys, not element names. `XMLError.notFound` is never thrown (dead case); `cdataDecoding` code is `-10001` vs the `-100x` scheme used elsewhere (`XMLError.swift:83-86`) |
 | 6 | README drift | README advertises Atom XML generation (`README.md:144-148`) and JSON accessors `feed.feedUrl`, `item.url` etc. that don't exist (`README.md:318-350`) |
@@ -309,7 +312,7 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 
 ### 10.4 XMLKit as an independent product
 
-**(Interpretation)** Shipping XMLKit as a public library product promises a general-purpose Codable XML implementation, but the delivered surface (fatalErrors, unused `allKeys`, nil-handling gaps, unescaped output) doesn't yet justify that promise. **(Recommendation)** Either (a) complete the Codable contract (throw proper `EncodingError`/`DecodingError`, implement nested containers/super encoders, fix escaping), or (b) keep XMLKit internal to FeedKit until it's ready. Shipping it half-baked invites third-party breakage.
+**(Interpretation)** Shipping XMLKit as a public library product promises a general-purpose Codable XML implementation, but the delivered surface (fatalErrors, unused `allKeys`, nil-handling gaps) doesn't yet justify that promise — unescaped output was one such gap and was fixed in #234 (§8.1). **(Recommendation)** Either (a) complete the Codable contract (throw proper `EncodingError`/`DecodingError`, implement nested containers/super encoders), or (b) keep XMLKit internal to FeedKit until it's ready. Shipping it half-baked invites third-party breakage.
 
 ### 10.5 Misuse-resistance checklist
 
@@ -320,7 +323,7 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 | Encoding `Date` without setting a strategy | `fatalError` (crash) |
 | Top-level unkeyed decode | force-unwrap `codingPath.last!` (crash, Unverified) |
 | Custom `Decodable` with side effects | runs twice (silent, wrong) |
-| `toXMLString(formatted: false)` | silently formatted |
+| `toXMLString(formatted: false)` | ✅ compact output since #234 (was: silently formatted) |
 
 ---
 
@@ -352,17 +355,17 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 
 ### 12.1 What exists
 
-- **(Fact)** 122 tests / 26 suites, swift-testing (`import Testing`), all passing in this session.
+- **(Fact)** 122 tests / 26 suites, swift-testing (`import Testing`), all passing in this session. ✅ #234 adds 7 tests, for 145 in total (20 XMLKit + 125 FeedKit across 34 suites).
 - **(Fact)** 27 XML fixtures + 2 JSON fixtures; per-format suites build giant hand-written expected-model mocks and assert full-object `Equatable` equality — this is genuinely strong coverage of model mapping.
-- **(Fact)** XMLKit has focused container tests (`XMLDecoderKeyed/Unkeyed/KeyedUnkeyedTests`), an encode→decode round-trip (`SampleTests.xmlEncoderDecoder`), header tests, escaping-unit test.
+- **(Fact)** XMLKit has focused container tests (`XMLDecoderKeyed/Unkeyed/KeyedUnkeyedTests`), an encode→decode round-trip (`SampleTests.xmlEncoderDecoder`), header tests, and escaping tests that now exercise the serialization path itself (`XMLNodeEscapingTests` in XMLKit and `RSSSerializationTests` in FeedKit, both added in #234).
 - **(Fact)** CI: Linux (`swift:6.0-focal`) + macOS/iOS/tvOS/watchOS/visionOS `xcodebuild` matrix (`.github/workflows/ci.yml`).
 
 ### 12.2 What's missing (correctness-critical)
 
 | Gap | Why it matters | Evidence that it would have caught the bug |
 |---|---|---|
-| RSS serialization round-trip tests | No test serializes an RSS model and re-parses it | Would have caught missing escaping + `formatted:` bug |
-| Escaping integration tests | `EscapeCharactersTests` tests a function that production code **never calls** (dead-code test) | — |
+| RSS serialization round-trip tests — ✅ added in #234 | No test serializes an RSS model and re-parses it | Would have caught missing escaping + `formatted:` bug |
+| Escaping integration tests — ✅ added in #234 | `EscapeCharactersTests` tested a function that production code **never called** (dead-code test); `escapeCharacters()` is now called from `XMLNode.toXMLString` and covered end to end | — |
 | Malformed/malicious XML corpus | Only `FeedNotFound.xml` and `Ampersand.xml`; no truncated docs, bad entities, deep nesting, huge attribute counts | §7.2 |
 | Namespace variation fixtures | No prefixed Atom, no alternate-prefix DC, no default-namespace RSS 1.0 | Would have caught the URI-vs-prefix gap (verified failures) |
 | Encoding tests (`XMLEncoder`) | Only one round-trip via `Sample`; no tests for `encodeNil`, nested containers, `Date` default strategy (all crash paths) | — |
@@ -372,7 +375,7 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 | API compatibility tests | None (SPI has its own tooling; acceptable) | — |
 | Test hygiene | One disabled test (`decodeKeyedNilProperties`) documents a real gap; `saveToDocuments` writes to the Documents directory during tests (harmless but odd) | — |
 
-**(Recommendation)** Phase 1 must add: (1) RSS/JSON round-trip tests including special characters; (2) namespace-variation fixtures (prefixed Atom, `d:`-prefixed DC); (3) a small malformed-input corpus with assertions on *tolerance* (no crash, nil fields) vs *rejection*.
+**(Recommendation)** Phase 1 must add: (1) RSS/JSON round-trip tests including special characters — ✅ RSS done in #234, JSON still open; (2) namespace-variation fixtures (prefixed Atom, `d:`-prefixed DC); (3) a small malformed-input corpus with assertions on *tolerance* (no crash, nil fields) vs *rejection*.
 
 ---
 
@@ -416,7 +419,7 @@ Ranked by likelihood × impact:
 
 | Risk | Evidence | Likely consequence |
 |---|---|---|
-| **R1. Invalid XML output (no escaping)** | §8.1 (verified) | Corrupt serialized feeds, downstream parse failures, potential markup injection into consumer UIs |
+| **R1. Invalid XML output (no escaping)** — ✅ fixed in #234 | §8.1 (verified) | Corrupt serialized feeds, downstream parse failures, potential markup injection into consumer UIs |
 | **R2. Prefix-literal namespace model** | §7.1 (verified) | Silent data loss on legal feeds; `unknownFeedFormat` for prefixed Atom; wrong-field association risks (mitigated for `source` by the discovery pass) |
 | **R3. Crash paths in public Codable API** | §10.4, 18 `fatalError()` sites | Process crashes for consumers who use XMLKit beyond the tested subset |
 | **R4. Feature/docs mismatch** | README advertises Atom XML generation; JSON accessors don't exist | User trust erosion; support load |
@@ -437,7 +440,7 @@ Legend: **BC** = source-breaking; complexity L/M/H.
 
 | ID | Problem | Evidence | Solution | Rationale | Benefits | Trade-offs / BC | Complexity | Depends on |
 |---|---|---|---|---|---|---|---|---|
-| C1 | Unescaped XML output | §8.1 (verified) | Escape text + attribute values in `XMLNode.toXMLString`; skip escaping for `isXhtml` nodes (pre-serialized markup) | Serialization must produce well-formed XML; the code already has the escape map — it's just not wired in | Valid, re-parseable output; safe embedding | Must not double-escape XHTML; escaping changes bytes for existing users who worked around it (unlikely) — no BC | L | — |
+| C1 | Unescaped XML output — ✅ **fixed in #234** | §8.1 (verified) | Escape text + attribute values in `XMLNode.toXMLString`; skip escaping for `isXhtml` nodes (pre-serialized markup) | Serialization must produce well-formed XML; the code already has the escape map — it's just not wired in | Valid, re-parseable output; safe embedding | Must not double-escape XHTML; escaping changes bytes for existing users who worked around it (unlikely) — no BC | L | — |
 | C2 | Namespace resolution by prefix, not URI | §7.1 (verified) | Capture `namespaceURI` in `XMLReader`; normalize element identity to `(localName, URI)` or canonical prefix; match keys by URI; teach `FeedType` to sniff root **local** name | XML namespaces are defined by URI; prefix literals are convention | Prefixed Atom, alternate prefixes, and default-namespaced feeds decode correctly | Subtle: the `source:markdown` vs `<source>` disambiguation must be re-verified; namespace URIs in the wild are inconsistent (iTunes DTD vs podcastindex URIs) — tolerate unknown URIs by falling back to local-name matching | H | C1 (independent, can proceed in parallel) |
 | C3 | Crash paths in public Codable API | §10.4 | Replace `fatalError` with thrown `EncodingError`/`DecodingError`; implement nested containers/super encoders or throw `.unsupported`; make `Date` default strategy encode via a documented default (or throw); fix permissive `string(from:)` | A public library must never crash on unsupported-but-legal Codable patterns | Misuse becomes a catchable error | Throwing unsupported for nested containers changes behavior from crash to error (strictly better); no BC | M | — |
 | C4 | Serialization only for RSS; README claims Atom | §8.2 | Either implement Atom/RDF `XMLDocumentConvertible` (with format-correct date strategies and namespace declarations) or correct the README | Honest API surface; completes the "Feed Generator" story | Atom/RDF generation | Atom ordering/escaping rules (RFC 4287) need care; `FeedNamespace.shouldInclude(in: AtomFeed)` is already written and waiting | H | C1 |
@@ -446,9 +449,9 @@ Legend: **BC** = source-breaking; complexity L/M/H.
 
 | ID | Problem | Evidence | Solution | Complexity | BC | Depends on |
 |---|---|---|---|---|---|---|
-| H1 | `formatted:` ignored | §8.2 (verified) | Honor the parameter in `RSSFeed.toXMLString` | L | No | — |
+| H1 | `formatted:` ignored — ✅ **fixed in #234** | §8.2 (verified) | Honor the parameter in `RSSFeed.toXMLString` | L | No | — |
 | H2 | FeedType detection gaps | §7.2 #6 | XML-aware root sniffing: skip prolog/comment/doctype, match local names (`rss`, `RDF`, `feed`, `{`), handle UTF-16 BOM | M | No | C2 (align design) |
-| H3 | Round-trip + namespace + malformed test corpus | §12.2 | RSS/JSON round-trip tests with special chars; prefixed/alternate-prefix fixtures; malformed inputs | M | No | C1/C2 |
+| H3 | Round-trip + namespace + malformed test corpus — 🔶 RSS round-trip done in #234 | §12.2 | RSS/JSON round-trip tests with special chars; prefixed/alternate-prefix fixtures; malformed inputs | M | No | C1/C2 |
 | H4 | Formatter creation per call + `@unchecked Sendable` mutable state | §9, §13 | Measure; then cache formatter instances (static, `en_US_POSIX`-based) or make them stateless; document non-reentrancy | M | No | — |
 | H5 | Cancellation/injection in network path | §9 | Add `init(url:session:)`-style overloads or a configuration struct; `Task.checkCancellation()` before decode | L | No (additive) | — |
 | H6 | Dead code & doc cleanup | R8 | Remove or wire `XMLHeader`; delete `XMLError.notFound` or throw it where appropriate; remove dead scalar container overloads (with tests asserting the generic path); fix `-10001` code; fix README | L | Maybe | — |
@@ -540,8 +543,8 @@ Complexity: L/M/H. No calendar estimates (insufficient data).
 
 | # | Objective | Dependencies | Impact | Risk | Complexity |
 |---|---|---|---|---|---|
-| 1 | Fix XML escaping (C1) + round-trip tests (H3 partial) | — | Correctness of all serialization | Low | L |
-| 2 | Honor `formatted:` (H1) | — | API contract | Low | L |
+| 1 | ✅ **Done in #234** — Fix XML escaping (C1) + round-trip tests (H3 partial) | — | Correctness of all serialization | Low | L |
+| 2 | ✅ **Done in #234** — Honor `formatted:` (H1) | — | API contract | Low | L |
 | 3 | Replace `fatalError` with thrown errors (C3) | — | No more crashes | Low | M |
 | 4 | FeedType detection: local-name sniffing + UTF-16 (H2) | — | Accepts prefixed Atom | Low (additive) | M |
 | 5 | Namespace fixtures + prefixed-Atom tests (H3) | — | Locks in expected behavior | Low | M |
@@ -587,10 +590,11 @@ Complexity: L/M/H. No calendar estimates (insufficient data).
 ## 19. Final architectural conclusions
 
 1. **(Fact)** The FeedKit/XMLKit split is real, clean, and correctly directed; the Codable-over-XML-tree mapping is a sound, maintainable architecture and the model layer's completeness is a genuine strength.
-2. **(Fact)** The parsing engine works well for the conventional feed corpus (RSS/RDF/Atom/JSON with canonical prefixes) — all 122 tests pass, and the resilience features (trailing junk, long prologs, padded attributes, permissive dates) reflect real-world experience.
-3. **(Interpretation)** The two structural weaknesses that define the current state are: **prefix-literal namespace handling** (silent data loss on legal documents) and an **unfinished serialization path** (no escaping, RSS-only, ignored flags). Both are repairable within the existing architecture; neither justifies a rewrite.
-4. **(Interpretation)** XMLKit is a promising extraction that is not yet ready to be a standalone product: its public Codable surface contains crash paths, its output is unescaped, and its classes are not concurrency-safe. FeedKit is currently carrying it to maturity.
+2. **(Fact)** The parsing engine works well for the conventional feed corpus (RSS/RDF/Atom/JSON with canonical prefixes) — all 122 tests passed at review time (145 after #234), and the resilience features (trailing junk, long prologs, padded attributes, permissive dates) reflect real-world experience.
+3. **(Interpretation)** The two structural weaknesses that define the current state are: **prefix-literal namespace handling** (silent data loss on legal documents) and an **unfinished serialization path** (RSS-only — the missing escaping and the ignored `formatted:` flag were fixed in #234). Both are repairable within the existing architecture; neither justifies a rewrite.
+4. **(Interpretation)** XMLKit is a promising extraction that is not yet ready to be a standalone product: its public Codable surface contains crash paths and its classes are not concurrency-safe (its output is no longer unescaped — §8.1). FeedKit is currently carrying it to maturity.
 5. **(Recommendation)** Prioritize Phase 1 (escaping, detection, crash removal, honest docs) — these are small, independently reviewable changes that make the library safe to build on; then invest in Phase 2's namespace resolution before expanding the feature surface.
-6. **(Interpretation)** The maintainer's incremental, test-first style (one namespace per PR, full-object mocks, CI matrix) is working; the main process gap is that serialization has no round-trip tests — the class of bug that produced the escaping defect.
+6. **(Interpretation)** The maintainer's incremental, test-first style (one namespace per PR, full-object mocks, CI matrix) is working; the main process gap was that serialization had no round-trip tests — the class of bug that produced the escaping defect. #234 adds the first RSS round-trip test.
 
 **Prepared:** this session (build + 122-test run + behavioral verification harnesses against the compiled libraries).
+**Updated:** 2026-09-25 — C1 and H1 fixed in [PR #234](https://github.com/nmdias/FeedKit/pull/234) (`fix/xml-escaping`); suite now 145 tests, CI green on all 7 jobs. See §8.1, §10.5, §12.2, §15, §16, §18.
