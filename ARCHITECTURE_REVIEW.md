@@ -381,6 +381,12 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 
 ## 13. Performance assessment
 
+> **Update:** a benchmark and a version-over-version tracker now exist — see
+> [`Benchmarks/`](Benchmarks/README.md) and [`PERFORMANCE.md`](PERFORMANCE.md).
+> The analysis below is the reasoning that motivated them; the tracker's first
+> matrix measures the 10.5.1 duplicate decode at ~2x and the 10.9.3 fix as a
+> return to the 10.5.0 baseline.
+
 No benchmarks exist; the following is architectural analysis, labeled accordingly.
 
 | Area | Analysis |
@@ -394,6 +400,12 @@ No benchmarks exist; the following is architectural analysis, labeled accordingl
 | Copy-on-write | Model layer is value-type — copying feeds is cheap until mutated (good). |
 
 **(Recommendation)** Add a benchmark harness (swift-collections-benchmark or a simple XCTest/`swift-testing` perf suite) with a large synthetic RSS feed (10k items) before optimizing; the quadratic serializer and per-call formatter creation are the first candidates.
+
+**(Done)** `Benchmarks/bench.sh` + `Benchmarks/Sources/bench/main.swift` implement a
+release-mode measurement of parsing a frozen corpus of real feeds, and record a row per
+version in `PERFORMANCE.md`. It deliberately stops there: the per-call formatter
+creation, the two-pass decode and the serializer are all still worth attacking, and the
+tracker is what will show whether each attempt helped.
 
 ---
 
@@ -471,7 +483,7 @@ Legend: **BC** = source-breaking; complexity L/M/H.
 | M6 | Error taxonomy: wrap `DecodingError` with element path context in `FeedError` | §10.2 #5 | M |
 | M7 | Serializer: avoid quadratic string building; reserve capacity | §13 | L |
 | M8 | DocC for XMLKit; document round-trip limitations and namespace conventions | §2.2 | L |
-| M9 | Benchmark harness + large-feed fixture (10k items) | §13 | M |
+| M9 | Benchmark harness + large-feed fixture (10k items) | §13 | ✅ **Done** — `Benchmarks/`, tracked in `PERFORMANCE.md` |
 
 ### Low priority
 
