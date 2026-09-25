@@ -89,7 +89,7 @@ case .json: // JSON feed detected
 // Or feed content type
 if feedType.isXML {
   // XML feed detected
-} else if feedType.isJson {
+} else if feedType.isJSON {
   // JSON feed detected
 }
 ```

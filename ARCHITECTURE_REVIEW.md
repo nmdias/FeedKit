@@ -299,7 +299,7 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 | 1 | XMLKit types leak into FeedKit's public API | `AtomFeedTitle` et al. are `XMLKit.XMLElement<...>` typealiases; consumers must import XMLKit; the type's `@text`/`@attributes` machinery is visible in the API surface |
 | 2 | Misuse resistance gaps | `fatalError()` in public Codable paths (§8.2 #6-7) — a consumer's legitimate `Codable` pattern crashes the process |
 | 3 | `formatted:` ignored — ✅ fixed in #234 | `RSSFeed.toXMLString(formatted: false)` (verified) |
-| 4 | Naming inconsistency | `isXML` vs `isJson` (`FeedType.swift:80-88`); `toXMLString` vs `toJSONString` vs `toXmlDocument` (mixed XML/Xml capitalization) |
+| 4 | Naming inconsistency — ✅ `isJson` fixed; `XML`/`Xml` casing remains | `isXML` vs `isJson` (`FeedType.swift:80-88`); `toXMLString` vs `toJSONString` vs `toXmlDocument` (mixed XML/Xml capitalization) |
 | 5 | Error surface is heterogeneous | One call can throw `FeedError`, `XMLError`, `DecodingError` (Foundation), or `URLError`. `DecodingError` messages reference raw CodingKeys, not element names. `XMLError.notFound` is never thrown (dead case); `cdataDecoding` code is `-10001` vs the `-100x` scheme used elsewhere (`XMLError.swift:83-86`) |
 | 6 | README drift — ✅ **fixed** | README advertises Atom XML generation (`README.md:144-148`) and JSON accessors `feed.feedUrl`, `feed.nextUrl`, `item.externalUrl` that don't exist (`README.md:318-350`). Atom generation was implemented in #236; the three accessor names were `feedURL`, `nextURL` and `externalURL` — the review's `item.url` was imprecise, as `url` does exist |
 | 7 | Async protocol initializers | Conforming a new type to `FeedInitializable` requires implementing 6 initializers (defaults help) — fine, but the protocol also forces `Codable`, coupling "can be decoded from feed data" with "is Codable" (Interpretation: acceptable) |
@@ -477,7 +477,7 @@ Legend: **BC** = source-breaking; complexity L/M/H.
 
 | ID | Item | Complexity |
 |---|---|---|
-| L1 | `isJson` → `isJSON` naming consistency (BC) | L |
+| L1 | `isJson` → `isJSON` naming consistency — ✅ fixed | L |
 | L2 | Swift macros to generate the model boilerplate (evaluate; keep explicitness if macros hurt readability) | H |
 | L3 | Windows CI (allow-failure) + 5.9 manifest CI job | L |
 | L4 | Streaming parse option (SAX callback or `AsyncSequence`) for very large feeds | H |
