@@ -179,7 +179,17 @@ class _XMLDecoder: Decoder {
   func decode<T: Decodable>(node: XMLNode, as type: T.Type) throws -> T {
     switch T.self {
     case is Date.Type:
+      // The discovery pass records which keys are namespace containers and
+      // discards the value it decodes; see `XMLDecoder.decode(_:from:)`. A date
+      // is the most expensive value in the tree — the permissive formatter walks
+      // up to eight ICU patterns per value — so that pass does not decode one.
+      // Its traversal is otherwise identical, so it records the same keys.
+      if isDiscoveringNamespaceContainers {
+        return Date(timeIntervalSinceReferenceDate: 0) as! T
+      }
+
       return try decode(node: node, as: Date.self) as! T
+
     default:
       stack.push(node)
       defer { stack.pop() }
