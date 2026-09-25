@@ -256,7 +256,7 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 | 5 | `shouldInclude(in: AtomFeed)` is dead code — ✅ fixed in #236 | `FeedNamespace.swift:205-232` — no Atom serializer existed; it is now called by `AtomFeed.toXmlDocument()` and covers Dublin Core and Media RSS |
 | 6 | Encoding a `Date` with default strategy crashes — ✅ `FeedDateFormatter.string(from:)` fixed | `_XMLEncoder.box(_ date:)` → `fatalError()` for `.deferredToDate` (`XMLEncoder.swift:107-117`); `FeedDateFormatter.string(from:)` → `fatalError()` for `.permissive` (`FeedDateFormatter.swift:309-311`) |
 | 7 | `encodeNil`/nested/super paths crash | `XMLKeyedEncodingContainer.swift:61,152-164`; `XMLSingleValueEncodingContainer.swift:59`; `XMLUnkeyedEncodingContainer.swift:141-149` |
-| 8 | Scalar-array encoding works via the generic path; scalar overloads are dead code with a landmine | Verified: `[String]`/`[Int]` encode correctly (protocol dispatch routes through `encode(_ value: some Encodable)` → `addChild`). But the concrete `encode(String)` etc. overloads in `XMLUnkeyedEncodingContainer` (lines 63-123) are unreachable through the protocol; called directly on a node with `children == nil`, they **silently drop values** (verified by probe) |
+| 8 | Scalar-array encoding works via the generic path; scalar overloads are dead code with a landmine — ✅ overloads removed | Verified: `[String]`/`[Int]` encode correctly (protocol dispatch routes through `encode(_ value: some Encodable)` → `addChild`). The concrete `encode(String)` etc. overloads in `XMLUnkeyedEncodingContainer` (lines 63-123) were unreachable through the protocol; called directly on a node with `children == nil`, they **silently drop values** (verified by probe). They have been deleted |
 | 9 | RSS date strategy is RFC 822 | `RSSFeed.toXmlDocument` uses `FeedDateFormatter(spec: .rfc822)` (`RSSFeed.swift:96`) — correct per spec |
 
 ### 8.3 Round-trip fidelity
@@ -438,7 +438,7 @@ Ranked by likelihood × impact:
 | **R5. Two-pass decoding** | §4, §13 | 2× mapping cost; silent double-execution of custom decoders; passes must stay side-effect-free — an unstated invariant |
 | **R6. Class-based mutable XML tree in public API** | `XMLDocument`/`XMLNode` public, mutable, non-Sendable | Thread-safety pitfalls for consumers; inconsistent with the value-type model layer |
 | **R7. Public API instability during evolution** | `XMLElement` typealiases, implicit `Feed: Codable`, 9.x churn | Breaking changes forced into every minor release; consumers pinning versions |
-| **R8. Dead code and unused abstractions** | `XMLHeader`, `escapeCharacters`, `XMLError.notFound`, `FeedNamespace.shouldInclude(in: AtomFeed)`, `allKeys`, dead scalar container overloads | Confusing signal for contributors; tests that validate dead code (`EscapeCharactersTests`) |
+| **R8. Dead code and unused abstractions** — ✅ dead scalar container overloads removed | `XMLHeader`, `escapeCharacters`, `XMLError.notFound`, `FeedNamespace.shouldInclude(in: AtomFeed)`, `allKeys`, dead scalar container overloads | Confusing signal for contributors; tests that validate dead code (`EscapeCharactersTests`) |
 | **R9. Error-surface fragmentation** | `FeedError`/`XMLError`/`DecodingError`/`URLError` all surface from one initializer | Hard for consumers to react programmatically |
 | **R10. Unverified tools-version claim** | 5.9 manifest untested in CI | Silent breakage for older toolchains |
 
@@ -466,7 +466,7 @@ Legend: **BC** = source-breaking; complexity L/M/H.
 | H3 | Round-trip + namespace + malformed test corpus — 🔶 RSS round-trip done in #234 | §12.2 | RSS/JSON round-trip tests with special chars; prefixed/alternate-prefix fixtures; malformed inputs | M | No | C1/C2 |
 | H4 | Formatter creation per call + `@unchecked Sendable` mutable state | §9, §13 | Measure; then cache formatter instances (static, `en_US_POSIX`-based) or make them stateless; document non-reentrancy | M | No | — |
 | H5 | Cancellation/injection in network path | §9 | Add `init(url:session:)`-style overloads or a configuration struct; `Task.checkCancellation()` before decode | L | No (additive) | — |
-| H6 | Dead code & doc cleanup | R8 | Remove or wire `XMLHeader`; delete `XMLError.notFound` or throw it where appropriate; remove dead scalar container overloads (with tests asserting the generic path); fix `-10001` code; fix README | L | Maybe | — |
+| H6 | Dead code & doc cleanup — ✅ scalar container overloads removed, `-10001` fixed, README fixed | R8 | Remove or wire `XMLHeader`; delete `XMLError.notFound` or throw it where appropriate; remove dead scalar container overloads (with tests asserting the generic path); fix `-10001` code; fix README | L | Maybe | — |
 | H7 | Two-pass decoding | R5 | Single pass: extend `XMLNamespaceCodable` with a static list of container keys (or key-path registry) consulted during decode | H | No | C2 (same touchpoints) |
 | H8 | Verify Swift 6 strict concurrency | §9 | Add `-strict-concurrency=complete` CI job; fix violations (likely the XMLKit classes) | M | Maybe | — |
 | H9 | XMLKit product decision | §10.4 | Complete the Codable contract or un-export XMLKit | H | Maybe | C3 |
