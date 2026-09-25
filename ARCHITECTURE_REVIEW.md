@@ -2,7 +2,7 @@
 
 **Repository:** `/Volumes/Development/Source/FeedKit` (git `main` @ `03e8ac2`, tags through `9.1.2`)
 **Review basis:** full source inspection of `Sources/`, `Tests/`, package manifests, CI, README, example app; the package was built and its test suite executed in this session; key behaviors were verified empirically against the built libraries with small standalone harness programs.
-**Updated:** 2026-09-25 — `main` @ `a853eff` plus [PR #234](https://github.com/nmdias/FeedKit/pull/234) (`fix/xml-escaping`). **C1 and H1 are fixed and covered by regression tests; every other finding stands.** Sections are annotated inline where a finding no longer holds; the original findings are kept verbatim as the record of the defect.
+**Updated:** 2026-09-25 — `main` @ `88178e4` plus [PR #234](https://github.com/nmdias/FeedKit/pull/234) (`fix/xml-escaping`) and [PR #236](https://github.com/nmdias/FeedKit/pull/236) (`fix/atom-xml-serialization`). **C1, C4 and H1 are fixed and covered by regression tests; every other finding stands.** Sections are annotated inline where a finding no longer holds; the original findings are kept verbatim as the record of the defect.
 
 Conventions used throughout:
 
@@ -25,7 +25,7 @@ However, the review found **four critical defects and one fundamental architectu
 | 1 | **Critical** | XML serialization emits unescaped text and attribute values, producing invalid XML | `String.escapeCharacters()` exists but is never called; verified: `A & B < C` serialized raw, output fails to re-parse with `NSXMLParserErrorDomain error 68` | ✅ **Fixed in #234** (§8.1) |
 | 2 | **Critical** | Namespace handling is prefix-literal, not URI-based: `<atom:feed>`, `<d:creator>` (DC under a non-canonical prefix), and prefixed Atom elements all fail to decode | `XMLReader` ignores `namespaceURI`; models hard-code keys like `"dc:title"`; verified: prefixed Atom feed → `unknownFeedFormat`/all-nil fields; `d:creator` → nil | Open (§7.1) |
 | 3 | **Critical** | Public XMLKit Codable paths `fatalError()` on supported-in-principle operations (nested containers, `superEncoder`, `encodeNil`, encoding a `Date` with the default strategy) | 18 `fatalError()` sites in `XMLDecoder/` + `XMLEncoder/`; `FeedDateFormatter.string(from:)` crashes for `.permissive` | Open (§10.4) |
-| 4 | **Critical** | Serialization exists only for RSS; README advertises Atom XML generation | `XMLDocumentConvertible`/`XMLStringConvertible` implemented only by `RSSFeed`; `FeedNamespace.shouldInclude(in: AtomFeed)` is dead code | Open (§8.2) |
+| 4 | **Critical** | Serialization exists only for RSS; README advertises Atom XML generation | `XMLDocumentConvertible`/`XMLStringConvertible` implemented only by `RSSFeed`; `FeedNamespace.shouldInclude(in: AtomFeed)` is dead code | ✅ **Fixed in #236** (§8.2) |
 | 5 | High | `RSSFeed.toXMLString(formatted: false)` ignores the parameter | `RSSFeed.swift:115-116` hardcodes `formatted: true` (verified) | ✅ **Fixed in #234** (§8.2) |
 
 Positive findings of substance:
@@ -249,11 +249,11 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 
 | # | Issue | Evidence |
 |---|---|---|
-| 1 | Only RSS generates XML | `XMLDocumentConvertible`/`XMLStringConvertible` conformance only on `RSSFeed` (`RSSFeed.swift:93-117`); README claims Atom too (`README.md:144-148`) |
+| 1 | Only RSS generates XML — ✅ fixed in #236 | `XMLDocumentConvertible`/`XMLStringConvertible` conformance only on `RSSFeed` (`RSSFeed.swift:93-117`); README claims Atom too (`README.md:144-148`); `AtomFeed` now conforms as well |
 | 2 | `formatted: false` is ignored — ✅ fixed in #234 | `RSSFeed.toXMLString` hardcodes `formatted: true` (`RSSFeed.swift:115-116`); verified output contains newlines when `formatted: false` |
 | 3 | Header hardcoded; `XMLHeader` dead | `XMLDocument.toXMLString` emits a literal header (`XMLDocument.swift:85-86`); `XMLHeader` is defined, tested (`XMLHeaderTests.swift`), and unused |
 | 4 | Namespace declarations emitted smartly | `FeedNamespace.shouldInclude(in: RSSFeed)` adds `xmlns:*` only for used namespaces (`FeedNamespace.swift:149-200`) — good feature |
-| 5 | `shouldInclude(in: AtomFeed)` is dead code | `FeedNamespace.swift:205-220` — no Atom serializer exists |
+| 5 | `shouldInclude(in: AtomFeed)` is dead code — ✅ fixed in #236 | `FeedNamespace.swift:205-232` — no Atom serializer existed; it is now called by `AtomFeed.toXmlDocument()` and covers Dublin Core and Media RSS |
 | 6 | Encoding a `Date` with default strategy crashes | `_XMLEncoder.box(_ date:)` → `fatalError()` for `.deferredToDate` (`XMLEncoder.swift:107-117`); `FeedDateFormatter.string(from:)` → `fatalError()` for `.permissive` (`FeedDateFormatter.swift:309-311`) |
 | 7 | `encodeNil`/nested/super paths crash | `XMLKeyedEncodingContainer.swift:61,152-164`; `XMLSingleValueEncodingContainer.swift:59`; `XMLUnkeyedEncodingContainer.swift:141-149` |
 | 8 | Scalar-array encoding works via the generic path; scalar overloads are dead code with a landmine | Verified: `[String]`/`[Int]` encode correctly (protocol dispatch routes through `encode(_ value: some Encodable)` → `addChild`). But the concrete `encode(String)` etc. overloads in `XMLUnkeyedEncodingContainer` (lines 63-123) are unreachable through the protocol; called directly on a node with `children == nil`, they **silently drop values** (verified by probe) |
@@ -443,7 +443,7 @@ Legend: **BC** = source-breaking; complexity L/M/H.
 | C1 | Unescaped XML output — ✅ **fixed in #234** | §8.1 (verified) | Escape text + attribute values in `XMLNode.toXMLString`; skip escaping for `isXhtml` nodes (pre-serialized markup) | Serialization must produce well-formed XML; the code already has the escape map — it's just not wired in | Valid, re-parseable output; safe embedding | Must not double-escape XHTML; escaping changes bytes for existing users who worked around it (unlikely) — no BC | L | — |
 | C2 | Namespace resolution by prefix, not URI | §7.1 (verified) | Capture `namespaceURI` in `XMLReader`; normalize element identity to `(localName, URI)` or canonical prefix; match keys by URI; teach `FeedType` to sniff root **local** name | XML namespaces are defined by URI; prefix literals are convention | Prefixed Atom, alternate prefixes, and default-namespaced feeds decode correctly | Subtle: the `source:markdown` vs `<source>` disambiguation must be re-verified; namespace URIs in the wild are inconsistent (iTunes DTD vs podcastindex URIs) — tolerate unknown URIs by falling back to local-name matching | H | C1 (independent, can proceed in parallel) |
 | C3 | Crash paths in public Codable API | §10.4 | Replace `fatalError` with thrown `EncodingError`/`DecodingError`; implement nested containers/super encoders or throw `.unsupported`; make `Date` default strategy encode via a documented default (or throw); fix permissive `string(from:)` | A public library must never crash on unsupported-but-legal Codable patterns | Misuse becomes a catchable error | Throwing unsupported for nested containers changes behavior from crash to error (strictly better); no BC | M | — |
-| C4 | Serialization only for RSS; README claims Atom | §8.2 | Either implement Atom/RDF `XMLDocumentConvertible` (with format-correct date strategies and namespace declarations) or correct the README | Honest API surface; completes the "Feed Generator" story | Atom/RDF generation | Atom ordering/escaping rules (RFC 4287) need care; `FeedNamespace.shouldInclude(in: AtomFeed)` is already written and waiting | H | C1 |
+| C4 | Serialization only for RSS; README claims Atom — ✅ **fixed in #236** (Atom implemented; RDF remains open) | §8.2 | Either implement Atom/RDF `XMLDocumentConvertible` (with format-correct date strategies and namespace declarations) or correct the README — Atom implemented in #236 | Honest API surface; completes the "Feed Generator" story | Atom/RDF generation | Atom ordering/escaping rules (RFC 4287) need care; `FeedNamespace.shouldInclude(in: AtomFeed)` is already written and waiting | H | C1 |
 
 ### High priority
 
@@ -597,4 +597,4 @@ Complexity: L/M/H. No calendar estimates (insufficient data).
 6. **(Interpretation)** The maintainer's incremental, test-first style (one namespace per PR, full-object mocks, CI matrix) is working; the main process gap was that serialization had no round-trip tests — the class of bug that produced the escaping defect. #234 adds the first RSS round-trip test.
 
 **Prepared:** this session (build + 122-test run + behavioral verification harnesses against the compiled libraries).
-**Updated:** 2026-09-25 — C1 and H1 fixed in [PR #234](https://github.com/nmdias/FeedKit/pull/234) (`fix/xml-escaping`); suite now 145 tests, CI green on all 7 jobs. See §8.1, §10.5, §12.2, §15, §16, §18.
+**Updated:** 2026-09-25 — C1 and H1 fixed in [PR #234](https://github.com/nmdias/FeedKit/pull/234) (`fix/xml-escaping`) and C4 fixed in [PR #236](https://github.com/nmdias/FeedKit/pull/236) (`fix/atom-xml-serialization`); suite now 148 tests (20 XMLKit + 128 FeedKit). See §8.1, §8.2, §10.5, §12.2, §15, §16, §18.
