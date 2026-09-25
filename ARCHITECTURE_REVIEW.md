@@ -180,7 +180,7 @@ Weak points of the current design:
 | 3 | Public API leaks XMLKit generics | `AtomFeedTitle` = `XMLKit.XMLElement<AtomFeedTitleAttributes>`; consumer must `import XMLKit` | Medium |
 | 4 | URLs modeled as `String?` everywhere | `AtomFeedLink.href`, `RSSFeedItem.link`, `JSONFeedItem.url`… | Low (deliberate tolerance; see §6.3) |
 | 5 | `Feed`'s `Codable` conformance is implicit | No `extension Feed: Codable` anywhere; the compiler synthesizes it transitively because `FeedInitializable: Codable` (verified by type-checking against the built module) | Low |
-| 6 | `JSONFeed.version` is internal | `version` decoded as required but not exposed publicly (`JSONFeed.swift:160`, `217`) | Low |
+| 6 | `JSONFeed.version` is internal — ✅ fixed | `version` decoded as required but not exposed publicly (`JSONFeed.swift:160`, `217`); now `public private(set)` | Low |
 
 ### 6.3 Deliberate trade-offs worth keeping
 
