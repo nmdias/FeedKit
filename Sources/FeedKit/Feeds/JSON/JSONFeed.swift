@@ -70,6 +70,15 @@ public struct JSONFeed {
 
   // MARK: Public
 
+  /// (required, string) is the URL of the version of the format the feed
+  /// uses. This should appear at the very top, though we recognize that not all
+  /// JSON generators allow for ordering.
+  ///
+  /// This is derived rather than supplied: it is read from the feed when
+  /// decoding, and otherwise set to the 1.1 version URL when the members
+  /// introduced in JSON Feed 1.1 are present.
+  public private(set) var version: String = "https://jsonfeed.org/version/1"
+
   /// (required, string) is the name of the feed, which will often correspond to
   /// the name of the website (blog, for instance), though not necessarily.
   public var title: String?
@@ -152,12 +161,6 @@ public struct JSONFeed {
   /// The JSONFeed items.
   public var items: [JSONFeedItem]?
 
-  // MARK: Internal
-
-  /// (required, string) is the URL of the version of the format the feed
-  /// uses. This should appear at the very top, though we recognize that not all
-  /// JSON generators allow for ordering.
-  var version: String = "https://jsonfeed.org/version/1"
 }
 
 // MARK: - Sendable
