@@ -92,4 +92,22 @@ struct RSSSerializationTests: FeedKitTestable {
         "https://example.com/video?a=1&b=2"
     )
   }
+
+  @Test("formatted: false emits a compact document")
+  func honorsFormattedFlag() throws {
+    // Given
+    let feed: RSSFeed = .init(channel: .init(
+      title: "Example Feed",
+      items: [.init(title: "Example Item")]
+    ))
+
+    // When
+    let compact = try feed.toXMLString(formatted: false)
+    let formatted = try feed.toXMLString(formatted: true)
+
+    // Then
+    #expect(!compact.contains("\n"))
+    #expect(formatted.contains("\n"))
+    #expect(try RSSFeed(string: compact).channel?.title == "Example Feed")
+  }
 }
