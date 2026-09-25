@@ -204,16 +204,28 @@ extension FeedNamespace {
   /// - Returns: A Boolean indicating whether the namespace should be included.
   func shouldInclude(in feed: AtomFeed) -> Bool {
     switch self {
+    case .dublinCore:
+      feed.dublinCore != nil ||
+        feed.entries?.contains(where: { $0.dublinCore != nil }) ?? false
+
+    case .media:
+      feed.entries?.contains(where: { $0.media != nil }) ?? false
+
     case .youTube:
       feed.entries?.contains(where: { $0.youTube != nil }) ?? false
+
     case .georss:
       feed.entries?.contains(where: { $0.geoRSS != nil }) ?? false
+
     case .feedHistory:
       feed.feedHistory != nil
+
     case .commentAPI:
       feed.entries?.contains(where: { $0.commentAPI != nil }) ?? false
+
     case .podloveSimpleChapters:
       feed.entries?.contains(where: { $0.podloveSimpleChapters != nil }) ?? false
+
     default:
       false
     }
