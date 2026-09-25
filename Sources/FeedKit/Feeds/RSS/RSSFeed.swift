@@ -112,7 +112,7 @@ extension RSSFeed: XMLDocumentConvertible {
 // MARK: - XMLStringConvertible
 
 extension RSSFeed: XMLStringConvertible {
-  public func toXMLString(formatted _: Bool, indentationLevel _: Int = 1) throws -> String {
-    try toXmlDocument().toXMLString(formatted: true)
+  public func toXMLString(formatted: Bool, indentationLevel: Int = 1) throws -> String {
+    try toXmlDocument().toXMLString(formatted: formatted, indentationLevel: indentationLevel)
   }
 }
