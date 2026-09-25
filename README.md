@@ -319,10 +319,10 @@ entry?.youTube
 feed.version
 feed.title
 feed.homePageURL
-feed.feedUrl
+feed.feedURL
 feed.description
 feed.userComment
-feed.nextUrl
+feed.nextURL
 feed.icon
 feed.favicon
 feed.author
@@ -334,7 +334,7 @@ let item = feed.items?.first
 
 item?.id
 item?.url
-item?.externalUrl
+item?.externalURL
 item?.title
 item?.contentText
 item?.contentHtml
