@@ -253,8 +253,13 @@ extension XMLNode: XMLStringConvertible {
       // Add closing tag with indentation if formatted is true
       xml += "\(formatted ? indent : "")</\(name)>\(formatted ? "\n" : "")"
     } else if let text {
-      // Element has text, close opening tag and add text
-      xml += ">\(text)</\(name)>\(formatted ? "\n" : "")"
+      // Element has text, close opening tag and add text.
+      //
+      // Text is escaped so that the output is well-formed XML and can be parsed
+      // again. The sole exception is an XHTML element: its text is markup that
+      // was captured verbatim while reading, so escaping it would double-encode
+      // the content. See `XMLReader.parser(_:didStartElement:...)`.
+      xml += ">\(isXhtml ? text : text.escapeCharacters())</\(name)>\(formatted ? "\n" : "")"
 
     } else {
       // Self-closing tag for an empty node
@@ -269,6 +274,11 @@ extension XMLNode: XMLStringConvertible {
 
 extension XMLNode {
   /// Converts attributes of the node into a string representation.
+  ///
+  /// Attribute values are escaped so that a value containing a quote,
+  /// ampersand, or angle bracket cannot terminate the attribute or corrupt the
+  /// document.
+  ///
   /// - Returns: A formatted string of attributes, or an empty string if none exist.
   private func attributesToString() -> String {
     var result = ""
@@ -277,7 +287,7 @@ extension XMLNode {
     if let attributesNode = children?.first(where: { $0.name == "@attributes" }) {
       // Append each attribute in the format: name="value".
       for attribute in attributesNode.children ?? [] {
-        result += " \(attribute.name)=\"\(attribute.text ?? "")\""
+        result += " \(attribute.name)=\"\((attribute.text ?? "").escapeCharacters())\""
       }
     }
     return result
