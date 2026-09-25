@@ -301,7 +301,7 @@ The output fails to re-parse (`NSXMLParserErrorDomain error 68`). This is not co
 | 3 | `formatted:` ignored — ✅ fixed in #234 | `RSSFeed.toXMLString(formatted: false)` (verified) |
 | 4 | Naming inconsistency | `isXML` vs `isJson` (`FeedType.swift:80-88`); `toXMLString` vs `toJSONString` vs `toXmlDocument` (mixed XML/Xml capitalization) |
 | 5 | Error surface is heterogeneous | One call can throw `FeedError`, `XMLError`, `DecodingError` (Foundation), or `URLError`. `DecodingError` messages reference raw CodingKeys, not element names. `XMLError.notFound` is never thrown (dead case); `cdataDecoding` code is `-10001` vs the `-100x` scheme used elsewhere (`XMLError.swift:83-86`) |
-| 6 | README drift | README advertises Atom XML generation (`README.md:144-148`) and JSON accessors `feed.feedUrl`, `item.url` etc. that don't exist (`README.md:318-350`) |
+| 6 | README drift — ✅ **fixed** | README advertises Atom XML generation (`README.md:144-148`) and JSON accessors `feed.feedUrl`, `feed.nextUrl`, `item.externalUrl` that don't exist (`README.md:318-350`). Atom generation was implemented in #236; the three accessor names were `feedURL`, `nextURL` and `externalURL` — the review's `item.url` was imprecise, as `url` does exist |
 | 7 | Async protocol initializers | Conforming a new type to `FeedInitializable` requires implementing 6 initializers (defaults help) — fine, but the protocol also forces `Codable`, coupling "can be decoded from feed data" with "is Codable" (Interpretation: acceptable) |
 
 ### 10.3 Compatibility
@@ -422,7 +422,7 @@ Ranked by likelihood × impact:
 | **R1. Invalid XML output (no escaping)** — ✅ fixed in #234 | §8.1 (verified) | Corrupt serialized feeds, downstream parse failures, potential markup injection into consumer UIs |
 | **R2. Prefix-literal namespace model** | §7.1 (verified) | Silent data loss on legal feeds; `unknownFeedFormat` for prefixed Atom; wrong-field association risks (mitigated for `source` by the discovery pass) |
 | **R3. Crash paths in public Codable API** | §10.4, 18 `fatalError()` sites | Process crashes for consumers who use XMLKit beyond the tested subset |
-| **R4. Feature/docs mismatch** | README advertises Atom XML generation; JSON accessors don't exist | User trust erosion; support load |
+| **R4. Feature/docs mismatch** — ✅ fixed in #236 + #237 | README advertised Atom XML generation; JSON accessors didn't exist | User trust erosion; support load |
 | **R5. Two-pass decoding** | §4, §13 | 2× mapping cost; silent double-execution of custom decoders; passes must stay side-effect-free — an unstated invariant |
 | **R6. Class-based mutable XML tree in public API** | `XMLDocument`/`XMLNode` public, mutable, non-Sendable | Thread-safety pitfalls for consumers; inconsistent with the value-type model layer |
 | **R7. Public API instability during evolution** | `XMLElement` typealiases, implicit `Feed: Codable`, 9.x churn | Breaking changes forced into every minor release; consumers pinning versions |
