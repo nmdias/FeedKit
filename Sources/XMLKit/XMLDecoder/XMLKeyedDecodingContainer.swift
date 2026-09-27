@@ -33,6 +33,7 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
   init(decoder: _XMLDecoder, node: XMLNode) {
     self.decoder = decoder
     self.node = node
+    knowledge = XMLNamespaceKeyKnowledge.shared.snapshot(for: Key.self)
   }
 
   // MARK: Internal
@@ -51,23 +52,35 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
   }
 
   func contains(_ key: Key) -> Bool {
-    if key.stringValue == "@text", node.text?.isEmpty == false {
+    // The name is asked for several times below, and a coding key need not store
+    // it as a string.
+    let name: String = key.stringValue
+
+    if name == "@text", node.text?.isEmpty == false {
       return true
     }
-    if node.child(for: key.stringValue) != nil {
+    if child(for: key) != nil {
       return true
     }
-    // During discovery a namespace prefix is accepted for any key, which gives
-    // the decoder the chance to observe that a key such as `dc` holds a value.
-    // The authoritative pass only accepts it for keys observed to be namespace
-    // containers, so an element such as `<source:markdown>` is never mistaken
-    // for the RSS `<source>` element just because they share the prefix
-    // `source`.
-    if decoder.isDiscoveringNamespaceContainers {
-      return node.hasNamespace(for: key.stringValue)
+    // A key can also be held by the namespace of its members rather than by an
+    // element of its own, as `dc` is held by `<dc:creator>`. Whether it is meant
+    // that way is a property of the type the key holds, which is what has been
+    // recorded for this coding-key type. Nothing may have decoded a value at the
+    // key yet, in which case it is taken to be present: the pass that goes on to
+    // decode it reads the type, and records it; if the key turns out to hold an
+    // ordinary element, there is no element to decode it from and the pass fails,
+    // to be run again with the answer.
+    let holdsNamespaceContainer: Bool? = knowledge.holdsNamespaceContainer(name)
+    guard holdsNamespaceContainer != false else {
+      return false
     }
-    return decoder.namespaceContainerKeys.contains(key.stringValue)
-      && node.hasNamespace(for: key.stringValue)
+    guard node.hasNamespace(for: name) else {
+      return false
+    }
+    if holdsNamespaceContainer == nil {
+      decoder.assumedKeyPresent = true
+    }
+    return true
   }
 
   // MARK: -
@@ -81,7 +94,7 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
       return node.children?.isEmpty == true
     }
 
-    if let child = node.child(for: key.stringValue), child.text == nil, child.children?.isEmpty ?? true {
+    if let child = child(for: key), child.text == nil, child.children?.isEmpty ?? true {
       return true
     }
 
@@ -92,7 +105,7 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
   // MARK: - Decode
 
   func decode(_ type: Bool.Type, forKey key: Key) throws -> Bool {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: String.Type, forKey key: Key) throws -> String {
@@ -100,61 +113,61 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
       return node.text ?? ""
     }
 
-    return try decoder.decode(node, as: type, for: key)
+    return try decodeScalar(type, forKey: key)
   }
 
   // MARK: - Int
 
   func decode(_ type: Int.Type, forKey key: Key) throws -> Int {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: Int8.Type, forKey key: Key) throws -> Int8 {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: Int16.Type, forKey key: Key) throws -> Int16 {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: Int32.Type, forKey key: Key) throws -> Int32 {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: Int64.Type, forKey key: Key) throws -> Int64 {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   // MARK: - Unsigned Int
 
   func decode(_ type: UInt.Type, forKey key: Key) throws -> UInt {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: UInt8.Type, forKey key: Key) throws -> UInt8 {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: UInt16.Type, forKey key: Key) throws -> UInt16 {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: UInt32.Type, forKey key: Key) throws -> UInt32 {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: UInt64.Type, forKey key: Key) throws -> UInt64 {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   // MARK: - Floating point
 
   func decode(_ type: Float.Type, forKey key: Key) throws -> Float {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   func decode(_ type: Double.Type, forKey key: Key) throws -> Double {
-    try decoder.decode(node, as: type, for: key)
+    try decodeScalar(type, forKey: key)
   }
 
   // MARK: - Type
@@ -164,11 +177,15 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
     defer { self.decoder.codingPath.removeLast() }
 
     if type is XMLNamespaceCodable.Type {
-      decoder.namespaceContainerKeys.insert(key.stringValue)
+      record(type, forKey: key)
       return try decoder.decode(node: node, as: T.self)
     }
 
-    guard let child = node.child(for: key.stringValue) else {
+    guard let child = child(for: key) else {
+      // Recorded before the throw: a key that holds an ordinary element has no
+      // element to be decoded from, and knowing that is what keeps the next pass
+      // from failing here.
+      record(type, forKey: key)
       throw DecodingError.dataCorruptedError(
         forKey: key, in: self,
         debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)"
@@ -194,5 +211,74 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
 
   func superDecoder(forKey _: Key) throws -> any Decoder {
     fatalError()
+  }
+
+  // MARK: Private
+
+  /// The keys of this container's coding-key type, as known when it was created;
+  /// see `XMLNamespaceKeyKnowledge`.
+  private let knowledge: XMLNamespaceKeyKnowledge.Snapshot
+
+  /// The child the container last looked up, and the name it was looked up by.
+  ///
+  /// A key is asked about more than once: `contains(_:)` first, then
+  /// `decodeNil(forKey:)` and `decode(_:forKey:)` as the value is read, or the
+  /// same three steps as `decodeIfPresent` takes them. The element's children do
+  /// not change while it is decoded, so the walk over them is done once per key
+  /// rather than once per question.
+  private var lookedUpName: String?
+  private var lookedUpChild: XMLNode?
+
+  /// The child of the element that the key names, preferring one that carries
+  /// text, or `nil` when the element does not name it.
+  ///
+  /// - Parameter key: The key.
+  /// - Returns: The child, or `nil`.
+  private func child(for key: Key) -> XMLNode? {
+    let name: String = key.stringValue
+    if lookedUpName == name {
+      return lookedUpChild
+    }
+    let child: XMLNode? = node.child(for: name)
+    lookedUpName = name
+    lookedUpChild = child
+    return child
+  }
+
+  /// Decodes a value that is carried as the text of the child the key names.
+  ///
+  /// - Parameters:
+  ///   - type: The type to decode the text as.
+  ///   - key: The key.
+  /// - Returns: The decoded value.
+  /// - Throws: `DecodingError.dataCorrupted` when the element does not name the
+  ///   key, or the child has no text, or the text is not a value of that type.
+  private func decodeScalar<T: LosslessStringConvertible>(_ type: T.Type, forKey key: Key) throws -> T {
+    guard let child = child(for: key), let text = child.text, let value = T(text) else {
+      throw DecodingError.dataCorrupted(.init(
+        codingPath: codingPath,
+        debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)"
+      ))
+    }
+    return value
+  }
+
+  /// Records what the key holds, the first time a value is decoded at it.
+  ///
+  /// Only a key the element does not name has to be recorded: `contains(_:)`
+  /// answers for a key the element names from the child, whatever the key holds.
+  ///
+  /// - Parameters:
+  ///   - type: The type decoded at the key.
+  ///   - key: The key.
+  private func record(_ type: (some Decodable).Type, forKey key: Key) {
+    guard child(for: key) == nil, knowledge.holdsNamespaceContainer(key.stringValue) == nil else {
+      return
+    }
+    XMLNamespaceKeyKnowledge.shared.record(
+      for: Key.self,
+      key: key.stringValue,
+      isNamespaceContainer: type is XMLNamespaceCodable.Type
+    )
   }
 }

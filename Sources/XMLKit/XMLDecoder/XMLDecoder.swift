@@ -49,19 +49,18 @@ public class XMLDecoder {
 
   /// Decodes a top-level value of the given type from the given XML element.
   ///
-  /// Decoding runs twice. The first pass records which keys are namespace
-  /// containers, that is, keys whose type conforms to `XMLNamespaceCodable`.
-  /// Those types have no element of their own — they are represented only by the
-  /// namespace-prefixed elements of their members — so a key such as `dc` has to
-  /// be reported as present whenever the namespace is. The key alone cannot
-  /// reveal that: `<source:markdown>` carries the prefix `source`, yet it is not
-  /// the RSS `<source>` element. Knowing the namespace containers up front lets
-  /// the second pass, the one whose result is returned, accept a namespace
-  /// prefix only where it is genuinely meant as one. Neither pass performs any
-  /// side effect on the nodes, so running twice is safe.
+  /// A key such as `dc` holds a type conforming to `XMLNamespaceCodable`, which
+  /// has no element of its own — it is represented only by the
+  /// namespace-prefixed elements of its members — so the key has to be reported
+  /// as present whenever the namespace is. The key alone cannot reveal that:
+  /// `<source:markdown>` carries the prefix `source`, yet it is not the RSS
+  /// `<source>` element. What each key holds is read from the type decoded at it
+  /// and recorded in `XMLNamespaceKeyKnowledge`, which outlives the document, so
+  /// that the question is settled by the first document of a model rather than
+  /// by every one.
   ///
-  /// The discovery pass discards its result, so any error it raises is ignored;
-  /// the authoritative pass is the one that reports errors to the caller.
+  /// Decoding a document may take more than one pass, and never has a side effect
+  /// on the nodes, so repeating it is safe.
   ///
   /// - parameter type: The type of the value to decode.
   /// - parameter node: The XML element to decode from.
@@ -70,19 +69,40 @@ public class XMLDecoder {
   ///   are corrupted, or if the given data is not valid XML.
   /// - throws: An error if any value throws an error during decoding.
   func decode<T: Decodable>(_: T.Type, from node: XMLNode) throws -> T {
-    let discovery: _XMLDecoder = .init(
-      node: node,
-      codingPath: [],
-      isDiscoveringNamespaceContainers: true
-    )
-    discovery.dateDecodingStrategy = dateDecodingStrategy
-    _ = try? T(from: discovery)
+    // A key such as `dc` is carried by the namespace of its members rather than
+    // by an element of its own, so whether it is present depends on the type the
+    // key holds, which nothing knows until a value has been decoded at it. The
+    // pass below takes such a key to be present and so decodes it, which is what
+    // reads the type; a key that turns out to hold an ordinary element has no
+    // element to be decoded from, so the pass fails there — and it fails having
+    // recorded the type, which is the answer the next pass needs.
+    //
+    // Each round resolves at least one key, and an application has finitely many
+    // of them, so the document is decoded again only a handful of times, once per
+    // process: the records outlive the document that produced them. A pass that
+    // fails without resolving anything failed for a reason of its own, and its
+    // error is the document's.
+    let knowledge: XMLNamespaceKeyKnowledge = .shared
+    for _ in 0 ..< 16 {
+      let recorded: Int = knowledge.recorded
+      let decoder: _XMLDecoder = .init(node: node, codingPath: [])
+      decoder.dateDecodingStrategy = dateDecodingStrategy
 
-    let decoder: _XMLDecoder = .init(
-      node: node,
-      codingPath: [],
-      namespaceContainerKeys: discovery.namespaceContainerKeys
-    )
+      do {
+        return try T(from: decoder)
+      } catch {
+        // Only a pass that assumed a key was present can have failed because of
+        // something that another pass can answer, and only knowledge recorded
+        // since this one began can have changed that answer.
+        guard decoder.assumedKeyPresent, knowledge.recorded != recorded else {
+          throw error
+        }
+      }
+    }
+
+    // Unreachable while the keys of a model are finite, which they are; decoding
+    // once more reports the document's error rather than a bound's.
+    let decoder: _XMLDecoder = .init(node: node, codingPath: [])
     decoder.dateDecodingStrategy = dateDecodingStrategy
     return try T(from: decoder)
   }
@@ -96,22 +116,13 @@ class _XMLDecoder: Decoder {
   /// - Parameters:
   ///   - node: The root XML element to start decoding from.
   ///   - codingPath: The initial coding path, defaulting to an empty array.
-  ///   - namespaceContainerKeys: Key names already known to hold a namespace
-  ///     container, used by the authoritative of the two decoding passes.
-  ///   - isDiscoveringNamespaceContainers: Whether this decoder is the discovery
-  ///     pass, which reports a namespace as present for any key that addresses
-  ///     it so that namespace container keys can be observed.
   init(
     node: XMLNode,
-    codingPath: [CodingKey] = [],
-    namespaceContainerKeys: Set<String> = [],
-    isDiscoveringNamespaceContainers: Bool = false
+    codingPath: [CodingKey] = []
   ) {
     stack = XMLStack()
     stack.push(node)
     self.codingPath = codingPath
-    self.namespaceContainerKeys = namespaceContainerKeys
-    self.isDiscoveringNamespaceContainers = isDiscoveringNamespaceContainers
     userInfo = [:]
   }
 
@@ -125,17 +136,12 @@ class _XMLDecoder: Decoder {
   var userInfo: [CodingUserInfoKey: Any]
   /// The strategy for decoding `Date` values from XML nodes.
   var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
-  /// Key names already resolved as namespace container keys, meaning the type
-  /// decoded at that key conforms to `XMLNamespaceCodable`.
+  /// Whether this pass took a key to be present without knowing what it holds.
   ///
-  /// Such a type has no element of its own and is represented only by the
-  /// namespace-prefixed elements of its members, so its key has to be reported
-  /// as present whenever the namespace is. Recording the keys here keeps that
-  /// toleration from leaking onto ordinary elements whose name merely shares the
-  /// namespace prefix, such as `<source:markdown>` and the RSS `<source>`.
-  var namespaceContainerKeys: Set<String> = []
-  /// Whether this decoder belongs to the discovery pass.
-  var isDiscoveringNamespaceContainers: Bool = false
+  /// Such a pass may fail on that key when it turns out to hold an ordinary
+  /// element, which has no element to be decoded from; the document is decoded
+  /// again with the answer. See `XMLDecoder.decode(_:from:)`.
+  var assumedKeyPresent: Bool = false
 
   /// Returns a keyed decoding container for the current XML element.
   /// - Parameter type: The type of the coding key.
@@ -179,15 +185,6 @@ class _XMLDecoder: Decoder {
   func decode<T: Decodable>(node: XMLNode, as type: T.Type) throws -> T {
     switch T.self {
     case is Date.Type:
-      // The discovery pass records which keys are namespace containers and
-      // discards the value it decodes; see `XMLDecoder.decode(_:from:)`. A date
-      // is the most expensive value in the tree — the permissive formatter walks
-      // up to eight ICU patterns per value — so that pass does not decode one.
-      // Its traversal is otherwise identical, so it records the same keys.
-      if isDiscoveringNamespaceContainers {
-        return Date(timeIntervalSinceReferenceDate: 0) as! T
-      }
-
       return try decode(node: node, as: Date.self) as! T
 
     default:
@@ -234,30 +231,6 @@ class _XMLDecoder: Decoder {
       throw DecodingError.valueNotFound(type, .init(
         codingPath: codingPath,
         debugDescription: "Expected text but found nil"
-      ))
-    }
-    return value
-  }
-
-  /// Decodes an `XMLNode` into a `LosslessStringConvertible` type.
-  ///
-  /// - Parameters:
-  ///   - element: The `XMLNode` to decode.
-  ///   - type: The type to decode the element as. Must conform to
-  ///     `LosslessStringConvertible`.
-  ///   - key: The `CodingKey` identifying the element to decode.
-  /// - Returns: A decoded value of the specified type.
-  /// - Throws: A `DecodingError.dataCorrupted` error if the element's text is
-  ///   missing or cannot be converted to the specified type.
-  func decode<T: LosslessStringConvertible>(_ node: XMLNode, as type: T.Type, for key: some CodingKey) throws -> T {
-    guard
-      let child = node.child(for: key.stringValue),
-      let text = child.text,
-      let value = T(text)
-    else {
-      throw DecodingError.dataCorrupted(.init(
-        codingPath: codingPath,
-        debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)"
       ))
     }
     return value
