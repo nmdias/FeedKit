@@ -101,7 +101,41 @@ class XMLReader: NSObject {
   /// - Parameter attributeValue: The raw attribute value reported by the parser.
   /// - Returns: The attribute value without surrounding whitespace.
   private static func sanitize(attributeValue: String) -> String {
-    attributeValue.trimmingCharacters(in: .whitespacesAndNewlines)
+    trimmed(attributeValue) ?? ""
+  }
+
+  /// `text` without leading or trailing whitespace, or `nil` when nothing is
+  /// left of it.
+  ///
+  /// The text that arrives from the parser is nearly always one of two things: a
+  /// value with no whitespace around it, as `<title>Title</title>` carries, or
+  /// the indentation between two elements. Both are answered here without
+  /// building the string `trimmingCharacters(in:)` would, which is a copy of the
+  /// whole value — a `<description>` can be tens of kilobytes — or, for
+  /// indentation, an allocation that is thrown away.
+  ///
+  /// - Parameter text: The text of the element that just ended.
+  /// - Returns: The text to keep, or `nil`.
+  private static func trimmed(_ text: String?) -> String? {
+    guard let text, !text.isEmpty else {
+      return nil
+    }
+    guard let first = text.unicodeScalars.first, let last = text.unicodeScalars.last else {
+      return nil
+    }
+
+    let whitespace: CharacterSet = .whitespacesAndNewlines
+    guard whitespace.contains(first) || whitespace.contains(last) else {
+      // Nothing to trim.
+      return text
+    }
+    guard !text.unicodeScalars.allSatisfy({ whitespace.contains($0) }) else {
+      // Nothing but whitespace, as the indentation between elements is.
+      return nil
+    }
+
+    let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+    return trimmed.isEmpty ? nil : trimmed
   }
 }
 
@@ -115,9 +149,12 @@ extension XMLReader: XMLParserDelegate {
     qualifiedName _: String?,
     attributes attributeDict: [String: String] = [:]
   ) {
-    // Determine prefix and namespace
+    // Determine prefix and namespace. The delimiter is looked for in the UTF-8
+    // bytes: the name arrives from the parser as a bridged string, over which a
+    // search by `Character` costs far more than a search by byte, and a byte of a
+    // multi-byte character can never be the colon.
     var prefix: String?
-    if let prefixDelimiterIndex = elementName.firstIndex(of: ":") {
+    if let prefixDelimiterIndex = elementName.utf8.firstIndex(of: UInt8(ascii: ":")) {
       prefix = String(elementName[..<prefixDelimiterIndex])
     }
 
@@ -222,8 +259,7 @@ extension XMLReader: XMLParserDelegate {
 
     // Sanitize the node's text by trimming whitespace and newlines.
     // If the resulting text is empty, set it to nil.
-    node.text = node.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-    node.text = node.text?.isEmpty == true ? nil : node.text
+    node.text = Self.trimmed(node.text)
 
     guard stack.count > 1, let node = stack.pop() else {
       isComplete = true
