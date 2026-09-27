@@ -67,7 +67,7 @@ extension RSSFeed: Hashable {}
 // MARK: - Codable
 
 extension RSSFeed: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case channel
   }
 
@@ -88,31 +88,43 @@ extension RSSFeed: Codable {
 
 extension RSSFeed: FeedInitializable {}
 
-// MARK: - XMLDocumentConvertible
+// MARK: - XML document
 
-extension RSSFeed: XMLDocumentConvertible {
-  public func toXmlDocument() throws -> XMLKit.XMLDocument {
-    let encoder: XMLEncoder = .init()
-    encoder.dateEncodingStrategy = .formatter(FeedDateFormatter(spec: .rfc822))
+public extension RSSFeed {
+  /// The feed as an XML document, with its document element named and the
+  /// namespaces it uses declared.
+  func toXmlDocument() throws -> XMLKit.XMLDocument {
+    var encoder: XMLEncoder = .init()
+    encoder.dateEncodingStrategy = .formatted(
+      format: FeedDateFormatters.rfc822Pattern,
+      timeZone: FeedDateFormatters.utc
+    )
 
-    let document = try encoder.encode(value: self)
-    document.setRootName(name: "rss")
-    document.setRootAttribute(name: "version", value: "2.0")
+    // The engine declares each namespace it writes, under the prefix the feed
+    // format uses for it, so the document is namespace-well-formed by
+    // construction rather than by a list that has to be kept in step.
+    encoder.namespacePrefixes = FeedNamespace.prefixesByURI
 
-    for namespace in FeedNamespace.allCases {
-      if namespace.shouldInclude(in: self) {
-        document.setRootAttribute(name: namespace.prefix, value: namespace.url)
-      }
-    }
+    let bytes = try encoder.encode(self, rootElementName: "rss")
+    let document = try XMLDocument(bytes: bytes)
+    document.root.setAttribute("version", value: "2.0")
 
     return document
   }
-}
 
-// MARK: - XMLStringConvertible
-
-extension RSSFeed: XMLStringConvertible {
-  public func toXMLString(formatted: Bool, indentationLevel: Int = 1) throws -> String {
-    try toXmlDocument().toXMLString(formatted: formatted, indentationLevel: indentationLevel)
+  /// The feed serialised as XML.
+  ///
+  /// - Parameters:
+  ///   - formatted: Whether to indent the output.
+  ///   - indentationLevel: Ignored; kept so that callers written against the
+  ///     previous signature keep compiling.
+  /// - Returns: The document as a string.
+  func toXMLString(formatted: Bool, indentationLevel _: Int = 1) throws -> String {
+    let configuration: XMLWriterConfiguration = .init(
+      xmlDeclaration: XMLDeclaration(version: "1.0", encoding: "UTF-8"),
+      prettyPrinted: formatted,
+      indentation: "  "
+    )
+    return try toXmlDocument().serializedString(configuration: configuration)
   }
 }

@@ -309,17 +309,14 @@ extension RSSFeedItem: Codable {
     guid = try container.decodeIfPresent(RSSFeedGUID.self, forKey: CodingKeys.guid)
     pubDate = try container.decodeIfPresent(Date.self, forKey: CodingKeys.pubDate)
     source = try container.decodeIfPresent(RSSFeedSource.self, forKey: CodingKeys.source)
-    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
-    content = try container.decodeIfPresent(Content.self, forKey: CodingKeys.content)
-    iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
-    media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
-    podcast = try container.decodeIfPresent(Podcast.self, forKey: CodingKeys.podcast)
-    geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
-    commentAPI = try container.decodeIfPresent(CommentAPI.self, forKey: CodingKeys.commentAPI)
-    podloveSimpleChapters = try container.decodeIfPresent(
-      PodloveSimpleChapters.self,
-      forKey: CodingKeys.podloveSimpleChapters
-    )
+    dublinCore = try decoder.decodeNamespace(DublinCore.self)
+    content = try decoder.decodeNamespace(Content.self)
+    iTunes = try decoder.decodeNamespace(ITunes.self)
+    media = try decoder.decodeNamespace(Media.self)
+    podcast = try decoder.decodeNamespace(Podcast.self)
+    geoRSS = try decoder.decodeNamespace(GeoRSSSimple.self)
+    commentAPI = try decoder.decodeNamespace(CommentAPI.self)
+    podloveSimpleChapters = try decoder.decodeNamespace(PodloveSimpleChapters.self)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -336,13 +333,13 @@ extension RSSFeedItem: Codable {
     try container.encodeIfPresent(guid, forKey: CodingKeys.guid)
     try container.encodeIfPresent(pubDate, forKey: CodingKeys.pubDate)
     try container.encodeIfPresent(source, forKey: CodingKeys.source)
-    try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
-    try container.encodeIfPresent(content, forKey: CodingKeys.content)
-    try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
-    try container.encodeIfPresent(media, forKey: CodingKeys.media)
-    try container.encodeIfPresent(podcast, forKey: CodingKeys.podcast)
-    try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
-    try container.encodeIfPresent(commentAPI, forKey: CodingKeys.commentAPI)
-    try container.encodeIfPresent(podloveSimpleChapters, forKey: CodingKeys.podloveSimpleChapters)
+    try dublinCore?.encode(to: encoder)
+    try content?.encode(to: encoder)
+    try iTunes?.encode(to: encoder)
+    try media?.encode(to: encoder)
+    try podcast?.encode(to: encoder)
+    try geoRSS?.encode(to: encoder)
+    try commentAPI?.encode(to: encoder)
+    try podloveSimpleChapters?.encode(to: encoder)
   }
 }

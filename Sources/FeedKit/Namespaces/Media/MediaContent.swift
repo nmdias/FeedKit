@@ -158,6 +158,25 @@ public struct MediaContent {
     /// XML 1.0 Specification (Third Edition). It is an optional
     /// attribute.
     public var lang: String?
+
+    // MARK: Private
+
+    private enum CodingKeys: String, CodingKey {
+      case url = "@url"
+      case fileSize = "@fileSize"
+      case type = "@type"
+      case medium = "@medium"
+      case isDefault = "@isDefault"
+      case expression = "@expression"
+      case bitrate = "@bitrate"
+      case framerate = "@framerate"
+      case samplingrate = "@samplingrate"
+      case channels = "@channels"
+      case duration = "@duration"
+      case height = "@height"
+      case width = "@width"
+      case lang = "@lang"
+    }
   }
 
   /// The element's attributes
@@ -215,23 +234,22 @@ extension MediaContent: Hashable {}
 
 extension MediaContent: Codable {
   private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
-    case title = "media:title"
-    case description = "media:description"
-    case player = "media:player"
-    case thumbnails = "media:thumbnail"
-    case keywords = "media:keywords"
-    case category = "media:category"
-    case credits = "media:credit"
-    case rating = "media:rating"
-    case hash = "media:hash"
-    case text = "media:text"
+    case title = "http://search.yahoo.com/mrss/ title"
+    case description = "http://search.yahoo.com/mrss/ description"
+    case player = "http://search.yahoo.com/mrss/ player"
+    case thumbnails = "http://search.yahoo.com/mrss/ thumbnail"
+    case keywords = "http://search.yahoo.com/mrss/ keywords"
+    case category = "http://search.yahoo.com/mrss/ category"
+    case credits = "http://search.yahoo.com/mrss/ credit"
+    case rating = "http://search.yahoo.com/mrss/ rating"
+    case hash = "http://search.yahoo.com/mrss/ hash"
+    case text = "http://search.yahoo.com/mrss/ text"
   }
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    attributes = try container.decodeIfPresent(MediaContent.Attributes.self, forKey: CodingKeys.attributes)
+    attributes = try decoder.decodeFeedAttributes(MediaContent.Attributes.self)
     title = try container.decodeIfPresent(MediaTitle.self, forKey: CodingKeys.title)
     description = try container.decodeIfPresent(MediaDescription.self, forKey: CodingKeys.description)
     player = try container.decodeIfPresent(MediaPlayer.self, forKey: CodingKeys.player)
@@ -247,7 +265,7 @@ extension MediaContent: Codable {
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
+    try attributes?.encode(to: encoder)
     try container.encodeIfPresent(title, forKey: CodingKeys.title)
     try container.encodeIfPresent(description, forKey: CodingKeys.description)
     try container.encodeIfPresent(player, forKey: CodingKeys.player)

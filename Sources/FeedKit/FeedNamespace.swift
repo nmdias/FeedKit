@@ -231,3 +231,19 @@ extension FeedNamespace {
     }
   }
 }
+
+// MARK: - Encoding
+
+extension FeedNamespace {
+  /// The URI of each namespace, keyed by the prefix FeedKit writes it with.
+  ///
+  /// An encoder declares the namespaces it actually writes, so a feed document
+  /// comes out namespace-well-formed without a per-feed list of declarations.
+  static var prefixesByURI: [String: String] {
+    var result: [String: String] = [:]
+    for namespace in allCases {
+      result[namespace.url] = namespace.prefix.replacingOccurrences(of: "xmlns:", with: "")
+    }
+    return result
+  }
+}

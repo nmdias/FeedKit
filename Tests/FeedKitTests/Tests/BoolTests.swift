@@ -25,7 +25,6 @@
 import Foundation
 import Testing
 
-@Suite("String + toBool")
 struct BoolTests {
   @Test
   func stringToBool() {

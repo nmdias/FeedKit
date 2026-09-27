@@ -63,7 +63,7 @@ extension MediaTag: Hashable {}
 // MARK: - Codable
 
 extension MediaTag: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case tag
     case weight
   }

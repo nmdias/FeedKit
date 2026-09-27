@@ -35,6 +35,12 @@ public struct iTunesImageAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// The image's url.
   public var href: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case href = "@href"
+  }
 }
 
 /// Specify your podcast artwork using the <a href> attribute in the
@@ -62,4 +68,4 @@ public struct iTunesImageAttributes: Codable, Equatable, Hashable, Sendable {
 /// size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate
 /// file extensions (.jpg, .png), and in the RGB colorspace. These requirements
 /// are different from the standard RSS image tag specifications.
-public typealias iTunesImage = XMLAttributesElement<iTunesImageAttributes>
+public typealias iTunesImage = FeedAttributesElement<iTunesImageAttributes>

@@ -131,9 +131,20 @@ public struct AtomLinkAttributes: Codable, Equatable, Hashable, Sendable {
   /// by the underlying protocol.  Link elements MAY have a length
   /// attribute.
   public var length: Int64?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case href = "@href"
+    case rel = "@rel"
+    case type = "@type"
+    case hreflang = "@hreflang"
+    case title = "@title"
+    case length = "@length"
+  }
 }
 
 /// The "atom:link" element defines a reference from an entry or feed to
 /// a Web resource.  This specification assigns no meaning to the content
 /// (if any) of this element.
-public typealias AtomLink = XMLAttributesElement<AtomLinkAttributes>
+public typealias AtomLink = FeedAttributesElement<AtomLinkAttributes>

@@ -47,6 +47,13 @@ public struct MediaCreditAttributes: Codable, Equatable, Hashable, Sendable {
   /// scheme can be found at European Broadcasting Union Role Codes. The
   /// roles supported under urn:yvs scheme are ( uploader | owner ).
   public var scheme: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case role = "@role"
+    case scheme = "@scheme"
+  }
 }
 
 /// Notable entity and the contribution to the creation of the media object.
@@ -54,4 +61,4 @@ public struct MediaCreditAttributes: Codable, Equatable, Hashable, Sendable {
 /// entities can have multiple roles, and several entities can have the same
 /// role. These should appear as distinct <media:credit> elements. It has two
 /// optional attributes.
-public typealias MediaCredit = XMLKit.XMLElement<MediaCreditAttributes>
+public typealias MediaCredit = FeedElement<MediaCreditAttributes>

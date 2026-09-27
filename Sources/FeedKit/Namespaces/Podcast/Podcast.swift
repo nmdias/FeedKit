@@ -231,7 +231,9 @@ public struct Podcast {
 
 // MARK: - XMLNamespaceCodable
 
-extension Podcast: XMLNamespaceCodable {}
+extension Podcast: FeedNamespaceDecodable {
+  public static let namespacePrefix = "podcast"
+}
 
 // MARK: - Sendable
 
@@ -249,35 +251,35 @@ extension Podcast: Hashable {}
 
 extension Podcast: Codable {
   private enum CodingKeys: String, CodingKey {
-    case guid = "podcast:guid"
-    case locked = "podcast:locked"
-    case funding = "podcast:funding"
-    case medium = "podcast:medium"
-    case block = "podcast:block"
-    case complete = "podcast:complete"
-    case txt = "podcast:txt"
-    case updateFrequency = "podcast:updateFrequency"
-    case podroll = "podcast:podroll"
-    case publisher = "podcast:publisher"
-    case podping = "podcast:podping"
-    case liveItems = "podcast:liveItem"
-    case license = "podcast:license"
-    case trailer = "podcast:trailer"
-    case chat = "podcast:chat"
-    case socialInteract = "podcast:socialInteract"
-    case image = "podcast:image"
-    case images = "podcast:images"
-    case value = "podcast:value"
-    case location = "podcast:location"
-    case person = "podcast:person"
-    case transcripts = "podcast:transcript"
-    case chapters = "podcast:chapters"
-    case soundbite = "podcast:soundbite"
-    case season = "podcast:season"
-    case episode = "podcast:episode"
-    case alternateEnclosures = "podcast:alternateEnclosure"
-    case contentLinks = "podcast:contentLink"
-    case remoteItems = "podcast:remoteItem"
+    case guid = "https://podcastindex.org/namespace/1.0 guid"
+    case locked = "https://podcastindex.org/namespace/1.0 locked"
+    case funding = "https://podcastindex.org/namespace/1.0 funding"
+    case medium = "https://podcastindex.org/namespace/1.0 medium"
+    case block = "https://podcastindex.org/namespace/1.0 block"
+    case complete = "https://podcastindex.org/namespace/1.0 complete"
+    case txt = "https://podcastindex.org/namespace/1.0 txt"
+    case updateFrequency = "https://podcastindex.org/namespace/1.0 updateFrequency"
+    case podroll = "https://podcastindex.org/namespace/1.0 podroll"
+    case publisher = "https://podcastindex.org/namespace/1.0 publisher"
+    case podping = "https://podcastindex.org/namespace/1.0 podping"
+    case liveItems = "https://podcastindex.org/namespace/1.0 liveItem"
+    case license = "https://podcastindex.org/namespace/1.0 license"
+    case trailer = "https://podcastindex.org/namespace/1.0 trailer"
+    case chat = "https://podcastindex.org/namespace/1.0 chat"
+    case socialInteract = "https://podcastindex.org/namespace/1.0 socialInteract"
+    case image = "https://podcastindex.org/namespace/1.0 image"
+    case images = "https://podcastindex.org/namespace/1.0 images"
+    case value = "https://podcastindex.org/namespace/1.0 value"
+    case location = "https://podcastindex.org/namespace/1.0 location"
+    case person = "https://podcastindex.org/namespace/1.0 person"
+    case transcripts = "https://podcastindex.org/namespace/1.0 transcript"
+    case chapters = "https://podcastindex.org/namespace/1.0 chapters"
+    case soundbite = "https://podcastindex.org/namespace/1.0 soundbite"
+    case season = "https://podcastindex.org/namespace/1.0 season"
+    case episode = "https://podcastindex.org/namespace/1.0 episode"
+    case alternateEnclosures = "https://podcastindex.org/namespace/1.0 alternateEnclosure"
+    case contentLinks = "https://podcastindex.org/namespace/1.0 contentLink"
+    case remoteItems = "https://podcastindex.org/namespace/1.0 remoteItem"
   }
 
   public init(from decoder: any Decoder) throws {

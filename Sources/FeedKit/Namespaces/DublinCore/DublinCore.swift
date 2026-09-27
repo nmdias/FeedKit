@@ -175,7 +175,9 @@ public struct DublinCore {
 
 // MARK: - XMLNamespaceDecodable
 
-extension DublinCore: XMLNamespaceCodable {}
+extension DublinCore: FeedNamespaceDecodable {
+  public static let namespacePrefix = "dc"
+}
 
 // MARK: - Sendable
 
@@ -193,21 +195,21 @@ extension DublinCore: Hashable {}
 
 extension DublinCore: Codable {
   private enum CodingKeys: String, CodingKey {
-    case title = "dc:title"
-    case creator = "dc:creator"
-    case subject = "dc:subject"
-    case description = "dc:description"
-    case publisher = "dc:publisher"
-    case contributor = "dc:contributor"
-    case date = "dc:date"
-    case type = "dc:type"
-    case format = "dc:format"
-    case identifier = "dc:identifier"
-    case source = "dc:source"
-    case language = "dc:language"
-    case relation = "dc:relation"
-    case coverage = "dc:coverage"
-    case rights = "dc:rights"
+    case title = "http://purl.org/dc/elements/1.1/ title"
+    case creator = "http://purl.org/dc/elements/1.1/ creator"
+    case subject = "http://purl.org/dc/elements/1.1/ subject"
+    case description = "http://purl.org/dc/elements/1.1/ description"
+    case publisher = "http://purl.org/dc/elements/1.1/ publisher"
+    case contributor = "http://purl.org/dc/elements/1.1/ contributor"
+    case date = "http://purl.org/dc/elements/1.1/ date"
+    case type = "http://purl.org/dc/elements/1.1/ type"
+    case format = "http://purl.org/dc/elements/1.1/ format"
+    case identifier = "http://purl.org/dc/elements/1.1/ identifier"
+    case source = "http://purl.org/dc/elements/1.1/ source"
+    case language = "http://purl.org/dc/elements/1.1/ language"
+    case relation = "http://purl.org/dc/elements/1.1/ relation"
+    case coverage = "http://purl.org/dc/elements/1.1/ coverage"
+    case rights = "http://purl.org/dc/elements/1.1/ rights"
   }
 
   public init(from decoder: any Decoder) throws {

@@ -75,13 +75,13 @@ public struct PodcastImageAttributes: Codable, Equatable, Hashable, Sendable {
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case href
-    case alt
-    case aspectRatio = "aspect-ratio"
-    case width
-    case height
-    case type
-    case purpose
+    case href = "@href"
+    case alt = "@alt"
+    case aspectRatio = "@aspect-ratio"
+    case width = "@width"
+    case height = "@height"
+    case type = "@type"
+    case purpose = "@purpose"
   }
 }
 
@@ -93,7 +93,7 @@ public struct PodcastImageAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/image.md
-public typealias PodcastImage = XMLAttributesElement<PodcastImageAttributes>
+public typealias PodcastImage = FeedAttributesElement<PodcastImageAttributes>
 
 // MARK: - Images (Deprecated)
 
@@ -110,6 +110,12 @@ public struct PodcastImagesAttributes: Codable, Equatable, Hashable, Sendable {
   /// Each image url followed by a space and the pixel width, with each one
   /// separated by a comma, following the HTML5 `srcset` syntax.
   public var srcset: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case srcset = "@srcset"
+  }
 }
 
 /// Allows specifying many different image sizes in a compact way at either the
@@ -123,4 +129,4 @@ public struct PodcastImagesAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/images-(deprecated).md
-public typealias PodcastImages = XMLAttributesElement<PodcastImagesAttributes>
+public typealias PodcastImages = FeedAttributesElement<PodcastImagesAttributes>

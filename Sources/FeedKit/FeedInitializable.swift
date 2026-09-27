@@ -135,9 +135,6 @@ extension FeedInitializable {
   /// - Parameter data: The raw feed data.
   /// - Returns: A parsed feed model conforming to `FeedInitializable`.
   private static func decode(data: Data) throws -> Self {
-    let decoder: XMLDecoder = .init()
-    let formatter: FeedDateFormatter = .init(spec: .permissive)
-    decoder.dateDecodingStrategy = .formatter(formatter)
-    return try decoder.decode(Self.self, from: data)
+    try FeedXMLInput.decode(Self.self, from: data)
   }
 }

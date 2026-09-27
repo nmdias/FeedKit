@@ -202,7 +202,7 @@ struct PodloveSimpleChaptersTests: FeedKitTestable {
     #expect(plainXML.contains("xmlns:psc") == false)
     #expect(chaptersXML.contains("xmlns:psc=\"http://podlove.org/simple-chapters\""))
     #expect(chaptersXML.contains("<psc:chapters version=\"1.2\">"))
-    #expect(chaptersXML.contains("<psc:chapter start=\"0\" title=\"Welcome\" />"))
+    #expect(chaptersXML.contains("<psc:chapter start=\"0\" title=\"Welcome\"/>"))
 
     let decoded = try RSSFeed(string: chaptersXML)
     let decodedChapters = try #require(

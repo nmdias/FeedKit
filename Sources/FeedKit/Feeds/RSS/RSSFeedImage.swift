@@ -106,7 +106,7 @@ extension RSSFeedImage: Hashable {}
 // MARK: - Codable
 
 extension RSSFeedImage: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case url
     case title
     case link

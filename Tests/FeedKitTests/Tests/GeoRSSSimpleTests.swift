@@ -24,7 +24,6 @@
 @testable import FeedKit
 import Testing
 
-@Suite("GeoRSSSimple")
 struct GeoRSSSimpleTests: FeedKitTestable {
   @Test
   func geoRSSSimple() throws {

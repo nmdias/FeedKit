@@ -65,8 +65,8 @@ extension iTunesOwner: Hashable {}
 
 extension iTunesOwner: Codable {
   private enum CodingKeys: String, CodingKey {
-    case email = "itunes:email"
-    case name = "itunes:name"
+    case email = "http://www.itunes.com/dtds/podcast-1.0.dtd email"
+    case name = "http://www.itunes.com/dtds/podcast-1.0.dtd name"
   }
 
   public init(from decoder: any Decoder) throws {

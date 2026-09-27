@@ -38,7 +38,13 @@ public struct MediaCopyrightAttributes: Codable, Equatable, Hashable, Sendable {
   /// Creative Commons module should be used instead. It is an optional
   /// attribute.
   public var url: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+  }
 }
 
 /// Copyright information for the media object. It has one optional attribute.
-public typealias MediaCopyright = XMLKit.XMLElement<MediaCopyrightAttributes>
+public typealias MediaCopyright = FeedElement<MediaCopyrightAttributes>

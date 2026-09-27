@@ -131,7 +131,7 @@ struct FeedHistoryTests: FeedKitTestable {
 
     // Then
     #expect(xml.contains("xmlns:fh=\"http://purl.org/syndication/history/1.0\""))
-    #expect(xml.contains("<fh:complete />"))
+    #expect(xml.contains("<fh:complete/>"))
     #expect(decoded.channel?.feedHistory?.isComplete == true)
     #expect(decoded.channel?.feedHistory?.isArchive == nil)
   }

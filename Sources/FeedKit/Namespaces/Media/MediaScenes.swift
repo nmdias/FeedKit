@@ -55,7 +55,7 @@ extension MediaScenes: Hashable {}
 
 extension MediaScenes: Codable {
   private enum CodingKeys: String, CodingKey {
-    case scenes = "media:scene"
+    case scenes = "http://search.yahoo.com/mrss/ scene"
   }
 
   public init(from decoder: any Decoder) throws {

@@ -46,6 +46,13 @@ public struct AtomFeedGeneratorAttributes: Codable, Equatable, Hashable, Sendabl
   /// The atom:generator element MAY have a "version" attribute that
   /// indicates the version of the generating agent.
   public var version: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case uri = "@uri"
+    case version = "@version"
+  }
 }
 
 /// The "atom:generator" element's content identifies the agent used to
@@ -63,4 +70,4 @@ public struct AtomFeedGeneratorAttributes: Codable, Equatable, Hashable, Sendabl
 ///
 /// The atom:generator element MAY have a "version" attribute that
 /// indicates the version of the generating agent.
-public typealias AtomFeedGenerator = XMLKit.XMLElement<AtomFeedGeneratorAttributes>
+public typealias AtomFeedGenerator = FeedElement<AtomFeedGeneratorAttributes>

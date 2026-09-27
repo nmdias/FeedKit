@@ -27,26 +27,16 @@ let package = Package(
     )
   ],
   targets: [
-    // The XML engine that backs XMLKit: tokenizer, DOM, namespace resolution,
-    // serialiser and the modern `Codable` bridge. Vendored from the standalone
-    // XMLKit project and kept byte-for-byte identical to it; it is an
-    // implementation detail of the `XMLKit` product and is not exported.
-    .target(
-      name: "XMLKitCore",
-      exclude: ["README.md"]
-    ),
+    // The XML engine: tokenizer, DOM, namespace resolution, serialiser and the
+    // `Codable` bridge. Sourced from the standalone XMLKit project; see
+    // Sources/XMLKit/README.md for its provenance and the local adaptations.
     .target(
       name: "XMLKit",
-      dependencies: [
-        "XMLKitCore"
-      ]
+      exclude: ["README.md"]
     ),
     .testTarget(
       name: "XMLKitTests",
-      dependencies: ["XMLKit"],
-      resources: [
-        .process("Resources/xml/Sample.xml")
-      ]
+      dependencies: ["XMLKit"]
     ),
     .target(
       name: "FeedKit",

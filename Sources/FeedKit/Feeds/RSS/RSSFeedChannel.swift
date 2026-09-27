@@ -389,12 +389,12 @@ extension RSSFeedChannel: Codable {
     skipHours = try container.decodeIfPresent(RSSFeedSkipHours.self, forKey: CodingKeys.skipHours)
     skipDays = try container.decodeIfPresent(RSSFeedSkipDays.self, forKey: CodingKeys.skipDays)
     items = try container.decodeIfPresent([RSSFeedItem].self, forKey: CodingKeys.item)
-    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
-    iTunes = try container.decodeIfPresent(ITunes.self, forKey: CodingKeys.iTunes)
-    syndication = try container.decodeIfPresent(Syndication.self, forKey: CodingKeys.syndication)
-    atom = try container.decodeIfPresent(Atom.self, forKey: CodingKeys.atom)
-    podcast = try container.decodeIfPresent(Podcast.self, forKey: CodingKeys.podcast)
-    feedHistory = try container.decodeIfPresent(FeedHistory.self, forKey: CodingKeys.feedHistory)
+    dublinCore = try decoder.decodeNamespace(DublinCore.self)
+    iTunes = try decoder.decodeNamespace(ITunes.self)
+    syndication = try decoder.decodeNamespace(Syndication.self)
+    atom = try decoder.decodeNamespace(Atom.self)
+    podcast = try decoder.decodeNamespace(Podcast.self)
+    feedHistory = try decoder.decodeNamespace(FeedHistory.self)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -419,12 +419,12 @@ extension RSSFeedChannel: Codable {
     try container.encodeIfPresent(textInput, forKey: CodingKeys.textInput)
     try container.encodeIfPresent(skipHours, forKey: CodingKeys.skipHours)
     try container.encodeIfPresent(skipDays, forKey: CodingKeys.skipDays)
-    try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
-    try container.encodeIfPresent(iTunes, forKey: CodingKeys.iTunes)
-    try container.encodeIfPresent(syndication, forKey: CodingKeys.syndication)
-    try container.encodeIfPresent(atom, forKey: CodingKeys.atom)
-    try container.encodeIfPresent(podcast, forKey: CodingKeys.podcast)
-    try container.encodeIfPresent(feedHistory, forKey: CodingKeys.feedHistory)
+    try dublinCore?.encode(to: encoder)
+    try iTunes?.encode(to: encoder)
+    try syndication?.encode(to: encoder)
+    try atom?.encode(to: encoder)
+    try podcast?.encode(to: encoder)
+    try feedHistory?.encode(to: encoder)
     try container.encodeIfPresent(items, forKey: CodingKeys.item)
   }
 }

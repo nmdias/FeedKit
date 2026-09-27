@@ -35,7 +35,13 @@ public struct MediaParamAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// The parameter's key name.
   public var name: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case name = "@name"
+  }
 }
 
 /// Key-Value pairs with additional parameters for the embedded Media.
-public typealias MediaParam = XMLKit.XMLElement<MediaParamAttributes>
+public typealias MediaParam = FeedElement<MediaParamAttributes>

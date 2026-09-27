@@ -50,7 +50,9 @@ public struct PodloveSimpleChapters {
 
 // MARK: - XMLNamespaceCodable
 
-extension PodloveSimpleChapters: XMLNamespaceCodable {}
+extension PodloveSimpleChapters: FeedNamespaceDecodable {
+  public static let namespacePrefix = "psc"
+}
 
 // MARK: - Sendable
 
@@ -68,7 +70,7 @@ extension PodloveSimpleChapters: Hashable {}
 
 extension PodloveSimpleChapters: Codable {
   private enum CodingKeys: String, CodingKey {
-    case chapters = "psc:chapters"
+    case chapters = "http://podlove.org/simple-chapters chapters"
   }
 
   public init(from decoder: any Decoder) throws {
@@ -102,6 +104,12 @@ public struct PodloveChaptersAttributes: Codable, Equatable, Hashable, Sendable 
   ///
   /// Example: 1.2
   public var version: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case version = "@version"
+  }
 }
 
 /// The list of chapter marks for the media file referenced by an item.
@@ -125,10 +133,7 @@ public struct PodloveChapters: Codable, Equatable, Hashable, Sendable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    let attributes: PodloveChaptersAttributes? = try container.decodeIfPresent(
-      PodloveChaptersAttributes.self,
-      forKey: CodingKeys.attributes
-    )
+    let attributes: PodloveChaptersAttributes? = try decoder.decodeFeedAttributes(PodloveChaptersAttributes.self)
 
     version = attributes?.version
     chapters = try container.decodeIfPresent([PodloveChapter].self, forKey: CodingKeys.chapters)
@@ -150,15 +155,14 @@ public struct PodloveChapters: Codable, Equatable, Hashable, Sendable {
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(PodloveChaptersAttributes(version: version), forKey: CodingKeys.attributes)
+    try PodloveChaptersAttributes(version: version).encode(to: encoder)
     try container.encodeIfPresent(chapters, forKey: CodingKeys.chapters)
   }
 
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
-    case chapters = "psc:chapter"
+    case chapters = "http://podlove.org/simple-chapters chapter"
   }
 }
 
@@ -213,6 +217,15 @@ public struct PodloveChapterAttributes: Codable, Equatable, Hashable, Sendable {
   ///
   /// Example: https://example.com/chapters/podlove.png
   public var image: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case start = "@start"
+    case title = "@title"
+    case href = "@href"
+    case image = "@image"
+  }
 }
 
 /// A single chapter mark within the media file referenced by an item.
@@ -223,4 +236,4 @@ public struct PodloveChapterAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://podlove.org/simple-chapters/
-public typealias PodloveChapter = XMLAttributesElement<PodloveChapterAttributes>
+public typealias PodloveChapter = FeedAttributesElement<PodloveChapterAttributes>

@@ -39,8 +39,15 @@ public struct MediaLicenceAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// The location of the licence.
   public var href: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+    case href = "@href"
+  }
 }
 
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public typealias MediaLicence = XMLKit.XMLElement<MediaLicenceAttributes>
+public typealias MediaLicence = FeedElement<MediaLicenceAttributes>

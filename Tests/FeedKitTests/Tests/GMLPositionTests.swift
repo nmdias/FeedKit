@@ -25,7 +25,6 @@
 import Foundation
 import Testing
 
-@Suite("GMLPositionTests")
 struct GMLPositionTests {
   @Test
   func validCoordinates() {

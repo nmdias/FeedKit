@@ -38,8 +38,14 @@ public struct AtomFeedTitleAttributes: Codable, Equatable, Hashable, Sendable {
   /// is not provided, Atom Processors MUST behave as though it were
   /// present with a value of "text".
   public var type: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+  }
 }
 
 /// The "atom:title" element is a Text construct that conveys a human-
 /// readable title for an entry or feed.
-public typealias AtomFeedTitle = XMLKit.XMLElement<AtomFeedTitleAttributes>
+public typealias AtomFeedTitle = FeedElement<AtomFeedTitleAttributes>

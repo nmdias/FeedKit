@@ -73,7 +73,7 @@ extension AtomFeedContributor: Hashable {}
 // MARK: - Codable
 
 extension AtomFeedContributor: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case name
     case email
     case uri

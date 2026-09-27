@@ -38,8 +38,14 @@ public struct AtomFeedSubtitleAttributes: Codable, Equatable, Hashable, Sendable
   /// is not provided, Atom Processors MUST behave as though it were
   /// present with a value of "text".
   public var type: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+  }
 }
 
 /// The "atom:subtitle" element is a Text construct that conveys a human-
 /// readable description or subtitle for a feed.
-public typealias AtomFeedSubtitle = XMLKit.XMLElement<AtomFeedSubtitleAttributes>
+public typealias AtomFeedSubtitle = FeedElement<AtomFeedSubtitleAttributes>

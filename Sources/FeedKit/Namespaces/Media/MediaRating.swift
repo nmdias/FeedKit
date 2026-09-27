@@ -36,9 +36,15 @@ public struct MediaRatingAttributes: Codable, Equatable, Hashable, Sendable {
   /// The URI that identifies the rating scheme. It is an optional attribute.
   /// If this attribute is not included, the default scheme is urn:simple (adult | nonadult).
   public var scheme: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case scheme = "@scheme"
+  }
 }
 
 /// This allows the permissible audience to be declared. If this element is not
 /// included, it assumes that no restrictions are necessary. It has one optional
 /// attribute.
-public typealias MediaRating = XMLKit.XMLElement<MediaRatingAttributes>
+public typealias MediaRating = FeedElement<MediaRatingAttributes>

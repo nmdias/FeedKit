@@ -36,8 +36,14 @@ public struct MediaDescriptionAttributes: Codable, Equatable, Hashable, Sendable
   /// Specifies the type of text embedded. Possible values are either "plain" or "html".
   /// Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
   public var type: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+  }
 }
 
 /// Short description describing the media object typically a sentence in
 /// length. It has one optional attribute.
-public typealias MediaDescription = XMLKit.XMLElement<MediaDescriptionAttributes>
+public typealias MediaDescription = FeedElement<MediaDescriptionAttributes>

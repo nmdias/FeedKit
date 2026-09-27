@@ -25,7 +25,6 @@
 import Foundation
 import Testing
 
-@Suite("Keywords")
 struct KeywordsTests: FeedKitTestable {
   @Test
   func validKeywords() {

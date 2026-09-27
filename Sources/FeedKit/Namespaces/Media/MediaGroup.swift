@@ -107,13 +107,13 @@ extension MediaGroup: Hashable {}
 
 extension MediaGroup: Codable {
   private enum CodingKeys: String, CodingKey {
-    case contents = "media:content"
-    case credits = "media:credit"
-    case category = "media:category"
-    case rating = "media:rating"
-    case description = "media:description"
-    case thumbnails = "media:thumbnail"
-    case community = "media:community"
+    case contents = "http://search.yahoo.com/mrss/ content"
+    case credits = "http://search.yahoo.com/mrss/ credit"
+    case category = "http://search.yahoo.com/mrss/ category"
+    case rating = "http://search.yahoo.com/mrss/ rating"
+    case description = "http://search.yahoo.com/mrss/ description"
+    case thumbnails = "http://search.yahoo.com/mrss/ thumbnail"
+    case community = "http://search.yahoo.com/mrss/ community"
   }
 
   public init(from decoder: any Decoder) throws {

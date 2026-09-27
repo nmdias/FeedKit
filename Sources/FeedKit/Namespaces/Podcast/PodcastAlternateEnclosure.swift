@@ -43,6 +43,13 @@ public struct PodcastSourceAttributes: Codable, Equatable, Hashable, Sendable {
   /// The mime-type of the file, useful when the transport mechanism differs
   /// from the file being delivered, as is the case with torrents.
   public var contentType: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case uri = "@uri"
+    case contentType = "@contentType"
+  }
 }
 
 /// A uri location for a `<podcast:alternateEnclosure>` media file.
@@ -53,7 +60,7 @@ public struct PodcastSourceAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/source.md
-public typealias PodcastSource = XMLAttributesElement<PodcastSourceAttributes>
+public typealias PodcastSource = FeedAttributesElement<PodcastSourceAttributes>
 
 // MARK: - Integrity
 
@@ -73,6 +80,13 @@ public struct PodcastIntegrityAttributes: Codable, Equatable, Hashable, Sendable
 
   /// The SRI string, or the base64 encoded PGP signature.
   public var value: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+    case value = "@value"
+  }
 }
 
 /// A method of verifying the integrity of the media given either an
@@ -84,7 +98,7 @@ public struct PodcastIntegrityAttributes: Codable, Equatable, Hashable, Sendable
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/integrity.md
-public typealias PodcastIntegrity = XMLAttributesElement<PodcastIntegrityAttributes>
+public typealias PodcastIntegrity = FeedAttributesElement<PodcastIntegrityAttributes>
 
 // MARK: - Alternate Enclosure
 
@@ -147,15 +161,15 @@ public struct PodcastAlternateEnclosureAttributes: Codable, Equatable, Hashable,
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case type
-    case length
-    case bitrate
-    case height
-    case lang
-    case title
-    case rel
-    case codecs
-    case isDefault = "default"
+    case type = "@type"
+    case length = "@length"
+    case bitrate = "@bitrate"
+    case height = "@height"
+    case lang = "@lang"
+    case title = "@title"
+    case rel = "@rel"
+    case codecs = "@codecs"
+    case isDefault = "@default"
   }
 }
 
@@ -200,10 +214,7 @@ public struct PodcastAlternateEnclosure: Codable, Equatable, Hashable, Sendable 
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    let attributes: PodcastAlternateEnclosureAttributes? = try container.decodeIfPresent(
-      PodcastAlternateEnclosureAttributes.self,
-      forKey: CodingKeys.attributes
-    )
+    let attributes: PodcastAlternateEnclosureAttributes? = try decoder.decodeFeedAttributes(PodcastAlternateEnclosureAttributes.self)
 
     type = attributes?.type
     length = attributes?.length
@@ -257,7 +268,7 @@ public struct PodcastAlternateEnclosure: Codable, Equatable, Hashable, Sendable 
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(PodcastAlternateEnclosureAttributes(
+    try PodcastAlternateEnclosureAttributes(
       type: type,
       length: length,
       bitrate: bitrate,
@@ -267,7 +278,7 @@ public struct PodcastAlternateEnclosure: Codable, Equatable, Hashable, Sendable 
       rel: rel,
       codecs: codecs,
       isDefault: isDefault
-    ), forKey: CodingKeys.attributes)
+    ).encode(to: encoder)
     try container.encodeIfPresent(sources, forKey: CodingKeys.sources)
     try container.encodeIfPresent(integrity, forKey: CodingKeys.integrity)
   }
@@ -275,8 +286,7 @@ public struct PodcastAlternateEnclosure: Codable, Equatable, Hashable, Sendable 
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
-    case sources = "podcast:source"
-    case integrity = "podcast:integrity"
+    case sources = "https://podcastindex.org/namespace/1.0 source"
+    case integrity = "https://podcastindex.org/namespace/1.0 integrity"
   }
 }

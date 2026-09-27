@@ -67,7 +67,9 @@ public struct FeedHistory {
 
 // MARK: - XMLNamespaceDecodable
 
-extension FeedHistory: XMLNamespaceCodable {}
+extension FeedHistory: FeedNamespaceDecodable {
+  public static let namespacePrefix = "fh"
+}
 
 // MARK: - Sendable
 
@@ -85,8 +87,8 @@ extension FeedHistory: Hashable {}
 
 extension FeedHistory: Codable {
   private enum CodingKeys: String, CodingKey {
-    case isComplete = "fh:complete"
-    case isArchive = "fh:archive"
+    case isComplete = "http://purl.org/syndication/history/1.0 complete"
+    case isArchive = "http://purl.org/syndication/history/1.0 archive"
   }
 
   public init(from decoder: any Decoder) throws {

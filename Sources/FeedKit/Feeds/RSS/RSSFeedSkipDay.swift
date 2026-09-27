@@ -85,7 +85,7 @@ extension RSSFeedSkipDays: Hashable {}
 // MARK: - Codable
 
 extension RSSFeedSkipDays: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case day
   }
 

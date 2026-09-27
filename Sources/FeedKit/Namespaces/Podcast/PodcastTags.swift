@@ -39,6 +39,12 @@ public struct PodcastLockedAttributes: Codable, Equatable, Hashable, Sendable {
   /// An email address that can be used to verify ownership of this feed
   /// during move and import operations.
   public var owner: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case owner = "@owner"
+  }
 }
 
 /// Tells other podcast hosting platforms whether they are allowed to import
@@ -61,10 +67,7 @@ public struct PodcastLocked: Codable, Equatable, Hashable, Sendable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    let attributes: PodcastLockedAttributes? = try container.decodeIfPresent(
-      PodcastLockedAttributes.self,
-      forKey: CodingKeys.attributes
-    )
+    let attributes: PodcastLockedAttributes? = try decoder.decodeFeedAttributes(PodcastLockedAttributes.self)
 
     locked = try container.decodeIfPresent(String.self, forKey: CodingKeys.locked)
     owner = attributes?.owner
@@ -84,14 +87,13 @@ public struct PodcastLocked: Codable, Equatable, Hashable, Sendable {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
     try container.encodeIfPresent(locked, forKey: CodingKeys.locked)
-    try container.encodeIfPresent(PodcastLockedAttributes(owner: owner), forKey: CodingKeys.attributes)
+    try PodcastLockedAttributes(owner: owner).encode(to: encoder)
   }
 
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case locked = "@text"
-    case attributes = "@attributes"
+    case locked = "#text"
   }
 }
 
@@ -111,6 +113,12 @@ public struct PodcastBlockAttributes: Codable, Equatable, Hashable, Sendable {
   ///
   /// Example: `google`
   public var id: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case id = "@id"
+  }
 }
 
 /// Expresses which platforms are allowed to publicly display this feed and
@@ -132,10 +140,7 @@ public struct PodcastBlock: Codable, Equatable, Hashable, Sendable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    let attributes: PodcastBlockAttributes? = try container.decodeIfPresent(
-      PodcastBlockAttributes.self,
-      forKey: CodingKeys.attributes
-    )
+    let attributes: PodcastBlockAttributes? = try decoder.decodeFeedAttributes(PodcastBlockAttributes.self)
 
     block = try container.decodeIfPresent(String.self, forKey: CodingKeys.block)
     id = attributes?.id
@@ -154,14 +159,13 @@ public struct PodcastBlock: Codable, Equatable, Hashable, Sendable {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
     try container.encodeIfPresent(block, forKey: CodingKeys.block)
-    try container.encodeIfPresent(PodcastBlockAttributes(id: id), forKey: CodingKeys.attributes)
+    try PodcastBlockAttributes(id: id).encode(to: encoder)
   }
 
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case block = "@text"
-    case attributes = "@attributes"
+    case block = "#text"
   }
 }
 
@@ -180,7 +184,7 @@ public struct PodcastCompleteAttributes: Codable, Equatable, Hashable, Sendable 
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace
-public typealias PodcastComplete = XMLAttributesElement<PodcastCompleteAttributes>
+public typealias PodcastComplete = FeedAttributesElement<PodcastCompleteAttributes>
 
 // MARK: - Text
 
@@ -198,6 +202,12 @@ public struct PodcastTextAttributes: Codable, Equatable, Hashable, Sendable {
   ///
   /// Known values include `verify`, `applepodcastsverify` and `ai-content`.
   public var purpose: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case purpose = "@purpose"
+  }
 }
 
 /// Free-form text modeled after the DNS "TXT" record.
@@ -208,7 +218,7 @@ public struct PodcastTextAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/txt.md
-public typealias PodcastText = XMLKit.XMLElement<PodcastTextAttributes>
+public typealias PodcastText = FeedElement<PodcastTextAttributes>
 
 // MARK: - Person
 
@@ -247,6 +257,15 @@ public struct PodcastPersonAttributes: Codable, Equatable, Hashable, Sendable {
   /// The url to a relevant resource of information about the person, such as a
   /// homepage or third-party profile platform.
   public var href: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case role = "@role"
+    case group = "@group"
+    case img = "@img"
+    case href = "@href"
+  }
 }
 
 /// A person of interest to the podcast, such as a host, co-host or guest.
@@ -257,7 +276,7 @@ public struct PodcastPersonAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/person.md
-public typealias PodcastPerson = XMLKit.XMLElement<PodcastPersonAttributes>
+public typealias PodcastPerson = FeedElement<PodcastPersonAttributes>
 
 // MARK: - Location
 
@@ -295,6 +314,15 @@ public struct PodcastLocationAttributes: Codable, Equatable, Hashable, Sendable 
 
   /// A two-letter code for the country, following ISO 3166-1 alpha-2.
   public var country: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case rel = "@rel"
+    case geo = "@geo"
+    case osm = "@osm"
+    case country = "@country"
+  }
 }
 
 /// The location of editorial focus, or the source of production, for a
@@ -306,7 +334,7 @@ public struct PodcastLocationAttributes: Codable, Equatable, Hashable, Sendable 
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/location.md
-public typealias PodcastLocation = XMLKit.XMLElement<PodcastLocationAttributes>
+public typealias PodcastLocation = FeedElement<PodcastLocationAttributes>
 
 // MARK: - Season
 
@@ -323,6 +351,12 @@ public struct PodcastSeasonAttributes: Codable, Equatable, Hashable, Sendable {
   /// The "name" of the season. When present, applications are free not to show
   /// the season number and may use it only for sorting and grouping.
   public var name: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case name = "@name"
+  }
 }
 
 /// Identifies which episodes in a podcast are part of a particular season.
@@ -343,10 +377,7 @@ public struct PodcastSeason: Codable, Equatable, Hashable, Sendable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    let attributes: PodcastSeasonAttributes? = try container.decodeIfPresent(
-      PodcastSeasonAttributes.self,
-      forKey: CodingKeys.attributes
-    )
+    let attributes: PodcastSeasonAttributes? = try decoder.decodeFeedAttributes(PodcastSeasonAttributes.self)
 
     number = try container.decodeIfPresent(String.self, forKey: CodingKeys.number).flatMap(Int.init)
     name = attributes?.name
@@ -364,14 +395,13 @@ public struct PodcastSeason: Codable, Equatable, Hashable, Sendable {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
     try container.encodeIfPresent(number.map(String.init), forKey: CodingKeys.number)
-    try container.encodeIfPresent(PodcastSeasonAttributes(name: name), forKey: CodingKeys.attributes)
+    try PodcastSeasonAttributes(name: name).encode(to: encoder)
   }
 
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case number = "@text"
-    case attributes = "@attributes"
+    case number = "#text"
   }
 }
 
@@ -392,6 +422,12 @@ public struct PodcastEpisodeAttributes: Codable, Equatable, Hashable, Sendable {
   ///
   /// Example: `Ch.3`
   public var display: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case display = "@display"
+  }
 }
 
 /// The episode number, which exists largely for compatibility with the
@@ -416,10 +452,7 @@ public struct PodcastEpisode: Codable, Equatable, Hashable, Sendable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    let attributes: PodcastEpisodeAttributes? = try container.decodeIfPresent(
-      PodcastEpisodeAttributes.self,
-      forKey: CodingKeys.attributes
-    )
+    let attributes: PodcastEpisodeAttributes? = try decoder.decodeFeedAttributes(PodcastEpisodeAttributes.self)
 
     number = try container.decodeIfPresent(String.self, forKey: CodingKeys.number).flatMap(Double.init)
     display = attributes?.display
@@ -437,14 +470,13 @@ public struct PodcastEpisode: Codable, Equatable, Hashable, Sendable {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
     try container.encodeIfPresent(number.map { "\($0)" }, forKey: CodingKeys.number)
-    try container.encodeIfPresent(PodcastEpisodeAttributes(display: display), forKey: CodingKeys.attributes)
+    try PodcastEpisodeAttributes(display: display).encode(to: encoder)
   }
 
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case number = "@text"
-    case attributes = "@attributes"
+    case number = "#text"
   }
 }
 
@@ -462,6 +494,12 @@ public struct PodcastFundingAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// The URL to be followed to fund the podcast.
   public var url: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+  }
 }
 
 /// A possible donation or funding link for the podcast.
@@ -475,7 +513,7 @@ public struct PodcastFundingAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/funding.md
-public typealias PodcastFunding = XMLKit.XMLElement<PodcastFundingAttributes>
+public typealias PodcastFunding = FeedElement<PodcastFundingAttributes>
 
 // MARK: - Chapters
 
@@ -497,6 +535,13 @@ public struct PodcastChaptersAttributes: Codable, Equatable, Hashable, Sendable 
   ///
   /// Example: `application/json+chapters`
   public var type: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+    case type = "@type"
+  }
 }
 
 /// Links to an external file containing chapter data for the episode.
@@ -507,7 +552,7 @@ public struct PodcastChaptersAttributes: Codable, Equatable, Hashable, Sendable 
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/chapters.md
-public typealias PodcastChapters = XMLAttributesElement<PodcastChaptersAttributes>
+public typealias PodcastChapters = FeedAttributesElement<PodcastChaptersAttributes>
 
 // MARK: - Soundbite
 
@@ -527,6 +572,13 @@ public struct PodcastSoundbiteAttributes: Codable, Equatable, Hashable, Sendable
 
   /// How long the soundbite is, recommended between 15 and 120 seconds.
   public var duration: TimeInterval?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case startTime = "@startTime"
+    case duration = "@duration"
+  }
 }
 
 /// Points to a soundbite within a podcast episode.
@@ -539,7 +591,7 @@ public struct PodcastSoundbiteAttributes: Codable, Equatable, Hashable, Sendable
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/soundbite.md
-public typealias PodcastSoundbite = XMLKit.XMLElement<PodcastSoundbiteAttributes>
+public typealias PodcastSoundbite = FeedElement<PodcastSoundbiteAttributes>
 
 // MARK: - Trailer
 
@@ -577,6 +629,16 @@ public struct PodcastTrailerAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// The season number this trailer is for.
   public var season: Int?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+    case pubdate = "@pubdate"
+    case length = "@length"
+    case type = "@type"
+    case season = "@season"
+  }
 }
 
 /// The location of an audio or video file to be used as a trailer for the
@@ -590,7 +652,7 @@ public struct PodcastTrailerAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/trailer.md
-public typealias PodcastTrailer = XMLKit.XMLElement<PodcastTrailerAttributes>
+public typealias PodcastTrailer = FeedElement<PodcastTrailerAttributes>
 
 // MARK: - License
 
@@ -608,6 +670,12 @@ public struct PodcastLicenseAttributes: Codable, Equatable, Hashable, Sendable {
   ///
   /// Optional for well-known public licenses, required for custom ones.
   public var url: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+  }
 }
 
 /// A license applied to the audio/video content of a single episode or of the
@@ -622,7 +690,7 @@ public struct PodcastLicenseAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/license.md
-public typealias PodcastLicense = XMLKit.XMLElement<PodcastLicenseAttributes>
+public typealias PodcastLicense = FeedElement<PodcastLicenseAttributes>
 
 // MARK: - Update Frequency
 
@@ -648,6 +716,14 @@ public struct PodcastUpdateFrequencyAttributes: Codable, Equatable, Hashable, Se
   ///
   /// Example: `FREQ=WEEKLY;INTERVAL=2`
   public var rrule: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case complete = "@complete"
+    case dtstart = "@dtstart"
+    case rrule = "@rrule"
+  }
 }
 
 /// The intended release schedule, as structured data and text.
@@ -658,7 +734,7 @@ public struct PodcastUpdateFrequencyAttributes: Codable, Equatable, Hashable, Se
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/update-frequency.md
-public typealias PodcastUpdateFrequency = XMLKit.XMLElement<PodcastUpdateFrequencyAttributes>
+public typealias PodcastUpdateFrequency = FeedElement<PodcastUpdateFrequencyAttributes>
 
 // MARK: - Podping
 
@@ -675,6 +751,12 @@ public struct PodcastPodpingAttributes: Codable, Equatable, Hashable, Sendable {
   /// Whether the feed owner sends out Podping notifications when the feed
   /// changes.
   public var usesPodping: Bool?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case usesPodping = "@usesPodping"
+  }
 }
 
 /// Signals to aggregators that the feed sends out Podping notifications when
@@ -686,7 +768,7 @@ public struct PodcastPodpingAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/podping.md
-public typealias PodcastPodping = XMLAttributesElement<PodcastPodpingAttributes>
+public typealias PodcastPodping = FeedAttributesElement<PodcastPodpingAttributes>
 
 // MARK: - Content Link
 
@@ -702,6 +784,12 @@ public struct PodcastContentLinkAttributes: Codable, Equatable, Hashable, Sendab
 
   /// The uri pointing to content outside of the application.
   public var href: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case href = "@href"
+  }
 }
 
 /// Indicates that the content being delivered can be found at an external
@@ -715,7 +803,7 @@ public struct PodcastContentLinkAttributes: Codable, Equatable, Hashable, Sendab
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/content-link.md
-public typealias PodcastContentLink = XMLKit.XMLElement<PodcastContentLinkAttributes>
+public typealias PodcastContentLink = FeedElement<PodcastContentLinkAttributes>
 
 // MARK: - Social Interact
 
@@ -763,11 +851,11 @@ public struct PodcastSocialInteractAttributes: Codable, Equatable, Hashable, Sen
   /// The attribute spellings of the specification differ from the Swift names
   /// for the account, so they are pinned explicitly.
   private enum CodingKeys: String, CodingKey {
-    case `protocol`
-    case uri
-    case accountID = "accountId"
-    case accountURL = "accountUrl"
-    case priority
+    case `protocol` = "@protocol"
+    case uri = "@uri"
+    case accountID = "@accountId"
+    case accountURL = "@accountUrl"
+    case priority = "@priority"
   }
 }
 
@@ -780,7 +868,7 @@ public struct PodcastSocialInteractAttributes: Codable, Equatable, Hashable, Sen
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/social-interact.md
-public typealias PodcastSocialInteract = XMLAttributesElement<PodcastSocialInteractAttributes>
+public typealias PodcastSocialInteract = FeedAttributesElement<PodcastSocialInteractAttributes>
 
 // MARK: - Chat
 
@@ -818,10 +906,10 @@ public struct PodcastChatAttributes: Codable, Equatable, Hashable, Sendable {
   /// The attribute spelling of the specification differs from the Swift name
   /// for the account, so it is pinned explicitly.
   private enum CodingKeys: String, CodingKey {
-    case server
-    case `protocol`
-    case accountID = "accountId"
-    case space
+    case server = "@server"
+    case `protocol` = "@protocol"
+    case accountID = "@accountId"
+    case space = "@space"
   }
 }
 
@@ -834,4 +922,4 @@ public struct PodcastChatAttributes: Codable, Equatable, Hashable, Sendable {
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/chat.md
-public typealias PodcastChat = XMLAttributesElement<PodcastChatAttributes>
+public typealias PodcastChat = FeedAttributesElement<PodcastChatAttributes>

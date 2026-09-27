@@ -50,7 +50,7 @@ extension RSSFeedSkipHours: Hashable {}
 // MARK: - Codable
 
 extension RSSFeedSkipHours: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case hour
   }
 

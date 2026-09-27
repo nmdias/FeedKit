@@ -53,7 +53,7 @@ extension MediaBackLinks: Hashable {}
 
 extension MediaBackLinks: Codable {
   private enum CodingKeys: String, CodingKey {
-    case backLink = "media:backLink"
+    case backLink = "http://search.yahoo.com/mrss/ backLink"
   }
 
   public init(from decoder: any Decoder) throws {

@@ -53,7 +53,7 @@ extension MediaComments: Hashable {}
 
 extension MediaComments: Codable {
   private enum CodingKeys: String, CodingKey {
-    case comment = "media:comment"
+    case comment = "http://search.yahoo.com/mrss/ comment"
   }
 
   public init(from decoder: any Decoder) throws {

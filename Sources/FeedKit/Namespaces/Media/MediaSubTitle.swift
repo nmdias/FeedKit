@@ -47,8 +47,16 @@ public struct MediaSubTitleAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// The location of the subtitle.
   public var href: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+    case lang = "@lang"
+    case href = "@href"
+  }
 }
 
 /// Optional link to specify the machine-readable license associated with the
 /// content.
-public typealias MediaSubTitle = XMLAttributesElement<MediaSubTitleAttributes>
+public typealias MediaSubTitle = FeedAttributesElement<MediaSubTitleAttributes>

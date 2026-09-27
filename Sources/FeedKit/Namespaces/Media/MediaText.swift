@@ -63,6 +63,15 @@ public struct MediaTextAttributes: Codable, Equatable, Hashable, Sendable {
   /// time is either the end of the clip or the start of the next
   /// <media:text> element.
   public var end: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+    case lang = "@lang"
+    case start = "@start"
+    case end = "@end"
+  }
 }
 
 /// Allows the inclusion of a text transcript, closed captioning or lyrics of
@@ -71,4 +80,4 @@ public struct MediaTextAttributes: Codable, Equatable, Hashable, Sendable {
 /// elements be grouped by language and appear in time sequence order based on
 /// the start time. Elements can have overlapping start and end times. It has
 /// four optional attributes.
-public typealias MediaText = XMLKit.XMLElement<MediaTextAttributes>
+public typealias MediaText = FeedElement<MediaTextAttributes>

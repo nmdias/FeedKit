@@ -59,7 +59,9 @@ public struct CommentAPI {
 
 // MARK: - XMLNamespaceDecodable
 
-extension CommentAPI: XMLNamespaceCodable {}
+extension CommentAPI: FeedNamespaceDecodable {
+  public static let namespacePrefix = "wfw"
+}
 
 // MARK: - Sendable
 
@@ -77,12 +79,12 @@ extension CommentAPI: Hashable {}
 
 extension CommentAPI: Codable {
   private enum CodingKeys: String, CodingKey {
-    case comment = "wfw:comment"
-    case commentRss = "wfw:commentRss"
+    case comment = "http://wellformedweb.org/CommentAPI/ comment"
+    case commentRss = "http://wellformedweb.org/CommentAPI/ commentRss"
     /// Some feeds spell the element with a capitalized acronym. The
     /// specification asks readers to accept both spellings, so this is read
     /// but never written.
-    case commentRssCapitalized = "wfw:commentRSS"
+    case commentRssCapitalized = "http://wellformedweb.org/CommentAPI/ commentRSS"
   }
 
   public init(from decoder: any Decoder) throws {
