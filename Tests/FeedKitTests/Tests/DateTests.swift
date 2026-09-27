@@ -43,13 +43,13 @@ struct DateTests {
   @Test
   func rfc3339() throws {
     // Given
-    let formatter: FeedDateFormatter = .init(spec: .rfc3339)
+    let spec: DateSpec = .rfc3339
     let dateString = "2016-01-15T15:54:10-01:00"
 
     let expected: DateComponents = .init(year: 2016, month: 1, day: 15, hour: 16, minute: 54, second: 10)
 
     // When
-    let date = formatter.date(from: dateString)
+    let date: Date? = FeedDateCoder.date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -59,7 +59,7 @@ struct DateTests {
   @Test
   func rfc3339Spec() {
     // Given
-    let formatter: FeedDateFormatter = .init(spec: .rfc3339)
+    let spec: DateSpec = .rfc3339
     let dateStrings = [
       "2016-06-05T09:30:01Z",
       "2016-06-05T03:18:00Z",
@@ -77,7 +77,7 @@ struct DateTests {
 
     // When
     let dates = dateStrings.compactMap { dateString -> Date? in
-      formatter.date(from: dateString)
+      FeedDateCoder.date(from: dateString, spec: spec)
     }
 
     // Then
@@ -89,13 +89,13 @@ struct DateTests {
   @Test
   func rfc822() throws {
     // Given
-    let formatter: FeedDateFormatter = .init(spec: .rfc822)
+    let spec: DateSpec = .rfc822
     let dateString = "Tue, 04 Feb 2014 22:03:45 Z"
 
     let expected: DateComponents = .init(year: 2014, month: 2, day: 4, hour: 22, minute: 3, second: 45)
 
     // When
-    let date = formatter.date(from: dateString)
+    let date: Date? = FeedDateCoder.date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -105,7 +105,7 @@ struct DateTests {
   @Test
   func rfc822Spec() {
     // Given
-    let formatter: FeedDateFormatter = .init(spec: .rfc822)
+    let spec: DateSpec = .rfc822
     let dateStrings = [
       "Tue, 04 Feb 2014 22:10:15 Z",
       "Sun, 05 Jun 2016 08:35:14 Z",
@@ -127,7 +127,7 @@ struct DateTests {
 
     // When
     let dates = dateStrings.compactMap { dateString -> Date? in
-      formatter.date(from: dateString)
+      FeedDateCoder.date(from: dateString, spec: spec)
     }
 
     // Then
@@ -139,13 +139,13 @@ struct DateTests {
   @Test
   func rfc8601() throws {
     // Given
-    let formatter: FeedDateFormatter = .init(spec: .iso8601)
+    let spec: DateSpec = .iso8601
     let dateString = "1994-11-05T08:15:30-05:00"
 
     let expected: DateComponents = .init(year: 1994, month: 11, day: 5, hour: 13, minute: 15, second: 30)
 
     // When
-    let date = formatter.date(from: dateString)
+    let date: Date? = FeedDateCoder.date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -155,7 +155,7 @@ struct DateTests {
   @Test
   func rfc8601Spec() {
     // Given
-    let formatter: FeedDateFormatter = .init(spec: .iso8601)
+    let spec: DateSpec = .iso8601
     let dateStrings = [
       "1994-11-05T08:15:30-05:00",
       "1994-11-05T08:15:30.00-05:00",
@@ -164,7 +164,7 @@ struct DateTests {
 
     // When
     let dates = dateStrings.compactMap { dateString -> Date? in
-      formatter.date(from: dateString)
+      FeedDateCoder.date(from: dateString, spec: spec)
     }
 
     // Then
@@ -176,13 +176,13 @@ struct DateTests {
   @Test
   func rfc1123() throws {
     // Given
-    let formatter: FeedDateFormatter = .init(spec: .rfc1123)
+    let spec: DateSpec = .rfc1123
     let dateString = "Fri, 06 Sep 2024 12:34:56 GMT"
 
     let expected: DateComponents = .init(year: 2024, month: 9, day: 6, hour: 12, minute: 34, second: 56)
 
     // When
-    let date = formatter.date(from: dateString)
+    let date: Date? = FeedDateCoder.date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -192,7 +192,7 @@ struct DateTests {
   @Test
   func rfc1123Spec() {
     // Given
-    let formatter: FeedDateFormatter = .init(spec: .rfc1123)
+    let spec: DateSpec = .rfc1123
     let dateStrings = [
       "Fri, 06 Sep 2024 12:34:56 GMT",
       "Fri, 06 Sep 2024"
@@ -200,10 +200,132 @@ struct DateTests {
 
     // When
     let dates = dateStrings.compactMap { dateString -> Date? in
-      formatter.date(from: dateString)
+      FeedDateCoder.date(from: dateString, spec: spec)
     }
 
     // Then
     #expect(dateStrings.count == dates.count)
+  }
+
+  // MARK: - Permissive
+
+  /// The family is chosen per value, because feeds mix them: Atom feeds carry
+  /// RFC 822 dates and RSS feeds carry ISO ones, sometimes item by item.
+  @Test
+  func permissiveMixesFamiliesInOneFeed() {
+    // Given
+    let dateStrings = [
+      "2005-07-31T12:29:29Z",
+      "Fri, 30 May 2003 11:06:42 GMT",
+      "2003-12-13T08:29:29-04:00",
+      "Sun, 5 Jun 2016 08:54 +0000",
+      "2000-01-01T12:00+00:00",
+      "Sat, 04 Jun 2016 16:26:37 EDT"
+    ]
+
+    // When
+    let dates = dateStrings.compactMap { FeedDateCoder.date(from: $0) }
+
+    // Then
+    #expect(dateStrings.count == dates.count)
+  }
+
+  /// RFC 822 allows the weekday to be spelled out in full, and feeds write
+  /// "Tues" and "Thurs" as well as the three-letter form.
+  @Test
+  func weekdaySpelledOutInFull() throws {
+    // Given
+    let dateString = "Tues, 6 November 2007 12:00:00 GMT"
+    let expected: DateComponents = .init(year: 2007, month: 11, day: 6, hour: 12, minute: 0, second: 0)
+
+    // When
+    let date: Date? = FeedDateCoder.date(from: dateString)
+    let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  /// The formatters are immutable values held in `static` caches, so reading
+  /// dates at the same time from several tasks gives each task the same answers
+  /// as reading them one after another.
+  @Test
+  func parsingIsSafeToShare() async {
+    // Given
+    let dateStrings = [
+      "2005-07-31T12:29:29Z",
+      "Fri, 30 May 2003 11:06:42 GMT",
+      "Sun, 5 Jun 2016 08:54 +0000",
+      "1985-04-12T23:20:50.52Z",
+      "Fri, 05 Oct 2007 09:00:00 CST"
+    ]
+    let expected = dateStrings.map { FeedDateCoder.date(from: $0) }
+
+    // When
+    let actual = await withTaskGroup(of: (Int, Date?).self) { group in
+      for _ in 0 ..< 200 {
+        for (index, dateString) in dateStrings.enumerated() {
+          group.addTask { (index, FeedDateCoder.date(from: dateString)) }
+        }
+      }
+
+      var results: [Int: Date?] = [:]
+      for await (index, date) in group {
+        results[index] = date
+      }
+      return dateStrings.indices.map { results[$0] ?? nil }
+    }
+
+    // Then
+    #expect(expected == actual)
+  }
+
+  // MARK: - Documents
+
+  /// A date the library cannot read is a defect in the document, and the
+  /// reader hears about it rather than reading the feed with a silent hole in
+  /// it.
+  @Test
+  func unreadableDateFailsTheDocument() {
+    // Given
+    let xml = """
+    <?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0">
+      <channel>
+        <title>Title</title>
+        <link>https://example.com</link>
+        <description>Description</description>
+        <pubDate>hourly</pubDate>
+      </channel>
+    </rss>
+    """
+
+    // Then
+    #expect(throws: (any Error).self) {
+      try RSSFeed(data: Data(xml.utf8))
+    }
+  }
+
+  /// A date that is not there at all is not a defect.
+  @Test
+  func absentDateIsNil() throws {
+    // Given
+    let xml = """
+    <?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0">
+      <channel>
+        <title>Title</title>
+        <link>https://example.com</link>
+        <description>Description</description>
+        <pubDate/>
+      </channel>
+    </rss>
+    """
+
+    // When
+    let feed = try RSSFeed(data: Data(xml.utf8))
+
+    // Then
+    #expect(feed.channel?.pubDate == nil)
   }
 }

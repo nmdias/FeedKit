@@ -34,8 +34,8 @@ extension RSSTests {
         copyright: "Copyright 2015, Iris News",
         managingEditor: "john.appleseed.editor@iris.example (John Appleseed)",
         webMaster: "john.appleseed.master@iris.example (John Appleseed)",
-        pubDate: FeedDateFormatter(spec: .rfc822).date(from: "Sun, 16 Aug 2015 05:00:00 GMT"),
-        lastBuildDate: FeedDateFormatter(spec: .rfc822).date(from: "Sun, 16 Aug 2015 18:18:55 GMT"),
+        pubDate: FeedDateCoder.date(from: "Sun, 16 Aug 2015 05:00:00 GMT", spec: .rfc822),
+        lastBuildDate: FeedDateCoder.date(from: "Sun, 16 Aug 2015 18:18:55 GMT", spec: .rfc822),
         categories: [
           .init(
             text: "Media"
@@ -120,7 +120,7 @@ extension RSSTests {
                 isPermaLink: false
               )
             ),
-            pubDate: FeedDateFormatter(spec: .rfc822).date(from: "Fri, 05 Oct 2007 09:00:00 CST"),
+            pubDate: FeedDateCoder.date(from: "Fri, 05 Oct 2007 09:00:00 CST", spec: .rfc822),
             source: .init(
               text: "Los Angeles Herald-Examiner",
               attributes: .init(
@@ -158,7 +158,7 @@ extension RSSTests {
                 isPermaLink: true
               )
             ),
-            pubDate: FeedDateFormatter(spec: .rfc822).date(from: "Fri, 05 Oct 2007 09:00:00 CST"),
+            pubDate: FeedDateCoder.date(from: "Fri, 05 Oct 2007 09:00:00 CST", spec: .rfc822),
             source: .init(
               text: "Los Angeles Herald-Examiner",
               attributes: .init(

@@ -97,7 +97,7 @@ extension Syndication: Codable {
 
     updatePeriod = try container.decodeIfPresent(SyndicationUpdatePeriod.self, forKey: CodingKeys.updatePeriod)
     updateFrequency = try container.decodeIfPresent(Int.self, forKey: CodingKeys.updateFrequency)
-    updateBase = try container.decodeIfPresent(Date.self, forKey: CodingKeys.updateBase)
+    updateBase = try container.decodeFeedDate(forKey: CodingKeys.updateBase)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -105,6 +105,6 @@ extension Syndication: Codable {
 
     try container.encodeIfPresent(updatePeriod, forKey: CodingKeys.updatePeriod)
     try container.encodeIfPresent(updateFrequency, forKey: CodingKeys.updateFrequency)
-    try container.encodeIfPresent(updateBase, forKey: CodingKeys.updateBase)
+    try container.encodeFeedDate(updateBase, forKey: CodingKeys.updateBase, spec: .rfc3339)
   }
 }

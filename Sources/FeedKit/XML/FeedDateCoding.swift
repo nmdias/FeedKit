@@ -26,45 +26,29 @@ import XMLKit
 
 /// Feed documents have no fixed date format: RSS 2.0 says RFC 822, Atom says
 /// RFC 3339, RSS 1.0 says W3CDTF, and publishers use all of them plus their own
-/// variations. The permissive formatter accepts every format FeedKit has seen in
-/// the wild, and this conformance is what puts it on XMLKit's decoding path so
-/// that every `Date` property in the models is read with it.
+/// variations. `FeedDateCoder` accepts every format FeedKit has seen in the
+/// wild, and this conformance is what puts it on XMLKit's decoding path so that
+/// a `Date` decoded straight from an element is read with it.
 extension Date: XMLScalarDecodable {
   /// Creates a date from an element's text.
   ///
   /// - Parameter xmlText: The element's text, already trimmed.
   /// - Returns: The date, or `nil` when no known format matches.
   public init?(xmlText: String) {
-    guard let date = FeedDateFormatters.permissive.date(from: xmlText) else {
+    guard let date = FeedDateCoder.date(from: xmlText) else {
       return nil
     }
     self = date
   }
 }
 
-/// The formatters FeedKit needs while decoding.
-///
-/// A `DateFormatter` is expensive to build and is not safe to use from two
-/// threads at once. One per thread is the middle ground that the previous
-/// implementation reached with one per decode, without building a formatter for
-/// every date in a document.
-enum FeedDateFormatters {
-  /// The permissive formatter used for every date FeedKit decodes.
-  static var permissive: FeedDateFormatter {
-    let key = "com.feedkit.dateformatter.permissive"
-    let storage = Thread.current.threadDictionary
-    if let existing = storage[key] as? FeedDateFormatter {
-      return existing
-    }
-    let formatter: FeedDateFormatter = .init(spec: .permissive)
-    storage[key] = formatter
-    return formatter
-  }
-}
-
 // MARK: - Encoding
 
-extension FeedDateFormatters {
+/// The patterns and time zone FeedKit writes dates with.
+///
+/// Reading is `FeedDateCoder`'s job; these describe only what the feed
+/// vocabularies require on the way out.
+enum FeedDateFormatters {
   /// The RFC 822 pattern RSS 2.0 documents are written with.
   static let rfc822Pattern = "EEE, d MMM yyyy HH:mm:ss zzz"
 
