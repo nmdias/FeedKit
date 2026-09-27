@@ -285,7 +285,11 @@ final class FeedDateFormatter: DateFormatter, @unchecked Sendable {
     case .rfc1123:
       rfc1123Formatter.date(from: string)
     case .permissive:
-      rfc822Formatter.date(from: string) ??
+      // The formats feeds actually use are parsed directly; the formatter chain
+      // below stays the fallback for the shapes that are not recognised, so an
+      // unusual document behaves exactly as it did. See `FeedDateParser`.
+      FeedDateParser.date(from: string) ??
+        rfc822Formatter.date(from: string) ??
         rfc3339Formatter.date(from: string) ??
         rfc1123Formatter.date(from: string) ??
         iso8601Formatter.date(from: string)
