@@ -24,7 +24,7 @@
 @testable import FeedKit
 import Foundation
 import Testing
-@testable import XMLKit
+import XMLKit
 
 /// Covers `<source:markdown>` elements from the `http://source.scripting.com/`
 /// namespace, as produced by micro.blog feeds such as

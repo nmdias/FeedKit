@@ -24,7 +24,6 @@
 @testable import FeedKit
 import Foundation
 import Testing
-@testable import XMLKit
 
 /// Covers `<enclosure>` attribute parsing, in particular attributes whose
 /// values carry surrounding whitespace, as produced by the feed reported in
