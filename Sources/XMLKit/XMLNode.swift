@@ -57,6 +57,8 @@ class XMLNode: Codable, Equatable, Hashable {
     text = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.text)
     isXhtml = try container.decode(Bool.self, forKey: XMLNode.CodingKeys.isXhtml)
     children = try container.decodeIfPresent([XMLNode].self, forKey: XMLNode.CodingKeys.children)
+    // Set parent for each child, as adding them one at a time would.
+    children?.forEach { $0.parent = self }
   }
 
   // MARK: Internal
@@ -73,12 +75,15 @@ class XMLNode: Codable, Equatable, Hashable {
   var text: String?
 
   /// The child nodes of this node.
-  var children: [XMLNode]? {
-    didSet {
-      // Update the parent reference for all children
-      children?.forEach { $0.parent = self }
-    }
-  }
+  ///
+  /// A child's `parent` is set when the child is added, by `addChild(_:)`, and
+  /// when a node is built around children it already has, by `init(prefix:name:
+  /// text:isXhtml:children:)` and `init(from:)`. It is deliberately not an
+  /// observer on this property: appending is how a document is parsed, one child
+  /// at a time, and re-setting the parent of every child on every append costs a
+  /// walk of all of them per append — quadratic in the number of children, and
+  /// dominated by the weak reference it writes.
+  var children: [XMLNode]?
 
   // MARK: Equatable
 
@@ -152,8 +157,22 @@ class XMLNode: Codable, Equatable, Hashable {
   ///   first child element with that name when none does, or `nil` when the
   ///   receiver has no such child.
   func child(for name: String) -> XMLNode? {
-    let candidates = children?.filter { $0.name == name } ?? []
-    return candidates.first(where: { $0.text?.isEmpty == false }) ?? candidates.first
+    guard let children else {
+      return nil
+    }
+
+    // One walk, no copy of the children: this is the single most called method
+    // in the decoder, which asks it for every key of every element.
+    var first: XMLNode?
+    for child in children where child.name == name {
+      if child.text?.isEmpty == false {
+        return child
+      }
+      if first == nil {
+        first = child
+      }
+    }
+    return first
   }
 
   /// Returns whether the receiver contains any element belonging to the
@@ -162,7 +181,10 @@ class XMLNode: Codable, Equatable, Hashable {
     children?.first(where: { $0.prefix == prefix }) != nil
   }
 
+  /// Adds a child, and points the child back at the receiver.
+  /// - Parameter child: The child node to add.
   func addChild(_ child: XMLNode) {
+    child.parent = self
     if children == nil {
       children = []
     }
