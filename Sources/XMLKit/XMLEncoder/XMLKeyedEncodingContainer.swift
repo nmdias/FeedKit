@@ -22,47 +22,46 @@
 // SOFTWARE.
 
 import Foundation
+import XMLKitCore
 
-class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol {
+/// A keyed encoding container over one element.
+///
+/// Every key of a value that is not `@text` becomes a child element named by the
+/// key, which is what makes XML out of a keyed `Codable` type without any
+/// annotation beyond the two sigils.
+struct XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol {
   // MARK: Lifecycle
 
-  /// Initializes an encoding container for an XML node.
+  /// Initializes a keyed encoding container.
   /// - Parameters:
-  ///   - node: The XML node to encode.
-  ///   - encoder: The XML encoder used for encoding.
-  init(node: XMLNode, encoder: _XMLEncoder) {
-    self.node = node
+  ///   - encoder: The encoder the container writes through.
+  ///   - element: The element the container writes into.
+  init(encoder: _XMLEncoder, element: XMLKitCore.XMLElement) {
     self.encoder = encoder
+    self.element = element
   }
 
   // MARK: Internal
 
   /// The encoder used for encoding XML nodes.
   let encoder: _XMLEncoder
-  /// The current XML node being encoded.
-  let node: XMLNode
+  /// The element being encoded.
+  let element: XMLKitCore.XMLElement
 
   /// The coding path of the current encoding process.
   var codingPath: [any CodingKey] {
     encoder.codingPath
   }
 
-  func box(_ value: some LosslessStringConvertible, for key: Key) {
-    if key.stringValue == "@text" {
-      node.text = "\(value)"
-      return
-    }
-    node.addChild(.init(name: key.stringValue, text: "\(value)"))
-  }
-
   // MARK: -
 
   func encodeNil(forKey _: Key) throws {
-    fatalError()
+    // A `nil` property produces no element. The previous implementation trapped
+    // here, so no document was ever written this way.
   }
 
   func encode(_ value: Bool, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: String, forKey key: Key) throws {
@@ -72,95 +71,151 @@ class XMLKeyedEncodingContainer<Key: CodingKey>: KeyedEncodingContainerProtocol 
   // MARK: - Int
 
   func encode(_ value: Int, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: Int8, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: Int16, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: Int32, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: Int64, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   // MARK: - Unsigned Int
 
   func encode(_ value: UInt, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: UInt8, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: UInt16, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: UInt32, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: UInt64, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   // MARK: - Floating point
 
   func encode(_ value: Float, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   func encode(_ value: Double, forKey key: Key) throws {
-    box(value, for: key)
+    box("\(value)", for: key)
   }
 
   // MARK: - Type
 
   func encode(_ value: some Encodable, forKey key: Key) throws {
-    encoder.codingPath.append(key)
-
-    defer { self.encoder.codingPath.removeLast() }
-    let child = try encoder.box(value)
-    if node !== child {
-      if value is XMLNamespaceCodable {
-        let prefix = child.name
-        let namespaceChildren = child.children
-
-        namespaceChildren?.forEach { namespaceChild in
-          namespaceChild.prefix = prefix
-          node.addChild(namespaceChild)
-        }
-
-      } else {
-        node.addChild(child)
-      }
+    if let date = value as? Date {
+      box(encoder.string(from: date), for: key)
+      return
     }
+
+    let path = codingPath + [key]
+
+    if key.stringValue == XMLKeyConvention.attributesKey {
+      // An element's attributes are one bag, not a child element: encode the bag
+      // into a scratch element and lift each of its children into an attribute of
+      // this one, which is what makes the output well-formed XML.
+      let container = XMLKitCore.XMLElement(name: key.stringValue)
+      try encoder.encodeValue(value, into: container, codingPath: path)
+      for attribute in container.childElements {
+        element.setAttribute(attribute.qualifiedName, value: attribute.text)
+      }
+      return
+    }
+
+    if let repeated = value as? any XMLRepeatedValueEncodable {
+      // A list is the element repeated once per item; no wrapper element is
+      // invented, because a wrapper would change what the document says.
+      try repeated.xmlEncodeRepeated(
+        into: element,
+        named: key.stringValue,
+        encoder: encoder,
+        codingPath: path
+      )
+      return
+    }
+
+    if value is XMLNamespaceCodable {
+      // A namespace container has no element of its own: its members are keyed by
+      // qualified name, and belong directly to the element being encoded.
+      let container = XMLKitCore.XMLElement(name: key.stringValue)
+      try encoder.encodeValue(value, into: container, codingPath: path)
+      for child in container.children {
+        element.appendChild(child)
+      }
+      return
+    }
+
+    let child = XMLKitCore.XMLElement(name: key.stringValue)
+    try encoder.encodeValue(value, into: child, codingPath: path)
+    element.appendChild(child)
   }
 
   // MARK: -
 
-  func nestedContainer<NestedKey: CodingKey>(keyedBy _: NestedKey.Type, forKey _: Key) -> KeyedEncodingContainer<NestedKey> {
-    fatalError()
+  func nestedContainer<NestedKey: CodingKey>(
+    keyedBy _: NestedKey.Type,
+    forKey key: Key
+  ) -> KeyedEncodingContainer<NestedKey> {
+    let child = XMLKitCore.XMLElement(name: key.stringValue)
+    element.appendChild(child)
+    return KeyedEncodingContainer(XMLKeyedEncodingContainer<NestedKey>(encoder: encoder, element: child))
   }
 
-  func nestedUnkeyedContainer(forKey _: Key) -> UnkeyedEncodingContainer {
-    fatalError()
+  func nestedUnkeyedContainer(forKey key: Key) -> any UnkeyedEncodingContainer {
+    let child = XMLKitCore.XMLElement(name: key.stringValue)
+    element.appendChild(child)
+    return XMLUnkeyedEncodingContainer(
+      encoder: _XMLEncoder(
+        element: child,
+        codingPath: codingPath + [key],
+        dateEncodingStrategy: encoder.dateEncodingStrategy
+      ),
+      element: child
+    )
   }
 
   func superEncoder() -> Encoder {
-    fatalError()
+    encoder
   }
 
-  func superEncoder(forKey _: Key) -> Encoder {
-    fatalError()
+  func superEncoder(forKey key: Key) -> Encoder {
+    _XMLEncoder(
+      element: element,
+      codingPath: codingPath + [key],
+      dateEncodingStrategy: encoder.dateEncodingStrategy
+    )
+  }
+
+  // MARK: Private
+
+  /// Writes a scalar as the element's own text, or as a child element.
+  private func box(_ text: String, for key: Key) {
+    if key.stringValue == XMLKeyConvention.textKey {
+      element.text = text
+      return
+    }
+    element.appendChild(XMLKitCore.XMLElement(name: key.stringValue, text: text))
   }
 }

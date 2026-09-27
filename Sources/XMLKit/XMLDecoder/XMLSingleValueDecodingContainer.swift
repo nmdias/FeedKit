@@ -23,13 +23,15 @@
 
 import Foundation
 
-class XMLSingleValueDecodingContainer: SingleValueDecodingContainer {
+/// A container for a value that has no key: an element's text, or an attribute.
+struct XMLSingleValueDecodingContainer: SingleValueDecodingContainer {
   // MARK: Lifecycle
 
-  init(
-    decoder: _XMLDecoder,
-    node: XMLNode
-  ) {
+  /// Initializes a single value decoding container.
+  /// - Parameters:
+  ///   - decoder: The XML decoder used for decoding.
+  ///   - node: The node holding the value.
+  init(decoder: _XMLDecoder, node: XMLDecodingNode) {
     self.decoder = decoder
     self.node = node
   }
@@ -37,9 +39,9 @@ class XMLSingleValueDecodingContainer: SingleValueDecodingContainer {
   // MARK: Internal
 
   /// The XML decoder used for decoding the current element.
-  var decoder: _XMLDecoder
-  /// The current XML element being decoded.
-  var node: XMLNode
+  let decoder: _XMLDecoder
+  /// The node holding the value.
+  let node: XMLDecodingNode
 
   /// The coding path of the current decoding process.
   var codingPath: [any CodingKey] {
@@ -49,80 +51,85 @@ class XMLSingleValueDecodingContainer: SingleValueDecodingContainer {
   // MARK: -
 
   func decodeNil() -> Bool {
-    if
-      node.text?.isEmpty ?? true,
-      node.children?.isEmpty ?? true
-    {
-      return true
+    switch node {
+    case let .element(element):
+      element.xmlKitText(cache: decoder.cache) == nil
+        && element.children.isEmpty
+        && !element.xmlKitHasAttributes
+
+    case .attributes:
+      true
+
+    case let .sequence(elements):
+      elements.isEmpty
     }
-    return false
   }
 
   func decode(_ type: Bool.Type) throws -> Bool {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: String.Type) throws -> String {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   // MARK: - Floating point
 
   func decode(_ type: Float.Type) throws -> Float {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: Double.Type) throws -> Double {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   // MARK: - Int
 
   func decode(_ type: Int.Type) throws -> Int {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: Int8.Type) throws -> Int8 {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: Int16.Type) throws -> Int16 {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: Int32.Type) throws -> Int32 {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: Int64.Type) throws -> Int64 {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   // MARK: - Unsigned Int
 
   func decode(_ type: UInt.Type) throws -> UInt {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: UInt8.Type) throws -> UInt8 {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: UInt16.Type) throws -> UInt16 {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: UInt32.Type) throws -> UInt32 {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   func decode(_ type: UInt64.Type) throws -> UInt64 {
-    try decoder.decode(node, as: type)
+    try decoder.decodeScalar(type, from: node)
   }
 
   // MARK: - Type
 
-  func decode<T: Decodable>(_ type: T.Type) throws -> T {
-    try type.init(from: decoder)
+  func decode<T: Decodable>(_: T.Type) throws -> T {
+    try decoder.decodeValue(T.self)
   }
 }

@@ -22,109 +22,116 @@
 // SOFTWARE.
 
 import Foundation
+import XMLKitCore
 
-class XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
+/// A container for a value with no key: the text of the element being encoded.
+struct XMLSingleValueEncodingContainer: SingleValueEncodingContainer {
   // MARK: Lifecycle
 
-  /// Initializes a container for encoding values to an XML node.
+  /// Initializes a single value encoding container.
   /// - Parameters:
-  ///   - encoder: The XML encoder used for encoding.
-  ///   - node: The XML node to encode values to.
-  ///   - codingPath: The coding path representing the current encoding state.
-  init(encoder: _XMLEncoder, node: XMLNode, codingPath: [any CodingKey]) {
+  ///   - encoder: The encoder used for encoding.
+  ///   - element: The element the value describes.
+  init(encoder: _XMLEncoder, element: XMLKitCore.XMLElement) {
     self.encoder = encoder
-    self.node = node
-    self.codingPath = codingPath
+    self.element = element
   }
 
   // MARK: Internal
 
-  /// The XML encoder used for encoding.
+  /// The encoder used for encoding.
   let encoder: _XMLEncoder
-  /// The XML node being encoded.
-  let node: XMLNode
-  /// The coding path of the current encoding process.
-  var codingPath: [any CodingKey]
+  /// The element being encoded.
+  let element: XMLKitCore.XMLElement
 
-  func box(_ value: some LosslessStringConvertible) -> XMLNode {
-    .init(
-      name: encoder.currentKey,
-      text: "\(value)"
-    )
+  /// The coding path of the current encoding process.
+  var codingPath: [any CodingKey] {
+    encoder.codingPath
   }
 
   // MARK: -
 
   func encodeNil() throws {
-    fatalError()
+    // A `nil` value produces no text; see
+    // ``XMLKeyedEncodingContainer/encodeNil(forKey:)``.
   }
 
   func encode(_ value: Bool) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: String) throws {
-    encoder.stack.push(box(value))
+    box(value)
   }
 
   // MARK: - Int
 
   func encode(_ value: Int) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: Int8) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: Int16) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: Int32) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: Int64) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   // MARK: - Unsigned Int
 
   func encode(_ value: UInt) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: UInt8) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: UInt16) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: UInt32) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: UInt64) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   // MARK: - Floating point
 
   func encode(_ value: Float) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
   func encode(_ value: Double) throws {
-    encoder.stack.push(box(value))
+    box("\(value)")
   }
 
-  // MARK: - Encode Type
+  // MARK: - Type
 
   func encode(_ value: some Encodable) throws {
-    let some = try encoder.box(value)
-    encoder.stack.push(some)
+    if let date = value as? Date {
+      box(encoder.string(from: date))
+      return
+    }
+    try encoder.encodeValue(value, into: element, codingPath: codingPath)
+  }
+
+  // MARK: Private
+
+  /// Writes the value as the element's text.
+  private func box(_ text: String) {
+    element.text = text
   }
 }

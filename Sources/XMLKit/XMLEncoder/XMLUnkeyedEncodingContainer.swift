@@ -22,130 +22,177 @@
 // SOFTWARE.
 
 import Foundation
+import XMLKitCore
 
-class XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
+/// An unkeyed encoding container that appends one sibling element per value.
+struct XMLUnkeyedEncodingContainer: UnkeyedEncodingContainer {
   // MARK: Lifecycle
 
-  /// Initializes a value encoding container for an XML node.
+  /// Initializes the container.
   /// - Parameters:
-  ///   - node: The XML node to encode values to.
-  ///   - encoder: The XML encoder used for encoding.
-  init(node: XMLNode, encoder: _XMLEncoder) {
-    self.node = node
+  ///   - encoder: The encoder the container writes through.
+  ///   - element: The element the items are appended to.
+  init(encoder: _XMLEncoder, element: XMLKitCore.XMLElement) {
     self.encoder = encoder
+    self.element = element
   }
 
   // MARK: Internal
 
-  /// The XML encoder used for encoding values.
+  /// The encoder used for encoding values.
   let encoder: _XMLEncoder
-  /// The XML node being encoded.
-  let node: XMLNode
-  /// The number of children (encoded values) in the current node.
+  /// The element being encoded.
+  let element: XMLKitCore.XMLElement
+
+  /// The number of values encoded so far.
   var count: Int = 0
 
   /// The coding path of the current encoding process.
-  var codingPath: [CodingKey] {
+  var codingPath: [any CodingKey] {
     encoder.codingPath
-  }
-
-  /// Encodes a value and appends it as a child of the current node.
-  /// - Parameter value: The value to encode, which must conform to
-  ///   `LosslessStringConvertible`.
-  func box(_ value: some LosslessStringConvertible) -> XMLNode {
-    .init(name: encoder.currentKey, text: "\(value)")
   }
 
   // MARK: -
 
-  func encodeNil() throws {}
-
-  func encode(_ value: Bool) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encodeNil() throws {
+    // A `nil` item produces no element; see
+    // ``XMLKeyedEncodingContainer/encodeNil(forKey:)``.
   }
 
-  func encode(_ value: String) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: Bool) throws {
+    box("\(value)")
+  }
+
+  mutating func encode(_ value: String) throws {
+    box(value)
   }
 
   // MARK: - Int
 
-  func encode(_ value: Int) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: Int) throws {
+    box("\(value)")
   }
 
-  func encode(_ value: Int8) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: Int8) throws {
+    box("\(value)")
   }
 
-  func encode(_ value: Int16) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: Int16) throws {
+    box("\(value)")
   }
 
-  func encode(_ value: Int32) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: Int32) throws {
+    box("\(value)")
   }
 
-  func encode(_ value: Int64) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: Int64) throws {
+    box("\(value)")
   }
 
   // MARK: - Unsigned Int
 
-  func encode(_ value: UInt) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: UInt) throws {
+    box("\(value)")
   }
 
-  func encode(_ value: UInt8) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: UInt8) throws {
+    box("\(value)")
   }
 
-  func encode(_ value: UInt16) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: UInt16) throws {
+    box("\(value)")
   }
 
-  func encode(_ value: UInt32) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: UInt32) throws {
+    box("\(value)")
   }
 
-  func encode(_ value: UInt64) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: UInt64) throws {
+    box("\(value)")
   }
 
   // MARK: - Floating point
 
-  func encode(_ value: Float) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: Float) throws {
+    box("\(value)")
   }
 
-  func encode(_ value: Double) throws {
-    node.children?.append(box(value)); count += 1
+  mutating func encode(_ value: Double) throws {
+    box("\(value)")
   }
 
   // MARK: - Type
 
-  func encode(_ value: some Encodable) throws {
-    encoder.codingPath.append(XMLCodingKey(stringValue: encoder.currentKey, intValue: count))
-    defer { self.encoder.codingPath.removeLast() }
-
-    let child = try encoder.box(value)
-    if node !== child {
-      node.addChild(child)
+  mutating func encode(_ value: some Encodable) throws {
+    if let date = value as? Date {
+      box(encoder.string(from: date))
+      return
     }
+
+    let path = codingPath + [XMLCodingKey(stringValue: currentKey, intValue: count)]
+
+    if let repeated = value as? any XMLRepeatedValueEncodable {
+      // A nested list has no name of its own in XML; its items join this one.
+      try repeated.xmlEncodeRepeated(
+        into: element,
+        named: currentKey,
+        encoder: encoder,
+        codingPath: path
+      )
+      count += 1
+      return
+    }
+
+    let child = XMLKitCore.XMLElement(name: currentKey)
+    try encoder.encodeValue(value, into: child, codingPath: path)
+    element.appendChild(child)
     count += 1
   }
 
   // MARK: -
 
-  func nestedContainer<NestedKey: CodingKey>(keyedBy _: NestedKey.Type) -> KeyedEncodingContainer<NestedKey> {
-    fatalError()
+  mutating func nestedContainer<NestedKey: CodingKey>(keyedBy _: NestedKey.Type) -> KeyedEncodingContainer<NestedKey> {
+    let child = XMLKitCore.XMLElement(name: currentKey)
+    element.appendChild(child)
+    count += 1
+    return KeyedEncodingContainer(XMLKeyedEncodingContainer<NestedKey>(encoder: encoder, element: child))
   }
 
-  func nestedUnkeyedContainer() -> UnkeyedEncodingContainer {
-    fatalError()
+  mutating func nestedUnkeyedContainer() -> any UnkeyedEncodingContainer {
+    let child = XMLKitCore.XMLElement(name: currentKey)
+    element.appendChild(child)
+    count += 1
+    return XMLUnkeyedEncodingContainer(
+      encoder: _XMLEncoder(
+        element: child,
+        codingPath: codingPath,
+        dateEncodingStrategy: encoder.dateEncodingStrategy
+      ),
+      element: child
+    )
   }
 
-  func superEncoder() -> Encoder {
-    fatalError()
+  mutating func superEncoder() -> Encoder {
+    let child = XMLKitCore.XMLElement(name: currentKey)
+    element.appendChild(child)
+    count += 1
+    return _XMLEncoder(
+      element: child,
+      codingPath: codingPath,
+      dateEncodingStrategy: encoder.dateEncodingStrategy
+    )
+  }
+
+  // MARK: Private
+
+  /// The name every item takes: the key that named the list.
+  private var currentKey: String {
+    encoder.codingPath.last?.stringValue ?? element.qualifiedName
+  }
+
+  /// Appends a scalar item.
+  private mutating func box(_ text: String) {
+    element.appendChild(XMLKitCore.XMLElement(name: currentKey, text: text))
+    count += 1
   }
 }

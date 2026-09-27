@@ -22,7 +22,19 @@
 // SOFTWARE.
 
 import Foundation
+import XMLKitCore
 
+/// A decoder that reads Swift values from XML documents.
+///
+/// Decoding is driven by the engine's parser and document model, and mapped onto
+/// the key conventions XMLKit has always published:
+///
+/// - A property is a child element (`<title>…</title>` for `title`).
+/// - An element's text is reached with the key `@text`.
+/// - An element's attributes are reached with the key `@attributes`, whose keys
+///   are the attribute names.
+/// - A property whose type conforms to `XMLNamespaceCodable` is a group of
+///   namespace-prefixed elements, addressed by the namespace prefix.
 public class XMLDecoder {
   // MARK: Lifecycle
 
@@ -34,20 +46,31 @@ public class XMLDecoder {
   /// The strategy for decoding `Date` values from XML nodes.
   public var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
 
+  /// Decodes a value of the given type from XML data.
+  /// - Parameters:
+  ///   - type: The type of the value to decode.
+  ///   - data: The XML data to decode from.
+  /// - Returns: A value of the requested type.
+  /// - Throws: `XMLError` when the data is not well-formed XML, or a
+  ///   `DecodingError` when it is well-formed but does not match the type.
   public func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
-    let reader: XMLReader = .init(data: data)
-    let result = try reader.read().get()
-
-    guard let rootNode = result.root else {
-      throw XMLError.unexpected(reason: "Unexpected parsing result. Root is nil.")
+    let element: XMLKitCore.XMLElement
+    do {
+      element = try XMLDecoderInput.rootElement(from: data)
+    } catch let error as XMLError {
+      throw error
+    } catch {
+      // A document that cannot be parsed at all has always been reported as an
+      // `XMLError`, and callers match on it.
+      throw XMLError.unexpected(reason: "\(error)")
     }
 
-    return try decode(type, from: rootNode)
+    return try decode(type, from: element)
   }
 
   // MARK: Internal
 
-  /// Decodes a top-level value of the given type from the given XML element.
+  /// Decodes a top-level value of the given type from a parsed element.
   ///
   /// Decoding runs twice. The first pass records which keys are namespace
   /// containers, that is, keys whose type conforms to `XMLNamespaceCodable`.
@@ -63,15 +86,14 @@ public class XMLDecoder {
   /// The discovery pass discards its result, so any error it raises is ignored;
   /// the authoritative pass is the one that reports errors to the caller.
   ///
-  /// - parameter type: The type of the value to decode.
-  /// - parameter node: The XML element to decode from.
-  /// - returns: A value of the requested type.
-  /// - throws: `DecodingError.dataCorrupted` if values requested from the payload
-  ///   are corrupted, or if the given data is not valid XML.
-  /// - throws: An error if any value throws an error during decoding.
-  func decode<T: Decodable>(_: T.Type, from node: XMLNode) throws -> T {
+  /// - Parameters:
+  ///   - type: The type of the value to decode.
+  ///   - element: The element to decode the value from.
+  /// - Returns: A value of the requested type.
+  /// - Throws: A `DecodingError` if the element does not match the type.
+  func decode<T: Decodable>(_: T.Type, from element: XMLKitCore.XMLElement) throws -> T {
     let discovery: _XMLDecoder = .init(
-      node: node,
+      node: .element(element),
       codingPath: [],
       isDiscoveringNamespaceContainers: true
     )
@@ -79,8 +101,9 @@ public class XMLDecoder {
     _ = try? T(from: discovery)
 
     let decoder: _XMLDecoder = .init(
-      node: node,
+      node: .element(element),
       codingPath: [],
+      cache: discovery.cache,
       namespaceContainerKeys: discovery.namespaceContainerKeys
     )
     decoder.dateDecodingStrategy = dateDecodingStrategy
@@ -88,132 +111,193 @@ public class XMLDecoder {
   }
 }
 
-/// A decoder for XML data that uses a stack-based parsing approach.
-class _XMLDecoder: Decoder {
+// MARK: - Node
+
+/// Where a decoder is currently reading from.
+enum XMLDecodingNode {
+  /// A single element.
+  case element(XMLKitCore.XMLElement)
+  /// The attributes of an element, addressed as the `@attributes` child.
+  case attributes(XMLKitCore.XMLElement)
+  /// Repeated sibling elements, which is how XML spells a list.
+  case sequence([XMLKitCore.XMLElement])
+}
+
+// MARK: - Engine
+
+/// A decoder positioned at one node of a document.
+///
+/// Each nested value is decoded by its own instance, created by
+/// ``makeChild(node:key:)`` with the node to read and the coding key that reached
+/// it, so a failure reports the path that led to it.
+final class _XMLDecoder: Decoder {
   // MARK: Lifecycle
 
-  /// Initializes the decoder with a root element and optional coding path.
+  /// Initializes the decoder at a node.
   /// - Parameters:
-  ///   - node: The root XML element to start decoding from.
+  ///   - node: The node to read values from.
   ///   - codingPath: The initial coding path, defaulting to an empty array.
+  ///   - cache: State shared by every container of this decode.
   ///   - namespaceContainerKeys: Key names already known to hold a namespace
   ///     container, used by the authoritative of the two decoding passes.
   ///   - isDiscoveringNamespaceContainers: Whether this decoder is the discovery
   ///     pass, which reports a namespace as present for any key that addresses
   ///     it so that namespace container keys can be observed.
   init(
-    node: XMLNode,
-    codingPath: [CodingKey] = [],
-    namespaceContainerKeys: Set<String> = [],
+    node: XMLDecodingNode,
+    codingPath: [any CodingKey] = [],
+    cache: XMLDecodeCache = .init(),
+    namespaceContainerKeys: XMLNamespaceContainerKeys = .init(),
     isDiscoveringNamespaceContainers: Bool = false
   ) {
-    stack = XMLStack()
-    stack.push(node)
+    self.node = node
     self.codingPath = codingPath
+    self.cache = cache
     self.namespaceContainerKeys = namespaceContainerKeys
     self.isDiscoveringNamespaceContainers = isDiscoveringNamespaceContainers
-    userInfo = [:]
   }
 
   // MARK: Internal
 
-  /// The stack used for managing XML elements during decoding.
-  var stack: XMLStack
+  /// The node this decoder reads from.
+  let node: XMLDecodingNode
   /// The path of coding keys used to locate a value in the decoding process.
-  var codingPath: [any CodingKey]
+  let codingPath: [any CodingKey]
+  /// State shared by every container of this decode.
+  let cache: XMLDecodeCache
   /// User-defined contextual information for the decoding process.
-  var userInfo: [CodingUserInfoKey: Any]
-  /// The strategy for decoding `Date` values from XML nodes.
-  var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
+  let userInfo: [CodingUserInfoKey: Any] = [:]
   /// Key names already resolved as namespace container keys, meaning the type
   /// decoded at that key conforms to `XMLNamespaceCodable`.
   ///
-  /// Such a type has no element of its own and is represented only by the
-  /// namespace-prefixed elements of its members, so its key has to be reported
-  /// as present whenever the namespace is. Recording the keys here keeps that
-  /// toleration from leaking onto ordinary elements whose name merely shares the
-  /// namespace prefix, such as `<source:markdown>` and the RSS `<source>`.
-  var namespaceContainerKeys: Set<String> = []
+  /// A reference type because a container nested any depth below the root adds
+  /// the keys it discovers, and the pass that follows has to see all of them.
+  let namespaceContainerKeys: XMLNamespaceContainerKeys
   /// Whether this decoder belongs to the discovery pass.
-  var isDiscoveringNamespaceContainers: Bool = false
+  let isDiscoveringNamespaceContainers: Bool
+  /// The strategy for decoding `Date` values from XML nodes.
+  var dateDecodingStrategy: XMLDateDecodingStrategy = .deferredToDate
 
-  /// Returns a keyed decoding container for the current XML element.
-  /// - Parameter type: The type of the coding key.
-  /// - Returns: A keyed decoding container for the specified key type.
-  /// - Throws: An error if the container cannot be created.
+  /// A decoder positioned at `node`, with `key` appended to the coding path.
+  func makeChild(node: XMLDecodingNode, key: (any CodingKey)? = nil) -> _XMLDecoder {
+    var path = codingPath
+    if let key {
+      path.append(key)
+    }
+    let child: _XMLDecoder = .init(
+      node: node,
+      codingPath: path,
+      cache: cache,
+      namespaceContainerKeys: namespaceContainerKeys,
+      isDiscoveringNamespaceContainers: isDiscoveringNamespaceContainers
+    )
+    child.dateDecodingStrategy = dateDecodingStrategy
+    return child
+  }
+
+  /// A decoder positioned at the element at `index` of a repeated group.
+  func makeChild(node: XMLDecodingNode, index: Int) -> _XMLDecoder {
+    makeChild(node: node, key: XMLCodingKey(stringValue: "[\(index)]", intValue: index))
+  }
+
+  // MARK: Decoder
+
   func container<Key: CodingKey>(keyedBy _: Key.Type) throws -> KeyedDecodingContainer<Key> {
-    KeyedDecodingContainer(XMLKeyedDecodingContainer<Key>(
-      decoder: self,
-      node: stack.top()!
-    ))
-  }
-
-  /// Returns an unkeyed decoding container for the current XML element.
-  /// - Returns: An unkeyed decoding container.
-  /// - Throws: An error if the container cannot be created.
-  func unkeyedContainer() throws -> any UnkeyedDecodingContainer {
-    XMLUnkeyedDecodingContainer(
-      decoder: self,
-      node: stack.top()!
-    )
-  }
-
-  /// Returns a single-value decoding container for the current XML element.
-  /// - Returns: A single-value decoding container.
-  /// - Throws: An error if the container cannot be created.
-  func singleValueContainer() throws -> any SingleValueDecodingContainer {
-    XMLSingleValueDecodingContainer(
-      decoder: self,
-      node: stack.top()!
-    )
-  }
-
-  // MARK: -
-
-  /// Decodes an `XMLNode` into a `Decodable` type.
-  /// - Parameters:
-  ///   - element: The XML element to decode.
-  ///   - type: The type to decode the element as.
-  /// - Returns: A decoded value of the specified type.
-  /// - Throws: An error if decoding fails.
-  func decode<T: Decodable>(node: XMLNode, as type: T.Type) throws -> T {
-    switch T.self {
-    case is Date.Type:
-      // The discovery pass records which keys are namespace containers and
-      // discards the value it decodes; see `XMLDecoder.decode(_:from:)`. A date
-      // is the most expensive value in the tree — the permissive formatter walks
-      // up to eight ICU patterns per value — so that pass does not decode one.
-      // Its traversal is otherwise identical, so it records the same keys.
-      if isDiscoveringNamespaceContainers {
-        return Date(timeIntervalSinceReferenceDate: 0) as! T
+    switch node {
+    case .attributes,
+         .element:
+      return KeyedDecodingContainer(XMLKeyedDecodingContainer<Key>(decoder: self, node: node))
+    case let .sequence(elements):
+      guard elements.count == 1, let only = elements.first else {
+        throw DecodingError.typeMismatch([String: Any].self, .init(
+          codingPath: codingPath,
+          debugDescription: "A keyed container needs exactly one element, but found \(elements.count)."
+        ))
       }
-
-      return try decode(node: node, as: Date.self) as! T
-
-    default:
-      stack.push(node)
-      defer { stack.pop() }
-      return try type.init(from: self)
+      return KeyedDecodingContainer(XMLKeyedDecodingContainer<Key>(decoder: self, node: .element(only)))
     }
   }
 
-  /// Decodes a `Date` value from the given XML node using the current strategy.
+  func unkeyedContainer() throws -> any UnkeyedDecodingContainer {
+    switch node {
+    case let .sequence(elements):
+      XMLUnkeyedDecodingContainer(decoder: self, elements: elements)
+    case let .element(element):
+      // An element used as a container is the group of its child elements.
+      XMLUnkeyedDecodingContainer(decoder: self, elements: element.childElements)
+    case .attributes:
+      XMLUnkeyedDecodingContainer(decoder: self, elements: [])
+    }
+  }
+
+  func singleValueContainer() throws -> any SingleValueDecodingContainer {
+    XMLSingleValueDecodingContainer(decoder: self, node: node)
+  }
+
+  // MARK: Decoding
+
+  /// Decodes `type` from the node this decoder is positioned at.
+  func decodeValue<T: Decodable>(_ type: T.Type) throws -> T {
+    if type == Date.self {
+      // The discovery pass records which keys are namespace containers and
+      // discards the value it decodes. A date is the most expensive value in the
+      // tree — the permissive formatter walks up to eight ICU patterns per value
+      // — so that pass does not decode one. Its traversal is otherwise
+      // identical, so it records the same keys.
+      if isDiscoveringNamespaceContainers {
+        return Date(timeIntervalSinceReferenceDate: 0) as! T
+      }
+      return try decodeDate() as! T
+    }
+
+    return try T(from: self)
+  }
+
+  /// The text of a node, as XMLKit reports it.
+  func text(of node: XMLDecodingNode) -> String? {
+    switch node {
+    case let .element(element):
+      element.xmlKitText(cache: cache)
+    case .attributes:
+      nil
+    case let .sequence(elements):
+      elements.first?.xmlKitText(cache: cache)
+    }
+  }
+
+  /// Decodes a `LosslessStringConvertible` value from a node's text.
+  ///
   /// - Parameters:
-  ///   - node: The XML node containing the date value.
-  ///   - type: The expected type, which must be `Date`.
-  /// - Returns: A decoded `Date` instance.
-  /// - Throws: A `DecodingError` if the date cannot be decoded.
-  func decode(node: XMLNode, as _: Date.Type) throws -> Date {
+  ///   - type: The type to decode.
+  ///   - node: The node holding the text.
+  /// - Returns: The decoded value.
+  /// - Throws: `DecodingError.valueNotFound` when the node has no text, and
+  ///   `DecodingError.dataCorrupted` when the text is not a valid value.
+  func decodeScalar<T: LosslessStringConvertible>(_ type: T.Type, from node: XMLDecodingNode) throws -> T {
+    guard let text = text(of: node) else {
+      throw DecodingError.valueNotFound(type, .init(
+        codingPath: codingPath,
+        debugDescription: "Expected text but found nil"
+      ))
+    }
+    guard let value = T(text) else {
+      throw DecodingError.dataCorrupted(.init(
+        codingPath: codingPath,
+        debugDescription: "\(text.debugDescription) is not a valid \(type)."
+      ))
+    }
+    return value
+  }
+
+  // MARK: Private
+
+  /// Decodes a `Date` from the current node using the configured strategy.
+  private func decodeDate() throws -> Date {
     switch dateDecodingStrategy {
     case .deferredToDate:
       return try Date(from: self)
     case let .formatter(formatter):
-      stack.push(node)
-      defer { stack.pop() }
-      guard
-        let stringDate = node.text,
-        let date = formatter.date(from: stringDate)
-      else {
+      guard let stringDate = text(of: node), let date = formatter.date(from: stringDate) else {
         throw DecodingError.dataCorrupted(.init(
           codingPath: codingPath,
           debugDescription: "Unable to decode date with formatter: \(formatter)"
@@ -222,44 +306,26 @@ class _XMLDecoder: Decoder {
       return date
     }
   }
-
-  /// Decodes an `XMLNode` into a `LosslessStringConvertible` type.
-  /// - Parameters:
-  ///   - element: The XML element to decode.
-  ///   - type: The type to decode the element as.
-  /// - Returns: A decoded value of the specified type.
-  /// - Throws: An error if the text is nil or conversion fails.
-  func decode<T: LosslessStringConvertible>(_ node: XMLNode, as type: T.Type) throws -> T {
-    guard let text = node.text, let value = T(text) else {
-      throw DecodingError.valueNotFound(type, .init(
-        codingPath: codingPath,
-        debugDescription: "Expected text but found nil"
-      ))
-    }
-    return value
-  }
-
-  /// Decodes an `XMLNode` into a `LosslessStringConvertible` type.
-  ///
-  /// - Parameters:
-  ///   - element: The `XMLNode` to decode.
-  ///   - type: The type to decode the element as. Must conform to
-  ///     `LosslessStringConvertible`.
-  ///   - key: The `CodingKey` identifying the element to decode.
-  /// - Returns: A decoded value of the specified type.
-  /// - Throws: A `DecodingError.dataCorrupted` error if the element's text is
-  ///   missing or cannot be converted to the specified type.
-  func decode<T: LosslessStringConvertible>(_ node: XMLNode, as type: T.Type, for key: some CodingKey) throws -> T {
-    guard
-      let child = node.child(for: key.stringValue),
-      let text = child.text,
-      let value = T(text)
-    else {
-      throw DecodingError.dataCorrupted(.init(
-        codingPath: codingPath,
-        debugDescription: "Failed to decode \(type) value from key: \(key.stringValue)"
-      ))
-    }
-    return value
-  }
 }
+
+// MARK: - Namespace containers
+
+/// The set of coding keys discovered to hold a namespace container.
+///
+/// Shared by every decoder of one pass; see ``_XMLDecoder/namespaceContainerKeys``.
+final class XMLNamespaceContainerKeys {
+  /// The key names, as coding key string values.
+  var keys: Set<String> = []
+}
+
+// MARK: - Repeated values
+
+/// A type that is built from repeated sibling elements.
+///
+/// `Array` and `Set` conform, and the marker is what lets a keyed container tell
+/// "decode the one element this key names" apart from "decode every sibling this
+/// key names", which XML gives no other way to distinguish.
+protocol XMLRepeatedValueDecodable {}
+
+extension Array: XMLRepeatedValueDecodable where Element: Decodable {}
+extension Set: XMLRepeatedValueDecodable where Element: Decodable {}

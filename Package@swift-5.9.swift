@@ -27,8 +27,17 @@ let package = Package(
     )
   ],
   targets: [
+    // The XML engine that backs XMLKit, vendored from the standalone XMLKit
+    // project. It is an implementation detail of the XMLKit product.
     .target(
-      name: "XMLKit"
+      name: "XMLKitCore",
+      exclude: ["README.md"]
+    ),
+    .target(
+      name: "XMLKit",
+      dependencies: [
+        "XMLKitCore"
+      ]
     ),
     .testTarget(
       name: "XMLKitTests",
