@@ -50,7 +50,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 2016, month: 1, day: 15, hour: 16, minute: 54, second: 10)
 
     // When
-    let date = FeedDateCoder.date(from: dateString, spec: spec)
+    let date: FeedDateCoder = .date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -96,7 +96,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 2014, month: 2, day: 4, hour: 22, minute: 3, second: 45)
 
     // When
-    let date = FeedDateCoder.date(from: dateString, spec: spec)
+    let date: FeedDateCoder = .date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -146,7 +146,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 1994, month: 11, day: 5, hour: 13, minute: 15, second: 30)
 
     // When
-    let date = FeedDateCoder.date(from: dateString, spec: spec)
+    let date: FeedDateCoder = .date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -183,7 +183,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 2024, month: 9, day: 6, hour: 12, minute: 34, second: 56)
 
     // When
-    let date = FeedDateCoder.date(from: dateString, spec: spec)
+    let date: FeedDateCoder = .date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -213,7 +213,7 @@ struct DateTests {
   /// The family is chosen per value, because feeds mix them: Atom feeds carry
   /// RFC 822 dates and RSS feeds carry ISO ones, sometimes item by item.
   @Test
-  func permissiveMixesFamiliesInOneFeed() throws {
+  func permissiveMixesFamiliesInOneFeed() {
     // Given
     let dateStrings = [
       "2005-07-31T12:29:29Z",
@@ -240,7 +240,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 2007, month: 11, day: 6, hour: 12, minute: 0, second: 0)
 
     // When
-    let date = FeedDateCoder.date(from: dateString)
+    let date: FeedDateCoder = .date(from: dateString)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
