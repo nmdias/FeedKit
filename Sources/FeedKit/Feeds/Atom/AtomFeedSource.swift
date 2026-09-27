@@ -96,7 +96,7 @@ extension AtomFeedSource: Codable {
 
     id = try container.decodeIfPresent(String.self, forKey: CodingKeys.id)
     title = try container.decodeIfPresent(String.self, forKey: CodingKeys.title)
-    updated = try container.decodeIfPresent(Date.self, forKey: CodingKeys.updated)
+    updated = try container.decodeFeedDate(forKey: CodingKeys.updated)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -104,6 +104,6 @@ extension AtomFeedSource: Codable {
 
     try container.encodeIfPresent(id, forKey: CodingKeys.id)
     try container.encodeIfPresent(title, forKey: CodingKeys.title)
-    try container.encodeIfPresent(updated, forKey: CodingKeys.updated)
+    try container.encodeFeedDate(updated, forKey: CodingKeys.updated, spec: .rfc3339)
   }
 }

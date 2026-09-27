@@ -93,7 +93,6 @@ extension RSSFeed: FeedInitializable {}
 extension RSSFeed: XMLDocumentConvertible {
   public func toXmlDocument() throws -> XMLKit.XMLDocument {
     let encoder: XMLEncoder = .init()
-    encoder.dateEncodingStrategy = .formatter(FeedDateFormatter(spec: .rfc822))
 
     let document = try encoder.encode(value: self)
     document.setRootName(name: "rss")

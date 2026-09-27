@@ -241,18 +241,14 @@ extension JSONFeed: Codable {
 
 extension JSONFeed: FeedInitializable {
   public init(data: Data) throws {
-    let formatter: RFC3339DateFormatter = .init()
     let decoder: JSONDecoder = .init()
-    decoder.dateDecodingStrategy = .formatted(formatter)
     self = try decoder.decode(JSONFeed.self, from: data)
   }
 }
 
 public extension JSONFeed {
   func toJSONString(formatted: Bool) throws -> String {
-    let formatter: RFC3339DateFormatter = .init()
     let encoder: JSONEncoder = .init()
-    encoder.dateEncodingStrategy = .formatted(formatter)
     encoder.outputFormatting = formatted ? [.prettyPrinted] : []
     let data = try encoder.encode(self)
     guard let string = String(data: data, encoding: .utf8) else {
