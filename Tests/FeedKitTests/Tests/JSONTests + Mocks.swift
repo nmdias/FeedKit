@@ -61,8 +61,8 @@ extension JSONTests {
           summary: "Brent interviews Chris Parrish, co-host of The Record and one-half of Aged & Distilled.",
           image: "https://example.org/image.jpg",
           bannerImage: "https://example.org/banner.jpg",
-          datePublished: RFC3339DateFormatter().date(from: "2014-05-09T12:04:00-07:00"),
-          dateModified: RFC3339DateFormatter().date(from: "2014-05-09T14:04:00-07:00"),
+          datePublished: FeedDateFormatting.date(from: "2014-05-09T12:04:00-07:00", spec: .rfc3339),
+          dateModified: FeedDateFormatting.date(from: "2014-05-09T14:04:00-07:00", spec: .rfc3339),
           author: .init(
             name: "Brent Simmons",
             url: "http://example.org/",
