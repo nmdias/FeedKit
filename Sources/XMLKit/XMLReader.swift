@@ -94,8 +94,8 @@ class XMLReader: NSObject {
 
   /// Trims whitespace and newlines from an attribute value.
   ///
-  /// `XMLParser` does not sanitize attribute values, and real-world feeds may
-  /// pad them with whitespace, e.g. `length="169600320 "`. Element text is
+  /// `XMLParser` does not sanitize attribute values, and real-world documents
+  /// may pad them with whitespace, e.g. `length="169600320 "`. Element text is
   /// trimmed when its element ends; attributes are sanitized here so that a
   /// typed attribute decodes regardless of its surrounding whitespace.
   /// - Parameter attributeValue: The raw attribute value reported by the parser.
@@ -283,10 +283,9 @@ extension XMLReader: XMLParserDelegate {
     _: XMLParser,
     parseErrorOccurred parseError: Error
   ) {
-    // Ignore errors that occur after a feed is successfully parsed. Some
-    // real-world feeds contain junk such as "[]" after the XML segment;
-    // just ignore this stuff.
-    // https://github.com/nmdias/FeedKit/pull/53
+    // Ignore errors reported once the root element has been closed: the tree is
+    // as complete as the document made it, and what follows the XML — a stray
+    // "[]", a truncated tail — cannot change it.
     guard !isComplete, error == nil else {
       return
     }
@@ -297,7 +296,7 @@ extension XMLReader: XMLParserDelegate {
 // MARK: - Encodings
 
 extension XMLReader {
-  /// List of encodings used in XML feeds ordered by priority
+  /// The encodings a CDATA block is decoded with, in the order they are tried
   private static let encodings: [String.Encoding] = [
     .utf8, // Most common encoding
     .isoLatin1, // ISO-8859-1 (Latin-1) is common for Western European languages

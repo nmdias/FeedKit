@@ -25,7 +25,7 @@ import Foundation
 
 /// Error types with `NSError` codes and user info providers.
 ///
-/// - notFound: Couldn't find or parse any known feed.
+/// - notFound: Nothing to parse was found.
 /// - cdataDecoding: Unable to decode bytes in a CDATA block to Unicode
 ///   characters using UTF-8 encoding, often due to a malformed or unsupported
 ///   format.
@@ -43,7 +43,7 @@ extension XMLError: LocalizedError {
   public var errorDescription: String? {
     switch self {
     case .notFound:
-      "Feed not found."
+      "Not found."
     case .cdataDecoding:
       "Error decoding CDATA Block."
     case let .unexpected(reason):
@@ -54,7 +54,7 @@ extension XMLError: LocalizedError {
   public var failureReason: String? {
     switch self {
     case .notFound:
-      "No recognizable feed was found in the parsed data."
+      "Nothing to parse was found in the data."
     case let .cdataDecoding(element):
       "Failed to decode CDATA block to Unicode at element: \(element). Ensure the data is in UTF-8 format."
     case let .unexpected(reason):
@@ -65,7 +65,7 @@ extension XMLError: LocalizedError {
   public var recoverySuggestion: String? {
     switch self {
     case .notFound:
-      "Please provide a valid RSS, Atom, or JSON feed."
+      "Provide data that contains an XML document."
     case .cdataDecoding:
       "Verify that CDATA blocks are UTF-8 encoded."
     case .unexpected:
@@ -97,7 +97,7 @@ extension XMLError: CustomNSError {
 
   /// The error's domain for the specified case.
   public static var errorDomain: String {
-    "com.feedkit.error"
+    "com.xmlkit.error"
   }
 
   /// The `NSError` from the specified case.

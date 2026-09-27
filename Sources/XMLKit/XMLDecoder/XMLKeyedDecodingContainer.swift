@@ -63,7 +63,7 @@ class XMLKeyedDecodingContainer<Key: CodingKey>: KeyedDecodingContainerProtocol 
       return true
     }
     // A key can also be held by the namespace of its members rather than by an
-    // element of its own, as `dc` is held by `<dc:creator>`. Whether it is meant
+    // element of its own, as `meta` is held by `<meta:title>`. Whether it is meant
     // that way is a property of the type the key holds, which is what has been
     // recorded for this coding-key type. Nothing may have decoded a value at the
     // key yet, in which case it is taken to be present: the pass that goes on to

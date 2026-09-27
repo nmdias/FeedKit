@@ -49,15 +49,16 @@ public class XMLDecoder {
 
   /// Decodes a top-level value of the given type from the given XML element.
   ///
-  /// A key such as `dc` holds a type conforming to `XMLNamespaceCodable`, which
+  /// A key such as `meta` holds a type conforming to `XMLNamespaceCodable`, which
   /// has no element of its own — it is represented only by the
   /// namespace-prefixed elements of its members — so the key has to be reported
-  /// as present whenever the namespace is. The key alone cannot reveal that:
-  /// `<source:markdown>` carries the prefix `source`, yet it is not the RSS
-  /// `<source>` element. What each key holds is read from the type decoded at it
-  /// and recorded in `XMLNamespaceKeyKnowledge`, which outlives the document, so
-  /// that the question is settled by the first document of a model rather than
-  /// by every one.
+  /// as present whenever the namespace is. The key alone cannot reveal that: a
+  /// `<source:markdown>` element carries the prefix `source`, and yet a key
+  /// named `source` may hold an ordinary element that no such document names.
+  /// What each key holds is read from the type decoded at it and recorded in
+  /// `XMLNamespaceKeyKnowledge`, which outlives the document, so that the
+  /// question is settled by the first document of a model rather than by every
+  /// one.
   ///
   /// Decoding a document may take more than one pass, and never has a side effect
   /// on the nodes, so repeating it is safe.
@@ -69,7 +70,7 @@ public class XMLDecoder {
   ///   are corrupted, or if the given data is not valid XML.
   /// - throws: An error if any value throws an error during decoding.
   func decode<T: Decodable>(_: T.Type, from node: XMLNode) throws -> T {
-    // A key such as `dc` is carried by the namespace of its members rather than
+    // A key such as `meta` is carried by the namespace of its members rather than
     // by an element of its own, so whether it is present depends on the type the
     // key holds, which nothing knows until a value has been decoded at it. The
     // pass below takes such a key to be present and so decodes it, which is what

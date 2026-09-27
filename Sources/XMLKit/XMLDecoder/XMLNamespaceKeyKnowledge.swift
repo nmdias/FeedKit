@@ -26,12 +26,12 @@ import Foundation
 /// What decoding has learned about the keys of one coding-key type.
 ///
 /// `KeyedDecodingContainerProtocol.contains(_:)` has to answer for a key such as
-/// `dc` before any value has been decoded at it, and the answer depends on the
+/// `meta` before any value has been decoded at it, and the answer depends on the
 /// type that key holds, which the key alone does not reveal. A key whose type
 /// conforms to `XMLNamespaceCodable` is present when the element carries that
-/// namespace, as `dc` is by `<dc:creator>`; a key holding an ordinary element of
-/// the same name is not, as the `source` of an RSS item is not present in
-/// `<source:markdown>`.
+/// namespace, as `meta` is by `<meta:title>`; a key holding an ordinary element of
+/// the same name is not, however many other keys of the document are spelled
+/// with a prefix that matches it.
 ///
 /// That mapping from a key to its type is fixed by the model source, not by the
 /// document, so it is learned once for the whole process and read back for every
@@ -39,9 +39,9 @@ import Foundation
 /// the element names answers `contains(_:)` from the child.
 ///
 /// The knowledge is kept per coding-key type rather than per key name, because
-/// the same name can hold different types in different models: `content` is a
-/// `Content` namespace container in an RSS item and an ordinary
-/// `AtomFeedContent` element in an Atom entry.
+/// the same name can hold different types in different models: whether `content`
+/// is carried by a namespace is a property of the model that declares the key,
+/// not of the spelling of the key.
 final class XMLNamespaceKeyKnowledge: @unchecked Sendable {
   // MARK: Lifecycle
 
