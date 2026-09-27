@@ -1053,9 +1053,9 @@ extension XMLTokenizer {
             if !seenNames.isEmpty {
                 isDuplicate = bytes.withUnsafeBufferPointer { buffer -> Bool in
                     guard let base = buffer.baseAddress else { return false }
-                    let candidate = unsafe base + attributeNameStart
+                    let candidate = base + attributeNameStart
                     for seen in seenNames where seen.length == attributeNameLength {
-                        if unsafe memcmp(unsafe base + seen.offset, candidate, attributeNameLength) == 0 {
+                        if memcmp(base + seen.offset, candidate, attributeNameLength) == 0 {
                             return true
                         }
                     }

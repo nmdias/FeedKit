@@ -137,7 +137,7 @@ internal func xmlBytesEqual(
             guard let lhs = storageBuffer.baseAddress, let rhs = otherBuffer.baseAddress else {
                 return false
             }
-            return unsafe memcmp(lhs + start, rhs, length) == 0
+            return memcmp(lhs + start, rhs, length) == 0
         }
     }
 }
@@ -167,7 +167,7 @@ internal func xmlBytesEqual(
             guard let leftBase = left.baseAddress, let rightBase = right.baseAddress else {
                 return false
             }
-            return unsafe memcmp(leftBase + leftStart, rightBase + rightStart, leftLength) == 0
+            return memcmp(leftBase + leftStart, rightBase + rightStart, leftLength) == 0
         }
     }
 }
@@ -184,7 +184,7 @@ internal func xmlBytesEqual(
     guard length > 0 else { return true }
     return storage.withUnsafeBufferPointer { storageBuffer in
         guard let lhs = storageBuffer.baseAddress, let rhs = other.baseAddress else { return false }
-        return unsafe memcmp(lhs + start, rhs, length) == 0
+        return memcmp(lhs + start, rhs, length) == 0
     }
 }
 
@@ -266,7 +266,7 @@ internal enum UTF8ValidationOutcome: Equatable, Sendable {
 /// overlong forms, surrogates, and values above `U+10FFFF`.
 internal func xmlValidateUTF8(_ bytes: [UInt8]) -> UTF8ValidationOutcome {
     bytes.withUnsafeBufferPointer { buffer in
-        unsafe xmlValidateUTF8(buffer)
+        xmlValidateUTF8(buffer)
     }
 }
 
@@ -276,7 +276,7 @@ internal func xmlValidateUTF8(_ buffer: UnsafeBufferPointer<UInt8>) -> UTF8Valid
     var index = 0
 
     while index < count {
-        let byte = unsafe base[index]
+        let byte = base[index]
         if byte < 0x80 {
             index += 1
             continue
@@ -302,7 +302,7 @@ internal func xmlValidateUTF8(_ buffer: UnsafeBufferPointer<UInt8>) -> UTF8Valid
         guard index + width <= count else { return .invalid(offset: index) }
 
         for offset in 1..<width {
-            let continuation = unsafe base[index + offset]
+            let continuation = base[index + offset]
             guard continuation & 0xC0 == 0x80 else { return .invalid(offset: index) }
             scalar = (scalar << 6) | UInt32(continuation & 0x3F)
         }
