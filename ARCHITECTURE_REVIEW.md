@@ -118,7 +118,7 @@ flowchart TD
 | JSON generation | ✅ | `JSONFeed.swift:249-260` | RFC 3339 dates, pretty/compact |
 | Input sources | ✅ | `FeedInitializable` | URL string, URL, file URL, remote URL, string, data; remote path uses `URLSession.shared` |
 | Feed-type detection | ⚠️ | `FeedType.swift` | Prefix-scan heuristic; fails prefixed Atom & non-UTF-8 prefixes (§7.1) |
-| Date parsing | ✅ lenient | `FeedDateFormatting.swift` | ISO8601/RFC3339/RFC822/RFC1123 + permissive; immutable `Date.ParseStrategy` caches, family chosen by shape, leading text weekday stripped (**reworked in [PR #251](https://github.com/nmdias/FeedKit/pull/251)**) |
+| Date parsing | ✅ lenient | `FeedDateCoder.swift` | ISO8601/RFC3339/RFC822/RFC1123 + permissive; immutable `Date.ParseStrategy` caches, family chosen by shape, leading text weekday stripped (**reworked in [PR #251](https://github.com/nmdias/FeedKit/pull/251)**) |
 | Error handling | ⚠️ | `FeedError`, `XMLError` | Decent `LocalizedError`/`CustomNSError`; but 3 distinct error kinds surface from one API (see §10.5) |
 | Async operations | partial | `FeedInitializable` | `async` remote fetch; no cancellation, no session injection (§9) |
 | Batch operations | ❌ | — | No API; consumers use Swift concurrency themselves |

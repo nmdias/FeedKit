@@ -50,7 +50,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 2016, month: 1, day: 15, hour: 16, minute: 54, second: 10)
 
     // When
-    let date = FeedDateFormatting.date(from: dateString, spec: spec)
+    let date = FeedDateCoder.date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -78,7 +78,7 @@ struct DateTests {
 
     // When
     let dates = dateStrings.compactMap { dateString -> Date? in
-      FeedDateFormatting.date(from: dateString, spec: spec)
+      FeedDateCoder.date(from: dateString, spec: spec)
     }
 
     // Then
@@ -96,7 +96,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 2014, month: 2, day: 4, hour: 22, minute: 3, second: 45)
 
     // When
-    let date = FeedDateFormatting.date(from: dateString, spec: spec)
+    let date = FeedDateCoder.date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -128,7 +128,7 @@ struct DateTests {
 
     // When
     let dates = dateStrings.compactMap { dateString -> Date? in
-      FeedDateFormatting.date(from: dateString, spec: spec)
+      FeedDateCoder.date(from: dateString, spec: spec)
     }
 
     // Then
@@ -146,7 +146,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 1994, month: 11, day: 5, hour: 13, minute: 15, second: 30)
 
     // When
-    let date = FeedDateFormatting.date(from: dateString, spec: spec)
+    let date = FeedDateCoder.date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -165,7 +165,7 @@ struct DateTests {
 
     // When
     let dates = dateStrings.compactMap { dateString -> Date? in
-      FeedDateFormatting.date(from: dateString, spec: spec)
+      FeedDateCoder.date(from: dateString, spec: spec)
     }
 
     // Then
@@ -183,7 +183,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 2024, month: 9, day: 6, hour: 12, minute: 34, second: 56)
 
     // When
-    let date = FeedDateFormatting.date(from: dateString, spec: spec)
+    let date = FeedDateCoder.date(from: dateString, spec: spec)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -201,7 +201,7 @@ struct DateTests {
 
     // When
     let dates = dateStrings.compactMap { dateString -> Date? in
-      FeedDateFormatting.date(from: dateString, spec: spec)
+      FeedDateCoder.date(from: dateString, spec: spec)
     }
 
     // Then
@@ -225,7 +225,7 @@ struct DateTests {
     ]
 
     // When
-    let dates = dateStrings.compactMap { FeedDateFormatting.date(from: $0) }
+    let dates = dateStrings.compactMap { FeedDateCoder.date(from: $0) }
 
     // Then
     #expect(dateStrings.count == dates.count)
@@ -240,7 +240,7 @@ struct DateTests {
     let expected: DateComponents = .init(year: 2007, month: 11, day: 6, hour: 12, minute: 0, second: 0)
 
     // When
-    let date = FeedDateFormatting.date(from: dateString)
+    let date = FeedDateCoder.date(from: dateString)
     let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
 
     // Then
@@ -260,13 +260,13 @@ struct DateTests {
       "1985-04-12T23:20:50.52Z",
       "Fri, 05 Oct 2007 09:00:00 CST"
     ]
-    let expected = dateStrings.map { FeedDateFormatting.date(from: $0) }
+    let expected = dateStrings.map { FeedDateCoder.date(from: $0) }
 
     // When
     let actual = await withTaskGroup(of: (Int, Date?).self) { group in
       for _ in 0 ..< 200 {
         for (index, dateString) in dateStrings.enumerated() {
-          group.addTask { (index, FeedDateFormatting.date(from: dateString)) }
+          group.addTask { (index, FeedDateCoder.date(from: dateString)) }
         }
       }
 

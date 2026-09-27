@@ -60,7 +60,7 @@ extension FeedTests {
           )
         )
       ],
-      updated: FeedDateFormatting.date(from: "2005-07-31T12:29:29Z", spec: .rfc3339),
+      updated: FeedDateCoder.date(from: "2005-07-31T12:29:29Z", spec: .rfc3339),
       categories: [
         .init(
           attributes: .init(
@@ -162,7 +162,7 @@ extension FeedTests {
               )
             )
           ],
-          updated: FeedDateFormatting.date(from: "2005-07-31T12:29:29Z", spec: .rfc3339),
+          updated: FeedDateCoder.date(from: "2005-07-31T12:29:29Z", spec: .rfc3339),
           categories: [
             .init(
               attributes: .init(
@@ -188,7 +188,7 @@ extension FeedTests {
               base: "http://diveintomark.org/"
             )
           ),
-          published: FeedDateFormatting.date(from: "2003-12-13T08:29:29-04:00", spec: .rfc3339),
+          published: FeedDateCoder.date(from: "2003-12-13T08:29:29-04:00", spec: .rfc3339),
           source: nil,
           rights: "Copyright (c) 2003, Mark Pilgrim"
         )

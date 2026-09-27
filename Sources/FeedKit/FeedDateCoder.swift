@@ -1,5 +1,5 @@
 //
-// FeedDateFormatting.swift
+// FeedDateCoder.swift
 //
 // Copyright (c) 2016 - 2026 Nuno Dias
 //
@@ -41,7 +41,7 @@ enum DateSpec {
   case permissive
 }
 
-// MARK: - FeedDateFormatting
+// MARK: - FeedDateCoder
 
 /// Reading and writing the dates feed documents carry.
 ///
@@ -60,7 +60,7 @@ enum DateSpec {
 /// The values parsed here are the ones the previous `DateFormatter`-based
 /// implementation parsed, with the same instants: the two agree on all 10,994
 /// date values collected from those 242 feeds.
-enum FeedDateFormatting {
+enum FeedDateCoder {
   // MARK: Internal
 
   /// The instant `string` denotes, or `nil` when no known format matches.
@@ -338,7 +338,7 @@ extension KeyedDecodingContainer {
       return nil
     }
 
-    guard let date = FeedDateFormatting.date(from: text) else {
+    guard let date = FeedDateCoder.date(from: text) else {
       throw DecodingError.dataCorruptedError(
         forKey: key,
         in: self,
@@ -363,6 +363,6 @@ extension KeyedEncodingContainer {
       return
     }
 
-    try encode(FeedDateFormatting.string(from: date, spec: spec), forKey: key)
+    try encode(FeedDateCoder.string(from: date, spec: spec), forKey: key)
   }
 }

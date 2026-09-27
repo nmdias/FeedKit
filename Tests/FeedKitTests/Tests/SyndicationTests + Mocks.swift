@@ -30,7 +30,7 @@ extension SyndicationTests {
         syndication: .init(
           updatePeriod: .hourly,
           updateFrequency: 2,
-          updateBase: FeedDateFormatting.date(from: "2000-01-01T12:00+00:00", spec: .iso8601)
+          updateBase: FeedDateCoder.date(from: "2000-01-01T12:00+00:00", spec: .iso8601)
         )
       )
     )

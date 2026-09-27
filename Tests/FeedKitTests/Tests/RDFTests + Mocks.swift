@@ -74,7 +74,7 @@ extension RDFTests {
           description: "description",
           publisher: "publisher",
           contributor: "contributor",
-          date: FeedDateFormatting.date(from: "Sat, 1 Jan 2000 12:00:00 GMT", spec: .rfc822),
+          date: FeedDateCoder.date(from: "Sat, 1 Jan 2000 12:00:00 GMT", spec: .rfc822),
           type: "type",
           format: "format",
           identifier: "identifier",
@@ -87,7 +87,7 @@ extension RDFTests {
         syndication: .init(
           updatePeriod: .hourly,
           updateFrequency: 2,
-          updateBase: FeedDateFormatting.date(from: "2000-01-01T12:00+00:00", spec: .iso8601)
+          updateBase: FeedDateCoder.date(from: "2000-01-01T12:00+00:00", spec: .iso8601)
         )
       ),
       items: [
@@ -102,7 +102,7 @@ extension RDFTests {
             description: "description",
             publisher: "publisher",
             contributor: "contributor",
-            date: FeedDateFormatting.date(from: "Sat, 1 Jan 2000 12:00:00 GMT", spec: .rfc822),
+            date: FeedDateCoder.date(from: "Sat, 1 Jan 2000 12:00:00 GMT", spec: .rfc822),
             type: "type",
             format: "format",
             identifier: "identifier",
