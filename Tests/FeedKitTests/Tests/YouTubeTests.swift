@@ -24,7 +24,6 @@
 @testable import FeedKit
 import Testing
 
-@Suite("YouTube")
 struct YouTubeTests: FeedKitTestable {
   @Test
   func youTube() throws {

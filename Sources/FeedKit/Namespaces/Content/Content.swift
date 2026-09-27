@@ -46,7 +46,9 @@ public struct Content {
 
 // MARK: - XMLNamespaceDecodable
 
-extension Content: XMLNamespaceCodable {}
+extension Content: FeedNamespaceDecodable {
+  public static let namespacePrefix = "content"
+}
 
 // MARK: - Sendable
 
@@ -64,7 +66,7 @@ extension Content: Hashable {}
 
 extension Content: Codable {
   private enum CodingKeys: String, CodingKey {
-    case encoded = "content:encoded"
+    case encoded = "http://purl.org/rss/1.0/modules/content/ encoded"
   }
 
   public init(from decoder: any Decoder) throws {

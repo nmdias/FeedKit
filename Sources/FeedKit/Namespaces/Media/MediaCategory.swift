@@ -45,8 +45,15 @@ public struct MediaCategoryAttributes: Codable, Equatable, Hashable, Sendable {
   /// The human readable label that can be displayed in end user
   /// applications. It is an optional attribute.
   public var label: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case scheme = "@scheme"
+    case label = "@label"
+  }
 }
 
 /// Allows a taxonomy to be set that gives an indication of the type of media
 /// content, and its particular contents. It has two optional attributes.
-public typealias MediaCategory = XMLKit.XMLElement<MediaCategoryAttributes>
+public typealias MediaCategory = FeedElement<MediaCategoryAttributes>

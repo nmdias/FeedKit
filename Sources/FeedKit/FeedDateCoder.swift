@@ -325,16 +325,23 @@ enum FeedDateCoder {
 extension KeyedDecodingContainer {
   /// Decodes a date from the text bound to `key`.
   ///
-  /// A key that is absent is `nil`. A key that is present but unreadable is an
-  /// error, which is what the decoder reported before this type existed: a feed
-  /// whose date cannot be understood is a feed with a defect its reader should
-  /// hear about, not one to read with a silent hole in it.
+  /// A key that is absent is `nil`, and so is a key that is present with no text
+  /// at all: an element that carries nothing carries no instant, and reporting
+  /// that as a defect would make `<pubDate/>` unreadable. A key that is present
+  /// with text that is not a date is an error, which is what the decoder
+  /// reported before this type existed: a feed whose date cannot be understood
+  /// is a feed with a defect its reader should hear about, not one to read with
+  /// a silent hole in it.
+  ///
+  /// The empty case needs saying here because XMLKit reads an empty element as
+  /// `String?` = `""` rather than `nil` — `""` is a real string, so the engine
+  /// keeps it — while there is no date that `""` could mean.
   ///
   /// - Parameter key: The key holding the date.
   /// - Throws: `DecodingError.dataCorruptedError` when the text is not a date.
-  /// - Returns: The date, or `nil` when the key is absent.
+  /// - Returns: The date, or `nil` when the key is absent or empty.
   func decodeFeedDate(forKey key: Key) throws -> Date? {
-    guard let text = try decodeIfPresent(String.self, forKey: key) else {
+    guard let text = try decodeIfPresent(String.self, forKey: key), !text.isEmpty else {
       return nil
     }
 

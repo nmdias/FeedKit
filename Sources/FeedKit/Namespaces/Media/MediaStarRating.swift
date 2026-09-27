@@ -52,8 +52,17 @@ public struct MediaStarRatingAttributes: Codable, Equatable, Hashable, Sendable 
 
   /// The star rating's maximum value.
   public var max: Int?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case average = "@average"
+    case count = "@count"
+    case min = "@min"
+    case max = "@max"
+  }
 }
 
 /// This element specifies the rating-related information about a media object.
 /// Valid attributes are average, count, min and max.
-public typealias MediaStarRating = XMLAttributesElement<MediaStarRatingAttributes>
+public typealias MediaStarRating = FeedAttributesElement<MediaStarRatingAttributes>

@@ -25,7 +25,6 @@
 import Foundation
 import Testing
 
-@Suite("MediaTags")
 struct MediaTagsTests {
   @Test
   func mediaTags() {

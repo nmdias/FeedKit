@@ -53,6 +53,14 @@ public struct RSSFeedEnclosureAttributes: Codable, Equatable, Hashable, Sendable
   ///
   /// Example: audio/mpeg
   public var type: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+    case length = "@length"
+    case type = "@type"
+  }
 }
 
 /// Describes a media object that is attached to the item.
@@ -67,4 +75,4 @@ public struct RSSFeedEnclosureAttributes: Codable, Equatable, Hashable, Sendable
 ///
 /// <enclosure url="http://www.scripting.com/mp3s/weatherReportSuite.mp3"
 /// length="12216320" type="audio/mpeg" />
-public typealias RSSFeedEnclosure = XMLAttributesElement<RSSFeedEnclosureAttributes>
+public typealias RSSFeedEnclosure = FeedAttributesElement<RSSFeedEnclosureAttributes>

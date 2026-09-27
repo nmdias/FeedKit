@@ -55,10 +55,19 @@ public struct MediaThumbnailAttributes: Codable, Equatable, Hashable, Sendable {
   /// for this attribute should be in the DSM-CC's Normal Play Time (NTP) as used in
   /// RTSP [RFC 2326 3.6 Normal Play Time]. It is an optional attribute.
   public var time: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+    case width = "@width"
+    case height = "@height"
+    case time = "@time"
+  }
 }
 
 /// Allows particular images to be used as representative images for the
 /// media object. If multiple thumbnails are included, and time coding is not
 /// at play, it is assumed that the images are in order of importance. It has
 /// one required attribute and three optional attributes.
-public typealias MediaThumbnail = XMLKit.XMLElement<MediaThumbnailAttributes>
+public typealias MediaThumbnail = FeedElement<MediaThumbnailAttributes>

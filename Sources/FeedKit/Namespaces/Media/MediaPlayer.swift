@@ -45,10 +45,18 @@ public struct MediaPlayerAttributes: Codable, Equatable, Hashable, Sendable {
   /// The height of the browser window that the URL should be opened in. It is an
   /// optional attribute.
   public var height: Int?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+    case width = "@width"
+    case height = "@height"
+  }
 }
 
 /// Allows the media object to be accessed through a web browser media player
 /// console. This element is required only if a direct media url attribute is
 /// not specified in the <media:content> element. It has one required attribute
 /// and two optional attributes.
-public typealias MediaPlayer = XMLKit.XMLElement<MediaPlayerAttributes>
+public typealias MediaPlayer = FeedElement<MediaPlayerAttributes>

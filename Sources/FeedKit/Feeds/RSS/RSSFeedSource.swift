@@ -36,6 +36,12 @@ public struct RSSFeedSourceAttributes: Codable, Equatable, Hashable, Sendable {
   /// Required attribute of the `Source` element, which links to the
   /// XMLization of the source. e.g. "http://www.tomalak.example/links2.xml"
   public var url: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+  }
 }
 
 /// The RSS channel that the item came from.
@@ -52,4 +58,4 @@ public struct RSSFeedSourceAttributes: Codable, Equatable, Hashable, Sendable {
 /// publicize the sources of news items. It can be used in the Post command
 /// of an aggregator. It should be generated automatically when forwarding
 /// an item from an aggregator to a weblog authoring tool.
-public typealias RSSFeedSource = XMLKit.XMLElement<RSSFeedSourceAttributes>
+public typealias RSSFeedSource = FeedElement<RSSFeedSourceAttributes>

@@ -25,7 +25,6 @@
 import Foundation
 import Testing
 
-@Suite("Date Formatting")
 struct DateTests {
   // MARK: Lifecycle
 

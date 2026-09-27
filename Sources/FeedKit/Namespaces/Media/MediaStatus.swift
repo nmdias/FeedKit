@@ -46,8 +46,15 @@ public struct MediaStatusAttributes: Codable, Equatable, Hashable, Sendable {
   /// A reason explaining why a media object has been blocked/deleted. It can
   /// be plain text or a URL.
   public var reason: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case state = "@state"
+    case reason = "@reason"
+  }
 }
 
 /// Optional tag to specify the status of a media object -- whether it's still
 /// active or it has been blocked/deleted.
-public typealias MediaStatus = XMLAttributesElement<MediaStatusAttributes>
+public typealias MediaStatus = FeedAttributesElement<MediaStatusAttributes>

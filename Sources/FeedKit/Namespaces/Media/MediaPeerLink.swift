@@ -39,7 +39,14 @@ public struct MediaPeerLinkAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// The location of the peer link provider.
   public var href: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+    case href = "@href"
+  }
 }
 
 /// Optional element for P2P link.
-public typealias MediaPeerLink = XMLKit.XMLElement<MediaPeerLinkAttributes>
+public typealias MediaPeerLink = FeedElement<MediaPeerLinkAttributes>

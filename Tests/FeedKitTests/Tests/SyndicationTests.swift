@@ -24,7 +24,6 @@
 @testable import FeedKit
 import Testing
 
-@Suite("Syndication")
 struct SyndicationTests: FeedKitTestable {
   @Test
   func syndication() throws {

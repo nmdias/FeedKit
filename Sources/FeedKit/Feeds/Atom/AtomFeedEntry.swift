@@ -283,15 +283,12 @@ extension AtomFeedEntry: Codable {
     published = try container.decodeFeedDate(forKey: CodingKeys.published)
     source = try container.decodeIfPresent(AtomFeedSource.self, forKey: CodingKeys.source)
     rights = try container.decodeIfPresent(String.self, forKey: CodingKeys.rights)
-    media = try container.decodeIfPresent(Media.self, forKey: CodingKeys.media)
-    youTube = try container.decodeIfPresent(YouTube.self, forKey: CodingKeys.youTube)
-    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
-    geoRSS = try container.decodeIfPresent(GeoRSSSimple.self, forKey: CodingKeys.geoRSS)
-    commentAPI = try container.decodeIfPresent(CommentAPI.self, forKey: CodingKeys.commentAPI)
-    podloveSimpleChapters = try container.decodeIfPresent(
-      PodloveSimpleChapters.self,
-      forKey: CodingKeys.podloveSimpleChapters
-    )
+    media = try decoder.decodeNamespace(Media.self)
+    youTube = try decoder.decodeNamespace(YouTube.self)
+    dublinCore = try decoder.decodeNamespace(DublinCore.self)
+    geoRSS = try decoder.decodeNamespace(GeoRSSSimple.self)
+    commentAPI = try decoder.decodeNamespace(CommentAPI.self)
+    podloveSimpleChapters = try decoder.decodeNamespace(PodloveSimpleChapters.self)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -309,11 +306,11 @@ extension AtomFeedEntry: Codable {
     try container.encodeFeedDate(published, forKey: CodingKeys.published, spec: .rfc3339)
     try container.encodeIfPresent(source, forKey: CodingKeys.source)
     try container.encodeIfPresent(rights, forKey: CodingKeys.rights)
-    try container.encodeIfPresent(media, forKey: CodingKeys.media)
-    try container.encodeIfPresent(youTube, forKey: CodingKeys.youTube)
-    try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
-    try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
-    try container.encodeIfPresent(commentAPI, forKey: CodingKeys.commentAPI)
-    try container.encodeIfPresent(podloveSimpleChapters, forKey: CodingKeys.podloveSimpleChapters)
+    try media?.encode(to: encoder)
+    try youTube?.encode(to: encoder)
+    try dublinCore?.encode(to: encoder)
+    try geoRSS?.encode(to: encoder)
+    try commentAPI?.encode(to: encoder)
+    try podloveSimpleChapters?.encode(to: encoder)
   }
 }

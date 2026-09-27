@@ -36,7 +36,13 @@ public struct MediaTitleAttributes: Codable, Equatable, Hashable, Sendable {
   /// Specifies the type of text embedded. Possible values are either "plain" or "html".
   /// Default value is "plain". All HTML must be entity-encoded. It is an optional attribute.
   public var type: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+  }
 }
 
 /// The title of the particular media object. It has one optional attribute.
-public typealias MediaTitle = XMLKit.XMLElement<MediaTitleAttributes>
+public typealias MediaTitle = FeedElement<MediaTitleAttributes>

@@ -84,7 +84,7 @@ extension RSSFeedTextInput: Hashable {}
 // MARK: - Codable
 
 extension RSSFeedTextInput: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case title
     case description
     case name

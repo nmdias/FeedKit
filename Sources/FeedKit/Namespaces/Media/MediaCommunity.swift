@@ -73,9 +73,9 @@ extension MediaCommunity: Hashable {}
 
 extension MediaCommunity: Codable {
   enum CodingKeys: String, CodingKey {
-    case starRating = "media:starRating"
-    case statistics = "media:statistics"
-    case tags = "media:tags"
+    case starRating = "http://search.yahoo.com/mrss/ starRating"
+    case statistics = "http://search.yahoo.com/mrss/ statistics"
+    case tags = "http://search.yahoo.com/mrss/ tags"
   }
 
   public init(from decoder: any Decoder) throws {

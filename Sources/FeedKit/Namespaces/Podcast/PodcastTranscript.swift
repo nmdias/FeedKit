@@ -70,6 +70,15 @@ public struct PodcastTranscriptAttributes: Codable, Equatable, Hashable, Sendabl
   ///
   /// Example: captions
   public var rel: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case url = "@url"
+    case type = "@type"
+    case language = "@language"
+    case rel = "@rel"
+  }
 }
 
 /// Represents a transcript or closed captions file for a podcast episode.
@@ -84,4 +93,4 @@ public struct PodcastTranscriptAttributes: Codable, Equatable, Hashable, Sendabl
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace
-public typealias PodcastTranscript = XMLAttributesElement<PodcastTranscriptAttributes>
+public typealias PodcastTranscript = FeedAttributesElement<PodcastTranscriptAttributes>

@@ -24,7 +24,6 @@
 @testable import FeedKit
 import Testing
 
-@Suite("iTunes")
 struct iTunesTests: FeedKitTestable {
   @Test
   func itunes() throws {

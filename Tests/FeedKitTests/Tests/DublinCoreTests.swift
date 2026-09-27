@@ -24,7 +24,6 @@
 @testable import FeedKit
 import Testing
 
-@Suite("Dublin Core")
 struct DublinCoreTests: FeedKitTestable {
   @Test
   func dublinCoreRSS() throws {

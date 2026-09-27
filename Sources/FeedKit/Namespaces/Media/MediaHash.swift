@@ -36,8 +36,14 @@ public struct MediaHashAttributes: Codable, Equatable, Hashable, Sendable {
   /// This is the hash of the binary media file. It can appear multiple times as long as
   /// each instance is a different algo. It has one optional attribute.
   public var algo: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case algo = "@algo"
+  }
 }
 
 /// This is the hash of the binary media file. It can appear multiple times as
 /// long as each instance is a different algo. It has one optional attribute.
-public typealias MediaHash = XMLKit.XMLElement<MediaHashAttributes>
+public typealias MediaHash = FeedElement<MediaHashAttributes>

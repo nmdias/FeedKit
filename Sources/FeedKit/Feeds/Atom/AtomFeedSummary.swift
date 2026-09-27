@@ -38,6 +38,12 @@ public struct AtomFeedSummaryAttributes: Codable, Equatable, Hashable, Sendable 
   /// is not provided, Atom Processors MUST behave as though it were
   /// present with a value of "text".
   public var type: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+  }
 }
 
 /// The "atom:summary" element is a Text construct that conveys a short
@@ -48,4 +54,4 @@ public struct AtomFeedSummaryAttributes: Codable, Equatable, Hashable, Sendable 
 /// It is not advisable for the atom:summary element to duplicate
 /// atom:title or atom:content because Atom Processors might assume there
 /// is a useful summary when there is none.
-public typealias AtomFeedSummary = XMLKit.XMLElement<AtomFeedSummaryAttributes>
+public typealias AtomFeedSummary = FeedElement<AtomFeedSummaryAttributes>

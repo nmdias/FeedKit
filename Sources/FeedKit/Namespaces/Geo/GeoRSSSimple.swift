@@ -38,7 +38,9 @@ public struct GeoRSSSimple {
   public var elevation: Double?
 }
 
-extension GeoRSSSimple: XMLNamespaceCodable {}
+extension GeoRSSSimple: FeedNamespaceDecodable {
+  public static let namespacePrefix = "georss"
+}
 
 // MARK: - Sendable
 
@@ -56,8 +58,8 @@ extension GeoRSSSimple: Hashable {}
 
 extension GeoRSSSimple: Codable {
   private enum CodingKeys: String, CodingKey {
-    case point = "georss:point"
-    case elevation = "georss:elev"
+    case point = "http://www.georss.org/georss point"
+    case elevation = "http://www.georss.org/georss elev"
   }
 
   public init(from decoder: any Decoder) throws {

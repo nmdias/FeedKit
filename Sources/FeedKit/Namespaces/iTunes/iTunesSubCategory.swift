@@ -35,6 +35,12 @@ public struct iTunesSubCategoryAttributes: Codable, Equatable, Hashable, Sendabl
 
   /// The primary iTunes Category.
   public var text: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case text = "@text"
+  }
 }
 
 /// Users can browse podcast subject categories in the iTunes Store by choosing
@@ -68,4 +74,4 @@ public struct iTunesSubCategoryAttributes: Codable, Equatable, Hashable, Sendabl
 /// <itunes:category text="Technology">
 /// <itunes:category text="Gadgets" />
 /// </itunes:category>
-public typealias iTunesSubCategory = XMLAttributesElement<iTunesSubCategoryAttributes>
+public typealias iTunesSubCategory = FeedAttributesElement<iTunesSubCategoryAttributes>

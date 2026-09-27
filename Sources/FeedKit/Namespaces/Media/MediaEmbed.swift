@@ -63,6 +63,14 @@ public struct MediaEmbed {
 
     /// The height size for the embeded Media.
     public var height: Int?
+
+    // MARK: Private
+
+    private enum CodingKeys: String, CodingKey {
+      case url = "@url"
+      case width = "@width"
+      case height = "@height"
+    }
   }
 
   /// The element's attributes.
@@ -88,21 +96,20 @@ extension MediaEmbed: Hashable {}
 
 extension MediaEmbed: Codable {
   private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
-    case params = "media:param"
+    case params = "http://search.yahoo.com/mrss/ param"
   }
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<MediaEmbed.CodingKeys> = try decoder.container(keyedBy: MediaEmbed.CodingKeys.self)
 
-    attributes = try container.decodeIfPresent(MediaEmbed.Attributes.self, forKey: MediaEmbed.CodingKeys.attributes)
+    attributes = try decoder.decodeFeedAttributes(MediaEmbed.Attributes.self)
     params = try container.decodeIfPresent([MediaParam].self, forKey: MediaEmbed.CodingKeys.params)
   }
 
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<MediaEmbed.CodingKeys> = encoder.container(keyedBy: MediaEmbed.CodingKeys.self)
 
-    try container.encodeIfPresent(attributes, forKey: MediaEmbed.CodingKeys.attributes)
+    try attributes?.encode(to: encoder)
     try container.encodeIfPresent(params, forKey: MediaEmbed.CodingKeys.params)
   }
 }

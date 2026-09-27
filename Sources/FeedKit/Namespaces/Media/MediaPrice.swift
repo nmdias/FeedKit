@@ -54,6 +54,15 @@ public struct MediaPriceAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// Use [ISO 4217] for currency codes. This is an optional attribute.
   public var currency: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+    case price = "@price"
+    case info = "@info"
+    case currency = "@currency"
+  }
 }
 
 /// Optional tag to include pricing information about a media object. If this
@@ -61,4 +70,4 @@ public struct MediaPriceAttributes: Codable, Equatable, Hashable, Sendable {
 /// object can have multiple instances of this tag for including different
 /// pricing structures. The presence of this tag would mean that media object
 /// is not free.
-public typealias MediaPrice = XMLKit.XMLElement<MediaPriceAttributes>
+public typealias MediaPrice = FeedElement<MediaPriceAttributes>

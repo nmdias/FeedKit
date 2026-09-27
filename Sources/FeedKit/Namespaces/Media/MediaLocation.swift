@@ -80,11 +80,13 @@ public struct MediaLocation {
 
     // MARK: Private
 
-    private enum CodingKeys: CodingKey {
-      case description
-      case start
-      case end
+    private enum CodingKeys: String, CodingKey {
+      case description = "@description"
+      case start = "@start"
+      case end = "@end"
     }
+
+    // MARK: Private
   }
 
   /// The element's attributes
@@ -113,21 +115,20 @@ extension MediaLocation: Hashable {}
 
 extension MediaLocation: Codable {
   private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
-    case geoRSS = "georss:where"
+    case geoRSS = "http://www.georss.org/georss where"
   }
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    attributes = try container.decodeIfPresent(Attributes.self, forKey: CodingKeys.attributes)
+    attributes = try decoder.decodeFeedAttributes(MediaLocation.Attributes.self)
     geoRSS = try container.decodeIfPresent(GeoRSS.self, forKey: CodingKeys.geoRSS)
   }
 
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
+    try attributes?.encode(to: encoder)
     try container.encodeIfPresent(geoRSS, forKey: CodingKeys.geoRSS)
   }
 }

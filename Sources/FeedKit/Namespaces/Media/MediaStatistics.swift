@@ -42,8 +42,15 @@ public struct MediaStatisticsAttributes: Codable, Equatable, Hashable, Sendable 
 
   /// The number fo favorites.
   public var favorites: Int?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case views = "@views"
+    case favorites = "@favorites"
+  }
 }
 
 /// This element specifies various statistics about a media object like the
 /// view count and the favorite count. Valid attributes are views and favorites.
-public typealias MediaStatistics = XMLAttributesElement<MediaStatisticsAttributes>
+public typealias MediaStatistics = FeedAttributesElement<MediaStatisticsAttributes>

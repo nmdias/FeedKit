@@ -110,8 +110,8 @@ extension RDFFeedChannel: Codable {
     title = try container.decodeIfPresent(String.self, forKey: CodingKeys.title)
     link = try container.decodeIfPresent(String.self, forKey: CodingKeys.link)
     description = try container.decodeIfPresent(String.self, forKey: CodingKeys.description)
-    dublinCore = try container.decodeIfPresent(DublinCore.self, forKey: CodingKeys.dublinCore)
-    syndication = try container.decodeIfPresent(Syndication.self, forKey: CodingKeys.syndication)
+    dublinCore = try decoder.decodeNamespace(DublinCore.self)
+    syndication = try decoder.decodeNamespace(Syndication.self)
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -120,7 +120,7 @@ extension RDFFeedChannel: Codable {
     try container.encodeIfPresent(title, forKey: CodingKeys.title)
     try container.encodeIfPresent(link, forKey: CodingKeys.link)
     try container.encodeIfPresent(description, forKey: CodingKeys.description)
-    try container.encodeIfPresent(dublinCore, forKey: CodingKeys.dublinCore)
-    try container.encodeIfPresent(syndication, forKey: CodingKeys.syndication)
+    try dublinCore?.encode(to: encoder)
+    try syndication?.encode(to: encoder)
   }
 }

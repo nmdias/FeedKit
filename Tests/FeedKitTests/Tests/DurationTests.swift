@@ -25,7 +25,6 @@
 import Foundation
 import Testing
 
-@Suite("Duration")
 struct DurationTests {
   @Test
   func duration() {

@@ -51,6 +51,13 @@ public struct MediaRestrictionAttributes: Codable, Equatable, Hashable, Sendable
   /// media can be syndicated. It is an optional attribute; however can only
   /// be excluded when using one of the literal values "all" or "none".
   public var type: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case relationship = "@relationship"
+    case type = "@type"
+  }
 }
 
 /// Allows restrictions to be placed on the aggregator rendering the media in
@@ -63,4 +70,4 @@ public struct MediaRestrictionAttributes: Codable, Equatable, Hashable, Sendable
 /// literals are reserved: "all", "none". These literals can only be used once.
 /// This element has one required attribute and one optional attribute (with
 /// strict requirements for its exclusion).
-public typealias MediaRestriction = XMLKit.XMLElement<MediaRestrictionAttributes>
+public typealias MediaRestriction = FeedElement<MediaRestrictionAttributes>

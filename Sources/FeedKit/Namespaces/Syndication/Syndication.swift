@@ -67,7 +67,9 @@ public struct Syndication {
 
 // MARK: - XMLNamespaceDecodable
 
-extension Syndication: XMLNamespaceCodable {}
+extension Syndication: FeedNamespaceDecodable {
+  public static let namespacePrefix = "sy"
+}
 
 // MARK: - Sendable
 
@@ -85,9 +87,9 @@ extension Syndication: Hashable {}
 
 extension Syndication: Codable {
   private enum CodingKeys: String, CodingKey {
-    case updatePeriod = "sy:updatePeriod"
-    case updateFrequency = "sy:updateFrequency"
-    case updateBase = "sy:updateBase"
+    case updatePeriod = "http://purl.org/rss/1.0/modules/syndication/ updatePeriod"
+    case updateFrequency = "http://purl.org/rss/1.0/modules/syndication/ updateFrequency"
+    case updateBase = "http://purl.org/rss/1.0/modules/syndication/ updateBase"
   }
 
   public init(from decoder: any Decoder) throws {

@@ -289,7 +289,9 @@ public struct ITunes {
 
 // MARK: - XMLNamespaceDecodable
 
-extension ITunes: XMLNamespaceCodable {}
+extension ITunes: FeedNamespaceDecodable {
+  public static let namespacePrefix = "itunes"
+}
 
 // MARK: - Sendable
 
@@ -307,25 +309,25 @@ extension ITunes: Hashable {}
 
 extension ITunes: Codable {
   private enum CodingKeys: String, CodingKey {
-    case author = "itunes:author"
-    case block = "itunes:block"
-    case categories = "itunes:category"
-    case image = "itunes:image"
-    case duration = "itunes:duration"
-    case explicit = "itunes:explicit"
-    case isClosedCaptioned = "itunes:isClosedCaptioned"
-    case order = "itunes:order"
-    case complete = "itunes:complete"
-    case newFeedURL = "itunes:new-feed-url"
-    case owner = "itunes:owner"
-    case title = "itunes:title"
-    case subtitle = "itunes:subtitle"
-    case summary = "itunes:summary"
-    case keywords = "itunes:keywords"
-    case type = "itunes:type"
-    case episodeType = "itunes:episodeType"
-    case season = "itunes:season"
-    case episode = "itunes:episode"
+    case author = "http://www.itunes.com/dtds/podcast-1.0.dtd author"
+    case block = "http://www.itunes.com/dtds/podcast-1.0.dtd block"
+    case categories = "http://www.itunes.com/dtds/podcast-1.0.dtd category"
+    case image = "http://www.itunes.com/dtds/podcast-1.0.dtd image"
+    case duration = "http://www.itunes.com/dtds/podcast-1.0.dtd duration"
+    case explicit = "http://www.itunes.com/dtds/podcast-1.0.dtd explicit"
+    case isClosedCaptioned = "http://www.itunes.com/dtds/podcast-1.0.dtd isClosedCaptioned"
+    case order = "http://www.itunes.com/dtds/podcast-1.0.dtd order"
+    case complete = "http://www.itunes.com/dtds/podcast-1.0.dtd complete"
+    case newFeedURL = "http://www.itunes.com/dtds/podcast-1.0.dtd new-feed-url"
+    case owner = "http://www.itunes.com/dtds/podcast-1.0.dtd owner"
+    case title = "http://www.itunes.com/dtds/podcast-1.0.dtd title"
+    case subtitle = "http://www.itunes.com/dtds/podcast-1.0.dtd subtitle"
+    case summary = "http://www.itunes.com/dtds/podcast-1.0.dtd summary"
+    case keywords = "http://www.itunes.com/dtds/podcast-1.0.dtd keywords"
+    case type = "http://www.itunes.com/dtds/podcast-1.0.dtd type"
+    case episodeType = "http://www.itunes.com/dtds/podcast-1.0.dtd episodeType"
+    case season = "http://www.itunes.com/dtds/podcast-1.0.dtd season"
+    case episode = "http://www.itunes.com/dtds/podcast-1.0.dtd episode"
   }
 
   public init(from decoder: any Decoder) throws {

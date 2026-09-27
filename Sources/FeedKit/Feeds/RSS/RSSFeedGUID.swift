@@ -44,6 +44,12 @@ public struct RSSFeedGUIDAttributes: Codable, Equatable, Hashable, Sendable {
   /// the guid may not be assumed to be a url, or a url to anything in
   /// particular.
   public var isPermaLink: Bool?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case isPermaLink = "@isPermaLink"
+  }
 }
 
 /// A string that uniquely identifies the item.
@@ -72,4 +78,4 @@ public struct RSSFeedGUIDAttributes: Codable, Equatable, Hashable, Sendable {
 /// isPermaLink is optional, its default value is true. If its value is false,
 /// the guid may not be assumed to be a url, or a url to anything in
 /// particular.
-public typealias RSSFeedGUID = XMLKit.XMLElement<RSSFeedGUIDAttributes>
+public typealias RSSFeedGUID = FeedElement<RSSFeedGUIDAttributes>

@@ -37,7 +37,13 @@ public struct MediaRightsAttributes: Codable, Equatable, Hashable, Sendable {
   /// been created by the publisher or they have rights to circulate it.
   /// Supported values are "userCreated" and "official".
   public var status: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case status = "@status"
+  }
 }
 
 /// Optional element to specify the rights information of a media object.
-public typealias MediaRights = XMLAttributesElement<MediaRightsAttributes>
+public typealias MediaRights = FeedAttributesElement<MediaRightsAttributes>

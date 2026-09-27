@@ -61,6 +61,16 @@ public struct RSSFeedCloudAttributes: Codable, Equatable, Hashable, Sendable {
   /// is used instead and refers to the `protocol` attribute of the `cloud`
   /// element.
   public var `protocol`: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case domain = "@domain"
+    case port = "@port"
+    case path = "@path"
+    case registerProcedure = "@registerProcedure"
+    case `protocol` = "@protocol"
+  }
 }
 
 // Allows processes to register with a cloud to be notified of updates to
@@ -87,4 +97,4 @@ public struct RSSFeedCloudAttributes: Codable, Equatable, Hashable, Sendable {
 // A full explanation of this element and the rssCloud interface is here:
 // http://cyber.law.harvard.edu/rss/soapMeetsRss.html#rsscloudInterface
 
-public typealias RSSFeedCloud = XMLAttributesElement<RSSFeedCloudAttributes>
+public typealias RSSFeedCloud = FeedAttributesElement<RSSFeedCloudAttributes>

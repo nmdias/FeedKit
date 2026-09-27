@@ -72,6 +72,18 @@ public struct PodcastValueRecipientAttributes: Codable, Equatable, Hashable, Sen
 
   /// Whether this recipient is a fee. Assumed to be false when absent.
   public var fee: Bool?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case name = "@name"
+    case customKey = "@customKey"
+    case customValue = "@customValue"
+    case type = "@type"
+    case address = "@address"
+    case split = "@split"
+    case fee = "@fee"
+  }
 }
 
 /// A destination for payments sent during consumption of the enclosed media.
@@ -82,7 +94,7 @@ public struct PodcastValueRecipientAttributes: Codable, Equatable, Hashable, Sen
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/value-recipient.md
-public typealias PodcastValueRecipient = XMLAttributesElement<PodcastValueRecipientAttributes>
+public typealias PodcastValueRecipient = FeedAttributesElement<PodcastValueRecipientAttributes>
 
 // MARK: - Remote Item
 
@@ -126,11 +138,11 @@ public struct PodcastRemoteItemAttributes: Codable, Equatable, Hashable, Sendabl
   /// The attribute spellings of the specification differ from the Swift names
   /// for the url, so they are pinned explicitly.
   private enum CodingKeys: String, CodingKey {
-    case feedGuid
-    case feedURL = "feedUrl"
-    case itemGuid
-    case medium
-    case title
+    case feedGuid = "@feedGuid"
+    case feedURL = "@feedUrl"
+    case itemGuid = "@itemGuid"
+    case medium = "@medium"
+    case title = "@title"
   }
 }
 
@@ -143,7 +155,7 @@ public struct PodcastRemoteItemAttributes: Codable, Equatable, Hashable, Sendabl
 /// ```
 ///
 /// See https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/remote-item.md
-public typealias PodcastRemoteItem = XMLAttributesElement<PodcastRemoteItemAttributes>
+public typealias PodcastRemoteItem = FeedAttributesElement<PodcastRemoteItemAttributes>
 
 // MARK: - Value Time Split
 
@@ -179,6 +191,15 @@ public struct PodcastValueTimeSplitAttributes: Codable, Equatable, Hashable, Sen
   /// The percentage of the payment the remote recipients will receive when a
   /// remote item is present. Defaults to 100.
   public var remotePercentage: Double?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case startTime = "@startTime"
+    case duration = "@duration"
+    case remoteStartTime = "@remoteStartTime"
+    case remotePercentage = "@remotePercentage"
+  }
 }
 
 /// Alternative value recipients for a certain period of the media.
@@ -216,10 +237,7 @@ public struct PodcastValueTimeSplit: Codable, Equatable, Hashable, Sendable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    let attributes: PodcastValueTimeSplitAttributes? = try container.decodeIfPresent(
-      PodcastValueTimeSplitAttributes.self,
-      forKey: CodingKeys.attributes
-    )
+    let attributes: PodcastValueTimeSplitAttributes? = try decoder.decodeFeedAttributes(PodcastValueTimeSplitAttributes.self)
 
     startTime = attributes?.startTime
     duration = attributes?.duration
@@ -255,12 +273,12 @@ public struct PodcastValueTimeSplit: Codable, Equatable, Hashable, Sendable {
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(PodcastValueTimeSplitAttributes(
+    try PodcastValueTimeSplitAttributes(
       startTime: startTime,
       duration: duration,
       remoteStartTime: remoteStartTime,
       remotePercentage: remotePercentage
-    ), forKey: CodingKeys.attributes)
+    ).encode(to: encoder)
     try container.encodeIfPresent(recipients, forKey: CodingKeys.recipients)
     try container.encodeIfPresent(remoteItem, forKey: CodingKeys.remoteItem)
   }
@@ -268,9 +286,8 @@ public struct PodcastValueTimeSplit: Codable, Equatable, Hashable, Sendable {
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
-    case recipients = "podcast:valueRecipient"
-    case remoteItem = "podcast:remoteItem"
+    case recipients = "https://podcastindex.org/namespace/1.0 valueRecipient"
+    case remoteItem = "https://podcastindex.org/namespace/1.0 remoteItem"
   }
 }
 
@@ -304,7 +321,7 @@ public struct PodcastPodroll: Codable, Equatable, Hashable, Sendable {
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case remoteItems = "podcast:remoteItem"
+    case remoteItems = "https://podcastindex.org/namespace/1.0 remoteItem"
   }
 }
 
@@ -350,7 +367,7 @@ public struct PodcastPublisher: Codable, Equatable, Hashable, Sendable {
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case remoteItem = "podcast:remoteItem"
+    case remoteItem = "https://podcastindex.org/namespace/1.0 remoteItem"
   }
 }
 
@@ -380,6 +397,14 @@ public struct PodcastValueAttributes: Codable, Equatable, Hashable, Sendable {
 
   /// A suggestion on how much cryptocurrency to send with each payment.
   public var suggested: Double?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case type = "@type"
+    case method = "@method"
+    case suggested = "@suggested"
+  }
 }
 
 /// Designates the cryptocurrency or payment layer that will be used, the
@@ -412,10 +437,7 @@ public struct PodcastValue: Codable, Equatable, Hashable, Sendable {
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    let attributes: PodcastValueAttributes? = try container.decodeIfPresent(
-      PodcastValueAttributes.self,
-      forKey: CodingKeys.attributes
-    )
+    let attributes: PodcastValueAttributes? = try decoder.decodeFeedAttributes(PodcastValueAttributes.self)
 
     type = attributes?.type
     method = attributes?.method
@@ -446,11 +468,11 @@ public struct PodcastValue: Codable, Equatable, Hashable, Sendable {
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(PodcastValueAttributes(
+    try PodcastValueAttributes(
       type: type,
       method: method,
       suggested: suggested
-    ), forKey: CodingKeys.attributes)
+    ).encode(to: encoder)
     try container.encodeIfPresent(recipients, forKey: CodingKeys.recipients)
     try container.encodeIfPresent(timeSplits, forKey: CodingKeys.timeSplits)
   }
@@ -458,8 +480,7 @@ public struct PodcastValue: Codable, Equatable, Hashable, Sendable {
   // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
-    case recipients = "podcast:valueRecipient"
-    case timeSplits = "podcast:valueTimeSplit"
+    case recipients = "https://podcastindex.org/namespace/1.0 valueRecipient"
+    case timeSplits = "https://podcastindex.org/namespace/1.0 valueTimeSplit"
   }
 }

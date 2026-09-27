@@ -36,7 +36,7 @@ public struct Atom {
 
   // MARK: Public
 
-  /// The "atom:link" element defines a reference from an entry or feed to
+  /// The "http://www.w3.org/2005/Atom link" element defines a reference from an entry or feed to
   /// a Web resource.  This specification assigns no meaning to the content
   /// (if any) of this element.
   public var links: [AtomLink]?
@@ -44,7 +44,9 @@ public struct Atom {
 
 // MARK: - XMLNamespaceDecodable
 
-extension Atom: XMLNamespaceCodable {}
+extension Atom: FeedNamespaceDecodable {
+  public static let namespacePrefix = "atom"
+}
 
 // MARK: - Sendable
 
@@ -62,7 +64,7 @@ extension Atom: Hashable {}
 
 extension Atom: Codable {
   private enum CodingKeys: String, CodingKey {
-    case links = "atom:link"
+    case links = "http://www.w3.org/2005/Atom link"
   }
 
   public init(from decoder: any Decoder) throws {

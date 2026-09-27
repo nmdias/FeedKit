@@ -54,9 +54,17 @@ public struct AtomFeedCategoryAttributes: Codable, Equatable, Hashable, Sendable
   /// their corresponding characters ("&" and "<", respectively), not
   /// markup.  Category elements MAY have a "label" attribute.
   public var label: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case term = "@term"
+    case scheme = "@scheme"
+    case label = "@label"
+  }
 }
 
 /// The "atom:category" element conveys information about a category
 /// associated with an entry or feed.  This specification assigns no
 /// meaning to the content (if any) of this element.
-public typealias AtomFeedCategory = XMLAttributesElement<AtomFeedCategoryAttributes>
+public typealias AtomFeedCategory = FeedAttributesElement<AtomFeedCategoryAttributes>

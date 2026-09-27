@@ -55,7 +55,7 @@ extension MediaResponses: Hashable {}
 
 extension MediaResponses: Codable {
   private enum CodingKeys: String, CodingKey {
-    case response = "media:response"
+    case response = "http://search.yahoo.com/mrss/ response"
   }
 
   public init(from decoder: any Decoder) throws {

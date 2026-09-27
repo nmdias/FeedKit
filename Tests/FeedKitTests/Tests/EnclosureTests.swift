@@ -24,7 +24,6 @@
 @testable import FeedKit
 import Foundation
 import Testing
-@testable import XMLKit
 
 /// Covers `<enclosure>` attribute parsing, in particular attributes whose
 /// values carry surrounding whitespace, as produced by the feed reported in
@@ -67,22 +66,25 @@ struct EnclosureTests: FeedKitTestable {
 
   @Test
   func enclosureAttributeValuesAreTrimmed() throws {
-    // Given
-    let data: Data = .init(Self.trailingSpaceLength.utf8)
-    let reader: XMLReader = .init(data: data)
+    // Given an enclosure whose string attribute is padded with whitespace.
+    let data: Data = .init("""
+    <?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0">
+      <channel>
+        <item>
+          <enclosure url="http://example.com/audio.mp3" length=" 24986239 " type=" audio/mpeg "/>
+        </item>
+      </channel>
+    </rss>
+    """.utf8)
 
     // When
-    let root = try #require(try reader.read().get().root)
-    let attributes = try #require(
-      root.child(for: "channel")?
-        .child(for: "item")?
-        .child(for: "enclosure")?
-        .child(for: "@attributes")
-    )
+    let feed = try RSSFeed(data: data)
 
     // Then
-    #expect(attributes.child(for: "length")?.text == "169600320")
-    #expect(attributes.child(for: "url")?.text == "https://traffic.libsyn.com/djsteveboy/natural_selections.mp3")
+    let item = try #require(feed.channel?.items?.first)
+    #expect(item.enclosure?.attributes?.type == "audio/mpeg")
+    #expect(item.enclosure?.attributes?.length == 24_986_239)
   }
 
   // MARK: Private

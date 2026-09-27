@@ -24,7 +24,7 @@
 @testable import FeedKit
 import Foundation
 import Testing
-@testable import XMLKit
+import XMLKit
 
 /// Covers `<source:markdown>` elements from the `http://source.scripting.com/`
 /// namespace, as produced by micro.blog feeds such as
@@ -74,16 +74,31 @@ struct SourceMarkdownTests: FeedKitTestable {
   func markdownPrefixIsNotAnElement() throws {
     // Given
     let data: Data = .init(Self.markdownOnly.utf8)
-    let reader: XMLReader = .init(data: data)
-    let root = try #require(try reader.read().get().root)
-    let item = try #require(root.child(for: "channel")?.child(for: "item"))
+
+    struct Item: Decodable {
+      var source: String?
+      var markdown: String?
+
+      private enum CodingKeys: String, CodingKey {
+        case source
+        case markdown = "source:markdown"
+      }
+    }
+
+    struct Channel: Decodable {
+      var item: Item
+    }
+
+    struct RSS: Decodable {
+      var channel: Channel
+    }
 
     // When
-    let child = item.child(for: "source")
+    let rss = try XMLDecoder().decode(RSS.self, from: data)
 
     // Then
-    #expect(child == nil)
-    #expect(item.child(for: "source:markdown")?.text?.contains("On his blog") == true)
+    #expect(rss.channel.item.source == nil)
+    #expect(rss.channel.item.markdown?.contains("On his blog") == true)
   }
 
   /// A `<source:markdown>` element next to a real `<source>` element must still

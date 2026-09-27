@@ -25,7 +25,6 @@
 import Foundation
 import Testing
 
-@Suite("JSON")
 struct JSONTests: FeedKitTestable {
   @Test
   func jsonFeed() throws {

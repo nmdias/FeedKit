@@ -36,8 +36,14 @@ public struct RSSFeedCategoryAttributes: Codable, Equatable, Hashable, Sendable 
   /// A string that identifies a categorization taxonomy. It's an optional
   /// attribute of `<category>`. e.g. "http://www.fool.com/cusips"
   public var domain: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case domain = "@domain"
+  }
 }
 
 /// The category of `<channel>`. Identifies a category or tag to which the feed
 /// belongs.
-public typealias RSSFeedCategory = XMLKit.XMLElement<RSSFeedCategoryAttributes>
+public typealias RSSFeedCategory = FeedElement<RSSFeedCategoryAttributes>

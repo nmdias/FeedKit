@@ -46,6 +46,14 @@ public struct PodcastLiveItemAttributes: Codable, Equatable, Hashable, Sendable 
 
   /// An ISO 8601 timestamp denoting when the stream is intended to end.
   public var end: String?
+
+  // MARK: Private
+
+  private enum CodingKeys: String, CodingKey {
+    case status = "@status"
+    case start = "@start"
+    case end = "@end"
+  }
 }
 
 /// Delivers a live audio or video stream to podcast apps.
@@ -78,11 +86,7 @@ public struct PodcastLiveItem: Codable, Equatable, Hashable, Sendable {
   }
 
   public init(from decoder: any Decoder) throws {
-    let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-    let attributes: PodcastLiveItemAttributes? = try container.decodeIfPresent(
-      PodcastLiveItemAttributes.self,
-      forKey: CodingKeys.attributes
-    )
+    let attributes: PodcastLiveItemAttributes? = try decoder.decodeFeedAttributes(PodcastLiveItemAttributes.self)
 
     status = attributes?.status
     start = attributes?.start
@@ -108,19 +112,11 @@ public struct PodcastLiveItem: Codable, Equatable, Hashable, Sendable {
   public var item: RSSFeedItem?
 
   public func encode(to encoder: any Encoder) throws {
-    var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
-
-    try container.encodeIfPresent(PodcastLiveItemAttributes(
+    try PodcastLiveItemAttributes(
       status: status,
       start: start,
       end: end
-    ), forKey: CodingKeys.attributes)
+    ).encode(to: encoder)
     try item?.encode(to: encoder)
-  }
-
-  // MARK: Private
-
-  private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
   }
 }

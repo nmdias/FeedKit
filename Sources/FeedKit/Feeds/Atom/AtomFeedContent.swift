@@ -67,12 +67,12 @@ public struct AtomFeedContentAttributes: Equatable, Hashable, Sendable {
 
 extension AtomFeedContentAttributes: Codable {
   private enum CodingKeys: String, CodingKey {
-    case type
-    case src
-    case base = "xml:base"
+    case type = "@type"
+    case src = "@src"
+    case base = "@xml:base"
   }
 }
 
 /// The "atom:content" element either contains or links to the content of
 /// the entry.  The content of atom:content is Language-Sensitive.
-public typealias AtomFeedContent = XMLKit.XMLElement<AtomFeedContentAttributes>
+public typealias AtomFeedContent = FeedElement<AtomFeedContentAttributes>

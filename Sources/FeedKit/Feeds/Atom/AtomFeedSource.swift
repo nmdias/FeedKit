@@ -85,7 +85,7 @@ extension AtomFeedSource: Hashable {}
 // MARK: - Codable
 
 extension AtomFeedSource: Codable {
-  private enum CodingKeys: CodingKey {
+  private enum CodingKeys: String, CodingKey {
     case id
     case title
     case updated

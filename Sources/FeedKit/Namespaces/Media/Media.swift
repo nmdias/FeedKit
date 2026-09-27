@@ -236,7 +236,9 @@ public struct Media {
 
 // MARK: - XMLNamespaceDecodable
 
-extension Media: XMLNamespaceCodable {}
+extension Media: FeedNamespaceDecodable {
+  public static let namespacePrefix = "media"
+}
 
 // MARK: - Sendable
 
@@ -254,33 +256,33 @@ extension Media: Hashable {}
 
 extension Media: Codable {
   private enum CodingKeys: String, CodingKey {
-    case group = "media:group"
-    case contents = "media:content"
-    case rating = "media:rating"
-    case title = "media:title"
-    case description = "media:description"
-    case keywords = "media:keywords"
-    case thumbnails = "media:thumbnail"
-    case category = "media:category"
-    case hash = "media:hash"
-    case player = "media:player"
-    case credits = "media:credit"
-    case copyright = "media:copyright"
-    case text = "media:text"
-    case restriction = "media:restriction"
-    case community = "media:community"
-    case comments = "media:comments"
-    case embed = "media:embed"
-    case responses = "media:responses"
-    case backLinks = "media:backLinks"
-    case status = "media:status"
-    case prices = "media:price"
-    case license = "media:license"
-    case subTitle = "media:subTitle"
-    case peerLink = "media:peerLink"
-    case location = "media:location"
-    case rights = "media:rights"
-    case scenes = "media:scenes"
+    case group = "http://search.yahoo.com/mrss/ group"
+    case contents = "http://search.yahoo.com/mrss/ content"
+    case rating = "http://search.yahoo.com/mrss/ rating"
+    case title = "http://search.yahoo.com/mrss/ title"
+    case description = "http://search.yahoo.com/mrss/ description"
+    case keywords = "http://search.yahoo.com/mrss/ keywords"
+    case thumbnails = "http://search.yahoo.com/mrss/ thumbnail"
+    case category = "http://search.yahoo.com/mrss/ category"
+    case hash = "http://search.yahoo.com/mrss/ hash"
+    case player = "http://search.yahoo.com/mrss/ player"
+    case credits = "http://search.yahoo.com/mrss/ credit"
+    case copyright = "http://search.yahoo.com/mrss/ copyright"
+    case text = "http://search.yahoo.com/mrss/ text"
+    case restriction = "http://search.yahoo.com/mrss/ restriction"
+    case community = "http://search.yahoo.com/mrss/ community"
+    case comments = "http://search.yahoo.com/mrss/ comments"
+    case embed = "http://search.yahoo.com/mrss/ embed"
+    case responses = "http://search.yahoo.com/mrss/ responses"
+    case backLinks = "http://search.yahoo.com/mrss/ backLinks"
+    case status = "http://search.yahoo.com/mrss/ status"
+    case prices = "http://search.yahoo.com/mrss/ price"
+    case license = "http://search.yahoo.com/mrss/ license"
+    case subTitle = "http://search.yahoo.com/mrss/ subTitle"
+    case peerLink = "http://search.yahoo.com/mrss/ peerLink"
+    case location = "http://search.yahoo.com/mrss/ location"
+    case rights = "http://search.yahoo.com/mrss/ rights"
+    case scenes = "http://search.yahoo.com/mrss/ scenes"
   }
 
   public init(from decoder: any Decoder) throws {

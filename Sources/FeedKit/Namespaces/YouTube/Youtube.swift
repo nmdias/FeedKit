@@ -49,7 +49,9 @@ public struct YouTube {
 
 // MARK: - XMLNamespaceDecodable
 
-extension YouTube: XMLNamespaceCodable {}
+extension YouTube: FeedNamespaceDecodable {
+  public static let namespacePrefix = "yt"
+}
 
 // MARK: - Sendable
 
@@ -67,8 +69,8 @@ extension YouTube: Hashable {}
 
 extension YouTube: Codable {
   private enum CodingKeys: String, CodingKey {
-    case channelID = "yt:channelId"
-    case videoID = "yt:videoId"
+    case channelID = "http://www.youtube.com/xml/schemas/2015 channelId"
+    case videoID = "http://www.youtube.com/xml/schemas/2015 videoId"
   }
 
   public init(from decoder: any Decoder) throws {

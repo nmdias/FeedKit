@@ -79,6 +79,12 @@ public struct iTunesCategory {
 
     /// The primary iTunes Category.
     public var text: String?
+
+    // MARK: Private
+
+    private enum CodingKeys: String, CodingKey {
+      case text = "@text"
+    }
   }
 
   /// The element's attributes.
@@ -104,21 +110,20 @@ extension iTunesCategory: Hashable {}
 
 extension iTunesCategory: Codable {
   private enum CodingKeys: String, CodingKey {
-    case attributes = "@attributes"
-    case subcategory = "itunes:category"
+    case subcategory = "http://www.itunes.com/dtds/podcast-1.0.dtd category"
   }
 
   public init(from decoder: any Decoder) throws {
     let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
 
-    attributes = try container.decodeIfPresent(Attributes.self, forKey: CodingKeys.attributes)
+    attributes = try decoder.decodeFeedAttributes(iTunesCategory.Attributes.self)
     subcategory = try container.decodeIfPresent(iTunesSubCategory.self, forKey: CodingKeys.subcategory)
   }
 
   public func encode(to encoder: any Encoder) throws {
     var container: KeyedEncodingContainer<CodingKeys> = encoder.container(keyedBy: CodingKeys.self)
 
-    try container.encodeIfPresent(attributes, forKey: CodingKeys.attributes)
+    try attributes?.encode(to: encoder)
     try container.encodeIfPresent(subcategory, forKey: CodingKeys.subcategory)
   }
 }
