@@ -35,9 +35,9 @@ import Foundation
 ///
 /// ```xml
 /// <root>
-///     <dc:title>Sample Title</dc:title>
-///     <dc:creator>Author</dc:creator>
-///     <media:thumbnail>image.jpg</media:thumbnail>
+///     <meta:title>Sample Title</meta:title>
+///     <meta:creator>Author</meta:creator>
+///     <doc:revised>2024-12-05</doc:revised>
 /// </root>
 /// ```
 ///
@@ -45,36 +45,36 @@ import Foundation
 ///
 /// ```swift
 /// struct Document: Codable {
-///     struct DublinCore: Codable, XMLNamespaceCodable {
+///     struct Meta: Codable, XMLNamespaceCodable {
 ///         let title: String
 ///         let creator: String
 ///
 ///         private enum CodingKeys: String, CodingKey {
-///             case title = "dc:title"
-///             case creator = "dc:creator"
+///             case title = "meta:title"
+///             case creator = "meta:creator"
 ///         }
 ///     }
 ///
-///     struct Media: Codable, XMLNamespaceCodable {
-///         let thumbnail: String
+///     struct Doc: Codable, XMLNamespaceCodable {
+///         let revised: String
 ///
 ///         private enum CodingKeys: String, CodingKey {
-///             case thumbnail = "media:thumbnail"
+///             case revised = "doc:revised"
 ///         }
 ///     }
 ///
-///     let dublinCore: DublinCore
-///     let media: Media
+///     let meta: Meta
+///     let doc: Doc
 ///
 ///     private enum CodingKeys: String, CodingKey {
-///         case dublinCore = "dc"
-///         case media = "media"
+///         case meta = "meta"
+///         case doc = "doc"
 ///     }
 /// }
 /// ```
 ///
-/// Using `XMLEncoder` or `XMLDecoder`, the `dublinCore` and `media` properties will map
-/// to their respective namespaces (`dc:` and `media:`) while maintaining their
+/// Using `XMLEncoder` or `XMLDecoder`, the `meta` and `doc` properties will map
+/// to their respective namespaces (`meta:` and `doc:`) while maintaining their
 /// association within the keyed structure of `Document`.
 ///
 /// The `XMLNamespaceCodable` protocol is optional and primarily intended for models where
