@@ -199,6 +199,9 @@ enum FeedDateCoder {
     strategy("\(weekday: .abbreviated), \(day: .defaultDigits) \(month: .abbreviated) \(year: .defaultDigits), \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .zeroBased)):\(minute: .twoDigits):\(second: .twoDigits) \(timeZone: .specificName(.short))"),
     // Non-standard, RFC 822 with a numeric offset.
     strategy("\(day: .defaultDigits) \(month: .abbreviated) \(year: .defaultDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .zeroBased)):\(minute: .twoDigits):\(second: .twoDigits) \(timeZone: .localizedGMT(.short))"),
+    // Non-standard, RFC 822 without seconds and with a numeric offset, as
+    // Bluesky's profile RSS writes it.
+    strategy("\(day: .defaultDigits) \(month: .abbreviated) \(year: .defaultDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .zeroBased)):\(minute: .twoDigits) \(timeZone: .localizedGMT(.short))"),
     // Non-standard, ISO-like format with a numeric offset.
     strategy("\(year: .defaultDigits)-\(month: .twoDigits)-\(day: .twoDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .zeroBased)):\(minute: .twoDigits):\(second: .twoDigits) \(timeZone: .localizedGMT(.short))"),
     // Non-standard format with both a numeric and a named timezone.
