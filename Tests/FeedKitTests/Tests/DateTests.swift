@@ -135,6 +135,27 @@ struct DateTests {
     #expect(dateStrings.count == dates.count)
   }
 
+  /// Bluesky's profile RSS writes RFC 822 without a weekday, without seconds
+  /// and with a numeric offset. No RFC 822 pattern accepted that shape, so the
+  /// value fell through to the ISO 8601 patterns, which assembled a date from
+  /// the fields they could match: "30 Sep 2026 03:22 +0000" read as 2036-03-18.
+  @Test
+  func rfc822WithoutSecondsAndWithNumericOffset() throws {
+    // Given
+    let cases: [(dateString: String, expected: DateComponents)] = [
+      ("30 Sep 2026 03:22 +0000", .init(year: 2026, month: 9, day: 30, hour: 3, minute: 22, second: 0)),
+      ("23 Oct 2026 08:59 +0000", .init(year: 2026, month: 10, day: 23, hour: 8, minute: 59, second: 0)),
+      ("30 Sep 2026 03:22 +0530", .init(year: 2026, month: 9, day: 29, hour: 21, minute: 52, second: 0))
+    ]
+
+    // When / Then
+    for (dateString, expected) in cases {
+      let date: Date? = FeedDateCoder.date(from: dateString)
+      let actual = try calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: #require(date))
+      #expect(expected == actual, "\(dateString)")
+    }
+  }
+
   // MARK: - RFC822
 
   @Test
