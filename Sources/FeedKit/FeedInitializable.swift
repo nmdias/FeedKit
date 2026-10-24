@@ -28,25 +28,34 @@ import Foundation
 import XMLKit
 
 /// A protocol defining initializers to create a feed from various sources.
+///
+/// Local parsing is available on every platform FeedKit builds for. WASI's
+/// Foundation has no networking, so the URL-fetching initializers are only
+/// declared on the other platforms.
 public protocol FeedInitializable: Codable {
-  /// Initializes from a URL string pointing to a feed.
-  /// - Parameter urlString: The URL string of the feed.
-  /// - Throws: An error if the URL string is invalid or loading fails.
-  init(urlString: String) async throws
+  #if !os(WASI)
+    /// Initializes from a URL string pointing to a feed.
+    /// - Parameter urlString: The URL string of the feed.
+    /// - Throws: An error if the URL string is invalid or loading fails.
+    init(urlString: String) async throws
 
-  /// Initializes from a URL pointing to a feed.
-  /// - Parameter url: The URL of the feed.
-  /// - Throws: An error if the URL is invalid or loading fails.
-  init(url: URL) async throws
+    /// Initializes from a URL pointing to a feed.
+    /// - Parameter url: The URL of the feed.
+    /// - Throws: An error if the URL is invalid or loading fails.
+    init(url: URL) async throws
+  #endif
 
   /// Initializes from a file URL.
   /// - Parameter url: The local file URL of the feed.
   /// - Throws: An error if the file cannot be read or parsed.
   init(fileURL url: URL) throws
-  /// Initializes from a remote URL.
-  /// - Parameter url: The remote URL of the feed.
-  /// - Throws: An error if fetching or parsing fails.
-  init(remoteURL url: URL) async throws
+
+  #if !os(WASI)
+    /// Initializes from a remote URL.
+    /// - Parameter url: The remote URL of the feed.
+    /// - Throws: An error if fetching or parsing fails.
+    init(remoteURL url: URL) async throws
+  #endif
 
   /// Initializes from a string.
   /// - Parameter string: The feed content as a string.
@@ -62,26 +71,28 @@ public protocol FeedInitializable: Codable {
 // MARK: - Default
 
 public extension FeedInitializable {
-  /// Default implementation for initializing from a URL string.
-  /// - Parameter urlString: The URL string of the feed.
-  /// - Throws: An error if the feed cannot be loaded or parsed.
-  init(urlString: String) async throws {
-    guard let url = URL(string: urlString) else {
-      throw FeedError.invalidURLString
+  #if !os(WASI)
+    /// Default implementation for initializing from a URL string.
+    /// - Parameter urlString: The URL string of the feed.
+    /// - Throws: An error if the feed cannot be loaded or parsed.
+    init(urlString: String) async throws {
+      guard let url = URL(string: urlString) else {
+        throw FeedError.invalidURLString
+      }
+      try await self.init(url: url)
     }
-    try await self.init(url: url)
-  }
 
-  /// Default implementation for initializing from a URL.
-  /// - Parameter url: The URL of the feed.
-  /// - Throws: An error if the feed cannot be loaded or parsed.
-  init(url: URL) async throws {
-    if url.isFileURL {
-      try self.init(fileURL: url)
-    } else {
-      try await self.init(remoteURL: url)
+    /// Default implementation for initializing from a URL.
+    /// - Parameter url: The URL of the feed.
+    /// - Throws: An error if the feed cannot be loaded or parsed.
+    init(url: URL) async throws {
+      if url.isFileURL {
+        try self.init(fileURL: url)
+      } else {
+        try await self.init(remoteURL: url)
+      }
     }
-  }
+  #endif
 
   /// Initializes from a file URL.
   /// - Parameter url: The local file URL of the feed.
@@ -91,24 +102,26 @@ public extension FeedInitializable {
     try self.init(data: data)
   }
 
-  /// Initializes from a remote URL.
-  /// - Parameter url: The remote URL of the feed.
-  /// - Throws: An error if fetching or parsing fails.
-  init(remoteURL url: URL) async throws {
-    let session: URLSession = .shared
-    let (data, response) = try await session.data(from: url)
+  #if !os(WASI)
+    /// Initializes from a remote URL.
+    /// - Parameter url: The remote URL of the feed.
+    /// - Throws: An error if fetching or parsing fails.
+    init(remoteURL url: URL) async throws {
+      let session: URLSession = .shared
+      let (data, response) = try await session.data(from: url)
 
-    guard let httpResponse = response as? HTTPURLResponse else {
-      throw FeedError.invalidHttpResponse(statusCode: nil)
+      guard let httpResponse = response as? HTTPURLResponse else {
+        throw FeedError.invalidHttpResponse(statusCode: nil)
+      }
+
+      let statusCode = httpResponse.statusCode
+      guard (200 ... 299).contains(statusCode) else {
+        throw FeedError.invalidHttpResponse(statusCode: statusCode)
+      }
+
+      try self.init(data: data)
     }
-
-    let statusCode = httpResponse.statusCode
-    guard (200 ... 299).contains(statusCode) else {
-      throw FeedError.invalidHttpResponse(statusCode: statusCode)
-    }
-
-    try self.init(data: data)
-  }
+  #endif
 
   /// Default implementation for initializing from a string.
   /// - Parameter string: The feed content as a string.

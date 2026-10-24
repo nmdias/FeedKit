@@ -26,18 +26,20 @@ import Foundation
 import Testing
 
 struct FeedTests: FeedKitTestable {
-  @Test
-  func url() async throws {
-    // Given
-    let url = url(resource: "Atom", withExtension: "xml")
-    let expected: Feed = .atom(mock)
+  #if !os(WASI)
+    @Test
+    func url() async throws {
+      // Given
+      let url = url(resource: "Atom", withExtension: "xml")
+      let expected: Feed = .atom(mock)
 
-    // When
-    let actual = try await Feed(url: url)
+      // When
+      let actual = try await Feed(url: url)
 
-    // Then
-    #expect(expected == actual)
-  }
+      // Then
+      #expect(expected == actual)
+    }
+  #endif
 
   @Test
   func fileURL() throws {

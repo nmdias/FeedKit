@@ -100,6 +100,8 @@ if feedType.isXML {
 
 All feed types conform to `FeedInitializable`, sharing multiple common initializers. They provide a flexible way to read feeds from the most common sources.
 
+> **Note:** The URL-fetching initializers require `URLSession`, which Foundation does not provide on WASI. On WASI, use the local `fileURL:`, `string:`, and `data:` initializers.
+
 <details>
   <summary>Show</summary>
 
