@@ -25,18 +25,20 @@ import FeedKit
 import SwiftUI
 
 struct FeedView: View {
-  let feed: FeedModel
+  let title: String?
+  let description: String?
+  let items: [FeedItemModel]
 
   var body: some View {
     List {
       Section("Title") {
-        Text(feed.title ?? "-")
+        Text(title ?? "-")
       }
       Section("Description") {
-        Text(feed.description ?? "-")
+        Text(description ?? "-")
       }
       Section("Items") {
-        ForEach(feed.items) { item in
+        ForEach(items) { item in
           NavigationLink(destination: FeedItemView(item: item)) {
             Text(item.title ?? "-")
           }

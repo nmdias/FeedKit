@@ -77,7 +77,11 @@ struct ConcurrencyView: View {
       List {
         Section("Feeds") {
           ForEach(feeds) { feed in
-            NavigationLink(destination: FeedView(feed: feed)) {
+            NavigationLink(destination: FeedView(
+              title: feed.title,
+              description: feed.description,
+              items: feed.items
+            )) {
               Text(feed.title ?? "")
             }
           }
