@@ -8,13 +8,14 @@ on:
     branches:
       - "*"
 
-# The macOS toolchain pair is pinned here once. `runs-on` cannot read env
-# vars, so the `xcode-27` runner label still appears on every macOS job.
-# The watchOS leg overrides both (see the comment on that job).
-# To roll back: set the label back to `macos-26` and XCODE_APP to
-# /Applications/Xcode_26.6.app.
+# The macOS toolchain pair is pinned here once, on the newest *stable* image:
+# `xcode-27` is still a preview with no SLA and a broken watchOS runtime
+# (actions/runner-images#14946), so it is deliberately not used. `runs-on`
+# cannot read env vars, so the runner label still appears on every macOS job.
+# To roll back: set the label back to `macos-15` and XCODE_APP to
+# /Applications/Xcode_26.2.app.
 env:
-  XCODE_APP: /Applications/Xcode_27.1.app
+  XCODE_APP: /Applications/Xcode_26.6.app
 
 jobs:
   linux-build-and-test:
@@ -57,7 +58,7 @@ jobs:
 
   macos-build-and-test:
     name: Test (swift macOS)
-    runs-on: xcode-27
+    runs-on: macos-26
     steps:
       - name: Check out code
         uses: actions/checkout@v7
@@ -76,7 +77,7 @@ jobs:
 
   example-build:
     name: Build (example app)
-    runs-on: xcode-27
+    runs-on: macos-26
     steps:
       - name: Check out code
         uses: actions/checkout@v7
@@ -106,7 +107,7 @@ jobs:
 
   macos-build-and-test-xcodebuild-macos:
     name: Test (xcodebuild macOS)
-    runs-on: xcode-27
+    runs-on: macos-26
     steps:
       - name: Check out code
         uses: actions/checkout@v7
@@ -122,7 +123,7 @@ jobs:
 
   macos-build-and-test-xcodebuild-ios:
     name: Test (xcodebuild iOS)
-    runs-on: xcode-27
+    runs-on: macos-26
     steps:
       - name: Check out code
         uses: actions/checkout@v7
@@ -134,11 +135,11 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=iOS Simulator,name=iPhone 17,OS=27.0' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' test | xcbeautify
 
   macos-build-and-test-xcodebuild-tvos:
     name: Test (xcodebuild tvOS)
-    runs-on: xcode-27
+    runs-on: macos-26
     steps:
       - name: Check out code
         uses: actions/checkout@v7
@@ -150,19 +151,11 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=tvOS Simulator,name=Apple TV 4K (3rd generation),OS=27.0' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=tvOS Simulator,name=Apple TV,OS=26.5' test | xcbeautify
 
   macos-build-and-test-xcodebuild-watchos:
     name: Test (xcodebuild watchOS)
-    # The watchOS 27.0 runtime on the `xcode-27` preview image is unusable —
-    # every watch simulator reports a null runtime with no supported
-    # architectures (duplicate registration, failing cryptex mount):
-    # https://github.com/actions/runner-images/issues/14946
-    # Keep this leg on the last image with a working watchOS runtime, and
-    # move it back to `xcode-27` / XCODE_APP=27.1 when that issue is fixed.
     runs-on: macos-26
-    env:
-      XCODE_APP: /Applications/Xcode_26.6.app
     steps:
       - name: Check out code
         uses: actions/checkout@v7
@@ -178,7 +171,7 @@ jobs:
 
   macos-build-and-test-xcodebuild-visionos:
     name: Test (xcodebuild visionOS)
-    runs-on: xcode-27
+    runs-on: macos-26
     steps:
       - name: Check out code
         uses: actions/checkout@v7
@@ -190,4 +183,4 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=visionOS Simulator,name=Apple Vision Pro,OS=27.0' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=visionOS Simulator,name=Apple Vision Pro,OS=26.5' test | xcbeautify
