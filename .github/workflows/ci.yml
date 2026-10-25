@@ -8,9 +8,7 @@ on:
     branches:
       - "*"
 
-# Xcode is pinned once here. `runs-on` cannot read env vars, so the runner
-# label is still repeated on each job. Not `xcode-27`: that preview image has
-# a broken watchOS runtime (actions/runner-images#14946).
+# Not `xcode-27`: its watchOS runtime is broken (actions/runner-images#14946).
 env:
   XCODE_APP: /Applications/Xcode_26.6.app
 
