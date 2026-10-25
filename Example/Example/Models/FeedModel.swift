@@ -24,46 +24,66 @@
 import FeedKit
 import Foundation
 
-struct FeedModel: Equatable {
+struct FeedModel: Identifiable, Equatable, Hashable {
   // MARK: Lifecycle
 
-  init() {}
+  init(urlString: String) {
+    id = urlString
+    items = []
+  }
 
-  init(feed: AtomFeed) {
+  init(urlString: String, feed: AtomFeed) {
+    id = urlString
     title = feed.title?.text
     date = feed.updated
     description = feed.subtitle?.text
-    items = feed.entries?.compactMap { .init(item: $0) }
+    items = feed.entries?.compactMap { .init(item: $0) } ?? []
   }
 
-  init(feed: RSSFeed) {
+  init(urlString: String, feed: RSSFeed) {
+    id = urlString
     title = feed.channel?.title
     date = feed.channel?.pubDate
     description = feed.channel?.description
-    items = feed.channel?.items?.compactMap { .init(item: $0) }
+    items = feed.channel?.items?.compactMap { .init(item: $0) } ?? []
   }
 
-  init(feed: JSONFeed) {
+  init(urlString: String, feed: RDFFeed) {
+    id = urlString
+    title = feed.channel?.title
+    date = feed.channel?.dublinCore?.date
+    description = feed.channel?.description
+    items = feed.items?.compactMap { .init(item: $0) } ?? []
+  }
+
+  init(urlString: String, feed: JSONFeed) {
+    id = urlString
     title = feed.title
     description = feed.description
-    items = feed.items?.compactMap { .init(item: $0) }
+    items = feed.items?.compactMap { .init(item: $0) } ?? []
   }
 
-  init(feed: Feed) {
+  init(urlString: String, feed: Feed) {
     switch feed {
     case let .atom(atomFeed):
-      self.init(feed: atomFeed)
+      self.init(urlString: urlString, feed: atomFeed)
     case let .rss(rssFeed):
-      self.init(feed: rssFeed)
+      self.init(urlString: urlString, feed: rssFeed)
+    case let .rdf(rdfFeed):
+      self.init(urlString: urlString, feed: rdfFeed)
     case let .json(jsonFeed):
-      self.init(feed: jsonFeed)
+      self.init(urlString: urlString, feed: jsonFeed)
     }
   }
 
   // MARK: Internal
 
+  /// The URL the feed was fetched from, which also identifies it in the feeds
+  /// list even when two feeds share a title.
+  let id: String
+
   var title: String?
   var date: Date?
   var description: String?
-  var items: [FeedItemModel]?
+  var items: [FeedItemModel]
 }

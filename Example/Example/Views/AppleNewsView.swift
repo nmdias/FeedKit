@@ -24,18 +24,22 @@
 import FeedKit
 import SwiftUI
 
+private let appleNewsFeedURL = "https://developer.apple.com/news/rss/news.rss"
+
 struct AppleNewsView: View {
   // MARK: Internal
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       List {
         Section("Title") {
-          Text(feed.channel?.title ?? "-")
+          Text(feed.title ?? "-")
         }
         Section("Items") {
-          ForEach(feed.channel?.items ?? [], id: \.hashValue) { item in
-            NavigationLink(destination: FeedItemView(item: .init(item: item))) {
+          ForEach(feed.items) { item in
+            NavigationLink {
+              FeedItemView(item: item)
+            } label: {
               Text(item.title ?? "-")
             }
           }
@@ -58,11 +62,12 @@ struct AppleNewsView: View {
 
   // MARK: Private
 
-  @State private var feed: RSSFeed = .init()
+  @State private var feed: FeedModel = .init(urlString: appleNewsFeedURL)
 
   private func loadFeed() async {
     do {
-      feed = try await RSSFeed(urlString: "https://developer.apple.com/news/rss/news.rss")
+      let rssFeed = try await RSSFeed(urlString: appleNewsFeedURL)
+      feed = FeedModel(urlString: appleNewsFeedURL, feed: rssFeed)
     } catch {
       print("Failed to fetch RSS feed: \(error)")
     }

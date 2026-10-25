@@ -73,11 +73,17 @@ struct ConcurrencyView: View {
   ]
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       List {
         Section("Feeds") {
-          ForEach(feeds, id: \.title) { feed in
-            NavigationLink(destination: FeedView(feed: feed)) {
+          ForEach(feeds) { feed in
+            NavigationLink {
+              FeedView(
+                title: feed.title,
+                description: feed.description,
+                items: feed.items
+              )
+            } label: {
               Text(feed.title ?? "")
             }
           }
@@ -102,22 +108,22 @@ struct ConcurrencyView: View {
 
   func loadFeeds() async {
     feeds = []
-    await withTaskGroup(of: Result<Feed, Error>.self) { group in
+    await withTaskGroup(of: (String, Result<Feed, Error>).self) { group in
       for urlString in feedURLs {
         group.addTask {
           do {
             let feed = try await Feed(urlString: urlString)
-            return .success(feed)
+            return (urlString, .success(feed))
           } catch {
-            return .failure(error)
+            return (urlString, .failure(error))
           }
         }
       }
 
-      for await result in group {
+      for await (urlString, result) in group {
         switch result {
         case let .success(feed):
-          feeds.append(.init(feed: feed))
+          feeds.append(.init(urlString: urlString, feed: feed))
         case let .failure(error):
           print("Failed to load feed: \(error)")
         }

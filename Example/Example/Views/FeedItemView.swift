@@ -33,7 +33,11 @@ struct FeedItemView: View {
         Text(item.title ?? "-")
       }
       Section("Date") {
-        Text(item.date?.description ?? "-")
+        if let date = item.date {
+          Text(date, format: .dateTime.month().day().year())
+        } else {
+          Text("-")
+        }
       }
       Section("Description") {
         Text(item.description ?? "-")
