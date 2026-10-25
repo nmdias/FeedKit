@@ -43,6 +43,13 @@ struct FeedModel: Equatable {
     items = feed.channel?.items?.compactMap { .init(item: $0) }
   }
 
+  init(feed: RDFFeed) {
+    title = feed.channel?.title
+    date = feed.channel?.dublinCore?.date
+    description = feed.channel?.description
+    items = feed.items?.compactMap { .init(item: $0) }
+  }
+
   init(feed: JSONFeed) {
     title = feed.title
     description = feed.description
@@ -55,6 +62,8 @@ struct FeedModel: Equatable {
       self.init(feed: atomFeed)
     case let .rss(rssFeed):
       self.init(feed: rssFeed)
+    case let .rdf(rdfFeed):
+      self.init(feed: rdfFeed)
     case let .json(jsonFeed):
       self.init(feed: jsonFeed)
     }
