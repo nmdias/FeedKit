@@ -7,9 +7,8 @@ on:
 jobs:
   swift_format:
     name: swift format
-    # SwiftFormat comes preinstalled on the runner image (0.63.1 on macos-26),
-    # so this job needs no Xcode toolchain — an earlier `xcode-select` step was
-    # a no-op. The runner label is what pins the SwiftFormat version that runs.
+    # The SwiftFormat binary comes from the runner image, so `runs-on` — not an
+    # Xcode toolchain — is what pins the formatter version that runs.
     runs-on: macos-26
     permissions:
       contents: write
