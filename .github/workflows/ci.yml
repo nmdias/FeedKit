@@ -8,12 +8,21 @@ on:
     branches:
       - "*"
 
+# The macOS toolchain pair is pinned here once. `runs-on` cannot read env
+# vars, so the `xcode-27` runner label still appears on every macOS job.
+# To roll back: set the label back to `macos-26` and XCODE_APP to
+# /Applications/Xcode_26.6.app.
+env:
+  XCODE_APP: /Applications/Xcode_27.1.app
+
 jobs:
   linux-build-and-test:
     name: Test (swift linux)
     runs-on: ubuntu-latest
     container:
-      image: swift:6.0-focal
+      # Swift 6.4.1 matches the compiler shipped with Xcode 27.
+      # (Was 6.0-focal; that image stopped being updated in April 2025.)
+      image: swift:6.4.1
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -47,13 +56,13 @@ jobs:
 
   macos-build-and-test:
     name: Test (swift macOS)
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.2.app
+        run: sudo xcode-select -s "$XCODE_APP"
 
       - name: List available devices
         run: xcrun simctl list devices available
@@ -66,13 +75,13 @@ jobs:
 
   example-build:
     name: Build (example app)
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.2.app
+        run: sudo xcode-select -s "$XCODE_APP"
 
       - name: Build (macOS)
         run: |
@@ -96,13 +105,13 @@ jobs:
 
   macos-build-and-test-xcodebuild-macos:
     name: Test (xcodebuild macOS)
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.2.app
+        run: sudo xcode-select -s "$XCODE_APP"
 
       - name: List available devices
         run: xcrun simctl list devices available
@@ -112,64 +121,64 @@ jobs:
 
   macos-build-and-test-xcodebuild-ios:
     name: Test (xcodebuild iOS)
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.2.app
+        run: sudo xcode-select -s "$XCODE_APP"
 
       - name: List available devices
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=iOS Simulator,name=iPhone 17' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=iOS Simulator,name=iPhone 17,OS=27.0' test | xcbeautify
 
   macos-build-and-test-xcodebuild-tvos:
     name: Test (xcodebuild tvOS)
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.2.app
+        run: sudo xcode-select -s "$XCODE_APP"
 
       - name: List available devices
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=tvOS Simulator,name=Apple TV' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=tvOS Simulator,name=Apple TV 4K (3rd generation),OS=27.0' test | xcbeautify
 
   macos-build-and-test-xcodebuild-watchos:
     name: Test (xcodebuild watchOS)
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.2.app
+        run: sudo xcode-select -s "$XCODE_APP"
 
       - name: List available devices
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=watchOS Simulator,name=Apple Watch Series 12 (42mm),OS=27.0' test | xcbeautify
 
   macos-build-and-test-xcodebuild-visionos:
     name: Test (xcodebuild visionOS)
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.2.app
+        run: sudo xcode-select -s "$XCODE_APP"
 
       - name: List available devices
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=visionOS Simulator,name=Apple Vision Pro,OS=26.2' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=visionOS Simulator,name=Apple Vision Pro,OS=27.0' test | xcbeautify
