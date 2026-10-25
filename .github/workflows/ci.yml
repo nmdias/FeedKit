@@ -64,6 +64,36 @@ jobs:
       - name: Build and Test
         run: set -o pipefail && swift test | xcbeautify
 
+  example-build:
+    name: Build (example app)
+    runs-on: macos-15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_26.2.app
+
+      - name: Build (macOS)
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Example/Example.xcodeproj \
+            -scheme Example \
+            -destination 'platform=macOS' \
+            CODE_SIGNING_ALLOWED=NO \
+            build | xcbeautify
+
+      - name: Build (iOS Simulator)
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Example/Example.xcodeproj \
+            -scheme Example \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build | xcbeautify
+
   macos-build-and-test-xcodebuild-macos:
     name: Test (xcodebuild macOS)
     runs-on: macos-15
