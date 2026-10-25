@@ -19,8 +19,6 @@ jobs:
     name: Test (swift linux)
     runs-on: ubuntu-latest
     container:
-      # Swift 6.4.1 matches the compiler shipped with Xcode 27.
-      # (Was 6.0-focal; that image stopped being updated in April 2025.)
       image: swift:6.4.1
     steps:
       - name: Check out code
