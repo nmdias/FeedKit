@@ -7,8 +7,6 @@ on:
 jobs:
   swift_format:
     name: swift format
-    # The SwiftFormat binary comes from the runner image, so `runs-on` — not an
-    # Xcode toolchain — is what pins the formatter version that runs.
     runs-on: macos-26
     permissions:
       contents: write
