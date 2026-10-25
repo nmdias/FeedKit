@@ -73,15 +73,17 @@ struct ConcurrencyView: View {
   ]
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       List {
         Section("Feeds") {
           ForEach(feeds) { feed in
-            NavigationLink(destination: FeedView(
-              title: feed.title,
-              description: feed.description,
-              items: feed.items
-            )) {
+            NavigationLink {
+              FeedView(
+                title: feed.title,
+                description: feed.description,
+                items: feed.items
+              )
+            } label: {
               Text(feed.title ?? "")
             }
           }

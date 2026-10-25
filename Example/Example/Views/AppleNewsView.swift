@@ -30,14 +30,16 @@ struct AppleNewsView: View {
   // MARK: Internal
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       List {
         Section("Title") {
           Text(feed.title ?? "-")
         }
         Section("Items") {
           ForEach(feed.items) { item in
-            NavigationLink(destination: FeedItemView(item: item)) {
+            NavigationLink {
+              FeedItemView(item: item)
+            } label: {
               Text(item.title ?? "-")
             }
           }

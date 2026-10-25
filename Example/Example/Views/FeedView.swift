@@ -39,7 +39,9 @@ struct FeedView: View {
       }
       Section("Items") {
         ForEach(items) { item in
-          NavigationLink(destination: FeedItemView(item: item)) {
+          NavigationLink {
+            FeedItemView(item: item)
+          } label: {
             Text(item.title ?? "-")
           }
         }
