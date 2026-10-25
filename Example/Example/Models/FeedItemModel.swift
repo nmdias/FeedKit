@@ -24,30 +24,35 @@
 import FeedKit
 import Foundation
 
-struct FeedItemModel: Equatable {
+struct FeedItemModel: Identifiable, Equatable, Hashable {
   // MARK: Lifecycle
 
-  init() {}
-
   init(item: RSSFeedItem) {
+    id = item.guid?.text ?? item.link ?? item.title ?? UUID().uuidString
     title = item.title
     description = item.description
     date = item.pubDate
   }
 
   init(item: AtomFeedEntry) {
+    id = item.id ?? item.links?.first?.attributes?.href ?? item.title ?? UUID().uuidString
     title = item.title
     description = item.summary?.text
     date = item.published
   }
 
   init(item: JSONFeedItem) {
+    id = item.id ?? item.url ?? item.title ?? UUID().uuidString
     title = item.title
     description = item.summary
     date = item.datePublished
   }
 
   // MARK: Internal
+
+  /// The feed entry's own stable identifier, falling back to its permalink or
+  /// title when the feed does not publish one.
+  let id: String
 
   var title: String?
   var description: String?

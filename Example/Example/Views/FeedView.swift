@@ -36,7 +36,7 @@ struct FeedView: View {
         Text(feed.description ?? "-")
       }
       Section("Items") {
-        ForEach(feed.items ?? [], id: \.title) { item in
+        ForEach(feed.items) { item in
           NavigationLink(destination: FeedItemView(item: item)) {
             Text(item.title ?? "-")
           }
