@@ -10,6 +10,7 @@ on:
 
 # The macOS toolchain pair is pinned here once. `runs-on` cannot read env
 # vars, so the `xcode-27` runner label still appears on every macOS job.
+# The watchOS leg overrides both (see the comment on that job).
 # To roll back: set the label back to `macos-26` and XCODE_APP to
 # /Applications/Xcode_26.6.app.
 env:
@@ -25,7 +26,7 @@ jobs:
       image: swift:6.4.1
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Show Swift Version
         run: swift --version
@@ -40,7 +41,7 @@ jobs:
       image: swift:6.4.1
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Show Swift Version
         run: swift --version
@@ -59,7 +60,7 @@ jobs:
     runs-on: xcode-27
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Select Xcode
         run: sudo xcode-select -s "$XCODE_APP"
@@ -78,7 +79,7 @@ jobs:
     runs-on: xcode-27
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Select Xcode
         run: sudo xcode-select -s "$XCODE_APP"
@@ -108,7 +109,7 @@ jobs:
     runs-on: xcode-27
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Select Xcode
         run: sudo xcode-select -s "$XCODE_APP"
@@ -124,7 +125,7 @@ jobs:
     runs-on: xcode-27
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Select Xcode
         run: sudo xcode-select -s "$XCODE_APP"
@@ -140,7 +141,7 @@ jobs:
     runs-on: xcode-27
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Select Xcode
         run: sudo xcode-select -s "$XCODE_APP"
@@ -153,10 +154,18 @@ jobs:
 
   macos-build-and-test-xcodebuild-watchos:
     name: Test (xcodebuild watchOS)
-    runs-on: xcode-27
+    # The watchOS 27.0 runtime on the `xcode-27` preview image is unusable —
+    # every watch simulator reports a null runtime with no supported
+    # architectures (duplicate registration, failing cryptex mount):
+    # https://github.com/actions/runner-images/issues/14946
+    # Keep this leg on the last image with a working watchOS runtime, and
+    # move it back to `xcode-27` / XCODE_APP=27.1 when that issue is fixed.
+    runs-on: macos-26
+    env:
+      XCODE_APP: /Applications/Xcode_26.6.app
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Select Xcode
         run: sudo xcode-select -s "$XCODE_APP"
@@ -165,14 +174,14 @@ jobs:
         run: xcrun simctl list devices available
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=watchOS Simulator,name=Apple Watch Series 12 (42mm),OS=27.0' test | xcbeautify
+        run: set -o pipefail && xcodebuild -scheme FeedKit-Package -destination 'platform=watchOS Simulator,name=Apple Watch Series 11 (42mm),OS=26.5' test | xcbeautify
 
   macos-build-and-test-xcodebuild-visionos:
     name: Test (xcodebuild visionOS)
     runs-on: xcode-27
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Select Xcode
         run: sudo xcode-select -s "$XCODE_APP"
