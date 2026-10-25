@@ -26,18 +26,27 @@ import SwiftUI
 
 @main
 struct ExampleApp: App {
+  // MARK: Internal
+
   var body: some Scene {
     WindowGroup {
-      TabView {
-        AppleNewsView()
-          .tabItem {
-            Label("Apple News", systemImage: "dot.radiowaves.up.forward")
-          }
-        ConcurrencyView()
-          .tabItem {
-            Label("Concurrency", systemImage: "list.bullet")
-          }
+      TabView(selection: $selection) {
+        Tab("Apple News", systemImage: "dot.radiowaves.up.forward", value: ExampleTab.appleNews) {
+          AppleNewsView()
+        }
+        Tab("Concurrency", systemImage: "list.bullet", value: ExampleTab.concurrency) {
+          ConcurrencyView()
+        }
       }
     }
   }
+
+  // MARK: Private
+
+  @State private var selection: ExampleTab = .appleNews
+}
+
+private enum ExampleTab: Hashable {
+  case appleNews
+  case concurrency
 }
