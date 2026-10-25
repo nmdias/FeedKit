@@ -8,12 +8,9 @@ on:
     branches:
       - "*"
 
-# The macOS toolchain pair is pinned here once, on the newest *stable* image:
-# `xcode-27` is still a preview with no SLA and a broken watchOS runtime
-# (actions/runner-images#14946), so it is deliberately not used. `runs-on`
-# cannot read env vars, so the runner label still appears on every macOS job.
-# To roll back: set the label back to `macos-15` and XCODE_APP to
-# /Applications/Xcode_26.2.app.
+# Xcode is pinned once here. `runs-on` cannot read env vars, so the runner
+# label is still repeated on each job. Not `xcode-27`: that preview image has
+# a broken watchOS runtime (actions/runner-images#14946).
 env:
   XCODE_APP: /Applications/Xcode_26.6.app
 
