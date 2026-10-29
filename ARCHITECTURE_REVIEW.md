@@ -32,7 +32,7 @@ Positive findings of substance:
 
 - **(Fact)** Module split is clean and unidirectional: `FeedKit → XMLKit`, XMLKit has zero FeedKit knowledge; XMLKit depends only on Foundation (+ `FoundationXML`/`FoundationNetworking` conditionals). No cycles.
 - **(Fact)** Value-type domain model with a uniform `struct` + `Sendable/Equatable/Hashable/Codable` pattern; RSS 1.0 correctly reuses `RSSFeedItem`; JSON 1.1 support (`authors`, `language`) is handled with a sensible `author` fallback.
-- **(Fact)** The parser tolerates real-world junk (trailing garbage after the root element, 256-byte prologs, whitespace-padded attributes) with deliberate, documented trade-offs.
+- **(Fact)** The parser tolerates real-world junk (trailing garbage after the root element, 1024-byte prologs, whitespace-padded attributes) with deliberate, documented trade-offs.
 - **(Fact)** CI runs Linux (swift 6.0) and an Apple matrix covering macOS/iOS/tvOS/watchOS/visionOS.
 - **(Interpretation)** The two-pass "namespace container discovery" decode is a pragmatic solution to a real Codable/XML impedance mismatch, but it is undocumented, doubles model-mapping cost, and is hazardous for custom `Decodable` types with side effects.
 
@@ -88,7 +88,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A[Feed.init data / string / fileURL / remoteURL] --> B[FeedType detection<br/>first 256 bytes, UTF-8]
+    A[Feed.init data / string / fileURL / remoteURL] --> B[FeedType detection<br/>first 1024 bytes, UTF-8]
     B -->|rss| C[RSSFeed.init data]
     B -->|rdf| D[RDFFeed.init data]
     B -->|atom| E[AtomFeed.init data]
@@ -217,7 +217,7 @@ Weak points of the current design:
 | 3 | All element text is trimmed | `didEndElement` trims whitespace and nils empty text (`XMLReader.swift:223-226`) | Loses significant whitespace in preformatted content (`source:markdown`, `<content type="text">`); consider per-element policy |
 | 4 | Trailing junk tolerated | `parseErrorOccurred` ignored after `isComplete` (`XMLReader.swift:246-258`) | Deliberate, documented (PR #53); good |
 | 5 | CDATA encoding guessing | Tries 10 encodings in priority order (`XMLReader.swift:263-277`) | OK; `cdataDecoding` error aborts the whole parse — harsh but defensible |
-| 6 | Format detection is string-matching | `contains("<rss")/<rdf/<feed` over the first 256 bytes decoded as UTF-8 (`FeedType.swift:97-165`) | Fails: prefixed roots (verified), UTF-16 documents (Unverified, by inspection: `String(decoding:as: UTF8.self)` garbles UTF-16, no BOM handling), XML comments/doctype containing `<feed` text (false positive risk) |
+| 6 | Format detection is string-matching | `contains("<rss")/<rdf/<feed` over the first 1024 bytes decoded as UTF-8 (`FeedType.swift:91-166`) | Fails: prefixed roots (verified), UTF-16 documents (Unverified, by inspection: `String(decoding:as: UTF8.self)` garbles UTF-16, no BOM handling), XML comments/doctype containing `<feed` text (false positive risk), and any prolog longer than the 1024-byte window (verified: #261 is a 647-byte prolog, and one longer than the window still fails) |
 | 7 | `decodeNil` semantics oddities | `"@attributes"` nil iff no children (`XMLKeyedDecodingContainer.swift:80-82`); one disabled test `decodeKeyedNilProperties` (`XMLDecoderKeyedTests.swift:76`) shows known nil-handling gaps | Medium |
 | 8 | `XMLUnkeyedDecodingContainer` init force-unwraps | `decoder.codingPath.last!` (`XMLUnkeyedDecodingContainer.swift:39`) | Crash risk for top-level unkeyed decode; Unverified |
 | 9 | Two-pass decode | `XMLDecoder.decode` runs the whole decode twice (`XMLDecoder.swift:72-88`) | See §4; undocumented |
@@ -395,7 +395,7 @@ No benchmarks exist; the following is architectural analysis, labeled accordingl
 | Memory | **(Fact)** The full `XMLNode` tree is materialized, then the model is decoded from it — peak memory ≈ tree + model + input `Data`. For a 50 MB feed this is hundreds of MB. **(Interpretation)** Acceptable for the domain; streaming is an optimization, not a requirement (see §17 B). |
 | Two-pass decode | **(Fact)** Model decoding runs twice (`XMLDecoder.swift:72-88`) — 2× the mapping cost, and 2× any allocation churn in custom `init(from:)`s. The discovery pass could be replaced by a static property on `XMLNamespaceCodable` (protocol requirement returning key paths) to make it single-pass. |
 | Date parsing | **(Fact)** A fresh `FeedDateFormatter` + 4 lazy `DateFormatter` subclasses are created **per decode call** (`FeedInitializable.swift:137-141`). `DateFormatter` initialization is notoriously expensive (locale/calendar setup); permissive parsing tries up to ~10 format strings with regex fallback. **(Interpretation)** Date parsing is plausibly the dominant non-XML cost for item-heavy feeds. **Measure first**; then cache formatters behind a lock/`static` once proven. **(Measured and fixed in [PR #251](https://github.com/nmdias/FeedKit/pull/251): dates were 83% of document parse time across 242 live feeds, 0.899 ms per date; the static caches parse one in 0.0078 ms, and the tracked corpus went from 21.991 to 3.076 ms/feed with `items` unchanged.)** |
-| FeedType sniff | Cheap: 256-byte prefix scan. |
+| FeedType sniff | Cheap: 1024-byte prefix scan (about 23 µs per document on the benchmark machine). |
 | Serialization | **(Fact)** String concatenation (`+=`) across the whole tree in `toXMLString` — O(n²) worst case for large documents (Swift strings have shared-storage optimizations, but this is still quadratic for many siblings). Consider `Array.append`/`String.reserveCapacity` or a `TextOutputStream`. |
 | Copy-on-write | Model layer is value-type — copying feeds is cheap until mutated (good). |
 

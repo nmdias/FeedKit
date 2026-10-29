@@ -92,9 +92,10 @@ public extension FeedType {
 ///
 /// Detection only needs to reach the document's root element, but feeds may
 /// carry a prolog (an XML declaration, stylesheet processing instructions, and
-/// comments) before it. 256 bytes covers the prologs seen in the wild, such as
-/// The Atlantic's Atom feed, where `<feed>` starts at byte 149.
-private let inspectionPrefixLength = 256
+/// comments) before it. 1024 bytes covers the prologs seen so far; a longer one
+/// still hides the root element, which is the known limit of a fixed-size peek.
+/// See https://github.com/nmdias/FeedKit/issues/261.
+private let inspectionPrefixLength = 1024
 
 // MARK: - FeedInitializable
 
