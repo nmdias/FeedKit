@@ -32,13 +32,13 @@ struct XMLDecoderUnkeyedTests: XMLKitTestable {
     // Given
     let decoder: XMLDecoder = .init()
 
-    let data = """
+    let data = try #require("""
     <root>
       <value>abc</value>
       <value>efg</value>
       <value>xyz</value>
     </root>
-    """.data(using: .utf8)!
+    """.data(using: .utf8))
 
     let expected: Root = .init(value: ["abc", "efg", "xyz"])
 
@@ -54,11 +54,11 @@ struct XMLDecoderUnkeyedTests: XMLKitTestable {
     // Given
     let decoder: XMLDecoder = .init()
 
-    let data = """
+    let data = try #require("""
     <root>
       <value>abc</value>
     </root>
-    """.data(using: .utf8)!
+    """.data(using: .utf8))
 
     let expected: Root = .init(value: ["abc"])
 
@@ -74,9 +74,9 @@ struct XMLDecoderUnkeyedTests: XMLKitTestable {
     // Given
     let decoder: XMLDecoder = .init()
 
-    let data = """
+    let data = try #require("""
     <root/>
-    """.data(using: .utf8)!
+    """.data(using: .utf8))
 
     let expected: Root = .init(value: nil)
 

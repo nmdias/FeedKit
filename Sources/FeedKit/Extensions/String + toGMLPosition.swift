@@ -35,13 +35,9 @@ extension String {
     let components = split(separator: " ")
 
     // Ensure exactly two components (latitude and longitude)
-    guard components.count == 2 else {
-      return nil
-    }
-
-    guard
-      let latitude = Double(components[0]),
-      let longitude = Double(components[1])
+    guard components.count == 2,
+          let latitude = Double(components[0]),
+          let longitude = Double(components[1])
     else {
       return nil
     }

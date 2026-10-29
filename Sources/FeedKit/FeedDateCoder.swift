@@ -293,11 +293,7 @@ enum FeedDateCoder {
   /// and "Thurs" as well. Patterns read three-letter weekdays, so a value such
   /// as `"Tues, 6 November 2007 12:00:00 GMT"` is read without one.
   private static func withoutWeekday(_ string: String) -> String? {
-    guard let comma = string.firstIndex(of: ","), comma > string.startIndex else {
-      return nil
-    }
-
-    guard string[string.startIndex ..< comma].allSatisfy(\.isLetter) else {
+    guard let comma = string.firstIndex(of: ","), comma > string.startIndex, string[string.startIndex ..< comma].allSatisfy(\.isLetter) else {
       return nil
     }
 

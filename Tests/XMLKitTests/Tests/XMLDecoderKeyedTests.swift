@@ -32,14 +32,14 @@ struct XMLDecoderKeyedTests: XMLKitTestable {
     // Given
     let decoder: XMLDecoder = .init()
 
-    let data = """
+    let data = try #require("""
     <root>
       <keyed>
         <title>abc</title>
         <description>xyz</description>
       </keyed>
     </root>
-    """.data(using: .utf8)!
+    """.data(using: .utf8))
 
     let expected: Root = .init(
       keyed: .init(
@@ -60,9 +60,9 @@ struct XMLDecoderKeyedTests: XMLKitTestable {
     // Given
     let decoder: XMLDecoder = .init()
 
-    let data = """
+    let data = try #require("""
     <root/>
-    """.data(using: .utf8)!
+    """.data(using: .utf8))
 
     let expected: Root = .init(keyed: nil)
 
@@ -78,11 +78,11 @@ struct XMLDecoderKeyedTests: XMLKitTestable {
     // Given
     let decoder: XMLDecoder = .init()
 
-    let data = """
+    let data = try #require("""
     <root>
       <keyed/>
     </root>
-    """.data(using: .utf8)!
+    """.data(using: .utf8))
 
     let expected: Root = .init(
       keyed: .init(

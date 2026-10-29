@@ -81,10 +81,7 @@ class XMLReader: NSObject {
   /// - Parameter string: The character data found in the XML.
   func map(_ string: String) {
     // Get the working element
-    guard let element = stack.top() else {
-      return
-    }
-    guard !string.isEmpty else {
+    guard let element = stack.top(), !string.isEmpty else {
       return
     }
     element.text = element.text?.appending(string) ?? string
