@@ -44,9 +44,9 @@ class XMLNode: Codable, Equatable, Hashable {
     self.name = name
     self.text = text
     self.isXhtml = isXhtml
-    self.children = children
+    _children = children
     // Set parent for each child
-    self.children?.forEach { $0.parent = self }
+    _children?.forEach { $0.parent = self }
   }
 
   required init(from decoder: any Decoder) throws {
@@ -56,13 +56,17 @@ class XMLNode: Codable, Equatable, Hashable {
     name = try container.decode(String.self, forKey: XMLNode.CodingKeys.name)
     text = try container.decodeIfPresent(String.self, forKey: XMLNode.CodingKeys.text)
     isXhtml = try container.decode(Bool.self, forKey: XMLNode.CodingKeys.isXhtml)
-    children = try container.decodeIfPresent([XMLNode].self, forKey: XMLNode.CodingKeys.children)
+    _children = try container.decodeIfPresent([XMLNode].self, forKey: XMLNode.CodingKeys.children)
   }
 
   // MARK: Internal
 
   /// The parent node of this node.
-  weak var parent: XMLNode?
+  ///
+  /// `unowned` rather than `weak`: a parent always owns its children, so it
+  /// outlives them, and a weak reference gives every node a side table that
+  /// sends all of its retains and releases down the slow path.
+  unowned var parent: XMLNode?
   /// Is the `text` property xhtml
   var isXhtml: Bool = false
   /// The namespace prefix
@@ -72,13 +76,20 @@ class XMLNode: Codable, Equatable, Hashable {
   /// The text of the node, if present.
   var text: String?
 
-  /// The child nodes of this node.
+  /// The child nodes of this node. Assigning the whole array re-parents every
+  /// child; use `addChild(_:)` to append one.
   var children: [XMLNode]? {
-    didSet {
+    get { _children }
+    set {
+      _children = newValue
       // Update the parent reference for all children
-      children?.forEach { $0.parent = self }
+      _children?.forEach { $0.parent = self }
     }
   }
+
+  /// Backing store for `children`, so `addChild(_:)` can append without
+  /// re-parenting the existing siblings.
+  private var _children: [XMLNode]?
 
   // MARK: Equatable
 
@@ -152,8 +163,14 @@ class XMLNode: Codable, Equatable, Hashable {
   ///   first child element with that name when none does, or `nil` when the
   ///   receiver has no such child.
   func child(for name: String) -> XMLNode? {
-    let candidates = children?.filter { $0.name == name } ?? []
-    return candidates.first(where: { $0.text?.isEmpty == false }) ?? candidates.first
+    // One pass and no intermediate array; called for every key decoded.
+    guard let children = _children else { return nil }
+    var first: XMLNode?
+    for child in children where child.name == name {
+      if child.text?.isEmpty == false { return child }
+      if first == nil { first = child }
+    }
+    return first
   }
 
   /// Returns whether the receiver contains any element belonging to the
@@ -163,10 +180,15 @@ class XMLNode: Codable, Equatable, Hashable {
   }
 
   func addChild(_ child: XMLNode) {
-    if children == nil {
-      children = []
+    // Parent only the new child. Going through `children` re-parented every
+    // existing sibling on each append, which made building a channel with n
+    // items O(n^2).
+    child.parent = self
+    if _children == nil {
+      _children = [child]
+    } else {
+      _children!.append(child)
     }
-    children?.append(child)
   }
 
   /// Adds an attribute to the `@attributes` child of the current element.
