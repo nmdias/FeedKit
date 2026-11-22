@@ -30,6 +30,8 @@ import Testing
 /// each append; this pins that every item still decodes, in order, with its
 /// fields intact.
 struct LargeFeedTests: FeedKitTestable {
+  // MARK: Internal
+
   @Test
   func thousandsOfItemsDecodeInOrder() throws {
     // Given

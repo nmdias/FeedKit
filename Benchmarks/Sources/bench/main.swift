@@ -109,9 +109,9 @@ for fileName in fileNames {
 /// items came back, so a version that silently decodes less is visible.
 func parse(_ document: Document) throws -> Int {
   switch document.format {
-  case "atom": return try AtomFeed(data: document.data).entries?.count ?? 0
-  case "rss": return try RSSFeed(data: document.data).channel?.items?.count ?? 0
-  case "json": return try JSONFeed(data: document.data).items?.count ?? 0
+  case "atom": try AtomFeed(data: document.data).entries?.count ?? 0
+  case "rss": try RSSFeed(data: document.data).channel?.items?.count ?? 0
+  case "json": try JSONFeed(data: document.data).items?.count ?? 0
   default: throw BenchmarkError("unknown format prefix '\(document.format)' in \(document.name)")
   }
 }

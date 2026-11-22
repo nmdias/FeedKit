@@ -87,10 +87,6 @@ class XMLNode: Codable, Equatable, Hashable {
     }
   }
 
-  /// Backing store for `children`, so `addChild(_:)` can append without
-  /// re-parenting the existing siblings.
-  private var _children: [XMLNode]?
-
   // MARK: Equatable
 
   static func == (lhs: XMLNode, rhs: XMLNode) -> Bool {
@@ -164,11 +160,17 @@ class XMLNode: Codable, Equatable, Hashable {
   ///   receiver has no such child.
   func child(for name: String) -> XMLNode? {
     // One pass and no intermediate array; called for every key decoded.
-    guard let children = _children else { return nil }
+    guard let children = _children else {
+      return nil
+    }
     var first: XMLNode?
     for child in children where child.name == name {
-      if child.text?.isEmpty == false { return child }
-      if first == nil { first = child }
+      if child.text?.isEmpty == false {
+        return child
+      }
+      if first == nil {
+        first = child
+      }
     }
     return first
   }
@@ -234,6 +236,10 @@ class XMLNode: Codable, Equatable, Hashable {
     case isXhtml
     case children
   }
+
+  /// Backing store for `children`, so `addChild(_:)` can append without
+  /// re-parenting the existing siblings.
+  private var _children: [XMLNode]?
 }
 
 // MARK: - XMLStringConvertible
